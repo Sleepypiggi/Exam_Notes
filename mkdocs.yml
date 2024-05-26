@@ -1,0 +1,108 @@
+site_name: Exam Notes
+site_url: https://example.com/
+theme: 
+  name: material
+  palette:
+    primary: black
+    scheme: slate
+
+nav:
+  - Practical Exam Tips: 0. Practical Exam Tips.md
+  - Introductory:  
+    - Review of Mathematics: 1. Introductory\0. Review of Mathematics.md
+    - ASA-P: Placeholder.md
+    - ASA-FM: Placeholder.md
+    - ASA-IFM:
+      - Derivatives:
+        - Introduction: 1. Introductory\3. ASA-IFM\1. Derivatives\1. Introduction.md
+        - Options: 1. Introductory\3. ASA-IFM\1. Derivatives\3. Options.md
+        - Binomial Model: 1. Introductory\3. ASA-IFM\1. Derivatives\5. Binomial Model.md
+        - Black Scholes Model: 1. Introductory\3. ASA-IFM\1. Derivatives\6. Black Scholes Model.md
+      - Corporate Finance:
+        - Risk Measures: 1. Introductory\3. ASA-IFM\3. Corporate Finance\3. Risk Measures.md
+  - Actuarial Mathematics:
+    - ASA-FAMS:
+      - Short Term Insurance: 2. Actuarial Mathematics\1. ASA-FAMS\0. Short Term Insurance.md
+      - Review of Probability Theory: 2. Actuarial Mathematics\1. ASA-FAMS\1. Review of Probability Theory.md
+      - Frequency Models: 2. Actuarial Mathematics\1. ASA-FAMS\2. Frequency Models.md
+      - Severity Models: 2. Actuarial Mathematics\1. ASA-FAMS\3. Severity Models.md
+      - Policy Modifications: 2. Actuarial Mathematics\1. ASA-FAMS\4. Policy Modifications.md
+      - Aggregate Models: 2. Actuarial Mathematics\1. ASA-FAMS\5. Aggregate Models.md
+      - Loss Reserving: 2. Actuarial Mathematics\1. ASA-FAMS\6. Loss Reserving.md
+      - Ratemaking: 2. Actuarial Mathematics\1. ASA-FAMS\7. Ratemaking.md
+      - Model Estimation: 2. Actuarial Mathematics\1. ASA-FAMS\8. Model Estimation.md
+      - Credibility Theory: 2. Actuarial Mathematics\1. ASA-FAMS\9. Credibility Theory.md
+    - ASA-FAML:
+      - Long Term Insurance: 2. Actuarial Mathematics\2. ASA-FAML\0. Long Term Insurance.md
+      - Survival Models: 2. Actuarial Mathematics\2. ASA-FAML\1. Survival Models.md
+      - Life Tables: 2. Actuarial Mathematics\2. ASA-FAML\2. Life Tables.md
+      - Life Assurances: 2. Actuarial Mathematics\2. ASA-FAML\3. Life Assurances.md
+      - Life Annuities: 2. Actuarial Mathematics\2. ASA-FAML\4. Life Annuities.md
+      - Variable Benefits: 2. Actuarial Mathematics\2. ASA-FAML\5. Variable Benefits.md
+      - Premiums: 2. Actuarial Mathematics\2. ASA-FAML\6. Premiums.md
+      - Reserves: 2. Actuarial Mathematics\2. ASA-FAML\7. Reserves.md
+      - Model Estimation: 2. Actuarial Mathematics\2. ASA-FAML\8. Model Estimation.md
+    - ASA-ALTAM:
+      - Multi Life Models: 2. Actuarial Mathematics\3. ASA-ALTAM\1. Multi Life Models.md
+      - Multi Decrement Models: 2. Actuarial Mathematics\3. ASA-ALTAM\2. Multi Decrement Models.md
+      - Multi State Models: 2. Actuarial Mathematics\3. ASA-ALTAM\3. Multi State Models.md
+      - Multi State Applications: 2. Actuarial Mathematics\3. ASA-ALTAM\4. Multi State Applications.md
+      - Profit Analysis: 2. Actuarial Mathematics\3. ASA-ALTAM\5. Profit Analysis.md
+      - Universal Life: 2. Actuarial Mathematics\3. ASA-ALTAM\6. Universal Life.md
+      - Embedded Options: 2. Actuarial Mathematics\3. ASA-ALTAM\7. Embedded Options.md
+      - Pensions: 2. Actuarial Mathematics\3. ASA-ALTAM\8. Pensions.md
+  - Predictive Analytics: 
+    - ASA-SRM:
+      - Review of Statistical Theory: 3. Predictive Analytics/1. ASA-SRM/Review of Statistical Theory.md
+      - Regression Overview: 3. Predictive Analytics/1. ASA-SRM/1. Regression Overview.md
+      - Simple Linear Regression: 3. Predictive Analytics/1. ASA-SRM/2. Simple Linear Regression.md
+      - Multiple Linear Regression: 3. Predictive Analytics/1. ASA-SRM/3. Multiple Linear Regression.md
+      - Gauss Markov Theorem: 3. Predictive Analytics/1. ASA-SRM/4. Gauss Markov Theorem.md
+      - Statistical Learning: 3. Predictive Analytics/1. ASA-SRM/5. Statistical Learning.md
+    - ASA-PA: Placeholder.md
+  - ILA Track:
+    - FSA-LPM: Placeholder.md
+    - FSA-LFM: Placeholder.md
+    - FSA-ALM: Placeholder.md
+
+markdown_extensions:
+
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_css:
+  - config/extra.css
+
+extra_javascript:
+  - config/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
