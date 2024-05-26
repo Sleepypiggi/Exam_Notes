@@ -1,0 +1,1887 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/3.%20Predictive%20Analytics/1.%20ASA-SRM/Review%20of%20Statistical%20Theory/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Review of Statistical Theory - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#review-of-statistical-theory" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Review of Statistical Theory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0.%20Practical%20Exam%20Tips/" class="md-nav__link">
+        Practical Exam Tips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          ASA-IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" type="checkbox" id="__nav_2_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA-FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA-FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          ASA-ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/5.%20Profit%20Analysis/" class="md-nav__link">
+        Profit Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          ASA-SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Review of Statistical Theory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Review of Statistical Theory
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-statistics" class="md-nav__link">
+    Overview of Statistics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-sample-statistics" class="md-nav__link">
+    Common Sample Statistics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampling-distribution" class="md-nav__link">
+    Sampling Distribution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence-interval" class="md-nav__link">
+    Confidence Interval
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypothesis-testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+    <nav class="md-nav" aria-label="Hypothesis Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#z-statistic" class="md-nav__link">
+    Z-statistic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t-statistic" class="md-nav__link">
+    t-statistic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-statistic" class="md-nav__link">
+    F-statistic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maximum-likelihood-estimation" class="md-nav__link">
+    Maximum Likelihood Estimation
+  </a>
+  
+    <nav class="md-nav" aria-label="Maximum Likelihood Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#practical-tips" class="md-nav__link">
+    Practical Tips
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-of-moments" class="md-nav__link">
+    Method of Moments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Regression%20Overview/" class="md-nav__link">
+        Regression Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Gauss%20Markov%20Theorem/" class="md-nav__link">
+        Gauss Markov Theorem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          ILA Track
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ILA Track" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          ILA Track
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LFM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-ALM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-statistics" class="md-nav__link">
+    Overview of Statistics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-sample-statistics" class="md-nav__link">
+    Common Sample Statistics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampling-distribution" class="md-nav__link">
+    Sampling Distribution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence-interval" class="md-nav__link">
+    Confidence Interval
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypothesis-testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+    <nav class="md-nav" aria-label="Hypothesis Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#z-statistic" class="md-nav__link">
+    Z-statistic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t-statistic" class="md-nav__link">
+    t-statistic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-statistic" class="md-nav__link">
+    F-statistic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maximum-likelihood-estimation" class="md-nav__link">
+    Maximum Likelihood Estimation
+  </a>
+  
+    <nav class="md-nav" aria-label="Maximum Likelihood Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#practical-tips" class="md-nav__link">
+    Practical Tips
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-of-moments" class="md-nav__link">
+    Method of Moments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="review-of-statistical-theory"><strong>Review of Statistical Theory</strong><a class="headerlink" href="#review-of-statistical-theory" title="Permanent link">&para;</a></h1>
+<p>This section assumes some basic knowledge on <strong>Random Variables</strong>, which can be found under another set of notes covering a <a href="../../2. Actuarial Mathematics/ASA-FAMS/1. Review of Probability Theory.md">Review of Probability Theory</a>.</p>
+<h2 id="overview-of-statistics"><strong>Overview of Statistics</strong><a class="headerlink" href="#overview-of-statistics" title="Permanent link">&para;</a></h2>
+<p>Statistics is a discipline revolving around data.</p>
+<p>A <strong>Population</strong> refers to the <em>theoretical</em> set of <strong>all possible</strong> data of the event of interest. The goal of statistics is to determine certain attributes that <strong>summarizes or describes</strong> the population, known as <strong>Parameters</strong>.</p>
+<p>However, it is impossible to study the entire population at once, thus a <strong>subset of the population</strong> is studied instead, known as the <strong>Sample</strong>. Attributes that summarize or describe the sample are known as <strong>Statistics</strong>.</p>
+<p>Ideally, the sample is <strong>representative</strong> of the population, which means that findings from the sample can be applied to the population as a whole. This means that the sample statistics can be used <strong>estimate</strong> population parameters.</p>
+<p>We distinguish between the two (when they have the same notation) through the <strong>Hat accent</strong> (^) - Population Parameters are their written without the hat (<span class="arithmatex">\(x\)</span>) while their corresponding sample statistics are written with the hat (<span class="arithmatex">\(\hat{x}\)</span>).</p>
+<h2 id="common-sample-statistics"><strong>Common Sample Statistics</strong><a class="headerlink" href="#common-sample-statistics" title="Permanent link">&para;</a></h2>
+<p>The <strong>Mean</strong> is the average of the population.</p>
+<!-- Central Tendency -->
+
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Population Mean</th>
+<th align="center">Sample Mean</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(\mu = \sum\limits_{i=i}^n x_i * p(x_i)\)</span></td>
+<td align="center"><span class="arithmatex">\(\bar{x} = \frac{1}{n} \sum\limits_{i=i}^n x_i\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Mean is a measure of centrality
+But if there are outliers, then median is better</p>
+<p>The <strong>Variance</strong> measures the spread of values about the mean. However, the units of Variance are unintuitive, thus we consider the <strong>Standard Deviation</strong> for more practical purposes, which is the <strong>square root of the variance</strong>.</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Population Variance</th>
+<th align="center">Sample Variance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(\sigma^2 = \sum\limits_{i=i}^n (x_i - \mu)^2 * p(x_i)\)</span></td>
+<td align="center"><span class="arithmatex">\(s^2 = \frac{1}{n-1} \sum\limits_{i=i}^n (x_i - \bar{x})^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<!--Bessel's correction-->
+
+<p><strong>Covariance</strong> is a measure of the <strong>linear relationship</strong> between two variables:</p>
+<ul>
+<li><strong>Positive Covariance</strong> - Variables move in the <strong>same direction</strong></li>
+<li><strong>Negative Covariance</strong> - Variables move in <strong>opposite directions</strong></li>
+</ul>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Population Covariance</th>
+<th align="center">Sample Covariance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(\sigma_{x, y} = \mu_{xy} - \mu_x \mu_y\)</span></td>
+<td align="center"><span class="arithmatex">\(\hat{\sigma}_{x, y} = \frac{1}{n-1} \sum\limits_{i=i}^n (x_i - \bar{x}) * (y_i - \bar{y})\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>However, there are two issues with Covariance - the units are unintuitive (similar to variance) and there is no benchmark as to what constitutes a strong/weak relationship. Thus, the <strong>Correlation</strong> is an adjusted measure of the relationship <strong>between -1 and 1</strong>.</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Population Correlation</th>
+<th align="center">Sample Correlation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(\rho = \frac{\sigma_{x,y}}{\sigma_x * \sigma_y}\)</span></td>
+<td align="center"><span class="arithmatex">\(r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x} \sum(y_i - \bar{y})}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Properties of Estimators
+Biased
+Consistent
+Efficient
+Degrees of freedom</p>
+<h2 id="sampling-distribution"><strong>Sampling Distribution</strong><a class="headerlink" href="#sampling-distribution" title="Permanent link">&para;</a></h2>
+<p>Whenever a sample is drawn from a population and a statistic is calculated, it is known as a <strong>Point Estimate</strong>.</p>
+<p>Due to measurement error, a different sample would be drawn each time, thus leading to a <strong>different point estimate</strong>. If this process were to be repeated a large number times, the <strong>probability distribution</strong> of the resulting point estimates is known as the <strong>Sampling Distribution</strong> of the statistic.</p>
+<p>There is <strong>no rule</strong> surrounding the sampling distribution - it depends on the distribution of the population, statistic being measured, sampling method etc.</p>
+<p>The standard deviation of this sampling distribution is known as the <strong>Standard Error</strong> of the statistic:</p>
+<div class="arithmatex">\[
+\sigma_{\theta} = \sqrt {\sigma^2_{\theta}}
+\]</div>
+<p>A special case is the <strong>Sample Mean</strong>. If the population is normally distributed, then it is normally distributed as well. Regardless of the population distribution, it is also approximately normally distributed through the <strong>Central Limit Theorem</strong> or <strong>Law of Large Numbers</strong>.</p>
+<div class="arithmatex">\[
+\bar{x} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
+\]</div>
+<p>Following that, we can compute the standard error:</p>
+<div class="arithmatex">\[
+\sigma_{\bar{x}} = \sqrt \frac{\sigma^2_{\bar{x}}}{n} = \frac{\sigma}{\sqrt{n}}
+\]</div>
+<p>However, the population variance is usually unknown. Thus, it can be approximated using the Sample Variance, which is an unbiased estimator for it. The result is known as an <strong>Estimate for the Standard Error</strong>:</p>
+<div class="arithmatex">\[
+\hat{\sigma}_{\bar{x}} = \sqrt \frac{s^2}{n} = \frac{s}{\sqrt{n}}
+\]</div>
+<blockquote>
+<p>Note that only the sample variance is an unbiased estimator for the population variance. Although it may look like it, the sample SD is NOT an unbiased estimator for the population SD.</p>
+</blockquote>
+<h2 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h2>
+<p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a point estimate, a range of estimates is used, known as a <strong>Confidence Interval</strong>.</p>
+<p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the same manner were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
+<div class="arithmatex">\[
+P(- \text{Margin of Error} &lt; \theta &lt; \text{Margin of Error}) = 1 - \alpha
+\]</div>
+<p>The <strong>Margin of Error</strong> represents the range of values on <em>either side</em> of the point estimate that the true value could lie. For instance, for a 95% confidence interval, the confidence lies within the 0.025 and 0.975 percentile of the sampling distribution.</p>
+<p>The margin of error can be calculated by finding the <strong>corresponding values</strong> of the sampling distribution at these percentiles.</p>
+<p>Consider the 95% confidence interval for the <strong>Sample Mean</strong>, which is normally distributed. For convenience, it is usually normalized such that it will become a <strong>Standard Normal Distribution</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+P(-1.96 &lt; \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt n}} &lt; 1.96) &amp;= 0.95 \\
+P(\bar{x} - 1.96 \frac{\sigma}{\sqrt n} &lt; \mu &lt; \bar{x} + 1.96 \frac{\sigma}{\sqrt n}) &amp;= 0.95 \\
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+\therefore \text{Margin of Error} = \bar{x} + Z_{\frac{\alpha}{2}} * \frac{\sigma}{\sqrt n}
+\]</div>
+<!-- Obtained from Analyst Prep -->
+<p><img alt="95% Confidence Interval" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
+<h2 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h2>
+<p><strong>Hypothesis Testing</strong> is a formal method of making inferences about the population parameters based on the sample statistic.</p>
+<p>It starts with a <strong>Hypothesis</strong> which is a conjecture about the population parameters:</p>
+<ul>
+<li><strong>Null Hypothesis</strong> - What is currently believed to be true</li>
+<li><strong>Alternative Hypothesis</strong> - What is to be proven</li>
+</ul>
+<p>A <strong>Test Statistic</strong> is then calculated, which would quantify the behaviour of population such that it would <strong>distinguish</strong> the null and alternative hypothesis.</p>
+<p><em>Assuming the Null Hypothesis is true</em>, the sampling distribution of the test statistic is determined. From the sampling distribution, the <strong>p-value</strong> is calculated, which is the <strong>probability</strong> of observing the <strong>calculated sample statistic or more extreme</strong>.</p>
+<p>If the <strong>p-value is smaller</strong> than a pre-determined level of <strong>Statistical Significance</strong> (<span class="arithmatex">\(\alpha\)</span>), then the test is "successful" and the null hypothesis is rejected. If not, then the test "fails" and the null is not rejected.</p>
+<blockquote>
+<p>Note that it rejecting the null hypothesis does NOT mean that the alternative hypothesis is accepted - EG. Rejected then hypothesis of a large paw print being from a bear does not mean that it is from Bigfoot.</p>
+<p>Thus, the hypotheses are usually constructed such that the two hypothesis are <strong>complementary</strong>, such that rejecting the null allows acceptance of the alternative, leading to a definitive insight.</p>
+</blockquote>
+<p>In layman terms, a hypothesis test is a <strong>test of extremeness</strong>. Assuming the null hypothesis is true, how extreme (low probability) is the observed sample? If the p-value is sufficiently low, it means that the sample is rare - it could be due to <strong>pure chance</strong> or that it is <strong>actually not rare</strong> because the null is not true.</p>
+<p>We distinguish between the two mathematically through <span class="arithmatex">\(\alpha\)</span>. It is the <strong>probability of a False Positive</strong> - that the result obtained was by pure chance. It is typically set at 5%, which means that 5% of all statistics calculated are expected to be extreme under the null. Thus, if the p-value of the sample is smaller than <span class="arithmatex">\(\alpha\)</span>, then it is likely that the observation was <strong>not due to chance but instead because the null was false</strong>.</p>
+<!-- Obtained from Zscore geek -->
+<p><img alt="Hypothesis Testing" class="center" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Hypothesis%20Testing.png" /></p>
+<p>Alternatively, instead of comparing p-value to <span class="arithmatex">\(alpha\)</span>, the test-statistic and the <strong>corresponding value</strong> of <span class="arithmatex">\(\alpha\)</span> on the sampling distribution can be used. It is known as the <strong>Critical Value</strong>, which represents the boundary of </p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Reject Null</th>
+<th align="center">Do not Reject Null</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">p-value smaller than <span class="arithmatex">\(\alpha\)</span></td>
+<td align="center">p-value smaller than <span class="arithmatex">\(\alpha\)</span></td>
+</tr>
+<tr>
+<td align="center">test-statistic <em>larger</em> than critical value</td>
+<td align="center">test-statistic <em>smaller</em> than critical value</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Let the random variable <span class="arithmatex">\(T\)</span> denote the test statistics. There are many different kinds of test statistics depending on the distribution and what is being investigated.</p>
+<h3 id="z-statistic"><strong>Z-statistic</strong><a class="headerlink" href="#z-statistic" title="Permanent link">&para;</a></h3>
+<p>The most simple test statistic involve the <strong>Sample Mean</strong>, which is normally distributed:</p>
+<div class="arithmatex">\[
+T = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}}
+\]</div>
+<p>If the <strong>population variance is known</strong>, then the test statistic has a <strong>Standard Normal Distribution</strong> and thus the test-statistic is known as a <strong>Z-Statistic</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+T
+&amp;= \frac{\bar{x} - \mu}{\sigma} * \sqrt n \\
+&amp;= Z * \sqrt n \\
+\therefore T &amp;\sim N(0,1)
+\end{aligned}
+\]</div>
+<h3 id="t-statistic"><strong>t-statistic</strong><a class="headerlink" href="#t-statistic" title="Permanent link">&para;</a></h3>
+<p>If the population variance is unknown, then it will be approximated by the <strong>Sample Variance</strong>. Through algebraic manipulation, the test statistic can still be expressed in the form of a Z variable, but with an additional term:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+T
+&amp;= \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}} \\
+&amp;= \frac{\bar{x} - \mu}{s} * \sqrt n \\
+&amp;= \frac{\bar{x} - \mu}{\sigma} * \frac{\sigma}{s} * \sqrt n \\
+&amp;= Z\sqrt n \div \sqrt \frac{s^2}{\sigma^2} \\
+&amp;= Z\sqrt n \div \sqrt \frac{(n-1)s^2}{(n-1)\sigma^2} \\
+&amp;= Z\sqrt n \div \sqrt {\frac{(n-1)s^2}{\sigma^2} * \frac{1}{n-1}} \\
+\end{aligned}
+\]</div>
+<p>The additional term can be shown to have a <strong>Chi-Squared Distribution</strong> of <span class="arithmatex">\(n-1\)</span> degrees of freedom, which by definition is the <strong>sum</strong> of <span class="arithmatex">\(n-1\)</span> independent standard normal variables:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\chi^2_n
+&amp;= Z^2 \\
+&amp;= \sum \left(\frac {\bar{x} - \mu}{\sigma}\right)^2 \\
+&amp;= \sum \left(\frac {(x_i - \bar{x}) + (\bar{x} - \mu)}{\sigma}\right)^2 \\
+&amp;= \sum \left(\frac{x_i - \bar{x}}{\sigma}\right)^2 + \sum \left(\frac{\bar{x} - \mu}{\sigma}\right)^2 \\
+&amp;= \frac{1}{\sigma^2} \sum (x_i - \bar{x})^2 + \sum Z^2 + 0 \\
+&amp;= \frac{(n-1)}{\sigma^2} \frac{\sum (x_i - \bar{x})^2}{n-1} + \chi^2_1 \\
+&amp;= \frac{(n-1)s^2}{\sigma^2} + \chi^2_1 \\
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[\therefore \frac{(n-1)s^2}{\sigma^2} \sim \chi^2_{n-1}\]</div>
+<p>Thus, the test statistic is the <strong>ratio of a Standard Normal Variable to the squareroot of a Chi Squared Variable</strong> (divided by its degrees of freedom). By definition, this test statistic has a <strong>t-distribution</strong> with the same degrees of freedom and is known as the <strong>t-statistic</strong>:</p>
+<div class="arithmatex">\[
+\begin{align*}
+T
+&amp;= \frac{Z}{\sqrt \frac{\chi^2_{n-1}}{n-1}} * \sqrt n \\
+&amp;= t_{n-1} * \sqrt{n} \\
+\end{align*}
+\]</div>
+<div class="arithmatex">\[\therefore T \sim t_{n-1}\]</div>
+<p>Despite the slightly convoluted proof, the t-distribution is simply a <strong>standard normal distribution with heavier tails</strong>. This means that extreme values are slightly more likely, which is meant to account for the <strong>increase in variability</strong> due to the use of the sample variance rather than the population variance.</p>
+<!-- Obtained from Medium -->
+<p><img alt="t-distribution" class="center" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/t-distribution.png" /></p>
+<h3 id="f-statistic"><strong>F-statistic</strong><a class="headerlink" href="#f-statistic" title="Permanent link">&para;</a></h3>
+<p>The <strong>square of t-statisic</strong> has an <strong>F-Distribution</strong>, which is defined as the <strong>ratio of two independent chi-square variables</strong> (divided by their respective degrees of freedom). It has two dimensions for its degree of freedom, reflecting the two chi-square variables.</p>
+<div class="arithmatex">\[
+F_{m,n} = \frac{\frac{\chi_m}{m}}{\frac{\chi_n}{n}}
+\]</div>
+<p>The square of a t-statistic follows an F-distribution because:</p>
+<ol>
+<li>The square of the standard normal variable in the numerator becomes a <span class="arithmatex">\(\chi_1\)</span> variable</li>
+<li>The squareroot is removed in the denominator, becoming a <span class="arithmatex">\(\chi_{n-1}\)</span> over its degree of freedom</li>
+</ol>
+<div class="arithmatex">\[
+\begin{aligned}
+t_{n-1}^2
+&amp;= \left(\frac{Z}{\sqrt \frac{\chi^2_{n-1}}{n-1}} * \sqrt n \right)^2 \\
+&amp;= \frac{\chi_1}{\frac{\chi^2_{n-1}}{n-1}} * n \\
+&amp;= \frac{\frac{\chi_1}{1}}{\frac{\chi^2_{n-1}}{n-1}} * n \\
+&amp;= F_{1,n-1} * n
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+\therefore t_{n-1}^2 \sim F_{1, n-1}
+\]</div>
+<p>Thus, the square of the t-statistic is known as the <strong>F-statistic</strong>, which is usually used to test for the <strong>equality of variance</strong>.</p>
+<h2 id="maximum-likelihood-estimation"><strong>Maximum Likelihood Estimation</strong><a class="headerlink" href="#maximum-likelihood-estimation" title="Permanent link">&para;</a></h2>
+<p>If the <strong>population distribution is known</strong>, there is an <strong>alternative method of estimating</strong> the parameters apart from calculating the corresponding sample statistics, known as <strong>Maximum Likelihood Estimation</strong> (MLE).</p>
+<p>There are an infinite number of <strong>variations of the distribution</strong> that could have resulted in the sample, each with <strong>different parameters</strong>.</p>
+<p>Technically speaking, any set of parameters could have resulted in the sample. However, the goal of MLE is to find the set of <strong>parameters that are most likely to result in the sample</strong>; in other words, the <strong>probability of obtaining this sample is the highest</strong> with this set of paramters than any other set.</p>
+<p>The probability of obtaining the sample is known as its <strong>Likelihood</strong>:</p>
+<div class="arithmatex">\[
+     L(\theta \mid x) = P_{\theta} (X = x)
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Likelihood functions and PMF/PDFs are often confused with one another as they involve the same expression.</p>
+<p>The key is <strong>understanding what is given and what is random</strong>, which results in the subtle but differing notation:</p>
+<ul>
+<li><strong>PMF/PDF</strong>: Given parameters, outcomes are random; <span class="arithmatex">\(P_{X}(x)\)</span></li>
+<li><strong>Likelihood</strong>: Given outcomes, parameters are random; <span class="arithmatex">\(P_{\theta}(x)\)</span></li>
+</ul>
+</div>
+<p>Assuming that the sample is iid, the likehood for the entire sample is the <strong>product of the likelihood for each observation</strong>, known as the <strong>Likelihood Function</strong>:</p>
+<div class="arithmatex">\[
+    L(\theta) = \prod P_{\theta}(X = x_i)
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For discrete distributions, <span class="arithmatex">\(X = 0\)</span> is a <strong>valid observation</strong> and thus should be considered as well.</p>
+</div>
+<p>The goal is to find the parameters that <strong>maximizes</strong> the likelihood function through calculus:</p>
+<div class="arithmatex">\[
+    \frac{d}{d\theta} L(\theta) = 0
+\]</div>
+<p>In practice, especially when dealing with multiple parameters, the likelihood function is complicated to work with. Thus, a <strong>log transformation</strong> is often applied to simplify it, turning the <strong>product into a summation</strong>.</p>
+<p>This is known as the <strong>Log-Likelihood Function</strong>. Since the logarithm transform is monotonic, both the likelihood and log-likelihood functions share the <strong>same maximum</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ell (\theta) &amp;= \ln L(\theta) \\
+    \therefore \frac{d}{d\theta} \ell (\theta) &amp;= 0
+\end{aligned}
+\]</div>
+<h3 id="practical-tips"><strong>Practical Tips</strong><a class="headerlink" href="#practical-tips" title="Permanent link">&para;</a></h3>
+<p>Some distributions have complicated PMF/PDFs that make working with them more complicated. Most questions will usually have <strong>some method to simplify the likelihood function</strong>.</p>
+<p>The first tip is to understand that since the likelihood function will be logarithm transformed and then differentiated, <strong>factors that contains ONLY constants can be dropped</strong> since they will inevitably be removed later:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    L(\theta) &amp;= a * x \\
+    \ell (\theta) &amp;= \ln a + \ln x \\
+    \ell' (\theta) &amp;= \frac{1}{x} \\
+    \\
+    \therefore L(\theta) \propto x
+\end{aligned}
+\]</div>
+<p>The next tip is that if the parameters are <strong>embedded in the power</strong> of some constant, they should be combined together:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    L(\theta)
+    &amp;= a^{\theta} \cdot b^{\theta} \cdot c^{\theta} \\
+    &amp;= (a \cdot b \cdot c)^{\theta}
+\end{aligned}
+\]</div>
+<p>The reverse also applies...divide power, may not be in the same term, could come from another term</p>
+<p>However, if the above terms for some reason are <strong>added instead of multiplied</strong>, then a <strong>substituition</strong> method would be better:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    L(\theta) &amp;= e^{-\frac{k}{100}} - \left(e^{-\frac{k}{100}} \right)^2 \\
+    L(\theta) &amp;= p - p^2
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If multiple parameters are being estimated, then the likelihood function is <strong>partially differentiated</strong> to each variable instead</p>
+<p>The MLE parameters are then the <strong>combination of parameters</strong> that maximizes the function. </p>
+</div>
+<h3 id="method-of-moments"><strong>Method of Moments</strong><a class="headerlink" href="#method-of-moments" title="Permanent link">&para;</a></h3>
+<p>An alternative method for estimating population parameters is the <strong>Method of Moments</strong> (MOM).</p>
+<p>It is based on the <strong>Law of Large Numbers</strong>, which states that the sample mean converges to the population mean (first raw moment), given a <strong>sufficiently large sample size</strong>.</p>
+<p>Thus, by <strong>equating the sample raw moments to the population raw moments</strong>, up to the number of parameters to estimate, we can solve for an estimate of the parameters.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This process can be repeated for as many parameters there are:</p>
+<ul>
+<li><strong>One Parameter</strong>: First moments equated</li>
+<li><strong>Two Parameters</strong>: First &amp; Second moment equated</li>
+</ul>
+<p>Most MLE questions will only require single parameter estimation. If two parameters are given, then there is <strong>usually some way to simplify it</strong>.</p>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(X^k)
+    &amp;= \bar{x} \\
+    &amp;= \frac{\sum x^k_i}{n}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Needless to say, <span class="arithmatex">\(\bar{x}\)</span> represents the <strong>average of the quantity being modelled</strong>, NOT the number of observations.</p>
+<p>If there are 10 observations of 2 claims, then we must compute the number of claims as <span class="arithmatex">\(10 \cdot 2 = 20\)</span>.</p>
+</div>
+<p>The main advantage of this method is that it is <strong>computationally simpler</strong> than MLE. For certain known distributions, the MOM estimate and MLE estimate are the same, thus MOM can be used as a <strong>shortcut for MLE</strong>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/8.%20Pensions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pensions" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Pensions
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../1.%20Regression%20Overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Regression Overview" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Regression Overview
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

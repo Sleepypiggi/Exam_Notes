@@ -1,0 +1,9 @@
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+}

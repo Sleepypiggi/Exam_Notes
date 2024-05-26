@@ -1,0 +1,1985 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/3.%20Multi%20State%20Models/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Multi State Models - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multi-state-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multi State Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0.%20Practical%20Exam%20Tips/" class="md-nav__link">
+        Practical Exam Tips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          ASA-IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" type="checkbox" id="__nav_2_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA-FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA-FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          ASA-ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Multi State Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Multi State Models
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#states" class="md-nav__link">
+    States
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrete-multi-state-models" class="md-nav__link">
+    Discrete Multi State Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Discrete Multi State Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-period-transitions" class="md-nav__link">
+    One Period Transitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-period-transitions" class="md-nav__link">
+    Multiple Period Transitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapman-kolmogorov-equation" class="md-nav__link">
+    Chapman Kolmogorov Equation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-multi-state-model" class="md-nav__link">
+    Continuous Multi State Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Multi State Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-method" class="md-nav__link">
+    Direct Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approximation-method" class="md-nav__link">
+    Approximation Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-to-discrete" class="md-nav__link">
+    Continuous to Discrete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insurance-applications" class="md-nav__link">
+    Insurance Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Insurance Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assurances" class="md-nav__link">
+    Assurances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annuities" class="md-nav__link">
+    Annuities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Profit%20Analysis/" class="md-nav__link">
+        Profit Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          ASA-SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/1.%20Regression%20Overview/" class="md-nav__link">
+        Regression Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/4.%20Gauss%20Markov%20Theorem/" class="md-nav__link">
+        Gauss Markov Theorem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/5.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          ILA Track
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ILA Track" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          ILA Track
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LFM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-ALM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#states" class="md-nav__link">
+    States
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrete-multi-state-models" class="md-nav__link">
+    Discrete Multi State Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Discrete Multi State Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-period-transitions" class="md-nav__link">
+    One Period Transitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-period-transitions" class="md-nav__link">
+    Multiple Period Transitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapman-kolmogorov-equation" class="md-nav__link">
+    Chapman Kolmogorov Equation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-multi-state-model" class="md-nav__link">
+    Continuous Multi State Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Multi State Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-method" class="md-nav__link">
+    Direct Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approximation-method" class="md-nav__link">
+    Approximation Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-to-discrete" class="md-nav__link">
+    Continuous to Discrete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insurance-applications" class="md-nav__link">
+    Insurance Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Insurance Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assurances" class="md-nav__link">
+    Assurances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annuities" class="md-nav__link">
+    Annuities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="multi-state-models"><strong>Multi State Models</strong><a class="headerlink" href="#multi-state-models" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>In FAM-L, we only considered simple contracts that paid a benefit upon the death or survival of the policyholder. In reality, more complicated contracts exist:</p>
+<ul>
+<li>Paying a stream of benefits while the policyholder is stricken with disease</li>
+<li>Paying a benefit upon death of the policyholder</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The above example is known as <strong>Disability Income</strong> insurance.</p>
+</div>
+<p>To effectively analyze these more complicated contracts, the survival model must be reformulated into a <strong>Multi-State Model</strong>.</p>
+<h2 id="states"><strong>States</strong><a class="headerlink" href="#states" title="Permanent link">&para;</a></h2>
+<p><strong>States</strong> are a set of <strong>distinct values</strong> that the system can be in.</p>
+<p>In the context of a simple assurance or annuity, the policyholder is either <strong>Alive</strong> or <strong>Dead</strong>, resulting in a <strong>two-state model</strong>:</p>
+<!-- Obtained from ALTAM Textbook -->
+<p><img alt="AliveDead" class="center" src="../Assets/3.%20Multi%20State%20Models.md/AliveDead.png" /></p>
+<p>In the context of the disability income insurance described earlier, a policyholder could either be <strong>Healthy</strong>, <strong>Sick</strong> or <strong>Dead</strong>:</p>
+<!-- Obtained from ALTAM Textbook -->
+<p><img alt="SicknessDeath" class="center" src="../Assets/3.%20Multi%20State%20Models.md/SicknessDeath.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that this is an extension of the Alive-Dead model, where the Alive state is further broken down into Healthy or Sick.</p>
+</div>
+<p>The state of the system is measured at <strong>different points in time</strong>. The goal is to model how the system <strong>transitions</strong> across various states over time <strong>via probability</strong>.</p>
+<ul>
+<li><strong>Discrete Process</strong>: Countable number of time points</li>
+<li><strong>Continuous Process</strong>: Uncountable number of time points</li>
+</ul>
+<p>When moving from one time to another, there are two possible events that can occur:</p>
+<ul>
+<li>System <strong>transitions</strong> into another state</li>
+<li>System <strong>remains</strong> in the same state</li>
+</ul>
+<p>Let <span class="arithmatex">\(Y_{t}\)</span> be the <strong>random variable</strong> denoting the state of the system at time <span class="arithmatex">\(t\)</span>. Thus, the <strong>transition probabilities</strong> can be denoted as follows:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Transition</th>
+<th align="center">Remain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Probability of transition from <span class="arithmatex">\(i\)</span> to <span class="arithmatex">\(j\)</span></td>
+<td align="center">Probability of remaining in state <span class="arithmatex">\(i\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(P \left(Y_{x+t} = j \mid Y_{x} = i \right)\)</span></td>
+<td align="center"><span class="arithmatex">\(P \left(Y_{x+t} = i, \text{for all t} \mid Y_{x} = i \right)\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\({}_{t}p^{ij}_{x}\)</span></td>
+<td align="center"><span class="arithmatex">\({}_{t}p^{\bar{ii}}_{x}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Within actuarial notation, <span class="arithmatex">\(i\)</span> is commonly referred to as the <strong>Departing State</strong> while <span class="arithmatex">\(j\)</span> is referred to as the <strong>Arriving State</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The two have the following relationship:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p^{\bar{ii}}_{x} \le {}_{t}p^{ii}_{x}       
+\end{aligned}
+\]</div>
+<p>This is due to the <strong>definition</strong> of the two probabilities, making the LHS a subset of the RHS:</p>
+<ul>
+<li><strong>LHS</strong>: Must <strong>stay</strong> in state <span class="arithmatex">\(i\)</span></li>
+<li><strong>RHS</strong>: Stay in state <span class="arithmatex">\(i\)</span> OR <strong>transition out and back</strong> to state <span class="arithmatex">\(i\)</span> by time t</li>
+</ul>
+<p>The key is to understand that <strong>any number of transitions</strong> could have actually occurred between the <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(x+t\)</span> - the probability is only concerned with the departing and arriving state.</p>
+</div>
+<p>It is typically assumed that the process also exhibits the <strong>Markov Property</strong> - that the probability of transition at any point is <strong>independent</strong> of the history of the process. The only factor affecting the probability is the <strong>current state</strong> of the system.</p>
+<div class="arithmatex">\[
+    P(Y_{t+1} = i \mid Y_{t} = j, Y_{t-1} = k, \dots) = P(Y_{t+1} = i \mid Y_{t} = j)
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This is conceptually similar to the <strong>Memoryless Property</strong> of the exponential distribution.</p>
+</div>
+<h2 id="discrete-multi-state-models"><strong>Discrete Multi State Models</strong><a class="headerlink" href="#discrete-multi-state-models" title="Permanent link">&para;</a></h2>
+<p>A discrete multi state model that follows the markov property is known as a <strong>Markov Chain</strong>.</p>
+<h3 id="one-period-transitions"><strong>One Period Transitions</strong><a class="headerlink" href="#one-period-transitions" title="Permanent link">&para;</a></h3>
+<p>Consider a model with <span class="arithmatex">\(n\)</span> distinct states. The <strong>ONE-period transition probabilities</strong> for each state to every other state can be summarized into a <strong>Transition Matrix</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \boldsymbol{P}_{x}
+    &amp;= \begin{pmatrix}
+            p_{x}^{00} &amp; p_{x}^{01} &amp; \dots &amp; p_{x}^{0n} \\
+            p_{x}^{10} &amp; p_{x}^{11} &amp; \dots &amp; p_{x}^{1n} \\
+            \vdots &amp; &amp; \ddots \\
+            p_{x}^{n0} &amp; p_{x}^{n1} &amp; \dots &amp; p_{x}^{nn}
+        \end{pmatrix}
+\end{aligned}
+\]</div>
+<p>There are a few key properties about the matrix:</p>
+<ul>
+<li>Since there are <span class="arithmatex">\(n\)</span> distinct states, the dimensions of the matrix are <span class="arithmatex">\(n\)</span> by <span class="arithmatex">\(n\)</span></li>
+<li>Each <strong>row</strong> represents a unique departing state (<span class="arithmatex">\(i\)</span>)</li>
+<li>Each <strong>column</strong> represents a unique arriving state (<span class="arithmatex">\(j\)</span>)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the probabilities along the <strong>same row</strong> represent <strong>all possible transitions</strong> from that particular departing state.</p>
+<p>Thus, the probabilities in each row MUST add up to 1:</p>
+<div class="arithmatex">\[
+    p_{x}^{00} + p_{x}^{01} + \dots + p_{x}^{0n} = 1
+\]</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The transition matrix captures <strong>ALL combinations</strong> of state transitions, not just what is <em>possible</em>.</p>
+<p>Thus, it is not uncommon for these matrices to have a <strong>large chunk of 0s</strong>, as some state transitions are impossible.</p>
+<p>In particular, if transitioning out of a state is impossible (<span class="arithmatex">\(p_{x}^{nn} = 1\)</span>), then the state is known as an <strong>Absorbing State</strong>. If not, it is known as a <strong>Transient State</strong>.</p>
+</div>
+<h3 id="multiple-period-transitions"><strong>Multiple Period Transitions</strong><a class="headerlink" href="#multiple-period-transitions" title="Permanent link">&para;</a></h3>
+<p>Similarly, we can consider the transition matrix over multiple periods:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}\boldsymbol{P}_{x}
+    &amp;= \begin{pmatrix}
+            {}_{n}p_{x}^{00} &amp; {}_{n}p_{x}^{01} &amp; \dots &amp; {}_{n}p_{x}^{0n} \\
+            {}_{n}p_{x}^{10} &amp; {}_{k}p_{x}^{11} &amp; \dots &amp; {}_{n}p_{x}^{1n} \\
+            \vdots &amp; &amp; \ddots \\
+            {}_{n}p_{x}^{n0} &amp; {}_{n}p_{x}^{n1} &amp; \dots &amp; {}_{n}p_{x}^{nn}
+        \end{pmatrix}
+\end{aligned}
+\]</div>
+<p>It can be shown that this matrix is the <strong>product of all the one-period transition matrices</strong> that came before it:</p>
+<div class="arithmatex">\[
+    {}_{n}\boldsymbol{P}_{x} = {}_{n}\boldsymbol{P}_{x} {}_{n}\boldsymbol{P}_{x+1} \dots {}_{n}\boldsymbol{P}_{x+k-1}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above uses <strong>Matrix Multiplication</strong>. The reverse "L" method can be used to quickly multiply matrices:</p>
+<p><!-- Obtained from Wikipedia -->
+<img alt="Matrix Multiplication" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Matrix%20Multiplication.png" /></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A common mistake is thinking that since the matrices can be multiplied together, the individual probabilities can be directly multiplied as well.</p>
+<div class="arithmatex">\[
+    {}_{n}p^{00}_{x}
+    \ne p^{00}_{x} \cdot p^{00}_{x+1} \dots p^{00}_{x+n-1}
+\]</div>
+<p>This logic does <strong>NOT work</strong> due to the nature of matrix multiplication. It does not account for the <strong>possibility of transitioning to another state</strong> but eventually transitioning back to state 0 by time <span class="arithmatex">\(x+n\)</span>.</p>
+</div>
+<h3 id="chapman-kolmogorov-equation"><strong>Chapman Kolmogorov Equation</strong><a class="headerlink" href="#chapman-kolmogorov-equation" title="Permanent link">&para;</a></h3>
+<p>Matrix multiplication is a convenient way of summarizing ALL possible transitions. However, if only one transition is needed, it is faster to <strong>directly compute</strong> it instead.</p>
+<p>Consider the following three time points:</p>
+<ul>
+<li>Time <span class="arithmatex">\(x\)</span>: System is in state <span class="arithmatex">\(i\)</span></li>
+<li>Time <span class="arithmatex">\(x+n-1\)</span>: System can be in <strong>ANY state</strong> (denoted as state <span class="arithmatex">\(k\)</span>)</li>
+<li>Time <span class="arithmatex">\(x+n\)</span>: System is in state <span class="arithmatex">\(j\)</span></li>
+</ul>
+<!-- Self Made -->
+<p><img alt="Chapman Kolmogorov General" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Chapman%20Kolmogorov%20General.png" /></p>
+<p>By the <strong>law of total probability</strong>, the probability of transitioning from state <span class="arithmatex">\(i\)</span> to <span class="arithmatex">\(j\)</span> in <span class="arithmatex">\(k\)</span> periods is the <strong>sumproduct</strong> of:</p>
+<ol>
+<li>The probability of transitioning from state <span class="arithmatex">\(i\)</span> to any state <span class="arithmatex">\(k\)</span> in <span class="arithmatex">\(m-1\)</span> periods</li>
+<li>The probability of transitioning from any state <span class="arithmatex">\(k\)</span> to state <span class="arithmatex">\(j\)</span> in one period</li>
+</ol>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}p^{ij}_{x}
+    &amp;= P(Y_{t+n} = j \mid Y_{t} = i) \\
+    &amp;= \sum P(Y_{t+n-1} = k \mid Y_{t} = i) 
+        \cdot P(Y_{t+n} = j \mid Y_{t+n-1} = k, Y_{t} = i) \\
+    &amp;= \sum P(Y_{t+n-1} = k \mid Y_{t} = i) 
+        \cdot P(Y_{t+n} = j \mid Y_{t+n-1} = k), \ \text{Memoryless} \\
+    &amp;= \sum {}_{n-1}p^{ik}_{x} \cdot p^{kj}_{x+n-1}
+\end{aligned}
+\]</div>
+<p>This expression is known as the <strong>Chapman-Kolmogorov Equation</strong>. Notice that it is <strong>recursive</strong> - the <span class="arithmatex">\(m-1\)</span> component can be decomposed the same way, resulting in <strong>all components being one-period transition probabilities</strong>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The example can be made the other way round as well:</p>
+<ul>
+<li>State <span class="arithmatex">\(i\)</span> to state <span class="arithmatex">\(k\)</span> in one period</li>
+<li>State <span class="arithmatex">\(k\)</span> to state <span class="arithmatex">\(j\)</span> in <span class="arithmatex">\(n-1\)</span> periods</li>
+</ul>
+<p>Both will lead to the same outcome via recursion.</p>
+</div>
+<p>To demonstrate this, consider the following two state system:</p>
+<!-- Self Made -->
+<p><img alt="Chapman Kolmogorov Example" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Chapman%20Kolmogorov%20Example.png" /></p>
+<p>Consider <strong>all possible ways</strong> to go from state 1 to state 2 in two periods:</p>
+<ul>
+<li>State 1 &gt; State 1 &gt; State 1</li>
+<li>State 1 &gt; State 2 &gt; State 2</li>
+</ul>
+<div class="arithmatex">\[
+    {}_{2}p^{12}_{x}
+    = p^{11}_{x} \cdot p^{12}_{x+1} + p^{12}_{x} \cdot p^{22}_{x+1} 
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to forget that the <strong>system can stay</strong> in the current state.</p>
+</div>
+<h2 id="continuous-multi-state-model"><strong>Continuous Multi State Model</strong><a class="headerlink" href="#continuous-multi-state-model" title="Permanent link">&para;</a></h2>
+<p>As its name suggests, a continuous multi-state model allows for transitions at <strong>any time</strong>. It is commonly referred to as a <strong>Continuous Markov Chain</strong>.</p>
+<p>Similar to before, rather than probabilities, we instead consider a <strong>Transition Intensities</strong>:</p>
+<div class="arithmatex">\[
+    \mu^{ij}_{x}(t) = \frac{d}{dt} {}_{t}p^{ij}_{x}
+\]</div>
+<p>It is analagous to the force of mortality in the base survival model. It represents the "probability" of transitioning from state <span class="arithmatex">\(i\)</span> to state <span class="arithmatex">\(j\)</span> <strong>instantly</strong> at time <span class="arithmatex">\(x+t\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This implicitly assumes that only <strong>ONE transition</strong> can occur in a small period of time.</p>
+</div>
+<h3 id="direct-method"><strong>Direct Method</strong><a class="headerlink" href="#direct-method" title="Permanent link">&para;</a></h3>
+<p>The <strong>probability of staying in the same state</strong> can thus be calculated as follows:</p>
+<div class="arithmatex">\[
+    {}_{t}p^{\bar{ii}}_{x} = e^{- \int \mu^{i \tau}_{x}(t)}
+\]</div>
+<p>The force represents the combination of forces that would cause a transition out of state <span class="arithmatex">\(i\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mu^{i \tau}_{x}(t) 
+    &amp;= \sum_{j \ne i} \mu^{ij}_{x}(t) \\
+    &amp;= \mu^{12}_{x}(t) + \mu^{13}_{x}(t) + \dots + \mu^{1n}_{x}(t)
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is analagous to the survival probability calculated from the force of mortality in the base survival model.</p>
+</div>
+<p>The probability of transitioning can be understood as the combination of the following components:</p>
+<ol>
+<li>System remains in the <strong>same state</strong> <span class="arithmatex">\(i\)</span> till some time <span class="arithmatex">\(x+s\)</span></li>
+<li>At that time, the system <strong>instantly transitions</strong> into state <span class="arithmatex">\(j\)</span></li>
+<li>System remains in the <strong>same state</strong> <span class="arithmatex">\(j\)</span> till time <span class="arithmatex">\(x+t\)</span></li>
+</ol>
+<div class="arithmatex">\[
+    {}_{t}p^{ij}_{x}
+    = \int {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot {}_{t-s}p^{\bar{jj}}_{x+s}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the arriving state is absorbing, then the final component is always equal to 1. Thus, the expression can be simplified.</p>
+</div>
+<p>The above assumes that there is only one way of transitioning - <strong>directly</strong> from state <span class="arithmatex">\(i\)</span> to state <span class="arithmatex">\(j\)</span>. If there are <strong>multiple ways to transition</strong>, additional complexity is required.</p>
+<p>Consider the following three state model used for Permanent Disability:</p>
+<!-- Obtained from ALTAM textbook -->
+<p><img alt="Perm Disability" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Perm%20Disability%20Model.png" /></p>
+<p>There are <strong>two ways</strong> to transition from state 0 to state 2:</p>
+<ol>
+<li><strong>Direct transition</strong> from state 0 to 2 (State 0 &gt; State 2)</li>
+<li><strong>Indirect transition</strong> via state 1 (State 0 &gt; State 1 &gt; State 2)</li>
+</ol>
+<p>The problem is in the second component. While it may be possible to derive an expression via first principles, it is generally not worth the time to do so.</p>
+<p>In such cases, the probability of transitioning is much better taken as the <strong>complement</strong> of the remaining direct transitions:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p^{00}_{x} + {}_{t}p^{01}_{x} + {}_{t}p^{02}_{x} &amp;= 1 \\
+    {}_{t}p^{02}_{x} &amp;= 1 - {}_{t}p^{00}_{x} - {}_{t}p^{01}_{x}
+\end{aligned}
+\]</div>
+<h3 id="approximation-method"><strong>Approximation Method</strong><a class="headerlink" href="#approximation-method" title="Permanent link">&para;</a></h3>
+<p>Notice that in the previous section, we have implicitly assumed that the <strong>system cannot transition back into a previous state</strong>.</p>
+<p>For such cases, a more complex method known as the <strong>Kolmogorov's Forward Equation</strong> is required. It is a <strong>differential equation</strong> that can solve for the probability of transition.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Very loosely speaking, a differential equation is a method of using the derivatives of a function to solve for the original function itself.</p>
+</div>
+<p>The <strong>first derivative</strong> of the transition probability can be expressed as the following:</p>
+<div class="arithmatex">\[
+    \frac{d}{dt} {}_{t}p^{ij}_{x}
+    = \sum_{k \ne j} ({}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) 
+                        - {}_{t}p^{ij}_{x} \cdot \mu^{ij}_{x}(t))
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This equation can be <strong>loosely intepreted</strong> as:</p>
+<div class="arithmatex">\[
+    \text{Change} = \text{Moving IN to state j} - \text{Moving OUT of state j}
+\]</div>
+</div>
+<p>The differential equation can be solved via <strong>Euler's Method</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{d}{dt} {}_{t}p^{ij}_{x}
+    &amp;= \frac{{}_{t+h}p^{ij}_{x} - {}_{t}p^{ij}_{x}}{h} \\
+    \\
+    \frac{{}_{t+h}p^{ij}_{x} - {}_{t}p^{ij}_{x}}{h}
+    &amp;= \sum_{k \ne j} \left[{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) 
+                        - {}_{t}p^{ij}_{x} \cdot \mu^{ij}_{x}(t) \right] \\
+    \\
+    {}_{t+h}p^{ij}_{x}
+    &amp;= {}_{t}p^{ij}_{x} + h \cdot 
+        \sum_{k \ne j} \left[{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) 
+                                - {}_{t}p^{ij}_{x} \cdot \mu^{ij}_{x}(t) \right]
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The differential equation can technically be solved via <strong>Linear Algebra</strong> to provide an exact solution. However, <strong>Boundary Conditions</strong> of the DE are required - which are out of scope for this exam.</p>
+<p>Euler's method is simply a numerical method for solving; there is no point trying to understand it.</p>
+</div>
+<h3 id="continuous-to-discrete"><strong>Continuous to Discrete</strong><a class="headerlink" href="#continuous-to-discrete" title="Permanent link">&para;</a></h3>
+<p>If Euler's method is used, then the resulting continuous probabilities can be converted into <strong>discrete probabilities</strong> for a markov chain with time intervals of <span class="arithmatex">\(h\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{h}p^{ij}_{x} &amp;= h \cdot \mu^{ij}_{x} \\
+    {}_{h}p^{ii}_{x} &amp;= 1 - h \cdot \mu^{i \tau}_{x}
+\end{aligned}
+\]</div>
+<p>The <strong>first component</strong> follows the same intuition as the force of mortality approximation. The <strong>second component</strong> uses the same method, but is the complement of all possible transitions.</p>
+<h2 id="insurance-applications"><strong>Insurance Applications</strong><a class="headerlink" href="#insurance-applications" title="Permanent link">&para;</a></h2>
+<p>Actuarial values for multi-state assurances and annuities are <strong>conceptually identical</strong> to what was covered in FAM-L, with some additional considerations for multiple states.</p>
+<h3 id="assurances"><strong>Assurances</strong><a class="headerlink" href="#assurances" title="Permanent link">&para;</a></h3>
+<p>A <strong>Multi-State Assurance</strong> pays a benefit whenever the insured <strong>transitions</strong> into a particular state.</p>
+<p>The actuarial value of such an assurance is denoted by <span class="arithmatex">\(A^{ij}_{x}\)</span>, where <span class="arithmatex">\(i\)</span> is the <strong>current state</strong> of the insured and <span class="arithmatex">\(j\)</span> is the <strong>state which triggers a payment</strong>.</p>
+<p>The key is understanding that <em>any</em> transition into the state will trigger the payout. Thus, <strong>all possible transitions</strong> into state must be considered at <strong>each time</strong> period.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to assume that because there is <strong>no direct</strong> transition to the insured state, the value of the assurance must be 0.</p>
+<p>This is incorrect, as all possible transition pathways, <strong>regardless of the number of steps required</strong>, should be considered. </p>
+</div>
+<p>Consider the following example:</p>
+<ul>
+<li>Mortality follows a <strong>permanent disability model</strong></li>
+<li>Insured owns a <strong>2 year discrete term assurance</strong></li>
+<li>Benefit payment at the end of the year upon transition into state 2</li>
+<li>Insured is currently in state 0 (Healthy)</li>
+</ul>
+<!-- Obtained from ALTAM textbook -->
+<p><img alt="Perm Disability" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Perm%20Disability%20Model.png" /></p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|c|}
+\hline
+    \text{Time}
+        &amp; \text{Transition}
+        &amp; \text{Probability} 
+        &amp; \text{PV Benefit} \\
+\hline
+    1
+        &amp; \text{0 - 2}
+        &amp; p^{02}_{x}
+        &amp; Bv \\
+\hline
+    2
+        &amp; \text{0 - 0 - 2}
+        &amp; p^{00}_{x} \cdot p^{02}_{x+1}
+        &amp; Bv^2 \\
+\hline
+    2
+        &amp; \text{0 - 1 - 2}
+        &amp; p^{01}_{x} \cdot p^{12}_{x+1}
+        &amp; Bv^2 \\
+\hline
+\end{array}
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    A^{02}_{x:\enclose{actuarial}{2}}
+    &amp;= p^{02}_{x} \cdot Bv + p^{00}_{x} p^{02}_{x+1} \cdot Bv^2 
+    + p^{01}_{x} \cdot p^{12}_{x+1} \cdot Bv^2 \\
+    &amp;= p^{02}_{x} \cdot Bv 
+    + (p^{00}_{x} p^{02}_{x+1} + p^{01}_{x} \cdot p^{12}_{x+1}) \cdot Bv^2 \\
+    &amp;= p^{02}_{x} \cdot Bv + {}_{2}p^{02}_{x} \cdot Bv^2
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Despite being a term assurance, the actuarial notation does NOT include the typical "1" superscript above the life status.</p>
+<p>This is because the superscript is already being used by the states, thus including the "1" may confuse the reader.</p>
+<p>Naturally, this means that multi-state questions typically do NOT ask for Endowments or Endowment Assurances.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that this is analagous to a regular term assurance:</p>
+<div class="arithmatex">\[
+    A^{1}_{x:\enclose{actuarial}{2}}
+    = q_{x} \cdot Bv + {}_{2 \mid}q_{x} \cdot Bv 
+\]</div>
+<p>The key difference being that the probabilities under the multi state models can be <strong>broken down into multiple cases</strong> to account for multiple possible transitions.</p>
+</div>
+<p>Similarly, the relationship between Term and WL assurances remains true, with a slight modification to consider <strong>ALL possible state changes</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    A
+\end{aligned}
+\]</div>
+<h3 id="annuities"><strong>Annuities</strong><a class="headerlink" href="#annuities" title="Permanent link">&para;</a></h3>
+<p>Conversely, a <strong>Multi-State Annuity</strong> pays a benefit whenever the insured <strong>remains</strong> in a particular state.</p>
+<p>The actuarial value of such an assurance is denoted by <span class="arithmatex">\(a^{ij}_{x}\)</span>, where <span class="arithmatex">\(i\)</span> is the <strong>current state</strong> of the insured and <span class="arithmatex">\(j\)</span> is the <strong>state which triggers a payment</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The general notation assumes that the insured is <strong>NOT already in the state</strong> that would trigger payment. For instance, an annuity that pays only while the insured is disabled.</p>
+<p>This is contrary to a life annuity, where the insured is already alive, and will receive payments for as long as they are alive.</p>
+</div>
+<p>Consider the following example:</p>
+<ul>
+<li>Mortality follows a <strong>sickness death model</strong></li>
+<li>Insured owns a <strong>2 year discrete temporary annuity</strong></li>
+<li>Benefit payment at the beginning of the year if they are in state 1</li>
+<li>Insured is currently in state 0 (Healthy)</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../2.%20Multi%20Decrement%20Models/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multi Decrement Models" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Multi Decrement Models
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../4.%20Multi%20State%20Applications/" class="md-footer__link md-footer__link--next" aria-label="Next: Multi State Applications" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Multi State Applications
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

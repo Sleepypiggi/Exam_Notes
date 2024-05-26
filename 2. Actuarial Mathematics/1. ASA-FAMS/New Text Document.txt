@@ -1,0 +1,9 @@
+The second type is known as the **Individual Risk Model**, which makes similar assumptions:
+
+1. **Losses are independent but not necessarily identical**: $X_1, X_2, \dots, X_N$ are independent but MAY have *different distributions*
+2. **Frequency is a constant**: $N = n$
+3. Typically used for **Group Policies** where there is a fixed number of poliycholders with varying levels of coverage
+
+Generally speaking, it is much better to model frequency and severity **seperately** and then combine into an aggregate loss rather than directly modelling it as it **more accurate and flexible**.
+
+<!-- Suspect may have some questions on this. To update with information from TB. -->

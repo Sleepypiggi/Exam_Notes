@@ -1,0 +1,1692 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/3.%20Predictive%20Analytics/1.%20ASA-SRM/5.%20Statistical%20Learning/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Statistical Learning - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#statistical-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Statistical Learning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0.%20Practical%20Exam%20Tips/" class="md-nav__link">
+        Practical Exam Tips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          ASA-IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" type="checkbox" id="__nav_2_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA-FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA-FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/2.%20ASA-FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          ASA-ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/5.%20Profit%20Analysis/" class="md-nav__link">
+        Profit Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          ASA-SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Regression%20Overview/" class="md-nav__link">
+        Regression Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Gauss%20Markov%20Theorem/" class="md-nav__link">
+        Gauss Markov Theorem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Statistical Learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Statistical Learning
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-accuracy" class="md-nav__link">
+    Model Accuracy
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Accuracy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bias-variance-tradeoff" class="md-nav__link">
+    Bias Variance Tradeoff
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resampling-methods" class="md-nav__link">
+    Resampling Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Resampling Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-set" class="md-nav__link">
+    Validation Set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loo-cross-validation" class="md-nav__link">
+    LOO Cross Validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-fold-cross-validation" class="md-nav__link">
+    K fold Cross Validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-selection" class="md-nav__link">
+    Model Selection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-selection" class="md-nav__link">
+    Feature Selection
+  </a>
+  
+    <nav class="md-nav" aria-label="Feature Selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-stepwise-selection" class="md-nav__link">
+    Forward Stepwise Selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backward-stepwise-selection" class="md-nav__link">
+    Backward Stepwise Selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stepwise-selection" class="md-nav__link">
+    Stepwise Selection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shrinkage-methods" class="md-nav__link">
+    Shrinkage Methods
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          ILA Track
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ILA Track" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          ILA Track
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LFM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-ALM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-accuracy" class="md-nav__link">
+    Model Accuracy
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Accuracy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bias-variance-tradeoff" class="md-nav__link">
+    Bias Variance Tradeoff
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resampling-methods" class="md-nav__link">
+    Resampling Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Resampling Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-set" class="md-nav__link">
+    Validation Set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loo-cross-validation" class="md-nav__link">
+    LOO Cross Validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-fold-cross-validation" class="md-nav__link">
+    K fold Cross Validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-selection" class="md-nav__link">
+    Model Selection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-selection" class="md-nav__link">
+    Feature Selection
+  </a>
+  
+    <nav class="md-nav" aria-label="Feature Selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-stepwise-selection" class="md-nav__link">
+    Forward Stepwise Selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backward-stepwise-selection" class="md-nav__link">
+    Backward Stepwise Selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stepwise-selection" class="md-nav__link">
+    Stepwise Selection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shrinkage-methods" class="md-nav__link">
+    Shrinkage Methods
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="statistical-learning"><strong>Statistical Learning</strong><a class="headerlink" href="#statistical-learning" title="Permanent link">&para;</a></h1>
+<p>The regression concepts covered in the previous sections are widely considered to be <em>traditional applied statistics</em>. In a contemporary context, regression is just one of the many methods that fall under <strong>Statistical Learning</strong>.</p>
+<p>It is a framework of harnessing data to gain an <strong>understanding</strong> of how the data is related to one another and/or how a group of variables can be used to accurately <strong>predict</strong> another.</p>
+<p>Similar to regression, the relationship between variables can be expressed as a combination of a <strong>Signal Function</strong> and a <strong>Noise</strong> term:</p>
+<div class="arithmatex">\[
+    y = f(x) + \varepsilon
+\]</div>
+<p>The two terms originate from Engineering, where <strong>Signal</strong> refers to the <em>meaningful</em> component of the data while <strong>Noise</strong> refers to the <em>random variation</em> that inteferes with the signal.</p>
+<p>Statistical learning models are distinguished based on their signal function. There are two main kinds of models:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Parametric Models</th>
+<th align="center">Non-Parametric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Assumes DV follows a specific functional form</td>
+<td align="center">Does not assume any functional form</td>
+</tr>
+<tr>
+<td align="center">Function parameters determined from the data</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">Does not require a large amount of data</td>
+<td align="center">Requires a large amount of data to work well</td>
+</tr>
+<tr>
+<td align="center">EG. Linear Regression</td>
+<td align="center">EG. Clustering</td>
+</tr>
+</tbody>
+</table>
+<p>| May not fit the data well | Fits the data well |</p>
+<p>| Described by parameters | No parameters used |
+| Simple to implement | Requires large amount of data to implement |
+| Risk that assumed function is wrong | Does not make any assumption about data |</p>
+<p></center></p>
+<p>They can also be further split according to:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Supervised Learning</th>
+<th align="center">Unsupervised Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Specified DV to supervise the learning</td>
+<td align="center">No specific variable chosen</td>
+</tr>
+<tr>
+<td align="center">Inference/Prediction with respect to the DV</td>
+<td align="center">Inference/Prediction for all variables</td>
+</tr>
+<tr>
+<td align="center">EG. Linear Regression</td>
+<td align="center">EG. Clustering</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Regression vs classification
+classification - classifying the observations to a certian level</p>
+<h2 id="model-accuracy"><strong>Model Accuracy</strong><a class="headerlink" href="#model-accuracy" title="Permanent link">&para;</a></h2>
+<p>Since the end goal of the model is to make predictions on new unobserved data, the quality of the model should be evaluated against its performance on unobserved data as well.</p>
+<p>The <strong>observed data</strong> used to create the model is known as the <strong>Training Data</strong> as it helps <em>train</em> the signal function to identify relationships between variables, while the <strong>unobserved data</strong> used to evaluate the model is known as the <strong>Test Data</strong>.</p>
+<p>The quality of the model can then be quantified by the <strong>extent to which the model predictions match the data</strong>. Similar to regression, this quantity is known as the <strong>Error</strong> of the model and is summarized through the <strong>Mean Square Error</strong> (MSE) statistic.</p>
+<p>The MSE is the <strong>average</strong> of the sum of squared errors and can be calculated for both the training and test data:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Training MSE} &amp;= \frac{[y_i - \hat{f}(x_0)]^2}{n_{training}} \\
+    \text{Test MSE} &amp;= \frac{[y_0 - \hat{f}(x_0)]^2}{n_{test}}
+\end{aligned}
+\]</div>
+<blockquote>
+<p>Note that this is different from the MSE defined in ANOVA, where the MS is divded by its degrees of freedom rather than the number of observations. The MSE defined in this section is a general concept while the ANOVA MSE is a purely regression concept.</p>
+</blockquote>
+<p>The Training MSE reflects the goodness of fit of the model while the Test MSE reflects its prediction accuracy. As alluded to earlier, the goal of statistical learning is to choose the model with the <strong>lowest Test MSE</strong>.</p>
+<p>In general, the training MSE should always be <strong>smaller</strong> than the testing MSE, which is why they are not interchangeable. This is because all models are <strong>trained to match the training data</strong> to various extents, thus they should naturally have relatively smaller errors.</p>
+<p>On the flipside, test MSE should always be <strong>higher</strong> because the model is likely to have <strong>mistakenly captured some of the noise</strong> in the training data that do not generalize to the test data, resulting in a higher testing error.</p>
+<p>The extent of the difference is dependent on how well the model <em>fits</em> the training data; the extent to which it learns from it:</p>
+<ul>
+<li><strong>High Flexibility/Complexity</strong> - Tends to overfit the training data; matches data too much; learns too much</li>
+<li><strong>Low Flexibility/Complexity</strong> - Tends to underfit the training data; matches data too little; learns too little</li>
+</ul>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="Model Fir" src="../Assets/5.%20Statistical%20Learning.md/Model%20Fit.png" /></p>
+<p>This is not to say that low flexibility models are better. In fact, <strong>some level of flexibility is needed</strong> for the model to <strong>pick up most of the signals</strong> in the training data, but not too much such that the noise is captured as well.</p>
+<p>Thus, the test MSE generally decreases with flexibility up till a certain point, following which it increases, forming a <strong>U shaped curve</strong>:</p>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="Bias Variance Tradeoff" src="../Assets/5.%20Statistical%20Learning.md/Bias%20Variance%20Tradeoff.png" /></p>
+<h3 id="bias-variance-tradeoff"><strong>Bias Variance Tradeoff</strong><a class="headerlink" href="#bias-variance-tradeoff" title="Permanent link">&para;</a></h3>
+<p>The test MSE can be better understood by decomposing it into its consistuent commponents:</p>
+<div class="arithmatex">\[
+    \text{MSE} = \text{Bias}[\hat{f}(x_0)]^2 + \text{Variance}[\hat{f}(x_0)]
+\]</div>
+<p>The <strong>Bias</strong> of the model (also known as the <strong>Accuracy</strong>) is the difference in expected value of the estimated signal function and the true signal function.</p>
+<p>More complex models are better able to capture the signal in the data, thus tends to have a lower bias.</p>
+<p>The <strong>Variance</strong> of the model (also known as <strong>Precision</strong>) is the change in the estimated signal function across different datasets. Ideally, the model should have <strong>low variance</strong> such that it would be relatively stable across different training data.</p>
+<p>While more complex models are better able to capture signals, this makes them prone to overfitting and hence <strong>more sensitive to differences in the training data</strong>, leading to higher variance.</p>
+<blockquote>
+<p>Note that although Precision &amp; Accuracy are both synonyms in English, they have distinct meanings in statistics.</p>
+</blockquote>
+<!-- Variance of the error term is the floor -->
+
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="Bias VS Variance" src="../Assets/5.%20Statistical%20Learning.md/Bias%20VS%20Variance.png" /></p>
+<p>Ideally, a model should have both low bias and low variance. However, as explained above, there is an <strong>inherent tension</strong> between Bias and Variance due to the complexity of the model, known as the <strong>Bias-Variance Tradeoff</strong>.</p>
+<p>A relatively <strong>simple model</strong> (underfitted) tends to have a <strong>high bias but low variance</strong>. As the complexity increases, the <strong>bias initially decreases more than the variance increases</strong>, causing the test MSE to fall.</p>
+<p>At some point, the model becomes <strong>too complex</strong> (overfitted), where the <strong>increase in variance outweighs the fall in bias</strong>, resulting in the U-shaped curve as seen previously.</p>
+<p>Thus, the goal is to find an optimal balance in between Bias and Variance where the test MSE is minimized.</p>
+<h2 id="resampling-methods"><strong>Resampling Methods</strong><a class="headerlink" href="#resampling-methods" title="Permanent link">&para;</a></h2>
+<h3 id="validation-set">Validation Set<a class="headerlink" href="#validation-set" title="Permanent link">&para;</a></h3>
+<h3 id="loo-cross-validation"><strong>LOO Cross Validation</strong><a class="headerlink" href="#loo-cross-validation" title="Permanent link">&para;</a></h3>
+<h3 id="k-fold-cross-validation"><strong>K fold Cross Validation</strong><a class="headerlink" href="#k-fold-cross-validation" title="Permanent link">&para;</a></h3>
+<h2 id="model-selection"><strong>Model Selection</strong><a class="headerlink" href="#model-selection" title="Permanent link">&para;</a></h2>
+<h2 id="feature-selection"><strong>Feature Selection</strong><a class="headerlink" href="#feature-selection" title="Permanent link">&para;</a></h2>
+<h3 id="forward-stepwise-selection"><strong>Forward Stepwise Selection</strong><a class="headerlink" href="#forward-stepwise-selection" title="Permanent link">&para;</a></h3>
+<h3 id="backward-stepwise-selection"><strong>Backward Stepwise Selection</strong><a class="headerlink" href="#backward-stepwise-selection" title="Permanent link">&para;</a></h3>
+<h3 id="stepwise-selection"><strong>Stepwise Selection</strong><a class="headerlink" href="#stepwise-selection" title="Permanent link">&para;</a></h3>
+<h2 id="shrinkage-methods"><strong>Shrinkage Methods</strong><a class="headerlink" href="#shrinkage-methods" title="Permanent link">&para;</a></h2>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../4.%20Gauss%20Markov%20Theorem/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Gauss Markov Theorem" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Gauss Markov Theorem
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../Placeholder/" class="md-footer__link md-footer__link--next" aria-label="Next: ASA-PA" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              ASA-PA
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

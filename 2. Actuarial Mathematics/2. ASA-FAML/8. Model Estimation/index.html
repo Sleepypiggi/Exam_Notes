@@ -1,0 +1,1860 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/2.%20Actuarial%20Mathematics/2.%20ASA-FAML/8.%20Model%20Estimation/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Model Estimation - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#model-estimation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Model Estimation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0.%20Practical%20Exam%20Tips/" class="md-nav__link">
+        Practical Exam Tips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          ASA-IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" type="checkbox" id="__nav_2_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA-FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA-FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Model Estimation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Model Estimation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-data" class="md-nav__link">
+    Complete Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incomplete-data" class="md-nav__link">
+    Incomplete Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Incomplete Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grouped-data" class="md-nav__link">
+    Grouped Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kaplan-meier-estimation" class="md-nav__link">
+    Kaplan Meier Estimation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nelson-aelen-estimation" class="md-nav__link">
+    Nelson Aelen Estimation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#central-exposed-risk" class="md-nav__link">
+    Central Exposed Risk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-likelihood-estimation" class="md-nav__link">
+    Maximum Likelihood Estimation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-inference" class="md-nav__link">
+    Statistical Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-variance" class="md-nav__link">
+    Complete Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incomplete-variance" class="md-nav__link">
+    Incomplete Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-intervals" class="md-nav__link">
+    Confidence Intervals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          ASA-ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/5.%20Profit%20Analysis/" class="md-nav__link">
+        Profit Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          ASA-SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/1.%20Regression%20Overview/" class="md-nav__link">
+        Regression Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/4.%20Gauss%20Markov%20Theorem/" class="md-nav__link">
+        Gauss Markov Theorem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/5.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          ILA Track
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ILA Track" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          ILA Track
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LFM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-ALM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-data" class="md-nav__link">
+    Complete Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incomplete-data" class="md-nav__link">
+    Incomplete Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Incomplete Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grouped-data" class="md-nav__link">
+    Grouped Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kaplan-meier-estimation" class="md-nav__link">
+    Kaplan Meier Estimation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nelson-aelen-estimation" class="md-nav__link">
+    Nelson Aelen Estimation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#central-exposed-risk" class="md-nav__link">
+    Central Exposed Risk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-likelihood-estimation" class="md-nav__link">
+    Maximum Likelihood Estimation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-inference" class="md-nav__link">
+    Statistical Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-variance" class="md-nav__link">
+    Complete Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incomplete-variance" class="md-nav__link">
+    Incomplete Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-intervals" class="md-nav__link">
+    Confidence Intervals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="model-estimation"><strong>Model Estimation</strong><a class="headerlink" href="#model-estimation" title="Permanent link">&para;</a></h1>
+<p>This section assumes some basic knowledge on <strong>Model Estimation</strong>, which can be found under another set of notes covering <a href="../ASA-FAMS/8. Model Estimation.md">Model Estimation</a>.</p>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This chapter follows a similar motivation to the FAM-S one - rather than making an assumption about the survival distribution, it is better to directly study it instead.</p>
+<p>All the same principles about data apply, but instead of studying loss amounts, we are now interested in studying the <strong>times to death</strong> of people.</p>
+<h2 id="complete-data"><strong>Complete Data</strong><a class="headerlink" href="#complete-data" title="Permanent link">&para;</a></h2>
+<p>Given complete data, the probability of survival is simply the ratio of the number of survivors to the total number of people.</p>
+<p>However, since the probability of survival can be calculated for different lengths of time <span class="arithmatex">\((k)\)</span>, the number of survivors is dependent on the length of time chosen.</p>
+<div class="arithmatex">\[
+    \hat{S}_x(t) = \frac{\text{# of people who survive past t}}{n}
+\]</div>
+<h2 id="incomplete-data"><strong>Incomplete Data</strong><a class="headerlink" href="#incomplete-data" title="Permanent link">&para;</a></h2>
+<h3 id="grouped-data"><strong>Grouped Data</strong><a class="headerlink" href="#grouped-data" title="Permanent link">&para;</a></h3>
+<p>For grouped data, if the <span class="arithmatex">\(k\)</span> is at the boundary of the ranges provided, then the number of survivors can be easily determined and the survival probability is calculated the same way as before:</p>
+<div class="arithmatex">\[
+    \hat{S}_x(t) = \frac{\text{# of observations larger than k}}{n}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Grouped Data" class="center" src="../Assets/8.%20Model%20Estimation.md/Grouped%20Data.png" /></p>
+<p>However, if <span class="arithmatex">\(k\)</span> is within the range, by assuming that values within the range are <strong>uniformly distributed</strong>, then the probability can be <strong>linearly interpolated</strong> from the probabilities at the boundary:</p>
+<div class="arithmatex">\[
+    F(s) = \frac{b-s}{b-a} \cdot F(a) + \frac{s-a}{b-a} \cdot F(b)
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Similar to the fractional age interpolation, recall that the <strong>larger weight should be applied to the boundary age</strong> that the estimated age is nearest to s.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Grouped Interpolation" class="center" src="../Assets/8.%20Model%20Estimation.md/Grouped%20Interpolation.png" /></p>
+<p>The interpolation follows the same intuition as the fractional age assumption, where the uniform assumption results in a linear graph of probabilities:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Graphical Interpolation" class="center" src="../Assets/8.%20Model%20Estimation.md/Graphical%20Interpolation.png" /></p>
+<p>Censored and Truncated data can only be worked with using dedicated methods discussed below.</p>
+<h3 id="kaplan-meier-estimation"><strong>Kaplan Meier Estimation</strong><a class="headerlink" href="#kaplan-meier-estimation" title="Permanent link">&para;</a></h3>
+<p>Consider a study of 5 individuals:</p>
+<ul>
+<li>One individual dies at <span class="arithmatex">\(t=0.8\)</span> and <span class="arithmatex">\(t=1.4\)</span></li>
+<li>5 more individuals join the study at <span class="arithmatex">\(t=1\)</span>; <strong>Left Truncated</strong> at <span class="arithmatex">\(t=1\)</span></li>
+<li>3 individual leave the study at <span class="arithmatex">\(t=0.5\)</span>; <strong>Right Censored</strong> at <span class="arithmatex">\(t=0.5\)</span></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there are people who die and leave the study at the same time, then the people who left are assumed to have <strong>left after the people who die</strong>.</p>
+<p>In other words, any death or survival probabilities should include them.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Kaplan Meier Timeline" class="center" src="../Assets/8.%20Model%20Estimation.md/Kaplan%20Meier%20Timeline.png" /></p>
+<p>Exam questions often present the information in a table format:</p>
+<ul>
+<li><span class="arithmatex">\(t\)</span> represents the <strong>time</strong> of death</li>
+<li><span class="arithmatex">\(d\)</span> represents the number of <strong>deaths</strong></li>
+<li><span class="arithmatex">\(r\)</span> represents the <strong>risk set</strong> RIGHT BEFORE death; simply known as the <strong>sample size</strong></li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Kaplan Meier Table" class="center" src="../Assets/8.%20Model%20Estimation.md/Kaplain%20Meier%20Table.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Although the table is what is provided, a more effective way to visualize the problem is via the timeline seen above.</p>
+</div>
+<p>This is problematic as the <strong>sample size changes</strong> throughout the study. However, the <strong>Kaplan Meier</strong> method accounts for this by calculating the survival probability as the <strong>product</strong> of the <strong>survival probabilities</strong> for <strong>all previous intervals between deaths</strong>:</p>
+<div class="arithmatex">\[
+    \hat{S}_x(t) = \prod \left(1-\frac{d_j}{r_j} \right)
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This means that the <strong>ratio</strong> between the estimator at <strong>two consecutive times</strong> of death is the the survival probability at the later time.</p>
+<p>However, remember that the first estimate provided is the combination of all survival probabilities before it, just that they were <strong>not provided</strong>. It should NOT be used to directly reverse engineer the sample size etc.</p>
+</div>
+<p>Given the above example, the resulting Kaplan Meier estimation would be:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{S}_0(1.4)
+    &amp;= P(t &gt; 0.8) * P(t &gt; 1.4 | x &gt; 0.8) \\
+    &amp;= \left (1 - \frac{1}{2} \right) * \left (1 - \frac{1}{6} \right) \\
+    &amp;= \left (\frac{1}{2} \right) * \left (\frac{5}{6} \right) \\
+    &amp;= \frac{5}{12}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although this example (and many other questions) assume that there is only one death at a time, it is completely possible to have a <strong>different number of deaths</strong>.</p>
+<p>This is especially so when the probabilities are already provided by the question - <strong>always solve for the precise number of deaths</strong> to be sure.</p>
+<p>Although counter-intuitive, the number of deaths calculated this way do NOT need to be discrete!</p>
+</div>
+<p>This results in a <strong>constant probability between deaths</strong>. Thus, the focus is on the <strong>times of death</strong>; the entries and exits from the study are only used to change the sample size.</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Kaplan Meier Cumulative" class="center" src="../Assets/8.%20Model%20Estimation.md/Kaplan%20Meier%20Cumulative.png" /></p>
+<h3 id="nelson-aelen-estimation"><strong>Nelson Aelen Estimation</strong><a class="headerlink" href="#nelson-aelen-estimation" title="Permanent link">&para;</a></h3>
+<p>Recall that the survival probability can be expressed as a function of the Force of Mortality:</p>
+<div class="arithmatex">\[
+    \hat{S}_x(t) = e^{- \int^t_0 \mu_{x+t}}
+\]</div>
+<p>The <strong>Nelson Aelen</strong> method estimates the <strong>Cumulative Force of Mortality</strong> (the exponent of the expression), which can be then used to compute the survival probability.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is an extremely common mistake to take the result of the Nelson Aelen estimation as the survival probability.</p>
+</div>
+<p>The nelson aelen estimator is computed as the <strong>sum</strong> of the <strong>death probabilities</strong> for <strong>all previous intervals between deaths</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    H_{x}(t) &amp;= \sum \frac{d_j}{r_j} \\
+    \int^t_0 \mu_{x+t} &amp;= \sum \frac{d_j}{r_j}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Similar to the Kaplan Estimator, the <strong>difference</strong> at two consecutive times is the death probability at the later time. The same warning applies.</p>
+</div>
+<p>Given the previous example, the resulting Nelson Aelen estimation would be:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \int^t_0 \mu_{x+1.4}
+    &amp;= P(t &lt; 0.8) + P(t &lt; 1.4 | x &gt; 0.8) \\
+    &amp;= \left (\frac{1}{2} \right) + \left (\frac{1}{6} \right) \\
+    &amp;= \frac{2}{3} \\
+    \\
+    {}_{1.4}\hat{p}_x
+    &amp;= e^{-\frac{2}{3}} \\
+    &amp;= 0.51171
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The results for the two methods are not that far off from one another. They can be used as to sense check each other if asked to calculate both.</p>
+</div>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Kaplan Meier</th>
+<th align="center">Nelson Aelen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Estimates Survival Probability</td>
+<td align="center">Estimates Cumulative Force of Mortality</td>
+</tr>
+<tr>
+<td align="center">Uses Survival probabilities</td>
+<td align="center">Uses Death probabilities</td>
+</tr>
+<tr>
+<td align="center">Ratio of consecutive estimates</td>
+<td align="center">Difference of consecutive estimates</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<h3 id="central-exposed-risk"><strong>Central Exposed Risk</strong><a class="headerlink" href="#central-exposed-risk" title="Permanent link">&para;</a></h3>
+<p>The last method estimates the <strong>force of mortality</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is not to be confused with the nelson aelen estimator which estimates the <strong>cumulative force of mortality</strong>.</p>
+</div>
+<p>The key idea is <strong>Central Exposed to Risk</strong> <span class="arithmatex">\((E^c_x)\)</span>, which is a measure of <strong>how long</strong> an individual was <strong>alive in the study</strong> while at a <strong>specified age</strong>.</p>
+<p>Consider a study conducted for individuals <strong>aged 50</strong>:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Central Exposed Risk" class="center" src="../Assets/8.%20Model%20Estimation.md/Central%20Exposed%20Risk.png" /></p>
+<p>If the individual <strong>has not reached the target age</strong>, then we only start counting from their <strong>birthday</strong>. If they already have, then we can start counting immediately.</p>
+<p>In either case, the study ends at the either the <strong>death of the invididual</strong> or on their <strong>birthday</strong> (as they are no longer the desired age), whichever comes first.</p>
+<p>The Central Exposed Risk is the <strong>sum of these durations</strong>. In the above example,</p>
+<ul>
+<li><strong>First Person</strong>: Not yet aged 50, <strong>turned 51 in 1 year</strong> from turning 50</li>
+<li><strong>Second Person</strong>: Already aged 50, <strong>died in 0.3 years</strong></li>
+<li><strong>Third Person</strong>: Already agd 50, <strong>turned 51 in 0.2 years</strong></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    E^c_x
+    &amp;= 1 + 0.3 + 0.2 \\
+    &amp;= 1.5
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some questions may not provide the age of the policyholder so explicitly like above.</p>
+<p>They may provide the <strong>dates</strong> that they joined and left the study as well as their birthdays, making it <strong>slightly more challenging to compute</strong>.</p>
+</div>
+<p>The next statistic is the <strong>number of individuals who died at that age</strong>, <span class="arithmatex">\(d_x\)</span>. The key thing to note is that if the individual dies before they turn that age or dies after they grew one age, then they are NOT counted in this metric.</p>
+<p>Putting both together, the <strong>force of mortality</strong> can be determined:</p>
+<div class="arithmatex">\[
+    \hat{\mu}_x = \frac{d_x}{E^c_x}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The general idea is that <span class="arithmatex">\(E^c_x\)</span> represents the <strong>total time that individuals were alive in the study</strong>. The above examples was only studying mortality at a <strong>specified age</strong>.</p>
+<p>Studies could also be for "any age", such as in this example for <strong>newborns</strong>:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="CER Any Age" class="center" src="../Assets/8.%20Model%20Estimation.md/CER%20Any%20Age.png" /></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E^c_x &amp;= 1586 + 597 = 2183 \\
+    d_x &amp;= 39 \\
+    \therefore \hat{\mu}_x &amp;= \frac{39}{2183}
+\end{aligned}
+\]</div>
+</div>
+<p>Assuming that this <strong>force is constant</strong>, the resulting survival probability is calculated as:</p>
+<div class="arithmatex">\[
+    \hat{S}_x(t) = e^{-\hat{\mu}_x \cdot t}
+\]</div>
+<p>Another metric that can be calculated is the <strong>Actuarial Estimate of death</strong> <span class="arithmatex">\((\tilde{q}_{x})\)</span>:</p>
+<div class="arithmatex">\[
+    \tilde{q}_{x} = \frac{d_x}{E^c_x + 0.5 \cdot d_x}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The denominator is also known as the <strong>Initial Exposed to Risk</strong>.</p>
+</div>
+<h3 id="maximum-likelihood-estimation"><strong>Maximum Likelihood Estimation</strong><a class="headerlink" href="#maximum-likelihood-estimation" title="Permanent link">&para;</a></h3>
+<p>Given a distribution for future lifetime, MLE can also be used to estimate the parameters of that distribution via first principles.</p>
+<p>Recall that for a continuous distribution, the PDF is used to form the likelihood function:</p>
+<div class="arithmatex">\[
+    f(x) = {}_{t}p_{x} \cdot \mu_{x+t}
+\]</div>
+<p>All other key concepts from FAM-S apply:</p>
+<ul>
+<li><strong>Joining the study late</strong>: Left Truncated; divide pdf by survival function</li>
+<li><strong>Leaving the study early</strong>: Right Censored; replace PDF with survival function</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most likely, questions of this nature will use the <strong>Gompertz Model</strong>. Thus, <span class="arithmatex">\(\mu\)</span> and <span class="arithmatex">\({}_{t}p_{x}\)</span> can be easily found from the formula sheet.</p>
+</div>
+<h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
+<p>Given that all the above methods are estimates of the survival probability, the estimated values will change depending on the underlying sample.</p>
+<p>Thus, it is important to consider the variance of the estimators as well across various different samples.</p>
+<h3 id="complete-variance"><strong>Complete Variance</strong><a class="headerlink" href="#complete-variance" title="Permanent link">&para;</a></h3>
+<p>Recall that the number of survivors follows a Binomial Distribution. Thus, its variance can be computed using the variance of the binomial distribution:</p>
+<div class="arithmatex">\[
+    Var(\text{Number of Survivors}) = n \cdot {}_{t}p_x \cdot (1-{}_{t}p_x)
+\]</div>
+<p>Thus, the variance of the complete estimator can be easily computed as the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Var(\hat{S}_x(t))
+    &amp;= Var \left(\frac{\text{Number of Survivors}}{n} \right) \\
+    &amp;= \frac{1}{n^2} Var(\text{Number of Survivors}) \\
+    &amp;= \frac{1}{n^2} n \cdot {}_{t}p_x \cdot (1-{}_{t}p_x) \\
+    &amp;= \frac{{}_{t}p_x \cdot (1-{}_{t}p_x)}{n} \\
+\end{aligned}
+\]</div>
+<p>Since the actual survival probability is not known, it is often substituted with the estimate:</p>
+<div class="arithmatex">\[
+    Var(\hat{S}_x(t)) = \frac{\hat{S}_x(t) \cdot (1-\hat{S}_x(t))}{n}
+\]</div>
+<p>Note that the variance of the estimated death probability is <strong>identical</strong> to that of the survival probability:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Var({}_{t}\hat{q}_x)
+    &amp;= Var(1 - \hat{S}_x(t)) \\
+    &amp;= Var(\hat{S}_x(t)) \\
+\end{aligned}
+\]</div>
+<h3 id="incomplete-variance"><strong>Incomplete Variance</strong><a class="headerlink" href="#incomplete-variance" title="Permanent link">&para;</a></h3>
+<p>Due to the complexity of calculating the variance under these methods, the formula for variances are provided in the formula sheets; no further explanations will be provided.</p>
+<p><strong>Kaplan Meier Variance</strong>:</p>
+<div class="arithmatex">\[
+    Var(\hat{S}_x(t)) = (\hat{S}_x(t))^2 \sum \frac{d_j}{r_j (r_j - d_j)}
+\]</div>
+<p><strong>Nelson Aelen Variance</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Var}(H_{x}(t)) &amp;= \sum \frac{d_j (r_j - d_j)}{r^3_j} \\
+    \text{Var}(\hat{S}_x(t)) &amp;= (\hat{S}_x(t))^2 \sum \frac{d_j (r_j - d_j)}{r^3_j}
+\end{aligned}
+\]</div>
+<p>The variance of the cumulative force is technically not provided; but it is simply the second term of the nelson aelen variance.</p>
+<p><strong>Alive Dead Variance</strong>:</p>
+<div class="arithmatex">\[
+    Var(\hat{S}_x(t)) = (\hat{S}_x(t))^2 \cdot \frac{d_x}{\left(E^c_x \right)^2}
+\]</div>
+<p>Unfortunately, this formula is not provided on the formula sheet and hence must be memorized.</p>
+<h3 id="confidence-intervals"><strong>Confidence Intervals</strong><a class="headerlink" href="#confidence-intervals" title="Permanent link">&para;</a></h3>
+<p>Assuming that the estimators follow a normal distribution, a standard <strong>linear confidence interval</strong> can be calculated as the following:</p>
+<div class="arithmatex">\[
+    \hat{S}_x(t) \pm Z_{\frac{1+p}{2}} \sqrt{Var(\hat{S}_x(t))}
+\]</div>
+<p>However, one problem with a linear confidence interval for probabilities is that <strong>upper and lower bound can exceed 0 and 1 respectively</strong>, which is unintuitive.</p>
+<p>Thus, the <strong>log-transformed</strong> confidence interval can be used instead:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Confidence Interval}
+    &amp;= \left(\hat{S}_x(t)^{\frac{1}{U^{S}}}, \hat{S}_x(t)^{U^{S}} \right) \\
+    \\
+    U^{S}
+    &amp;= e^ \frac{Z_{\frac{1+p}{2}} \cdot \sqrt{Var[\hat{S}_x(t)]}}{\hat{S}_x(t) \cdot \ln \hat{S}_x(t)} \\
+    &amp;= \exp \left(\frac{Z_{\frac{1+p}{2}} \cdot \sqrt{Var[\hat{S}_x(t)]}}{\hat{S}_x(t) \cdot \ln \hat{S}_x(t)} \right)
+\end{aligned}
+\]</div>
+<p>Unfortunately, this formula is not provided on the formula sheet and thus <strong>must be memorized</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can also define a log-confidence interval for the cumulative force of mortality:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Confidence Interval}
+    &amp;= \left( \hat{H}_x(t) \cdot \frac{1}{U^{H}}, \hat{H}_x(t) \cdot U^{H} \right) \\
+    \\
+    U^{H} &amp;= \frac{1}{U^{S}}
+\end{aligned}
+\]</div>
+<p>Since both <span class="arithmatex">\(U\)</span>s are related, it is <strong>only necessary to remember the exponent for the survival probability</strong>.</p>
+<p>The key difference is that the survival probabilities use exponents while cumulative forces <strong>use multiplication</strong>.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../7.%20Reserves/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reserves" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Reserves
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../3.%20ASA-ALTAM/1.%20Multi%20Life%20Models/" class="md-footer__link md-footer__link--next" aria-label="Next: Multi Life Models" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Multi Life Models
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

@@ -1,0 +1,1978 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/2.%20Actuarial%20Mathematics/2.%20ASA-FAML/7.%20Reserves/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Reserves - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reserves" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reserves
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0.%20Practical%20Exam%20Tips/" class="md-nav__link">
+        Practical Exam Tips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          ASA-IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" type="checkbox" id="__nav_2_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA-FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA-FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Reserves
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Reserves
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net-premium-reserves" class="md-nav__link">
+    Net Premium Reserves
+  </a>
+  
+    <nav class="md-nav" aria-label="Net Premium Reserves">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shortcuts" class="md-nav__link">
+    Shortcuts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reserve-at-issue" class="md-nav__link">
+    Reserve at Issue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursions" class="md-nav__link">
+    Recursions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interim-reserves" class="md-nav__link">
+    Interim Reserves
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gross-premium-reserves" class="md-nav__link">
+    Gross Premium Reserves
+  </a>
+  
+    <nav class="md-nav" aria-label="Gross Premium Reserves">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#red-herrings" class="md-nav__link">
+    Red Herrings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expense-reserves" class="md-nav__link">
+    Expense Reserves
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modified-net-premium-reserves" class="md-nav__link">
+    Modified Net Premium Reserves
+  </a>
+  
+    <nav class="md-nav" aria-label="Modified Net Premium Reserves">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-approach" class="md-nav__link">
+    General Approach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-preliminary-term" class="md-nav__link">
+    Full Preliminary Term
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          ASA-ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/5.%20Profit%20Analysis/" class="md-nav__link">
+        Profit Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          ASA-SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/1.%20Regression%20Overview/" class="md-nav__link">
+        Regression Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/4.%20Gauss%20Markov%20Theorem/" class="md-nav__link">
+        Gauss Markov Theorem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/5.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          ILA Track
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ILA Track" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          ILA Track
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LFM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-ALM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net-premium-reserves" class="md-nav__link">
+    Net Premium Reserves
+  </a>
+  
+    <nav class="md-nav" aria-label="Net Premium Reserves">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shortcuts" class="md-nav__link">
+    Shortcuts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reserve-at-issue" class="md-nav__link">
+    Reserve at Issue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursions" class="md-nav__link">
+    Recursions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interim-reserves" class="md-nav__link">
+    Interim Reserves
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gross-premium-reserves" class="md-nav__link">
+    Gross Premium Reserves
+  </a>
+  
+    <nav class="md-nav" aria-label="Gross Premium Reserves">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#red-herrings" class="md-nav__link">
+    Red Herrings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expense-reserves" class="md-nav__link">
+    Expense Reserves
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modified-net-premium-reserves" class="md-nav__link">
+    Modified Net Premium Reserves
+  </a>
+  
+    <nav class="md-nav" aria-label="Modified Net Premium Reserves">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-approach" class="md-nav__link">
+    General Approach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-preliminary-term" class="md-nav__link">
+    Full Preliminary Term
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="reserves"><strong>Reserves</strong><a class="headerlink" href="#reserves" title="Permanent link">&para;</a></h1>
+<h2 id="background"><strong>Background</strong><a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
+<p>Most life insurance contracts charge <strong>level premiums</strong> - charging the same amount throughout the lifetime of the policy.</p>
+<p>When the policyholder is young, the probability of death is small, thus the premiums collected are <strong>larger</strong> than the expected outflow in the year, leading to a <strong>surplus</strong>.</p>
+<p>When the policyholder is older, the probability of death is high, thus the premiums collected are <strong>smaller</strong> than the expected outflow in the year, leading to a <strong>deficit</strong>.</p>
+<p>Given the inevitable deficit, the surplus in the earlier years cannot be recognized as a profit and are instead <strong>pooled together and safely invested</strong> into an account, from which the deficit in later years will draw from.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is a common misconception to think that each policy has its own account. Following this logic, the insurer would not have enough funds to pay an insured who dies shortly after death.</p>
+</div>
+<p>In order to determine the adequacy of the account, insurers will calculate the <strong>size of the expected loss</strong> of ALL policies and compare it against the (hopefully larger) account value.</p>
+<p>The expected loss is known as the <strong>Reserve</strong> of the policy because it represents an amount inside the pooled account that is <em>reserved</em> for paying the benefits of the policy.</p>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>There are two approaches to calculate the reserves:</p>
+<ul>
+<li><strong>Prospective Approach</strong> - Based on Present Values of <em>future</em> cashflows</li>
+<li><strong>Retrospective Approach</strong> - Based on Future Values of past cashflows (Not covered)</li>
+</ul>
+<p>Similar to premiums, there are also two types of reserves, depending on what cashflows are being considered:</p>
+<ul>
+<li><strong>Net Premium Reserves</strong> - Net Premiums and Benefits</li>
+<li><strong>Gross Premium Reserves</strong> - Gross Premiums, Benefits and Expenses</li>
+</ul>
+<p>This exam typically assumes that reserves are calculated at the <strong>end of the policy year</strong>:</p>
+<ul>
+<li><strong>AFTER any year end cashflows</strong> from the current year (Claims &amp; Claim Expenses)</li>
+<li><strong>BEFORE any beginning of year cashflows</strong> from the next period (Premiums &amp; Renewal Expenses)</li>
+</ul>
+<p>For the purposes of this exam, only the prospective approach is covered. Similar to premiums, we will only define formulas for the <strong>Net Premium Reserves</strong>. </p>
+<h2 id="net-premium-reserves"><strong>Net Premium Reserves</strong><a class="headerlink" href="#net-premium-reserves" title="Permanent link">&para;</a></h2>
+<p>The prospective approach calculates the reserves as the <strong>expected value of the loss variable</strong>.</p>
+<p>Let <span class="arithmatex">\({}_{t}V\)</span> represent the reserve calculated at the <strong>end of policy year <span class="arithmatex">\(t\)</span></strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}L_{x} &amp;= B \cdot v^{K_{x+t} + 1} - P \cdot \ddot{a}_{\enclose{actuarial}{K_{x+t} + 1}} \\
+    \\
+    {}_{t}V
+    &amp;= E({}_{t}L_{x}) \\
+    &amp;= E \left(B \cdot v^{K_{x+t} + 1} - P \cdot \ddot{a}_{\enclose{actuarial}{K_{x+t} + 1}} \right) \\
+    &amp;= B \cdot E \left(v^{K_{x+t} + 1} \right) - P \cdot E \left(\ddot{a}_{\enclose{actuarial}{K_{x+t} + 1}} \right) \\
+    &amp;= B \cdot A_{x+t} - P \cdot \ddot{a}_{x+t}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Both premiums and reserves use the loss variable. Premiums use the <strong>loss variable at issue</strong> <span class="arithmatex">\(({}_{0}L_{x})\)</span> while reserves use the <strong>general loss variable</strong> <span class="arithmatex">\(({}_{t}L_{x})\)</span>.</p>
+<p>Premiums consider the loss variable at the <strong>start of the policy year</strong> <span class="arithmatex">\(({}_{t-1}L_{x})\)</span> while reserves typically use the <strong>end of the policy year</strong> <span class="arithmatex">\(({}_{t}L_{x})\)</span>.</p>
+<p>Both are equivalent ways of referring to the loss variable as the start of the current year is the end of the previous year.</p>
+<p>Reserve questions can also ask for the reserve at the <em>start of the policy year</em>, so be sure to read the question very carefully.</p>
+</div>
+<!-- Self Made -->
+<p><img alt="Reserve Timing" class="center" src="../Assets/7.%20Reserves.md/Reserve%20Timing.png" /></p>
+<p>Based on this, the reserves can be intepreted as the <strong>expected addittional amount</strong> on top of premiums to cover claims from that point on.</p>
+<p>As its name suggests, the prospective approach <strong>only considers prospective (future) cashflows</strong>. Thus, for <strong>single premium or deferred products</strong>, since the premium was paid in the past, the reserve <strong>only contains the benefit</strong>. </p>
+<h3 id="shortcuts"><strong>Shortcuts</strong><a class="headerlink" href="#shortcuts" title="Permanent link">&para;</a></h3>
+<p>Net premium reserves can be <strong>simplified</strong> into an expression involving ONLY the following, which allows it to be easily calculated in situations where <strong>limited information</strong> is provided:</p>
+<ol>
+<li>Annuities only</li>
+<li>Assurances only</li>
+<li>Annuities and Premiums</li>
+<li>Assurance and Premiums</li>
+</ol>
+<p><strong>Case 1: Annuities Only</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}V
+    &amp;= A_{x+t} - P_{x} \ddot{a}_{x+t} \\
+    &amp;= A_{x+t} - \frac{A_x}{\ddot{a}_x} \cdot \ddot{a}_{x+t} \\
+    &amp;= (1-d\ddot{a}_{x+t}) - \frac{1-d\ddot{a}_{x}}{\ddot{a}_{x}} \cdot \ddot{a}_{x+t} \\
+    &amp;= 1-d\ddot{a}_{x+t} - \left (\frac{1}{\ddot{a}_x}-d \right) \cdot \ddot{a}_{x+t} \\
+    &amp;= 1-d\ddot{a}_{x+t} - \frac{\ddot{a}_{x+t}}{\ddot{a}_x} + d\ddot{a}_{x+t} \\
+    &amp;= 1 - \frac{\ddot{a}_{x+t}}{\ddot{a}_x}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="arithmatex">\(P_{x}\)</span> is used to denote the net premium for a policy that was <strong>purchased at age <span class="arithmatex">\(x\)</span></strong>.</p>
+</div>
+<p><strong>Case 2: Assurances Only</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t-1}V
+    &amp;= A_{x+t} - P_{x} \ddot{a}_{x+t} \\
+    &amp;= A_{x+t} - \frac{A_x}{\ddot{a}_x} \cdot \ddot{a}_{x+t} \\
+    &amp;= A_{x+t} - \frac{A_x}{\frac{1-A_x}{d}} \cdot \frac{1-A_{x+t}}{d} \\
+    &amp;= A_{x+t} - \frac{A_x}{1-A_x} \cdot (1-A_{x+t}) \\
+    &amp;= \frac{A_{x+t} \cdot (1-A_{x}) - A_x(1-A_{x+t})}{1-A_x} \\
+    &amp;= \frac{A_{x+t} - A_{x}A_{x+t} - A_x + A_x A_{x+t}}{1-A_x} \\
+    &amp;= \frac{A_{x+t} - A_{x}}{1 - A_{x}}
+\end{aligned}
+\]</div>
+<p><strong>Case 3: Annuities &amp; Premiums</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}V
+    &amp;= A_{x+t} - P_x \cdot \ddot{a}_{x+t} \\
+    &amp;= \ddot{a}_{x+t} \cdot \left(\frac{A_{x+t}}{\ddot{a}_{x+t}} - P_{x} \right) \\
+    &amp;= \ddot{a}_{x+t} \cdot \left(P_{x+t} - P_{x} \right)
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that the reserves at time <span class="arithmatex">\(t\)</span> and a newly issued policy at time <span class="arithmatex">\(x+t\)</span> both use the <strong>same loss variable</strong> <span class="arithmatex">\({}_{t}L_{x}\)</span>.</p>
+<p>This is why the expressions contain <span class="arithmatex">\(P_{x+t}\)</span>, which is the premium for this newly issued policy.</p>
+</div>
+<p><strong>Case 4: Assurances &amp; Premiums</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}V
+    &amp;= A_{x+t} - P_x \cdot \ddot{a}_{x+t} \\
+    &amp;= A_{x+t} \left(1 - P_x \cdot \frac{\ddot{a}_{x+t}}{A_{x+t}} \right) \\
+    &amp;= A_{x+t} \left(1 - P_x \cdot \frac{1}{\frac{A_{x+t}}{\ddot{a}_{x+t}}} \right) \\
+    &amp;= A_{x+t} \left(1 - \frac{P_x}{P_{x+t}} \right)
+\end{aligned}
+\]</div>
+<h3 id="reserve-at-issue"><strong>Reserve at Issue</strong><a class="headerlink" href="#reserve-at-issue" title="Permanent link">&para;</a></h3>
+<p>As alluded to earlier, the calculation of reserves and premiums are similar, which makes it <strong>easy to mix them up</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Premiums</th>
+<th align="center">Reserves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Loss at issue <span class="arithmatex">\({}_{0}L_{x}\)</span></td>
+<td align="center">General Loss <span class="arithmatex">\({}_{t}L_{x}\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(E(L)\)</span> set at 0</td>
+<td align="center"><span class="arithmatex">\(E(L)\)</span> is the target</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(P\)</span> is the target</td>
+<td align="center"><span class="arithmatex">\(P\)</span> is given</td>
+</tr>
+<tr>
+<td align="center">Calculated at age <span class="arithmatex">\(x\)</span></td>
+<td align="center">Calculated at age <span class="arithmatex">\(x+t\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have implicitly assumed that premiums are calculated using the equivalence principle.</p>
+<p>For the purposes of the exam, do NOT assume so <strong>unless explicitly stated</strong>.</p>
+</div>
+<p>Putting both together, the <strong>reserve at the start of the policy</strong> will be calculated using the <strong>loss at issue</strong> at variable. If premiums are calculated using the <strong>equivalence principle</strong>, then the expectation of the loss at issue will always be 0.</p>
+<p>Thus, the reserve at the start of the policy is <strong>always 0</strong>. This is intuitive, as premiums (using the equivalence principle) are set such that they expect to <strong>exactly cover</strong> the losses of the policy at issue.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{0}V
+    &amp;= E({}_{0}L_{x}) \\
+    &amp;= 0
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This can be generalized -- If the <strong>reserves are zero</strong> in a particular year, then the equivalence principle can be applied at that timing:</p>
+<div class="arithmatex">\[
+    \text{EPV Inflow} = \text{EPV Outflow}
+\]</div>
+<p>This applies to both net and gross premium reserves.</p>
+</div>
+<h3 id="recursions"><strong>Recursions</strong><a class="headerlink" href="#recursions" title="Permanent link">&para;</a></h3>
+<p>Following the same logic as assurances and annuities, net premium reserves can also be recursively expressed as a function of itself:</p>
+<ul>
+<li>If the <strong>policyholder dies</strong>, the insurer <strong>pays a benefit of 1</strong> at the end of the year</li>
+<li>If the <strong>policyholder survives</strong>, the insurer <strong>keeps a reserve</strong> at the end of the year</li>
+<li><strong>Regardless</strong>, Premiums have already been received at the start of the year</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}V
+    &amp;=
+    - P +
+    \begin{cases}
+        v \cdot 1, &amp; q_{x+t} \\
+        v \cdot {}_{t+1}V, &amp; p_{x+t}
+    \end{cases} \\
+    \\
+    \therefore
+    {}_{t}V
+    &amp;= - P + q_{x+t} \cdot v + p_{x+t} \cdot v \cdot {}_{t+1}V
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Since the reserve at time 0 is always 0, recursion can be used to easily calculate the <strong>reserves at time 1 or time 2</strong>.</p>
+</div>
+<h3 id="interim-reserves"><strong>Interim Reserves</strong><a class="headerlink" href="#interim-reserves" title="Permanent link">&para;</a></h3>
+<p>Since reserves can be calculated at any point in time, they can also be calculated as at a <strong>fractional age</strong>. They are then known as the <strong>Interim Reserves</strong>.</p>
+<p>Similar to EPVs, it can be calculated via recursion:</p>
+<ul>
+<li>If the <strong>policyholder dies within <span class="arithmatex">\(s\)</span></strong>, then the <strong>benefit is paid the end of the year</strong></li>
+<li>If the <strong>policy survives <span class="arithmatex">\(s\)</span></strong>, then a <strong>reserve is set up at that time</strong></li>
+<li><strong>Regardless</strong>, Premiums have already been received at the start of the year</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}V
+    &amp;= -P +
+    \begin{cases}
+        v \cdot 1 ,&amp; {}_{s}q_{x+t} \\
+        v^s \cdot {}_{t+s}V ,&amp; {}_{s}p_{x+t}
+    \end{cases} \\
+    \\
+    \therefore {}_{t}V
+    &amp;= -P + v \cdot q_{x+t} + v^s \cdot p_{x+t} \cdot {}_{t+s}V
+\end{aligned}
+\]</div>
+<p>The key difference is that the two events now happen at seperate times, which changes the <strong>extent that they are discounted</strong>. The benefit is paid at the <strong>end of the year</strong> <span class="arithmatex">\((x+1)\)</span> while the interim reserve is set up <strong>upon survival</strong> <span class="arithmatex">\((x+s)\)</span>. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the policy is not discrete, the timing and hence discounting factor MUST be changed accordingly.</p>
+</div>
+<p>The interim reserve itself can also be <strong>directly recursed</strong> upon:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t+s}V
+    &amp;=
+    \begin{cases}
+        v^{1-s} \cdot 1 ,&amp; {}_{1-s}q_{x+t+s} \\
+        v^{1-s} \cdot {}_{t+1}V ,&amp; {}_{1-s}p_{x+t+s}
+    \end{cases} \\
+    \\
+    \therefore {}_{t+s}V
+    &amp;= v^{1-s} \cdot {}_{1-s}q_{x+t+s} + v^{1-s} \cdot {}_{1-s}p_{x+t+s} \cdot {}_{t+s}V
+\end{aligned}
+\]</div>
+<p>They key difference is that since there are <strong>no premium payments</strong> between the interim reserve and the next discrete reserve (since reserves are calculated before premiums). </p>
+<p>The discounting factor has also been flipped because we are discounting <strong>from the discrete reserve to the interim</strong>, unlike previously where it was the interim to the discrete.</p>
+<h2 id="gross-premium-reserves"><strong>Gross Premium Reserves</strong><a class="headerlink" href="#gross-premium-reserves" title="Permanent link">&para;</a></h2>
+<p>The main difference is that Gross reserves use <strong>Gross Premiums and include expenses</strong> in the calculation.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to include other cashflows (EG. Profit Margin) in the gross reserve calculations because they included in the gross premium calculations.</p>
+<p>Remember that gross reserves ONLY contain the above three components. This is intuitive, as reserves should only be to meet <strong>essential cashflows</strong>.</p>
+</div>
+<p>This leads to an interesting result because the cashflows used for premiums and reserves are different:</p>
+<ul>
+<li><strong>Premium Cashflows</strong>: Benefit, Expenses &amp; Others (EG. Profit Margin)</li>
+<li><strong>Reserve Cashflows</strong>: Benefit, Expenses</li>
+</ul>
+<p>The gross premiums include <strong>additional provisions for other cashflows which are not considered in the reserve</strong> calculation. This means that the gross premiums are always <strong>more than enough</strong> to cover expected benefits and reserves <strong>at time 0</strong>, leading to a <strong>negative reserve</strong>:</p>
+<div class="arithmatex">\[
+    {}_{0}V^{\text{Gross}} \le 0
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the gross premiums are calculated using <strong>ONLY benefits and expenses</strong>, then the Gross Reserves are 0:</p>
+<div class="arithmatex">\[
+    {}_{0}V^{\text{Gross}} = 0
+\]</div>
+</div>
+<p>Gross premium reserves are very similar to net premium ones, with just the <strong>inclusion of expenses</strong> that are paid at the beginning of the year:</p>
+<div class="arithmatex">\[
+    {}_{t}V^{\text{Gross}}
+    = (e_t - G) + q_{x+t} \cdot v + p_{x+t} \cdot v \cdot {}_{t+1}V^{\text{Gross}}
+\]</div>
+<h3 id="red-herrings"><strong>Red Herrings</strong><a class="headerlink" href="#red-herrings" title="Permanent link">&para;</a></h3>
+<p>Due to the difference in components for Gross Premiums and Gross Reserves, questions may sometimes provide <strong>more information than required</strong> to trick us into using the wrong cashflows for gross reserves.</p>
+<p>For instance, questions may sometimes provide the acquisition epxenses or profit margin, which are not needed for gross reserves.</p>
+<p>Another red herring would be when the <strong>question provides a premium</strong> (known as the <strong>Office Premium</strong>) and provides the components to calculate the gross premium.</p>
+<p>The office premium is assumed to be the gross premium unless explicitly stated otherwise and should be used in the reserve calculation. There is <strong>no need to be recalculate the gross premium</strong>.</p>
+<p>The reverse is also possible, where <strong>gross premiums are provided</strong> but the question actually requires us to calculate net premiums, which can cause us to mistakenly use the gross premium instead.</p>
+<h3 id="expense-reserves"><strong>Expense Reserves</strong><a class="headerlink" href="#expense-reserves" title="Permanent link">&para;</a></h3>
+<p>Similar to expense loadings, we can define a <strong>reserve for just the expenses</strong>, known as the Expense Reserves.</p>
+<p>It can be determined from <strong>first principles</strong> using the expense loadings or <strong>intuitively</strong> as the difference between the gross and net reserves:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}V^{\text{Expense}}
+    &amp;= \text{EPV(Expenses)} - \text{EPV(Expense Premium)} \\
+    &amp;= {}_{t}V^{\text{Gross}} - {}_{t}V^{\text{Net}}
+\end{aligned}
+\]</div>
+<p>If calculated via the equivalence principle, the expense reserve is <strong>0 at time 0</strong>. However, the expense reserve is typically <strong>negative for all other years</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{0}V^{\text{Expense}} &amp;= 0 \\
+    {}_{t}V^{\text{Expense}} &amp;\lt 0 \\
+\end{aligned}
+\]</div>
+<p>This is because acquisition expenses are usually significantly higher than renewal expenses. This means that the <strong>expense loading is usually between the two</strong>:</p>
+<div class="arithmatex">\[
+    e_{t} \lt G^{E} \lt e_{0}
+\]</div>
+<p>This means that there this is an <strong>ACTUAL positive loss</strong> in the first year, as the expense loading is <strong>insufficient</strong> to cover the acquisition expenses. This loss is known as the <strong>New Business Strain</strong>.</p>
+<p>On the flipside, this means that the <strong>expense premiums are higher than the renewal expenses</strong> in all other years, making a negative loss (profit) to recover the new business strain.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This is also known as the <strong>Deferred Acquisition Costs</strong> (DAC), as the recovery of the acquisition expenses are deferre to all future years.</p>
+</div>
+<p>On an EPV basis, this means that at the end of year 1, all future expense loadings are larger than the future renewal premiums, resulting in a <strong>negative expense reserve</strong> from that time on:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{EPV(Expense Loading)} &amp;\gt \text{EPV(Renewal Expense)} \\
+    {}_{t}V^{\text{Expense}} &amp;&lt; 0
+\end{aligned}
+\]</div>
+<h2 id="modified-net-premium-reserves"><strong>Modified Net Premium Reserves</strong><a class="headerlink" href="#modified-net-premium-reserves" title="Permanent link">&para;</a></h2>
+<p>Net Premium Reserves are used in the US due to its simplicity, but at the cost of some accuracy loss. In particular, net premium reserves tend to be <strong>higher than gross premium reserves</strong>.</p>
+<p>This is due to the <strong>negative expense reserves</strong>, as the excess expense premiums help to <strong>offset some of the future benefits</strong> as well. Since net premiums reserves do not recognize expenses, they do not have this benefit!</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}V^{\text{Net}} &amp;= {}_{t}V^{\text{Gross}} + \underbrace{{}_{t}V^{\text{Expense}}}_{\text{-ve}} \\
+    {}_{t}V^{\text{Net}} &amp;\gt {}_{t}V^{\text{Gross}}
+\end{aligned}
+\]</div>
+<p>This means that insurers are holding <strong>too much reserves</strong> under this valuation basis. This is problematic because reserves can only be invested in low risk assets, which typically have lower returns relative to what the capital would have usually be invested in. This incurs an <strong>opportunity cost in investment income</strong>.</p>
+<p>To account for this, US regulators allow for insurers to use a <strong>modified net premium reserve</strong> instead that <strong>implicitly</strong> accounts for expenses (resulting in a <strong>smaller reserve</strong>) while <strong>retaining the simplicity</strong> of a net premium approach.</p>
+<h3 id="general-approach"><strong>General Approach</strong><a class="headerlink" href="#general-approach" title="Permanent link">&para;</a></h3>
+<p>Most methods of calculating modified reserves involve using <strong>non-level modified premiums</strong> to calculate the reserves.</p>
+<p>They typically consist of multiple components, where the premiums in the <strong>early years</strong> are smaller than <span class="arithmatex">\(P\)</span> while the premiums in the <strong>later years</strong> are larger than <span class="arithmatex">\(P\)</span>.</p>
+<div class="arithmatex">\[
+    P^{\text{Early}} \lt P \lt P^{\text{Later}}
+\]</div>
+<p>Regardless of the number of components, the EPV of all components must be <strong>equal to the EPV of the original</strong> level net premium:</p>
+<div class="arithmatex">\[
+    \text{EPV Non Level Components} = \text{EPV Level Net Premium}
+\]</div>
+<p>In the later years, this allows the insurer to <strong>recognise more premiums</strong>, resulting in a smaller reserve, allowing the insurer to use their capital more productively.</p>
+<div class="arithmatex">\[
+    {}_{t}V^{\text{Modified}} &lt; {}_{t}V^{\text{Net}}
+\]</div>
+<h3 id="full-preliminary-term"><strong>Full Preliminary Term</strong><a class="headerlink" href="#full-preliminary-term" title="Permanent link">&para;</a></h3>
+<p>In the US, the modified premiums are calculated using the <strong>Full Preliminary Term</strong> (FPT) method.</p>
+<p>Premiums are split into <strong>two components</strong>:</p>
+<ul>
+<li><strong>First Year Premiums</strong>, <span class="arithmatex">\(\alpha\)</span></li>
+<li><strong>Subsequent Premiums</strong>, <span class="arithmatex">\(\beta\)</span></li>
+</ul>
+<p>The policy can be thought of as being split into two components:</p>
+<ul>
+<li><strong>One year TA</strong> with <strong>single premiums</strong> of <span class="arithmatex">\(\alpha\)</span></li>
+<li>The original policy issued <strong>one year later with one less year of coverage</strong> with <strong>regular premiums</strong> of <span class="arithmatex">\(\beta\)</span></li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The first year premiums are sometimes referred to as the <strong>Net Cost of Insurance</strong> in the year.</p>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{0}V^{\text{FPT}} &amp;= 0 \\
+    \alpha &amp;= A^{1}_{x:\enclose{actuarial}{n}}\\
+    \\
+    {}_{1}V^{\text{FPT}} &amp;= 0 \\
+    A_{x+1} - \beta \ddot{a}_{x+1} &amp;= 0 \\
+    \beta &amp;= \frac{A_{x+1}}{\ddot{a}_{x+1}}
+\end{aligned}
+\]</div>
+<p>The modified reserves at <strong>all later times</strong> follows the same formula as before, simply using <span class="arithmatex">\(\beta\)</span> instead:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}V^{\text{FPT}}
+    &amp;=
+    \begin{cases}
+        0, &amp; t = 0 \\
+        0, &amp; t = 1 \\
+        A_{x+t} - \beta \ddot{a}_{x+t}, &amp; t &gt; 1
+    \end{cases}
+\end{aligned}
+\]</div>
+<p>The FPT reserves (third component) can be intepreted as the <strong>net premium reserves</strong> for a policy that was issues <strong>one year later with one less year of coverage</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \therefore {}_{t}V^{\text{FPT}}
+    &amp;= {}_{t-1}V^{\text{Net}}_{\text{One year later, one less year}} \\
+    &amp;= B \cdot A_{x+(t-1)} - P_{x+1} \cdot A_{x+(t-1)}
+\end{aligned}
+\]</div>
+<p>Since this is a net premium, the <strong>shortcuts</strong> earlier can be used to quickly calculate the reserve if the policy is <strong>WL</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When select and ultimate mortality is involved, the <strong>select age does not change</strong>.</p>
+<p>In other words, under FPT, the policyholder is selected at age <span class="arithmatex">\([x]\)</span> but purchases the policy one year later <span class="arithmatex">\([x]+1\)</span>.</p>
+<p>It is a common mistake to take the select age as <span class="arithmatex">\([x+1]\)</span>, since the policy was issued one year later. However, the policy is <em>not actually</em> issued one year later; the policyholders mortality still follows that of being selected at their original age.</p>
+</div>
+<p>If the policy is an EA or TA, then the <strong>one less year of coverage</strong> must be accounted for:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \therefore {}_{t}V^{\text{FPT}}
+    &amp;= B \cdot A_{x+(t-1):\enclose{actuarial}{n-1}} - P_{x+1:\enclose{actuarial}{n-1}} \cdot A_{x+(t-1):\enclose{actuarial}{n-1}}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>one less year of coverage</strong> also applies to <strong>limited pay</strong> WL policies:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \therefore {}_{t}V^{\text{FPT}}
+    &amp;= B \cdot A_{x+(t-1)} - P_{x+1:\enclose{actuarial}{n-1}} \cdot A_{x+(t-1)}
+\end{aligned}
+\]</div>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../6.%20Premiums/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Premiums" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Premiums
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../8.%20Model%20Estimation/" class="md-footer__link md-footer__link--next" aria-label="Next: Model Estimation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Model Estimation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

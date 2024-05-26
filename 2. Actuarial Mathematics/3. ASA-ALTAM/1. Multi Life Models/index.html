@@ -1,0 +1,2741 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/2.%20Actuarial%20Mathematics/3.%20ASA-ALTAM/1.%20Multi%20Life%20Models/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Multi Life Models - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multiple-life-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multi Life Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0.%20Practical%20Exam%20Tips/" class="md-nav__link">
+        Practical Exam Tips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          ASA-IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" type="checkbox" id="__nav_2_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA-FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20ASA-FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA-FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          ASA-ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Multi Life Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Multi Life Models
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-life-status" class="md-nav__link">
+    Multi Life Status
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi Life Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#joint-life-status" class="md-nav__link">
+    Joint Life Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#last-survivor-status" class="md-nav__link">
+    Last Survivor Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probability" class="md-nav__link">
+    Probability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moments" class="md-nav__link">
+    Moments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship" class="md-nav__link">
+    Relationship
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contingent-events" class="md-nav__link">
+    Contingent Events
+  </a>
+  
+    <nav class="md-nav" aria-label="Contingent Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-to-die" class="md-nav__link">
+    First to Die
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#last-to-die" class="md-nav__link">
+    Last to Die
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deferred-probability" class="md-nav__link">
+    Deferred Probability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship_1" class="md-nav__link">
+    Relationship
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-shock" class="md-nav__link">
+    Common Shock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insurance-applications" class="md-nav__link">
+    Insurance Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Insurance Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-assurances" class="md-nav__link">
+    Multi Assurances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-annuities" class="md-nav__link">
+    Multi Annuities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contingent-assurance" class="md-nav__link">
+    Contingent Assurance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contingent-annuity" class="md-nav__link">
+    Contingent Annuity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-case" class="md-nav__link">
+    Continuous Case
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-tips" class="md-nav__link">
+    Practical Tips
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Profit%20Analysis/" class="md-nav__link">
+        Profit Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          ASA-SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/1.%20Regression%20Overview/" class="md-nav__link">
+        Regression Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/4.%20Gauss%20Markov%20Theorem/" class="md-nav__link">
+        Gauss Markov Theorem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/5.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          ILA Track
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ILA Track" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          ILA Track
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LFM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-ALM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-life-status" class="md-nav__link">
+    Multi Life Status
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi Life Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#joint-life-status" class="md-nav__link">
+    Joint Life Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#last-survivor-status" class="md-nav__link">
+    Last Survivor Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probability" class="md-nav__link">
+    Probability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moments" class="md-nav__link">
+    Moments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship" class="md-nav__link">
+    Relationship
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contingent-events" class="md-nav__link">
+    Contingent Events
+  </a>
+  
+    <nav class="md-nav" aria-label="Contingent Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-to-die" class="md-nav__link">
+    First to Die
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#last-to-die" class="md-nav__link">
+    Last to Die
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deferred-probability" class="md-nav__link">
+    Deferred Probability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship_1" class="md-nav__link">
+    Relationship
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-shock" class="md-nav__link">
+    Common Shock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insurance-applications" class="md-nav__link">
+    Insurance Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Insurance Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-assurances" class="md-nav__link">
+    Multi Assurances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-annuities" class="md-nav__link">
+    Multi Annuities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contingent-assurance" class="md-nav__link">
+    Contingent Assurance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contingent-annuity" class="md-nav__link">
+    Contingent Annuity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-case" class="md-nav__link">
+    Continuous Case
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-tips" class="md-nav__link">
+    Practical Tips
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="multiple-life-model"><strong>Multiple Life Model</strong><a class="headerlink" href="#multiple-life-model" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>In FAM-L, the survival model focused on the future lifetime of an individual, used to model insurance on a single life.</p>
+<p>In practice, it is possible to have an insurance on <strong>multiple lives</strong>, thus the survival model must be <strong>extended</strong> to model such insurance contracts.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>All the concepts and notation from the base survival model also apply to a multi-life setting.</p>
+</div>
+<p>For the purposes of <strong>simplicity</strong>, unless explicitly stated otherwise, there are <strong>two assumptions</strong> to be made:</p>
+<ul>
+<li>Only <strong>two lives</strong> with life status <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span></li>
+<li>Lives are <strong>independent</strong></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The concepts taught in this section can be applied to more than just a pair of lives. Thus, questions may (uncommonly) provide a situation with 3 or more lives.</p>
+</div>
+<h2 id="multi-life-status"><strong>Multi Life Status</strong><a class="headerlink" href="#multi-life-status" title="Permanent link">&para;</a></h2>
+<p>In FAM-L, we only considered policies that covered a <strong>single life</strong>. In ALTAM, more complex policies that are <strong>contingent on multiple lives</strong> will be covered:</p>
+<ul>
+<li>Life Insurance which pays a benefit on the first death of the couple</li>
+<li>Annuities which pays benefits until the last of the beneficiaries have died</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is important to have a strong understanding of the concept of <strong>Status</strong> that was introduced in FAM-L. Please refer to the <a href="../../2.%20ASA-FAML/3.%20Life%20Assurances/#actuarial-notation">corresponding section</a> for a quick refresher.</p>
+</div>
+<p>In order to track when these benefits should be paid, a <strong>multiple life status</strong> is used. For the purposes of this exam, only the following two are considered:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Joint Life Status</strong></th>
+<th align="center"><strong>Last Survivor Status</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Active as long as <strong>ALL are alive</strong></td>
+<td align="center">Active as long as <strong>at least one is alive</strong></td>
+</tr>
+<tr>
+<td align="center">Fails when the <strong>first person dies</strong></td>
+<td align="center">Fails when the <strong>last person dies</strong></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(x:y\)</span></td>
+<td align="center"><span class="arithmatex">\(\overline{x:y}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The names of the statuses are <strong>intuitive</strong> -- they directly describe the condition which the statuses are active.</p>
+<p>Alternatively, they can also be remembered via the <strong>Logic Gates</strong>:</p>
+<ul>
+<li><strong>Joint Life Status</strong>: AND Logic; fails when <strong>at least one fails</strong></li>
+<li><strong>Last Survivor Status</strong>: OR Logic; fails only when <strong>both fails</strong></li>
+</ul>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>A or B</strong></th>
+<th align="center"><strong>A and B</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">At least one dies by time <span class="arithmatex">\(t\)</span></td>
+<td align="center">Both die by time <span class="arithmatex">\(t\)</span></td>
+</tr>
+<tr>
+<td align="center">Joint life status fails</td>
+<td align="center">Last survivor status fails</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p><!-- Obtained from Arithmatic -->
+<img alt="Logic Gates" class="center" src="../Assets/1.%20Multi%20Life%20Models.md/Logic%20Gates.png" /></p>
+</div>
+<p>Note that this is conceptually different from having multiple statuses. Although there are two lives, they are considered together as having <strong>one life status</strong>.</p>
+<h3 id="joint-life-status"><strong>Joint Life Status</strong><a class="headerlink" href="#joint-life-status" title="Permanent link">&para;</a></h3>
+<p>A <strong>Joint Life</strong> Status fails when the first person dies, thus the future lifetime of the entity is the <strong>smaller</strong> of the two: </p>
+<div class="arithmatex">\[
+    T_{x:y} = \min (T_{x}, T_{y})
+\]</div>
+<p>The probability of survival is easy to compute as there is only <strong>one case</strong> to consider -- for the smallest to be above <span class="arithmatex">\(t\)</span>, <strong>ALL must be ABOVE</strong> <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p_{x:y}
+    &amp;= P(T_{x:y} \gt t) \\
+    &amp;= P(\min (T_{x}, T_{y}) \gt t) \\
+    &amp;= P(T_{x} \gt t, T_{y} \gt t) \\
+    &amp;= P(T_{x} \gt t) \cdot  P(T_{y} \gt t), \text{Independence} \\
+    &amp;= {}_{t}p_{x} \cdot {}_{t}p_{y}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The multiplication rule still applies in a joint life context, but note the <strong>difference in notation</strong>:</p>
+<div class="arithmatex">\[
+    {}_{t+u}p_{x:y} = {}_{t}p_{x:y} \cdot {}_{u}p_{x+t:y+t}
+\]</div>
+</div>
+<p>Conversely, the probability of failing has <strong>multiple cases</strong> to consider:</p>
+<ul>
+<li><span class="arithmatex">\(x\)</span> dies before <span class="arithmatex">\(y\)</span></li>
+<li><span class="arithmatex">\(y\)</span> dies before <span class="arithmatex">\(x\)</span></li>
+<li>Both die before <span class="arithmatex">\(t\)</span></li>
+</ul>
+<p>Although is can still be computed from first principles, it is much easier to simpler calculate it as the <strong>complement of the survival probability</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}q_{x:y}
+    &amp;= P(T_{x:y} \lt t) \\
+    &amp;= P(\min (T_{x}, T_{y}) \lt t) \\
+    &amp;= ... \\
+    \\
+    {}_{t}q_{x:y}
+    &amp;= 1 - {}_{t}p_{x:y} \\
+    &amp;= 1 - {}_{t}p_{x} \cdot {}_{t}p_{y} \\
+    &amp;= 1 - (1 - {}_{t}q_{x}) \cdot (1 - {}_{t}q_{y}) \\
+    &amp;= 1 - (1 - {}_{t}q_{y} - {}_{t}q_{x} + {}_{t}q_{x} \cdot {}_{t}q_{y}) \\
+    &amp;= {}_{t}q_{y} + {}_{t}q_{x} - {}_{t}q_{x} \cdot {}_{t}q_{y}
+\end{aligned}
+\]</div>
+<p>Thus, for questions involving joint life statuses, <strong>ALWAYS start with the survival probability</strong>!</p>
+<h3 id="last-survivor-status"><strong>Last Survivor Status</strong><a class="headerlink" href="#last-survivor-status" title="Permanent link">&para;</a></h3>
+<p>A <strong>Last Survivor</strong> life status fails when the last person dies, thus the future lifetime of the entity is the <strong>larger</strong> of the two:</p>
+<div class="arithmatex">\[
+    T_{\overline{x:y}} = \max (T_{x}, T_{y})
+\]</div>
+<p>The probability of death is easy to compute as there is only <strong>one case</strong> to consider -- for the largest to be below <span class="arithmatex">\(t\)</span>, <strong>ALL must be BELOW</strong> <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}q_{\overline{x:y}}
+    &amp;= P(T_{\overline{x:y}} \lt t) \\
+    &amp;= P(\max (T_{x}, T_{y}) \lt t) \\
+    &amp;= P(T_{x} \lt t, T_{y} \lt t) \\
+    &amp;= P(T_{x} \lt t) \cdot  P(T_{y} \lt t), \text{Independence} \\
+    &amp;= {}_{t}q_{x} \cdot {}_{t}q_{y}
+\end{aligned}
+\]</div>
+<p>Conversely, the probability of survival has <strong>multiple cases</strong> to consider:</p>
+<ul>
+<li><span class="arithmatex">\(x\)</span> survives longer than <span class="arithmatex">\(y\)</span></li>
+<li><span class="arithmatex">\(y\)</span> survives longer than <span class="arithmatex">\(x\)</span></li>
+<li>Both survive past <span class="arithmatex">\(t\)</span></li>
+</ul>
+<p>Although is can still be computed from first principles, it is much easier to simpler calculate it as the <strong>complement of the failure probability</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p_{\overline{x:y}}
+    &amp;= P(T_{\overline{x:y}} \gt t) \\
+    &amp;= P(\max (T_{x}, T_{y}) \gt t) \\
+    &amp;= ... \\
+    \\
+    {}_{t}p_{\overline{x:y}}
+    &amp;= 1 - {}_{t}q_{\overline{x:y}} \\
+    &amp;= 1 - {}_{t}q_{x} \cdot {}_{t}q_{y} \\
+    &amp;= 1 - (1 - {}_{t}p_{x}) \cdot (1 - {}_{t}p_{y}) \\
+    &amp;= 1 - (1 - {}_{t}p_{y} - {}_{t}p_{x} + {}_{t}p_{x} \cdot {}_{t}p_{y}) \\
+    &amp;= {}_{t}p_{y} + {}_{t}p_{x} - {}_{t}p_{x} \cdot {}_{t}p_{y}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The multiplication rule <strong>DOES NOT</strong> apply in a last survivor context!</p>
+<div class="arithmatex">\[
+    {}_{t+u}p_{\overline{x:y}} \ne {}_{t}p_{\overline{x:y}} \cdot {}_{u}p_{\overline{x+t:y+t}}
+\]</div>
+<p>This is because <span class="arithmatex">\({}_{u}p_{\overline{x+t:y+t}}\)</span> is the probability that <strong>BOTH</strong> lives have survived <span class="arithmatex">\(t\)</span> years.</p>
+<p>However, <strong>only the third case</strong> of <span class="arithmatex">\({}_{t}p_{\overline{x:y}}\)</span> fulfils this description. The two terms are on a <strong>different basis</strong>, thus the multiplication rule cannot be applied.</p>
+</div>
+<p>Thus, for questions involving last survivor statuses, <strong>ALWAYS start with the failure probability</strong>!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For both joint life and last survivor, the probabilities with multiple cases can be explicitly shown:</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|}
+\hline
+    \text{}
+        &amp; \text{Probability}
+        &amp; \text{Cases} \\
+\hline
+    \text{Joint Life}
+        &amp;   \begin{aligned}
+                {}_{t}q_{x:y}
+                &amp;= {}_{t}q_{y} + {}_{t}q_{x} - {}_{t}q_{x} \cdot {}_{t}q_{y} \\
+                &amp;= {}_{t}q_{y} + {}_{t}q_{x} - {}_{t}q_{x} \cdot {}_{t}q_{y} 
+                    + {}_{t}q_{x} \cdot {}_{t}q_{y} - {}_{t}q_{x} \cdot {}_{t}q_{y} \\
+                &amp;= (1 - {}_{t}q_{x}){}_{t}q_{y} + (1 - {}_{t}q_{y}){}_{t}q_{x} 
+                    + {}_{t}q_{x} \cdot {}_{t}q_{y}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                &amp;\text{1. X survives but Y dies} \\
+                &amp;\text{2. Y survives but X dies} \\
+                &amp;\text{3. Both X &amp; Y dies}
+            \end{aligned} \\
+\hline
+        \text{Last Survivor}
+        &amp;   \begin{aligned}
+                {}_{t}p_{x:y}
+                &amp;= {}_{t}p_{y} + {}_{t}p_{x} - {}_{t}p_{x} \cdot {}_{t}p_{y} \\
+                &amp;= {}_{t}p_{y} + {}_{t}p_{x} - {}_{t}p_{x} \cdot {}_{t}p_{y} 
+                    + {}_{t}p_{x} \cdot {}_{t}p_{y} - {}_{t}p_{x} \cdot {}_{t}p_{y} \\
+                &amp;= (1 - {}_{t}p_{x}){}_{t}p_{y} + (1 - {}_{t}p_{y}){}_{t}p_{x} 
+                    + {}_{t}p_{x} \cdot {}_{t}p_{y}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                &amp;\text{1. X dies but Y survives} \\
+                &amp;\text{2. Y dies but X survives} \\
+                &amp;\text{3. Both X &amp; Y survive}
+            \end{aligned} \\
+\hline
+\end{array}
+\]</div>
+<p>The main thing to note is that this is a <strong>sum</strong> of three possible cases, whereas the original involved subtraction.</p>
+</div>
+<h3 id="probability"><strong>Probability</strong><a class="headerlink" href="#probability" title="Permanent link">&para;</a></h3>
+<p>The survival model <strong>probability</strong> can be calculated in a multi-life setting as well:</p>
+<p><center></p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|}
+\hline
+    \text{}
+        &amp; \text{Joint Life}
+        &amp; \text{Last Survivor} \\ 
+\hline
+   \text{CDF}
+        &amp; F_{x:y}(t) = {}_{t}q_{y} + {}_{t}q_{x} - {}_{t}q_{x} \cdot {}_{t}q_{y}
+        &amp; F_{\overline{x:y}}(t) = {}_{t}q_{x} \cdot {}_{t}q_{y} \\
+\hline
+   \text{Survival}
+        &amp; S_{x:y}(t) = {}_{t}p_{x} \cdot {}_{t}p_{y}
+        &amp; S_{\overline{x:y}}(t) = {}_{t}p_{y} + {}_{t}p_{x} - {}_{t}p_{x} \cdot {}_{t}p_{y} \\
+\hline
+    \text{PDF}
+        &amp;   f_{x:y}(t) = {}_{t}p_{x} \cdot {}_{t}p_{y} \cdot [\mu_{x}(t) + \mu_{y}(t)]
+        &amp;   f_{x:y}(t) = \dots \\
+\hline
+   \text{Hazard}
+        &amp;   \mu_{x:y}(t) = \mu_{x}(t) + \mu_{y}(t)
+        &amp;   \mu_{\overline{x:y}}(t) = 
+                \frac{{}_{t}p_{x} \mu_{x}(t) \cdot {}_{t}q_{y} + {}_{t}p_{y} \mu_{y}(t) \cdot {}_{t}q_{x}}
+                {{}_{t}p_{y} + {}_{t}p_{x} - {}_{t}p_{x} \cdot {}_{t}p_{y}} \\
+\hline
+   \text{Multiplication}
+        &amp; {}_{t+u}p_{x:y} = {}_{t}p_{x:y} \cdot {}_{u}p_{x+t:y+t}
+        &amp; \text{NA} \\
+\hline
+   \text{Deferred}
+        &amp;   \begin{aligned}
+                {}_{u \mid t}q_{x:y}
+                &amp;= {}_{u}p_{x:y} - {}_{u+t}p_{x:y} \\
+                &amp;= {}_{u+t}q_{x:y} - {}_{u}q_{x:y} \\
+                &amp;= {}_{u}p_{x:y} \cdot {}_{t}q_{x+u:y+u}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                {}_{u \mid t}q_{\overline{x:y}}
+                &amp;= {}_{u}p_{\overline{x:y}} - {}_{u+t}p_{\overline{x:y}} \\
+                &amp;= {}_{u+t}q_{\overline{x:y}} \cdot {}_{u}q_{\overline{x:y}} \\
+            \end{aligned} \\
+\hline
+    \text{PMF}
+        &amp; P(K_{x:y} = n) = {}_{n \mid}q_{x:y}
+        &amp; P(K_{\overline{x:y}} = n)
+            = {}_{n \mid}q_{x} + {}_{n \mid}q_{y} - {}_{n \mid}q_{x:y} \\
+\hline
+\end{array}
+\]</div>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The relevant proofs can be found below:</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|}
+\hline
+    \text{}
+        &amp; \text{Joint Life}
+        &amp; \text{Last Survivor} \\
+\hline
+    \text{PDF}
+        &amp;   \begin{aligned}
+                f_{x:y}(t)
+                &amp;= \frac{d}{dt} -({}_{t}p_{x} \cdot {}_{t}p_{y}) \\
+                &amp;= -({}_{t}p_{x} \cdot \frac{d}{dt} {}_{t}p_{y} + {}_{t}p_{y} \cdot \frac{d}{dt} {}_{t}p_{x}) \\
+                &amp;= -({}_{t}p_{x} \cdot [-{}_{t}p_{y} \cdot \mu_{y}(t)] + {}_{t}p_{y} \cdot [-{}_{t}p_{x} \cdot \mu_{x}(t)]) \\
+                &amp;= {}_{t}p_{x} \cdot {}_{t}p_{y} \cdot [\mu_{x}(t) + \mu_{y}(t)] \\
+                &amp;= {}_{t}p_{x:y} \cdot [\mu_{x}(t) + \mu_{y}(t)] \\
+            \end{aligned}
+        &amp;   \begin{aligned}
+                f_{\overline{x:y}}(t)
+                &amp;= \frac{d}{dt} -({}_{t}p_{y} + {}_{t}p_{x} - {}_{t}p_{x:y}) \\
+                &amp;= -(\frac{d}{dt} {}_{t}p_{x} + \frac{d}{dt} {}_{t}p_{y} + \frac{d}{dt} {}_{t}p_{x:y}) \\
+                &amp;= -(-{}_{t}p_{x} \cdot \mu_{x}(t) -{}_{t}p_{y} \cdot \mu_{y}(t) + {}_{t}p_{x:y} \cdot [\mu_{x}(t) + \mu_{y}(t)]) \\
+                &amp;= {}_{t}p_{x} \cdot \mu_{x}(t) + {}_{t}p_{y} \cdot \mu_{y}(t) 
+                    - {}_{t}p_{x:y} \cdot [\mu_{x}(t) + \mu_{y}(t)] \\
+                &amp;= {}_{t}p_{x} \cdot \mu_{x}(t) + {}_{t}p_{y} \cdot \mu_{y}(t) 
+                    - {}_{t}p_{x} {}_{t}p_{y} \cdot \mu_{x}(t) 
+                    - {}_{t}p_{x} {}_{t}p_{y} \cdot \mu_{y}(t) \\
+                &amp;= {}_{t}p_{x} \mu_{x}(t) \cdot (1 - {}_{t}p_{y})
+                    + {}_{t}p_{y} \mu_{y}(t) \cdot (1 - {}_{t}p_{x}) \\
+                &amp;= {}_{t}p_{x} \mu_{x}(t) \cdot {}_{t}q_{y} 
+                    + {}_{t}p_{y} \mu_{y}(t) \cdot {}_{t}q_{x}
+            \end{aligned} \\
+\hline
+    \text{Hazard}
+        &amp;   \begin{aligned}
+                \mu_{x:y}(t)
+                &amp;= \frac{f_{x:y}(t)}
+                        {S_{x:y}(t)} \\
+                &amp;= \frac{{}_{t}p_{x:y} \cdot [\mu_{x}(t) + \mu_{y}(t)]}
+                        {{}_{t}p_{x:y}} \\
+                &amp;= \mu_{x}(t) + \mu_{y}(t)
+            \end{aligned}
+        &amp;   \begin{aligned}
+                \mu_{\overline{x:y}}(t)
+                &amp;= \frac{f_{\overline{x:y}}(t)}
+                        {S_{\overline{x:y}}(t)} \\
+                &amp;= \frac{{}_{t}p_{x} \mu_{x}(t) \cdot {}_{t}q_{y} 
+                            + {}_{t}p_{y} \mu_{y}(t) \cdot {}_{t}q_{x}}
+                        {{}_{t}p_{y} + {}_{t}p_{x} - {}_{t}p_{x} \cdot {}_{t}p_{y}}
+            \end{aligned} \\
+\hline
+    \text{PMF}
+        &amp;   \begin{aligned}
+                P(K_{x:y} = n)
+                &amp;= P(n \le T_{x:y} \le n+1) \\
+                &amp;= P(T_{x:y} \le n+1) - P(T_{x:y} \le n) \\
+                &amp;= {}_{n+1}q_{x:y} - {}_{n}q_{x:y} \\
+                &amp;= {}_{n \mid}q_{x:y}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                P(K_{\overline{x:y}} = n)
+                &amp;= P(n \le T_{\overline{x:y}} \le n+1) \\
+                &amp;= P(T_{\overline{x:y}} \gt n) - P(T_{\overline{x:y}} \gt n+1) \\
+                &amp;= {}_{n}p_{\overline{x:y}} - {}_{n+1}p_{\overline{x:y}} \\
+                &amp;= {}_{n}p_{x} + {}_{n}p_{y} - {}_{n}p_{x:y}
+                    - ({}_{n+1}p_{x} + {}_{n+1}p_{y} - {}_{n+1}p_{x:y}) \\
+                &amp;= ({}_{n}p_{x} - {}_{n+1}p_{x}) - ({}_{n}p_{y} - {}_{n+1}p_{y})
+                    - ({}_{n+1}p_{x:y} - {}_{n}p_{x:y}) \\
+                &amp;= {}_{n \mid}q_{x} + {}_{n \mid}q_{y} - {}_{n \mid}q_{x:y}
+            \end{aligned} \\
+\hline
+\end{array}
+\]</div>
+<p>It is <strong>unlikely</strong> that the last survivor hazard function will be tested given its complexity. Thus, there is no need to commit it to memory.</p>
+</div>
+<p>The key is to understand that the multi-life results are <strong>analagous</strong> to the single life setting. For most items, the single life subscript (<span class="arithmatex">\(x\)</span>) can simply be <strong>replaced with the multi life subscripts</strong> (<span class="arithmatex">\(x:y\)</span> or <span class="arithmatex">\(\overline{x:y}\)</span>).</p>
+<!-- Self Made -->
+<p><img alt="Survival Summary" class="center" src="../../2.%20ASA-FAML/Assets/1.%20Survival%20Models.md/Survival%20Summary.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The main difference is that since the <strong>multiplication rule does not apply</strong> in a last survivor setting, one of the expressions for deferred probability (which <strong>relies</strong> on it), does not apply as well.</p>
+</div>
+<h3 id="moments"><strong>Moments</strong><a class="headerlink" href="#moments" title="Permanent link">&para;</a></h3>
+<p>The survival model <strong>moments</strong> can be calculated in a multi-life setting as well:</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|}
+\hline
+    \text{}
+        &amp; \text{Joint Life}
+        &amp; \text{Last Survivor} \\
+\hline
+    \text{Complete Expectation}
+        &amp;   \begin{aligned}
+                E(T_{x:y})
+                &amp;= \mathring{e}_{x:y} \\
+                &amp;= \int^{\infty}_{0} {}_{t}p_{x:y} \\
+                \\
+                E(T^2_{x:y})
+                &amp;= 2 \cdot \int^{\infty}_{0} t \cdot {}_{t}p_{x:y}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                E(T_{\overline{x:y}})
+                &amp;= \mathring{e}_{\overline{x:y}} \\
+                &amp;= \int^{\infty}_{0} {}_{t}p_{\overline{x:y}} \\
+                \\
+                E(T^2_{\overline{x:y}})
+                &amp;= ??
+            \end{aligned} \\
+\hline
+    \text{Curtate Expectation}
+        &amp;   \begin{aligned}
+                E(K_{x:y})
+                &amp;= e_{x:y} \\
+                &amp;= \sum^{\infty}_{0} {}_{t}p_{x:y}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                E(K_{\overline{x:y}})
+                &amp;= e_{\overline{x:y}} \\
+                &amp;= \sum^{\infty}_{0} {}_{t}p_{\overline{x:y}}
+            \end{aligned} \\
+\hline
+\end{array}
+\]</div>
+<p>Since two lives are involved, we now consider the <strong>Covariance</strong> between them:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Cov}(T_{x:y}, T_{\overline{x:y}})
+    &amp;= E(T_{x:y} \cdot T_{\overline{x:y}}) - E(T_{x:y}) \cdot E(T_{\overline{x:y}}) \\
+    &amp;= E(T_{x} \cdot T_{y})
+        - E(T_{x:y}) \cdot [E(T_{x}) + E(T_{y}) - E(T_{x:y})] \\
+    &amp;= E(T_{x}) \cdot E(T_{y}) - E(T_{x:y}) E(T_{x}) - E(T_{x:y}) E(T_{y}) + [E(T_{x:y})]^2 \\
+    &amp;= E(T_{x}) \cdot [E(T_{y}) - E(T_{x:y})] - E(T_{x:y}) \cdot [E(T_{y}) - E(T_{x:y})] \\
+    &amp;= [E(T_{x}) - E(T_{x:y})] \cdot [E(T_{y}) - E(T_{x:y})] \\
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This measures the <strong>Covariance between the Joint Life and Last Survivor</strong> variables, NOT the individual lives.</p>
+<p>Remember that a key assumption was made that the individual lives are <strong>Independent</strong>.</p>
+</div>
+<p>The key to the proof is recognising that <strong>regardless of the actual distribution</strong>, the following always holds true:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    T_{x:y} \cdot T_{\overline{x:y}}
+    &amp;= \min (T_{x}, T_{y}) \cdot \max (T_{x}, T_{y}) \\
+    &amp;= T_{x} \cdot T_{y}
+\end{aligned}
+\]</div>
+<p><center></p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|}
+\hline
+    \text{}
+        &amp; \text{X Dies First}
+        &amp; \text{Y Dies First} \\
+\hline
+    T_{x:y}
+        &amp; \min(T_{x}, T_{y}) = T_{x}
+        &amp; \min(T_{x}, T_{y}) = T_{y} \\
+\hline
+    T_{\overline{x:y}}
+        &amp; \max(T_{x}, T_{y}) = T_{y}
+        &amp; \max(T_{x}, T_{y}) = T_{x} \\
+\hline
+\end{array}
+\]</div>
+<p></center></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This only holds true in a two life context, because there are only <strong>two possible outcomes</strong>.</p>
+</div>
+<h3 id="relationship"><strong>Relationship</strong><a class="headerlink" href="#relationship" title="Permanent link">&para;</a></h3>
+<p>Using the same logic, the following relationship will <strong>ALWAYS hold true, REGARDLESS of independence</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    T_{x:y} + T_{\overline{x:y}}
+    &amp;= \min (T_{x}, T_{y}) + \max (T_{x}, T_{y}) \\
+    &amp;= T_{x} + T_{y}
+\end{aligned}
+\]</div>
+<p>Thus, any <strong>linear function</strong> of the random variable will follow the same relationship:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    f_{T_{x:y}}(t) + f_{T_{\overline{x:y}}}(t) &amp;= f_{T_{x}} + f_{T_{y}} \\
+    F_{T_{x:y}}(t) + F_{T_{\overline{x:y}}}(t) &amp;= F_{T_{x}} + F_{T_{y}} \\
+    S_{T_{x:y}}(t) + S_{T_{\overline{x:y}}}(t) &amp;= S_{T_{x}} + S_{T_{y}} \\
+    E(T_{x:y}) + E(T_{\overline{x:y}}) &amp;= E(T_{x}) + E(T_{y}) \\
+    E(T^2_{x:y}) + E(T^2_{\overline{x:y}}) &amp;= E(T^2_{x}) + E(T^2_{y})
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The second moment is a linear function of the squared random variable; the <strong>function itself does not involve squaring.</strong></p>
+<p>This is <strong>NOT</strong> the case for variance, because it involves squaring the mean:</p>
+<div class="arithmatex">\[
+    \text{Var}(T_{x:y}) + \text{Var}(T_{\overline{x:y}})
+    \ne \text{Var}(T_{x}) + \text{Var}(T_{y})
+\]</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall that the expectation requires integration or summation of the <strong>survival probability</strong>. However, since the survival probability for <strong>last survivor status</strong> is complicated, it is difficult to compute its expectation.</p>
+<p>Thus, the above relationship is the preferred method of computing the mean for last survivor statuses.</p>
+</div>
+<h2 id="contingent-events"><strong>Contingent Events</strong><a class="headerlink" href="#contingent-events" title="Permanent link">&para;</a></h2>
+<p>The life statuses introduced do NOT specify the <strong>order of deaths</strong> - they do not care <em>specifically</em> if <span class="arithmatex">\(x\)</span> or <span class="arithmatex">\(y\)</span> dies first.</p>
+<p>When the order of deaths are specified, they are known as <strong>Contingent Events</strong>. This is because the probability is <strong>contingent on the other life</strong> being alive or dead at the time.</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Dies First</strong></th>
+<th align="center"><strong>Dies Last</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Probability that <span class="arithmatex">\(x\)</span> dies <strong>first</strong></td>
+<td align="center">Probability that <span class="arithmatex">\(x\)</span> dies <strong>last</strong></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(y\)</span> <strong>must be alive</strong> when <span class="arithmatex">\(x\)</span> dies</td>
+<td align="center"><span class="arithmatex">\(y\)</span> <strong>must be dead</strong> when <span class="arithmatex">\(x\)</span> dies</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\({}_{t}q^{1}_{x:y}\)</span></td>
+<td align="center"><span class="arithmatex">\({}_{t}q^{\ \ \ 2}_{x:y}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The notation used is <em>similar</em> to what was introduced for <strong>term assurances</strong>, where the number on the <strong>accent specifies the order of failure</strong>.</p>
+</div>
+<h3 id="first-to-die"><strong>First to Die</strong><a class="headerlink" href="#first-to-die" title="Permanent link">&para;</a></h3>
+<p>The best way to deal with these complicated events is to break down the situation for each life:</p>
+<ul>
+<li><span class="arithmatex">\(x\)</span> dies within <span class="arithmatex">\(n\)</span> years: <span class="arithmatex">\(T_{x} \lt n\)</span></li>
+<li><span class="arithmatex">\(y\)</span> dies after <span class="arithmatex">\(x\)</span>: <span class="arithmatex">\(T_{y} \gt T_{x}\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}q^{1}_{x:y}
+    &amp;= P(T_{x} \lt n) \cdot P(T_{y} \gt T_{x}) \\
+    &amp;= \int^{n}_{0} f_{x}(t) \cdot \int^{\infty}_{t} f_{y}(s) \\
+    &amp;= \left(\int^{n}_{0} {}_{t}p_{x} \cdot \mu_{x}(t) \right) \cdot {}_{t}p_{y} \\
+    &amp;= \int^{n}_{0} {}_{t}p_{x:y} \cdot \mu_{x}(t)
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Technically speaking, the initial expression is more properly written as a <strong>double integration</strong>, since one integration is <strong>dependent on another</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}q^{1}_{x:y}
+    &amp;= \int^{t=n}_{t=0} \int^{s=\infty}_{s=t} f_{x}(t) \cdot f_{y}(s) \ dsdt 
+\end{aligned}
+\]</div>
+<p>The key is that the <strong>inner integral</strong> involving the life without the accent can be <strong>evaluated first to simplify</strong> it into a single integration.</p>
+</div>
+<p>Rather than going through the entire process, this can be more easily intepreted as:</p>
+<ul>
+<li>Both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> surviving till time <span class="arithmatex">\(n\)</span></li>
+<li>Then the force of mortality acts on <strong>only</strong> <span class="arithmatex">\(x\)</span> from time <span class="arithmatex">\(t\)</span> onwards, causing <span class="arithmatex">\(x\)</span> to die</li>
+</ul>
+<p>Another expression can also be found using <strong>intuition</strong>. For <span class="arithmatex">\(x\)</span> to die first within <span class="arithmatex">\(n\)</span> years, only the following two situations are possible:</p>
+<ul>
+<li><span class="arithmatex">\(y\)</span> dies within <span class="arithmatex">\(n\)</span> years, but after <span class="arithmatex">\(x\)</span></li>
+<li><span class="arithmatex">\(x\)</span> dies within <span class="arithmatex">\(n\)</span> years but <span class="arithmatex">\(y\)</span> survives</li>
+</ul>
+<div class="arithmatex">\[
+    {}_{n}q^{1}_{x:y} = {}_{n}q^{\ \ \ 2}_{x:y} + {}_{n}q_{x} \cdot {}_{n}p_{y} 
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a <strong>common mistake</strong> to think that the following relationship holds true:</p>
+<div class="arithmatex">\[
+    {}_{t}q^{1}_{x:y} \ne {}_{t}q^{\&gt; \&gt; \&gt; 2}_{x:y}
+\]</div>
+<p>This confusion comes from the misconception that the event that <span class="arithmatex">\(x\)</span> dies first is the <strong>same</strong> as <span class="arithmatex">\(y\)</span> dying second, given that there are <strong>only two people</strong>.</p>
+<p>However, the issue is with the timing of deaths. <span class="arithmatex">\(x\)</span> dying first within <span class="arithmatex">\(t\)</span> years does NOT necessarily mean that <span class="arithmatex">\(y\)</span> will die second within <span class="arithmatex">\(t\)</span> years as well. As shown above, <span class="arithmatex">\(y\)</span> could die well after <span class="arithmatex">\(t\)</span> years as well.</p>
+</div>
+<h3 id="last-to-die"><strong>Last to Die</strong><a class="headerlink" href="#last-to-die" title="Permanent link">&para;</a></h3>
+<p>A similar process can be done for the last to die probability:</p>
+<ul>
+<li><span class="arithmatex">\(x\)</span> dies within <span class="arithmatex">\(n\)</span> years: <span class="arithmatex">\(T_{x} \lt n\)</span></li>
+<li><span class="arithmatex">\(y\)</span> dies before <span class="arithmatex">\(x\)</span>: <span class="arithmatex">\(T_{y} \lt T_{x}\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}q^{2}_{x:y}
+    &amp;= P(T_{x} \lt n) \cdot P(T_{y} \lt T_{x}) \\
+    &amp;= \int^{n}_{0} f_{x}(t) \cdot \int^{t}_{0} f_{y}(s) \\
+    &amp;= \left(\int^{n}_{0} {}_{t}p_{x} \cdot \mu_{x}(t) \right) \cdot {}_{t}q_{y} \\
+    &amp;= \left(\int^{n}_{0} {}_{t}p_{x} \cdot \mu_{x}(t) \right) \cdot (1 - {}_{t}p_{y}) \\
+    &amp;= \int^{n}_{0} {}_{t}p_{x} \cdot \mu_{x}(t) - \int^{n}_{0} {}_{t}p_{x:y} \cdot \mu_{x}(t) \\
+    &amp;= {}_{n}q_{x} - {}_{n}q^{1}_{x:y}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a <strong>common mistake</strong> to think that the following relationship holds true:</p>
+<div class="arithmatex">\[
+    {}_{n}q^{1}_{x:y} + {}_{n}q^{\ \ \ 2}_{x:y} = {}_{n}q_{x} \ne 1
+\]</div>
+<p>This is because the two contingent probabilities seemingly <strong>cover all possibilities</strong> of <span class="arithmatex">\(x\)</span> dying. However, the key is that they cover only the situation of <span class="arithmatex">\(x\)</span> dying <em>WITHIN</em> <span class="arithmatex">\(n\)</span> years; <span class="arithmatex">\(x\)</span> could die after that as well, which is why the probability is <strong>NOT 1</strong>.</p>
+</div>
+<h3 id="deferred-probability"><strong>Deferred Probability</strong><a class="headerlink" href="#deferred-probability" title="Permanent link">&para;</a></h3>
+<p>Recall that both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> must be <strong>alive at the beginning of the year</strong> for the contingent probabilities to be calculated.</p>
+<p>Thus, the deferred probability must account for the <strong>probability of BOTH surviving</strong> till that point - using the joint life survival probability - then dying in a specific order:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{u \mid t}q^1_{x:y} &amp;= {}_{u}p_{x:y} \cdot {}_{t}q^{1}_{x+u:y+u} \\
+    {}_{u \mid t}q^2_{x:y} &amp;= {}_{u}p_{x:y} \cdot {}_{t}q^{2}_{x+u:y+u} \\
+\end{aligned}
+\]</div>
+<h3 id="relationship_1"><strong>Relationship</strong><a class="headerlink" href="#relationship_1" title="Permanent link">&para;</a></h3>
+<p>The multi-life probabilities can also be expressed as a combination of contingent probabilities:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(\text{First Death})
+    &amp;= P(\text{X dies first}) + P(\text{Y dies first}) \\
+    &amp;- P(\text{X and Y die together}) \\
+    \\
+    P(\text{Last Death})
+    &amp;= P(\text{X dies Last}) + P(\text{Y dies Last}) \\
+    &amp;- P(\text{X and Y die together})
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The case of X and Y <strong>dying together</strong> is known as a <strong>Common Shock</strong>. This could be due to dying from the same event (EG. Earthquake).</p>
+<p>Since we assumed that the two lives are independent, it follows that a <strong>common shock is not possible</strong> since they would be connected in some way.</p>
+<div class="arithmatex">\[
+    \therefore P(\text{X and Y die together}) = 0
+\]</div>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(\text{First Death})
+    &amp;= P(\text{X dies first}) + P(\text{Y dies first}) \\
+    {}_{t}q_{x:y} &amp;= {}_{t}q^{1}_{x:y} + {}_{t}q^{\&gt; \&gt; \&gt; 1}_{x:y}  \\
+    \\
+    P(\text{Last Death}) 
+    &amp;= P(\text{X dies Last}) + P(\text{Y dies Last}) \\
+    {}_{t}q_{\overline{x:y}} &amp;= {}_{t}q^{2}_{x:y} + {}_{t}q^{\&gt; \&gt; \&gt; 2}_{x:y}
+\end{aligned}
+\]</div>
+<h3 id="common-shock"><strong>Common Shock</strong><a class="headerlink" href="#common-shock" title="Permanent link">&para;</a></h3>
+<p>For this section, we allow the two lives to be <strong>dependent</strong>:</p>
+<ul>
+<li>Let <span class="arithmatex">\(T^{*}_{x}\)</span> and <span class="arithmatex">\(T^{*}_{y}\)</span> represent the future lifetime in the <strong>absence</strong> of a common shock</li>
+<li>Let <span class="arithmatex">\(T_{x}\)</span> and <span class="arithmatex">\(T_{y}\)</span> represent the future lifetime in the <strong>presence</strong> of a common shock</li>
+<li>Let <span class="arithmatex">\(Z\)</span> be the random variable representing <strong>time until a Common Shock</strong> (EG. Earthquake)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    T_{x} = \min (T^{*}_{x}, Z) \\
+    T_{y} = \min (T^{*}_{y}, Z) \\
+    \\
+    Z \sim \text{Exponential}(\lambda)
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="arithmatex">\(Z\)</span> tends to follows an exponential distribution as it is used to model time to an event. However, the question could set it to follow any distribution.</p>
+</div>
+<p><span class="arithmatex">\(T_{x}\)</span> and <span class="arithmatex">\(T_{y}\)</span> are <strong>dependent</strong> because they share <span class="arithmatex">\(Z\)</span>. However, it is important to distinguish that <span class="arithmatex">\(T^{*}_{x}\)</span>, <span class="arithmatex">\(T^{*}_{y}\)</span> and <span class="arithmatex">\(Z\)</span> are <strong>independent</strong>.</p>
+<p>The individual survival probabilities are calculated as follows:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p_{x}
+    &amp;= P(T_{x} \gt t) \\
+    &amp;= P(\min (T^{*}_{x}, Z) \gt t) \\
+    &amp;= P(T^{*}_{x} \gt t) \cdot P(Z \gt t), \ \text{Independence} \\
+    &amp;= {}_{t}p^{*}_{x} \cdot e^{-\lambda t} \\
+    \\
+    \therefore {}_{t}p_{y} &amp;= {}_{t}p^{*}_{y} \cdot e^{-\lambda t}
+\end{aligned}
+\]</div>
+<p>Thus, the results for the joint life probability can be calculated:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p_{x:y}
+    &amp;= P(\min (T_{x}, T_{y}) \gt t) \\
+    &amp;= P(\min (T^{*}_{x},T^{*}_{y}, Z) \gt t) \\
+    &amp;= P(T^{*}_{x} \gt t) \cdot P(T^{*}_{y} \gt t) \cdot P(Z \gt t), \ \text{Independence} \\
+    &amp;= {}_{t}p^{*}_{x} \cdot {}_{t}p^{*}_{y} \cdot e^{-\lambda t} \\
+    &amp;= ({}_{t}p_{x} \cdot e^{\lambda t}) \cdot ({}_{t}p_{y} \cdot e^{\lambda t}) \cdot e^{-\lambda t} \\
+    &amp;= {}_{t}p_{x} \cdot {}_{t}p_{y} \cdot e^{\lambda t} \\
+    \\
+    \mu_{x:y}(t)
+    &amp;= \frac{d}{dt} \ln {}_{t}p_{x:y} \\
+    &amp;= \frac{d}{dt} \ln ({}_{t}p_{x} \cdot {}_{t}p_{y} \cdot e^{\lambda t}) \\
+    &amp;= \frac{d}{dt} \ln {}_{t}p_{x} + \ln {}_{t}p_{y} + \lambda t \\
+    &amp;= \mu_{x}(t) + \mu_{y}(t) + \lambda
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is NOT recommended to directly calculate any results for Last Survivor in a common shock. Simply use the identities to derive the results from the joint life case.</p>
+</div>
+<h2 id="insurance-applications"><strong>Insurance Applications</strong><a class="headerlink" href="#insurance-applications" title="Permanent link">&para;</a></h2>
+<p>Multi-life assurances and annuities are concpetually similar to their single life counterparts - Equivalence Principle, Continuous Discrete Approximation etc.</p>
+<p>This section highlights key differences when considering a second life.</p>
+<h3 id="multi-assurances"><strong>Multi Assurances</strong><a class="headerlink" href="#multi-assurances" title="Permanent link">&para;</a></h3>
+<p>There are two types of multi-life assurances:</p>
+<ul>
+<li><strong>Joint Life Assurance</strong> - Pays a death benefit upon the <strong>first death</strong> between <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span></li>
+<li><strong>Last Survivor Assurance</strong> - Pays a death benefit on the <strong>second death</strong> between <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> </li>
+</ul>
+<p>Consider the following two random variables:</p>
+<ul>
+<li><span class="arithmatex">\(\text{JLWL}\)</span> - Present value of a joint life <strong>whole life</strong> assurance</li>
+<li><span class="arithmatex">\(\text{LSWL}\)</span> - Present value of a last survivor <strong>whole life</strong> assurance</li>
+</ul>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|}
+\hline
+    \text{}
+        &amp; \text{Joint Life}
+        &amp; \text{Last Survivor} \\
+\hline
+    \text{Present Value}
+        &amp; \text{JLWL} = v^{K_{x:y}+1}
+        &amp; \text{LSWL} = v^{K_{\overline{x:y}}+1} \\
+\hline
+    \text{Probability}
+        &amp; P(\text{JLWL}) = {}_{n \mid}q_{x:y}
+        &amp;   \begin{aligned}
+                P(\text{LSWL})
+                &amp;= {}_{n \mid}q_{\overline{x:y}} \\
+                &amp;= {}_{n \mid}q_{x} + {}_{n \mid}q_{y} - {}_{n \mid}q_{x:y}
+            \end{aligned} \\ 
+\hline
+    \text{Expectation}
+        &amp;   \begin{aligned}
+                E(\text{JLWL}) &amp;= \sum v^{k+1} \cdot {}_{k \mid}q_{x:y} \\
+                A_{x:y} &amp;= \sum v^{k+1} \cdot {}_{k \mid}q_{x:y}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                E(\text{LSWL}) &amp;= \sum v^{k+1} 
+                    \cdot ({}_{k \mid}q_{x} + {}_{k \mid}q_{y} - {}_{k \mid}q_{x:y}) \\
+                A_{\overline{x:y}} &amp;= A_{x} + A_{y} - A_{x:y} 
+            \end{aligned} \\
+\hline
+    \text{Variance}
+        &amp;   \begin{aligned}
+                \text{Var}(\text{JLWL})
+                &amp;= \text{Var}(v^{K_{x:y}+1}) \\
+                &amp;= E[(v^{K_{x:y}+1})^2] - [E(v^{K_{x:y}+1})]^2 \\
+                &amp;= E[(v^2)^{K_{x:y}+1}] - [E(v^{K_{x:y}+1})]^2 \\
+                &amp;= {}^{2}A_{x:y} - (A_{x:y})^2
+            \end{aligned}
+        &amp;   \begin{aligned}
+                \text{Var}(\text{LSWL})
+                &amp;= \text{Var}(v^{K_{x:y}+1}) \\
+                &amp;= E[(v^{K_{\overline{x:y}}+1})^2] - [E(v^{K_{\overline{x:y}}+1})]^2 \\
+                &amp;= E[(v^2)^{K_{\overline{x:y}+1}}] - [E(v^{K_{\overline{x:y}+1}})]^2 \\
+                &amp;= {}^{2}A_{\overline{x:y}} - (A_{\overline{x:y}})^2
+            \end{aligned} \\
+\hline
+\end{array}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is important to know how the value of the last survivor probability changes over time:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(K_{\overline{x:y}} = 0)
+    &amp;= {}_{0 \mid}q_{\overline{x:y}} \\
+    &amp;= q_{\overline{x:y}} \\
+    &amp;= q_{x} \cdot q_{y}
+\end{aligned}
+\]</div>
+<p>In the <strong>first year</strong>, the only way for a claim to paid out is if <strong>both lives die</strong>.</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+    P(K_{\overline{x:y}} = 1)
+    &amp;= {}_{1 \mid}q_{\overline{x:y}} \\
+    &amp;= {}_{1 \mid}q_{x} + {}_{1 \mid}q_{y} - {}_{1 \mid}q_{x:y} \\
+    &amp;= p_{x} q_{x+1} + p_{y} q_{y+1} - p_{x:y} q_{x+1:y+1} \\
+    &amp;= p_{x} q_{x+1} \cdot (p_{y} + q_{y}) + p_{y} q_{y+1} \cdot (p_{x} + q_{x}) 
+        - p_{x:y} q_{x+1:y+1} \\
+    &amp;= p_{x} p_{y} q_{x+1} + p_{x} q_{y} q_{x+1} + p_{x} p_{y} q_{y+1} + p_{y} q_{x} q_{y+1}
+        - p_{x:y} q_{x+1:y+1} \\
+    &amp;= p_{x} q_{y} q_{x+1} + p_{y} q_{x} q_{y+1}
+        + p_{x} p_{y} \cdot (q_{x+1} + q_{y+1} - q_{x+1:y+1}) \\
+    &amp;= p_{x} q_{y} q_{x+1} + p_{y} q_{x} q_{y+1} + p_{x} p_{y} \cdot (q_{\overline{x+1:y+1}}) \\
+    &amp;= p_{x} q_{y} q_{x+1} + p_{y} q_{x} q_{y+1} + p_{x} p_{y} q_{x+1} q_{y+1} \\
+    \\
+    P(K_{\overline{x:y}} = 2) &amp;= \dots
+\end{aligned}
+\]</div>
+<p>In every <strong>subsequent year</strong>, it is a combination of three cases:</p>
+<ul>
+<li><span class="arithmatex">\(y\)</span> dies in the first year and <span class="arithmatex">\(x\)</span> dies in the second year</li>
+<li><span class="arithmatex">\(x\)</span> dies in the first year and <span class="arithmatex">\(y\)</span> dies in the second year</li>
+<li>Both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> die in the second year</li>
+</ul>
+</div>
+<p>Although not explicitly proven, the other types of assurances are also applicable:</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|}
+\hline
+    \text{}
+        &amp; \text{Joint Life}
+        &amp; \text{Last Survivor} \\
+\hline
+    \text{Pure Endowment} \\
+        &amp;   \begin{aligned}
+                {}_{n}E_{x:y}
+                &amp;= v^{n} \cdot {}_{n}p_{x:y} \\
+                &amp;= v^{n} \cdot {}_{n}p_{x} \cdot {}_{n}p_{y}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                {}_{n}E_{\overline{x:y}}
+                &amp;= v^{n} \cdot {}_{n}p_{\overline{x:y}} \\
+                &amp;= v^{n} \cdot (1 - {}_{n}q_{x} \cdot {}_{n}q_{y})
+            \end{aligned} \\
+\hline
+    \text{Term Assurance} \\
+        &amp; A_{\overbrace{x:y}:\enclose{actuarial}{n}}^{\ \ \ 1}
+            = A_{x:y} - {}_{n}E_{x:y} \cdot A_{x+n:y+n}
+        &amp; A_{\overline{x:y}:\enclose{actuarial}{n}}^{\ \ 1}
+            = \sum^{n}_{0} v^{K_{\overline{x:y}}+1} 
+                    \cdot ({}_{n \mid}q_{x} + {}_{n \mid}q_{y} - {}_{n \mid}q_{x:y}) \\
+\hline
+    \text{Endowment Assurance} \\
+        &amp; A_{x:y:\enclose{actuarial}{n}}
+            = A_{\overbrace{x:y}:\enclose{actuarial}{n}}^{\ \ \ 1}
+            + {}_{n}E_{x:y}
+        &amp; A_{\overline{x:y}:\enclose{actuarial}{n}}
+            = A_{\overline{x:y}:\enclose{actuarial}{n}}^{\ \ 1} 
+            + {}_{n}E_{\overline{x:y}} \\
+\hline
+\end{array}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The usual method for term assurances do NOT apply in a last survivor context:</p>
+<div class="arithmatex">\[
+    A_{\overbrace{\overline{x:y}}:\enclose{actuarial}{n}}^{\ \ \ 1}
+    \ne A_{\overline{x:y}} 
+    - {}_{n}E_{\overline{x:y}} \cdot A_{\overline{x+n:y+n}}
+\]</div>
+<p>This is due to a difference in basis:</p>
+<ul>
+<li><span class="arithmatex">\({}_{n}E_{\overline{x:y}}\)</span> is based on <strong>at least one life</strong> surviving <span class="arithmatex">\(n\)</span> years</li>
+<li><span class="arithmatex">\(A_{\overline{x+n:y+n}}\)</span> is based on <strong>both lives</strong> being alive <span class="arithmatex">\(n\)</span> years later</li>
+</ul>
+<p>The second component is often <strong>hard to understand</strong> because the last survivor so far has been based on the "at least one" logic.</p>
+<p>However, it is easily understood by <strong>thinking about it as a policy</strong> - you can only issue a last survivor policy to a pair that are <strong>both alive!</strong></p>
+</div>
+<p>The relationship between joint life and last survivor can be applied to actuarial values as well:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    v^{T_{x:y}} + v^{T_{\overline{x:y}}} &amp;= v^{T_{x}} + v^{T_{y}} \\
+    A_{x:y} + A_{\overline{x:y}} &amp;= A_{x} + A_{y} \\
+    {}_{n}E_{x:y} + {}_{n}E_{\overline{x:y}} &amp;= {}_{n}E_{x} + {}_{n}E_{y} \\
+    A_{\overbrace{x:y}:\enclose{actuarial}{n}}^{\ \ \ 1} + A_{\overline{x:y}:\enclose{actuarial}{n}}^{\ \ 1} &amp;= A_{x:\enclose{actuarial}{n}}^{1} + A_{y:\enclose{actuarial}{n}}^{1} \\
+    A_{x:y:\enclose{actuarial}{n}} + A_{\overline{x:y}:\enclose{actuarial}{n}} &amp;= A_{x:\enclose{actuarial}{n}} + A_{y:\enclose{actuarial}{n}}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is the main method for calculating the EPV of a last survivor term assurance.</p>
+</div>
+<h3 id="multi-annuities"><strong>Multi Annuities</strong><a class="headerlink" href="#multi-annuities" title="Permanent link">&para;</a></h3>
+<p>There are two types of multi-life annuities:</p>
+<ul>
+<li><strong>Joint Life Annuity</strong> - Pays a benefit as long as <strong>both</strong> <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are alive</li>
+<li><strong>Last Survivor Annuity</strong> - Pays a benefit as long as <strong>at least one</strong> of <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are alive</li>
+</ul>
+<p>Consider the following two random variables:</p>
+<ul>
+<li><span class="arithmatex">\(\text{JLWLA}_\text{Due}\)</span> - Present value of a joint life <strong>whole life</strong> annuity due</li>
+<li><span class="arithmatex">\(\text{LSWLA}_\text{Due}\)</span> - Present value of a last survivor <strong>whole life</strong> annuity due</li>
+</ul>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|}
+\hline
+    \text{}
+        &amp; \text{Joint Life}
+        &amp; \text{Last Survivor} \\
+\hline
+    \text{Present Value}
+        &amp; \text{JLWLA}_\text{Due} = \ddot{a}_{\enclose{actuarial}{K_{x:y}+1}}
+        &amp; \text{LSWLA}_\text{Due} = \ddot{a}_{\enclose{actuarial}{K_{\overline{x:y}}+1}} \\
+\hline
+    \text{Probability}
+        &amp; P(\text{JLWLA}_\text{Due}) = {}_{n \mid}q_{x:y}
+        &amp;   \begin{aligned}
+                P(\text{LSWLA}_\text{Due})
+                &amp;= {}_{n \mid}q_{\overline{x:y}} \\
+                &amp;= {}_{n \mid}q_{x} + {}_{n \mid}q_{y} - {}_{n \mid}q_{x:y}
+            \end{aligned} \\ 
+\hline
+    \text{Expectation}
+        &amp;   \begin{aligned}
+                E(\text{JLWLA}_\text{Due}) 
+                    &amp;= \sum \ddot{a}_{\enclose{actuarial}{k+1}} \cdot {}_{k \mid}q_{x:y} \\
+                \ddot{a}_{x:y}
+                    &amp;= \sum v^{k} \cdot {}_{k}p_{x:y}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                E(\text{LSWLA}_\text{Due})
+                    &amp;= \sum \ddot{a}_{\enclose{actuarial}{k+1}} \cdot {}_{k \mid}q_{\overline{x:y}} \\
+                \ddot{a}_{\overline{x:y}}
+                    &amp;= \sum v^{k} \cdot {}_{k}p_{\overline{x:y}}
+            \end{aligned} \\
+\hline
+    \text{Variance}
+        &amp;   \begin{aligned}
+                \text{Var}(\text{JLWLA}_\text{Due})
+                &amp;= \text{Var}(\ddot{a}_{\enclose{actuarial}{K_{x:y}+1}}) \\
+                &amp;= \text{Var} \left(\frac{1 - v^{K_{x:y}+1}}{d} \right) \\
+                &amp;= \frac{\text{Var}(v^{K_{x:y}+1})}{d^2} \\
+                &amp;=  \frac{{}^{2}A_{x:y} - (A_{x:y})^2}{d^2}
+            \end{aligned}
+        &amp;   \begin{aligned}
+                \text{Var}(\text{LSWLA}_\text{Due})
+                &amp;= \text{Var}(\ddot{a}_{\enclose{actuarial}{K_{\overline{x:y}}+1}}) \\
+                &amp;= \text{Var} \left(\frac{1 - v^{K_{\overline{x:y}}+1}}{d} \right) \\
+                &amp;= \frac{\text{Var}(v^{K_{\overline{x:y}}+1})}{d^2} \\
+                &amp;=  \frac{{}^{2}A_{\overline{x:y}} - (A_{\overline{x:y}})^2}{d^2}
+            \end{aligned} \\
+\hline
+    \text{Immediate Due}
+        &amp; a_{x:y} = \ddot{a}_{x:y} - 1 
+        &amp; a_{\overline{x:y}} = \ddot{a}_{\overline{x:y}} - 1 \\
+\hline
+\end{array}
+\]</div>
+<p>Similar to assurances, <strong>only joint life</strong> temporary annuities can be decomposed into whole life annuities:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ddot{a}_{x:y:\enclose{actuarial}{n}}
+    &amp;= \ddot{a}_{x:y} - {}_{n}E_{x:y} \cdot \ddot{a}_{x+n:y+n} \\
+    \ddot{a}_{\overline{x:y}:\enclose{actuarial}{n}}
+    &amp;\ne \ddot{a}_{\overline{x:y}} - {}_{n}E_{\overline{x:y}} \cdot \ddot{a}_{\overline{x+n:y+n}} \\
+\end{aligned}
+\]</div>
+<p>The relationship between joint life and last survivor applies to annuities as well:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ddot{a}_{x:y} + \ddot{a}_{\overline{x:y}} &amp;= \ddot{a}_{x} + \ddot{a}_{y} \\
+    \ddot{a}_{x:y:\enclose{actuarial}{n}} + \ddot{a}_{\overline{x:y}:\enclose{actuarial}{n}} 
+        &amp;= \ddot{a}_{x:\enclose{actuarial}{n}} + \ddot{a}_{y:\enclose{actuarial}{n}}
+\end{aligned}
+\]</div>
+<p>Immediate due conversion for term?</p>
+<h3 id="contingent-assurance"><strong>Contingent Assurance</strong><a class="headerlink" href="#contingent-assurance" title="Permanent link">&para;</a></h3>
+<p>A contingent assurance pays a death benefit on the death of <span class="arithmatex">\(x\)</span>, <strong>depending on whether <span class="arithmatex">\(y\)</span> is alive or dead at that time</strong>.</p>
+<p>The proof for the EPVs is similar to what was shown above. Thus, for simplicity, it is sufficient to know that the EPVs follow the <strong>same relationship as the probabilities</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    A_{x:y} &amp;= A^{1}_{x:y} + A^{\ \ \ 1}_{x:y} \\
+    A_{\overline{x:y}} &amp;= A^{2}_{x:y} + A^{\ \ \ 2}_{x:y} \\
+    A_{x} &amp;= A^{1}_{x:y} + A^{2}_{x:y}
+\end{aligned}
+\]</div>
+<h3 id="contingent-annuity"><strong>Contingent Annuity</strong><a class="headerlink" href="#contingent-annuity" title="Permanent link">&para;</a></h3>
+<p>A contingent annuity pays a benefit as long as <span class="arithmatex">\(y\)</span> alive, <strong>depending on whether <span class="arithmatex">\(x\)</span> is alive or dead at that time</strong>.</p>
+<p>In particular, a <strong>Reversionary Annuity</strong> is a form of contingent annuity that pays a benefit as long as <span class="arithmatex">\(y\)</span> is alive, provided that <strong><span class="arithmatex">\(x\)</span> has died</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>trigger</strong> for the annuity starting is the <em>death</em> of <span class="arithmatex">\(x\)</span>, since it is contingent on this event. This is somewhat hard to understand, as we dont usually associate death starting an annuity.</p>
+<p>A reversionary annuity can thus be phrased as <strong>paying a stream of benefits upon the death</strong> of <span class="arithmatex">\(x\)</span>, payable as long as <span class="arithmatex">\(y\)</span> is alive.</p>
+</div>
+<p>Let <span class="arithmatex">\(\text{RWLA}_\text{Due}\)</span> be the random variable representing the present value of the benefits of a <strong>reversionary whole life annuity due</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{RWLA}_\text{Due}
+    &amp;=  \begin{cases}
+            \ddot{a}_{\enclose{actuarial}{K_{y}+1}} - \ddot{a}_{\enclose{actuarial}{K_{x}+1}},
+                &amp; K_{y} \gt K_{x} \\
+            0, &amp; K_{y} \lt K_{x}
+        \end{cases} \\
+    &amp;=  \begin{cases}
+            \ddot{a}_{\enclose{actuarial}{K_{y}+1}} - \ddot{a}_{\enclose{actuarial}{K_{x}+1}},
+                &amp; K_{y} \gt K_{x} \\
+            \ddot{a}_{\enclose{actuarial}{K_{y}+1}} - \ddot{a}_{\enclose{actuarial}{K_{y}+1}},
+                &amp; K_{y} \lt K_{x}
+        \end{cases} \\
+    &amp;= \ddot{a}_{\enclose{actuarial}{K_{y}+1}} 
+        - \ddot{a}_{\enclose{actuarial}{\min(K_{x}, K_{y})+1}} \\
+    &amp;= \ddot{a}_{\enclose{actuarial}{K_{y}+1}} - \ddot{a}_{\enclose{actuarial}{K_{x:y}+1}}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recognise that this is essentially a <strong>Deferred Whole Life Annuity</strong> where the deferment period is variable.</p>
+</div>
+<p>We will skip the formal proof of the probability and EPV associated with a reversionary annuity due to its <strong>complexity</strong>. It is sufficient to just know its EPV:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ddot{a}_{x \mid y}
+    &amp;= \ddot{a}_{y} - \ddot{a}_{x:y} \\
+    &amp;= \frac{1 - A_{y}}{d} - \frac{1 - A_{x:y}}{d} \\
+    &amp;= \frac{A_{x:y} - A_{y}}{d}
+\end{aligned}
+\]</div>
+<p><span class="arithmatex">\(\ddot{a}_{x \mid y}\)</span> is the notation for a reversionary annuity where:</p>
+<ul>
+<li><span class="arithmatex">\(x\)</span> is the <strong>failing life</strong>; life that has to die</li>
+<li><span class="arithmatex">\(y\)</span> is the <strong>annuitant</strong>; life that must stay alive</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above result can be intuitively understood using the following logic:</p>
+<ul>
+<li><span class="arithmatex">\(\ddot{a}_{y}\)</span> pays a benefit until <span class="arithmatex">\(y\)</span> dies</li>
+<li><span class="arithmatex">\(\ddot{a}_{x:y}\)</span> pays a benefit until the first person dies</li>
+</ul>
+<p>As long as <span class="arithmatex">\(x\)</span> dies BEFORE <span class="arithmatex">\(y\)</span>, the former will always more payments than the latter. Thus, the difference is equivalent to a reversionary annuity:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="Reversionary Annuity" class="center" src="../Assets/1.%20Multi%20Life%20Models.md/Reversionary%20Annuity.png" /></p>
+<p>However, if <span class="arithmatex">\(x\)</span> dies AFTER <span class="arithmatex">\(y\)</span>, then the two terms are equal and thus the difference is 0; equivalent to the reversionary annuity NOT making any payments:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="Reversionary Annuity 2" class="center" src="../Assets/1.%20Multi%20Life%20Models.md/Reversionary%20Annuity%202.png" /></p>
+</div>
+<p>The above intuition can be also used to find the EPV of a <strong>special annuity</strong> that pays only when a <strong>single person is alive</strong> (regardless of the order):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{EPV Special Annuity}
+    &amp;= \ddot{a}_{\overline{x:y}} - \ddot{a}_{x:y} \\
+    &amp;= \ddot{a}_{x} + \ddot{a}_{y} - \ddot{a}_{x:y} - \ddot{a}_{x:y} \\
+    &amp;= \ddot{a}_{x} + \ddot{a}_{y} - 2 \cdot \ddot{a}_{x:y}
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Special Annuity" class="center" src="../Assets/1.%20Multi%20Life%20Models.md/Special%20Annuity.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above proof can be understood as following XOR logic:</p>
+<div class="arithmatex">\[
+    P(A \oplus B) = P(A) + P(B) - 2 \cdot P(A \cap B)
+\]</div>
+</div>
+<h3 id="continuous-case"><strong>Continuous Case</strong><a class="headerlink" href="#continuous-case" title="Permanent link">&para;</a></h3>
+<p>Similar to the single life case, continuous or payable <span class="arithmatex">\(m\)</span> times a year contracts are best approached using an <strong>approximation</strong> or <strong>special distribution</strong>:</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|}
+\hline
+    \text{}
+        &amp; \text{Assurance} 
+        &amp; \text{Annuity} \\
+\hline
+    \text{Exponential}
+        &amp; \bar{A}_{x:y} = \frac{\mu_{x:y}(t)}{\mu_{x:y}(t) + \delta}
+        &amp; \bar{a}_{x:y} = \frac{1}{\mu_{x:y}(t) + \delta} \\
+\hline
+    \text{UDD}
+        &amp; A^{(m)}_{x:y} = \frac{i}{i^{(m)}} \cdot A_{x:y}
+        &amp; \ddot{a}^{(m)}_{x:y} = \alpha(m) \cdot \ddot{a}_{x:y} - \beta(m) \\
+\hline
+    \text{Claim Accel}
+        &amp; A{(m)}_{x:y} = (1+i)^{\frac{m-1}{2m}} \cdot A_{x:y} 
+        &amp; \text{NA} \\
+\hline
+    \text{Woolhouse}
+        &amp; \text{NA}
+        &amp;   \begin{aligned}
+                \ddot{a}^{(m)}_{x:y} &amp;= \ddot{a}_{x:y} - \frac{m-1}{2m} \\
+                \ddot{a}^{(m)}_{x:y:\enclose{actuarial}{n}}
+                    &amp;= \ddot{a}_{x:y:\enclose{actuarial}{n}} - \frac{m-1}{2m} (1 - {}_{n}E_{x:y})
+            \end{aligned} \\
+\hline
+\end{array}
+\]</div>
+<p>However, it is still important to know how to caclulate the EPVs using <strong>first principles</strong> via Integration:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \bar{A}_{x:y} &amp;= \int v^{t} \cdot f_{x:y}(t) \\
+    \bar{a}_{x:y} &amp;= \int a_{\enclose{actuarial}{n}} \cdot f_{x:y}(t)
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Although this section only showed joint life contracts, all concepts also apply to last survivor and contingent contracts.</p>
+</div>
+<h3 id="practical-tips"><strong>Practical Tips</strong><a class="headerlink" href="#practical-tips" title="Permanent link">&para;</a></h3>
+<p>Benefit split (Retired actuarial professor)
+Multiplication (YKL)</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../2.%20ASA-FAML/8.%20Model%20Estimation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Model Estimation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Model Estimation
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2.%20Multi%20Decrement%20Models/" class="md-footer__link md-footer__link--next" aria-label="Next: Multi Decrement Models" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Multi Decrement Models
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

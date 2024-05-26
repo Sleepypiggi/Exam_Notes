@@ -1,0 +1,2051 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/2.%20Actuarial%20Mathematics/1.%20ASA-FAMS/7.%20Ratemaking/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Ratemaking - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ratemaking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ratemaking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0.%20Practical%20Exam%20Tips/" class="md-nav__link">
+        Practical Exam Tips
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          ASA-IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" type="checkbox" id="__nav_2_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.%20Introductory/3.%20ASA-IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA-FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Ratemaking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Ratemaking
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamental-equation" class="md-nav__link">
+    Fundamental Equation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expenses" class="md-nav__link">
+    Expenses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profit" class="md-nav__link">
+    Profit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#losses" class="md-nav__link">
+    Losses
+  </a>
+  
+    <nav class="md-nav" aria-label="Losses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loss-aggregation" class="md-nav__link">
+    Loss Aggregation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loss-development" class="md-nav__link">
+    Loss Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loss-trending" class="md-nav__link">
+    Loss Trending
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-trending-methods" class="md-nav__link">
+    Other Trending Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premiums" class="md-nav__link">
+    Premiums
+  </a>
+  
+    <nav class="md-nav" aria-label="Premiums">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#premium-aggregation" class="md-nav__link">
+    Premium Aggregation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premium-trending" class="md-nav__link">
+    Premium Trending
+  </a>
+  
+    <nav class="md-nav" aria-label="Premium Trending">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extension-of-exposures" class="md-nav__link">
+    Extension of Exposures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallelogram-method" class="md-nav__link">
+    Parallelogram Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paralellogram-geometry" class="md-nav__link">
+    Paralellogram Geometry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicative-premium" class="md-nav__link">
+    Indicative Premium
+  </a>
+  
+    <nav class="md-nav" aria-label="Indicative Premium">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loss-ratio-method" class="md-nav__link">
+    Loss Ratio Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pure-premium-method" class="md-nav__link">
+    Pure Premium Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-tips" class="md-nav__link">
+    Practical Tips
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA-FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20ASA-FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          ASA-ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/5.%20Profit%20Analysis/" class="md-nav__link">
+        Profit Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          ASA-SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA-SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA-SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/1.%20Regression%20Overview/" class="md-nav__link">
+        Regression Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/4.%20Gauss%20Markov%20Theorem/" class="md-nav__link">
+        Gauss Markov Theorem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.%20Predictive%20Analytics/1.%20ASA-SRM/5.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA-PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          ILA Track
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ILA Track" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          ILA Track
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-LFM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        FSA-ALM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamental-equation" class="md-nav__link">
+    Fundamental Equation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expenses" class="md-nav__link">
+    Expenses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profit" class="md-nav__link">
+    Profit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#losses" class="md-nav__link">
+    Losses
+  </a>
+  
+    <nav class="md-nav" aria-label="Losses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loss-aggregation" class="md-nav__link">
+    Loss Aggregation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loss-development" class="md-nav__link">
+    Loss Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loss-trending" class="md-nav__link">
+    Loss Trending
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-trending-methods" class="md-nav__link">
+    Other Trending Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premiums" class="md-nav__link">
+    Premiums
+  </a>
+  
+    <nav class="md-nav" aria-label="Premiums">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#premium-aggregation" class="md-nav__link">
+    Premium Aggregation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premium-trending" class="md-nav__link">
+    Premium Trending
+  </a>
+  
+    <nav class="md-nav" aria-label="Premium Trending">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extension-of-exposures" class="md-nav__link">
+    Extension of Exposures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallelogram-method" class="md-nav__link">
+    Parallelogram Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paralellogram-geometry" class="md-nav__link">
+    Paralellogram Geometry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicative-premium" class="md-nav__link">
+    Indicative Premium
+  </a>
+  
+    <nav class="md-nav" aria-label="Indicative Premium">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loss-ratio-method" class="md-nav__link">
+    Loss Ratio Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pure-premium-method" class="md-nav__link">
+    Pure Premium Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-tips" class="md-nav__link">
+    Practical Tips
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ratemaking"><strong>Ratemaking</strong><a class="headerlink" href="#ratemaking" title="Permanent link">&para;</a></h1>
+<h2 id="fundamental-equation"><strong>Fundamental Equation</strong><a class="headerlink" href="#fundamental-equation" title="Permanent link">&para;</a></h2>
+<p><strong>Ratemaking</strong> is the process of determining <strong>how much premium</strong> to charge a policyholder. It is important to set rates such that there is <strong>enough premium</strong> collected to cover losses and expenses while still generating a profit for the insurer.</p>
+<p>This is illustrated through the <strong>Fundamental Insurance Equation</strong>:</p>
+<div class="arithmatex">\[
+    \text{Premium} = \text{Loss} + \text{Expense} + \text{Profit}
+\]</div>
+<p>The remaining subsections will go in-depth into <strong>each component</strong> of this equation.</p>
+<h2 id="expenses"><strong>Expenses</strong><a class="headerlink" href="#expenses" title="Permanent link">&para;</a></h2>
+<p>There are two main types of expenses - <strong>Loss Adjustment Expenses</strong> (LAE) and <strong>Other Expenses</strong>.</p>
+<p>LAE are expenses that are <strong>incurred during the claim settlement process</strong> and are typically included as <strong>part of the incurred losses</strong>.</p>
+<p>They can be further split into two categories:</p>
+<ul>
+<li><strong>Allocated LAE</strong> (ALAE): Expenses <strong>associated with</strong> a specific claim (EG. Lawyer's Fee)</li>
+<li><strong>Unallocated LAE</strong> (ULAE): Expenses that are <strong>NOT associated</strong> with a specific claim (EG. Salaries)</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to include LAE as part of one of the expenses.</p>
+</div>
+<p>As its name suggests, other expenses is a catch all for non-LAE expenses. They are generally split into two categories:</p>
+<ul>
+<li><strong>Variable Expenses</strong> (<span class="arithmatex">\(\text{VE}\)</span>): Expenses that vary with premium (EG. Commissions)</li>
+<li><strong>Fixed Expenses</strong> (<span class="arithmatex">\(\text{FE}\)</span>): Expenses that do NOT vary with premium (EG. Salaries)</li>
+</ul>
+<div class="arithmatex">\[
+    \text{Expenses} = \text{VE} \cdot P + \text{FE}
+\]</div>
+<h2 id="profit"><strong>Profit</strong><a class="headerlink" href="#profit" title="Permanent link">&para;</a></h2>
+<p>Profits can be included in ratemaking either implicitly or explicitly.</p>
+<p>By using <strong>more conservative estimates</strong> than usual, <strong>actual experience should be better</strong> than expected, which <strong>implicitly</strong> results in profit for the insurer.</p>
+<p>Alternatively, they can <strong>explicitly include a margin for the target profit</strong> (T) in the ratemaking process, as seen in the fundamental insurance equation.</p>
+<div class="arithmatex">\[
+    \pi = \pi_{T} \cdot P
+\]</div>
+<p>Based on this, we can find the <strong>target loss ratio</strong> such that the premiums are sufficient to cover both variable expenses and meet the profitability target, known as the <strong>Permissible Loss Ratio</strong> (PLR):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P &amp;= L + \text{FE} + \text{VE} \cdot P + \pi_{T} \cdot P \\
+    P - \text{VE} \cdot P - \pi_{T} \cdot P &amp;= L + \text{FE} \\
+    P \cdot (\text{PLR}) &amp;= L + \text{FE} \\
+    \text{PLR} &amp;= \frac{L + \text{FE}}{P} \\
+    \\
+    \therefore \text{PLR} &amp;= \text{PLR}
+\end{aligned}
+\]</div>
+<h2 id="losses"><strong>Losses</strong><a class="headerlink" href="#losses" title="Permanent link">&para;</a></h2>
+<p>Losses are the main component of determining premiums. However, before historical losses can be used, they must be <strong>Aggregated</strong>, <strong>Developed</strong> &amp; <strong>Trended</strong>.</p>
+<h3 id="loss-aggregation"><strong>Loss Aggregation</strong><a class="headerlink" href="#loss-aggregation" title="Permanent link">&para;</a></h3>
+<p>Losses can be aggregated according to the following categories:</p>
+<ol>
+<li><strong>Calendar Year</strong> (CY): Losses that only occur from <strong>1 Jan to 31 Dec</strong> of that year</li>
+<li><strong>Accident Year</strong> (AY): ALL losses from an <strong>accident that occurred</strong> in a specified 12 month period  </li>
+<li><strong>Policy Year</strong> (PY): ALL losses from a <strong>policy that was issued</strong> in a specified 12 month period</li>
+</ol>
+<p>Unless otherwise stated, the <strong>specified 12 month period follows the calendar year</strong>. In otherwise, Policy Year 2015 refers to a policy that was issued from 1 Jan 2015 to 31 Dec 2015.</p>
+<p>Since AY and PY consider ALL losses, they usually have a <strong>cut off date</strong> known as the <strong>Valuation Date</strong>, such that they <strong>only consider the losses occuring at or before that date</strong>.</p>
+<p>The valuation date is usually referred to as the losses "As at" or "As of". They refer to the <strong>cumulative losses</strong> at that time.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{CY Paid} &amp;= \text{Sum of all paid losses in CY} \\
+    \text{CY Incurred} &amp;= \text{CY Paid} + \text{Change in Case Reserves} \\
+    \\
+    \text{AY/PY Paid} &amp;= \text{Sum of all paid losses at Valuation Date} \\
+    \text{AY/PY Incurred} &amp;= \text{AY/PY Paid} + \text{Case Reserves at Valuation Date}
+\end{aligned}
+\]</div>
+<p>Since the default is to assume that PY and AY follow CY, unless stated otherwise as well, the <strong>valuation date is the end of the year</strong>.</p>
+<p><strong>Most questions already provide the aggregated losses</strong>. However, if <strong>given raw data</strong>, we are expected to know how to aggregate them ourselves using the above method.</p>
+<h3 id="loss-development"><strong>Loss Development</strong><a class="headerlink" href="#loss-development" title="Permanent link">&para;</a></h3>
+<p>Using the above aggregations, the losses can be <strong>developed to their ultimate values</strong> using the <strong>chain ladder method</strong> described in the previous reserving section.</p>
+<h3 id="loss-trending"><strong>Loss Trending</strong><a class="headerlink" href="#loss-trending" title="Permanent link">&para;</a></h3>
+<p>Lastly, <strong>losses must be trended</strong> to account for factors that drive losses such as inflation, increased medical costs or technological advances.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Loss Trending and Development are <strong>often confused with one another</strong> as both involve adjusting the loss amount. Some people also believe that only one of them should be applied to a loss because applying both would <strong>double count certain factors</strong>, known as the <strong>Overlap Fallacy</strong>.</p>
+<p>However, note that they are extremely different concepts:</p>
+<p><strong>Loss Development</strong> is about bringing an <strong>immature loss to its ultimate amount</strong>, as losses take time to be <strong>discovered and reported</strong> to the insurer.</p>
+<p><strong>Loss Trending</strong> is about bringing the <strong>ultimate loss today to what it would be at a future time</strong>, as losses are also subject to <strong>external factors such as inflation</strong>.</p>
+</div>
+<p>Similar to development, trending involves using historical data to find trends and then project them into the future:</p>
+<div class="arithmatex">\[
+    \text{Trended Ultimate Loss} = \text{Ultimate Loss} \cdot (1 + \text{Trend Factor})^\text{Trend Period}
+\]</div>
+<p>However, finding trend factors is out of scope for this exam. Thus, the main focus will be on <strong>determining the trend period</strong>.</p>
+<p>Formally speaking, it is the difference between the <strong>midpoint</strong> of the <strong>Experience Period</strong> and the midpoint of the <strong>Forecast Period</strong>:</p>
+<ul>
+<li><strong>Experience Period</strong>: Duration in which losses can occur for policies with <strong>old rates</strong></li>
+<li><strong>Forecast Period</strong>: Duration in which losses can occur for policies with <strong>new rates</strong></li>
+<li>The midpoint is used as a general "summary" of each period</li>
+</ul>
+<div class="arithmatex">\[
+    \text{Trend Period} = \text{Forecast Period Midpoint} - \text{Experience Period Midpoint}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Trend Period" class="center" src="../Assets/7.%20Ratemaking.md/Trend%20Period.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For all date related computations, assume that the <strong>base unit is 1 year</strong>.</p>
+<p>Most questions provides dates that are usually on the <strong>same day of the month</strong> (EG. 1<sup>st</sup>). The calculation mainly involves a <strong>difference in months</strong>:</p>
+<div class="arithmatex">\[
+    \text{1 Jan} - \text{1 Oct} = \frac{3}{12} = \frac{1}{4}
+\]</div>
+<p>However, questions can also provide dates that are on <strong>different days of the month</strong> (EG. 15<sup>th</sup> vs 1<sup>st</sup>). The <strong>difference in days</strong> must also be accounted for:</p>
+<div class="arithmatex">\[
+    \text{1 Jan} - \text{15 Oct} = \frac{2.5}{12} = \frac{5}{24}
+\]</div>
+<p>The most common mistake when calculating dates is getting a quarter and third mixed up:</p>
+<ul>
+<li>3 Months difference is a quarter <span class="arithmatex">\(\frac{1}{4}\)</span></li>
+<li>4 Months difference is a third <span class="arithmatex">\(\frac{1}{3}\)</span></li>
+<li>The 3 and 4 get swapped in the denominator!</li>
+</ul>
+</div>
+<p>The difficulty comes from determining the length and hence midpoint of each period.</p>
+<p>If the periods are determined via <strong>AY</strong>, then the length of the period is simply the <strong>calendar year</strong>. Thus, its midpoint is always the <strong>middle of the year</strong>.</p>
+<div class="arithmatex">\[
+    \text{AY Period} = \text{Middle of Calendar Year}
+\]</div>
+<p>If the periods are determined via <strong>PY</strong>, then the length of the period is the <strong>CY PLUS the length of the policy</strong>.</p>
+<p>Assuming that policies are <strong>written uniformly throughout the year</strong>, it means that there will be policies <strong>written on the first and last day of the PY</strong>:</p>
+<ul>
+<li><strong>Written on First Day</strong>: Expires on the last day of PY</li>
+<li><strong>Written on Last Day</strong>: Expires on last day of PY plus policy term</li>
+</ul>
+<p>Both of the above policies are written using the same set of rates. Thus, the <strong>maximum possible timespan</strong> that policies written with the same set of rates can exists are:</p>
+<div class="arithmatex">\[
+    \text{PY Period} = \text{Rates Duration} + \text{Policy Term}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="PY Period" class="center" src="../Assets/7.%20Ratemaking.md/PY%20Period.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above example assumed that <strong>rates are in effect for one year</strong> exactly at the start and end of the PY.</p>
+<p>In other words, it assumes that the new rates are put into place at the start of the next PY. In practice, rates can <strong>start and end at any time</strong>.</p>
+</div>
+<h3 id="other-trending-methods"><strong>Other Trending Methods</strong><a class="headerlink" href="#other-trending-methods" title="Permanent link">&para;</a></h3>
+<p>Rather than using <em>just one</em> trending factor, insurers might sometimes use multiple trending factors to obtain a trended ultimate and then take a <strong>weighted average</strong> of all of them instead.</p>
+<p>Similarly, they could also use <strong>regression</strong> to project the trended ultimate. Based on the regression slope <span class="arithmatex">\((m)\)</span>, the trended ultimate can be calculated:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    L^T &amp;= L^U + mt \\
+    \\
+    \ln L^T &amp;= \ln L^U + mt \\
+    \ln \frac{L^T}{L^U} &amp;= mt \\
+    \frac{L^T}{L^U} &amp;= e^{mt} \\
+    L^T &amp;= L^U \cdot e^{mt}
+\end{aligned}
+\]</div>
+<h2 id="premiums"><strong>Premiums</strong><a class="headerlink" href="#premiums" title="Permanent link">&para;</a></h2>
+<p>Similar to losses, historical premiums must be first aggregated and then brough to the current level via <strong>trending</strong>.</p>
+<h3 id="premium-aggregation"><strong>Premium Aggregation</strong><a class="headerlink" href="#premium-aggregation" title="Permanent link">&para;</a></h3>
+<p>Since premiums cannot be linked to specific accidents, they can only be aggregated by CY or PY.</p>
+<p>Premiums can also be categorized in three ways, based on their <strong>accounting</strong> definitions:</p>
+<ul>
+<li><strong>Written Premium</strong> (WP): Total premium collected</li>
+<li><strong>Earned Premium</strong> (EP): Portion of premium used to provide insurance</li>
+<li><strong>Unearned Premium</strong> (UP): Portion of premium that has yet to be used to provide insurance</li>
+</ul>
+<div class="arithmatex">\[
+    \text{WP} = \text{EP} + \text{UP}
+\]</div>
+<p>The above are all calculated at a specific point in time known as the <strong>Valuation Date</strong>. For CY aggregation, the valuation date is always the <strong>end of the year</strong> while for PY aggregation it can be any date.</p>
+<div class="arithmatex">\[
+    \text{EP}
+    = \text{WP} \cdot \frac{|\text{Valuation Date} - \text{Policy Start Date}|}{\text{Policy Term}}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Earned Unearned Premiums" src="../Assets/7.%20Ratemaking.md/Earned%20Unearned%20Premiums.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a <em>few</em> policies, this process can be easily repeated. However, when policies are <strong>written uniformly throughout the year</strong>, there will be way <em>too many</em> to be feasibly use this method.</p>
+<p>Since policies are written uniformly, each month writes an equal number of policies. We can decompose the problem into <strong>monthly computations</strong>.</p>
+<div class="arithmatex">\[
+    \text{WP}_\text{Per Month} = \text{WP} \cdot \frac{1}{12}
+\]</div>
+<p>Depending on the policy term, the premiums for some months <strong>may already be fully earned</strong>. For instance, if the valuation date is the <strong>end of the year</strong> and policies lasts 3 months, then all policies written in <strong>January to September</strong> would have been <strong>fully earned by the end of the year</strong>.</p>
+<div class="arithmatex">\[
+    \text{EP}_{\text{Fully Earned Month}} = \text{WP}_\text{Per Month}
+\]</div>
+<p>For the remaining months, their premiums are only <strong>partially earned</strong>. Since policies are written evenly throughout the month, we can use the <strong>middle of the month</strong> as a reference point. The earned portion can then be calculated using the original method:</p>
+<div class="arithmatex">\[
+    \text{EP}_\text{Partially Earned Month}
+    = \text{WP}_\text{Per Month} \cdot \frac{|\text{Valuation Date} - \text{Middle Month}|}{\text{Policy Term}}
+\]</div>
+<p>Thus, the total EP is the combination of ALL the fully and partically earned months:</p>
+<div class="arithmatex">\[
+    \text{EP}
+    = \sum \text{EP}_{\text{Fully Earned Month}} + \sum \text{EP}_\text{Partially Earned Month}
+\]</div>
+<p>The above is used to calculate the earned premium over a <strong>particular year</strong>. The same logic can thus be extended to the earned premium over a <strong>particular month</strong>.</p>
+</div>
+<p>As with loss aggregation, <strong>most questions already provide the aggregated premiums</strong>. However, if given raw data, we are expected to know how to aggregate them ourselves using the above method.</p>
+<h3 id="premium-trending"><strong>Premium Trending</strong><a class="headerlink" href="#premium-trending" title="Permanent link">&para;</a></h3>
+<p>Premiums then need to be brought to their current level, similar to how ultimate losses were trended.</p>
+<h4 id="extension-of-exposures"><strong>Extension of Exposures</strong><a class="headerlink" href="#extension-of-exposures" title="Permanent link">&para;</a></h4>
+<p>The first method is known as the <strong>Extension of Exposures</strong> method, which adjusts premiums for each individual policyholder by accounting for rate changes in every single exposure.</p>
+<p>For some background, premiums are calculated as the product of a rate and an some base:</p>
+<div class="arithmatex">\[
+    \text{Premium} = \text{Exposure Base} \cdot \text{Rate per Exposure}
+\]</div>
+<p>However, exposures need not be continuous (EG. Gender - Male, Female). Possible exposures are known as <strong>Risk Classifications</strong>. For simplicity, this section will consider only <strong>discrete exposures</strong>.</p>
+<p>These premiums are then <strong>calculated relatively</strong> - in other words, it assumes some <strong>base risk classification</strong> will be charged a certain premium and then <strong>adjusts it accordingly if the risk classification is different</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The concept is similar to dummy variable regression where <span class="arithmatex">\(x=0\)</span> is assumed as the base case and then changes accordingly.</p>
+</div>
+<p>Formally speaking, the base risk classification is known as the <strong>Base Cell</strong>, which is usually the <strong>most common risk class</strong>. The <strong>premium for this risk class</strong> is known as the <strong>Base Rate</strong>.</p>
+<p>In order to adjust the premiums, <strong>each risk class has its own rate</strong>, collectively known as the <strong>Rate Differentials</strong> for the rating variable. Naturally, the rates for the base cell are 1 to reflect that <em>it is</em> the base.</p>
+<div class="arithmatex">\[
+    \text{Premium} = \text{Base Rate} \cdot \text{Rate Relativities}
+\]</div>
+<!-- Coaching Actuaries -->
+<p><img alt="Rate Relativity" class="center" src="../Assets/7.%20Ratemaking.md/Rate%20Relativity.png" /></p>
+<p>Thus, old premiums are brought to the current level by simply <strong>recalculating them at the current rates</strong> instead:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Old Premium} &amp;= 300 \cdot 1.2 \cdot 0.8 = 288 \\
+    \text{On Level Premium} &amp;= 330 \cdot 1.30 \cdot 0.70 = 300.30
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Extension of Rates" src="../Assets/7.%20Ratemaking.md/Extension%20of%20Rates.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Rather than providing the exact rates, rates are often expressed in the form of rate changes:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="Rate Changes" class="center" src="../Assets/7.%20Ratemaking.md/Rate%20Changes.png" /></p>
+<div class="arithmatex">\[
+    \text{New Rates} = \text{Old Rates} \cdot \text{Rate Change}
+\]</div>
+<p>Thus, rather than needing to have the exact rates, we can simply <strong>multiply the old premiums by the rate changes</strong> to bring them to the current level.</p>
+</div>
+<h4 id="parallelogram-method"><strong>Parallelogram Method</strong><a class="headerlink" href="#parallelogram-method" title="Permanent link">&para;</a></h4>
+<p>Although the above method is more "correct", the problem is that it requires highly granular data for every policyholder and the individual rates.</p>
+<p>However, insurers may only have access to aggregated data for both premiums and rates, in which case the <strong>Parallelogram Method</strong> must be used.</p>
+<p>A series of rate changes can be reorganized into a <strong>series of parallelograms</strong>:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Parallelogram Method" class="center" src="../Assets/7.%20Ratemaking.md/Parallelogram%20Method.png" /></p>
+<p>Each <strong>square represents a calendar year</strong> while <strong>diagonal lines represent policies</strong>. Each diagonal has a horizontal length equal to the policy term in years.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In practice, we <strong>only need 3 squares</strong>, with the middle square being the CY whose premium we would like to trend upwards.</p>
+</div>
+<p>In particular, <strong>diagonals start from the first day of a new rate</strong>. Thus, the area <strong>between any two diagonals forms a Parellogram</strong>, which represent all policies written under a particular set of rates.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recall from Loss Trending that the timespan is from the first day of rates to the last day of rates plus the policy term; the parallelograms are a <strong>visualization of the timespan</strong>.</p>
+</div>
+<p>Since the length of each square is exactly one calendar year, it is equal to 1. Thus, the <strong>area of the square is 1</strong>.</p>
+<p>Due to all the diagonals, the square can be "broken up" into different shapes, whose <strong>area must all still sum to 1</strong>:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Geometry Review" class="center" src="../Assets/7.%20Ratemaking.md/Geometry%20Review.png" /></p>
+<p>Each shape within the square corresponds to <strong>policies written under different set of rates</strong>. Assuming that <strong>premiums are aggregated by CY</strong>, the premiums collected in the year is the sum of the premiums from all these policies.</p>
+<p>Since the area of the square is 1, the area of these different shapes that represent different rates can be <strong>intepreted as weights</strong>. Thus, the aggregate premium collected for that year is based on the <strong>weighted average rate</strong> of all rates within the square:</p>
+<div class="arithmatex">\[
+    \text{Average Rate} = \sum \text{Area} \cdot \text{Yearly Rate}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Geometry Weighted Average" class="center" src="../Assets/7.%20Ratemaking.md/Geometry%20Weighted%20Average.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The rate for each year is the <strong>cumultive rate changes</strong> up till that time.</p>
+<p>Using the given rate changes in the table above,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{CY 2014 Rates} &amp;= P \\
+    \text{CY 2015 Rates} &amp;= P \cdot (1.05) \\
+    \text{CY 2016 Rates} &amp;= P \cdot (1.05)(1.1) \\
+    \text{CY 2017 Rates} &amp;= P \cdot (1.05)(1.1)(0.98) \\
+\end{aligned}
+\]</div>
+<p><span class="arithmatex">\(P\)</span> can also be substituted for <span class="arithmatex">\(1\)</span>, as it is usually <strong>cancelled</strong> out when calculating the on-level factor.</p>
+</div>
+<p>Recall from the extension method that the Historical and Current premiums are essentially the same exposure base multiplied by different rates. Using that logic, we can come up with an adjustment factor that transforms historical premiums to current premiums, known as the <strong>On Level Factor</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Historical Premium} &amp;= \text{Exposure Base} \cdot \text{Average Rate} \\
+    \\
+    \text{Current Premium}
+    &amp;= \text{Exposure Base} \cdot \text{Current Rate} \\
+    &amp;= \text{Exposure Base} \cdot \text{Current Rate} \cdot \frac{\text{Average Rate}}{\text{Average Rate}} \\
+    &amp;= \text{Exposure Base} \cdot \text{Average Rate} \cdot \frac{\text{Current Rate}}{\text{Average Rate}} \\
+    &amp;= \text{Historical Premium} \cdot \text{On Level Factor} \\
+    \\
+    \therefore \text{On Level Factor} &amp;= \frac{\text{Current Rate}}{\text{Average Rate}}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common misconception to think that the On Level Factor must be greater than 1.</p>
+<p>There is no hard rule that states that premiums must increase over time.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="On Level Factors" class="center" src="../Assets/7.%20Ratemaking.md/On%20Level%20Factors.png" /></p>
+<h4 id="paralellogram-geometry"><strong>Paralellogram Geometry</strong><a class="headerlink" href="#paralellogram-geometry" title="Permanent link">&para;</a></h4>
+<p>The difficulty comes from being able to correctly calculate the <strong>lengths of various components</strong>, which requires us to understand the geometry behind a parallelogram.</p>
+<p>Every parallelogram has the following basic layout:</p>
+<!-- Self Made -->
+<p><img alt="General Parallelogram" class="center" src="../Assets/7.%20Ratemaking.md/General%20Parallelogram.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the policy term is lesser than one year, then depending on the start date, the policy may not even cross even to the next year.</p>
+<p>For instance, a 6 month policy bought on 1 Jun will end on 1 Jan, not crossing the CY boundary. Thus, always perform a sense check when dealing with a policy of under a year.</p>
+<p><!-- Self Made -->
+<img alt="Half Year Parallelogram" class="center" src="../Assets/7.%20Ratemaking.md/Half%20Year%20Parallelogram.png" /></p>
+</div>
+<p>Given the start date of the rates, the time to the start of the next year <span class="arithmatex">\((x)\)</span> can be calculated. Assuming a <strong>policy term of 1 year</strong>, the length of the small triangle is simply the complement <span class="arithmatex">\((1-x)\)</span>.</p>
+<!-- Self Made -->
+<p><img alt="One Year Parallelogram" class="center" src="../Assets/7.%20Ratemaking.md/1%20Year%20Parallelogram.png" /></p>
+<p>In order to calculate the height of the small triangle, geometric rules must be used.</p>
+<p>Since the two triangles share the <strong>same angle at the tip</strong> and a right angle, the two triangles thus have the <strong>same angle at every vertice</strong> and thus are considered to be <strong>similar triangles</strong>.</p>
+<p>For two similar triangles, the ratio of their lengths and heights must be equal:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{L_1}{H_1} &amp;= \frac{L_2}{H_2} \\
+    \\
+    \frac{1}{1} &amp;= \frac{x}{H_2} \\
+    \therefore H_2 &amp;= x
+\end{aligned}
+\]</div>
+<!-- Self Made -->
+<p><img alt="1 Year Similarity" class="center" src="../Assets/7.%20Ratemaking.md/1%20Year%20Similarity.png" /></p>
+<p>Using the above method, the dimensions of any triangles can be found and hence used to calculate the area. Generally speaking, it is better to calculate the <strong>area of the two triangles</strong> and then take the <strong>area of the trapezium as their complement</strong>.</p>
+<!-- Self Made -->
+<p><img alt="1 Year Final Parallelogram" class="center" src="../Assets/7.%20Ratemaking.md/1%20Year%20Final%20Parallelogram.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although 1 year policy terms are the most common, do NOT mistakenly believe that the triangles are always isoceles.</p>
+<p>Repeating the same process for a policy term of 6 months will result in a <strong>non-isoceles triangle</strong>:</p>
+<p><!-- Self Made -->
+<img alt="Half year similarity" class="center" src="../Assets/7.%20Ratemaking.md/Half%20year%20similarity.png" /></p>
+<p>Thus, it is best to apply <strong>first principles to determine the dimensions</strong> of the triangles.</p>
+</div>
+<h3 id="indicative-premium"><strong>Indicative Premium</strong><a class="headerlink" href="#indicative-premium" title="Permanent link">&para;</a></h3>
+<p>The last part of the ratemaking process is to ensure that there the <strong>premiums are sufficient</strong> to cover future losses, expenses and target profits.</p>
+<p>The <strong>sufficient premium</strong> is known as the <strong>Indicative Premium</strong> <span class="arithmatex">\((P^I)\)</span>, which can be solved for using the fundamental insurance equation:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P^I &amp;= L + \text{FE} + \text{VE} \cdot P^I + \pi_{T} \cdot P \\
+    P^I - \text{VE} \cdot P^I - \pi_{T} \cdot P^I &amp;= L + \text{FE} \\
+    P^I \cdot (\text{PLR}) &amp;= L + \text{FE} \\
+    P^I &amp;= \frac{L + \text{FE}}{\text{PLR}} \\
+    P^I &amp;= \frac{L + \text{FE}}{\text{PLR}} \\
+\end{aligned}
+\]</div>
+<p>The difficulty comes from filling in the various values. Depending on the type of data provided, there are two methods to do so.</p>
+<h4 id="loss-ratio-method"><strong>Loss Ratio Method</strong><a class="headerlink" href="#loss-ratio-method" title="Permanent link">&para;</a></h4>
+<p>Instead of directly calculating the indicative premium, we can calculate a <strong>factor to adjust the current premium</strong> to the indicated level, known as a <strong>Rate Change</strong>.</p>
+<div class="arithmatex">\[
+    \text{Indicative Premium} = \text{Current Premium} \cdot \text{Rate Change}
+\]</div>
+<p>This method is known as the <strong>Loss Ratio Method</strong> because it converts the <strong>loss on the RHS into a loss ratio</strong> by dividing the entire equation by the current premium:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P^I &amp;= \frac{L + \text{FE}}{\text{PLR}} \\
+    \frac{P^I}{P^c} &amp;= \frac{\frac{L}{P^c} + \frac{\text{FE}}{P^c}}{\text{PLR}} \\
+    \frac{P^I}{P^c} - 1 &amp;= \frac{LR + \frac{\text{FE}}{P^c}}{\text{PLR}} - 1 \\
+    \frac{P^I - P^c}{P^c} &amp;= \frac{LR + \frac{\text{FE}}{P^c}}{\text{PLR}} - 1 \\
+    \\
+    \therefore \text{Rate Change} &amp;= \frac{LR + \frac{\text{FE}}{P^c}}{\text{PLR}} - 1
+\end{aligned}
+\]</div>
+<h4 id="pure-premium-method"><strong>Pure Premium Method</strong><a class="headerlink" href="#pure-premium-method" title="Permanent link">&para;</a></h4>
+<p>Alternatively, the indicative premium can be calculated directly using the <strong>Pure Premium Method</strong>.</p>
+<p>Similar to the loss ratio method, it involves dividing the equation by the <strong>Number of Exposures</strong> <span class="arithmatex">\((n^e)\)</span>, which turns the <strong>loss on the RHS into a pure premium</strong> (net premium):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P^I &amp;= \frac{L + \text{FE}}{\text{PLR}1} \\
+    \frac{P^I}{n^e} &amp;= \frac{\frac{L}{n^e} + \frac{\text{FE}}{n^e}}{\text{PLR}} \\
+    \frac{P^I}{n^e} &amp;= \frac{\bar{L} + \bar{FE}}{\text{PLR}} \\
+    \\
+    \therefore \text{Indicative Rate} &amp;= \frac{\bar{L} + \bar{FE}}{\text{PLR}}
+\end{aligned}
+\]</div>
+<p>The bar notation is used in this context as they are technically the <strong>average losses and fixed expenses per exposure</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although both methods are equivalent, they are NOT expected to produce the similar results. Do NOT use them to sense check one another.</p>
+</div>
+<h4 id="practical-tips"><strong>Practical Tips</strong><a class="headerlink" href="#practical-tips" title="Permanent link">&para;</a></h4>
+<p>Remember that this is the <strong>final step</strong> for ratemaking. This means that <strong>all other steps must be completed</strong> before this.</p>
+<p>Thus, if the question provides <strong>non-trended or non-aggregated</strong> data, then it must be done before continuing.</p>
+<p>If <strong>multiple years</strong> of data are provided, then the indicative premium should be calculated using the <strong>weighted average</strong> of the Loss Ratios <span class="arithmatex">\((\text{LR})\)</span> or Pure Premiums <span class="arithmatex">\((\bar{L})\)</span>. The question will usually <strong>specify the weights</strong> to use.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to confuse this step with the aggregation step.</p>
+<p>Aggregation adds up the raw losses and premiums, while thie step takes the weighted average of LRs and Pure Premiums.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../6.%20Loss%20Reserving/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Loss Reserving" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Loss Reserving
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../8.%20Model%20Estimation/" class="md-footer__link md-footer__link--next" aria-label="Next: Model Estimation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Model Estimation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>
