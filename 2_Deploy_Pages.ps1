@@ -5,6 +5,6 @@ $Commit_Message = $Date_Time + " Updates"
 
 git add .
 git commit -m $Commit_Message
-git push origin master
+git push origin main
 
 mkdocs gh-deploy --force
