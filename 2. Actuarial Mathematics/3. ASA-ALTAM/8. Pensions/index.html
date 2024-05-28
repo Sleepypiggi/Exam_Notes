@@ -997,6 +997,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#standard-service-table" class="md-nav__link">
+    Standard Service Table
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1044,9 +1051,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#funding-db-plans" class="md-nav__link">
-    Funding DB Plans
+  <a href="#funding-db-pensions" class="md-nav__link">
+    Funding DB Pensions
   </a>
+  
+    <nav class="md-nav" aria-label="Funding DB Pensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puc-method" class="md-nav__link">
+    PUC Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuc-method" class="md-nav__link">
+    TUC Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mid-year-exits" class="md-nav__link">
+    Mid Year Exits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1368,6 +1409,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#standard-service-table" class="md-nav__link">
+    Standard Service Table
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1415,9 +1463,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#funding-db-plans" class="md-nav__link">
-    Funding DB Plans
+  <a href="#funding-db-pensions" class="md-nav__link">
+    Funding DB Pensions
   </a>
+  
+    <nav class="md-nav" aria-label="Funding DB Pensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puc-method" class="md-nav__link">
+    PUC Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuc-method" class="md-nav__link">
+    TUC Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mid-year-exits" class="md-nav__link">
+    Mid Year Exits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1476,8 +1558,38 @@
 <p>Pensions are within the scope of the exam as they are a form of <strong>contingent cashflows</strong> - contingent on the retirement of the employee.</p>
 <h2 id="key-concepts"><strong>Key Concepts</strong><a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
 <h3 id="salary-projection"><strong>Salary Projection</strong><a class="headerlink" href="#salary-projection" title="Permanent link">&para;</a></h3>
-<p>Regardless of the type of pension, employee salary is often used as the driver for the fixed components of the pension. However, an individual's salary tends to <strong>grow over time</strong>, thus must be projected into the future.</p>
+<p>Let <span class="arithmatex">\(S_{x}\)</span> be the <strong>Annual Salary</strong> of an employee aged <span class="arithmatex">\(x\)</span>, earned while they are aged <span class="arithmatex">\(x\)</span>:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Annual_Salary" class="center" src="../Assets/8.%20Pensions.md/Annual_Salary.png" /></p>
+<p>Salary is the key driver behind both types of pensions covered. Salary tends to grow over time, thus there must be defined methodology to <strong>project one's salary over time</strong>.</p>
+<p>The simplest method is to assume a <strong>Constant Growth Rate</strong> between years:</p>
+<div class="arithmatex">\[
+    S_{x+t} = S_{x} \cdot (1+g)^{t}
+\]</div>
+<p>A more flexible method be to use a <strong>Salary Scale</strong>, where unique growth patterns can be used:</p>
+<div class="arithmatex">\[
+    S_{x+t} = S_{x} \cdot \underbrace{\frac{s_{x+t}}{s_{x}}}_{\text{Salary Scale}}
+\]</div>
+<p>Salary scales can either be defined via a <strong>formula</strong>, or via a <strong>table of values</strong> if they do not follow a specific pattern:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Salary_Scale" class="center" src="../Assets/8.%20Pensions.md/Salary_Scale.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pay special attention not to confuse Salary (Big S) with the Salary Scale (Small s). Ensure that they are clearly legible during the exam to avoid careless mistakes.</p>
+</div>
 <h3 id="replacement-ratio"><strong>Replacement Ratio</strong><a class="headerlink" href="#replacement-ratio" title="Permanent link">&para;</a></h3>
+<p>The <strong>Replacement Ratio</strong> is the percentage of pre-retirement income that is replaced by the pension benefit:</p>
+<div class="arithmatex">\[
+    \text{Replacement Ratio} = \frac{\text{Retirement Benefit}}{\text{Final Salary}}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Final Salary in this context is the <strong>literal meaning</strong> of the word - the last salary that the employee would receive at the company.</p>
+</div>
+<p>Most pension plans have a <strong>target replacement ratio</strong> is 50-70%. The ratio does not need to be close to 100% as people typically require less money while in retirement.</p>
+<h3 id="standard-service-table"><strong>Standard Service Table</strong><a class="headerlink" href="#standard-service-table" title="Permanent link">&para;</a></h3>
+<!-- TBC -->
+
 <h2 id="defined-contribution"><strong>Defined Contribution</strong><a class="headerlink" href="#defined-contribution" title="Permanent link">&para;</a></h2>
 <p>Defined Contribution plans are a type pension where employer contributions are fixed, defined as some <strong>function of an employee's salary</strong> at the time.</p>
 <div class="arithmatex">\[
@@ -1514,6 +1626,7 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
+<p>If an employee retires at age 65, the <strong>LAST salary</strong> they drew was when they were at 64. There is assumed to be NO salary on the year of retirement.</p>
 </div>
 <p>For a DB plan, the goal is to determine the <strong>expected fund value</strong> needed to support the benefits. This is done by solving for the <strong>EPV</strong> of the life annuity:</p>
 <div class="arithmatex">\[
@@ -1537,8 +1650,8 @@
 <table>
 <thead>
 <tr>
-<th align="center"><strong>Projected Unit Cost</strong></th>
-<th align="center"><strong>Traditional Unit Method</strong></th>
+<th align="center"><strong>Projected Unit Credit</strong></th>
+<th align="center"><strong>Traditional Unit Credit</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1561,13 +1674,13 @@
 <p class="admonition-title">Tip</p>
 <p>Consider the FAS method for final salary of 3 years:</p>
 <ul>
-<li><strong>Projected Method</strong>: Average salaries at age 64, 63 &amp; 62</li>
-<li><strong>Traditional Method</strong>: Average salaries at age <span class="arithmatex">\(y-1\)</span>, <span class="arithmatex">\(y-2\)</span> &amp; <span class="arithmatex">\(y-3\)</span></li>
+<li><strong>PUC</strong>: Average salaries at age 64, 63 &amp; 62</li>
+<li><strong>TUC</strong>: Average salaries at age <span class="arithmatex">\(y-1\)</span>, <span class="arithmatex">\(y-2\)</span> &amp; <span class="arithmatex">\(y-3\)</span></li>
 </ul>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The above two methods only influence the Final Salary parameter of the benefit definition. It does NOT affect the <strong>number of years of service (n) is the same</strong> for both methods.</p>
+<p>The above two methods only influence the Final Salary parameter of the benefit definition. Years of service (n) is the same under both methods.</p>
 </div>
 <p>Even under an accrued benefits basis, the pension benefits will only <strong>start upon retirement</strong>. Thus, the EPV is first calculated on retirement, then <strong>discounted back to the current age</strong>:</p>
 <div class="arithmatex">\[
@@ -1612,7 +1725,7 @@
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If the projected method is specified, the each scenario would use a different final salary. For instance, if the average of the final 3 years are used:</p>
+<p>If the PUC method is specified, the each scenario would use a different final salary. For instance, if the average of the final 3 years are used:</p>
 <ul>
 <li><strong>Retire at age 65</strong>: Average of salaries at ages 65, 64 &amp; 63</li>
 <li><strong>Retire at age 64</strong>: Average of salaries at ages 64, 63 &amp; 62</li>
@@ -1633,7 +1746,82 @@
 <p class="admonition-title">Tip</p>
 <p>Although it is technically possible to withdraw at any age, questions for this topic typically <strong>limit the possible withdrawal ages</strong> for simplicity.</p>
 </div>
-<h2 id="funding-db-plans"><strong>Funding DB Plans</strong><a class="headerlink" href="#funding-db-plans" title="Permanent link">&para;</a></h2>
+<h2 id="funding-db-pensions"><strong>Funding DB Pensions</strong><a class="headerlink" href="#funding-db-pensions" title="Permanent link">&para;</a></h2>
+<p>The main goal when analyzing a DB pension is to <strong>determine the contributions</strong> needed for that year in order to maintain the pension:</p>
+<ul>
+<li>Company holds a <strong>reserve equal to the accrued liability</strong></li>
+<li>Company makes a <strong>contribution</strong> into the reserve in order to <strong>meet the target reserve</strong> for the next period</li>
+</ul>
+<p>Let <span class="arithmatex">\(C_{n}\)</span> be the <strong>Normal Contribution</strong> (sometimes known as <strong>Normal Cost</strong>) needed at year <span class="arithmatex">\(n\)</span>, where <span class="arithmatex">\(n\)</span> is the service years at the time:</p>
+<div class="arithmatex">\[
+    {}_{n}V + C_{n} = {}_{n+1}V \cdot vp_{x}
+\]</div>
+<p>Given that there two different reserving methodologies, there will be two different contribution rates as well based on each method.</p>
+<h3 id="puc-method"><strong>PUC Method</strong><a class="headerlink" href="#puc-method" title="Permanent link">&para;</a></h3>
+<p>Under the PUC method, salary is projected till retirement. <strong>Regardless of the valuation year</strong>, the salary parameter <strong>remains constant</strong>. Thus, the reserves at time <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(n+1\)</span> are based on the <strong>same salary</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}V
+    &amp;= n \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    {}_{n+1}V
+    &amp;= (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x-1} {}_{65-x-1}p_{x+1} \\
+    \\
+    {}_{n+1}V \cdot vp_{x} 
+    &amp;= (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x+1} p_{x} \\
+    &amp;= (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    &amp;= \frac{n}{n} \cdot (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    &amp;= \frac{n+1}{n} \cdot n \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    &amp;= \frac{n+1}{n} \cdot {}_{n}V \\
+    \\
+    \therefore C_{n}
+    &amp;= {}_{n+1}V \cdot vp_{x} - {}_{n}V \\
+    &amp;= \frac{n+1}{n} \cdot {}_{n}V - {}_{n}V \\
+    &amp;= \left(\frac{n+1}{n} - 1 \right) \cdot {}_{n}V \\
+    &amp;= \frac{n+1-n}{n} \cdot {}_{n}V \\
+    &amp;= \frac{1}{n} \cdot {}_{n}V
+\end{aligned}
+\]</div>
+<p>This can be intepreted as the contribution on a PUC basis being equal to the <strong>average yearly accrued liability</strong>. The contribution is <strong>purely</strong> to cover the <strong>addittional year of accruals</strong> when moving later by one valuation year.</p>
+<h3 id="tuc-method"><strong>TUC Method</strong><a class="headerlink" href="#tuc-method" title="Permanent link">&para;</a></h3>
+<p>Under the TUC method, the <strong>most recent salary</strong> as at the time of valuation is used. This means that the reserves at time <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(n+1\)</span> are based on <strong>different salaries</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}V
+    &amp;= n \alpha S_{n} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    {}_{n+1}V
+    &amp;= (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x-1} {}_{65-x-1}p_{x+1} \\
+    \\
+    {}_{n+1}V \cdot vp_{x} 
+    &amp;= (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x+1} p_{x} \\
+    &amp;= (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    &amp;= \frac{n}{n} \cdot \frac{S_{n}}{S_{n}} \cdot
+        (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    &amp;= \frac{n+1}{n} \cdot \frac{S_{n+1}}{S_{n}} \cdot
+        n \alpha S_{n} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    &amp;= \frac{n+1}{n} \cdot \frac{S_{n+1}}{S_{n}} \cdot {}_{n}V \\
+    \\
+    \therefore C_{n}
+    &amp;= {}_{n+1}V \cdot vp_{x} - {}_{n}V \\
+    &amp;= \frac{n+1}{n} \cdot \frac{S_{n+1}}{S_{n}} \cdot {}_{n}V - {}_{n}V \\
+    &amp;= \left(\frac{(n+1) S_{n+1}}{n S_{n}} - 1 \right) {}_{n}V \\
+    &amp;= \frac{n S_{n+1} + S_{n+1} - n S_{n}}{n S_{n}} \cdot {}_{n}V \\
+    &amp;= \frac{n (S_{n+1} - n S_{n}) + S_{n+1}}{n S_{n}} \cdot {}_{n}V \\
+    &amp;= \frac{n (S_{n+1} - n S_{n})}{n S_{n}} \cdot {}_{n}V + \frac{S_{n+1}}{n S_{n}} \cdot {}_{n}V \\
+    &amp;= \underbrace{\left(\frac{S_{n+1}}{S_{n}} - 1 \right) \cdot {}_{n}V}_{\text{Salary Increase}}
+    + \underbrace{\frac{1}{n} \cdot \frac{S_{n+1}}{S_{n}} \cdot {}_{n}V}_{\text{Addittional Accrual Year}}
+\end{aligned}
+\]</div>
+<p>This can be intepreted as the contribution on a TUC basis being the sum of two components:</p>
+<ul>
+<li>Reflecting the <strong>increase in salary</strong> from year to year</li>
+<li>Reflecting the <strong>additional year of accruals</strong> when moving later by one valuation year</li>
+</ul>
+<h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Final_Funding" class="center" src="../Assets/8.%20Pensions.md/Final_Funding.png" /></p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Contribution_Rates" class="center" src="../Assets/8.%20Pensions.md/Contribution_Rates.png" /></p>
+<h3 id="mid-year-exits"><strong>Mid Year Exits</strong><a class="headerlink" href="#mid-year-exits" title="Permanent link">&para;</a></h3>
 
 
 
