@@ -1080,8 +1080,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mid-year-exits" class="md-nav__link">
-    Mid Year Exits
+  <a href="#mid-year-retirements" class="md-nav__link">
+    Mid Year Retirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-benefits" class="md-nav__link">
+    Health Benefits
+  </a>
+  
+    <nav class="md-nav" aria-label="Health Benefits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#health-accrued-liability" class="md-nav__link">
+    Health Accrued Liability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funding-health-benefits" class="md-nav__link">
+    Funding Health Benefits
   </a>
   
 </li>
@@ -1492,8 +1519,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mid-year-exits" class="md-nav__link">
-    Mid Year Exits
+  <a href="#mid-year-retirements" class="md-nav__link">
+    Mid Year Retirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-benefits" class="md-nav__link">
+    Health Benefits
+  </a>
+  
+    <nav class="md-nav" aria-label="Health Benefits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#health-accrued-liability" class="md-nav__link">
+    Health Accrued Liability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funding-health-benefits" class="md-nav__link">
+    Funding Health Benefits
   </a>
   
 </li>
@@ -1682,31 +1736,16 @@
 <p class="admonition-title">Warning</p>
 <p>The above two methods only influence the Final Salary parameter of the benefit definition. Years of service (n) is the same under both methods.</p>
 </div>
-<p>Even under an accrued benefits basis, the pension benefits will only <strong>start upon retirement</strong>. Thus, the EPV is first calculated on retirement, then <strong>discounted back to the current age</strong>:</p>
+<p>Regardless of which method is chosen, the benefit payments will only <strong>start upon retirement</strong>. Thus, the benefits as at retirement must be <strong>discounted</strong> back to the current age to account for <strong>interest</strong> and <strong>probability of retirement</strong>.</p>
 <div class="arithmatex">\[
-    \text{EPV}_{y} = \text{EPV}_{65} \cdot {}_{65-y}E_{x}
+    \text{Accrued Liability} = \text{EPV}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{y}}
 \]</div>
-<h3 id="early-retirement"><strong>Early Retirement</strong><a class="headerlink" href="#early-retirement" title="Permanent link">&para;</a></h3>
-<p>Some programs also allow for <strong>early retirement</strong>. However, the value of the benefits will be <strong>reduced by a factor</strong> for each year of early retirement, known as the <strong>Pension Reduction Factor</strong>.</p>
-<div class="arithmatex">\[
-    \text{Reduced Benefit}
-    = n_{\text{Early}} \cdot \text{Pension Reduction Factor } \cdot \text{Original Benefit}
-\]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The pension reduction factor is applied <em>linearly</em>, not in a compounded manner.</p>
-</div>
-<p>Given early retirement, there are <strong>multiple ages</strong> that the pension payments could start from. The total EPV is the <strong>probability weighted average</strong> of the different EPVs:</p>
-<div class="arithmatex">\[
-    \text{EPV}
-    = \text{P(Retire 65)} \cdot \text{EPV}_{65}
-    + \text{P(Retire 64)} \cdot \text{EPV}_{64}
-    + \dots
-\]</div>
-<p>The probability of retiring at a certain age is a combination of two probabilities:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The probability of retirement is a combination of two probabilities:</p>
 <ul>
-<li>Probability of surviving till retirement age, given that they are currently alive</li>
-<li>Probability of retiring at retirement age, given that they are alive at that age</li>
+<li>Probability of <strong>surviving till retirement age</strong></li>
+<li>Probability of <strong>retiring at that age</strong>, given that they are alive at that age</li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1716,12 +1755,24 @@
     &amp;= \frac{r_{64}}{\ell_{x}}
 \end{aligned}
 \]</div>
-<p>Note that the weighted average shown above does not make sense as the EPVs are <strong>discounted to different ages</strong>. Thus, they must be further discounted to the <strong>current valuation age</strong> (<span class="arithmatex">\(y\)</span>) under an <strong>accrued basis</strong> before being combined:</p>
+</div>
+<h3 id="early-retirement"><strong>Early Retirement</strong><a class="headerlink" href="#early-retirement" title="Permanent link">&para;</a></h3>
+<p>Some programs also allow for <strong>early retirement</strong>. However, the value of the benefits will be <strong>reduced by a factor</strong> for each year of early retirement, known as the <strong>Pension Reduction Factor</strong>.</p>
 <div class="arithmatex">\[
-    \text{EPV}
-    = \text{P(Retire 65)} \cdot \text{EPV}_{y, \text{Retire 65}}
-    + \text{P(Retire 64)} \cdot \text{EPV}_{y, \text{Retire 64}}
-    + \dots
+    \text{Reduced Benefit}
+    = n_{\text{Early}} \cdot \text{Pension Reduction Factor } \cdot \text{Original Benefit}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The pension reduction factor is applied <em>linearly</em>, NOT in a compounded manner:</p>
+<div class="arithmatex">\[
+    \text{Two Year Reduction} \ne (1 + \text{Reduction Factor})^{n}
+\]</div>
+</div>
+<p>Given early retirement, there are <strong>multiple ages</strong> that the pension payments could start from. The total accrued liability is the sum of the individual accrued liabilities at each retirement age:</p>
+<div class="arithmatex">\[
+    \text{Accrued Liability}
+    = \text{Accrued Liability}_{65} + \text{Accrued Liability}_{64} + \dots
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1741,7 +1792,7 @@
 <div class="arithmatex">\[
     \text{COLA Benefit} = \text{Original Benefit} * (1 + \text{COLA})^(65-y)
 \]</div>
-<p>Similar to the early retirement scenario, the EPV of the program is the <strong>probability weighted average</strong> of two scenarios - withdrawal and retirement.</p>
+<p>Similarly to before, the total accrued liability of the program is the <strong>sum of the individual accrued liabilities</strong> of the possible withdrawals and retirements.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Although it is technically possible to withdraw at any age, questions for this topic typically <strong>limit the possible withdrawal ages</strong> for simplicity.</p>
@@ -1754,23 +1805,31 @@
 </ul>
 <p>Let <span class="arithmatex">\(C_{n}\)</span> be the <strong>Normal Contribution</strong> (sometimes known as <strong>Normal Cost</strong>) needed at year <span class="arithmatex">\(n\)</span>, where <span class="arithmatex">\(n\)</span> is the service years at the time:</p>
 <div class="arithmatex">\[
-    {}_{n}V + C_{n} = {}_{n+1}V \cdot vp_{x}
+\begin{aligned}
+    {}_{n}V &amp;= \text{Accrued Liability} \\
+    {}_{n}V + C_{n} &amp;= {}_{n+1}V \cdot vp_{x}
+\end{aligned}
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Between time <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(n+1\)</span>, the individual <strong>cannot retire</strong>. Thus, only <strong>interest and the survival probability</strong> need to be accounted for.</p>
+</div>
 <p>Given that there two different reserving methodologies, there will be two different contribution rates as well based on each method.</p>
 <h3 id="puc-method"><strong>PUC Method</strong><a class="headerlink" href="#puc-method" title="Permanent link">&para;</a></h3>
 <p>Under the PUC method, salary is projected till retirement. <strong>Regardless of the valuation year</strong>, the salary parameter <strong>remains constant</strong>. Thus, the reserves at time <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(n+1\)</span> are based on the <strong>same salary</strong>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{n}V
-    &amp;= n \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    &amp;= n \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}} \\
     {}_{n+1}V
-    &amp;= (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x-1} {}_{65-x-1}p_{x+1} \\
+    &amp;= (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x-1} \frac{r_{65}}{\ell_{n+1}} \\
     \\
-    {}_{n+1}V \cdot vp_{x} 
-    &amp;= (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x+1} p_{x} \\
-    &amp;= (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
-    &amp;= \frac{n}{n} \cdot (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
-    &amp;= \frac{n+1}{n} \cdot n \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    {}_{n+1}V \cdot vp_{x}
+    &amp;= {}_{n+1}V \cdot v \frac{\ell_{n+1}}{\ell_{n}} \\
+    &amp;= (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}} \\
+    &amp;= (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}} \\
+    &amp;= \frac{n}{n} \cdot (n+1) \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}} \\
+    &amp;= \frac{n+1}{n} \cdot n \alpha S_{65} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}} \\
     &amp;= \frac{n+1}{n} \cdot {}_{n}V \\
     \\
     \therefore C_{n}
@@ -1787,17 +1846,18 @@
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{n}V
-    &amp;= n \alpha S_{n} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    &amp;= n \alpha S_{n} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}} \\
     {}_{n+1}V
-    &amp;= (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x-1} {}_{65-x-1}p_{x+1} \\
+    &amp;= (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x-1} \frac{r_{65}}{\ell_{n+1}} \\
     \\
     {}_{n+1}V \cdot vp_{x} 
-    &amp;= (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x+1} p_{x} \\
-    &amp;= (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+    &amp;= {}_{n+1}V \cdot v \frac{\ell_{n+1}}{\ell_{n}} \\
+    &amp;= (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}}  \\
+    &amp;= (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}}  \\
     &amp;= \frac{n}{n} \cdot \frac{S_{n}}{S_{n}} \cdot
-        (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+        (n+1) \alpha S_{n+1} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}}  \\
     &amp;= \frac{n+1}{n} \cdot \frac{S_{n+1}}{S_{n}} \cdot
-        n \alpha S_{n} \cdot \ddot{a}_{65} \cdot v^{65-x} {}_{65-x}p_{x} \\
+        n \alpha S_{n} \cdot \ddot{a}_{65} \cdot v^{65-x} \frac{r_{65}}{\ell_{n}}  \\
     &amp;= \frac{n+1}{n} \cdot \frac{S_{n+1}}{S_{n}} \cdot {}_{n}V \\
     \\
     \therefore C_{n}
@@ -1817,11 +1877,122 @@
 <li>Reflecting the <strong>additional year of accruals</strong> when moving later by one valuation year</li>
 </ul>
 <h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
+<p>Regardless of which method is used, the <strong>total amount funded remains the same</strong>:</p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Final_Funding" class="center" src="../Assets/8.%20Pensions.md/Final_Funding.png" /></p>
+<p>There is an interesting relationship between the yearly contributions:</p>
+<ul>
+<li>PUC contributions <strong>start higher</strong> because they use the <strong>final salary</strong> of the employee (which is <strong>always larger</strong> than the current salary under TUC)</li>
+<li>As a result, PUC contributions are more <strong>stable</strong> as they only need to account for additional accrual years</li>
+</ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Contribution_Rates" class="center" src="../Assets/8.%20Pensions.md/Contribution_Rates.png" /></p>
-<h3 id="mid-year-exits"><strong>Mid Year Exits</strong><a class="headerlink" href="#mid-year-exits" title="Permanent link">&para;</a></h3>
+<h3 id="mid-year-retirements"><strong>Mid Year Retirements</strong><a class="headerlink" href="#mid-year-retirements" title="Permanent link">&para;</a></h3>
+<p>The above analysis is based on the scenario that there are <strong>no other cashflows</strong> between the two reserves other than the contribution. However, consider the following scenario:</p>
+<ul>
+<li><strong>Early retirements</strong> are allowed (EG. Age 63, 64)</li>
+<li>Early retirements <strong>occur in the middle</strong> of the year (EG. Age 63.5, 64.5)</li>
+<li>We want to determine the contribution for a year <strong>between retirement ages</strong> (EG. Age 63)</li>
+</ul>
+<p>Notice that the reserve at time <span class="arithmatex">\(n+1\)</span> would <strong>no longer consider</strong> the early retirement. Thus, <strong>reserves have been released</strong> to consider this possibility. Thus, the cashflows must consider the <strong>expected outgo</strong> of the early retirement:</p>
+<div class="arithmatex">\[
+    {}_{n}V + C_{n} - \text{Expected Outgo} &amp;= {}_{n+1}V \cdot vp_{x}
+\]</div>
+<p>TBC DIAGRAM</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that in principle, this is similar to the <strong>profit formula</strong> for a typical insurance contract. However, there is a key difference:</p>
+<ul>
+<li>Insurance: Pays a lump sum benefit; Expected Outgo is a <strong>cashflow</strong></li>
+<li>Annuity: Pays a stream of benefits; Expected Outgo is an <strong>EPV</strong> of the stream</li>
+</ul>
+</div>
+<p>In profit analysis, if the projection basis is identical to the reserving basis, the release in reserves would <strong>fully offset</strong> the expected outgo. However, this may not be the case depending on the <strong>basis</strong>:</p>
+<ul>
+<li>Fractional years of service are counted <strong>Pro Rata</strong> (Proportionally)</li>
+<li>Expected outgo uses <strong>23.5 years</strong> accrued of service (as at expected retirement)</li>
+<li>Reserve provision uses <strong>23 years</strong> of accrued service (as at valuation time)</li>
+</ul>
+<p>Thus, a difference in basis would result in the reserve provision being <strong>insufficient</strong> to cover the expected outgo. This shortfall will be <strong>funded by the contribution</strong> to be made in that year.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Naturally, the simplified expressions for the contribution will NOT hold true in this scenario. It will require manual calculation via <strong>first principles</strong>.</p>
+</div>
+<h2 id="health-benefits"><strong>Health Benefits</strong><a class="headerlink" href="#health-benefits" title="Permanent link">&para;</a></h2>
+<p>Alongside pensions, employers sometimes also offer <strong>Health Benefits</strong> to their employees in retirement. Operationally, this is done by <strong>sponsoring a health insurance policy</strong> for the employee for as long as they live post retirement.</p>
+<p>Similarly, the goal is to determine how much an employer needs to contribute while an employee is working in order to fund the health benefit.</p>
+<h3 id="health-accrued-liability"><strong>Health Accrued Liability</strong><a class="headerlink" href="#health-accrued-liability" title="Permanent link">&para;</a></h3>
+<p>Firstly, the expected amount of health insruance premiums payable must be determined. The key is to understand that health insurance <strong>premiums tend to increase over time</strong> due to:</p>
+<ul>
+<li><strong>Age</strong>: Reflecting higher probability of claims; growth rate <span class="arithmatex">\(a\)</span></li>
+<li><strong>Inflation</strong>: Reflecting higher cost of healthcare; growth rate <span class="arithmatex">\(b\)</span></li>
+</ul>
+<div class="arithmatex">\[
+    P_{65+t} = P_{65} \cdot (1+a)^{n} \cdot (1+b)^{n}
+\]</div>
+<p>Notice that the resulting EPV of premiums is a <strong>Geometric Life Annuity</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{EPV}_{65}
+    &amp;= \sum P_{65} \cdot (1+a)^{k} \cdot (1+b)^{k} \cdot v^{k} \cdot {}_{k}p_{x} \\
+    &amp;= P_{65} \sum \left(\frac{(1+a)(1+b)}{(1+i)} \right)^{k} \cdot {}_{k}p_{x} \\
+    &amp;= P_{65} \sum \frac{1}{(1+i^{*})^{k}} \cdot {}_{k}p_{x} \\
+    &amp;= P_{65} \cdot \ddot{a}_{65 \mid i^{*}} \\
+    \\
+    \frac{1}{(1+i^{*})} &amp;= \frac{(1+a)(1+b)}{(1+i)} \\
+    (1+i^{*}) &amp;= \frac{(1+i)}{(1+a)(1+b)} \\
+    i^{*} &amp;= \frac{(1+i)}{(1+a)(1+b)} - 1
+\end{aligned}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Please refer to the FAM-L notes on <a href="../../2.%20ASA-FAML/5.%20Variable%20Benefits/">Variable Benefit Contracts</a>.</p>
+</div>
+<p>Similar to pensions, the liability as at the current time is the above EPV discounted backwards:</p>
+<div class="arithmatex">\[
+    \text{EPV}_{y} = \text{EPV}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{y}}
+\]</div>
+<p>Unlike Pensions, health premiums are NOT dependent on salary. Thus, there is no need to consider PUC or TUC. Instead, a <strong>Linear Accrual</strong> method is applied, where the EPV is scaled based on the <strong>proportion</strong> of the total number of working years that has been worked:</p>
+<div class="arithmatex">\[
+    \text{Accrued Liability} = \frac{\text{Years Worked}}{\text{Total Working Years}} \cdot EPV_{y}
+\]</div>
+<p>By default, accrued liability is usually calculated based on the <strong>earliest possible retirement age</strong>. This simplifies the problem, as there is <strong>only one time</strong> point to worry about.</p>
+<p>However, similar to pensions, some questions may allow for retirement at <strong>multiple ages</strong>. In this case, the total accrued liability is the <strong>sum of the individual accrued liabilities</strong> at each possible retirement age.</p>
+<h3 id="funding-health-benefits"><strong>Funding Health Benefits</strong><a class="headerlink" href="#funding-health-benefits" title="Permanent link">&para;</a></h3>
+<p>Similar to pensions, the amount to be contributed each year is related to the reserves needed at the end of the year:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}V &amp;= \text{Accrued Liability} \\
+    {}_{n}V + C_{n} &amp;= {}_{n+1}V \cdot vp_{x}
+\end{aligned}
+\]</div>
+<p>Thus, we can thus similarly find a simplified expression for the contribution:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}V &amp;= \frac{n}{n+k} \cdot v^{65-n} \frac{r_{65}}{\ell_{n}} \cdot P_{65} \cdot \ddot{a}_{65 \mid i^{*}} \\
+    {}_{n+1}V &amp;= \frac{n+1}{n+k} \cdot v^{65-n-1} \frac{r_{65}}{\ell_{n+1}} \cdot P_{65} \cdot \ddot{a}_{65 \mid i^{*}} \\
+    \\
+    {}_{n+1}V \cdot vp_{x} 
+    &amp;= {}_{n+1}V \cdot v \frac{\ell_{n+1}}{\ell_{n}} \\
+    &amp;= \frac{n+1}{n+k} \cdot v^{65-n} \frac{r_{65}}{\ell_{n}} \cdot P_{65} \cdot \ddot{a}_{65 \mid i^{*}} \\
+    &amp;= \frac{n}{n} \cdot \frac{n+1}{n+k} 
+        \cdot v^{65-n} \frac{r_{65}}{\ell_{n}} \cdot P_{65} \cdot \ddot{a}_{65 \mid i^{*}} \\
+    &amp;= \frac{n+1}{n} \cdot \frac{n}{n+k}
+        \cdot v^{65-n} \frac{r_{65}}{\ell_{n}} \cdot P_{65} \cdot \ddot{a}_{65 \mid i^{*}} \\
+    &amp;= \frac{n+1}{n} \cdot {}_{n}V \\
+    \\
+    \therefore C_{n}
+    &amp;= {}_{n+1}V \cdot vp_{x} - {}_{n}V \\
+    &amp;= \frac{n+1}{n} \cdot {}_{n}V - {}_{n}V \\
+    &amp;= \left(\frac{n+1}{n} - 1 \right) \cdot {}_{n}V \\
+    &amp;= \frac{n+1-n}{n} \cdot {}_{n}V \\
+    &amp;= \frac{1}{n} \cdot {}_{n}V
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that this is the <strong>exact same result</strong> as the pension contribution under a PUC basis.</p>
+</div>
 
 
 
