@@ -945,18 +945,12 @@
     Account Value
   </a>
   
-    <nav class="md-nav" aria-label="Account Value">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sum-at-risk" class="md-nav__link">
     Sum At Risk
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -968,8 +962,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#surrender-charge" class="md-nav__link">
-    Surrender Charge
+  <a href="#surrender-benefit" class="md-nav__link">
+    Surrender Benefit
   </a>
   
 </li>
@@ -1303,18 +1297,12 @@
     Account Value
   </a>
   
-    <nav class="md-nav" aria-label="Account Value">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sum-at-risk" class="md-nav__link">
     Sum At Risk
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1326,8 +1314,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#surrender-charge" class="md-nav__link">
-    Surrender Charge
+  <a href="#surrender-benefit" class="md-nav__link">
+    Surrender Benefit
   </a>
   
 </li>
@@ -1355,6 +1343,7 @@
 
 
 <h1 id="universal-life"><strong>Universal Life</strong><a class="headerlink" href="#universal-life" title="Permanent link">&para;</a></h1>
+<p>Universal Life policies are a special type of life insurance policies known for their <strong>flexibility</strong>. They provide policyholders with the ability to <strong>choose how much premiums</strong> they want to pay and how much benefits to receive, allowing them to effectively create a policy that is <strong>customized</strong> to their specific needs.</p>
 <h2 id="account-value"><strong>Account Value</strong><a class="headerlink" href="#account-value" title="Permanent link">&para;</a></h2>
 <p>The defining feature of a universal life policy is that every policy has an account associated with it:</p>
 <ul>
@@ -1363,21 +1352,33 @@
 <li>Insurer posts <strong>Mortality charges</strong> to the account to cover the cost of providing insurance coverage</li>
 <li>Insurer <strong>credits interest</strong> into the account (subject to some <strong>minimum rate</strong>)</li>
 </ul>
-<!-- Obtained from Oregon State Gov -->
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Ending Balance}_{t}
+    &amp;= \text{Opening Balance} \\
+    &amp;+ \text{Premium} \\
+    &amp;- \text{Expense Charge} \\
+    &amp;- \text{Mortality Charge} \\
+    &amp;+ \text{Interest} \\
+    \\
+    \text{Interest} &amp;= (\text{Opening} + \text{Premium} - \text{Charges}) \cdot (1 + i_{t})
+\end{aligned}
+\]</div>
+<!-- Obtained from Oregon Gov -->
 <p><img alt="UL Illustration" class="center" src="../Assets/6.%20Universal%20Life.md/UL_Illustration.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The account is purely <strong>notional</strong> - the insurer does not hold seperate assets for each account.</p>
+<p>The account is purely <strong>notional</strong> - the insurer does not hold seperate assets for each account; they are kept entirely within the general account of the company. The insurer reviews their  investment return to decide how much interest to credit the UL account.</p>
 <p>Policyholders will receive <strong>account statements</strong> detailing account transactions. This provides <strong>transparency</strong> to the policyholders, allowing them to easily distinguish between the insurance and savings component of the policy.</p>
 </div>
-<h3 id="sum-at-risk"><strong>Sum At Risk</strong><a class="headerlink" href="#sum-at-risk" title="Permanent link">&para;</a></h3>
+<h2 id="sum-at-risk"><strong>Sum At Risk</strong><a class="headerlink" href="#sum-at-risk" title="Permanent link">&para;</a></h2>
 <p>The policy provides two benefits:</p>
 <p><center></p>
 <table>
 <thead>
 <tr>
-<th align="center">Death Benefit</th>
-<th align="center">Surrender Benefit</th>
+<th align="center"><strong>Death Benefit</strong></th>
+<th align="center"><strong>Surrender Benefit</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1409,9 +1410,50 @@
 <p>Insert timeline illustration</p>
 <p>Note that since the account value changes every period, so does the SAR and hence the mortality charge. Thus, the mortality charge can be understood as the cost of providing a <strong>one-year term insurance</strong> cover with face amount equal to the SAR.</p>
 <h2 id="death-benefit"><strong>Death Benefit</strong><a class="headerlink" href="#death-benefit" title="Permanent link">&para;</a></h2>
-<p>Corridorr?</p>
-<h2 id="surrender-charge"><strong>Surrender Charge</strong><a class="headerlink" href="#surrender-charge" title="Permanent link">&para;</a></h2>
+<p>There are two types of universal life policies in terms of their <strong>Death Benefit</strong> (DB) structure:</p>
+<ul>
+<li><strong>Type A</strong>: Level death benefit; variable sum at risk</li>
+<li><strong>Type B</strong>: Variable death benefit; level sum at risk</li>
+</ul>
+<!-- Obtained from Wall Street Instructors -->
+<p><img alt="UL_Type" class="center" src="../Assets/6.%20Universal%20Life.md/UL_Type.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above diagram assumes that the account value will always increase over time. While this is a reasonable expectation, the account value <strong>could decrease</strong> over time as well if insufficient premiums are paid.</p>
+</div>
+<p>Under a Type A plan, the account value could <strong>increase beyond the death benefit</strong>. If the death benefit stays level, the SAR would be negative, which goes against the principles of insurance. Thus, the death benefit <strong>MUST increase proportionally</strong> to the account value - known as a <strong>Corridor Factor</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Death Benefit}_{c} &amp;= (1 + \gamma) \cdot \text{Account Value} \\
+    \therefore \text{Death Benefit} &amp;= \max (\text{Death Benefit}_{c}, \text{Death Benefit}_{nc})   
+\end{aligned}
+\]</div>
+<p>Similar expressions can be found for the other components, but it is much easier to approach these type of situations using first principles.</p>
+<h2 id="surrender-benefit"><strong>Surrender Benefit</strong><a class="headerlink" href="#surrender-benefit" title="Permanent link">&para;</a></h2>
+<p>There are <strong>high acquisition costs</strong> associated with setting up an insurance policy, which is <strong>recovered over the lifetime</strong> of the policy. However, if the policyholder surrenders the policy early on, the insurer loses the opportunity to recover these costs.</p>
+<p>Thus, insurers usually impose a <strong>Surrender Charge</strong> on the policy if the insured surrenders the policy in the first few years from inception. It can either be <strong>pre-determined amount</strong> or <strong>proportional</strong> to the account value. In either case, the charge decreases over time to 0 as the insurer has recovered the costs.</p>
+<div class="arithmatex">\[
+    \text{Surrender Benefit} = \max (0, \text{Account Value} - \text{Surrender Charge})
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The surrender charge does NOT affect the account value of the policy, only the resulting surrender benefit.</p>
+</div>
 <h2 id="no-lapse-guarantee"><strong>No Lapse Guarantee</strong><a class="headerlink" href="#no-lapse-guarantee" title="Permanent link">&para;</a></h2>
+<p>Given that policyholders have the liberty to choose their own premiums, they could theoretically underfund the policy, causing the account value to <strong>decrease to 0</strong> over time, causing the policy to <strong>automatically lapse</strong>.</p>
+<p>In order to hedge against such a situation, some UL policies offer a <strong>No Lapse Guarantee</strong> (NLG) feature, where the policy would <strong>remain in-force</strong> even if the account value reaches 0.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>There are usually some conditions tagged to the NLG feature, such as requiring the insured to have paid some <strong>minimum level</strong> of premium.</p>
+</div>
+<p>The NLG feature will provide coverage equal to what the <strong>underlying policy</strong> would have, typically up to some <strong>maximum age</strong>. Thus, the NLG feature can be valued the same way as a <strong>term insurance</strong> policy.</p>
+<p>If the value of NLG feature is larger than the account value of the policy at the time, the insurer must hold an <strong>additional reserve</strong> equal to the difference:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{EPV(NLG)} &amp;= \text{Death Benefit} \cdot A^{1}_{x:\enclose{actuarial}{n}} \\
+    \therefore {}_{t}V^{\text{NLG}} &amp;= \max(0, \text{EPV(NLG)} - \text{Account Value})
+\end{aligned}
+\]</div>
 
 
 
