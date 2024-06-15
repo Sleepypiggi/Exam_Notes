@@ -997,9 +997,29 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-options_1" class="md-nav__link">
+    Embedded Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Embedded Options">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#embedded-option" class="md-nav__link">
-    Embedded Option
+  <a href="#guaranteed-minimum-maturity-benefit" class="md-nav__link">
+    Guaranteed Minimum Maturity Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-minimum-death-benefit" class="md-nav__link">
+    Guaranteed Minimum Death Benefit
   </a>
   
 </li>
@@ -1369,9 +1389,29 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-options_1" class="md-nav__link">
+    Embedded Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Embedded Options">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#embedded-option" class="md-nav__link">
-    Embedded Option
+  <a href="#guaranteed-minimum-maturity-benefit" class="md-nav__link">
+    Guaranteed Minimum Maturity Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-minimum-death-benefit" class="md-nav__link">
+    Guaranteed Minimum Death Benefit
   </a>
   
 </li>
@@ -1501,14 +1541,196 @@
     \text{Policy Benefit}
     &amp;=
     \begin{cases}
-        \text{Account Value}, &amp; \text{Account Value} &gt; \text{Minimum Benefit} \\
-        \text{Guaranteed Benefit}, &amp; \text{Account Value} &lt;= \text{Minimum Benefit}
+        \text{Account Value}, &amp; \text{Account Value} &gt; \text{Guaranteed Benefit} \\
+        \text{Guaranteed Benefit}, &amp; \text{Account Value} &lt;= \text{Guaranteed Benefit}
     \end{cases} \\
     &amp;= \max (\text{Account Value}, \text{Guaranteed Benefit})
 \end{aligned}
 \]</div>
-<h3 id="embedded-option"><strong>Embedded Option</strong><a class="headerlink" href="#embedded-option" title="Permanent link">&para;</a></h3>
+<h2 id="embedded-options_1"><strong>Embedded Options</strong><a class="headerlink" href="#embedded-options_1" title="Permanent link">&para;</a></h2>
+<p>With some manipulation, the above expression for policy benefit can be expressed in the form a <strong>European Put Option Payoff</strong>:</p>
+<ul>
+<li>Guaranteed Benefit is a <strong>fixed value</strong>, similar to the <strong>Strike Price</strong></li>
+<li>Account Value follows a <strong>stock price process</strong> (with charges applied)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Put Option Payoff}_{t}
+    &amp;= \max (K - S_{t}, 0) \\
+    \\
+    \text{Policy Benefit}_{t}
+    &amp;= \max (\text{AV}_{t}, \text{GB}) \\
+    &amp;= \max (\text{GB} - \text{AV}_{t}, \text{AV}_{t} - \text{AV}_{t}) \\
+    &amp;= \max (\text{GB} - \text{AV}_{t}, 0)
+\end{aligned}
+\]</div>
+<p>Thus, the same framework used to evaluate european put options - <strong>Black Scholes Merton</strong> model - can be used to evaluate these guaranteed benefits as well. However, there is one <strong>key difference</strong> between the two that must be accounted for:</p>
+<ul>
+<li><strong>Regular Option</strong>: Time to expiration (when the option is exercised) is <strong>fixed</strong></li>
+<li><strong>Embedded Option</strong>: Time is <strong>contingent</strong> on the survival/death of the policyholder</li>
+</ul>
+<p>Thus, the framework must be adjusted slightly to account for the <strong>probabilities of death/survival</strong> within the given timeframe.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please refer to the <strong>Derivatives Section</strong> of the IFM notes for more information on European Options and the Black Scholes model.</p>
+</div>
+<p>Unless otherwise stated, all policies referenced in this section are assumed to be <strong>Single Premium</strong> policies with <strong>no additional top ups</strong>.</p>
+<h3 id="guaranteed-minimum-maturity-benefit"><strong>Guaranteed Minimum Maturity Benefit</strong><a class="headerlink" href="#guaranteed-minimum-maturity-benefit" title="Permanent link">&para;</a></h3>
+<p>The maturity benefit is paid at a <strong>known time</strong> (at the <strong>end of the policy term</strong>), given that the policyholder is <strong>alive at that time</strong>.</p>
+<p>For simplicity, assume that the policy has a <strong>Guaranteed Minimum Maturity Benefit</strong> (GMMB) of some <strong>multiple of premiums paid</strong>:</p>
+<div class="arithmatex">\[
+    \text{GMMB} = \lambda P
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The expression is simplified in this case since we assume a single premium policy.</p>
+</div>
+<p>The account value projection earlier assumes that the fund grows at a <strong>specified rate</strong>. An alternative method is to assume that it grows at the same rate as an <strong>underlying stock process</strong>. Thus, the account value <strong>at maturity</strong> of time <span class="arithmatex">\(n\)</span> can be expressed as:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{AV}_{n}
+    &amp;= \text{Opening Value} \cdot \text{Charges} \cdot \text{Growth} \\
+    &amp;= P \cdot (1 - \text{IC}) \cdot (1 - \text{RC})^{n-1} \cdot \frac{S_{n}}{S_{0}} \\
+    &amp;= P \cdot \xi \cdot \frac{S_{n}}{S_{0}} \\
+    \\
+    \xi &amp;= (1 - \text{IC}) \cdot (1 - \text{RC})^{n-1}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The charges in this scenario have have been simplified to <strong>Initial Charges</strong> (IC) and <strong>Renewal Charges</strong> (RC). Both are charged as a <strong>percentage of the account value</strong> at the time.</p>
+<p>They are then further <strong>combined</strong> into <span class="arithmatex">\(xi\)</span>, since they have a <strong>fixed value</strong> (dependent only on policy term, which is fixed for each policy).</p>
+<!-- Self Made TBC, simple timeline with IC, RC, RC, then xi -->
+</div>
+<p>Thus, the <strong>embedded option payoff</strong> <span class="arithmatex">\(h(t)\)</span> can be expressed as the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    h(t)
+    &amp;= \max (\text{GB} - \text{AV}_{n}, 0) \\
+    &amp;= \max  \left(\lambda P - P \cdot \xi \cdot \frac{S_{n}}{S_{0}} \right) \\
+    &amp;= P \xi \cdot \max \left(\frac{\lambda}{\xi} - \frac{S_{n}}{S_{0}} \right)
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above can be intepreted as requiring <span class="arithmatex">\(P \xi\)</span> put options with strike price <span class="arithmatex">\(\frac{\lambda}{\xi}\)</span>.</p>
+</div>
+<p>Using the Black Scholes Merton framework, the price (value) of <strong>ONE</strong> of the above put options <strong>on inception</strong> can be expressed as:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(0)
+    &amp;= \frac{\lambda}{\xi} \cdot e^{-rn} \Phi [-d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \\
+    \\
+    d_{1}(0)
+    &amp;= \frac{\ln \frac{S_{0}}{\frac{\lambda}{\xi}} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= \frac{\ln \frac{S_{0} \xi}{\lambda} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= d_{2}(0) + \sigma \sqrt{n} \\
+    \\
+    d_{2}(0)
+    &amp;= \frac{\ln \frac{S_{0}}{\frac{\lambda}{\xi}} + (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= \frac{\ln \frac{S_{0} \xi}{\lambda}+ (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= d_{1}(0) - \sigma \sqrt{n}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><span class="arithmatex">\(\Phi(x)\)</span> represents the CDF of the standard normal distribution at <span class="arithmatex">\(x\)</span>. It can be determined via the NORM.S.DIST <strong>Excel Function</strong>.</p>
+</div>
+<p>Thus, the <strong>value of the guarantee</strong> <span class="arithmatex">\(\pi(0)\)</span> must reflect the following items:</p>
+<ul>
+<li><strong>Number</strong> of options needed, <span class="arithmatex">\(P \xi\)</span></li>
+<li><strong>Probability</strong> of surviving till maturity <span class="arithmatex">\({}_{n}P_{x}\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \pi(0)
+    &amp;= {}_{n}p_{x} \cdot P \xi \cdot P(0) \\
+    &amp;= {}_{n}p_{x} \cdot P \xi
+        \cdot \left(\frac{\lambda}{\xi} \cdot e^{-rn} \Phi [-d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \right) \\
+    &amp;= {}_{n}p_{x} \cdot P \cdot (\lambda \cdot e^{-rn} \Phi [-d_{2}(0)] - \xi S_{0} \cdot \Phi [-d_{1}(0)])
+\end{aligned}
+\]</div>
+<p>The above is the <strong>price of the guarantee</strong> on inception. From a reserving perspective, the value of the guarantee <strong>at a specified time</strong> is required:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \pi(t)
+    &amp;= {}_{n-t}p_{x+t} \cdot P \cdot (\lambda \cdot e^{-r(n-t)} \Phi [-d_{2}(t)] - \xi S_{t} \cdot \Phi [-d_{1}(t)]) \\
+    \\
+    d_{1}(t)
+    &amp;= \frac{\ln \frac{S_{t} \xi}{\lambda} + (r + \frac{1}{2} \sigma^{2}) (n-t)}{\sigma \sqrt{n-t}} \\
+    &amp;= d_{2}(t) + \sigma \sqrt{n-t} \\
+    \\
+    d_{2}(t)
+    &amp;= \frac{\ln \frac{S_{t} \xi}{\lambda}+ (r - \frac{1}{2} \sigma^{2}) (n-t)}{\sigma \sqrt{n-t}} \\
+    &amp;= d_{1}(t) - \sigma \sqrt{n-t}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above is obtained going through the <strong>same process</strong>, just that the <strong>valuation date</strong> is time <span class="arithmatex">\(t\)</span> instead of time <span class="arithmatex">\(0\)</span>, which affects the following:</p>
+<ul>
+<li><strong>Time to Maturity</strong>: Changed from <span class="arithmatex">\(n\)</span> to <span class="arithmatex">\(n-t\)</span></li>
+<li><strong>Initial Stock Price</strong>: Changed from <span class="arithmatex">\(S_{0}\)</span> to <span class="arithmatex">\(S_{t}\)</span></li>
+</ul>
+<p>Note that <span class="arithmatex">\(\xi\)</span> <strong>does NOT</strong> depend on the time to maturity, thus does not need to be changed.</p>
+</div>
+<h3 id="guaranteed-minimum-death-benefit"><strong>Guaranteed Minimum Death Benefit</strong><a class="headerlink" href="#guaranteed-minimum-death-benefit" title="Permanent link">&para;</a></h3>
+<p>The death benefit is paid at an <strong>unknown time</strong> depending on when the policyholder dies. This adds <strong>another layer</strong> to the analysis as the <strong>possibility of death at every possible time</strong> must be considered.</p>
+<p>The value of the guarantee is thus the combination of the following items:</p>
+<ul>
+<li><strong>Gurantee value</strong> at each possible payout period</li>
+<li><strong>Discount factor</strong> for each of the above</li>
+<li><strong>Probability of payout</strong> (death) for each of the above</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the above is analagous to the <strong>triple sumproduct</strong> of the EPV. Both follow the <strong>same intuition</strong>.</p>
+</div>
+<p>The value of the guarantee for <strong>each possible period</strong> <span class="arithmatex">\(n\)</span> can be expressed as the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    V(0, n)
+    &amp;= P \xi \cdot P(0, n) \\
+    \\
+    P(0, n)
+    &amp;= \frac{\lambda}{\xi} \cdot e^{-rn} \Phi [-d_{2}(0, n)] - S_{0} \cdot \Phi [-d_{1}(0, n)] \\
+    \\
+    d_{1}(0, n)
+    &amp;= \frac{\ln \frac{S_{0}}{\frac{\lambda}{\xi}} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= \frac{\ln \frac{S_{0} \xi}{\lambda} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= d_{2}(0, n) + \sigma \sqrt{n} \\
+    \\
+    d_{2}(0, n)
+    &amp;= \frac{\ln \frac{S_{0}}{\frac{\lambda}{\xi}} + (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= \frac{\ln \frac{S_{0} \xi}{\lambda}+ (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= d_{1}(0, n) - \sigma \sqrt{n}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Notice that the option price formula is <strong>exactly the same formula</strong> as before, just that <span class="arithmatex">\(n\)</span> is treated as a <strong>variable rather than a constant</strong>. This is because the time to maturity is known while the time to death is not, thus <strong>all possibilities</strong> are considered.</p>
+</div>
+<p>The value of the guarantee on whole is the <strong>expected value</strong> of the guarantee values in each period:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \pi(0)
+    &amp;= \int p(0, n) \cdot {}_{n}p_{x} \mu_{x}(t) \\
+    &amp;= \sum P(0, n) \cdot {}_{k \mid}q_{x}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the previous section, only one period needed to be considered. Thus, the number of options and probability of payout were combined into a single step. However, when considering multiple periods, it is <strong>easier to split</strong> them into two steps instead:</p>
+<ul>
+<li><span class="arithmatex">\(V(0,n)\)</span>: Account for <strong>number of options</strong> needed for each period</li>
+<li><span class="arithmatex">\(\pi(0)\)</span>: Account for <strong>probability</strong> of payment in each period</li>
+</ul>
+</div>
+<p>Similar to before, the above expression can be adjusted to determine the value of the guarantee at a specified period for reserving purposes. It can also be adjusted for benefits that are paid monthly as well.</p>
 <h3 id="funding"><strong>Funding</strong><a class="headerlink" href="#funding" title="Permanent link">&para;</a></h3>
+<p>A decrease in the stock price means that it is more likely the GMMB will mature in-the-money, so the value of the guarantee will increase and a larger reserve is required.</p>
+<p>The insurer may use the cost of the guarantee to determine how many options to purchase from a third party, or how to maintain their replicating portfolio if they are hedging internally.</p>
+<p>If all the assumptions of the Black-Scholes-Merton framework hold, the payoff from the options or the replicating portfolio will exactly pay off the guarantee liability, thus covering the reserve. That is often not true in reality so the insurer may hold an additional reserve for non-hedgeable risk and the risk that lapses, mortality, and volatility are different from the assumptions.</p>
 <h2 id="variable-annuities"><strong>Variable Annuities</strong><a class="headerlink" href="#variable-annuities" title="Permanent link">&para;</a></h2>
 
 
