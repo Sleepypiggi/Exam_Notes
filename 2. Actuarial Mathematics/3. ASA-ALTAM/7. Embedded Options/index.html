@@ -1031,6 +1031,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#hedging" class="md-nav__link">
+    Hedging
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1423,6 +1430,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#hedging" class="md-nav__link">
+    Hedging
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1728,10 +1742,131 @@
 </div>
 <p>Similar to before, the above expression can be adjusted to determine the value of the guarantee at a specified period for reserving purposes. It can also be adjusted for benefits that are paid monthly as well.</p>
 <h3 id="funding"><strong>Funding</strong><a class="headerlink" href="#funding" title="Permanent link">&para;</a></h3>
-<p>A decrease in the stock price means that it is more likely the GMMB will mature in-the-money, so the value of the guarantee will increase and a larger reserve is required.</p>
-<p>The insurer may use the cost of the guarantee to determine how many options to purchase from a third party, or how to maintain their replicating portfolio if they are hedging internally.</p>
-<p>If all the assumptions of the Black-Scholes-Merton framework hold, the payoff from the options or the replicating portfolio will exactly pay off the guarantee liability, thus covering the reserve. That is often not true in reality so the insurer may hold an additional reserve for non-hedgeable risk and the risk that lapses, mortality, and volatility are different from the assumptions.</p>
+<p>The cost of the guarantee is passed down to the policyholder in one of two ways:</p>
+<ul>
+<li><strong>Front-End Load</strong>: Deducted <strong>once</strong> on inception</li>
+<li><strong>Risk Premium</strong> (<span class="arithmatex">\(\text{RP}\)</span>): Deducted <strong>routinely</strong> as part of the <strong>management charges</strong> (<span class="arithmatex">\(\text{MC}\)</span>)</li>
+</ul>
+<p>The front end approach is intuitive - the value of the guarantee <span class="arithmatex">\(\pi(0)\)</span> is deducted from the single premium alongside the initial charges on inception.</p>
+<p>The risk premium approach requires us to determine the <strong>proportion of the fund value</strong> to be charged each period:</p>
+<ul>
+<li><strong>Total Management Charge Rate</strong> (<span class="arithmatex">\(m\)</span>), <em>including</em> the risk premium for the guarantee</li>
+<li><strong>Management Charge Rate</strong> (<span class="arithmatex">\(m^*\)</span>), <em>exclusing</em> the risk premium</li>
+<li><strong>Risk Premium Rate</strong> (<span class="arithmatex">\(c\)</span>)</li>
+</ul>
+<div class="arithmatex">\[
+    m = m^* + c
+\]</div>
+<p>Consider a <strong>general expression for the fund value</strong> in each period:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F_{0} &amp;= P \\
+    \\
+    \text{RP}_{1} &amp;= cP \\
+    \text{MC}_{1} &amp;= m^{*}P \\
+    \therefore F_{1}
+    &amp;= (F_{0} - \text{RP}_{1} - \text{MC}_{1}) \cdot \frac{S_{1}}{S_{0}} \\
+    &amp;= [P - cP- m^{*}P] \cdot \frac{S_{1}}{S_{0}} \\
+    &amp;= P(1 - c - m^{*}) \cdot \frac{S_{1}}{S_{0}} \\
+    &amp;= P(1 - (c+m^{*})) \cdot \frac{S_{1}}{S_{0}} \\
+    &amp;= P(1-m) \cdot \frac{S_{1}}{S_{0}} \\
+    \\
+    \text{RP}_{2} &amp;= cP(1-m) \cdot \frac{S_{1}}{S_{0}}\\
+    \text{MC}_{1} &amp;= m^{*}P(1-m) \cdot \frac{S_{1}}{S_{0}}\\
+    \therefore F_{2}
+    &amp;= (F_{1} - \text{RP}_{2} - \text{MC}_{2}) \cdot \frac{S_{2}}{S_{1}} \\
+    &amp;= [P(1-m) - cP(1-m) - m^{*}P(1-m)] \cdot \frac{S_{1}}{S_{0}} \cdot \frac{S_{2}}{S_{1}} \\
+    &amp;= P(1-m) [1 - c - m^{*}] \cdot \frac{S_{2}}{S_{0}} \\
+    &amp;= P(1-m)[1- (c+m^{*})] \cdot \frac{S_{2}}{S_{0}} \\
+    &amp;= P(1-m)(1-m) \cdot \frac{S_{2}}{S_{0}} \\
+    &amp;= P(1-m)^{2} \cdot \frac{S_{2}}{S_{0}} \\
+    \\
+    \therefore F_{t}
+    &amp;= P(1-m)^{t} \cdot \frac{S_{t}}{S_{0}} \\
+    &amp;= P(1-m)^{t} \cdot S_{t}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above might seem redundant as it ultimately decomposes into the same Charges and Growth expressed previously. The point WAS to show that even under the current setup, the process does not change.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Under the above expression, the growth factor <span class="arithmatex">\(\frac{S_{t}}{S_{0}}\)</span> is using the cumulative <strong>growth from inception</strong>, as the <strong>starting fund value</strong> <span class="arithmatex">\(P\)</span> is used.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Since the <strong>growth rate</strong> is considered, we set <span class="arithmatex">\(S_{0}\)</span> to <strong>1 for simplicity</strong>. This assumption should be used for the remainder of the section.</p>
+</div>
+<p>Thus, we can obtain the risk premium charged in each period. However, since the amount to charge needs to be determined at inception, we need to consider its EPV:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{RP}_{t} &amp;= c \cdot P(1-m)^{t} \cdot S_{t} \\
+    \text{PV(RP)}_{t} &amp;= c \cdot P(1-m)^{t} \\
+    \text{EPV(RP)}
+    &amp;= \sum^{n-1}_{0} c \cdot P(1-m)^{t} {}_{t}p_{x} \\
+    &amp;= cP \sum^{n-1}_{0} (1-m)^{t} {}_{t}p_{x} \\
+    &amp;= cP \sum^{n-1}_{0} (v^{*})^{t} {}_{t}p_{x} \\
+    &amp;= cP \cdot \ddot{a}_{x:\enclose{actuarial}{n} i^{*}} \\
+    \\
+    v^{*} &amp;= (1-m) \\
+    \frac{1}{1+i^{*}} &amp;= (1-m) \\
+    1+i^{*} &amp;= \frac{1}{1-m} \\
+    i^{*} &amp;= 1 - \frac{1}{1-m} \\
+    i^{*} &amp;= \frac{1-m-1}{1-m} \\
+    i^{*} &amp;= \frac{m}{1-m}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Under a <strong>risk neutral assumption</strong>, the present value of the stock price is the value at inception, which we have assumed to be 1.</p>
+<p>Additionally, note that limits of the summation <strong>start from 0</strong> and end at <span class="arithmatex">\(n-1\)</span>, as the first risk premium charge does not include any prior management charges (they are <strong>charged at the same time</strong>).</p>
+</div>
+<p>The EPV of the risk premium and the cost of the guarantee should be the <strong>same</strong>, allowing us to solve for the risk premium rate:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \pi(0) &amp;= cP \cdot \ddot{a}_{x:\enclose{actuarial}{n} i^{*}} \\
+    c &amp;= \frac{\pi(0)}{P \cdot \ddot{a}_{x:\enclose{actuarial}{n} i^{*}}}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the question specifies a risk premium rate and asks to calculate for the cost of the guarantee, it <strong>might NOT equate</strong> to the cost of the guarantee if it were calculated in a bottom's up manner.</p>
+</div>
+<h3 id="hedging"><strong>Hedging</strong><a class="headerlink" href="#hedging" title="Permanent link">&para;</a></h3>
+<p>Given that the guaranteed benefits follow the payoff of a european put option, the insurer can <strong>completely hedge the risk</strong> by investing in a <strong>replicating portfolio</strong> of stocks and zero-coupon bonds. Whenever the option is exercised, the insurer can <strong>liquidate the replicating portfolio to completely cover</strong> the payoff of the option.</p>
+<p>The intuition can be found in the <strong>Option Greeks</strong> section of exam IFM. However, the actual derivation is <strong>much more complicated</strong> in this case due to the inclusion of probability etc. For the purposes of this exam, it is sufficient to <strong>memorize the formulas</strong> instead.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Other than making their own replicating portfolio, the insurer can also purchase the put option(s) from a third party with the exact strike price and time to maturity. However, this <strong>may not be feasible</strong> as the options with <em>exact parameters</em> might not exist.</p>
+<p>Similarly, we will only consider hedging GMMBs, as <strong>only one put option</strong> needs to be hedged. For GMDBs, a <strong>set of put options</strong> need to be replicated for each possible period that the policyholder could die.</p>
+</div>
+<p>The value of the put option can be decomposed into a portfolio of stocks and bonds:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \Delta S_{0} + B_{0}
+    &amp;= \pi(0) \\
+    \\
+    \Delta S_{0} + B_{0}
+    &amp;=  {}_{n}p_{x} \cdot P \cdot (\lambda \cdot e^{-rn} \Phi [-d_{2}(0)] - \xi S_{0} \cdot \Phi [-d_{1}(0)]) \\
+    \\
+    \therefore \Delta_{t} &amp;= {}_{n}p_{x} \cdot P \cdot \xi \cdot \Phi [-d_{1}(0)] \\
+    \therefore B_{0} &amp;= {}_{n}p_{x} \cdot P \cdot \lambda \cdot e^{-rn} \Phi [-d_{2}(0)]
+\end{aligned}
+\]</div>
+<p>It can be understood more intuitively if expressed slightly differently:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \pi(0)
+    &amp;= {}_{n}p_{x} \cdot P \xi
+        \cdot \left(\frac{\lambda}{\xi} \cdot e^{-rn} \Phi [-d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \right) \\
+    &amp;= \text{Number of Puts} \\
+    &amp;\cdot (\text{Value of Bond per Put} - S_{0} \cdot \text{Number of Stock per Put})
+\end{aligned}
+\]</div>
+<p>In theory, the replicating portfolio under the BSM framework should be <strong>self financing</strong> - it does not need to be rebalanced in every period. However, in practice, the insurer needs to be rebalance the portfolio as there could be deviation from assumptions used. This incurs additional <strong>hedging costs</strong> that must be accounted for when determining profit.</p>
 <h2 id="variable-annuities"><strong>Variable Annuities</strong><a class="headerlink" href="#variable-annuities" title="Permanent link">&para;</a></h2>
+<p>US version</p>
 
 
 
