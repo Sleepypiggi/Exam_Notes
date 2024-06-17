@@ -1011,15 +1011,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#guaranteed-minimum-maturity-benefit" class="md-nav__link">
-    Guaranteed Minimum Maturity Benefit
+  <a href="#guaranteed-maturity-benefit" class="md-nav__link">
+    Guaranteed Maturity Benefit
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#guaranteed-minimum-death-benefit" class="md-nav__link">
-    Guaranteed Minimum Death Benefit
+  <a href="#guaranteed-death-benefit" class="md-nav__link">
+    Guaranteed Death Benefit
   </a>
   
 </li>
@@ -1038,6 +1038,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rebalancing" class="md-nav__link">
+    Rebalancing
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1047,6 +1054,47 @@
   <a href="#variable-annuities" class="md-nav__link">
     Variable Annuities
   </a>
+  
+    <nav class="md-nav" aria-label="Variable Annuities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reset-option" class="md-nav__link">
+    Reset Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookback-option" class="md-nav__link">
+    Lookback Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollover-guarantee" class="md-nav__link">
+    Rollover Guarantee
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-income-benefit" class="md-nav__link">
+    Guaranteed Income Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-withdrawal-benefit" class="md-nav__link">
+    Guaranteed Withdrawal Benefit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1410,15 +1458,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#guaranteed-minimum-maturity-benefit" class="md-nav__link">
-    Guaranteed Minimum Maturity Benefit
+  <a href="#guaranteed-maturity-benefit" class="md-nav__link">
+    Guaranteed Maturity Benefit
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#guaranteed-minimum-death-benefit" class="md-nav__link">
-    Guaranteed Minimum Death Benefit
+  <a href="#guaranteed-death-benefit" class="md-nav__link">
+    Guaranteed Death Benefit
   </a>
   
 </li>
@@ -1437,6 +1485,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rebalancing" class="md-nav__link">
+    Rebalancing
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1446,6 +1501,47 @@
   <a href="#variable-annuities" class="md-nav__link">
     Variable Annuities
   </a>
+  
+    <nav class="md-nav" aria-label="Variable Annuities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reset-option" class="md-nav__link">
+    Reset Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookback-option" class="md-nav__link">
+    Lookback Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollover-guarantee" class="md-nav__link">
+    Rollover Guarantee
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-income-benefit" class="md-nav__link">
+    Guaranteed Income Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-withdrawal-benefit" class="md-nav__link">
+    Guaranteed Withdrawal Benefit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1468,6 +1564,10 @@
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Due to developments in the financial market, insurance products had to evolve to remain relevant. This led to development of <strong>Unit Linked Insurance</strong>, where policy benefits were <strong>linked</strong> to the performance of an <strong>underlying mutual fund</strong>.</p>
 <p>In order to attract investors, these products usually come <strong>guarantees</strong> on their benefits, providing <strong>unlimited upside and limited downsides</strong>. However, this results in insurance companies bearing <strong>huge financial risks</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>These guarantees may not be part of the product features, but offered as a rider for additional cost.</p>
+</div>
 <p>Traditional actuarial methods were not well suited to effectively deal with these risks, which led to the insolvency of many insurance companies in the 1990s when interest rates fell. This led to the creation of <strong>Market Consistent</strong> valuation basis to ensure that these risks are appropriately accounted for.</p>
 <p>As its name suggests, market consistent valuation involves valuing an asset at its <strong>observed market value</strong>. However, insurance contracts are almost never traded, thus does not have an observable market value. Instead, the insurance cashflows are <strong>translated into tradeable assets</strong>, where the value of the contract is <strong>equivalent to the price</strong> of the assets.</p>
 <p>The guarantees offered unit linked insurance can be translated into an <strong>Option</strong>, which is why it can be valued as an <strong>Embedded Option</strong>.</p>
@@ -1549,16 +1649,16 @@
 <div class="arithmatex">\[
      \text{Minimum Benefit} = \text{Lambda} \cdot \text{Premium Paid to Date}
 \]</div>
-<p>The guaranteed benefit will be paid <strong>if the account value is smaller</strong> than the guarantee. Thus, the benefit of the policy can be expressed as the following:</p>
+<p>The Guaranteed Benefit (GB) will be paid <strong>if the Account Value (AV) is smaller</strong> than the guarantee. Thus, the benefit of the policy can be expressed as the following:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Policy Benefit}
     &amp;=
     \begin{cases}
-        \text{Account Value}, &amp; \text{Account Value} &gt; \text{Guaranteed Benefit} \\
-        \text{Guaranteed Benefit}, &amp; \text{Account Value} &lt;= \text{Guaranteed Benefit}
+        \text{AV}, &amp; \text{AV} &gt; \text{GB} \\
+        \text{GB}, &amp; \text{AV} &lt;= \text{GB}
     \end{cases} \\
-    &amp;= \max (\text{Account Value}, \text{Guaranteed Benefit})
+    &amp;= \max (\text{AV}, \text{GB})
 \end{aligned}
 \]</div>
 <h2 id="embedded-options_1"><strong>Embedded Options</strong><a class="headerlink" href="#embedded-options_1" title="Permanent link">&para;</a></h2>
@@ -1589,7 +1689,7 @@
 <p>Please refer to the <strong>Derivatives Section</strong> of the IFM notes for more information on European Options and the Black Scholes model.</p>
 </div>
 <p>Unless otherwise stated, all policies referenced in this section are assumed to be <strong>Single Premium</strong> policies with <strong>no additional top ups</strong>.</p>
-<h3 id="guaranteed-minimum-maturity-benefit"><strong>Guaranteed Minimum Maturity Benefit</strong><a class="headerlink" href="#guaranteed-minimum-maturity-benefit" title="Permanent link">&para;</a></h3>
+<h3 id="guaranteed-maturity-benefit"><strong>Guaranteed Maturity Benefit</strong><a class="headerlink" href="#guaranteed-maturity-benefit" title="Permanent link">&para;</a></h3>
 <p>The maturity benefit is paid at a <strong>known time</strong> (at the <strong>end of the policy term</strong>), given that the policyholder is <strong>alive at that time</strong>.</p>
 <p>For simplicity, assume that the policy has a <strong>Guaranteed Minimum Maturity Benefit</strong> (GMMB) of some <strong>multiple of premiums paid</strong>:</p>
 <div class="arithmatex">\[
@@ -1688,7 +1788,7 @@
 </ul>
 <p>Note that <span class="arithmatex">\(\xi\)</span> <strong>does NOT</strong> depend on the time to maturity, thus does not need to be changed.</p>
 </div>
-<h3 id="guaranteed-minimum-death-benefit"><strong>Guaranteed Minimum Death Benefit</strong><a class="headerlink" href="#guaranteed-minimum-death-benefit" title="Permanent link">&para;</a></h3>
+<h3 id="guaranteed-death-benefit"><strong>Guaranteed Death Benefit</strong><a class="headerlink" href="#guaranteed-death-benefit" title="Permanent link">&para;</a></h3>
 <p>The death benefit is paid at an <strong>unknown time</strong> depending on when the policyholder dies. This adds <strong>another layer</strong> to the analysis as the <strong>possibility of death at every possible time</strong> must be considered.</p>
 <p>The value of the guarantee is thus the combination of the following items:</p>
 <ul>
@@ -1760,12 +1860,12 @@
 <p>Consider a <strong>general expression for the fund value</strong> in each period:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    F_{0} &amp;= P \\
+    \text{AV}_{0} &amp;= P \\
     \\
     \text{RP}_{1} &amp;= cP \\
     \text{MC}_{1} &amp;= m^{*}P \\
     \therefore F_{1}
-    &amp;= (F_{0} - \text{RP}_{1} - \text{MC}_{1}) \cdot \frac{S_{1}}{S_{0}} \\
+    &amp;= (\text{AV}_{0} - \text{RP}_{1} - \text{MC}_{1}) \cdot \frac{S_{1}}{S_{0}} \\
     &amp;= [P - cP- m^{*}P] \cdot \frac{S_{1}}{S_{0}} \\
     &amp;= P(1 - c - m^{*}) \cdot \frac{S_{1}}{S_{0}} \\
     &amp;= P(1 - (c+m^{*})) \cdot \frac{S_{1}}{S_{0}} \\
@@ -1773,7 +1873,7 @@
     \\
     \text{RP}_{2} &amp;= cP(1-m) \cdot \frac{S_{1}}{S_{0}}\\
     \text{MC}_{1} &amp;= m^{*}P(1-m) \cdot \frac{S_{1}}{S_{0}}\\
-    \therefore F_{2}
+    \therefore \text{AV}_{2}
     &amp;= (F_{1} - \text{RP}_{2} - \text{MC}_{2}) \cdot \frac{S_{2}}{S_{1}} \\
     &amp;= [P(1-m) - cP(1-m) - m^{*}P(1-m)] \cdot \frac{S_{1}}{S_{0}} \cdot \frac{S_{2}}{S_{1}} \\
     &amp;= P(1-m) [1 - c - m^{*}] \cdot \frac{S_{2}}{S_{0}} \\
@@ -1781,7 +1881,7 @@
     &amp;= P(1-m)(1-m) \cdot \frac{S_{2}}{S_{0}} \\
     &amp;= P(1-m)^{2} \cdot \frac{S_{2}}{S_{0}} \\
     \\
-    \therefore F_{t}
+    \therefore \text{AV}_{t}
     &amp;= P(1-m)^{t} \cdot \frac{S_{t}}{S_{0}} \\
     &amp;= P(1-m)^{t} \cdot S_{t}
 \end{aligned}
@@ -1864,9 +1964,147 @@
     &amp;\cdot (\text{Value of Bond per Put} - S_{0} \cdot \text{Number of Stock per Put})
 \end{aligned}
 \]</div>
-<p>In theory, the replicating portfolio under the BSM framework should be <strong>self financing</strong> - it does not need to be rebalanced in every period. However, in practice, the insurer needs to be rebalance the portfolio as there could be deviation from assumptions used. This incurs additional <strong>hedging costs</strong> that must be accounted for when determining profit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The signs in the above expression represent the act of buying and selling. Thus, the insurer will enter the following positions:</p>
+<ul>
+<li><strong>Short Position</strong> on Stocks (Negative sign)</li>
+<li><strong>Long Position</strong> on Bonds (Positive sign)</li>
+</ul>
+</div>
+<h3 id="rebalancing"><strong>Rebalancing</strong><a class="headerlink" href="#rebalancing" title="Permanent link">&para;</a></h3>
+<p>The replicating portfolio set up earlier needs to be <strong>rebalanced</strong> periodically, as the actual experience will <strong>deviate from the assumptions</strong> used. The rebalancing process will <strong>incur costs</strong> and thus should be considered during profit testing as well.</p>
+<p>The rebalancing cost is the difference between the value of assets that:</p>
+<ul>
+<li>Assets he insurer is <strong>currently holding</strong> - <strong>roll forward</strong> from previous period</li>
+<li>Assets the insurer <strong>needs to hold</strong> - calculated <strong>bottom's up</strong></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Rebalancing Cost}_{t}
+    &amp;= \text{Portfolio}_{t} - \text{Portfolio}_{t-1} \cdot (1 + \growth_{t})
+    &amp;= \text{Portfolio After Rebalancing} - \text{Portfolio Before Rebalancing} 
+\end{aligned}
+\]</div>
+<p>Insert section on profit testing? Based on which decrements to use? TBC after profit testsing.</p>
 <h2 id="variable-annuities"><strong>Variable Annuities</strong><a class="headerlink" href="#variable-annuities" title="Permanent link">&para;</a></h2>
-<p>US version</p>
+<p>In the US, rather than having Unit Linked Insurance, they offer <strong>Variable Annuities</strong> instead. They are a form of <strong>Deferred Annuity</strong> where the premiums paid are <strong>invested into a mutual fund</strong> of their choice. At the end of the policy term, they have the option to either:</p>
+<ul>
+<li>Receive the account value in <strong>cash</strong> (<strong>Maturity Benefit</strong>)</li>
+<li>Convert the amount into a <strong>life annuity</strong> (<strong>Annuitization</strong>)</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Despite having an Annuity in its name, it is actually a <strong>life insurance</strong> policy before it becomes annuitized. A <strong>death benefit is payable</strong> if the insured dies during the policy term. Once annuitized, the death benefit is no longer payable.</p>
+<p>The policy term above refers to the term of the <strong>variable annuity</strong>. The annuity will have a seperately specified term.</p>
+</div>
+<p>Similar to unit linked insurance, variable annuities also offer guaranteed maturity and death benefits. However, they also offer <strong>additional more complex guarantee features</strong> than those described previously:</p>
+<ul>
+<li>Reset Option</li>
+<li>Lookback Option</li>
+<li>Rollover Guarantee</li>
+</ul>
+<p>Additionally, since they have an annuity component, there are <strong>additional annuity related guarantees</strong>:</p>
+<ul>
+<li>Guaranteed Income Benefits</li>
+<li>Guaranteed Withdrawal Benefits</li>
+</ul>
+<h3 id="reset-option"><strong>Reset Option</strong><a class="headerlink" href="#reset-option" title="Permanent link">&para;</a></h3>
+<p><strong>Reset Options</strong> allow the policy to increase the guaranteed benefit amount to <strong>match the account value</strong> at the time of exercising the option. It will <em>only</em> be exercised if the account value has <strong>increased beyond</strong> the guaranteed amount:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Original Guarantee} &amp;= \lambda \cdot P \\
+    \text{Reset Guarantee} &amp;= \lambda \cdot \text{AV at time of exercise}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>same scaling factor</strong> is applied for the new guarantee. Functionally, it is <strong>changing the base of the guarantee</strong>.</p>
+</div>
+<p>Policyholders have the <strong>flexibility</strong> to choose when to exercise the option, allowing them to time the market for a good amount. However, it comes with a "cost" of a <strong>minimum policy term post exercising</strong>:</p>
+<ul>
+<li><strong>Less than <span class="arithmatex">\(k\)</span> years left</strong>: Remaining term increased to <span class="arithmatex">\(k\)</span> years</li>
+<li><strong>More than <span class="arithmatex">\(k\)</span> year left</strong>: No change to remaining term</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The minimum term might come attached with a <strong>Surrender Charge</strong> condition if any amount is withdrawn then. This is to ensure that the insurer can recoup the costs associated with increasing the gurantee.</p>
+</div>
+<p>Apart from being competitive, there is another reason why such benefits are offered. If the account value is <strong>significantly higher</strong> than the guaranteed amount, the policyholder might surrender the policy and <strong>reinvest in a new policy</strong> with a higher guarantee - <strong>incurring costs</strong> related to cancelling and administering a new policy. Offering the option achieves the <strong>same outcome with cost savings</strong>.</p>
+<p>However, such a complex guarantee does come with significant risks as well:</p>
+<ul>
+<li>If the entire market goes up, a <strong>significant number will exercise</strong> their reset option at once, resulting in a huge <strong>increase in liability</strong> for the insurer</li>
+<li>Similarly, they would <strong>mature at similar times</strong> (due to the minimum policy term), thus resulting in large <strong>concentration risks</strong></li>
+</ul>
+<h3 id="lookback-option"><strong>Lookback Option</strong><a class="headerlink" href="#lookback-option" title="Permanent link">&para;</a></h3>
+<p><strong>Lookback Options</strong> will increase the gurantee amount to match the account value at <strong>specific intervals</strong>. Functionally, it is a reset option that will be <strong>automatically exercised</strong> (if in the money) every few years, but with no minimum policy term after.</p>
+<div class="arithmatex">\[
+    \text{Lookback Guarantee} = \max (\text{AV}_{x}, \text{AV}_{2x}, \text{AV}_{3x}, \dots)
+\]</div>
+<p>While it provides <strong>more opportunities</strong> to reset the guarantee, it <strong>loses the flexibility</strong> to choose when it occurs. If the account value increases during the intervals but decreases before the specified time, the <strong>peak will not be captured</strong> by the option.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This option is sometimes referred to as a <strong>Step Up Guarantee</strong>, as the guarantee has the potentially to be stepped up at regular intervals (assuming the fund value continuously increases).</p>
+</div>
+<h3 id="rollover-guarantee"><strong>Rollover Guarantee</strong><a class="headerlink" href="#rollover-guarantee" title="Permanent link">&para;</a></h3>
+<p>Rollover guarantees provide the following benefits at specified intervals:</p>
+<ul>
+<li>If the <strong>account value is higher</strong> than the guarantee, the <strong>guarantee is increased</strong> to match the account value</li>
+<li>If the <strong>account value is lower</strong> than the guarantee, the <strong>account value is increased</strong> to match the guarantee</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is a essentially a lookback option with downside protection. It is also sometimes referred to as a <strong>Guaranteed Accumulation Benefit</strong>.</p>
+</div>
+<p>One key consideration is that if the policy has a rollover guarantee, it must be <strong>projected seperately</strong>. This is because the capital injections at the specified intervals will modify the account value, <strong>affecting subsequent growth and charges</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The capital injection by the insurer into the account value is <strong>NOT considered part of the guaranteed benefits payout</strong>. It should be thought of as a cost to the insurer. Thus, if asked to determine the payout of the option, <strong>do NOT include any capital injections</strong>.</p>
+</div>
+<h3 id="guaranteed-income-benefit"><strong>Guaranteed Income Benefit</strong><a class="headerlink" href="#guaranteed-income-benefit" title="Permanent link">&para;</a></h3>
+<p>A <strong>Guaranteed Income Benefit</strong> sets a <strong>minimum payout</strong> from the resulting annuity:</p>
+<div class="arithmatex">\[
+    \text{Payout} = \max (\text{Payout}_\text{Market}, \text{Payout}_\text{GIB})
+\]</div>
+<p>The annuitization process can be broken down into two components:</p>
+<ul>
+<li><strong>Benefit Base</strong>: Amount to be annuitized</li>
+<li><strong>Annuitization Rate</strong>: Annuity EPV Factor</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Account Value} &amp;= \text{Payout} \cdot \text{Annuity Factor} \\
+    \text{Payout}
+    &amp;= \frac{\text{Account Value}}{\text{Annuity Factor}} \\
+    &amp;= \underbrace{\text{Account Value}}_{\text{Benefit Base}}
+        \cdot \underbrace{\frac{1}{\text{Annuity Factor}}}_{\text{Annuitization Rate}}
+\end{aligned}
+\]</div>
+<p>The guarantee can specify a change to <strong>either or both of the components</strong>, which affects the minimum payout:</p>
+<ul>
+<li><strong>Benefit Base</strong>: Accumulate at different rate from account value (notional value; no charges)</li>
+<li><strong>Annuitization Rate</strong>: Determined using different assumptions </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Most questions provide a scenario where one of the components is better while the other is worse than their market counterparts. There is insufficient information from this to determine if the guarantee is better or not; the combined effect needs to be considered.</p>
+</div>
+<p>The cost of this guarantee is the cost of actually fulfilling the payout - based on the <strong>insurer's true expectation</strong> of the future:</p>
+<div class="arithmatex">\[
+    \text{Cost of Guarantee} = \text{Guaranteed Payout} \cdot \text{Market Annuity Factor}
+\]</div>
+<h3 id="guaranteed-withdrawal-benefit"><strong>Guaranteed Withdrawal Benefit</strong><a class="headerlink" href="#guaranteed-withdrawal-benefit" title="Permanent link">&para;</a></h3>
+<p>A <strong>Guaranteed Withdrawal Benefit</strong> ensures the policyholder can <strong>ALWAYS withdraw</strong> the specified amount from the fund, <em>within a specified period</em>.</p>
+<p>Naturally, withdrawals will <strong>reduce the account value</strong> accordingly. However, even if the <strong>account value is zero</strong>, the policyholder <strong>may still withdraw</strong> the specified amount, as long as it is within the specified period. Hence, the term "always" was used earlier.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>While the fund has value, the insurer may make withdrawals above the specified amount, <strong>subject to the amount left</strong> in the fund and any prevailing charges.</p>
+<p>Once the fund is depleted, the insurer can ONLY withdraw the specified amount - <strong>no additional withdrawal</strong> can be made, as there is nothing left to withdraw.</p>
+</div>
+<p>Any shortfall in the account value is <strong>funded by the insurer</strong>, which is the cost of the guarantee:</p>
+<div class="arithmatex">\[
+    \text{Cost of Guarantee} = \sum \text{PV (Shortfall Funding)}
+\]</div>
 
 
 
