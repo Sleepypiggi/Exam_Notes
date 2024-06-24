@@ -976,6 +976,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#multi-state-models" class="md-nav__link">
+    Multi State Models
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1444,6 +1451,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#multi-state-models" class="md-nav__link">
+    Multi State Models
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1598,6 +1612,7 @@
     &amp;= \text{Net Cashflow} - \underbrace{p_{x} \cdot {}_{t}V - {}_{t-1}V \cdot (1+i)}_\text{Change in Reserves}
 \end{aligned}
 \]</div>
+<p>The above expression is often referred to as the profit that <strong>emerges or arises</strong> from that period, as it occurs at the <strong>end of the period</strong> as a combination of all other cashflows that occurred in that period.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Some questions may provide the reserves will other questions may require us to compute it ourselves. Regardless, there are always two time points where the reserves are known:</p>
@@ -1607,10 +1622,6 @@
 </ul>
 <p><!-- Obtained from Coaching Actuaries -->
 <img alt="Special Reserves" class="center" src="../Assets/5.%20Profit%20Testing.md/Special_Reserves.png" /></p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Profit is often referred to as the profit that <strong>emerges or arises</strong> from that period, as it occurs at the <strong>end of the period</strong> as a combination of all other cashflows that occurred in that period.</p>
 </div>
 <h3 id="profit-basis"><strong>Profit Basis</strong><a class="headerlink" href="#profit-basis" title="Permanent link">&para;</a></h3>
 <p>Note that the projection basis (the assumptions used) for reserving and profit testing might be different:</p>
@@ -1685,6 +1696,25 @@
 </div>
 <!-- Self Made -->
 <p><img alt="Profit Signature" class="center" src="../Assets/5.%20Profit%20Testing.md/Profit%20Signature.png" /></p>
+<h3 id="multi-state-models"><strong>Multi State Models</strong><a class="headerlink" href="#multi-state-models" title="Permanent link">&para;</a></h3>
+<p>Multi State Models add another layer of complexity to profit projection which poses the following issues:</p>
+<ul>
+<li><strong>Multiple benefits</strong> to consider</li>
+<li>Cashflows are <strong>dependent on the state</strong> that the policyholder is in</li>
+<li>Not possible to know <strong>which state</strong> the insured will be in at issue</li>
+</ul>
+<p>The first issue on multiple benefits can be easily accounted for by considering the outgo from <strong>ALL possible benefits</strong> with their associated probabilities. The probability of survival must then be changed to the <strong>probability of surviving ALL decrements</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{NCF}_{t} &amp;= (P - e)(1+i) - \sum q^(ij)_{x} \cdot (B^{ij} + E^{ij}) \\
+    \text{PR}_{t} &amp;= \text{NCF}_{t} - [p^{(\tau)}_{x} \cdot {}_{t}V - {}_{t-1}V \cdot (1+i)]
+\end{aligned}
+\]</div>
+<p>The remaining issues can be accounted for by considering <strong>ALL possible states</strong> that the policyholder could be in and their associated profit cashflows. The unconditional profit is the <strong>probability weighted average</strong> of the all possible states:</p>
+<div class="arithmatex">\[
+    \text{Unconditional Profit}
+    = p^{00} \cdot \text{PR}^{00} + p^{01} \cdot \text{PR}^{01} + p^{02} \cdot \text{PR}^{02} + \dots
+\]</div>
 <h2 id="profit-testing_1"><strong>Profit Testing</strong><a class="headerlink" href="#profit-testing_1" title="Permanent link">&para;</a></h2>
 <h3 id="profitability-metrics"><strong>Profitability Metrics</strong><a class="headerlink" href="#profitability-metrics" title="Permanent link">&para;</a></h3>
 <p>Using the profit cashflows above, insurers can gauge the <strong>profitability</strong> of the policy based on different metrics.</p>
