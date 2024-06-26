@@ -1779,29 +1779,23 @@
 <div class="arithmatex">\[
     \frac{d}{dt} {}_{t}p^{ij}_{x}
     = \sum_{k \ne j} [{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) 
-                        - {}_{t}p^{ij}_{x} \cdot \mu^{ij}_{x}(t)]
+                        - {}_{t}p^{ij}_{x} \cdot \mu^{jk}_{x}(t)]
 \]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>This equation can be <strong>loosely intepreted</strong> as:</p>
+<p>Loosely speaking, the DE is trying to <strong>approximate the change</strong> in probability of moving from state <span class="arithmatex">\(i\)</span> to state <span class="arithmatex">\(j\)</span> as:</p>
 <div class="arithmatex">\[
-    \text{Change} = \text{Moving IN to state j} - \text{Moving OUT of state j}
+\begin{aligned}
+    \text{Change}
+    &amp;= \text{Net Probability of moving into state j} \\
+    &amp;= \text{P(Start in i, move INTO j)} - \text{P(Start in i, move OUT of j)}
+\end{aligned}
 \]</div>
-</div>
 <p>The differential equation can be solved via <strong>Euler's Method</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \frac{d}{dt} {}_{t}p^{ij}_{x}
-    &amp;= \frac{{}_{t+h}p^{ij}_{x} - {}_{t}p^{ij}_{x}}{h} \\
-    \\
-    \frac{{}_{t+h}p^{ij}_{x} - {}_{t}p^{ij}_{x}}{h}
-    &amp;= \sum_{k \ne j} \left[{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) 
-                        - {}_{t}p^{ij}_{x} \cdot \mu^{ij}_{x}(t) \right] \\
-    \\
-    {}_{t+h}p^{ij}_{x}
-    &amp;= {}_{t}p^{ij}_{x} + h \cdot 
-        \sum_{k \ne j} \left[{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) 
-                                - {}_{t}p^{ij}_{x} \cdot \mu^{ij}_{x}(t) \right]
+    &amp;= \frac{{}_{t+h}p^{ij}_{x} - {}_{t}p^{ij}_{x}}{h}
+    = \frac{{}_{t}p^{ij}_{x} - {}_{t-h}p^{ij}_{x}}{h} \\
+    &amp;= \dots
 \end{aligned}
 \]</div>
 <div class="admonition tip">
@@ -1814,6 +1808,7 @@
     \text{First Derivative}
     = \frac{y_{x+h} - y_{x}}{h} = \frac{y_{x} - y_{x-h}}{h}
 \]</div>
+<p>Use the variation that is best suited to find the target outcome.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1929,16 +1924,52 @@
 <li>Insured is currently in state 0 (Healthy)</li>
 </ul>
 <h3 id="reserves"><strong>Reserves</strong><a class="headerlink" href="#reserves" title="Permanent link">&para;</a></h3>
-<p>Reserves for a person state i at time j</p>
-<p>Reserves for a continuous assurance or annuity can be calculated using <strong>Thiele's Differential Equation</strong>:</p>
-<p>Similar to before, the equation is trying to approximate the change in the reserve at that time:</p>
+<p>Recall that reserves are calculated as the EPV of the net outflows each period. In a multi-state setting, the <strong>outflows are dependent on the state</strong> of the insured at the time of valuation. Thus, the reserve must reflect <strong>two dimensions</strong> - both time and state.</p>
+<div class="arithmatex">\[
+    {}_{t}V^{(i)} = \text{EPV(Benefits)}_{t}^{i}
+                  + \text{EPV(Expenses)}_{t}^{i}
+                  - \text{EPV(Premiums)}_{t}^{i}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that some terms may <strong>naturally evaluate to 0</strong>. For instance,</p>
 <ul>
-<li>Reserve grows at the force of interest at that time</li>
-<li>Reserve changes in that period based on the <strong>rate</strong> of net cashflows (Ben + Exp  - Prem)</li>
-<li>Upon transitioning, reserve is released if a benefit is payable</li>
-<li>Upon transitioning, the reserve changes from state i to state j</li>
+<li><strong>Premiums may not be payable</strong> while in that state</li>
+<li><strong>Certain benefits may not payable</strong> in that state</li>
 </ul>
-<p>Solve using Euler method as well</p>
+</div>
+<p>Reserves for a continuous assurance or annuity can be instead calculated using <strong>Thiele's Differential Equation</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{d}{dt} {}_{t}V^{i}
+    &amp;= \delta_{t} \cdot {}_{t}V^{i} + \left(B_{t}^{i} + e_{t}^{i} - P_{t}^{i} \right) \\
+    &amp;- \sum_{j \ne i} \mu^{ij}_{x}(t) \cdot (b^{ij} + {}_{t}V^{j} - {}_{t}V^{i})
+\end{aligned}
+\]</div>
+<p>Similar to before, the DE is trying to <strong>approximate the change in the reserve</strong>:</p>
+<ul>
+<li>Earns <strong>interest</strong></li>
+<li>Increases by the <strong>rate</strong> of net outflow</li>
+<li><strong>Release</strong> to pay off any <strong>lump sum benefits</strong> on transition</li>
+<li><strong>Change in reserve</strong> across states</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do NOT mix up the two benefit variables:</p>
+<ul>
+<li><strong>Big B</strong>: <strong>Rate</strong> of benefit payment <strong>while in</strong> the current state</li>
+<li><strong>Small B</strong>: <strong>Lump Sum</strong> benefit payment <strong>upon transition</strong> into other state</li>
+</ul>
+</div>
+<p>Similarly, the DE can be solved using <strong>Euler's Method</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{d}{dt} {}_{t}V^{i}
+    &amp;= \frac{{}_{t}V^{i} - {}_{t-h}V^{i}}{h}
+    = \frac{{}_{t+h}V^{i} - {}_{t}V^{i}}{h} \\
+    &amp;= \dots
+\end{aligned}
+\]</div>
 
 
 
