@@ -1003,6 +1003,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sorjourn-annuity" class="md-nav__link">
+    Sorjourn Annuity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woolhouse-approximation" class="md-nav__link">
+    Woolhouse Approximation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#reserves" class="md-nav__link">
     Reserves
   </a>
@@ -1478,6 +1492,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sorjourn-annuity" class="md-nav__link">
+    Sorjourn Annuity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woolhouse-approximation" class="md-nav__link">
+    Woolhouse Approximation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#reserves" class="md-nav__link">
     Reserves
   </a>
@@ -1827,8 +1855,7 @@
 <p>Multi-state assurances and annuities are concpetually similar to their single decrement counterparts - Equivalence Principle, Continuous Discrete Approximation etc.</p>
 <p>This section highlights the key differences in a multi-state context.</p>
 <h3 id="assurances"><strong>Assurances</strong><a class="headerlink" href="#assurances" title="Permanent link">&para;</a></h3>
-<p>A <strong>Multi-State Assurance</strong> pays a benefit whenever the insured <strong>transitions</strong> into a particular state.</p>
-<p>The actuarial value of such an assurance is denoted by <span class="arithmatex">\(A^{ij}_{x}\)</span>, where <span class="arithmatex">\(i\)</span> is the <strong>current state</strong> of the insured and <span class="arithmatex">\(j\)</span> is the <strong>state which triggers a payment</strong>.</p>
+<p>A <strong>Multi-State Assurance</strong> pays a benefit whenever the insured <strong>transitions</strong> into a particular state. The actuarial value of such an assurance is denoted by <span class="arithmatex">\(A^{ij}_{x}\)</span>, where <span class="arithmatex">\(i\)</span> is the <strong>current state</strong> of the insured and <span class="arithmatex">\(j\)</span> is the <strong>state which triggers a payment</strong>.</p>
 <p>The key is understanding that <em>any</em> transition into the state will trigger the payout. Thus, <strong>all possible transitions</strong> into state must be considered at <strong>each time</strong> period.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1837,20 +1864,34 @@
 </div>
 <p>Consider the following example:</p>
 <ul>
-<li>Mortality follows a <strong>permanent disability model</strong></li>
-<li>Insured owns a <strong>2 year discrete TERM assurance</strong></li>
-<li>Benefit payment at the end of the year upon transition into state 2</li>
-<li>Insured is currently in state 0 (Healthy)</li>
+<li>2-year discrete term assurance</li>
+<li>Benefit payment at the end of the year <strong>upon transition into state 2</strong></li>
+<li>Insured is currently in state 0</li>
 </ul>
 <!-- Obtained from ALTAM textbook -->
 <p><img alt="Perm Disability" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Perm%20Disability%20Model.png" /></p>
 <div class="arithmatex">\[
 \begin{array}{|c|c|c|c|}
 \hline
-    \text{Time}
-        &amp; \text{Transition}
+    \text{Policy Year End }
+        &amp; \text{State}
         &amp; \text{Probability} 
         &amp; \text{PV Benefit} \\
+\hline
+    0
+        &amp; \text{0}
+        &amp; -
+        &amp; - \\
+\hline
+    1
+        &amp; \text{0 - 0}
+        &amp; p^{\bar{00}}_{x}
+        &amp; 0 \\
+\hline
+    1
+        &amp; \text{0 - 1}
+        &amp; p^{01}_{x}
+        &amp; 0 \\
 \hline
     1
         &amp; \text{0 - 2}
@@ -1858,17 +1899,41 @@
         &amp; Bv \\
 \hline
     2
+        &amp; \text{0 - 0 - 0}
+        &amp; p^{\bar{00}}_{x} \cdot p^{\bar{00}}_{x+1}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 0 - 1}
+        &amp; p^{\bar{00}}_{x} \cdot p^{01}_{x+1}
+        &amp; 0 \\
+\hline
+    2
         &amp; \text{0 - 0 - 2}
-        &amp; p^{00}_{x} \cdot p^{02}_{x+1}
+        &amp; p^{\bar{00}}_{x} \cdot p^{02}_{x+1}
         &amp; Bv^2 \\
+\hline
+    2
+        &amp; \text{0 - 1 - 1}
+        &amp; p^{01}_{x} \cdot p^{\bar{11}}_{x+1}
+        &amp; 0 \\
 \hline
     2
         &amp; \text{0 - 1 - 2}
         &amp; p^{01}_{x} \cdot p^{12}_{x+1}
         &amp; Bv^2 \\
 \hline
+    2
+        &amp; \text{0 - 2 - 2}
+        &amp; p^{02}_{x} \cdot p^{\bar{22}}_{x+1}
+        &amp; 0 \\
+\hline
 \end{array}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to assume that the last case of 0 - 2 - 2 should have a benefit listed there as the insured is in state 2 at the end of the year. However, the benefit is only payable if the insured transitions <strong>INTO state 2 from some OTHER state</strong>.  </p>
+</div>
 <div class="arithmatex">\[
 \begin{aligned}
     A^{02}_{x\enclose{actuarial}{2}}
@@ -1876,7 +1941,8 @@
     + p^{01}_{x} \cdot p^{12}_{x+1} \cdot Bv^2 \\
     &amp;= p^{02}_{x} \cdot Bv 
     + (p^{00}_{x} p^{02}_{x+1} + p^{01}_{x} \cdot p^{12}_{x+1}) \cdot Bv^2 \\
-    &amp;= p^{02}_{x} \cdot Bv + {}_{2}p^{02}_{x} \cdot Bv^2
+    &amp;= p^{02}_{x} \cdot Bv + {}_{2}p^{02}_{x} \cdot Bv^2 \\
+    &amp;= B \sum^{n}_{1} v^{t} {}_{t}p^{ij}_{x}
 \end{aligned}
 \]</div>
 <div class="admonition warning">
@@ -1902,27 +1968,229 @@
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>It may not be necessary to write every single transition probability as some may naturally evaluate to 0.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The survival probability is the probability of surviving to the <strong>starting state</strong> for the assurance at age <span class="arithmatex">\(x+n\)</span>.</p>
+<p>It may not be necessary to write every single transition probability as some may naturally evaluate to 0. The survival probability is the probability of surviving to the <strong>STARTING state</strong> for the assurance at age <span class="arithmatex">\(x+n\)</span>.</p>
+<p>The same relationship holds for multi-state annuities as well.</p>
 </div>
 <h3 id="annuities"><strong>Annuities</strong><a class="headerlink" href="#annuities" title="Permanent link">&para;</a></h3>
-<p>Conversely, a <strong>Multi-State Annuity</strong> pays a benefit whenever the insured <strong>remains</strong> in a particular state.</p>
-<p>The actuarial value of such an assurance is denoted by <span class="arithmatex">\(a^{ij}_{x}\)</span>, where <span class="arithmatex">\(i\)</span> is the <strong>current state</strong> of the insured and <span class="arithmatex">\(j\)</span> is the <strong>state which triggers a payment</strong>.</p>
+<p>Conversely, a <strong>Multi-State Annuity</strong> pays a benefit whenever the insured <strong>remains</strong> in a particular state. The actuarial value is denoted by <span class="arithmatex">\(\ddot{a}^{ij}_{x}\)</span>, where <span class="arithmatex">\(i\)</span> is the <strong>current state</strong> of the insured and <span class="arithmatex">\(j\)</span> is the <strong>state which triggers a payment</strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The general notation assumes that the insured is <strong>NOT already in the state</strong> that would trigger payment. For instance, an annuity that pays only while the insured is disabled.</p>
-<p>This is contrary to a life annuity, where the insured is already alive, and will receive payments for as long as they are alive.</p>
+<p>This is is <strong>contrary</strong> to the typical life annuity that was covered, where the insured is already alive, and will receive payments for as long as they are alive.</p>
 </div>
 <p>Consider the following example:</p>
 <ul>
-<li>Mortality follows a <strong>sickness death model</strong></li>
-<li>Insured owns a <strong>2 year discrete temporary annuity</strong></li>
-<li>Benefit payment at the beginning of the year if they are in state 1</li>
-<li>Insured is currently in state 0 (Healthy)</li>
+<li>3-year Discrete Temporary Annuity</li>
+<li>Benefit payable at the beginning of the year <strong>while in state 1</strong></li>
+<li>Insured is currently in state 0</li>
 </ul>
+<!-- Obtained from ALTAM textbook -->
+<p><img alt="Perm Disability" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Perm%20Disability%20Model.png" /></p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|c|}
+\hline
+    \text{Policy Year End}
+        &amp; \text{State}
+        &amp; \text{Probability} 
+        &amp; \text{PV Benefit} \\
+\hline
+    0
+        &amp; \text{0}
+        &amp; -
+        &amp; - \\
+\hline
+    1
+        &amp; \text{0 - 0}
+        &amp; p^{\bar{00}}_{x}
+        &amp; 0 \\
+\hline
+    1
+        &amp; \text{0 - 1}
+        &amp; p^{01}_{x}
+        &amp; Bv \\
+\hline
+    1
+        &amp; \text{0 - 2}
+        &amp; p^{02}_{x}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 0 - 0}
+        &amp; p^{\bar{00}}_{x} \cdot p^{\bar{00}}_{x+1}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 0 - 1}
+        &amp; p^{\bar{00}}_{x} \cdot p^{01}_{x+1}
+        &amp; Bv^{2} \\
+\hline
+    2
+        &amp; \text{0 - 0 - 2}
+        &amp; p^{\bar{00}}_{x} \cdot p^{02}_{x+1}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 1 - 1}
+        &amp; p^{01}_{x} \cdot p^{\bar{11}}_{x+1}
+        &amp; Bv^2 \\
+\hline
+    2
+        &amp; \text{0 - 1 - 2}
+        &amp; p^{01}_{x} \cdot p^{12}_{x+1}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 2 - 2}
+        &amp; p^{02}_{x} \cdot p^{\bar{22}}_{x+1}
+        &amp; 0 \\
+\hline
+\end{array}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Even though the policy term is 3 years, there is no need to consider what happens at the end of the third policy year as the benefits are payable at the start of the year - the last benefit is paid at the beginning of the third year (end of the second year).</p>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ddot{a}^{01}_{x\enclose{actuarial}{3}}
+    &amp;= p^{01}_{x} \cdot Bv
+    + p^{\bar{00}}_{x} \cdot p^{01}_{x+1} \cdot Bv^{2} + p^{\bar{00}}_{x} \cdot p^{01}_{x+1} \cdot Bv^{2} \\
+    &amp;= p^{01}_{x} \cdot Bv + (p^{\bar{00}}_{x} \cdot p^{01}_{x+1} + p^{\bar{00}}_{x} \cdot p^{01}_{x+1}) \cdot Bv^{2} \\
+    &amp;= p^{01}_{x} \cdot Bv + {}_{2}p^{01}_{x} \cdot Bv^{2} \\
+    &amp;= B \sum^{n-1}_{0} v^{t} {}_{t}p^{ij}_{x}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is actually <strong>no need to change the notation</strong> for temporary annuiities as they did not require a superscript in the first place. However, it may be better to use the same notation in a multi-state setting to avoid confusion.</p>
+</div>
+<p>There is an <strong>interesting relationship</strong> among multi-state annuities. Consider the same 3-state model from before:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p^{00}_{x} + {}_{t}p^{01}_{x} + {}_{t}p^{02}_{x} &amp;= 1 \\
+    \therefore \ddot{a}^{00}_{x\enclose{actuarial}{n}}
+    + \ddot{a}^{01}_{x\enclose{actuarial}{n}}
+    + \ddot{a}^{02}_{x\enclose{actuarial}{n}}
+    &amp;= \ddot{a}_{\enclose{actuarial}{n}} \\
+\end{aligned}
+\]</div>
+<p>Recall from FAM-L that <strong>annuities and assurances</strong> are related to one another. In a muli-state setting, the relationship only holds true if the target assurance is <strong>transitioning into an absorbing state</strong> <span class="arithmatex">\(k\)</span>. Consider the same 3-state model from before:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    A^{ik} &amp;= 1 - d \cdot \sum_{j \ne k} \ddot{a}^{ij}_{x} \\
+    \therefore A^{02}_{x} &amp;= 1 - d \cdot (\ddot{a}^{00}_{x} + \ddot{a}^{01}_{x}) \\
+    \therefore A^{12}_{x} &amp;= 1 - d \cdot (\ddot{a}^{10}_{x} + \ddot{a}^{11}_{x}) \\   
+\end{aligned}
+\]</div>
+<h3 id="sorjourn-annuity"><strong>Sorjourn Annuity</strong><a class="headerlink" href="#sorjourn-annuity" title="Permanent link">&para;</a></h3>
+<p>A <strong>Sorjourn Annuity</strong> is an annuity that pays a benefit while the insured is in a specified state, given that the insured is <strong>ALREADY in</strong> the specified state. It's acturial value is denoted by <span class="arithmatex">\(\ddot{a}^{\bar{ii}}_{x}\)</span>, which is what we typically expect of an annuity.</p>
+<p>They are usually used to calculate the <strong>PV of premiums</strong> as premiums are usually only payable while the insured is healthy. Consider the following example:</p>
+<ul>
+<li>3-year Discrete Temporary Annuity</li>
+<li>Premium payable at the beginning of the year <strong>while in state 0</strong></li>
+<li>Insured is currently in state 0</li>
+</ul>
+<!-- Obtained from ALTAM textbook -->
+<p><img alt="Perm Disability" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Perm%20Disability%20Model.png" /></p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|c|c|}
+\hline
+    \text{Policy Year End}
+        &amp; \text{State}
+        &amp; \text{Probability} 
+        &amp; \text{PV Benefit} \\
+\hline
+    0
+        &amp; \text{0}
+        &amp; -
+        &amp; B \\
+\hline
+    1
+        &amp; \text{0 - 0}
+        &amp; p^{\bar{00}}_{x}
+        &amp; Bv \\
+\hline
+    1
+        &amp; \text{0 - 1}
+        &amp; p^{01}_{x}
+        &amp; 0 \\
+\hline
+    1
+        &amp; \text{0 - 2}
+        &amp; p^{02}_{x}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 0 - 0}
+        &amp; p^{\bar{00}}_{x} \cdot p^{\bar{00}}_{x+1}
+        &amp; Bv^{2} \\
+\hline
+    2
+        &amp; \text{0 - 0 - 1}
+        &amp; p^{\bar{00}}_{x} \cdot p^{01}_{x+1}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 0 - 2}
+        &amp; p^{\bar{00}}_{x} \cdot p^{02}_{x+1}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 1 - 1}
+        &amp; p^{01}_{x} \cdot p^{\bar{11}}_{x+1}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 1 - 2}
+        &amp; p^{01}_{x} \cdot p^{12}_{x+1}
+        &amp; 0 \\
+\hline
+    2
+        &amp; \text{0 - 2 - 2}
+        &amp; p^{02}_{x} \cdot p^{\bar{22}}_{x+1}
+        &amp; 0 \\
+\hline
+\end{array}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Since the insured <strong>already starts in the premium paying state</strong>, there is a cashflow at time 0 which was not seen in the other examples.</p>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ddot{a}^{\bar{00}}_{x\enclose{actuarial}{3}}
+    &amp;= B + p^{\bar{00}}_{x} \cdot Bv + p^{\bar{00}}_{x} \cdot p^{\bar{00}}_{x+1} \cdot Bv^{2} \\
+    &amp;= B + p^{\bar{00}}_{x} \cdot Bv + {}_{2}p^{\bar{00}}_{x} \cdot Bv^{2} \\
+    &amp;= B \sum^{n-1}_{0} v^{t} {}_{t}p^{\bar{ii}}_{x}
+\end{aligned}
+\]</div>
+<h3 id="woolhouse-approximation"><strong>Woolhouse Approximation</strong><a class="headerlink" href="#woolhouse-approximation" title="Permanent link">&para;</a></h3>
+<p>Recall that the Woolhouse Approximation was used to approximate Continuous or Monthly annuities from their yearly discrete variants. Skipping the formal proof, the <strong>three term woolhouse approximation</strong> in a multi-state setting is as follows:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ddot{a}^{(m)ij}_{x} &amp;= \ddot{a}^{ij}_{x} + \frac{m^{2} - 1}{12m^{2}} \mu^{ij}_{x}(t) \\
+    \\
+    \ddot{a}^{(m)\bar{ii}}_{x}
+    &amp;= \ddot{a}^{\bar{ii}}_{x} - \frac{m-1}{2m} - \frac{m^{2} - 1}{12m^{2}} [\mu^{i \tau}_{x}(t) + \delta]
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above can then be converted into a Continuous or Temporary annuity approximation using the usual methods.</p>
+<p>Despite the non-sojourn annuity having <strong>only two terms</strong>, it is still known as the three term woolhouse approximation. If asked for the two term approximation, <strong>drop the last term</strong>. The approximation simply equal to the existing value.</p>
+</div>
+<p><strong>Sojourn</strong> approximations are closest to the typical life annuity covered. Thus, it is expected that the sojourn approximation is <strong>almost identical</strong> to the original approximation.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The force term is meant to be of the <strong>OPPOSITE of the annuity event</strong>.</p>
+<p>In FAM-L, the force was the force of dying, opposite of the annuity benefit which pays while living. For a sojourn annuity, the opposite of staying in the same state is a <strong>transition to any other state</strong>.</p>
+</div>
+<p><strong>Non-sojourn</strong> approximations are seemingly similar to the usual approximations, but there are <strong>multiple differences</strong>:</p>
+<ol>
+<li>There are only two terms instead of three (Usual second term is missing)</li>
+<li>The sign is flipped on the 'third' term ('+' instead of '-')</li>
+<li>The force term is of the SAME annuity event</li>
+</ol>
 <h3 id="reserves"><strong>Reserves</strong><a class="headerlink" href="#reserves" title="Permanent link">&para;</a></h3>
 <p>Recall that reserves are calculated as the EPV of the net outflows each period. In a multi-state setting, the <strong>outflows are dependent on the state</strong> of the insured at the time of valuation. Thus, the reserve must reflect <strong>two dimensions</strong> - both time and state.</p>
 <div class="arithmatex">\[

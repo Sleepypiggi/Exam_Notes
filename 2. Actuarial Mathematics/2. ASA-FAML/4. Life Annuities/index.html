@@ -2294,6 +2294,10 @@
     &amp; \approx \ddot{a}_x - \frac{m-1}{2m} - \frac{m^2-1}{12m^2}(\delta + \mu_{x})
 \end{aligned}
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even though not in a continuous setting, both the force of interest and force of mortality are used in the approximation; which may cause confusion for some.</p>
+</div>
 <p>This process is known as the <strong>Woolhouse Approximation</strong>. If the error term is omitted, then it is known as the <strong>2-term Woolhouse Approximation</strong> else it is known as the <strong>3-term Woolhouse Approximation</strong>.</p>
 <p>The 3-term woolhouse approximation is <em>extremely accurate</em> due to its mathematical roots. It so much more accurate than UDD such that when calculating a continuous <em>assurance</em>, it is advisable to calculate the corresponding annuity using the 3 term approximation first and then convert it, for the best results.</p>
 <p>Unfortunately, the drawback is that it requires knowledge about the force of mortality, which is not commonly provided in life tables. Thus, although less accurate, the <strong>2 term approach can be easily used</strong> in any situation.</p>
@@ -2338,6 +2342,20 @@
     \bar{a}_{x} &amp;= \ddot{a}_x - \frac{1}{2} - \frac{1}{12}(\delta + \mu_{x})
 \end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above expressions were obtained by using the monthly approximations and setting <span class="arithmatex">\(m \to \infty\)</span>. For the woolhouse approximation, the simplification happens via the following process:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{m-1}{2m} &amp;= \frac{m \left(1 - \frac{1}{m} \right)}{2m} =\frac{1 - \frac{1}{m}}{2} \\
+    \therefore \lim_{m \to \infty} \frac{m-1}{2m} &amp;= \frac{1 - \frac{1}{\infty}}{2} = \frac{1}{2} \\
+    \\
+    \frac{m^{2} - 1}{12m^{2}}
+    &amp;= \frac{m^{2} \left(1 - \frac{1}{m^{2}} \right)}{12m^{2}} = \frac{1 - \frac{1}{m^{2}}}{12} \\ 
+    \therefore \lim_{m \to \infty} \frac{m^{2} - 1}{12m^{2}} &amp;= \frac{1 - \frac{1}{\infty}^{2}}{12} = \frac{1}{12}
+\end{aligned}
+\]</div>
+</div>
 <h3 id="exponential-distribution"><strong>Exponential Distribution</strong><a class="headerlink" href="#exponential-distribution" title="Permanent link">&para;</a></h3>
 <div class="arithmatex">\[
 \begin{aligned}
