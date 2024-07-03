@@ -1762,44 +1762,47 @@
     &amp;= \mu^{12}_{x}(t) + \mu^{13}_{x}(t) + \dots + \mu^{1n}_{x}(t)
 \end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is analagous to the survival probability calculated from the force of mortality in the base survival model.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that this is <strong>analagous</strong> to the way survival probability was calculated in FAM-L. Thus, the <strong>same shortcuts</strong> apply as well if the <strong>force of transition is constant</strong>:</p>
+<div class="arithmatex">\[
+    {}_{t}p^{\bar{ii}}_{x} = e^{- \mu^{i \tau}_{x}(t) \cdot t}
+\]</div>
 </div>
-<p>The probability of transitioning can be understood as the combination of the following components:</p>
+<p>In a continuous setting, it is not possible to know the <em>exactly</em> when a transition will occur. Thus, the probability involves three components:</p>
 <ol>
-<li>System remains in the <strong>same state</strong> <span class="arithmatex">\(i\)</span> till some time <span class="arithmatex">\(x+s\)</span></li>
-<li>At that time, the system <strong>instantly transitions</strong> into state <span class="arithmatex">\(j\)</span></li>
-<li>System remains in the <strong>same state</strong> <span class="arithmatex">\(j\)</span> till time <span class="arithmatex">\(x+t\)</span></li>
+<li>Staying in the <strong>same state</strong> till some time <span class="arithmatex">\(s\)</span></li>
+<li>Instantly <strong>transitioning to the target state</strong> at time <span class="arithmatex">\(s\)</span></li>
+<li>Staying in the target state for the remainder of time <span class="arithmatex">\(t-s\)</span> </li>
 </ol>
 <div class="arithmatex">\[
     {}_{t}p^{ij}_{x}
-    = \int {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot {}_{t-s}p^{\bar{jj}}_{x+s}
+    = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot {}_{t-s}p^{\bar{jj}}_{x+s}
+\]</div>
+<p>It is also possible to determine the probability of a situation whereby after transitioning, the system <strong>does NOT stay in the same state</strong>:</p>
+<div class="arithmatex">\[
+    \text{Prob} = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot (1 - {}_{t-s}p^{\bar{jj}}_{x+s})
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If the arriving state is absorbing, then the final component is always equal to 1. Thus, the expression can be simplified.</p>
-</div>
-<p>The above assumes that there is only one way of transitioning - <strong>directly</strong> from state <span class="arithmatex">\(i\)</span> to state <span class="arithmatex">\(j\)</span>. If there are <strong>multiple ways to transition</strong>, additional complexity is required.</p>
-<p>Consider the following three state model used for Permanent Disability:</p>
-<!-- Obtained from ALTAM textbook -->
-<p><img alt="Perm Disability" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Perm%20Disability%20Model.png" /></p>
+<p>The above assumes that there is only <strong>ONE WAY</strong> of transitioning - <strong>directly</strong> from state <span class="arithmatex">\(i\)</span> to state <span class="arithmatex">\(j\)</span>. If there are <strong>multiple ways to transition</strong>, it may be easier to take another approach.</p>
+<p><!-- Obtained from ALTAM textbook -->
+<img alt="Perm Disability" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Perm%20Disability%20Model.png" /></p>
 <p>There are <strong>two ways</strong> to transition from state 0 to state 2:</p>
 <ol>
 <li><strong>Direct transition</strong> from state 0 to 2 (State 0 &gt; State 2)</li>
 <li><strong>Indirect transition</strong> via state 1 (State 0 &gt; State 1 &gt; State 2)</li>
 </ol>
-<p>The problem is in the second component. While it may be possible to derive an expression via first principles, it is generally not worth the time to do so.</p>
-<p>In such cases, the probability of transitioning is much better taken as the <strong>complement</strong> of the remaining direct transitions:</p>
+<p>The problem is in the second component. While it may be possible to derive an expression via first principles, it is generally not worth the time to do so. It easier to take the <strong>complement</strong> of the remaining direct transitions:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}p^{00}_{x} + {}_{t}p^{01}_{x} + {}_{t}p^{02}_{x} &amp;= 1 \\
     {}_{t}p^{02}_{x} &amp;= 1 - {}_{t}p^{00}_{x} - {}_{t}p^{01}_{x}
 \end{aligned}
 \]</div>
+</div>
 <h3 id="approximation-method"><strong>Approximation Method</strong><a class="headerlink" href="#approximation-method" title="Permanent link">&para;</a></h3>
-<p>Notice that in the previous section, we have implicitly assumed that the <strong>system cannot transition back into a previous state</strong>.</p>
-<p>For such cases, a more complex method known as the <strong>Kolmogorov's Forward Equation</strong> is required. It is a <strong>differential equation</strong> that can solve for the probability of transition.</p>
+<p>Notice that in the previous section, we have implicitly assumed that the <strong>system cannot transition back into a previous state</strong>. For such cases, a more complex method known as the <strong>Kolmogorov's Forward Equation</strong> is required. It is a <strong>differential equation</strong> that can solve for the probability of transition.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Very loosely speaking, a differential equation is a method of using the derivatives of a function to solve for the original function itself.</p>
@@ -1807,8 +1810,7 @@
 <p>The <strong>first derivative</strong> of the transition probability can be expressed as the following:</p>
 <div class="arithmatex">\[
     \frac{d}{dt} {}_{t}p^{ij}_{x}
-    = \sum_{k \ne j} [{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) 
-                        - {}_{t}p^{ij}_{x} \cdot \mu^{jk}_{x}(t)]
+    = \sum_{k \ne j} [{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) - {}_{t}p^{ij}_{x} \cdot \mu^{jk}_{x}(t)]
 \]</div>
 <p>Loosely speaking, the DE is trying to <strong>approximate the change</strong> in probability of moving from state <span class="arithmatex">\(i\)</span> to state <span class="arithmatex">\(j\)</span> as:</p>
 <div class="arithmatex">\[
@@ -1818,13 +1820,16 @@
     &amp;= \text{P(Start in i, move INTO j)} - \text{P(Start in i, move OUT of j)}
 \end{aligned}
 \]</div>
-<p>The differential equation can be solved via <strong>Euler's Method</strong>:</p>
+<p>If solved using <strong>Linear Algebra</strong>, the kolmogorov equations provide an <strong>exact solution</strong>. However, that is <strong>out of scope</strong> for the purposes of the exam. Instead, the equation can be <strong>approximately</strong> solved using <strong>Euler's Method</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \frac{d}{dt} {}_{t}p^{ij}_{x}
-    &amp;= \frac{{}_{t+h}p^{ij}_{x} - {}_{t}p^{ij}_{x}}{h}
-    = \frac{{}_{t}p^{ij}_{x} - {}_{t-h}p^{ij}_{x}}{h} \\
-    &amp;= \dots
+    &amp;= \sum_{k \ne j} [{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) - {}_{t}p^{ij}_{x} \cdot \mu^{jk}_{x}(t)] \\
+    \frac{{}_{t+h}p^{ij}_{x} - {}_{t}p^{ij}_{x}}{h}
+    &amp;= \sum_{k \ne j} [{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) - {}_{t}p^{ij}_{x} \cdot \mu^{jk}_{x}(t)] \\
+    {}_{t+h}p^{ij}_{x}
+    &amp;= {}_{t}p^{ij}_{x}
+    + h \cdot \sum_{k \ne j} [{}_{t}p^{ik}_{x} \cdot \mu^{kj}_{x}(t) - {}_{t}p^{ij}_{x} \cdot \mu^{jk}_{x}(t)]
 \end{aligned}
 \]</div>
 <div class="admonition tip">
@@ -1837,12 +1842,18 @@
     \text{First Derivative}
     = \frac{y_{x+h} - y_{x}}{h} = \frac{y_{x} - y_{x-h}}{h}
 \]</div>
-<p>Use the variation that is best suited to find the target outcome.</p>
+<p>Use the variation that is best suited for the situation - easier to manipulate or can be simplified.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The differential equation can technically be solved via <strong>Linear Algebra</strong> to provide an exact solution. However, <strong>Boundary Conditions</strong> of the DE are required - which are out of scope for this exam.</p>
-</div>
+<p>The step size <span class="arithmatex">\(h\)</span> is usually <strong>defined by the question</strong>. It affects the <strong>number of iterations</strong> needed to solve the question:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Objective} &amp;= {}_{1}p^{10}_{x} \\
+    \text{Step Size} &amp;= \frac{1}{2} \\
+    \\
+    \therefore {}_{1}p^{10}_{x}
+    &amp;= {}
+\end{aligned}
+\]</div>
 <h3 id="continuous-to-discrete"><strong>Continuous to Discrete</strong><a class="headerlink" href="#continuous-to-discrete" title="Permanent link">&para;</a></h3>
 <p>If Euler's method is used, then the resulting continuous probabilities can be converted into <strong>discrete probabilities</strong> for a markov chain with time intervals of <span class="arithmatex">\(h\)</span>:</p>
 <div class="arithmatex">\[
