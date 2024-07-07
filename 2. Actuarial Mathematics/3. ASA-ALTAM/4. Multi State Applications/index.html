@@ -1578,12 +1578,22 @@
 <p><strong>Benefits</strong> are <strong>payable regularly</strong> while the insured is <strong>unhealthy</strong>, till the end of the benefit term or till the insured recovers (<strong>whichever comes first</strong>). There is typically a <strong>waiting period</strong> which is the minimum amount of time that must pass <strong>since becoming disabled</strong> before a benefit is paid out.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <strong>Off Period</strong> is the duration of time that must elapsed <strong>between</strong> claims for each claim to be treated as <strong>seperate instances</strong> of disability.</p>
-<p>This understanding is important as the benefit term is the <strong>maximum</strong> amount of time that benefits are payable for <strong>each</strong> disability. If the claims are treated as the same instance, they would count towards the same benefit term and potentially receive fewer benefit payments.</p>
-<p>The Off Period is counted from the <strong>END</strong> of the first disability period; when they stop receiving benefits (due to recovering or the benefit term ending).</p>
-<p><!-- Obtained from Coaching Actuaries -->
-<img alt="DII_Illustration" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/DII_Illustration.png" /></p>
+<p>There are several reasons for implementing waiting periods:</p>
+<ul>
+<li><strong>Reduces anti-selection</strong>: Individuals are <strong>less likely to abuse</strong> the coverage if they have to wait</li>
+<li><strong>Expense Control</strong>: Many illnesses are short-term in nature; reduces claims expenses incurred</li>
+<li><strong>Affordability</strong>: Most individuals <strong>have coverage in the short-term</strong> (Savings/Employer). Need coverage for longer term illnesses once those sources are depleted; having elimintation period helps to make the coverage more affordable</li>
+</ul>
 </div>
+<p>The <strong>Off Period</strong> is the duration of time that must elapsed <strong>between</strong> claims for each claim to be treated as <strong>seperate instances</strong> of disability. It is is counted from the <strong>END</strong> of the first disability period (when they stop receiving benefits due to recovering or the benefit term ending).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is important as the benefit term is the <strong>maximum</strong> amount of time that benefits are payable for <strong>each</strong> instance of disability. If the claims are treated as the same instance, they would count towards the same benefit term and potentially <strong>receive fewer benefit payments</strong> as the maximum has been reached.</p>
+<p>However, being treated as part of the same instance could potentially result in more payments as the insured does not need to incur <em>another</em> waiting period.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="DII_Illustration" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/DII_Illustration.png" /></p>
+<p>However, there could be instances where being counted towards the same instance could result in more payments</p>
 <p>The <strong>magnitude of benefit</strong> is dependent on the type of coverage purchased. The more likely the coverage is to be claimed, the lower the benefit:</p>
 <ul>
 <li><strong>Total Disability</strong>: Unable to perform <em>any</em> job; unable to earn any income</li>
@@ -1767,16 +1777,27 @@
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="CI_Model" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/CI_Model.png" /></p>
 <h2 id="structured-settlements"><strong>Structured Settlements</strong><a class="headerlink" href="#structured-settlements" title="Permanent link">&para;</a></h2>
-<p>Structured Settlements are an arrangement in a <strong>liability case</strong>, where the <strong>Responsible Party</strong> (RP) must compensate the <strong>Injured Party</strong> (IP). The compensation typically includes a <strong>Lump Sum</strong> portion to cover immediate losses and an <strong>annuity</strong> portion to cover the potential <strong>loss of income or rehabilitation costs</strong> as a result of the accident.</p>
+<p>Structured Settlements are an arrangement in a <strong>liability case</strong>, where the <strong>Responsible Party</strong> (RP) must compensate the <strong>Injured Party</strong> (IP). Compensation typically comes in the form of an <strong>annuity</strong> in order to replace the <strong>loss of income</strong> as a result of the accident.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The compensation schedule is usually determined by the RP’s <strong>Liability Insurance</strong> policy. The RP could either be another person (EG. Motor Insurance) or could be a corporation (EG. Worker’s Compensation).</p>
+<p>Another reason why payments are typically in the form of annuity rather than lump sum is to <strong>avoid investment risk</strong>. If the IP receives a large lump sum, they would be responsible to manage the funds to ensure that it is sufficient to cover the damages while they are injured.</p>
 </div>
+<p>The compensation schedule is usually determined by the RP’s <strong>Liability Insurance</strong> policy. The RP could either be another person (EG. Motor Insurance) or could be a corporation (EG. Worker’s Compensation).</p>
 <h3 id="product-features_4"><strong>Product Features</strong><a class="headerlink" href="#product-features_4" title="Permanent link">&para;</a></h3>
-<p>Similar to before, the annuity benefits are typically <strong>smaller than the original income</strong> of the IP to incentivize them to return to work.</p>
+<p>The magnitude of annuity payment is typically <strong>smaller than the the original income</strong> for several reasons:</p>
+<ul>
+<li>To incentivize the IP to make a <strong>full recovery</strong> and return to work</li>
+<li>Annuity payments have no or lower tax rates; <strong>lower gross amount</strong> to match the same net income</li>
+<li>IP <em>could</em> be <strong>partially at fault</strong> for the accident; should bear part of the cost</li>
+</ul>
 <p>If the damage is <strong>severe</strong>, the long-term care needed will only be known after the IP goes through an initial period of treatment, till they reach the point of <strong>Maximum Medical Improvement</strong> (MMI). Before MMI, the RP will pay an interim benefit till the settlment is finalized.</p>
 <h3 id="modelling_4"><strong>Modelling</strong><a class="headerlink" href="#modelling_4" title="Permanent link">&para;</a></h3>
-<p>For the purposes of this exam, only structured settlements involving <strong>Workers Compensation</strong> will be covered. The key difference is that they are <strong>reviewable</strong>. This means that the annuity benefits can be <strong>conditional</strong> and stop once the individual is recovered (rather than being for life under a non-reviewable settlement).</p>
+<p>For the purposes of this exam, only structured settlements involving <strong>Workers Compensation</strong> will be covered. The key difference is that they are <strong>reviewable</strong>. This means that the annuity benefits can be <strong>conditional</strong> and <strong>stop once the individual is recovered</strong> (rather than being for life under a non-reviewable settlement).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One problem with reviewable settlements is <strong>Anti-Selection</strong>. Since the payments will stop upon recovery, the IP has an incentive NOT to return to work even if they can.</p>
+<p>There are also <strong>additional expenses</strong> involved to prove monitor the health of the IP over time and prove that they are recovered.</p>
+</div>
 <p>Reviewable Workers Compensation settlements can be modelled using the following 4 state model:</p>
 <ul>
 <li><strong>State 0</strong>: Uncertain Diagnosis</li>
