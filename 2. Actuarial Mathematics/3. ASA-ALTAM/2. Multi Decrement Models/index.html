@@ -899,33 +899,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#competing-risks" class="md-nav__link">
-    Competing Risks
-  </a>
-  
-    <nav class="md-nav" aria-label="Competing Risks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#independent-rates" class="md-nav__link">
     Independent Rates
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Independent Rates">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#algebraic-conversion" class="md-nav__link">
-    Algebraic Conversion
+  <a href="#key-intuition" class="md-nav__link">
+    Key Intuition
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#value-conversion" class="md-nav__link">
-    Value Conversion
+  <a href="#relationship" class="md-nav__link">
+    Relationship
   </a>
   
-    <nav class="md-nav" aria-label="Value Conversion">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion" class="md-nav__link">
+    Conversion
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversion">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1388,33 +1388,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#competing-risks" class="md-nav__link">
-    Competing Risks
-  </a>
-  
-    <nav class="md-nav" aria-label="Competing Risks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#independent-rates" class="md-nav__link">
     Independent Rates
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Independent Rates">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#algebraic-conversion" class="md-nav__link">
-    Algebraic Conversion
+  <a href="#key-intuition" class="md-nav__link">
+    Key Intuition
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#value-conversion" class="md-nav__link">
-    Value Conversion
+  <a href="#relationship" class="md-nav__link">
+    Relationship
   </a>
   
-    <nav class="md-nav" aria-label="Value Conversion">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion" class="md-nav__link">
+    Conversion
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversion">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1535,17 +1535,17 @@
 </tbody>
 </table>
 <p></center></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>For the purposes of this exam, it is assumed that these type of policies only pay ONE of the benefits.</p>
-<p>In other words, making a claim on either of the benefits will trigger a claim and then <strong>terminate the policy</strong>.</p>
+<p><img alt="Multi_Decrement_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Multi_Decrement_Illustration.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Functionally, multi-decrement models can be understood as a <strong>one to many multi-state model</strong>.</p>
+<p>For the purposes of this exam, unless otherwise stated, it is assumed that these type of policies only pay ONE of the benefits. Making a claim on either of the benefits will trigger a claim and then <strong>terminate the policy</strong>.</p>
 </div>
-<p>The different benefit triggers are <strong>different ways that the policy can terminate</strong>, known as a <strong>Decrement</strong>.</p>
+<p>The different benefit triggers are <strong>different ways that the policy can terminate</strong>, known as a <strong>Decrement</strong>. Thus, the simple policy considered in FAM-L is an example of a <strong>Single Decrement Model</strong> while the policy described above is an example of a <strong>Multiple Decrement Model</strong>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The definition of a Decrement is "to decrease". In the context of life insurance, it decreases the number of active policies.</p>
 </div>
-<p>Thus, the simple policy considered in FAM-L is an example of a <strong>Single Decrement Model</strong> while the policy described above is an example of a <strong>Multiple Decrement Model</strong>.</p>
 <h2 id="probability"><strong>Probability</strong><a class="headerlink" href="#probability" title="Permanent link">&para;</a></h2>
 <p>Previously, since death was the only decrement, we only considered the probability of death. However, in a multiple decrement setting, we more generally consider the <strong>probability of termination</strong>.</p>
 <p>The multiple decrement model has two components:</p>
@@ -1571,17 +1571,22 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><span class="arithmatex">\(\tau\)</span> is the notation used the denote all possible decrements.</p>
+<p><span class="arithmatex">\(\tau\)</span> is the notation used the denote <strong>ALL</strong> possible decrements.</p>
+<p>The above is valid because we assumed that the policyholder can only terminate from ONE of the decrements. Thus, each decrement is <strong>mutually exclusive</strong>, where the probability of termination from any cause is the sum of each individual probability (OR logic).</p>
 </div>
 <p>Thus, the probability of surviving <span class="arithmatex">\(t\)</span> years is denoted as:</p>
 <div class="arithmatex">\[
-    {}_{t}p^{(\tau)}_{x} = 1 - {}_{t}q^{(\tau)}_{x}
+\begin{aligned}
+    {}_{t}p^{(\tau)}_{x}
+    &amp;= 1 - {}_{t}q^{(\tau)}_{x} \\
+    &amp;= e^{- \int \mu^{(\tau)}_{x+t}} 
+\end{aligned}
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There is NO such thing as <span class="arithmatex">\({}_{t}p^{(j)}_{x}\)</span>!</p>
-<p>The above would be the probability of surviving <span class="arithmatex">\(t\)</span> years from decrement <span class="arithmatex">\(j\)</span>. However, even if they do not terminate from decrement <span class="arithmatex">\(j\)</span>, they <strong>can still terminate from other causes</strong>.</p>
-<p>Ultimately, we are <strong>only concerned whether the individual is still alive at time <span class="arithmatex">\(t\)</span></strong>, not whether or not they survive a particular decrement.</p>
+<p>The above would be the probability of surviving <span class="arithmatex">\(t\)</span> years from decrement <span class="arithmatex">\(j\)</span>. However, even if they do not terminate from decrement <span class="arithmatex">\(j\)</span>, they <strong>can still terminate from OTHER decrements</strong>.</p>
+<p>Ultimately, we are <strong>only concerned whether the individual is still alive at time <span class="arithmatex">\(t\)</span></strong>, not whether or not they survive a <em>particular</em> decrement.</p>
 </div>
 <p>The <strong>force of decrement</strong> has similar properties as the termination probability:</p>
 <div class="arithmatex">\[
@@ -1590,63 +1595,52 @@
     &amp;= \frac{\frac{d}{dt} {}_{t}q^{(j)}_{x}}{{}_{t}p^{(\tau)}_{x}} \\
     \\
     \mu^{(\tau)}_{x}(t)
-    &amp;= \frac{\frac{d}{dt} {}_{t}q^{(j)}_{x}}{{}_{t}p^{(\tau)}_{x}} \\
+    &amp;= \frac{\frac{d}{dt} {}_{t}q^{(\tau)}_{x}}{{}_{t}p^{(\tau)}_{x}} \\
     &amp;= \frac{1}{{}_{t}p^{(\tau)}_{x}}
-       \left (\frac{d}{dt} {}_{t}q^{(j)}_{x} \right) \\
+       \left (\frac{d}{dt} {}_{t}q^{(\tau)}_{x} \right) \\
     &amp;= \frac{1}{{}_{t}p^{(\tau)}_{x}}
        \frac{d}{dt} \left[{}_{t}q^{(1)}_{x} + \dots {}_{t}q^{(m)}_{x} \right] \\
-    &amp;= \mu^{(1)}_{x} + \dots + \mu^{(m)}_{x}
+    &amp;= \mu^{(1)}_{x+t} + \dots + \mu^{(m)}_{x+t}
 \end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This allows us to express the <em>total</em> survival probability as:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    {}_{}p^{(\tau)}_{x}
-    &amp;= e^{- \int \mu^{(\tau)}_{x}} \\
-    &amp;= e^{- \int (\mu^{(1)}_{x} + \dots + \mu^{(m)}_{x})} \\        
-\end{aligned}
-\]</div>
-</div>
 <p>Thus, the PDF of the joint distribution can be expressed as:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    f_{T_{x}, J_{x}}(t, j)
-    &amp;= {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x}(t) \\
-    \\
-    \therefore {}_{t}q^{(j)}_{x}
-    &amp;= \int^{t}_{0} {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x}(t)
+    \mu^{(j)}_{x}(t) &amp;= \frac{\frac{d}{dt} {}_{t}q^{(j)}_{x}}{{}_{t}p^{(\tau)}_{x}} \\
+    \frac{d}{dt} {}_{t}q^{(j)}_{x} &amp;= {}_{t}p^{(\tau)}_{x} \cdot  \mu^{(j)}_{x+t} \\
+    {}_{t}q^{(j)}_{x} &amp;= \int^{t}_{0} {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x+t}
 \end{aligned}
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Questions may sometimes provide the forces of mortality for <strong>each of the individual decrements</strong> and asked to calculate the associated termination probability for each.</p>
-<p>Given the properties of the multiple decrement model, this problem can be simplified to avoid integrating multiple times.</p>
-<p>For most questions, the forces of mortality can be shown to be a <strong>fraction of the total force of mortality</strong>:</p>
+<p>Given that it can be expressed as a multi-state model, the second line in the above equation is the <strong>Kolmogorov's Forward Equation</strong>:</p>
+<div class="arithmatex">\[
+    \text{Change} = \text{Probability IN} - \text{Probability OUT}
+\]</div>
+<p>For multi-decrement models, there is only a <strong>one directional path</strong> to each decremented state, which are always <strong>absorbing</strong>. Thus, the second component is always 0.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Questions may sometimes provide the forces of decrement for <strong>each of the individual decrements</strong> and asked to calculate the associated termination probability for each. Given the properties of the multiple decrement model, this problem can be <strong>simplified</strong> to avoid integrating multiple times.</p>
+<p>It may not always be clear on first sight, but for most euqestions, the forces of decrement can be shown to be a <strong>fraction of the total force of mortality</strong>:</p>
 <div class="arithmatex">\[
     \mu^{(j)}_{x}(t) = c \cdot \mu^{(\tau)}_{x}
 \]</div>
-<p>It may not always be clear on first sight as some forces of mortality have algebraic expressions, but they tend to <strong>cancel out</strong>.</p>
 <p>Assuming this relationship exists, we can show that the termintation probability for a particular decrement is the same fraction of the total termination probability:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}q^{(j)}_{x}
-    &amp;= \int {}_{t}q^{(j)}_{x} \cdot \mu^{(j)}_{x}(t) \\
-    &amp;= \int {}_{t}q^{(j)}_{x} \cdot c \cdot \mu^{(\tau)}_{x}(t) \\
-    &amp;= c \cdot \int {}_{t}q^{(j)}_{x} \mu^{(\tau)}_{x}(t) \\
+    &amp;= \int {}_{t}q^{(j)}_{x} \cdot \mu^{(j)}_{x+t} \\
+    &amp;= \int {}_{t}q^{(j)}_{x} \cdot c \cdot \mu^{(\tau)}_{x+t} \\
+    &amp;= c \cdot \int {}_{t}q^{(j)}_{x} \mu^{(\tau)}_{x+t} \\
     &amp;= c \cdot {}_{t}q^{(\tau)}_{x}
 \end{aligned}
 \]</div>
 </div>
 <p>Similar to the multi life section, all other results not explicitly covered above are <strong>analagous to their single decrement counterparts</strong>. For most items, simply add the superscript (j) to indicate that the probability is for a particular decrement.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>TO CHECK ON DEFERRED</p>
-</div>
-<h2 id="competing-risks"><strong>Competing Risks</strong><a class="headerlink" href="#competing-risks" title="Permanent link">&para;</a></h2>
-<p>The policy can only terminate from ONE of the decrements in the policy. Each decrement is <strong>competing with one another</strong> to terminate the policy.</p>
-<p>Thus, we can consider two sets of rates:</p>
+<h2 id="independent-rates"><strong>Independent Rates</strong><a class="headerlink" href="#independent-rates" title="Permanent link">&para;</a></h2>
+<p>In a multi-decrement setting, there are multiple decrements acting on the policyholder, which are said to be <strong>competing with one another</strong> to terminate the policy. The rates shown so far are known as <strong>Dependent Rates</strong>, which implicitly assumes that the <strong>competition among decrements</strong> has been accounted for.</p>
+<p>Dependent Rates should be used for projection to reflect the true underlying situation. However, decrements are often studied <strong>independently</strong>, resulting in <strong>Independent Rates</strong>:</p>
 <p><center></p>
 <table>
 <thead>
@@ -1665,99 +1659,99 @@
 <td align="center">Not competing</td>
 </tr>
 <tr>
+<td align="center">Non-prime notation</td>
+<td align="center">Prime notation</td>
+</tr>
+<tr>
 <td align="center"><span class="arithmatex">\({}_{t}q^{(j)}_{x}\)</span></td>
 <td align="center"><span class="arithmatex">\({}_{t}q^{'(j)}_{x}\)</span></td>
 </tr>
 </tbody>
 </table>
 <p></center></p>
-<p>Ultimately, only the <strong>dependent rates</strong> will be used for policy calculations. However, decrements are often studied in isolation, providing us with the <strong>independent rates</strong>. Thus, it is important to know how to convert one set of rates to another.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Most real world cases involve converting independent rates to dependent ones. However, for the purposes of this exam, it is often to know how to convert BOTH ways, as the question could ask for either.</p>
-</div>
-<h3 id="independent-rates"><strong>Independent Rates</strong><a class="headerlink" href="#independent-rates" title="Permanent link">&para;</a></h3>
-<p>The key difference between dependent and independent rates is in the treatment of the <strong>survival probability</strong>.</p>
-<p>Under independent rates, <span class="arithmatex">\({}_{}p^{'(j)}_{x}\)</span> is a <strong>VALID</strong> expression. This is because only decrement <span class="arithmatex">\(j\)</span> is being considered, thus surviving decrement <span class="arithmatex">\(j\)</span> is essentially surviving from all decrements.</p>
-<p>The probability results are thus analagous to the dependent case:</p>
+<!-- Self Made, to insert diagram -->
+
+<p>The key is understanding the differences and how to <strong>convert</strong> from one form to the other.</p>
+<h3 id="key-intuition"><strong>Key Intuition</strong><a class="headerlink" href="#key-intuition" title="Permanent link">&para;</a></h3>
+<p>The key is understanding that only <strong>one decrement is accounted for</strong> in an independent rate world. Consider the following example:</p>
+<ul>
+<li>There are 10 planes; each plane carries 100 people</li>
+<li>On a particular plane, 6 people died from food poisoning</li>
+<li>That plane then crashes, the remaining 94 people died</li>
+</ul>
+<p>Under an independent rate basis, it <strong>does not capture the nuance that</strong> termination could be due to other decrements:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \mu^{(j)}_{x}
+    {}_{t}q^{(\text{Plane Crash})}_{x} &amp;= \frac{94}{100} \\
+    {}_{t}q^{'(\text{Plane Crash})}_{x} &amp;= \frac{100}{1000} \\
+    \\
+    \therefore {}_{t}q^{'(j)}_{x} &amp;\ge {}_{t}q^{(j)}_{x}
+\end{aligned}
+\]</div>
+<p>Recall that <span class="arithmatex">\({}_{}p^{(j)}_{x}\)</span> was not a valid expression as it did not make sense to just survive one of the many decrements. However, under an independent rate basis, there is only ONE decrement being considered, thus <span class="arithmatex">\({}_{}p^{'(j)}_{x}\)</span> is a <strong>valid expression</strong>.</p>
+<h3 id="relationship"><strong>Relationship</strong><a class="headerlink" href="#relationship" title="Permanent link">&para;</a></h3>
+<p>Recall that the survival model in FAM-L is essentially a single decrement model. Thus, the key results can be applied here as well:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mu^{(j)}_{x+t}
     &amp;= \frac{\frac{d}{dt} {}_{}q^{'(j)}_{x}}{{}_{}p^{'(j)}_{x}} \\
     \\
-    {}_{}p^{'(j)}_{x}
-    &amp;= e^{- \int \mu^{(j)}_{x}} \\
-    \\
     {}_{}q^{'(j)}_{x}
-    &amp;= \int {}_{}p^{'(j)}_{x} \cdot \mu^{(j)}_{x} \\
-    &amp;= 1 - {}_{}p^{'(j)}_{x}
+    &amp;= \int {}_{}p^{'(j)}_{x} \cdot \mu^{(j)}_{x+t} \\
+    &amp;= 1 - {}_{}p^{'(j)}_{x} \\
+    \\
+    {}_{}p^{'(j)}_{x}
+    &amp;= e^{- \int \mu^{(j)}_{x+t}}
 \end{aligned}
 \]</div>
+<p>The key is understanding that the force of decrement is the <strong>SAME</strong> under a dependent and an independent basis. This is because the force <strong>acts instantly</strong> - even under a dependent basis, there is <strong>no competition</strong> at an instant.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This is the SAME force of decrement as the dependent case. TBC on the reason why.</p>
+<p>This means that there is <strong>NO such thing</strong> as <span class="arithmatex">\(\mu^{'(j)}_{x+t}\)</span>!</p>
 </div>
-<p>Using the above expression, we can form a relationship with the dependent survival probability:</p>
+<p>Thus, both dependent and independent rates share the <strong>same total force of decrements and total probabilities</strong> as well:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    {}_{}p^{(\tau)}_{x}
+    \mu^{(\tau)}_{x+t} &amp;= \mu^{(1)}_{x+t} + \dots + \mu^{(m)}_{x+t}  \\
+    \\
+    \therefore {}_{}p^{(\tau)}_{x}
     &amp;= e^{- \int \mu^{(\tau)}_{x}} \\
-    &amp;= e^{- \int (\mu^{(1)}_{x} + \dots + \mu^{(m)}_{x})} \\
-    &amp;= e^{- \int \mu^{(1)}_{x}} \cdot \dots \cdot e^{- \int \mu^{(m)}_{x}} \\
-    &amp;= {}_{}p^{'(1)}_{x} \cdot \dots \cdot {}_{}p^{'(m)}_{x}
+    &amp;= e^{- \int (\mu^{(1)}_{x+t} + \dots + \mu^{(m)}_{x+t})} \\
+    &amp;= e^{- \int \mu^{(1)}_{x+t}} \cdot \dots \cdot e^{- \int \mu^{(m)}_{x+t}} \\
+    &amp;= {}_{}p^{'(1)}_{x+t} \cdot \dots \cdot {}_{}p^{'(m)}_{x+t}
 \end{aligned}
 \]</div>
-<p>Intuitively, the probability of surviving is the probability that the policyholder survives decrement 1 AND decrement 2 AND ... AND decrement <span class="arithmatex">\(m\)</span>.</p>
-<p>Since each individual probability must be <span class="arithmatex">\(\le 1\)</span>, we can show that:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is conceptually identical to the probability of <strong>independent events occuring together</strong>:</p>
 <div class="arithmatex">\[
-    {}_{}p^{'(j)}_{x} \ge {}_{}p^{(\tau)}_{x}
+    \text{P(A and B)} = \text{P(A)} \cdot \text{P(B)}
 \]</div>
-<p>Given the above relationship, we can show a similar comparison for the termination probability:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    {}_{}q^{'(j)}_{x}
-    &amp;= \int {}_{}p^{'(j)}_{x} \cdot \mu^{(j)}_{x} \\
-    \\
-    {}_{}q^{(j)}_{x}
-    &amp;= \int {}_{}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x} \\
-    \\
-    \therefore {}_{}q^{'(j)}_{x} \ge {}_{}q^{(j)}_{x}
-\end{aligned}
-\]</div>
-<p>The above lead to the following intuitions:</p>
-<ul>
-<li>In isolation, the probability of surviving is higher because there are <strong>fewer decrements to terminate it</strong></li>
-<li>In isolation, the probability of terminating from a specific decrement is higher because there are <strong>no other decrements to compete</strong> with it</li>
-</ul>
-<h3 id="algebraic-conversion"><strong>Algebraic Conversion</strong><a class="headerlink" href="#algebraic-conversion" title="Permanent link">&para;</a></h3>
-<p>The first type of conversion involves converting <strong>algebraic expressions</strong> of the dependent and independent probabilities to the other. This should be <strong>less common</strong> on the exam.</p>
-<p>The key is to understand that the <strong>force of decrement is shared</strong> between the Dependent and Independent probabilities.</p>
-<p>Using the respective probabilities method of determining the force, calculate the other's probability via integration:</p>
+</div>
+<h3 id="conversion"><strong>Conversion</strong><a class="headerlink" href="#conversion" title="Permanent link">&para;</a></h3>
+<p>The key principle is to form an expression equating the two basis' together, and solving for the missing component based on the given information:</p>
 <div class="arithmatex">\[
 \begin{array}{|c|c|c|}
 \hline
     \text{}
-        &amp; \text{Independent to Dependent}
-        &amp; \text{Dependent to Independent} \\
+        &amp; \text{Independent Rates}
+        &amp; \text{Dependent Rates} \\
 \hline
-    \text{Given Prob}
-        &amp; {}_{t}p^{(\tau)}_{x} = \prod {}_{t}p^{'(j)}
-        &amp; {}_{t}q^{(\tau)}_{x} = \sum {}_{t}q^{(j)} \\
-\hline
-    \text{Calc Force}
+    \text{Force}
         &amp; \mu^{(j)}_{x} = \frac{- \frac{d}{dt} {}_{t}p^{'(j)}}{{}_{t}p^{'(j)}}
         &amp; \mu^{(j)}_{x} = \frac{\frac{d}{dt} {}_{t}q^{(j)}}{{}_{t}p^{(\tau)}} \\
 \hline
-    \text{Target Prob}
-        &amp; {}_{t}q^{(j)}_{x} = \int {}_{t}p^{(\tau)} \cdot \mu^{(j)}_{x}
-        &amp; {}_{t}p^{'(j)}_{x} = e^{- \int \mu^{(j)}_{x}} \\
+    \text{Survival}
+        &amp; {}_{t}p^{(\tau)}_{x} = \prod {}_{t}p^{'(j)}
+        &amp; {}_{t}p^{(\tau)}_{x} = 1 - {}_{t}q^{(\tau)} \\
+\hline
+    \text{Termination}
+        &amp; {}_{t}q^{(\tau)}_{x} = 1 - {}_{t}p^{(\tau)}
+        &amp; {}_{t}q^{(\tau)}_{x} = \sum {}_{t}q^{(j)} \\
 \hline
 \end{array}
 \]</div>
-<h3 id="value-conversion"><strong>Value Conversion</strong><a class="headerlink" href="#value-conversion" title="Permanent link">&para;</a></h3>
-<p>The other type of conversion involves converting <strong>actual values</strong> of the dependent and independent probabilities to the other. This should be <strong>more common</strong> on the exam.</p>
-<p>Questions of this nature tend to involve <strong>fractional times</strong>. Thus, for this section, we assume that <span class="arithmatex">\(t \le 1\)</span>.</p>
-<p>Similar to before, we will require several assumptions about the decrements to calculate the probabilities.</p>
+<p>Questions of this nature tend to involve <strong>fractional times</strong> (though not always). Similar to before, additional assumptions are required (Constant Force, UDD) in order to determine the probabilities. These add <strong>another layer of complexity</strong> to the conversion.</p>
 <h4 id="constant-force"><strong>Constant Force</strong><a class="headerlink" href="#constant-force" title="Permanent link">&para;</a></h4>
 <p>Under a constant force of mortality, the two survival probabilities can be expressed as:</p>
 <div class="arithmatex">\[
