@@ -936,15 +936,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#multi-udd" class="md-nav__link">
-    Multi UDD
+  <a href="#dependent-udd" class="md-nav__link">
+    Dependent UDD
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#single-udd" class="md-nav__link">
-    Single UDD
+  <a href="#independent-udd" class="md-nav__link">
+    Independent UDD
   </a>
   
 </li>
@@ -1425,15 +1425,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#multi-udd" class="md-nav__link">
-    Multi UDD
+  <a href="#dependent-udd" class="md-nav__link">
+    Dependent UDD
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#single-udd" class="md-nav__link">
-    Single UDD
+  <a href="#independent-udd" class="md-nav__link">
+    Independent UDD
   </a>
   
 </li>
@@ -1669,26 +1669,36 @@
 </tbody>
 </table>
 <p></center></p>
-<!-- Self Made, to insert diagram -->
-
+<!-- Self Made -->
+<p><img alt="Independent_Decrements" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Independent_Decrements.png" /></p>
 <p>The key is understanding the differences and how to <strong>convert</strong> from one form to the other.</p>
 <h3 id="key-intuition"><strong>Key Intuition</strong><a class="headerlink" href="#key-intuition" title="Permanent link">&para;</a></h3>
-<p>The key is understanding that only <strong>one decrement is accounted for</strong> in an independent rate world. Consider the following example:</p>
+<p>Consider the following scenario:</p>
 <ul>
-<li>There are 10 planes; each plane carries 100 people</li>
-<li>On a particular plane, 6 people died from food poisoning</li>
-<li>That plane then crashes, the remaining 94 people died</li>
+<li>There are 1000 lives in the population</li>
+<li>The <strong>independent</strong> death rate is 20% (<span class="arithmatex">\(q^{(\text{Death})}_{x}\)</span>)</li>
+<li>The <strong>independent</strong> lapse rate is 10% (<span class="arithmatex">\(q^{(\text{Death})}_{x}\)</span>)</li>
 </ul>
-<p>Under an independent rate basis, it <strong>does not capture the nuance that</strong> termination could be due to other decrements:</p>
+<p>Consider the following outcomes:</p>
+<ul>
+<li>If death was the <strong>only</strong> decrement, we expect 200 people to die by the end of the year</li>
+<li>If lapse was the <strong>only</strong> decrement, we expect 100 people to lapse by the end of the year</li>
+<li>If <strong>both</strong> death and lapse are present, we would <strong>NOT</strong> expect 200 deaths and 100 lapses</li>
+</ul>
+<p>The third point is true because:</p>
+<ul>
+<li>Someone who might have died in the later part of the year might have already lapsed in the earlier part</li>
+<li>Someone who might have lapsed in the later part of the year might have already died in the earlier part</li>
+<li>Thus, we expect fewer deaths and lapses when there are multiple decrements acting simultaneously</li>
+</ul>
+<p>The above is known as the <strong>Theory of Competing Risk</strong>:</p>
 <div class="arithmatex">\[
-\begin{aligned}
-    {}_{t}q^{(\text{Plane Crash})}_{x} &amp;= \frac{94}{100} \\
-    {}_{t}q^{'(\text{Plane Crash})}_{x} &amp;= \frac{100}{1000} \\
-    \\
-    \therefore {}_{t}q^{'(j)}_{x} &amp;\ge {}_{t}q^{(j)}_{x}
-\end{aligned}
+    {}_{t}q^{'(j)}_{x} \ge {}_{t}q^{(j)}_{x}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Recall that <span class="arithmatex">\({}_{}p^{(j)}_{x}\)</span> was not a valid expression as it did not make sense to just survive one of the many decrements. However, under an independent rate basis, there is only ONE decrement being considered, thus <span class="arithmatex">\({}_{}p^{'(j)}_{x}\)</span> is a <strong>valid expression</strong>.</p>
+</div>
 <h3 id="relationship"><strong>Relationship</strong><a class="headerlink" href="#relationship" title="Permanent link">&para;</a></h3>
 <p>Recall that the survival model in FAM-L is essentially a single decrement model. Thus, the key results can be applied here as well:</p>
 <div class="arithmatex">\[
@@ -1729,7 +1739,7 @@
 \]</div>
 </div>
 <h3 id="conversion"><strong>Conversion</strong><a class="headerlink" href="#conversion" title="Permanent link">&para;</a></h3>
-<p>The key principle is to form an expression equating the two basis' together, and solving for the missing component based on the given information:</p>
+<p>The key principle is to form an expression <strong>equating the two basis together</strong>, and solving for the missing component based on the given information:</p>
 <div class="arithmatex">\[
 \begin{array}{|c|c|c|}
 \hline
@@ -1751,92 +1761,103 @@
 \hline
 \end{array}
 \]</div>
-<p>Questions of this nature tend to involve <strong>fractional times</strong> (though not always). Similar to before, additional assumptions are required (Constant Force, UDD) in order to determine the probabilities. These add <strong>another layer of complexity</strong> to the conversion.</p>
+<!-- Self Made -->
+<p><img alt="Conversion" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Conversion.png" /></p>
+<p>Questions of this nature tend to involve <strong>fractional times</strong> (though not always). Similar to before, additional assumptions are required in order to determine the probabilities. These add <strong>another layer of complexity</strong> to the conversion.</p>
 <h4 id="constant-force"><strong>Constant Force</strong><a class="headerlink" href="#constant-force" title="Permanent link">&para;</a></h4>
-<p>Under a constant force of mortality, the two survival probabilities can be expressed as:</p>
+<p>Recall that under a constant force of mortality, the <strong>survival probabilities</strong> can be simplified to the following:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}p^{'(j)}_{x}
-    &amp;= e^{- \int \mu^{(j)}_{x}} \\
-    &amp;= e^{- t \cdot \mu^{(j)}_{x}} \\
+    &amp;= e^{- \mu^{(j)}_{x} \cdot t} \\
     \\
     {}_{t}p^{(\tau)}_{x}
-    &amp;= e^{- \int \mu^{(\tau)}_{x}} \\
-    &amp;= e^{- t \cdot \mu^{(\tau)}_{x}}
+    &amp;= e^{- \mu^{(\tau)}_{x} \cdot t}
 \end{aligned}
 \]</div>
-<p>Since the forces are constant, we can raise the power of the probabilities to force them to be the same:</p>
+<p>Since the force is a <strong>constant</strong>, we can directly <strong>manipulate the powers</strong> to convert from the total probability to the individual decrements:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p^{(\tau)}_{x}
+    &amp;= e^{- \mu^{(\tau)}_{x} \cdot t}
+    \\
+    \left({}_{t}p^{(\tau)}_{x} \right)^{\frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}}
+    &amp;= \left(e^{- \mu^{(\tau)}_{x} \cdot t} \right)^{\frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}}
+    \\
+    \left({}_{t}p^{(\tau)}_{x} \right)^{\frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}}
+    &amp;= e^{- \mu^{(j)}_{x} \cdot t}
+    \\
+    {}_{t}p^{'(j)}_{x}
+    &amp;= \left({}_{t}p^{(\tau)}_{x} \right)^{\frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}}
+\end{aligned}
+\]</div>
+<p>A more intuitive way to remember the formula would be to <strong>remember the ratio</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}p^{'(j)}_{x}
-    &amp;= e^{- t \cdot \mu^{(j)}_{x}} \\
-    ({}_{t}p^{'(j)}_{x})^{\frac{\mu^{(\tau)}_{x}}{\mu^{(j)}_{x}}}
-    &amp;= (e^{- t \cdot \mu^{(j)}_{x}})^{\frac{\mu^{(\tau)}_{x}}{\mu^{(j)}_{x}}} \\
-    {}_{t}p^{(\tau)}_{x}
-    &amp;= ({}_{t}p^{'(j)}_{x})^{\frac{\mu^{(\tau)}_{x}}{\mu^{(j)}_{x}}}
+    &amp;= \left({}_{t}p^{(\tau)}_{x} \right)^{\frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}}
+    \\
+    \ln {}_{t}p^{'(j)}_{x}
+    &amp;= {\frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}} \cdot \ln {}_{t}p^{'(\tau)}_{x}
+    \\
+    \frac{\ln {}_{t}p^{'(j)}_{x}}{\ln {}_{t}p^{(\tau)}_{x}}
+    &amp;= {\frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}}
 \end{aligned}
 \]</div>
-<p>If the forces themselves are not directly available, the <strong>termination probability</strong> can be used to achieve the same ratio:</p>
+<p>If the ratio of the force is not available, it can be alternatively calculated via the <strong>termination probability</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}q^{(j)}_{x}
-    &amp;= \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x} \\
-    &amp;= \frac{\mu^{(\tau)}_{x}}{\mu^{(\tau)}_{x}}
-        \cdot \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x} \\
-    &amp;= \frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}
-        \cdot \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(\tau)}_{x} \\
-    &amp;= \frac{\mu^{(j)_{x}}}{\mu^{(\tau)}_{x}} \cdot {}_{t}q^{(\tau)}_{x} \\
-    \frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}
+    &amp;= \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x+t} \\
+    &amp;= \frac{\mu^{(\tau)}_{x+t}}{\mu^{(\tau)}_{x+t}}
+        \cdot \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x+t} \\
+    &amp;= \frac{\mu^{(j)}_{x+t}}{\mu^{(\tau)}_{x+t}}
+        \cdot \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(\tau)}_{x+t} \\
+    &amp;= \frac{\mu^{(j)}_{x+t}}{\mu^{(\tau)}_{x+t}} \cdot {}_{t}q^{(\tau)}_{x+t} \\
+    \frac{\mu^{(j)}_{x+t}}{\mu^{(\tau)}_{x+t}}
     &amp;= \frac{{}_{t}q^{(j)}_{x}}{{}_{t}q^{(\tau)}_{x}} \\
     \\
-    \therefore {}_{t}p^{(\tau)}_{x}
-    &amp;= ({}_{t}p^{'(j)}_{x})^{\frac{{}_{t}q^{(\tau)}_{x}}{{}_{t}q^{(j)}_{x}}}
+    \therefore 
+    \frac{\ln {}_{t}p^{'(j)}_{x}}{\ln {}_{t}p^{(\tau)}_{x}}
+    &amp;= {\frac{\mu^{(j)}_{x}}{\mu^{(\tau)}_{x}}}
+    = \frac{{}_{t}q^{(j)}_{x}}{{}_{t}q^{(\tau)}_{x}}
 \end{aligned}
 \]</div>
-<p>With a bit of algebra, we can find a <strong>direct formula</strong> for the termination probability:</p>
+<h4 id="dependent-udd"><strong>Dependent UDD</strong><a class="headerlink" href="#dependent-udd" title="Permanent link">&para;</a></h4>
+<p>In a multi-decrement context, UDD stands for <strong>Uniform Distribution of Decrements</strong> (NOT death). However, because there are two sets of rates (Dependent vs Independent), there are two different UDD assumptions - based on which set is UDD.</p>
+<p>This section assumes that the <strong>Dependent Rates</strong> are distributed UDD. It follows the same principles covered in FAM-L:</p>
 <div class="arithmatex">\[
-\begin{aligned}
-    {}_{t}p^{(\tau)}_{x}
-    &amp;= ({}_{t}p^{'(j)}_{x})^{\frac{{}_{t}q^{(j)}_{x}}{{}_{t}q^{(\tau)}_{x}}} \\
-    \ln {}_{t}p^{(\tau)}_{x}
-    &amp;= \frac{{}_{t}q^{(j)}_{x}}{{}_{t}q^{(\tau)}_{x}}
-        \cdot \ln {}_{t}p^{'(j)}_{x} \\
-    \therefore {}_{t}q^{(j)}_{x}
-    &amp;= {}_{t}q^{(\tau)}_{x}
-        \cdot \frac{\ln {}_{t}p^{(\tau)}_{x}}{\ln {}_{t}p^{'(j)}_{x}}
-\end{aligned}
+    {}_{t}q^{(j)}_{x} = t \cdot q^{(j)}_{x}
 \]</div>
-<p>It is NOT recommended to memorize this formula. It is much easier to derive it on the spot.</p>
-<h4 id="multi-udd"><strong>Multi UDD</strong><a class="headerlink" href="#multi-udd" title="Permanent link">&para;</a></h4>
-<p>Multi UDD means that the <strong>dependent decrements</strong> are assumed to be UDD.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In this context, UDD is known as <strong>Uniform Distribution of Decrements</strong>, which follows the same principles as UDD covered in FAM-L context.</p>
-</div>
-<p>Using MUDD, the force of decrement can be expressed as:</p>
+<p>Using the above, the force of decrement can be expressed as the following:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}q^{(j)}_{x} &amp;= t \cdot q^{(j)}_{x} \\
-    t \cdot q^{(j)}_{x} &amp;= \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x}(t) \\
-    q^{(j)}_{x} &amp;= {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x}(t), \ \text{Differentiation} \\
-    \mu^{(j)}_{x}(t) &amp;= \frac{q^{(j)}_{x}}{{}_{t}p^{(\tau)}_{x}} \\
+    t \cdot q^{(j)}_{x} &amp;= \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x+t} \\
+    q^{(j)}_{x} &amp;= {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x+t}, \ \text{Differentiation} \\
+    \mu^{(j)}_{x+t} &amp;= \frac{q^{(j)}_{x}}{{}_{t}p^{(\tau)}_{x}} \\
 \end{aligned}
 \]</div>
-<p>Thus, the survival probability can be expressed as:</p>
+<p>Thus, the <strong>independent</strong> survival probability can be expressed as:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}p^{'(j)}_{x}
-    &amp;= e^{- \int \mu^{(j)}_{x}} \\
-    &amp;= e^{- \int \frac{q^{(j)}_{x}}{{}_{t}p^{(\tau)}_{x}}} \\
+    &amp;= e^{- \int \mu^{(j)}_{x+t}} \\
+    &amp;= e^{- \int \frac{q^{(j)}_{x}}{{}_{t}p^{(\tau)}_{x+t}}} \\
     &amp;= e^{-q^{(j)}_{x}} \cdot e^{\int \frac{1}{1 - t \cdot q^{(\tau)}_{x}}} \\
     &amp;= e^{-q^{(j)}_{x}} \cdot e^{\frac{\ln 1 - t \cdot q^{(\tau)}_{x}}{- q^{(\tau)}_{x}}} \\
     &amp;= e^{-q^{(j)}_{x}} \cdot e^{\frac{\ln {}_{t}p^{(\tau)}_{x}}{- q^{(\tau)}_{x}}} \\
     &amp;= e^{\ln {}_{t}p^{(\tau)} \cdot \frac{-q^{(j)}_{x}}{-q^{(\tau)}_{x}}} \\
     &amp;= \left(e^{\ln {}_{t}p^{(\tau)}} \right)^{\frac{q^{(j)}_{x}}{q^{(\tau)}_{x}}} \\
-    &amp;= ({}_{t}p^{(\tau)})^{\frac{q^{(j)}_{x}}{q^{(\tau)}_{x}}}
+    &amp;= \left({}_{t}p^{(\tau)} \right)^{\frac{q^{(j)}_{x}}{q^{(\tau)}_{x}}} \\
+    \\
+    \therefore 
+    \frac{\ln {}_{t}p^{'(j)}_{x}}{\ln {}_{t}p^{(\tau)}_{x}}
+    &amp;= \frac{{}_{t}q^{(j)}_{x}}{{}_{t}q^{(\tau)}_{x}}
+    = \frac{q^{(j)}_{x}}{q^{(\tau)}_{x}}
 \end{aligned}
 \]</div>
-<p>Notice that is the exact <strong>SAME RESULT</strong> as the constant force scenario! The only difference is that the exponent MUST be the ratio of the termination probabilities, NOT the forces of decrements.</p>
+<p>Notice that is the exact <strong>SAME RESULT</strong> as the constant force scenario! Thus, it is sufficient to <strong>remember the ratio</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The key to the proof is understanding that the survival probability MUST be <strong>converted into into the termination probability</strong> (under UDD) in order to simplify the integration:</p>
@@ -1848,17 +1869,20 @@
 \end{aligned}
 \]</div>
 </div>
-<h4 id="single-udd"><strong>Single UDD</strong><a class="headerlink" href="#single-udd" title="Permanent link">&para;</a></h4>
-<p>Single UDD means that the <strong>INDEPENDENT decrements</strong> are assumed to be UDD.</p>
-<p>SUDD leads to a similar starting result as MUDD:</p>
+<h4 id="independent-udd"><strong>Independent UDD</strong><a class="headerlink" href="#independent-udd" title="Permanent link">&para;</a></h4>
+<p>Conversely, this section assumes that the independent rates are distributed UDD:</p>
+<div class="arithmatex">\[
+    {}_{t}q^{'(j)}_{x} = t \cdot q^{'(j)}_{x}
+\]</div>
+<p>Going through a <strong>similar process</strong> as dependent UDD, we can express the <strong>independent</strong> termination probability as:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}q^{'(j)}_{x} &amp;= t \cdot q^{'(j)}_{x} \\
-    t \cdot q^{'(j)}_{x} &amp;= \int {}_{t}p^{'(j)}_{x} \cdot \mu^{(j)}_{x}(t) \\
-    q^{'(j)}_{x} &amp;= {}_{t}p^{'(j)}_{x} \cdot \mu^{(j)}_{x}(t), \ \text{Differentiation} \\   
+    t \cdot q^{'(j)}_{x} &amp;= \int {}_{t}p^{'(j)}_{x} \cdot \mu^{(j)}_{x+t} \\
+    q^{'(j)}_{x} &amp;= {}_{t}p^{'(j)}_{x} \cdot \mu^{(j)}_{x+t}, \ \text{Differentiation} \\   
 \end{aligned}
 \]</div>
-<p>Using the above, the termination probability can be calculated:</p>
+<p>Thus, the <strong>dependent</strong> termination probability can be expressed as:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}q^{(j)}_{x}
@@ -1880,6 +1904,19 @@
     &amp;= t \cdot q^{'(2)}_{x} \cdot \left(1 - \frac{t}{2} {}_{}q^{'(1)}_{x} \right) \\
 \end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Assume that <span class="arithmatex">\(t=1\)</span>,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}q^{(1)}_{x} &amp;= q^{'(1)}_{x} \cdot \left(1 - \frac{1}{2} {}_{}q^{'(2)}_{x} \right) \\
+    {}_{t}q^{(2)}_{x} &amp;= q^{'(2)}_{x} \cdot \left(1 - \frac{1}{2} {}_{}q^{'(1)}_{x} \right) \\        
+\end{aligned}
+\]</div>
+<p>Decrement 1 and 2 are happening <strong>simultaneously and uniformly</strong> throughout the year. The intuition is that, <strong>on average</strong>, half the population would have been decremented by lapse by before death can act on it; vice-versa.</p>
+<p><!-- Self Made -->
+<img alt="Independent_UDD_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Independent_UDD_Illustration.png" /></p>
+</div>
 <p>Less commonly tested is the <strong>Three Decrement Model</strong>. The proof is similar to above, but much more <strong>tedious</strong> due to the additional product. Thus, it is recommended to memorize the result instead:</p>
 <div class="arithmatex">\[
     {}_{t}q^{(1)}_{x}
