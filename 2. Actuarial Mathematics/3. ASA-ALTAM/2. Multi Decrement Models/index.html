@@ -954,18 +954,46 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#exact-age-decrements" class="md-nav__link">
+    Exact Age Decrements
+  </a>
+  
+    <nav class="md-nav" aria-label="Exact Age Decrements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beginning-of-year" class="md-nav__link">
+    Beginning of Year
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end-of-year" class="md-nav__link">
+    End of Year
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point-during-year" class="md-nav__link">
+    Point During Year
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-model" class="md-nav__link">
+    Master Model
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#decrement-combination" class="md-nav__link">
-    Decrement Combination
-  </a>
-  
-    <nav class="md-nav" aria-label="Decrement Combination">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#life-table-method" class="md-nav__link">
@@ -1443,18 +1471,46 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#exact-age-decrements" class="md-nav__link">
+    Exact Age Decrements
+  </a>
+  
+    <nav class="md-nav" aria-label="Exact Age Decrements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beginning-of-year" class="md-nav__link">
+    Beginning of Year
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end-of-year" class="md-nav__link">
+    End of Year
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point-during-year" class="md-nav__link">
+    Point During Year
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-model" class="md-nav__link">
+    Master Model
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#decrement-combination" class="md-nav__link">
-    Decrement Combination
-  </a>
-  
-    <nav class="md-nav" aria-label="Decrement Combination">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#life-table-method" class="md-nav__link">
@@ -1923,14 +1979,78 @@
     = t \cdot q^{'(1)}_{x} \cdot \left(1 - \frac{t}{2} {}_{}q^{'(2)}_{x} 
         - \frac{t}{2} {}_{}q^{'(3)}_{x} + \frac{t}{3} {}_{}q^{'(2)}_{x} {}_{}q^{'(3)}_{x} \right)
 \]</div>
-<h2 id="decrement-combination"><strong>Decrement Combination</strong><a class="headerlink" href="#decrement-combination" title="Permanent link">&para;</a></h2>
-<p>A commonly asked question in the exam is to find the probabilities of termination, given that <strong>different types</strong> of decrements are present in the model.</p>
-<p>These types of questions often involve <strong>one or more of the following aspects</strong> which make them complicated:</p>
+<h3 id="exact-age-decrements"><strong>Exact Age Decrements</strong><a class="headerlink" href="#exact-age-decrements" title="Permanent link">&para;</a></h3>
+<p>An implicit assumption made so far is that the decrements in question are acting <strong>throughout the year</strong> and are thus <strong>competing throughout the year</strong>:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Standard_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Standard_Illustration.png" /></p>
+<p>However, decrements could instead occur at <strong>exact times</strong>, in which case <strong>no competition</strong> actually takes place, affecting the conversion from independent to dependent rates. Generally speaking, there are three main scenarios to consider:</p>
+<ol>
+<li>Occurs only at the <strong>beginning</strong> of the year</li>
+<li>Occurs only at the <strong>end</strong> of the year</li>
+<li>Occurs only at <strong>some point</strong> during the year</li>
+</ol>
+<h4 id="beginning-of-year"><strong>Beginning of Year</strong><a class="headerlink" href="#beginning-of-year" title="Permanent link">&para;</a></h4>
+<p>Consider a simple model with two decrements:</p>
 <ul>
-<li>Continuous and discrete decrements mixed together</li>
-<li>Continuous decrements competing with each other</li>
-<li>Discrete decrements occuring at fractional ages within the year</li>
+<li><strong>Decrement 1</strong>: Acts <strong>throughout</strong> the year</li>
+<li><strong>Decrement 2</strong>: Acts only at the <strong>beginning</strong> of the year</li>
 </ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="BOY_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/BOY_Illustration.png" /></p>
+<p>The key is to understand that although decrement 1 acts throughout the year, it does <strong>not precisely act at the beginning</strong>, thus decrement 2 can act <strong>without competition</strong>. Since decrement 2 is the <strong>first decrement without competition</strong>, the independent and dependent rates are the same:</p>
+<div class="arithmatex">\[
+    q^{(2)}_{x} = q^{'(2)}_{x}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key is to understand the two components that allow the relationship to be true:</p>
+<ul>
+<li><strong>First Decrement</strong>: Acts on the starting population</li>
+<li><strong>No Competition</strong>: No other decrements to reduce the population</li>
+</ul>
+<p>Thus, the dependent rates also act on the starting population (same as independent).</p>
+</div>
+<p>Even though decrement 1 acts without competition, the population has already been decremented by decrement 2. Thus, it acts on the <strong>remaining population</strong>:</p>
+<div class="arithmatex">\[
+    q^{(1)}_{x} = q^{'(1)}_{x} \cdot (1 - q^{'(2)}_{x})
+\]</div>
+<h4 id="end-of-year"><strong>End of Year</strong><a class="headerlink" href="#end-of-year" title="Permanent link">&para;</a></h4>
+<p>Consider a simple model with two decrements:</p>
+<ul>
+<li><strong>Decrement 1</strong>: Acts <strong>throughout</strong> the year</li>
+<li><strong>Decrement 2</strong>: Acts only at the <strong>end</strong> of the year</li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="EOY_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/EOY_Illustration.png" /></p>
+<p>Using the same logic as before, decrement 1 is the first decrement to act without competition:</p>
+<div class="arithmatex">\[
+    q^{(1)}_{x} = q^{'(1)}_{x}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not mistakenly assume that the above relationship only holds for exact age decrements or non-exact decrements - it can be <strong>either of the two</strong>.</p>
+</div>
+<p>Similarly, decrement 2 acts on the <strong>remaining population</strong>:</p>
+<div class="arithmatex">\[
+    q^{(2)}_{x} = q^{'(2)}_{x} \cdot (1 - q^{'(1)}_{x})
+\]</div>
+<p>An <strong>alternative method</strong> (also applicable for BOY scenario) is to take find the other component as the balancing item (assuming it is given):</p>
+<div class="arithmatex">\[
+    q^{(2)}_{x} = q^{(\tau)}_{x} - q^{(1)}_{x}   
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There is no need to memorize any of the above formulas - they are rather intuitive and can be derived on the fly.</p>
+</div>
+<h4 id="point-during-year"><strong>Point During Year</strong><a class="headerlink" href="#point-during-year" title="Permanent link">&para;</a></h4>
+<p>Consider a simple model with two decrements:</p>
+<ul>
+<li><strong>Decrement 1</strong>: Acts <strong>throughout</strong> the year</li>
+<li><strong>Decrement 2</strong>: Acts only at the <strong>some point</strong> during the year</li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="MOY_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/MOY_Illustration.png" /></p>
+<h4 id="master-model"><strong>Master Model</strong><a class="headerlink" href="#master-model" title="Permanent link">&para;</a></h4>
 <h3 id="life-table-method"><strong>Life Table Method</strong><a class="headerlink" href="#life-table-method" title="Permanent link">&para;</a></h3>
 <p>Similar to FAM-L, a good way of simplifying the problem is to create our own <strong>life tables</strong>.</p>
 <p>In a multi-decrement setting, <span class="arithmatex">\(\ell^{(\tau)}_{x}\)</span> represents the <strong>total population</strong> at the beginning while <span class="arithmatex">\({}_{t}d^{(j)}_{x}\)</span> represents the terminations due to a <strong>specific decrement</strong> within <span class="arithmatex">\(t\)</span> years.</p>
@@ -1960,11 +2080,6 @@
 </div>
 <!-- Self Made -->
 <p><img alt="Ultimate Model" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Ultimate%20Model.png" /></p>
-<p>Firstly, at the <strong>beginning of the year</strong>:</p>
-<ul>
-<li>Decrement 1 acts <strong>alone</strong></li>
-<li>Since no other decrement has acted, the <strong>original population</strong> is used as the base</li>
-</ul>
 <div class="arithmatex">\[
     d^{(1)}_{x} = \ell^{(\tau)}_{x} \cdot q^{(1)}_{x}
 \]</div>
