@@ -1061,6 +1061,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#multi-life-model" class="md-nav__link">
+    Multi Life Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-decrement-model" class="md-nav__link">
+    Multi-Decrement Model
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1555,6 +1569,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#multi-life-model" class="md-nav__link">
+    Multi Life Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-decrement-model" class="md-nav__link">
+    Multi-Decrement Model
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1807,6 +1835,30 @@
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Worker_Comp_Model" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Worker_Comp_Model.png" /></p>
+<h2 id="multi-life-model"><strong>Multi Life Model</strong><a class="headerlink" href="#multi-life-model" title="Permanent link">&para;</a></h2>
+<p>The multi-life model discussed previously can be expressed in the form of the following multi-state model:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Multi_Life_Multi_State" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Multi_Life_Multi_State.png" /></p>
+<p>If a <strong>Common Shock</strong> is allowed for, there will be an <strong>additional transition</strong> from state 0 to state 3 that could <strong>kill both lives simultaneously</strong>:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Common_Shock_Multi_State" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Common_Shock_Multi_State.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recall from the multi-life section that the common shock affects all probabilities, <strong>even those affecting just a single life</strong>. The above model <strong>already has the common shock parameter baked into the transition intensities</strong>.</p>
+<p>Thus, a more <strong>intuitive version of the model</strong> that matches the previous analysis would be the following: </p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="Common_Shock_Multi_State_Intuitive" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Common_Shock_Multi_State_Intuitive.png" /></p>
+</div>
+<p>All multi-state concepts apply to this model as well.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If asked to calculate the reserves for this model, note that in state 1 and 2, <strong>only one life</strong> remains. Thus, the corresponding <strong>single life functions</strong> should be used, NOT multi-life!</p>
+</div>
+<h2 id="multi-decrement-model"><strong>Multi-Decrement Model</strong><a class="headerlink" href="#multi-decrement-model" title="Permanent link">&para;</a></h2>
+<p>A multi-decrement model can be expressed as the following multi-state model:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Multi_Decrement_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Multi_Decrement_Illustration.png" /></p>
+<p>All multi-state concepts apply to this model as well.</p>
 
 
 

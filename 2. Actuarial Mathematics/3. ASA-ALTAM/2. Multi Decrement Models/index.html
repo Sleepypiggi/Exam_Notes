@@ -1603,6 +1603,7 @@
 </tbody>
 </table>
 <p></center></p>
+<!-- Obtained from Coaching Actuaries -->
 <p><img alt="Multi_Decrement_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Multi_Decrement_Illustration.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2177,13 +2178,48 @@ Master Variation</p>
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Not all benefits may be a lump sum payment. It is possible to receive a fixed annuity as a benefit (EG. Receiving 5 years of payments upon diagnosis of a disability).</p>
+<p>Not all benefits may be a lump sum payment. It is possible to receive an <strong>annuity as a benefit</strong> (EG. Receiving 5 years of payments upon diagnosis of a disability).</p>
 <div class="arithmatex">\[
     \text{"Annuity" Benefit} = \text{PV (Payments)}
 \]</div>
 </div>
-<h3 id="random-variable">Random Variable<a class="headerlink" href="#random-variable" title="Permanent link">&para;</a></h3>
-<p>Piecewise function</p>
+<h3 id="random-variable"><strong>Random Variable</strong><a class="headerlink" href="#random-variable" title="Permanent link">&para;</a></h3>
+<p>Recall that in FAM-L, we derived the EPV of the contract using a bottom’s up approach with the <strong>Random Variable denoting the PV of the benefits</strong>.</p>
+<p>For a multi-decrement policy, there are different benefits for each decrement. Thus, the random variable is expressed as a <strong>Piecewise Function</strong> for each decrement:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Z
+    &amp;=
+    \begin{cases}
+        B_{1} \cdot v^{k+1}, &amp; {}_{k \mid}q^{(1)}_{x} \\
+        B_{2} \cdot v^{k+1}, &amp; {}_{k \mid}q^{(2)}_{x}
+    \end{cases}
+\end{aligned}
+\]</div>
+<p>Using this, we can derive an expression for the EPV of the policy:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{EPV}
+    &amp;= E(Z) \\
+    &amp;= \sum B_{1} v^{k+1} \cdot {}_{k \mid}q^{(1)}_{x} + \sum B_{2} v^{k+1} \cdot {}_{k \mid}q^{(2)}_{x} \\
+    &amp;= \sum B_{1} v^{k+1} \cdot {}_{k}p^{(\tau)}_{x} q^{(1)}_{x+k}
+    +  \sum B_{2} v^{k+1} \cdot {}_{k}p^{(\tau)}_{x} q^{(2)}_{x+k}
+\end{aligned}
+\]</div>
+<p>The key difference is how the <strong>Variance</strong> is calculated. Since there are now two different benefits, there is a <strong>correlation term</strong> that must be handled:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Z^{2})
+    &amp;= \sum \left(B_{1} \cdot v^{k+1} \right)^{2} \cdot {}_{k \mid}q^{(1)}_{x}
+    + \sum \left(B_{2} \cdot v^{k+1} \right)^{2} \cdot {}_{k \mid}q^{(2)}_{x}
+    \\
+    [E(Z)]^{2}
+    &amp;= \left (\sum B_{1} v^{k+1} \cdot {}_{k}p^{(\tau)}_{x} q^{(1)}_{x+k} \right)^{2} \\
+    &amp;+ \left (\sum B_{2} v^{k+1} \cdot {}_{k}p^{(\tau)}_{x} q^{(2)}_{x+k} \right)^{2} \\
+    &amp;+ 2 \cdot \left (\sum B_{2} v^{k+1} \cdot {}_{k}p^{(\tau)}_{x} q^{(2)}_{x+k} \right)
+    \cdot \left(\sum B_{2} v^{k+1} \cdot {}_{k}p^{(\tau)}_{x} q^{(2)}_{x+k} \right)
+\end{aligned}
+\]</div>
 
 
 
