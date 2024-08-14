@@ -1610,9 +1610,15 @@
 <p>Conversely, under a DC pension, the employer has <strong>no obligation</strong> to adjust their contributions, thus the <strong>loss in benefit</strong> is borne by the employee via lower benefit payments.</p>
 </div>
 <p>Pensions are within the scope of the exam as they are a form of <strong>contingent cashflows</strong> - contingent on the retirement of the employee.</p>
+<p>Pensions are offerred for the following reasons:</p>
+<ol>
+<li>To compete for new employees</li>
+<li>To retain employees in productive years</li>
+<li>To improve morale of employees</li>
+</ol>
 <h2 id="key-concepts"><strong>Key Concepts</strong><a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
 <h3 id="salary-projection"><strong>Salary Projection</strong><a class="headerlink" href="#salary-projection" title="Permanent link">&para;</a></h3>
-<p>Let <span class="arithmatex">\(S_{x}\)</span> be the <strong>Annual Salary</strong> of an employee aged <span class="arithmatex">\(x\)</span>, earned while they are aged <span class="arithmatex">\(x\)</span>:</p>
+<p>Let <span class="arithmatex">\(S_{x}\)</span> be the <strong>Annual Salary</strong> of an employee aged <span class="arithmatex">\(x\)</span>, earned WHILE they are aged <span class="arithmatex">\(x\)</span>:</p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Annual_Salary" class="center" src="../Assets/8.%20Pensions.md/Annual_Salary.png" /></p>
 <p>Salary is the key driver behind both types of pensions covered. Salary tends to grow over time, thus there must be defined methodology to <strong>project one's salary over time</strong>.</p>
@@ -1627,10 +1633,6 @@
 <p>Salary scales can either be defined via a <strong>formula</strong>, or via a <strong>table of values</strong> if they do not follow a specific pattern:</p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Salary_Scale" class="center" src="../Assets/8.%20Pensions.md/Salary_Scale.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Pay special attention not to confuse Salary (Big S) with the Salary Scale (Small s). Ensure that they are clearly legible during the exam to avoid careless mistakes.</p>
-</div>
 <h3 id="replacement-ratio"><strong>Replacement Ratio</strong><a class="headerlink" href="#replacement-ratio" title="Permanent link">&para;</a></h3>
 <p>The <strong>Replacement Ratio</strong> is the percentage of pre-retirement income that is replaced by the pension benefit:</p>
 <div class="arithmatex">\[
@@ -1641,6 +1643,7 @@
 <p>Final Salary in this context is the <strong>literal meaning</strong> of the word - the last salary that the employee would receive at the company.</p>
 </div>
 <p>Most pension plans have a <strong>target replacement ratio</strong> is 50-70%. The ratio does not need to be close to 100% as people typically require less money while in retirement.</p>
+<p>If an individual has multiple pension plans (from different companies or personal plans), then the replacement ratio is calculated based on the <strong>TOTAL retirement benefit</strong> the individual receives.</p>
 <h3 id="standard-service-table"><strong>Standard Service Table</strong><a class="headerlink" href="#standard-service-table" title="Permanent link">&para;</a></h3>
 <!-- TBC -->
 
@@ -1673,14 +1676,21 @@
 <ul>
 <li><strong>Final Average Salary (FAS)</strong>: Average salary over the last few years of employment</li>
 <li><strong>Career Average Earnings (CAE)</strong>: Average salary over the entire span of employment</li>
+<li><strong>Career Average Revaluad Earnings (CARE)</strong>: Same as CAE, but salaries are <strong>adjusted for inflation</strong> as at retirement</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There is a special variation of the career average plan known as the <strong>Career Average Revaluaed Earnings (CARE)</strong>. It considers the average of the <strong>inflation adjusted</strong> salaries of the employee as at retirement.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The total salary (which is used to determine average salary) can be easily calculated using the <strong>Sum of Geometric Series</strong>:</p>
+<div class="arithmatex">\[
+    \text{Total Salary} = a \cdot \frac{(1+g)^{n} - 1}{(1+g) - 1}
+\]</div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If an employee retires at age 65, the <strong>LAST salary</strong> they drew was when they were at 64. There is assumed to be NO salary on the year of retirement.</p>
+<p>If an employee retires exactly upon reaching age 65, then the <strong>LAST salary</strong> they drew was when they were at 64:</p>
+<p><!-- Self Made -->
+<img alt="Final_Salary_Example" class="center" src="../Assets/8.%20Pensions.md/Final_Salary_Example.png" /></p>
+<p>When it doubt, use the above illustration to count the number of salaries earned.</p>
 </div>
 <p>For a DB plan, the goal is to determine the <strong>expected fund value</strong> needed to support the benefits. This is done by solving for the <strong>EPV</strong> of the life annuity:</p>
 <div class="arithmatex">\[
@@ -1689,6 +1699,10 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A company could offer both a death benefit and retirement benefit in their compensation package. Thus, questions could ask for the <strong>combined EPV</strong> of the benefits.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is recommended to calculate the Final Salary and the Retirement Benefit <strong>seperately</strong>, as some questions can provide multiple scenarios which require reusing one or more components.</p>
 </div>
 <h3 id="accrued-benefits"><strong>Accrued Benefits</strong><a class="headerlink" href="#accrued-benefits" title="Permanent link">&para;</a></h3>
 <p>Legally speaking, an employer can cancel their pension program at any time. However, they must <strong>still make pension payments</strong> to employees based on the number of years they have worked <strong>up to the point of cancellation</strong>.</p>
@@ -1757,14 +1771,15 @@
 \]</div>
 </div>
 <h3 id="early-retirement"><strong>Early Retirement</strong><a class="headerlink" href="#early-retirement" title="Permanent link">&para;</a></h3>
-<p>Some programs also allow for <strong>early retirement</strong>. However, the value of the benefits will be <strong>reduced by a factor</strong> for each year of early retirement, known as the <strong>Pension Reduction Factor</strong>.</p>
+<p>Some programs also allow for <strong>early retirement</strong>. In these cases, the final salary is calculated based on the <strong>earlier retirement age</strong>.</p>
+<p>Furthermore, the value of the benefits will also be <strong>reduced by a factor</strong> for each year of early retirement, known as the <strong>Pension Reduction Factor</strong>: </p>
 <div class="arithmatex">\[
     \text{Reduced Benefit}
-    = n_{\text{Early}} \cdot \text{Pension Reduction Factor } \cdot \text{Original Benefit}
+    = \text{Original Benefit} \cdot (1 - n_{\text{Early}} \cdot \text{Pension Reduction Factor})
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The pension reduction factor is applied <em>linearly</em>, NOT in a compounded manner:</p>
+<p>Do <strong>NOT</strong> apply the reduction factor in a compounded manner:</p>
 <div class="arithmatex">\[
     \text{Two Year Reduction} \ne (1 + \text{Reduction Factor})^{n}
 \]</div>
@@ -1774,6 +1789,7 @@
     \text{Accrued Liability}
     = \text{Accrued Liability}_{65} + \text{Accrued Liability}_{64} + \dots
 \]</div>
+<p>There is no need to <strong>weight</strong> the accrued liabilities because the formula for each accrued liability already accounts for the probability of retiring at that age, which is technically the "weight" in the computation. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If the PUC method is specified, the each scenario would use a different final salary. For instance, if the average of the final 3 years are used:</p>
@@ -1871,11 +1887,14 @@
     + \underbrace{\frac{1}{n} \cdot \frac{S_{n+1}}{S_{n}} \cdot {}_{n}V}_{\text{Addittional Accrual Year}}
 \end{aligned}
 \]</div>
-<p>This can be intepreted as the contribution on a TUC basis being the sum of two components:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This can be intepreted as the contribution on a TUC basis being the sum of two components in a <strong>stepwise fashion</strong>:</p>
 <ul>
-<li>Reflecting the <strong>increase in salary</strong> from year to year</li>
-<li>Reflecting the <strong>additional year of accruals</strong> when moving later by one valuation year</li>
+<li>Reflecting the <strong>annual increase in salary</strong></li>
+<li>Reflecting the <strong>additional year of accrual</strong>, after accounting for new salary</li>
 </ul>
+</div>
 <h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
 <p>Regardless of which method is used, the <strong>total amount funded remains the same</strong>:</p>
 <!-- Obtained from Coaching Actuaries -->
@@ -1896,7 +1915,7 @@
 </ul>
 <p>Notice that the reserve at time <span class="arithmatex">\(n+1\)</span> would <strong>no longer consider</strong> the early retirement. Thus, <strong>reserves have been released</strong> to consider this possibility. Thus, the cashflows must consider the <strong>expected outgo</strong> of the early retirement:</p>
 <div class="arithmatex">\[
-    {}_{n}V + C_{n} - \text{Expected Outgo} &amp;= {}_{n+1}V \cdot vp_{x}
+    {}_{n}V + C_{n} - \text{Expected Outgo} = {}_{n+1}V \cdot vp_{x}
 \]</div>
 <p>TBC DIAGRAM</p>
 <div class="admonition tip">
@@ -1930,6 +1949,15 @@
 <div class="arithmatex">\[
     P_{65+t} = P_{65} \cdot (1+a)^{n} \cdot (1+b)^{n}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The years compounded might not be the same for both factors. Consider an individual is currently aged <span class="arithmatex">\(x\)</span>, but the salary provided is for an individual aged <span class="arithmatex">\(x+t\)</span>.</p>
+<ul>
+<li>Attained Age Growth: <span class="arithmatex">\(65 - x\)</span></li>
+<li>Inflation Growth: <span class="arithmatex">\(65 - (x+t)\)</span></li>
+</ul>
+<p>Read the question carefully and apply the correct factors. </p>
+</div>
 <p>Notice that the resulting EPV of premiums is a <strong>Geometric Life Annuity</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1944,6 +1972,19 @@
     i^{*} &amp;= \frac{(1+i)}{(1+a)(1+b)} - 1
 \end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Depending on the information given, the initial retirement premium might already have some growth baked into it. Simply <strong>factorize out the excess</strong> to mimic the standard annuity formula:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    EPV_{x}
+    &amp;= P_{x} (1+a)^{10} (1+b)^{15} + P_{x} \cdot v(1+a)^{11} (1+b)^{16} + P_{x} \cdot v^{2} (1+a)^{12} (1+b)^{17} + \dots \\
+    &amp;= P_{x} (1+a)^{10} (1+b)^{15} [1 + v(1+a)(1+b) + v^{2} (1+a)^{2} (1+a)^{2} + \dots] \\
+    &amp;= P_{x} (1+a)^{10} (1+b)^{15} [1 + (1+i^{*})^{-1} + (1+i^{*})^{-2} + \dots] \\
+    &amp;= P_{x} (1+a)^{10} (1+b)^{15} \cdot \ddot{a}_{x \mid i^{*}}
+\end{aligned}
+\]</div>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Please refer to the FAM-L notes on <a href="../../2.%20ASA-FAML/5.%20Variable%20Benefits/">Variable Benefit Contracts</a>.</p>
@@ -1992,6 +2033,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Notice that this is the <strong>exact same result</strong> as the pension contribution under a PUC basis.</p>
+<p>The formula typically shown shows the contribution as a function of the EPV - both result in the same outcome. </p>
 </div>
 
 
