@@ -1017,6 +1017,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#relationship" class="md-nav__link">
+    Relationship
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1054,6 +1061,13 @@
           <li class="md-nav__item">
   <a href="#mortality-gain" class="md-nav__link">
     Mortality Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-gain" class="md-nav__link">
+    Other Gain
   </a>
   
 </li>
@@ -1492,6 +1506,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#relationship" class="md-nav__link">
+    Relationship
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1529,6 +1550,13 @@
           <li class="md-nav__item">
   <a href="#mortality-gain" class="md-nav__link">
     Mortality Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-gain" class="md-nav__link">
+    Other Gain
   </a>
   
 </li>
@@ -1577,8 +1605,8 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Even if the net cashflow in the beginning of the year is negative <span class="arithmatex">\((P - e &lt; 0)\)</span>, the insurer will still invest the amount.</p>
-<p>In this case, it can be understood as the insurer has to <strong>borrow money</strong>, which they must then <strong>pay interest</strong> on at the end of the period.</p>
+<p>Even if the net cashflow in the beginning of the year is negative <span class="arithmatex">\((P - e &lt; 0)\)</span>, the insurer will still invest the amount. In this case, it can be understood as the insurer has to <strong>borrow money</strong>, which they must then <strong>pay interest</strong> on at the end of the period.</p>
+<p>Similarly, if there is cashflow that occurs in the middle of the year, then the insurer will incur <strong>interest on that amount for the remaining time</strong> till the end of the year.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1612,6 +1640,10 @@
     &amp;= \text{Net Cashflow} - \underbrace{p_{x} \cdot {}_{t}V - {}_{t-1}V \cdot (1+i)}_\text{Change in Reserves}
 \end{aligned}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do NOT attempt to calculate the change in reserve as a seperate component. This is because the <strong>basis is different</strong> - one is PP and the other is IF.</p>
+</div>
 <p>The above expression is often referred to as the profit that <strong>emerges or arises</strong> from that period, as it occurs at the <strong>end of the period</strong> as a combination of all other cashflows that occurred in that period.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1684,9 +1716,9 @@
     =
     \begin{pmatrix}
         {}_{0}p_{x} \cdot \text{PR}_{0} \\
-        {}_{1}p_{x} \cdot \text{PR}_{1} \\
+        {}_{0}p_{x} \cdot \text{PR}_{1} \\
         \vdots \\
-        {}_{t-1}p_{x} \cdot \text{PR}_{t}
+        {}_{t-2}p_{x} \cdot \text{PR}_{t}
     \end{pmatrix}
 \end{aligned}
 \]</div>
@@ -1728,7 +1760,7 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Risk Discount Rate is also sometimes referred to as the <strong>Hurdle Rate</strong>. They represent the return that an investor expects to receive based on the risk profile of the business. It <strong>can be different</strong> from the interest rates used for reserving or profit testing.</p>
+<p>The Risk Discount Rate is also sometimes referred to as the <strong>Hurdle Rate</strong>. They represent the return that an investor <strong>expects to earn</strong> based on the risk profile of the business. It is <strong>typically different</strong> from the interest rates used for reserving or profit testing.</p>
 </div>
 <p>Next, the <strong>Internal Rate of Return</strong> (IRR). It is the <strong>Risk Discount Rate</strong> that will cause the NPV to be 0:</p>
 <div class="arithmatex">\[
@@ -1737,6 +1769,11 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>IRR CANNOT be calcualted via an equation and must be solved using numerical methods or a financial calculator.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IRR measures the <strong>highest possible discount rate</strong> such that the project breaks even. If the actual cost of capital is <strong>lower than the IRR</strong>, the resulting NPV will always be positive. Thus, <strong>higher IRRs</strong> are preferred.</p>
+<p>It is used as a <strong>standardized method of comparison</strong> between two projects that have different cashflow patterns.</p>
 </div>
 <p>Next, is the <strong>Discounted Payback Period</strong> (DPP). It is the <strong>earliest</strong> period where the <strong>partial NPV becomes positive</strong>:</p>
 <div class="arithmatex">\[
@@ -1747,17 +1784,19 @@
 <p>The partial NPV is simply the NPV calculated as at a <strong>different time point</strong>, other than time 0. Unless otherwise stated, NPV usually refers to the NPV at issue, as described earlier.</p>
 <p>Thus, the DPP thus represents the time point where <strong>all future profits are positive</strong>.</p>
 </div>
-<p>Lastly, the <strong>Profit Margin</strong>. It is the ratio of the EPV of the profits (NPV) to that of the premiums:</p>
+<p>Lastly, the <strong>Profit Margin</strong>. It is the ratio of the EPV of the profits (NPV) to that of the premiums, assuming the <strong>same discount rate</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Profit Margin}
     &amp;= \frac{\text{NPV}}{\text{EPV(Premiums)}} \\
-    &amp;= \frac{\text{NPV (Unconditional Profit)}}{\text{NPV(Premiums)}}
+    &amp;= \frac{\text{NPV (Unconditional Profit)}}{\text{EPV(Premiums)}}
 \end{aligned}
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Both the NPVs must be calculated on the same basis - using the <strong>same risk discount rate</strong>.</p>
+<p>The <strong>timing</strong> of the premium and profit cashflows are different - do NOT mistakenly apply the same discounting pattern to them:</p>
+<p><!-- Self Made -->
+<img alt="Profit_Margin_Illustration" class="center" src="../Assets/5.%20Profit%20Testing.md/Profit_Margin_Illustration.png" /></p>
 </div>
 <h3 id="pricing"><strong>Pricing</strong><a class="headerlink" href="#pricing" title="Permanent link">&para;</a></h3>
 <p>An alternative method of pricing (compared to the equivalent principle) is to set premiums based on a <strong>target profitability metric</strong>. This is done by leaving the <strong>premium component as a variable</strong> within the profit calculation and solving for it given the desired profitability.</p>
@@ -1800,17 +1839,22 @@
 <li>If the NCF if negative, then perform the bottom up calculation to determine the reserve</li>
 <li>Repeat for all other policy years</li>
 </ul>
+<h3 id="relationship"><strong>Relationship</strong><a class="headerlink" href="#relationship" title="Permanent link">&para;</a></h3>
+<p>There is a relationship between profits and reserves.</p>
+<p>For a traditional level regular premium life insurance product, the insurer collects <strong>more premium</strong> in the <strong>earlier years</strong> than the cost of providing insurance (expected benefit). In the <strong>later years</strong>, this reverses and the insurer collects <strong>less premiums</strong> than the cost of the expected benefit.</p>
+<p>From a profit perspective, this means that the insurer will recognize positive profits in the earlier years but negative profits in the later years.</p>
+<!-- Obtained from Valuation of Life Insurance Liabilities -->
+<p><img alt="Cashflow_Pattern" class="center" src="../Assets/5.%20Profit%20Testing.md/Cashflow_Pattern.png" /></p>
+<p>However, in order to prevent insolvency, the insurer <strong>MUST set up a reserve</strong> in the earlier years which can be used to cover the shortfall in premium income in the later years to pay for benefits.</p>
+<p>In the earlier years, the reserve is being built up (increase in reserve) which <strong>reduces early profits</strong>. Eventually, the reserve will be released (decrease in reserve), <strong>offsetting the negative profits</strong> in the later years.</p>
+<!-- Obtained from Slides -->
+<p><img alt="Reserve_Pattern" class="center" src="../Assets/5.%20Profit%20Testing.md/Reserve_Pattern.png" /></p>
 <h2 id="actual-profits"><strong>Actual Profits</strong><a class="headerlink" href="#actual-profits" title="Permanent link">&para;</a></h2>
-<p>If actual experience follows the assumptions exactly, the expected profit will materialize into <strong>Actual Profits</strong>. In reality, this is unlikely to occur, leading to deviation between the two. The difference is known as the <strong>Gain</strong> of the policy:</p>
+<p>If actual experience follows the assumptions exactly, the expected profit will materialize into <strong>Actual Profits</strong>. In reality, this is unlikely to occur, leading to deviation between the two. The difference is known as the <strong>Gain</strong> or <strong>Loss</strong> of the policy:</p>
 <div class="arithmatex">\[
-    \text{Gain} = \text{Actual Profit} - \text{Expected Profit}
+    \text{Gain/Loss} = \text{Actual Profit} - \text{Expected Profit}
 \]</div>
-<p>Since gains occur as a result of assumption deviation, it can decomposed/attribution into the <strong>gain from specific assumptions</strong>, allowing the insurer to identify which assumptions may need to be reviewed. For the purposed of this exam, only <strong>three assumptions</strong> will be considered:</p>
-<ul>
-<li>Expense</li>
-<li>Interest</li>
-<li>Mortality</li>
-</ul>
+<p>Since gains occur as a result of assumption deviation, it can decomposed into the <strong>gain from specific assumptions</strong>, allowing the insurer to identify which assumptions may need to be reviewed.</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Total Gain}
@@ -1874,8 +1918,15 @@
 <div class="arithmatex">\[
     q'_{x} = \frac{\text{NOP}_\text{Beginning} - \text{NOP}_\text{Ending}}{\text{NOP}_\text{Beginning}}
 \]</div>
+<h3 id="other-gain"><strong>Other Gain</strong><a class="headerlink" href="#other-gain" title="Permanent link">&para;</a></h3>
+<p>Gains for other cashflows (EG. Surrender or Maturity) can be calculated by applying the same principles as above.</p>
+<p>Note that if the feature was not <strong>projected but eventually paid</strong> (EG. Expected profit does contain Surrender but actual profit do), then the <strong>expected profit from that component is 0</strong>.</p>
 <h3 id="per-policy-gain"><strong>Per Policy Gain</strong><a class="headerlink" href="#per-policy-gain" title="Permanent link">&para;</a></h3>
-<p>All the above calculations are known as the <strong>Per Policy</strong> gains - if the actual number of policies are given, then each gain needs to be <strong>multiplied by the NOP</strong> to determine the total gain made by the insurer.</p>
+<p>All the above calculations are known as the <strong>Per Policy</strong> gains - if the actual number of policies are given, then each gain needs to be multiplied by the <strong>STARTING NOP</strong> to determine the total gain made by the insurer.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to use the ending NOP because the "intuition" is that the gain/loss is made on the remaining policies.</p>
+</div>
 
 
 

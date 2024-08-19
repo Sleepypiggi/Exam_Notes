@@ -1957,7 +1957,8 @@
 <p>The above are known as the <strong>boundary conditions</strong> of the DE. Loosely speaking, they are <strong>constraints</strong> that must exist in order for the DE to be solved. If the equation is solving for <span class="arithmatex">\({}_{t}p^{ij}_{x}\)</span>, then the associated boundary condition is <span class="arithmatex">\({}_{0}p^{ij}_{x}\)</span>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>These questions typically require multiple iterations of the equation to a point where one of the values are <strong>known</strong> - either through the above <strong>boundary conditions</strong> or a <strong>value provided</strong> by the question.</p>
+<p>These questions typically require <strong>multiple recursions</strong> of the equation to a point where one of the values are <strong>known</strong> - either through the above <strong>boundary conditions</strong> or a <strong>value provided</strong> by the question.</p>
+<p>It is recommended to start from the boundary condition and roll forward the equation to avoid excessive notation. </p>
 <p>If the <strong>step size is equal to the specified duration</strong>, the probability can be solved in one step because it will recurse to time 0, where the boundary conditions can be used.</p>
 </div>
 <p>Notice that the two kolmogorov equations (Discrete &amp; Continuous) follow the same intuition - transitioning to some intermediate state before reaching the final state.</p>

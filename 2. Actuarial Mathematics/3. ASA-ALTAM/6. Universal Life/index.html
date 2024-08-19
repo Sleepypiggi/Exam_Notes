@@ -975,6 +975,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#scenario-testing" class="md-nav__link">
+    Scenario Testing
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1327,6 +1334,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#scenario-testing" class="md-nav__link">
+    Scenario Testing
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1354,16 +1368,18 @@
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Ending Balance}_{t}
-    &amp;= \text{Opening Balance} \\
-    &amp;+ \text{Premium} \\
-    &amp;- \text{Expense Charge} \\
-    &amp;- \text{Mortality Charge} \\
-    &amp;+ \text{Interest} \\
+    \text{AV}_{t}
+    &amp;= (\text{AV}_{t-1} + P - e - \text{COI}_{t})(1 + i^{c}) \\
     \\
-    \text{Interest} &amp;= (\text{Opening} + \text{Premium} - \text{Charges}) \cdot (1 + i_{t})
+    \text{COI}_{t}
+    &amp;= (\text{DB} - \text{AV}_{t}) \cdot q^{*}_{x+t-1} \cdot \frac{1}{1 + i^{q}} \\
+    &amp;= \text{ADB} \cdot q^{*}_{x+t-1} \cdot \frac{1}{1 + i^{q}}
 \end{aligned}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It looks similar to the profit calculation but one key difference is that the <strong>interest is earned on the entire balance</strong>, not just the beginning of period cashflows.</p>
+</div>
 <!-- Obtained from Oregon Gov -->
 <p><img alt="UL Illustration" class="center" src="../Assets/6.%20Universal%20Life.md/UL_Illustration.png" /></p>
 <div class="admonition info">
@@ -1398,17 +1414,20 @@
 <div class="arithmatex">\[
     \text{Sum at Risk} = \text{Death Benefit} - \text{Account Value}
 \]</div>
-<p>The mortality charge is the <strong>pure cost</strong> of providing insurance - the <strong>expected outgo</strong> from that benefit. Since the insurer only pays the SAR, the mortality charge is calculated based off it:</p>
+<p>The mortality charge is the <strong>pure cost</strong> of providing insurance <strong>for that period</strong> - the <strong>expected outgo</strong> from that benefit. Since the insurer only pays the SAR, the mortality charge is calculated based off it:</p>
 <div class="arithmatex">\[
-    \text{Mortality Charge}_{x} = \text{Sum at Risk} \cdot v^{*}q^{*}_{x}
+    \text{Mortality Charge}_{x} = \text{Sum at Risk} \cdot q^{*}_{x+t} \cdot \frac{1}{1+i^{q}}
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Note that the both the interest and mortality rates used above <strong>may be DIFFERENT</strong> from the ones used in the main projection.</p>
+<p>Since the COI is dependent on the ending account value in that period, it <strong>cannot be calculated separately</strong>. Thus, it is recommended to stick to the <strong>general rollover formula</strong> shared above rather than attempt to calculate the components seperately.</p>
 </div>
-<!-- Self Made -->
-<p>Insert timeline illustration</p>
-<p>Note that since the account value changes every period, so does the SAR and hence the mortality charge. Thus, the mortality charge can be understood as the cost of providing a <strong>one-year term insurance</strong> cover with face amount equal to the SAR.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Intuitively, it is essentially the pure premium charged for the insurance. Premiums must always be paid at the start of the period, thus it is charged at the start.</p>
+<p>However, the actual death cashflow will only be known at the end of the period. Thus, the the amount must be calculated as at the end of the period and <strong>discounted back</strong>.</p>
+<p>The discount rate used for CAN be different from the credited interest rate. This is why the two have different notations (<span class="arithmatex">\(i^{q}\)</span> and <span class="arithmatex">\(i^{c}\)</span>).</p>
+</div>
 <h2 id="death-benefit"><strong>Death Benefit</strong><a class="headerlink" href="#death-benefit" title="Permanent link">&para;</a></h2>
 <p>There are two types of universal life policies in terms of their <strong>Death Benefit</strong> (DB) structure:</p>
 <ul>
@@ -1437,7 +1456,8 @@
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The surrender charge does NOT affect the account value of the policy, only the resulting surrender benefit.</p>
+<p>It is a common mistake to <strong>forget to floor</strong> the surrender value - especially for questions where there are multiple scenarios and the weighted surrender benefit is calculated.</p>
+<p>This is because if calculating the surrender value alone, a negative surrender value would flag out. However, when combined, there would be some <strong>offsetting impact</strong> from the other scenarios.</p>
 </div>
 <h2 id="no-lapse-guarantee"><strong>No Lapse Guarantee</strong><a class="headerlink" href="#no-lapse-guarantee" title="Permanent link">&para;</a></h2>
 <p>Given that policyholders have the liberty to choose their own premiums, they could theoretically underfund the policy, causing the account value to <strong>decrease to 0</strong> over time, causing the policy to <strong>automatically lapse</strong>.</p>
@@ -1454,6 +1474,25 @@
     \therefore {}_{t}V^{\text{NLG}} &amp;= \max(0, \text{EPV(NLG)} - \text{Account Value})
 \end{aligned}
 \]</div>
+<h2 id="scenario-testing"><strong>Scenario Testing</strong><a class="headerlink" href="#scenario-testing" title="Permanent link">&para;</a></h2>
+<p>One common type of questions asks for the change in the account value <strong>given a change one of the assumptions</strong>. To effectively tackle these questions, the following relationship can be used:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Account Value}
+    &amp;= \text{Accumulated Premiums} \\
+    &amp;- \text{Accumulated Expenses} \\
+    &amp;- \text{Accumulated COI} \\
+    \\
+    \text{Accumulated Premiums}
+    &amp;= \text{Premium} \cdot s_{\enclose{actuarial}{n}} \\
+    &amp;= \text{Premium} \cdot \frac{(1+i)^{n}-1}{i}
+\end{aligned}
+\]</div>
+<p>Using this method, only the <strong>affected component</strong> needs to be changed. This can be used to handle assumption changes that impact only <strong>certain years</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is usually more useful for type B plans with <strong>constant SAR</strong>.</p>
+</div>
 
 
 

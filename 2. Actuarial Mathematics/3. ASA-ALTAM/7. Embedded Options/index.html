@@ -1584,8 +1584,7 @@
 <li><strong>Unit Account</strong>: Owned by Policyholders; where premiums are invested</li>
 <li><strong>Non-Unit Account</strong>: Owned by Company (Shareholders); where benefits and expenses are paid out from</li>
 </ul>
-<p>Every period, <strong>charges</strong> are posted to the unit account to cover the cost of the policy (Mortality &amp; Expense charges, similar to UL).</p>
-<p>These charges then flow into the non-unit account as <strong>fee income</strong>, which is then used to cover the actual cost of the policy.</p>
+<p>Every period, <strong>charges</strong> are posted to the unit account to cover the cost of the policy (Mortality &amp; Expense charges, similar to UL). These charges then flow into the non-unit account as <strong>fee income</strong>, which is then used to <strong>cover the actual cost</strong> of the policy.</p>
 <!-- Self Made -->
 <p><img alt="Unit_Linked" class="center" src="../Assets/7.%20Embedded%20Options.md/Unit_Linked.png" /></p>
 <div class="admonition tip">
@@ -1595,8 +1594,14 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Only <strong>NON-unit</strong> account cashflows should be used for <strong>profit testing</strong>.</p>
-<p>The confusion arises because unit account cashflows must be projected as well to obtain the charges.</p>
+<p>Only <strong>NON-unit</strong> account cashflows should be used for <strong>profit testing</strong>. The confusion arises because unit account cashflows must be projected as well to obtain the charges.</p>
+<p>The following cashflows are easily mixed up:</p>
+<ul>
+<li>Expense Fee Income vs Actual Expenses</li>
+<li>Fund Growth vs Investment Income</li>
+<li>Benefit Charge vs Benefit Cost</li>
+</ul>
+<p>Another common confusion comes from calculating <strong>Profit Margin</strong>. Even though only the unallocated premiums flow into the profit calculation, the profit margin is calculated <strong>based on the Total Premium</strong>.</p>
 </div>
 <p>Another intuitive way to think about it is that for <strong>all other types of policies</strong>, there exists only a <strong>non-unit account</strong>. The premiums paid might be more/less than the cost of the policy, the excess/shortfall is managed by the <strong>insurer's investments</strong>.</p>
 <p>The key difference is that the premiums are <strong>invested by the policyholder</strong>; only what is needed is deducted each period. The <strong>investment risk is borne by the policyholder</strong> instead.</p>
@@ -1623,13 +1628,9 @@
 <p>For the purposes of this exam, the fund value in each period can be calculated as:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-&amp; \text{Opening FV} \\
-&amp;+ \text{Allocated Premium} \\
-&amp;- \text{Expense Charges} \\
-&amp;- \text{Mortality Charges} \\
-&amp;+ \text{Interest Earned} \\
-&amp;- \text{Management Charges} \\
-&amp;= \text{Ending FV}
+    \text{FV}
+    &amp;= (\text{Allocated Premium} - \text{Fund Expenses}) \\
+    &amp; \cdot (1 + \text{Fund Growth}) \cdot (1 - \text{Fund Charge})
 \end{aligned}
 \]</div>
 <p>For the purposes of this exam, the <strong>methods</strong> and <strong>timing</strong> of the above cashflows will be <strong>specified by the question</strong>. They are all usually calculated as <strong>percentage of the fund value</strong> at different points (EG. Management Charges uses FV after interest etc).</p>
@@ -1713,8 +1714,11 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The charges in this scenario have have been simplified to <strong>Initial Charges</strong> (IC) and <strong>Renewal Charges</strong> (RC). Both are charged as a <strong>percentage of the account value</strong> at the time.</p>
-<p>They are then further <strong>combined</strong> into <span class="arithmatex">\(xi\)</span>, since they have a <strong>fixed value</strong> (dependent only on policy term, which is fixed for each policy).</p>
-<!-- Self Made TBC, simple timeline with IC, RC, RC, then xi -->
+<p>They are then further <strong>combined</strong> into <span class="arithmatex">\(\xi\)</span>, since they have a <strong>fixed value</strong> (dependent only on policy term, which is fixed for each policy).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some questions might provide the monthly rates instead of annual rates - do not blindly apply the formulas.</p>
 </div>
 <p>Thus, the <strong>embedded option payoff</strong> <span class="arithmatex">\(h(t)\)</span> can be expressed as the following:</p>
 <div class="arithmatex">\[
