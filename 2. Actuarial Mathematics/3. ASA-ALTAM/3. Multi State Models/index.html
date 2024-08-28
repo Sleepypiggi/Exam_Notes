@@ -2135,7 +2135,17 @@
 <p>The same relationship holds for multi-state temporary and deferred annuities as well.</p>
 </div>
 <h3 id="multi-state-annuities"><strong>Multi State Annuities</strong><a class="headerlink" href="#multi-state-annuities" title="Permanent link">&para;</a></h3>
-<p>Conversely, a <strong>Multi-State Annuity</strong> pays a benefit whenever the insured <strong>remains</strong> in a particular state. The actuarial value is denoted by <span class="arithmatex">\(\ddot{a}^{ij}_{x}\)</span>, where <span class="arithmatex">\(i\)</span> is the <strong>current state</strong> of the insured and <span class="arithmatex">\(j\)</span> is the <strong>state which triggers a payment</strong>.</p>
+<p>Conversely, a <strong>Multi-State Annuity</strong> pays a benefit whenever the insured is <strong>in a particular state</strong>. The actuarial value is denoted by <span class="arithmatex">\(\ddot{a}^{ij}_{x}\)</span>, where <span class="arithmatex">\(i\)</span> is the <strong>current state</strong> of the insured and <span class="arithmatex">\(j\)</span> is the <strong>state which triggers a payment</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The annuity will pay even for re-entries into state <span class="arithmatex">\(j\)</span>. Consider the following scenario:</p>
+<ul>
+<li>At time 2, the life transition into state <span class="arithmatex">\(j\)</span></li>
+<li>At time 4, the life transitions into state <span class="arithmatex">\(k\)</span></li>
+<li>At time 6, the life transitions back into state <span class="arithmatex">\(j\)</span> and remains there</li>
+</ul>
+<p>The above annuity will make a payment for <strong>all times that the life is state <span class="arithmatex">\(j\)</span></strong>; from time 2 to 4 as well as after time 6.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The general notation assumes that the insured is <strong>NOT already in the state</strong> that would trigger payment. For instance, an annuity that pays only while the insured is disabled.</p>
@@ -2263,7 +2273,7 @@
 \end{aligned}
 \]</div>
 <h4 id="sorjourn-annuity"><strong>Sorjourn Annuity</strong><a class="headerlink" href="#sorjourn-annuity" title="Permanent link">&para;</a></h4>
-<p>A <strong>Sorjourn Annuity</strong> is an annuity that pays a benefit while the insured is in a specified state, given that the insured is <strong>ALREADY in</strong> the specified state. It's acturial value is denoted by <span class="arithmatex">\(\ddot{a}^{\bar{ii}}_{x}\)</span>, which is what we typically expect of an annuity.</p>
+<p>The definition of "Sorjourn" is to <strong>stay temporarily</strong>. Thus, a Sojourn annuity is an annuity that pays a benefit while the insured <strong>stays in a specific state</strong>, given that they are already in that state (hence stay). It's acturial value is denoted by <span class="arithmatex">\(\ddot{a}^{\bar{ii}}_{x}\)</span>.</p>
 <p>They are usually used to calculate the <strong>PV of premiums</strong> as premiums are usually only payable while the insured is healthy. Consider the following example:</p>
 <ul>
 <li>3-year Discrete Temporary Annuity</li>
@@ -2340,10 +2350,27 @@
 \begin{aligned}
     \ddot{a}^{\bar{00}}_{x\enclose{actuarial}{3}}
     &amp;= B + p^{\bar{00}}_{x} \cdot Bv + p^{\bar{00}}_{x} \cdot p^{\bar{00}}_{x+1} \cdot Bv^{2} \\
-    &amp;= B + p^{\bar{00}}_{x} \cdot Bv + {}_{2}p^{\bar{00}}_{x} \cdot Bv^{2} \\
-    &amp;= B \sum^{n-1}_{0} v^{t} {}_{t}p^{\bar{ii}}_{x}
+    &amp;= B + p^{\bar{00}}_{x} \cdot Bv + {}_{2}p^{\bar{00}}_{x} \cdot Bv^{2}
 \end{aligned}
 \]</div>
+<p>More generally, they can be expressed as:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ddot{a}^{\bar{00}}_{x}
+    &amp;= \sum^{\infty}_{0} v^{t} {}_{t}p^{\bar{ii}}_{x} \\
+    \\
+    \bar{a}^{\bar{00}}_{x}
+    &amp;= \int^{\infty}_{0} e^{-\delta t} {}_{t}p^{\bar{ii}}_{x}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The general multi-state annuity can be expressed in the form of a Sojourn annuity:</p>
+<div class="arithmatex">\[
+    \bar{a}^{ij}_{x}
+    = \int^{\infty}_{0} {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \bar{a}^{\bar{jj}}_{x+t}
+\]</div>
+</div>
 <h4 id="woolhouse-approximation"><strong>Woolhouse Approximation</strong><a class="headerlink" href="#woolhouse-approximation" title="Permanent link">&para;</a></h4>
 <p>Recall that the Woolhouse Approximation was used to approximate Continuous or Monthly annuities from their yearly discrete variants. Skipping the formal proof, the <strong>three term woolhouse approximation</strong> in a multi-state setting is as follows:</p>
 <div class="arithmatex">\[

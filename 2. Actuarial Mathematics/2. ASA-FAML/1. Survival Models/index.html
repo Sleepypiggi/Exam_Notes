@@ -2463,7 +2463,7 @@ Probability tree perspective</p>
 <h3 id="makeham-gompertz-model"><strong>Makeham Gompertz Model</strong><a class="headerlink" href="#makeham-gompertz-model" title="Permanent link">&para;</a></h3>
 <p>Makeham added a <strong>constant</strong> <span class="arithmatex">\(A\)</span> into the Gompertz model, resulting in the <strong>Makeham Gompertz Model</strong>:</p>
 <div class="arithmatex">\[
-    \mu_{x} = A + Bc^{x}
+    \mu_{x} = A + B \cdot c^{x}
 \]</div>
 <p><span class="arithmatex">\(A\)</span> represents the <strong>age independent mortality</strong> - dying from reasons unrelated to age, such as from accidents or natural catastrophes.</p>
 <div class="arithmatex">\[
@@ -2474,8 +2474,24 @@ Probability tree perspective</p>
     &amp;= e^{\left[-At - \frac{B}{\ln c} c^{x+t} \right]^{t}_{0}} \\
     &amp;= e^{\left[-At - \frac{B}{\ln c} c^{x+t} \right] - \left[-\frac{B}{\ln c} c^{x} \right]} \\
     &amp;= e^{-At - \frac{B}{\ln c} c^{x+t} + \frac{B}{\ln c} c^{x}} \\
-    &amp;= e^{-At - \frac{B}{\ln c} c^x [c^t - 1]} \\
-    &amp;= e^{-At} \cdot e^{- \frac{B}{\ln c} c^x [c^t - 1]}
+    &amp;= e^{-At - \frac{B}{\ln c} c^{x} [c^t - 1]} \\
+    &amp;= e^{-At} \cdot e^{- \frac{B}{\ln c} c^{x} [c^{t} - 1]}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the force of mortality provided follow a <em>similar</em> expression as above, <strong>immediately recognize</strong> that this is the makeham gompertz model.</p>
+<p><strong>Do NOT waste time</strong> attempting to integrate the force; simply use the formula provided in the formula sheet to calculate the probabilities.</p>
+</div>
+<p>Any modification made to the force should be expressed as a change in the Makeham parameters:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mu_{x} &amp;= A + B \cdot c^{x} \\
+    \\
+    \mu_{y} &amp;= \mu_{x} + Z \\
+    \therefore \mu_{y} &amp;= (A+Z) + B \cdot c^{x} \\
+    \\
+    \mu_{Z} &amp;= \mu_{x} + Z \cdot B \cdot c^{x} \\
 \end{aligned}
 \]</div>
 <h3 id="population-mortality"><strong>Population Mortality</strong><a class="headerlink" href="#population-mortality" title="Permanent link">&para;</a></h3>
