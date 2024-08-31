@@ -1694,9 +1694,10 @@
 <div class="arithmatex">\[
     P(Y_{t+1} = i \mid Y_{t} = j, Y_{t-1} = k, \dots) = P(Y_{t+1} = i \mid Y_{t} = j)
 \]</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>This is conceptually similar to the <strong>Memoryless Property</strong> of the exponential distribution.</p>
+<p>In simple terms, the markov property assumes that incidence probability is the <strong>same</strong> for an entity that has <strong>just entered</strong> the state versus an entity that has <strong>been in the state for a long time</strong>.</p>
 </div>
 <h2 id="discrete-multi-state-models"><strong>Discrete Multi State Models</strong><a class="headerlink" href="#discrete-multi-state-models" title="Permanent link">&para;</a></h2>
 <p>A discrete multi state model that follows the markov property is known as a <strong>Markov Chain</strong>.</p>
@@ -2368,8 +2369,22 @@
 <p>The general multi-state annuity can be expressed in the form of a Sojourn annuity:</p>
 <div class="arithmatex">\[
     \bar{a}^{ij}_{x}
-    = \int^{\infty}_{0} {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \bar{a}^{\bar{jj}}_{x+t}
+    = \int^{\infty}_{0} {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t} \bar{a}^{\bar{jj}}_{x+t}
 \]</div>
+<p>It represents the probability that the policyholder transitions into state <span class="arithmatex">\(j\)</span> and receives an annuity at that moment that pays for as long as they remain in that state. This expression is <strong>more flexible</strong> than the original expression because it allows us to <strong>specify the duration</strong> of payments.</p>
+<p>In the above example, a <strong>whole life annuity</strong> is used, which implies that the benefit will be paid <strong>for as long as</strong> they are in the state. However, a <strong>temporary annuity</strong> can be specified instead, which implies that the benefit will be paid a <strong>limited period of time</strong> EACH TIME the policyholder enters that state:</p>
+<div class="arithmatex">\[
+    \int^{\infty}_{0} \sum {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t} \bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{n}}
+\]</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that the final expression in the above example is <strong>NOT equivalent</strong> to a temporary multi-state annuity:</p>
+<div class="arithmatex">\[
+    \bar{a}^{ij}_{x:\enclose{actuarial}{n}}
+    \ne \int^{\infty}_{0} {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t} bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{n}}
+\]</div>
+<p>The LHS corresponds to a policy that lasts for <span class="arithmatex">\(n\)</span> years while the RHS corresponds to a policy that pays for only the first <span class="arithmatex">\(n\)</span> years on each entry into the state. </p>
 </div>
 <h4 id="woolhouse-approximation"><strong>Woolhouse Approximation</strong><a class="headerlink" href="#woolhouse-approximation" title="Permanent link">&para;</a></h4>
 <p>Recall that the Woolhouse Approximation was used to approximate Continuous or Monthly annuities from their yearly discrete variants. Skipping the formal proof, the <strong>three term woolhouse approximation</strong> in a multi-state setting is as follows:</p>

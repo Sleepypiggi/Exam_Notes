@@ -967,6 +967,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fractional-ages" class="md-nav__link">
+    Fractional Ages
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1538,6 +1545,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fractional-ages" class="md-nav__link">
+    Fractional Ages
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1657,15 +1671,6 @@
 <li>Only <strong>two lives</strong> with life status <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span></li>
 <li>Lives are <strong>independent</strong></li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Most questions will explicitly state if the lives are independent. However, some questions may provide the various probabilities or components, which <strong>imply</strong> whether they are independent.</p>
-<p>There are two scenarios to look out for:</p>
-<ul>
-<li>If independent, the expressions for <span class="arithmatex">\(x\)</span> <strong>should not contain</strong> <span class="arithmatex">\(y\)</span></li>
-<li>If independnet, the expressions for <span class="arithmatex">\(x\)</span> <strong>should remain the same</strong> with and without considering <span class="arithmatex">\(y\)</span></li>
-</ul>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Although the most common situation is two lives, it is possible to extend the principles to a case of <strong>3 or more lives</strong>, which some questions may ask.</p>
@@ -2066,7 +2071,7 @@
 <p>The absence of a common shock does <strong>NOT imply independence</strong>! As stated in the opening, always check the given probabilities and functions to determine independence.</p>
 </div>
 <p><span class="arithmatex">\(T_{x}\)</span> and <span class="arithmatex">\(T_{y}\)</span> are <strong>dependent</strong> because they share <span class="arithmatex">\(Z\)</span>. However, it is important to distinguish that <span class="arithmatex">\(T^{*}_{x}\)</span>, <span class="arithmatex">\(T^{*}_{y}\)</span> and <span class="arithmatex">\(Z\)</span> are <strong>independent</strong>.</p>
-<p>For simplicity, we consider only the results for the Joint Life status. If the last survivor variations are needed, it is recommended to convert from the joint life versions</p>
+<p>For simplicity, we consider only the results for the Joint Life status. If the last survivor variations are needed, it is recommended to <strong>convert from the joint life</strong> versions.</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}p_{x}
@@ -2082,8 +2087,7 @@
     &amp;= P(\min (T^{*}_{x},T^{*}_{y}, Z) \gt t) \\
     &amp;= P(T^{*}_{x} \gt t) \cdot P(T^{*}_{y} \gt t) \cdot P(Z \gt t), \ \text{Independence} \\
     &amp;= {}_{t}p^{*}_{x} \cdot {}_{t}p^{*}_{y} \cdot e^{-\lambda t} \\
-    &amp;= ({}_{t}p_{x} \cdot e^{\lambda t}) \cdot ({}_{t}p_{y} \cdot e^{\lambda t}) \cdot e^{-\lambda t} \\
-    &amp;= {}_{t}p_{x} \cdot {}_{t}p_{y} \cdot e^{\lambda t} \\
+    &amp;= {}_{t}p^{*}_{x:y} \cdot e^{\lambda t} \\
     \\
     \mu_{x+t:y+t}
     &amp;= \frac{d}{dt} \ln {}_{t}p_{x:y} \\
@@ -2097,6 +2101,28 @@
 <p>It is a <strong>common misconception</strong> to think that common shock only affects the multi-life probabilities. In reality, they affect the <strong>single life probabilities</strong> as well.</p>
 <p>For instance, assume the common shock was due to <strong>driving a car</strong> (EG. Risk of both individuals dying in a car crash). Even after one party dies, the other will still continue to drive a car, and thus would be exposed to the <strong>same risk</strong> as before.</p>
 </div>
+<p>Consider the expression for an assurance or annuity with a common shock:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \bar{a}_{x:y}
+    &amp;= \int {}_{t}p_{x:y} \cdot e^{-\delta t} \\
+    &amp;= \int {}_{t}p^{*}_{x:y} \cdot e^{-\lambda t} \cdot e^{-\delta t} \\
+    &amp;= \int {}_{t}p^{*}_{x:y} \cdot e^{-(\lambda + \delta)t} \\
+    &amp;= \bar{a}^{*}_{x:y} |_{\delta^{*} = \lambda + \delta}
+\end{aligned}
+\]</div>
+<h3 id="fractional-ages"><strong>Fractional Ages</strong><a class="headerlink" href="#fractional-ages" title="Permanent link">&para;</a></h3>
+<p>All the typical fractional age assumptions apply in a multi-life setting as well. There is <strong>no need</strong> to memorize a special formula for multi-lives - simply convert the probabilities into their associated single life probabilities and apply the usual conversions.</p>
+<p>For instance, if the Uniform Distribution of Deaths was assumed:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{s}q_{x:y}
+    &amp;= 1 - {}_{s}p_{x:y} \\
+    &amp;= 1 - {}_{s}p_{x} \cdot {}_{s}p_{y} \\
+    &amp;= 1 - (1-{}_{s}q_{x}) \cdot (1-{}_{s}q_{y}) \\
+    &amp;= \dots
+\end{aligned}
+\]</div>
 <h2 id="contingent-events"><strong>Contingent Events</strong><a class="headerlink" href="#contingent-events" title="Permanent link">&para;</a></h2>
 <p>The life statuses introduced do NOT specify the <strong>order of deaths</strong> - they do not care <em>specifically</em> if <span class="arithmatex">\(x\)</span> or <span class="arithmatex">\(y\)</span> dies first.</p>
 <p>When the order of deaths are specified, they are known as <strong>Contingent Events</strong>. This is because the probability is <strong>contingent on the other life</strong> being alive or dead at the time.</p>

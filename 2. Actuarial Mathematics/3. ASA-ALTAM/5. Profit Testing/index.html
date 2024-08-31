@@ -1001,6 +1001,40 @@
     Profitability Metrics
   </a>
   
+    <nav class="md-nav" aria-label="Profitability Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#net-present-value" class="md-nav__link">
+    Net Present Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-rate-of-return" class="md-nav__link">
+    Internal Rate of Return
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discounted-payback-period" class="md-nav__link">
+    Discounted Payback Period
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-margin" class="md-nav__link">
+    Profit Margin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1490,6 +1524,40 @@
     Profitability Metrics
   </a>
   
+    <nav class="md-nav" aria-label="Profitability Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#net-present-value" class="md-nav__link">
+    Net Present Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-rate-of-return" class="md-nav__link">
+    Internal Rate of Return
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discounted-payback-period" class="md-nav__link">
+    Discounted Payback Period
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-margin" class="md-nav__link">
+    Profit Margin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1663,7 +1731,11 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This includes ALL assumptions, not just risk rates. Interest rate could be different as well. Read the questions properly!</p>
+<p>This includes <strong>ALL assumptions</strong>, not just risk rates. In practice, this usually comes from <strong>two sources</strong>:</p>
+<ul>
+<li><strong>Margin for Adverse Deviation</strong>: Affects risk rates plus some fixed assumptsion (EG. Expense)</li>
+<li><strong>Interest Rates</strong>: Reserves discounted as Risk Free Rate while profit projected as Best Estimate Investment Returns</li>
+</ul>
 </div>
 <p>If the reserving and profit testing <strong>basis are the same</strong>, then there will be <strong>NO profit</strong> emerging from the policy. This is because the change in reserve (due to cashflows and unwinding) will <strong>completely offset</strong> the net cashflow emerging from the policy.</p>
 <p>Thus, if actual experience exactly follows the best estimate assumptions, the insurer should earn a <strong>profit from the margin for adverse deviation</strong> that was held.</p>
@@ -1750,18 +1822,36 @@
 <h2 id="profit-testing_1"><strong>Profit Testing</strong><a class="headerlink" href="#profit-testing_1" title="Permanent link">&para;</a></h2>
 <h3 id="profitability-metrics"><strong>Profitability Metrics</strong><a class="headerlink" href="#profitability-metrics" title="Permanent link">&para;</a></h3>
 <p>Using the profit cashflows above, insurers can gauge the <strong>profitability</strong> of the policy based on different metrics.</p>
+<h4 id="net-present-value"><strong>Net Present Value</strong><a class="headerlink" href="#net-present-value" title="Permanent link">&para;</a></h4>
 <p>Firstly, the <strong>Net Present Value</strong> (NPV). It is the <strong>EPV of the profits</strong>, discounted using a specified <strong>Risk Discount Rate</strong>:</p>
 <div class="arithmatex">\[
-\begin{aligned}
-    \text{NPV}
-    &amp;= \sum^{t}_{0} v^{t} \cdot \text{Unconditional Profit}_{t} \\
-    &amp;= 1 \cdot \text{Unconditional Profit}_{0} + v^{1} \cdot \text{Unconditional Profit}_{1} + \dots 
-\end{aligned}
+    \text{NPV} = \text{PR}_{0} + v \text{PR}_{1} + v^{2} p_{x} \text{PR}_{2} + v^{3} p_{x} p_{x+1} \text{PR}_{3} + \dots
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Risk Discount Rate is also sometimes referred to as the <strong>Hurdle Rate</strong>. They represent the return that an investor <strong>expects to earn</strong> based on the risk profile of the business. It is <strong>typically different</strong> from the interest rates used for reserving or profit testing.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall the intuition regarding EPV:</p>
+<p>The complexity of life insurance is that there are two dimensions - <strong>Incidence Probability</strong> (“E”) &amp; <strong>Time Value</strong> of Money (“PV”). The key understanding is that the benefit of the policy is fixed. A policy with $100,000 sum assured will always <strong>at most pay</strong> out $100,000.</p>
+<p>The incidence probability affects the <strong>TIMING of the payment</strong>. Higher incidence probability increases expected benefit in the earlier years and decreases expected payments in the later years. On whole, the expected payment for the policy is still $100,000 - but the benefits are expected to <strong>pay earlier rather than later</strong>.</p>
+<p>The time value of money then affects how these <strong>benefits are valued</strong>. Benefits that emerge earlier are <strong>discounted less</strong>, thus have a higher EPV.</p>
+</div>
+<p>One common type of question based on NPV is to <strong>estimate the future NPV</strong> of the policy given the current NPV. Consider the cashflows of the following two NPVs:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{NPV}_{0} &amp;= \text{PR}_{0} + v \text{PR}_{1} + v^{2} p_{x} \text{PR}_{2} + v^{3} p_{x} p_{x+1} \text{PR}_{3} + \dots \\
+    \text{NPV}_{1} &amp;= v \text{PR}_{2} + v^{2} p_{x+1} \text{PR}_{3} + \dots   
+\end{aligned}
+\]</div>
+<p>There are <strong>three</strong> key differences:</p>
+<ul>
+<li>The expected profits in policy year 0 and 1 <strong>have been realized</strong> thus are no longer part of NPV</li>
+<li>The <strong>valuation date has moved back one year</strong> thus there is an <strong>unwinding of interest</strong> by one year</li>
+<li>Similarly, the <strong>policyholder has survived one year</strong> thus there is <strong>'unwinding' of mortality</strong> by one year as well</li>
+</ul>
+<h4 id="internal-rate-of-return"><strong>Internal Rate of Return</strong><a class="headerlink" href="#internal-rate-of-return" title="Permanent link">&para;</a></h4>
 <p>Next, the <strong>Internal Rate of Return</strong> (IRR). It is the <strong>Risk Discount Rate</strong> that will cause the NPV to be 0:</p>
 <div class="arithmatex">\[
     \text{NPV}_\text{IRR} = 0
@@ -1773,17 +1863,15 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>IRR measures the <strong>highest possible discount rate</strong> such that the project breaks even. If the actual cost of capital is <strong>lower than the IRR</strong>, the resulting NPV will always be positive. Thus, <strong>higher IRRs</strong> are preferred.</p>
-<p>It is used as a <strong>standardized method of comparison</strong> between two projects that have different cashflow patterns.</p>
 </div>
+<p>One common type of question involves determining how a change in cashflows affects the IRR. Generally speaking, any change that would result in a <strong>higher NPV would also result in a higher IRR</strong>, as the discount rate would need to be higher to force the new NPV to 0.</p>
+<h4 id="discounted-payback-period"><strong>Discounted Payback Period</strong><a class="headerlink" href="#discounted-payback-period" title="Permanent link">&para;</a></h4>
 <p>Next, is the <strong>Discounted Payback Period</strong> (DPP). It is the <strong>earliest</strong> period where the <strong>partial NPV becomes positive</strong>:</p>
 <div class="arithmatex">\[
-    \text{DPP} = \min [t: \text{NPV}_{t} &gt; 0]
+    \text{DPP} = \min [t: \text{Partial NPV}(t) &gt; 0]
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The partial NPV is simply the NPV calculated as at a <strong>different time point</strong>, other than time 0. Unless otherwise stated, NPV usually refers to the NPV at issue, as described earlier.</p>
-<p>Thus, the DPP thus represents the time point where <strong>all future profits are positive</strong>.</p>
-</div>
+<p>Partial NPV at time <span class="arithmatex">\(t\)</span> is the NPV that is calculated using a <strong>subset of cashflows</strong> from time 0 up to and including time <span class="arithmatex">\(t\)</span>. It is a measure of the <strong>accumulated profit</strong> (on a EPV basis) up till that time. Thus, the discounted payback period is a measure of the <strong>earliest time that the accumulated profits become positive</strong>.</p>
+<h4 id="profit-margin"><strong>Profit Margin</strong><a class="headerlink" href="#profit-margin" title="Permanent link">&para;</a></h4>
 <p>Lastly, the <strong>Profit Margin</strong>. It is the ratio of the EPV of the profits (NPV) to that of the premiums, assuming the <strong>same discount rate</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1849,6 +1937,24 @@
 <p>In the earlier years, the reserve is being built up (increase in reserve) which <strong>reduces early profits</strong>. Eventually, the reserve will be released (decrease in reserve), <strong>offsetting the negative profits</strong> in the later years.</p>
 <!-- Obtained from Slides -->
 <p><img alt="Reserve_Pattern" class="center" src="../Assets/5.%20Profit%20Testing.md/Reserve_Pattern.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are two forces driving the reserve pattern:</p>
+<ul>
+<li><strong>Unwinding</strong>: <strong>Reserve increases</strong> as future cashflows are <strong>discounted less</strong> as policy moves forward in time</li>
+<li><strong>Expected Payments</strong>: <strong>Reserve decreases</strong> as part of the reserves are used for expected payments in the <strong>current period</strong> </li>
+</ul>
+<p>In the early years, there are many future cashflows (large increase) while the expected payment is low (for a young policyholder) - leading to an increase in reserves in the earlier periods.</p>
+<p>In later years, this effect reverses as there are not many future cashflows left while expected payments increase, leading to the reserve decreasing in later periods.</p>
+</div>
+<p>If both are on the <strong>same basis</strong>, then the excess in the early period will be exactly used to build the reserve while the shortfall in the later periods will be exactly covered.</p>
+<p>However, since the basis for reserves are more conservative, <strong>more than what is available is set aside</strong> in the earlier periods (resulting in <strong>negative profits early on</strong>) and <strong>more than what is needed is released later on</strong> (resulting in positive profits in later periods).</p>
+<p>Thus, if the reserves <strong>decrease across all periods</strong> (EG. Due to an Increase of Interest Rates):</p>
+<ul>
+<li>Negative Profits in the earlier years will decrease as there is less reserve to build up (<strong>Increase in earlier profits</strong>)</li>
+<li>Positive Profits in the later years will decrease as there is less reserve to release (<strong>Decrease in later profits</strong>)</li>
+</ul>
+<p>Generally speaking, due to the <strong>time value of money</strong>, the uplift from the earlier periods is stronger, resulting in increase to NPV.</p>
 <h2 id="actual-profits"><strong>Actual Profits</strong><a class="headerlink" href="#actual-profits" title="Permanent link">&para;</a></h2>
 <p>If actual experience follows the assumptions exactly, the expected profit will materialize into <strong>Actual Profits</strong>. In reality, this is unlikely to occur, leading to deviation between the two. The difference is known as the <strong>Gain</strong> or <strong>Loss</strong> of the policy:</p>
 <div class="arithmatex">\[
