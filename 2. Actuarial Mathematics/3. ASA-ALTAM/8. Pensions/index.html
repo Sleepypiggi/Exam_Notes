@@ -837,6 +837,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../0.%20Written%20Answer%20Presentation/" class="md-nav__link">
+        WA Presentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../1.%20Multi%20Life%20Models/" class="md-nav__link">
         Multi Life Models
       </a>
@@ -976,16 +990,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    Key Concepts
+  <a href="#salary-projection" class="md-nav__link">
+    Salary Projection
   </a>
   
-    <nav class="md-nav" aria-label="Key Concepts">
+    <nav class="md-nav" aria-label="Salary Projection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#salary-projection" class="md-nav__link">
-    Salary Projection
+  <a href="#_1" class="md-nav__link">
+    ****
   </a>
   
 </li>
@@ -1013,6 +1027,19 @@
   <a href="#defined-contribution" class="md-nav__link">
     Defined Contribution
   </a>
+  
+    <nav class="md-nav" aria-label="Defined Contribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accumulated-fund-value" class="md-nav__link">
+    Accumulated Fund Value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1415,16 +1442,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    Key Concepts
+  <a href="#salary-projection" class="md-nav__link">
+    Salary Projection
   </a>
   
-    <nav class="md-nav" aria-label="Key Concepts">
+    <nav class="md-nav" aria-label="Salary Projection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#salary-projection" class="md-nav__link">
-    Salary Projection
+  <a href="#_1" class="md-nav__link">
+    ****
   </a>
   
 </li>
@@ -1452,6 +1479,19 @@
   <a href="#defined-contribution" class="md-nav__link">
     Defined Contribution
   </a>
+  
+    <nav class="md-nav" aria-label="Defined Contribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accumulated-fund-value" class="md-nav__link">
+    Accumulated Fund Value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1616,8 +1656,8 @@
 <li>To retain employees in productive years</li>
 <li>To improve morale of employees</li>
 </ol>
-<h2 id="key-concepts"><strong>Key Concepts</strong><a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
-<h3 id="salary-projection"><strong>Salary Projection</strong><a class="headerlink" href="#salary-projection" title="Permanent link">&para;</a></h3>
+<h2 id="salary-projection"><strong>Salary Projection</strong><a class="headerlink" href="#salary-projection" title="Permanent link">&para;</a></h2>
+<h3 id="_1">****<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>Let <span class="arithmatex">\(S_{x}\)</span> be the <strong>Annual Salary</strong> of an employee aged <span class="arithmatex">\(x\)</span>, earned WHILE they are aged <span class="arithmatex">\(x\)</span>:</p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Annual_Salary" class="center" src="../Assets/8.%20Pensions.md/Annual_Salary.png" /></p>
@@ -1655,9 +1695,9 @@
 <p>The contributions are invested into a pension fund which accumulates over time. <strong>Upon retirement</strong> of the employee, the fund value is used to purchase a <strong>Whole Life Annuity</strong> which will pay the pension benefit to the employee.</p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Defined_Contribution" src="../Assets/8.%20Pensions.md/Defined_Contribution.png" /></p>
-<p>The goal is to determine the <strong>expected benefit</strong> that the employee will receive given the contributions. This is done by solving for the <strong>face value of the annuity</strong> based on the accumulated fund value:</p>
+<p>The goal is to determine the <strong>expected benefit</strong> that the employee will receive given the contributions. This is done by solving for the <strong>Yearly Retirement Benefit</strong> based on the <em>accumulated</em> fund value:</p>
 <div class="arithmatex">\[
-    \sum \text{Contribution}_{t} = \text{Retirement Benefit} \cdot \ddot{a}^{(12)}_{65}
+    \text{Accumulated Fund Value} = \text{Yearly Retirement Benefit} \cdot \ddot{a}^{(12)}_{65}
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1665,6 +1705,14 @@
 <p>However, it is important to remember that the face value of the annuity is assumed to be a <strong>yearly cashflow</strong>. To obtain the monthly benefit, the resulting benefit must be <strong>divided by 12</strong>.</p>
 </div>
 <p>Due to the rather straightforward nature of DC plans, most questions from this topic will <strong>focus on DB plans</strong> instead.</p>
+<h3 id="accumulated-fund-value"><strong>Accumulated Fund Value</strong><a class="headerlink" href="#accumulated-fund-value" title="Permanent link">&para;</a></h3>
+<p>On the surface, it might seem that calculating the accmumulated fund value is simple. However, there are two complications:</p>
+<ul>
+<li>Salary increases every period</li>
+<li>Each contribution gets accumulated by a different factor</li>
+</ul>
+<!-- Self Made -->
+<p><img alt="Salary_Accumulation" class="center" src="../Assets/8.%20Pensions.md/Salary_Accumulation.png" /></p>
 <h2 id="defined-benefit"><strong>Defined Benefit</strong><a class="headerlink" href="#defined-benefit" title="Permanent link">&para;</a></h2>
 <p>Defined Benefit plans are a type pension where the retirement benefits are fixed, defined as some <strong>function of an employee's final salary</strong> upon retirement.</p>
 <div class="arithmatex">\[

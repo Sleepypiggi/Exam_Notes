@@ -1069,6 +1069,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../3.%20ASA-ALTAM/0.%20Written%20Answer%20Presentation/" class="md-nav__link">
+        WA Presentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../3.%20ASA-ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
         Multi Life Models
       </a>
@@ -1967,15 +1981,16 @@
 <p>Because of this, they are sometimes referred to as <span class="arithmatex">\(\text{WL}_{\text{Due}}\)</span> annuities that are <strong>certain for <span class="arithmatex">\(n\)</span> years</strong>.</p>
 </div>
 <p>Thus, the EPV can be determined:</p>
-<div class="arithmatex">\[
+<p>$$
 \begin{aligned}
-    E(\text{GA}_{\text{Due}})
-    &amp;= \ddot{a}_{\enclose{actuarial}{n}} + 0 \cdot {}_{n}q_x + \sum^{\infty}_{k = n} (\ddot{a}_{\enclose{actuarial}{k+1}} - \ddot{a}_{\enclose{actuarial}{n}}) \cdot {}_{k|}q_{x}\\
-    \ddot{a}_{\overline{x:\enclose{actuarial}{n}}}
-    &amp;= \ddot{a}_{\enclose{actuarial}{n}} + {}_{n|}\ddot{a}_{x} \\
-    &amp;= \ddot{a}_{\enclose{actuarial}{n}} + {}_{n}E_{x} \cdot \ddot{a}_{x+n}
-\end{aligned}
-\]</div>
+    E(\text{GA}<em _enclose_actuarial="\enclose{actuarial">{\text{Due}})
+    &amp;= \ddot{a}</em>{n}} + 0 \cdot {}<em k="k">{n}q_x + \sum^{\infty}</em> (\ddot{a}<em _enclose_actuarial="\enclose{actuarial">{\enclose{actuarial}{k+1}} - \ddot{a}</em>{n}}) \cdot {}<em x="x">{k|}q</em> \</p>
+<div class="highlight"><pre><span></span><code>\ddot{a}_{\overline{x:\enclose{actuarial}{n}}}
+&amp;= \ddot{a}_{\enclose{actuarial}{n}} + {}_{n|}\ddot{a}_{x} \\
+&amp;= \ddot{a}_{\enclose{actuarial}{n}} + {}_{n}E_{x} \cdot \ddot{a}_{x+n}
+</code></pre></div>
+<p>\end{aligned}
+$$</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>It is an extremely common mistake to <strong>forget to update the age of the policyholder</strong> in the second term.</p>
@@ -2318,6 +2333,19 @@
 <div class="arithmatex">\[
     a^{(m)}_{x:\enclose{actuarial}{n}} = \ddot{a}_{x:n} - \frac{m-1}{2m} (1-{}_{n}E_{x})
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The underlying reason for taking this roundabout approach is that the approximation shown above and provided by in the formula sheet is <strong>only applicable for WL annuities</strong>.</p>
+<p>Rather than memorizing the approximation for each type of annuity, it is much <strong>more efficient</strong> to simply convert the annuity into a <strong>combination of WL annuities</strong> to and approximate from there.</p>
+<p>For instance, for a guaranteed annuity annuity,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ddot{a}^{(m)}_{\overline{x:\enclose{actuarial}{n}}}
+    &amp;= \ddot{a}^{(m)}_{\enclose{actuarial}{n}} + {}_{n}E_{x} \cdot \ddot{a}^{(m)}_{x+n} \\
+    &amp;= \frac{1 - v^{10}}{d^{(m)}} + {}_{n}E_{x} \cdot \left(\ddot{a}_{x+n} - \frac{m-1}{2m} \right)
+\end{aligned}
+\]</div>
+</div>
 <h3 id="fractional-recursion"><strong>Fractional Recursion</strong><a class="headerlink" href="#fractional-recursion" title="Permanent link">&para;</a></h3>
 <p>Recursions follow the same logic as the discrete case.</p>
 <p>However, since the <strong>benefits are not paid out at JUST the start of the year</strong>, the the <strong>extent that future benefits have to be discounted changes</strong>.</p>

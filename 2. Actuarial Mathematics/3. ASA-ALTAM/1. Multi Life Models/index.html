@@ -835,6 +835,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Written%20Answer%20Presentation/" class="md-nav__link">
+        WA Presentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1045,6 +1059,13 @@
           <li class="md-nav__item">
   <a href="#contingent-annuity" class="md-nav__link">
     Contingent Annuity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approximations" class="md-nav__link">
+    Approximations
   </a>
   
 </li>
@@ -1628,6 +1649,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#approximations" class="md-nav__link">
+    Approximations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#practical-tips" class="md-nav__link">
     Practical Tips
   </a>
@@ -1712,7 +1740,7 @@
     T_{x:y} = \min (T_{x}, T_{y})
 \]</div>
 <h4 id="probability"><strong>Probability</strong><a class="headerlink" href="#probability" title="Permanent link">&para;</a></h4>
-<p>There is only <strong>one case</strong> that fulfils the joint life status for survival - both individuals surviving. Thus, it can be shown to be the probability that <strong>both <span class="arithmatex">\(x\)</span> AND <span class="arithmatex">\(y\)</span> survive</strong>:</p>
+<p>There is only <strong>one case</strong> that fulfils the joint life status for survival - both individuals surviving past the specified time. Thus, it can be shown to be the probability that <strong>both <span class="arithmatex">\(x\)</span> AND <span class="arithmatex">\(y\)</span> survive</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}p_{x:y}
@@ -1820,7 +1848,7 @@
     T_{\overline{x:y}} = \max (T_{x}, T_{y})
 \]</div>
 <h4 id="probability_1"><strong>Probability</strong><a class="headerlink" href="#probability_1" title="Permanent link">&para;</a></h4>
-<p>Similarly, there is only one case that fulfils the last survivor status for death - both individuals dying. Thus, it can be shown to be the probability that <strong>both <span class="arithmatex">\(x\)</span> AND <span class="arithmatex">\(y\)</span> die</strong>:</p>
+<p>Similarly, there is only one case that fulfils the last survivor status for death - both individuals dying by specified time. Thus, it can be shown to be the probability that <strong>both <span class="arithmatex">\(x\)</span> AND <span class="arithmatex">\(y\)</span> die</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}q_{\overline{x:y}}
@@ -1914,7 +1942,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Recall the intuition for the integration - Life survives till some <span class="arithmatex">\(t\)</span>, then the force of mortality acts on the life at age <span class="arithmatex">\(x+t\)</span>, causing them to die. This is calculated for every possible <span class="arithmatex">\(t\)</span>.</p>
-<p>The last survivor survival probability is the probability that <strong>at least one</strong> survives but the last survivor force is supposed to act on both lives. Thus, similar to the multiplication property, there is a <strong>mismatch in basis</strong>.</p>
+<p>The last survivor survival probability is the probability that <strong>at least one</strong> survives but the last survivor force is supposed to <strong>act on both lives</strong>. Thus, similar to the multiplication property, there is a <strong>mismatch in basis</strong> and thus no formulation exists.</p>
 </div>
 <h4 id="moments_1"><strong>Moments</strong><a class="headerlink" href="#moments_1" title="Permanent link">&para;</a></h4>
 <p>Similarly, the last survivor expectation of life can be calculated as:</p>
@@ -1938,10 +1966,10 @@
 \]</div>
 <p>The intuition is similar to before - the last survivor expectation measures the <strong>expected time till both lives die</strong>:</p>
 <ul>
-<li>The <strong>first time</strong> calculates the probability that both lives die by the smaller maximum age</li>
+<li>The <strong>first term</strong> calculates the probability that both lives die by the smaller maximum age</li>
 <li>One of the lives WILL die by this age while the <strong>other may survive</strong> (different maximum age)</li>
 <li>Thus, there must be an <strong>additional term</strong> to account for the <strong>remaining lifetime</strong> of the surviving life</li>
-<li>The additional term will use the <strong>expectation of a single life</strong> since only one life remains</li>
+<li>The <strong>second term</strong> will use the <strong>expectation of a single life</strong> since only one life remains</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1954,6 +1982,7 @@
     \mathring{e}_{\overline{65:60}}
     = \int^{10}_{0} {}_{t}p_{\overline{60:65}} + \int^{25}_{10} {}_{t}p_{\overline{60}} 
 \]</div>
+<p>There is no need to update the age of the individual in the second term - it is implied via the limits of the integration.</p>
 </div>
 <h3 id="multi-life-relationship"><strong>Multi Life Relationship</strong><a class="headerlink" href="#multi-life-relationship" title="Permanent link">&para;</a></h3>
 <p>There is an interesting relationship between the two life statuses:</p>
@@ -1992,8 +2021,8 @@
     e_{x:y} + e_{\overline{x:y}} &amp;= e_{x} + e_{y}
 \end{aligned}
 \]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The above relationship applies to the second moment, but NOT the variance:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2007,7 +2036,7 @@
     \ne \text{Var}(T_{x}) + \text{Var}(T_{y})
 \end{aligned}
 \]</div>
-<p>This is because Variance is a <strong>non-linear function</strong> of the random variable. The second moment is the expectation (linear) of the squared random variable, which is still a linear transformation of the random variable.</p>
+<p>The second moment is still a <strong>linear function</strong> (expectation), which is why it is valid. The variance is a non-linear function, which is why the relationship no longer applies. </p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2042,7 +2071,7 @@
 <div class="arithmatex">\[
 \begin{aligned}
     T_{x:y} \cdot T_{\overline{x:y}}
-    &amp;= \min (T_{x}, T_{y}) \cdot \max (T_{x}, T_{y})
+    &amp;= \min (T_{x}, T_{y}) \cdot \max (T_{x}, T_{y}) \\
     &amp;= T_{x} \cdot T_{y}   
 \end{aligned}
 \]</div>
@@ -2112,7 +2141,7 @@
 \end{aligned}
 \]</div>
 <h3 id="fractional-ages"><strong>Fractional Ages</strong><a class="headerlink" href="#fractional-ages" title="Permanent link">&para;</a></h3>
-<p>All the typical fractional age assumptions apply in a multi-life setting as well. There is <strong>no need</strong> to memorize a special formula for multi-lives - simply convert the probabilities into their associated single life probabilities and apply the usual conversions.</p>
+<p>The same fractional age assumptions from the single life model apply in a multi-life setting as well. There is <strong>NO need</strong> to memorize a special formula - convert them into single life probabilities and apply the <strong>usual conversions</strong> from there. For instance, if UDD was assumed:</p>
 <p>For instance, if the Uniform Distribution of Deaths was assumed:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2159,6 +2188,7 @@
 <ul>
 <li>Both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> surviving <span class="arithmatex">\(t\)</span> years</li>
 <li>Then the force of mortality acts on <span class="arithmatex">\(x\)</span> <strong>only</strong>, causing only <span class="arithmatex">\(x\)</span> to die</li>
+<li>Thus, <span class="arithmatex">\(x\)</span> dies before <span class="arithmatex">\(y\)</span></li>
 </ul>
 <div class="arithmatex">\[
     {}_{t}q^{1}_{x:y}
@@ -2171,7 +2201,8 @@
 <p>Conversely, the probability of <span class="arithmatex">\(x\)</span> <strong>dying second</strong> can be understood as the following:</p>
 <ul>
 <li><span class="arithmatex">\(y\)</span> dies while <span class="arithmatex">\(x\)</span> survives within <span class="arithmatex">\(t\)</span> years</li>
-<li>Then the force of mortality acts on <span class="arithmatex">\(x\)</span> <strong>only</strong>, causing only <span class="arithmatex">\(x\)</span> to die</li>
+<li>Then the force of mortality acts on <span class="arithmatex">\(x\)</span>, causing only <span class="arithmatex">\(x\)</span> to die as well</li>
+<li>Thus, <span class="arithmatex">\(x\)</span> dies after <span class="arithmatex">\(y\)</span></li>
 </ul>
 <div class="arithmatex">\[
     {}_{t}q^{2}_{x:y}
@@ -2207,7 +2238,7 @@
     {}_{t}q^{1}_{x:y} = {}_{t}q^{\ \ \ 2}_{x:y} + {}_{t}q_{x} \cdot {}_{t}p_{y} 
 \]</div>
 </div>
-<p>One implicit assumption is that the contingent death probabilities <strong>assume that BOTH individuals are alive</strong> at the start of the period. Thus, the deferred probability must account for <strong>BOTH lives surviving till the deferred point</strong> - using the joint life survival probability:</p>
+<p>Similar to last survivor probabilities, it assumes that BOTH individuals are <strong>alive at the start of the period</strong>. Thus, the deferred probability must account for <strong>both lives surviving till the deferred point</strong> (time <span class="arithmatex">\(u\)</span>) and then dying in the specified order within <span class="arithmatex">\(t\)</span> years:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{u \mid t}q^1_{x:y} &amp;= {}_{u}p_{x:y} \cdot {}_{t}q^{1}_{x+u:y+u} \\
@@ -2327,12 +2358,12 @@
     \ne A_{\overline{x:y}} - {}_{n}E_{\overline{x:y}} \cdot A_{\overline{x+n:y+n}}
 \]</div>
 <p>Similar to before, this is due to the <strong>difference in basis</strong> - the second term is on the basis that both lives are alive while the PE term only assumes that at least one will survive (not both).</p>
-<p>This means that even for last survivor TAs, they must be calculated from the joint life version.</p>
+<p>This means that even for last survivor TAs, they <strong>MUST</strong> be calculated from the joint life version.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>That being said, it is still possible for questions to ask for the EPV of a TA of only 2-3 years, requiring manual calculation for each year. Thus,  it is important to take note of the following <strong>quirk</strong> in the last survivor probabilities:</p>
-<p>In the first year, there is <strong>only one way to fail</strong> the last survivor status - both individuals die:</p>
+<p>It is possible for questions to ask for the EPV of a TA with a short duration, requiring manual calculation of the EPV. Thus, it is important to take note of the following <strong>quirk</strong> in last survivor probabilities:</p>
+<p>In the first year, there is <strong>only one way to fail</strong> the last survivor status - both individuals die in the year:</p>
 <div class="arithmatex">\[
     P(K_{\overline{x:y}} = 0) = q_{x} \cdot q_{y}
 \]</div>
@@ -2343,10 +2374,12 @@
 <li>Both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> die in the second year</li>
 </ul>
 <div class="arithmatex">\[
+\begin{aligned}
     P(K_{\overline{x:y}} = 1)
-    = q_{y} \cdot p_{x} q_{x+1}
-    + q_{x} \cdot p_{y} q_{y+1}
-    + p_{x} q_{x+1} \cdot p_{y} q_{y+1} \\
+    &amp;= q_{y} \cdot p_{x} q_{x+1} \\
+    &amp;+ q_{x} \cdot p_{y} q_{y+1} \\
+    &amp;+ p_{x} q_{x+1} \cdot p_{y} q_{y+1}  
+\end{aligned}
 \]</div>
 </div>
 <h3 id="variance"><strong>Variance</strong><a class="headerlink" href="#variance" title="Permanent link">&para;</a></h3>
@@ -2371,13 +2404,35 @@
     &amp;= \left(A_{x} - A_{x:y} \right) \left(A_{y} - A_{x:y} \right)
 \end{aligned}
 \]</div>
-<p>Similar to before, the last survivor components should be calcualted via conversion:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Covariance for annuities are <strong>slightly different</strong>:</p>
 <div class="arithmatex">\[
-    {}^{2}A_{x:y} + {}^{2}A_{\overline{x:y}} = {}^{2}A_{x} + {}^{2}A_{y}
+\begin{aligned}
+    \text{Cov} \left(\bar{a}_{\enclose{actuarial}{T_{x:y}}}, \bar{a}_{\enclose{actuarial}{T_{\overline{x:y}}}} \right)
+    &amp;= \text{Cov} \left(\frac{1-v^{T_{x:y}}}{\delta}, \frac{1-v^{T_{\overline{x:y}}}}{\delta} \right) \\
+    &amp;= \frac{1}{\delta} \cdot \frac{1}{\delta} \text{Cov} \left(1-v^{T_{x:y}}, 1-v^{T_{\overline{x:y}}} \right) \\
+    &amp;= \frac{1}{\delta^2} \cdot \text{Cov} \left(-v^{T_{x:y}}, -v^{T_{\overline{x:y}}} \right) \\
+    &amp;= \frac{1}{\delta^2} \cdot (-1)(-1) \cdot \text{Cov} \left(v^{T_{x:y}}, v^{T_{\overline{x:y}}} \right) \\
+    &amp;= \frac{1}{\delta^2} \cdot \text{Cov} \left(v^{T_{x:y}}, v^{T_{\overline{x:y}}} \right) \\
+    &amp;= \frac{1}{\delta^2} \cdot \left(A_{x} - A_{x:y} \right) \left(A_{y} - A_{x:y} \right)
+\end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The same relationships <strong>apply to annuities as well</strong>. It can be shown that if using the annuity conversion formula, it will simplify to an <strong>analagous expression</strong>.</p>
+<p>The above is consistent with what was covered in FAM-L, where the variance of an annuity is <strong>derived from an assurance</strong>. However, it can be further simplified to reach an <strong>analagous expression</strong> to the assurances:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Cov} \left(\ddot{a}_{\enclose{actuarial}{T_{x:y}}}, \ddot{a}_{\enclose{actuarial}{T_{\overline{x:y}}}} \right)
+    &amp;= \frac{1}{\delta^2} \cdot \left(A_{x} - A_{x:y} \right) \left(A_{y} - A_{x:y} \right) \\
+    &amp;= \frac{1}{\delta^2} \cdot \left(A_{x} - A_{x:y} + 1 - 1 \right) \left(A_{y} - A_{x:y} + 1 - 1 \right) \\
+    &amp;= \frac{1}{\delta^2} \cdot \left[-1 + A_{x} + 1 - A_{x:y} \right] \left[-1 + A_{y} + 1 - A_{x:y} \right] \\
+    &amp;= \frac{1}{\delta^2} \cdot \left[- (1 - A_{x}) + (1 - A_{x:y}) \right] \left[- (1 - A_{y}) + (1 - A_{x:y}) \right] \\
+    &amp;= \frac{1}{\delta^2} \cdot (-1)(-1) \left[(1 - A_{x}) - (1 - A_{x:y}) \right] \left[(1 - A_{y}) - (1 - A_{x:y}) \right] \\
+    &amp;= \frac{\left[(1 - A_{x}) - (1 - A_{x:y}) \right]}{\delta} \frac{\left[(1 - A_{y}) - (1 - A_{x:y}) \right]}{\delta} \\
+    &amp;= \left(\frac{1 - A_{x}}{\delta} - \frac{1 - A_{x:y}}{\delta} \right)
+        - \left(\frac{1 - A_{y}}{\delta} - \frac{1 - A_{x:y}}{\delta} \right) \\
+    &amp;= \left(\bar{a}_{x} - \bar{a}_{x:y} \right) \left(\bar{a}_{y} - \bar{a}_{x:y} \right)
+\end{aligned}
+\]</div>
 </div>
 <h3 id="contingent-assurance"><strong>Contingent Assurance</strong><a class="headerlink" href="#contingent-assurance" title="Permanent link">&para;</a></h3>
 <p>A contingent assurance pays a death benefit upon the death of <span class="arithmatex">\(x\)</span>, depending on <strong>whether <span class="arithmatex">\(y\)</span> is alive or dead at that time</strong>; depending on the <strong>order of death</strong>.</p>
@@ -2408,7 +2463,7 @@
 <li><span class="arithmatex">\(x\)</span> is the <strong>failing life</strong>; life that has to die</li>
 <li><span class="arithmatex">\(y\)</span> is the <strong>annuitant</strong>; life that must stay alive</li>
 </ul>
-<p>A reversionary annuity can be understood as a <strong>deferred annuity</strong> where the deferment period (time where both individuals are alive) is <strong>variable rather than fixed</strong>:</p>
+<p>A reversionary annuity can be understood as a <strong>deferred annuity</strong> where the deferment period is the time where both individuals are alive. The key difference from FAM-L is that this period is now variable, rather than fixed:</p>
 <div class="arithmatex">\[
     \ddot{a}_{x \mid y} = \ddot{a}_{y} - \ddot{a}_{x:y} \\
 \]</div>
@@ -2426,22 +2481,14 @@
 <p><!-- Obtained from Coaching Actuaries -->
 <img alt="Reversionary Annuity 2" class="center" src="../Assets/1.%20Multi%20Life%20Models.md/Reversionary%20Annuity%202.png" /></p>
 </div>
-<p>Another variation of contingent annuities is one that makes payments as long as <strong>only one person is alive</strong> (regardless of which person). Intuitively, this is simply the <strong>combination of two reversionary annuities</strong>:</p>
+<p>Another variation of contingent annuities is one that makes payments as long as <strong>only one person is alive</strong> (<em>regardless</em> of which person). Intuitively, this is simply the <strong>combination of two reversionary annuities</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{EPV Special Contingent Annuity}
+    \text{EPV Annuity Only One Alive}
     &amp;= \ddot{a}_{x \mid y} + \ddot{a}_{y \mid x} \\
     &amp;= \ddot{a}_{y} - \ddot{a}_{x:y} + \ddot{a}_{x} - \ddot{a}_{x:y} \\
-    &amp;= \ddot{a}_{y} + \ddot{a}_{x} - 2 \cdot \ddot{a}_{x:y}
-\end{aligned}
-\]</div>
-<p>Another way of reaching the same conclusion would be to use the following intuition:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \text{EPV Special Contingent Annuity}
-    &amp;= \ddot{a}_{\overline{x:y}} - \ddot{a}_{x:y} \\
-    &amp;= \ddot{a}_{x} + \ddot{a}_{y} - \ddot{a}_{x:y} - \ddot{a}_{x:y} \\
-    &amp;= \ddot{a}_{x} + \ddot{a}_{y} - 2 \cdot \ddot{a}_{x:y}
+    &amp;= (\ddot{a}_{y} + \ddot{a}_{x} - \ddot{a}_{x:y}) - \ddot{a}_{x:y} \\
+    &amp;= \ddot{a}_{\overline{x:y}} - \ddot{a}_{x:y}
 \end{aligned}
 \]</div>
 <!-- Obtained from Coaching Actuaries -->
@@ -2451,7 +2498,7 @@
 <p>Notice that the above is essentially the formula for <strong>'XOR' logic</strong> - only making a payment when either <span class="arithmatex">\(x\)</span> or <span class="arithmatex">\(y\)</span> is alive, but NOT both:</p>
 <p><!-- Obtained from Wikipedia -->
 <img alt="XOR_Diagram" class="center" src="../Assets/1.%20Multi%20Life%20Models.md/XOR_Diagram.png" /></p>
-<p>The corresponding probabilities for exactly one individual living or dying is:</p>
+<p>The same logic can be applied to be probabilities as well:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{P(Exactly One Lives)} &amp;= p_{\overline{x:y}} - p_{x:y} \\  
@@ -2459,6 +2506,28 @@
 \end{aligned}
 \]</div>
 </div>
+<h3 id="approximations"><strong>Approximations</strong><a class="headerlink" href="#approximations" title="Permanent link">&para;</a></h3>
+<p>All the usual approximations from FAM-L to convert an assurance/annuity from payable yearly to more frequently apply in a multi-life setting as well. For instance, consider the woolhouse approximation:d</p>
+<div class="arithmatex">\[
+    \ddot{a}^{(m)}_{x:y} = \ddot{a}_{x:y} - \frac{m-1}{2m}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Whole Life <strong>Last Survivor</strong> annuities can be <strong>converted directly</strong> as well:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ddot{a}^{(m)}_{\overline{x:y}}
+    &amp;= \ddot{a}^{(m)}_{x} + \ddot{a}^{(m)}_{y} - \ddot{a}v_{x:y} \\
+    &amp;= \ddot{a}_{x} - \frac{m-1}{2m} + \ddot{a}_{y} - \frac{m-1}{2m}
+    - (\ddot{a}_{x:y} - \frac{m-1}{2m}) \\
+    &amp;= \ddot{a}_{x} - \frac{m-1}{2m} + \ddot{a}_{y} - \frac{m-1}{2m}
+    - \ddot{a}_{x:y} + \frac{m-1}{2m} \\
+    &amp;= \ddot{a}_{x} + \ddot{a}_{y} - \ddot{a}_{x:y} - \frac{m-1}{2m} \\
+    &amp;= \ddot{a}_{\overline{x:y}} - \frac{m-1}{2m}
+\end{aligned}
+\]</div>
+</div>
+<p>The same rules from FAM-L apply as well - the approximation only works for <strong>whole life</strong> annuities. For any other type of annuity, decompose it into the a combination of whole life annuities then apply the conversion.</p>
 <h3 id="practical-tips"><strong>Practical Tips</strong><a class="headerlink" href="#practical-tips" title="Permanent link">&para;</a></h3>
 <p>Benefit split (Retired actuarial professor)
 Multiplication (YKL)</p>
@@ -2482,7 +2551,7 @@ Multiplication (YKL)</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../2.%20ASA-FAML/8.%20Model%20Estimation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Model Estimation" rel="prev">
+        <a href="../0.%20Written%20Answer%20Presentation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: WA Presentation" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2491,7 +2560,7 @@ Multiplication (YKL)</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Model Estimation
+              WA Presentation
             </div>
           </div>
         </a>

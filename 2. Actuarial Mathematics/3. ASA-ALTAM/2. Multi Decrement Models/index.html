@@ -837,6 +837,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../0.%20Written%20Answer%20Presentation/" class="md-nav__link">
+        WA Presentation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../1.%20Multi%20Life%20Models/" class="md-nav__link">
         Multi Life Models
       </a>
@@ -1025,13 +1039,6 @@
           <li class="md-nav__item">
   <a href="#random-variable" class="md-nav__link">
     Random Variable
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#riders" class="md-nav__link">
-    Riders
   </a>
   
 </li>
@@ -1559,13 +1566,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#riders" class="md-nav__link">
-    Riders
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1713,16 +1713,16 @@
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}q^{(j)}_{x}
-    &amp;= \int {}_{t}q^{(j)}_{x} \cdot \mu^{(j)}_{x+t} \\
-    &amp;= \int {}_{t}q^{(j)}_{x} \cdot c \cdot \mu^{(\tau)}_{x+t} \\
-    &amp;= c \cdot \int {}_{t}q^{(j)}_{x} \mu^{(\tau)}_{x+t} \\
+    &amp;= \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x+t} \\
+    &amp;= \int {}_{t}p^{(\tau)}_{x} \cdot c \cdot \mu^{(\tau)}_{x+t} \\
+    &amp;= c \cdot \int {}_{t}p^{(\tau)}_{x} \mu^{(\tau)}_{x+t} \\
     &amp;= c \cdot {}_{t}q^{(\tau)}_{x}
 \end{aligned}
 \]</div>
 </div>
 <p>Similar to the multi life section, all other results not explicitly covered above are <strong>analagous to their single decrement counterparts</strong>. For most items, simply add the superscript (j) to indicate that the probability is for a particular decrement.</p>
 <h2 id="independent-rates"><strong>Independent Rates</strong><a class="headerlink" href="#independent-rates" title="Permanent link">&para;</a></h2>
-<p>In a multi-decrement setting, there are multiple decrements acting on the policyholder, which are said to be <strong>competing with one another</strong> to terminate the policy. The rates shown so far are known as <strong>Dependent Rates</strong>, which implicitly assumes that the <strong>competition among decrements</strong> has been accounted for.</p>
+<p>In a multi-decrement setting, there are multiple decrements acting on the policyholder, which are said to be <strong>competing with one another</strong> to terminate the policy. The rates shown so far are known as <strong>Dependent Rates</strong>, which implicitly assumes that the <strong>competition among decrements</strong> has <em>already</em> been accounted for.</p>
 <p>Dependent Rates should be used for projection to reflect the true underlying situation. However, decrements are often studied <strong>independently</strong>, resulting in <strong>Independent Rates</strong>:</p>
 <p><center></p>
 <table>
@@ -1999,6 +1999,8 @@
 <p>Decrement 1 and 2 are happening <strong>simultaneously and uniformly</strong> throughout the year. The intuition is that, <strong>on average</strong>, half the population would have been decremented by lapse by before death can act on it; vice-versa.</p>
 <p><!-- Self Made -->
 <img alt="Independent_UDD_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Independent_UDD_Illustration.png" /></p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="Standard_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Standard_Illustration.png" /></p>
 </div>
 <p>Less commonly tested is the <strong>Three Decrement Model</strong>. The proof is similar to above, but much more <strong>tedious</strong> due to the additional product. Thus, it is recommended to memorize the result instead:</p>
 <div class="arithmatex">\[
@@ -2007,10 +2009,8 @@
         - \frac{t}{2} {}_{}q^{'(3)}_{x} + \frac{t}{3} {}_{}q^{'(2)}_{x} {}_{}q^{'(3)}_{x} \right)
 \]</div>
 <h3 id="exact-age-decrements"><strong>Exact Age Decrements</strong><a class="headerlink" href="#exact-age-decrements" title="Permanent link">&para;</a></h3>
-<p>An implicit assumption made so far is that the decrements in question are acting <strong>throughout the year</strong> and are thus <strong>competing throughout the year</strong>. For this section, we assume that decrements follow <strong>Independent UDD</strong> unless otherwise stated:</p>
-<!-- Obtained from Coaching Actuaries -->
-<p><img alt="Standard_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Standard_Illustration.png" /></p>
-<p>However, decrements could instead occur at <strong>exact times</strong>, in which case <strong>no competition</strong> actually takes place, affecting the conversion from independent to dependent rates. Generally speaking, there are three main scenarios to consider:</p>
+<p>In the above UDD section, we have assumed that the decrements are acting <strong>throughout the entire year</strong>. However, decrements could instead occur at <strong>exact times</strong>, in which case <strong>no competition</strong> actually takes place, affecting the conversion from independent to dependent rates.</p>
+<p>Generally speaking, there are three main scenarios to consider:</p>
 <ol>
 <li>Occurs only at the <strong>beginning</strong> of the year</li>
 <li>Occurs only at the <strong>end</strong> of the year</li>
@@ -2095,7 +2095,7 @@
 <div class="arithmatex">\[
     q^{(1)}_{x} = q^{(\tau)}_{x} - q^{(2)}_{x}
 \]</div>
-<p>However, it is possible to solve for the probability directly. Consider the two scenarios:</p>
+<p>However, it is possible to solve for the probability directly. There are <strong>only two scenarios</strong> that the policyholder can fail to decrement 1:</p>
 <ol>
 <li>Policyholder fails to decrement 1 between time <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(s\)</span></li>
 <li>Policyholder survives decrement 1 from till time <span class="arithmatex">\(s\)</span>, survives all of decrement 2 but fails to decrement 1 between time <span class="arithmatex">\(s\)</span> to time <span class="arithmatex">\(1\)</span></li>
@@ -2236,8 +2236,10 @@
     \cdot \left(\sum B_{2} v^{k+1} \cdot {}_{k}p^{(\tau)}_{x} q^{(2)}_{x+k} \right)
 \end{aligned}
 \]</div>
-<h3 id="riders"><strong>Riders</strong><a class="headerlink" href="#riders" title="Permanent link">&para;</a></h3>
-<p>Certain questions may allow for </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The notation for these type of questions are extremely heavy, there is a high tendency to make mistakes as a result.</p>
+</div>
 
 
 
