@@ -962,15 +962,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sum-at-risk" class="md-nav__link">
-    Sum At Risk
+  <a href="#cost-of-insurance" class="md-nav__link">
+    Cost of Insurance
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#death-benefit" class="md-nav__link">
-    Death Benefit
+  <a href="#corridoor-factor" class="md-nav__link">
+    Corridoor Factor
   </a>
   
 </li>
@@ -1321,15 +1321,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sum-at-risk" class="md-nav__link">
-    Sum At Risk
+  <a href="#cost-of-insurance" class="md-nav__link">
+    Cost of Insurance
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#death-benefit" class="md-nav__link">
-    Death Benefit
+  <a href="#corridoor-factor" class="md-nav__link">
+    Corridoor Factor
   </a>
   
 </li>
@@ -1383,11 +1383,7 @@
 <div class="arithmatex">\[
 \begin{aligned}
     \text{AV}_{t}
-    &amp;= (\text{AV}_{t-1} + P - e - \text{COI}_{t})(1 + i^{c}) \\
-    \\
-    \text{COI}_{t}
-    &amp;= (\text{DB} - \text{AV}_{t}) \cdot q^{*}_{x+t-1} \cdot \frac{1}{1 + i^{q}} \\
-    &amp;= \text{ADB} \cdot q^{*}_{x+t-1} \cdot \frac{1}{1 + i^{q}}
+    &amp;= (\text{AV}_{t-1} + P_{t} - E_{t} - \text{COI}_{t})(1 + i^{c}) \\
 \end{aligned}
 \]</div>
 <div class="admonition warning">
@@ -1401,7 +1397,7 @@
 <p>The account is purely <strong>notional</strong> - the insurer does not hold seperate assets for each account; they are kept entirely within the general account of the company. The insurer reviews their  investment return to decide how much interest to credit the UL account.</p>
 <p>Policyholders will receive <strong>account statements</strong> detailing account transactions. This provides <strong>transparency</strong> to the policyholders, allowing them to easily distinguish between the insurance and savings component of the policy.</p>
 </div>
-<h2 id="sum-at-risk"><strong>Sum At Risk</strong><a class="headerlink" href="#sum-at-risk" title="Permanent link">&para;</a></h2>
+<h2 id="cost-of-insurance"><strong>Cost of Insurance</strong><a class="headerlink" href="#cost-of-insurance" title="Permanent link">&para;</a></h2>
 <p>The policy provides two benefits:</p>
 <p><center></p>
 <table>
@@ -1424,49 +1420,100 @@
 </table>
 <p></center></p>
 <p>It is important to understand that these two benefits are mutually exclusive; a policyholder can only receive one of them. Thus, if a <strong>death claim</strong> is made, the <strong>account value</strong> can be used to offset the amount since it is <strong>no longer needed</strong> to pay a potential survival benefit.</p>
-<p>Thus, the amount of insurance coverage provided (amount that the insurer pays out of pocket) is the <strong>difference</strong> between the death benefit and account value, known as the <strong>Sum at Risk</strong> (also known as the <strong>Additional Death Benefit</strong>):</p>
+<p>Thus, the amount of insurance coverage provided (amount that the <strong>insurer pays out of pocket</strong>) is the <strong>difference</strong> between the death benefit and account value, known as the <strong>Sum at Risk</strong> (also known as the <strong>Additional Death Benefit</strong>):</p>
 <div class="arithmatex">\[
-    \text{Sum at Risk} = \text{Death Benefit} - \text{Account Value}
+    \text{SAR} = \text{Death Benefit} - \text{Account Value}
 \]</div>
-<p>The mortality charge is the <strong>pure cost</strong> of providing insurance <strong>for that period</strong> - the <strong>expected outgo</strong> from that benefit. Since the insurer only pays the SAR, the mortality charge is calculated based off it:</p>
+<p>The <strong>Cost of Insurance</strong> (COI) is the cost of providing life insurance coverage equal to the SAR for that one year. It is equal to the <strong>expected outgo</strong> of the SAR:</p>
 <div class="arithmatex">\[
-    \text{Mortality Charge}_{x} = \text{Sum at Risk} \cdot q^{*}_{x+t} \cdot \frac{1}{1+i^{q}}
+    \text{COI}_{t} = \text{SAR} \cdot q^{*}_{x+t-1} \cdot \frac{1}{1 + i^{q}}
 \]</div>
+<p>Intuitively, it is essentially the <strong>pure premium</strong> charged for the insurance, which must be paid at the <strong>start of the period</strong>. However, the actual death cashflow will only be known at the end of the period. Thus, the the amount must be calculated as at the end of the period and <strong>discounted back</strong> to obtain the pure cost.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Since the COI is dependent on the ending account value in that period, it <strong>cannot be calculated separately</strong>. Thus, it is recommended to stick to the <strong>general rollover formula</strong> shared above rather than attempt to calculate the components seperately.</p>
+<p>The discount rate used for <strong>CAN be different</strong> from the credited interest rate. This is why the two have different notations (<span class="arithmatex">\(i^{q}\)</span> and <span class="arithmatex">\(i^{c}\)</span>).</p>
+<p>If not seperately specified, assume that the it follows the credited interest rate.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Intuitively, it is essentially the pure premium charged for the insurance. Premiums must always be paid at the start of the period, thus it is charged at the start.</p>
-<p>However, the actual death cashflow will only be known at the end of the period. Thus, the the amount must be calculated as at the end of the period and <strong>discounted back</strong>.</p>
-<p>The discount rate used for CAN be different from the credited interest rate. This is why the two have different notations (<span class="arithmatex">\(i^{q}\)</span> and <span class="arithmatex">\(i^{c}\)</span>).</p>
-</div>
-<h2 id="death-benefit"><strong>Death Benefit</strong><a class="headerlink" href="#death-benefit" title="Permanent link">&para;</a></h2>
-<p>There are two types of universal life policies in terms of their <strong>Death Benefit</strong> (DB) structure:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the COI is dependent on the AV, which is in turn dependent on the COI; there is a <strong>circular dependency</strong>:</p>
+<p><!-- Self Made -->
+<img alt="COI Circular Reference" class="center" src="../Assets/6.%20Universal%20Life.md/COI_Circular.png" /></p>
+<p>Thus, it is NOT possible to calculate the COI seperately and plugged into the AV calculation. They must be <strong>combined into a one large equation</strong> where the AV is solved for.</p>
+<p>If using excel, setting up the equation will throw a <strong>circular reference error</strong>. There are two ways around this:</p>
 <ul>
-<li><strong>Type A</strong>: Level death benefit; variable sum at risk</li>
-<li><strong>Type B</strong>: Variable death benefit; level sum at risk</li>
+<li>Enable <strong>Iterative Calculations</strong> (Changes Excel behaviour to <strong>accept the loop</strong>)</li>
+<li>Create a <strong>seperate AV variable</strong> and use <strong>Goalseek</strong> to set them equal (<strong>Manually close</strong> the loop)</li>
 </ul>
+<p><!-- Self Made -->
+<img alt="COI_Goalseek" class="center" src="../Assets/6.%20Universal%20Life.md/COI_Goalseek.png" /></p>
+<p>It is <strong>safer to use the second approach</strong> as turning on iterative calculations might have unintended side effects. However, note that the goalseek must be <strong>done for each policy year</strong> and must be <strong>repeated for any change</strong> in the setup.</p>
+</div>
+<h2 id="corridoor-factor"><strong>Corridoor Factor</strong><a class="headerlink" href="#corridoor-factor" title="Permanent link">&para;</a></h2>
+<p>There are two types of universal life policies in terms of their <strong>Death Benefit</strong> (DB) structure:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Type A</strong></th>
+<th align="center"><strong>Type B</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Pre-Defined Death Benefit</td>
+<td align="center">Variable Death Benefit</td>
+</tr>
+<tr>
+<td align="center">Variable SAR</td>
+<td align="center">Fixed SAR</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Since the SAR is fixed for a Type B policy, the COI can therefore be <strong>calculated seperately</strong>, without needing to go through the complicated process described above.</p>
+</div>
 <!-- Obtained from Wall Street Instructors -->
 <p><img alt="UL_Type" class="center" src="../Assets/6.%20Universal%20Life.md/UL_Type.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>The above diagram assumes that the account value will always increase over time. While this is a reasonable expectation, the account value <strong>could decrease</strong> over time as well if insufficient premiums are paid.</p>
 </div>
-<p>Under a Type A plan, the account value could <strong>increase beyond the death benefit</strong>. If the death benefit stays level, the SAR would be negative, which goes against the principles of insurance. Thus, the death benefit <strong>MUST increase proportionally</strong> to the account value - known as a <strong>Corridor Factor</strong>:</p>
+<p>Type A plans have a <strong>pre-defined</strong> account value. If the account value increases beyond the pre-defined amount, then the pre-defined amount <strong>MUST increase proportionally</strong> to the account value. The extent of the increase is guided by a pre-defined <strong>Corridoor Factor</strong> <span class="arithmatex">\((\gamma)\)</span>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Death Benefit}_{c} &amp;= (1 + \gamma) \cdot \text{Account Value} \\
-    \therefore \text{Death Benefit} &amp;= \max (\text{Death Benefit}_{c}, \text{Death Benefit}_{nc})   
+    \text{DB}_{t, c} &amp;= (1 + \gamma) \cdot \text{Account Value} \\
+    \therefore \text{DB}_{t} &amp;= \max (\text{DB}_{t, c}, \text{DB}_{t, nc})   
 \end{aligned}
 \]</div>
-<p>Similar expressions can be found for the other components, but it is much easier to approach these type of situations using first principles.</p>
+<p>Another way of intepreting the corridoor factor is that it is the <strong>MINIMUM ratio</strong> that the death benefit must be larger than the account value <strong>at ALLB  times</strong>:</p>
+<div class="arithmatex">\[
+    \frac{\text{DB}_{t}}{\text{AV}_{t}} \ge \gamma
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Universal Life insurance is sold as a life insurance policy, thus must maintain <strong>significant life insurance coverage</strong> throughout the term of the contract. Thus, the sole purpose of the corridoor factor is to <strong>ensure that there is always SAR</strong> to the insurer.</p>
+</div>
+<p>The presence of a corridoor poses a challenge in terms of how to calculate the account value. This because the target variable (account value) is part of a maximum function. Thus, the following steps must be taken to determine the correct account value:</p>
+<ul>
+<li>Solve for the account value assuming there is <strong>NO corridoor</strong></li>
+<li>Check the ratio of DB to AV</li>
+<li>If <strong>larger than the corridoor</strong>, use the <strong>previously calculated AV</strong> as the final AV for the period</li>
+<li>If <strong>smaller than the corridoor</strong>, recalculate the AV assuming the corridoor applies; use the resulting AV as the final AV for the period</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no need to make any special adjustments needed to accomodate the corridoor in Excel using the <strong>previously stated approach</strong>:</p>
+<p><!-- COI_Goalseek_Corridoor -->
+<img alt="COI_Goalseek_Corridoor" class="center" src="../Assets/6.%20Universal%20Life.md/COI_Goalseek_Corridoor.png" /></p>
+</div>
 <h2 id="surrender-benefit"><strong>Surrender Benefit</strong><a class="headerlink" href="#surrender-benefit" title="Permanent link">&para;</a></h2>
 <p>There are <strong>high acquisition costs</strong> associated with setting up an insurance policy, which is <strong>recovered over the lifetime</strong> of the policy. However, if the policyholder surrenders the policy early on, the insurer loses the opportunity to recover these costs.</p>
 <p>Thus, insurers usually impose a <strong>Surrender Charge</strong> on the policy if the insured surrenders the policy in the first few years from inception. It can either be <strong>pre-determined amount</strong> or <strong>proportional</strong> to the account value. In either case, the charge decreases over time to 0 as the insurer has recovered the costs.</p>
 <div class="arithmatex">\[
-    \text{Surrender Benefit} = \max (0, \text{Account Value} - \text{Surrender Charge})
+    \text{Surrender Benefit} = \max (\text{Account Value} - \text{Surrender Charge}, 0)
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

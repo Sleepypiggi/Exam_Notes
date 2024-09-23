@@ -1741,7 +1741,11 @@
 </div>
 <!-- Obtained from Valuation of Life Insurance Liabilities -->
 <p><img alt="Cashflow_Pattern" class="center" src="../Assets/5.%20Profit%20Testing.md/Cashflow_Pattern.png" /></p>
-<p>To prevent insolvency, the insurer <strong>MUST set up a reserve</strong> (funded from the profits) in the earlier years which can be used to cover the shortfall in premium income in the later years to pay for benefits.</p>
+<p>To prevent insolvency, the insurer <strong>MUST set up a reserve</strong> (funded from the profits) in the earlier years which can be used to <strong>cover the shortfall</strong> in premium income in the later years to pay for benefits. Thus, by holding a reserve, the policy effectively becomes <strong>self-funded</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Without a reserve, the insurer <strong>might not always have the free cash available</strong> to support the years of negative profit, potentially leading to insolvency. This is because the profit from the early years might be distributed to shareholders or reinvested into the company; <strong>no longer available for use</strong>.</p>
+</div>
 <p>In the earlier years, the reserve is being built up (increase in reserve) which <strong>reduces early profits</strong>. Eventually, the reserve will be released (decrease in reserve), <strong>offsetting the negative profits</strong> in the later years.</p>
 <!-- Obtained from Slides -->
 <p><img alt="Reserve_Pattern" class="center" src="../Assets/5.%20Profit%20Testing.md/Reserve_Pattern.png" /></p>
@@ -1971,6 +1975,7 @@
 <p>The complexity of life insurance is that there are two dimensions - <strong>Incidence Probability</strong> (“E”) &amp; <strong>Time Value</strong> of Money (“PV”). The key understanding is that the benefit of the policy is fixed. A policy with $100,000 sum assured will always <strong>at most pay</strong> out $100,000.</p>
 <p>The incidence probability affects the <strong>TIMING of the payment</strong>. Higher incidence probability increases expected benefit in the earlier years and decreases expected payments in the later years. On whole, the expected payment for the policy is still $100,000 - but the benefits are expected to <strong>pay earlier rather than later</strong>.</p>
 <p>The time value of money then affects how these <strong>benefits are valued</strong>. Benefits that emerge earlier are <strong>discounted less</strong>, thus have a higher EPV.</p>
+<p>For an annuity, the key focus is on expected <strong>NUMBER of payments</strong>. The incidence probability decreases the probability of staying in the state, thus lowering the expected number of payments. This is useful for determining the impact on the EPV of Premiums and Expenses.</p>
 </div>
 <h4 id="recursion"><strong>Recursion</strong><a class="headerlink" href="#recursion" title="Permanent link">&para;</a></h4>
 <p>Apart from calculating NPV, one common type of question involves <strong>estimating</strong> the NPV <strong>as at a future valuation date</strong>, given the NPV as at the current date. Consider the cashflows for the NPV on issue versus the NPV one period later:</p>
@@ -2045,44 +2050,40 @@
 <h3 id="pricing"><strong>Pricing</strong><a class="headerlink" href="#pricing" title="Permanent link">&para;</a></h3>
 <p>An alternative method of pricing (compared to the equivalent principle) is to set premiums based on a <strong>target profitability metric</strong>. This is done by leaving the <strong>premium component as a variable</strong> within the profit calculation and solving for it given the desired profitability.</p>
 <h3 id="reserving"><strong>Reserving</strong><a class="headerlink" href="#reserving" title="Permanent link">&para;</a></h3>
-<p>There are two considerations when analyzing profits:</p>
+<p>Apart from hitting the specified profitability metrics, another consideration during profit testing is the <strong>pattern of profits</strong>. As mentioned in the beginning of the section, without a reserve, the typical profit pattern for a life insurance policy is positive in the earlier years while <strong>negative in the later years</strong>, which motivates the reason for holding a reserve.</p>
+<p>Thus, the reserve held should achieve the following outcomes:</p>
 <ul>
-<li><strong>Negative profits in later years</strong> - company recognises positive profits early on, disregarding future losses, potentially leading to <strong>solvency issues</strong></li>
-<li><strong>Negative Profits in early years</strong> - companies want positive profits to emerge as early as possible (more profit on a discounted basis), thus they do <strong>NOT want to hold more reserve than necessary</strong> (which depresses profits)</li>
+<li>Ensure that there are <strong>no negative profits after positive profits</strong> (no negative profits in later years)</li>
+<li>Ensure that positive profits <strong>emerge as soon as possible</strong></li>
 </ul>
-<p>The above two objectives can be achieved by setting the reserves via a process known as <strong>Zeroization</strong>. It sets reserving in a manner that <strong>avoids negative profits in future years</strong> and allows <strong>positive profits to emerge as soon as possible</strong>.</p>
-<p>The reserves are calculated <strong>recursively</strong> starting from the <strong>last policy year</strong>:</p>
+<p>The above objectives can be achieved by holding the <strong>minimum reserves</strong> at each period. This can be achieved by setting the reserves through a process known as <strong>Zeroization</strong>:</p>
 <ul>
-<li>Set the profit emerging from that year to 0; <strong>solve for the required opening reserve</strong></li>
-<li>If the starting reserve is negative, <strong>floor it to 0</strong> instead</li>
-<li>Repeat the process for all other policy years</li>
+<li>Start from the <strong>last policy year</strong></li>
+<li>Solve for the <strong>opening reserve</strong> assuming no profit emerges in the year using the <strong>recursion formula</strong></li>
+<li>If positive, set the opening reserve equal to it</li>
+<li>If negative, set it at zero</li>
+<li>Repeat for all remaining policy years</li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{PR}_{t} &amp;= 0 \\
-    \text{NCF}_{t} + p_{x} \cdot v_{t} - V_{t-1} \cdot (1+i) &amp;= 0 \\
-    V_{t-1} &amp;= \frac{\text{NCF}_{t} + p_{x} \cdot v_{t}}{1+i} \\
+    \text{NCF}_{t} + p_{x} \cdot {}_{t}V - {}_{t-1}V \cdot (1+i) &amp;= 0 \\
+    {}_{t-1}V &amp;= \frac{\text{NCF}_{t} + p_{x} \cdot {}_{t}V}{1+i} \\
     \\
-    \therefore V^{z}_{t-1} &amp;= \max (V_{t-1}, 0)
+    \therefore {}_{t-1}V^{z} &amp;= \max ({}_{t-1}V^{z}, 0)
 \end{aligned}
 \]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Recall that the <strong>ending reserve is always 0</strong>. Thus, this method can always be used as long as the information to calculate the NCFs are provided.</p>
-</div>
+<p>There are a few points to take note of:</p>
+<ul>
+<li>The <strong>expected reserve in the final year is 0</strong> - so this process can always be used given all the underlying net cashflows</li>
+<li>Opening reserve that was solved for will be <strong>used as the ending reserve</strong> in the next policy year of the process</li>
+<li>However, ending reserve used for the next process is the <strong>EXPECTED ending reserve</strong>, thus remember to multiply by the survival probabilities before continuing</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The intuition behind zeroization might not be obvious, so consider the following thought process. The key is understanding that through zeroization, it ensures that every future policy year's reserve is <strong>non-negative</strong>; it will be <strong>floored at 0</strong>.</p>
-<p>If a starting reserve is solved to be negative, it means that the NCF arising from that year is <strong>actually positive</strong>; it needed an increase in reserve (negative to non-negative) to <strong>offset the positive NCF</strong> to force profit to 0. Thus, by setting the starting reserve to 0, it allows the <strong>maximum possible NCF</strong> to be realised as profit.</p>
-<p>An alternative perspective is that a negative reserve implies that all future inflows outweigh the inflows, thus the insurer <strong>does not need to hold a reserve</strong> to pay off future claims; hence it can be set at 0.</p>
+<p>The key intuition is that if the profit arising from that period is <strong>positive</strong>, then there is <strong>no need for a reserve</strong> (recall that the motivation for the reserve is to cover negative profit). If the profit arising is <strong>negative</strong>, then a reserve <strong>exactly equal to the negative profit</strong> is held to ensure it is non-negative.</p>
+<p>What this achieves is that the <strong>absolute minimum reserve is held</strong>; no "extra" reserve that will show up as a profit later on (no negative profits later on achieved). As a result, the <strong>maximum amount of positive profits</strong> from the early years are recognized.</p>
 </div>
-<p>If the question already provides the existing profit cashflows, then the process can be streamlined - there is NO need to perform <em>all</em> the calculations top down. The key is to understand the main intuition that if the NCF from the year is positive, then the starting reserve can be <strong>set at 0 without calculation</strong>.</p>
-<p>Similarly, start <strong>recursively</strong> from the last policy year:</p>
-<ul>
-<li>If the NCF is positive, set the opening reserve to 0</li>
-<li>If the NCF if negative, then perform the bottom up calculation to determine the reserve</li>
-<li>Repeat for all other policy years</li>
-</ul>
 <h2 id="actual-profits"><strong>Actual Profits</strong><a class="headerlink" href="#actual-profits" title="Permanent link">&para;</a></h2>
 <p>If actual experience follows the assumptions exactly, the expected profit will materialize into <strong>Actual Profits</strong>. In reality, this is unlikely to occur, leading to deviation between the two. The difference is known as the <strong>Gain</strong> or <strong>Loss</strong> of the policy:</p>
 <div class="arithmatex">\[
