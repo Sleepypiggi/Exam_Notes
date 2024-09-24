@@ -2506,7 +2506,8 @@
 <div class="arithmatex">\[
 \begin{aligned}
     \frac{d}{dt} {}_{t}V^{i}
-    &amp;= \delta_{t} \cdot {}_{t}V^{i} - \underbrace{\left(B_{t}^{i} + e_{t}^{i} - P_{t}^{i} \right)}_{B}
+    &amp;= \delta_{t} \cdot {}_{t}V^{i}
+    - \underbrace{\left(B_{t}^{i} + e_{t}^{i} - P_{t}^{i} \right)}_{\text{Net In-State Outgo}}
     - \sum_{j \ne i} \mu^{ij}_{x}(t) \cdot (b^{ij} + {}_{t}V^{j} - {}_{t}V^{i})
 \end{aligned}
 \]</div>
@@ -2517,7 +2518,7 @@
 <p>Similar to before, the DE is trying to <strong>approximate the change in the reserve</strong>:</p>
 <ul>
 <li>Reserve <strong>earns interest</strong></li>
-<li><strong>Released</strong> to pay off expected benefits (while in state &amp; upon transition)</li>
+<li><strong>Released</strong> to pay off expected <em>net</em> benefits and expenses (while in state &amp; upon transition)</li>
 <li>Form a new reserve for <em>every possible</em> resulting state</li>
 </ul>
 <div class="admonition warning">
