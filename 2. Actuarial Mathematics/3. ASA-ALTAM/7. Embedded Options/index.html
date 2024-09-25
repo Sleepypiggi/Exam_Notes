@@ -1050,6 +1050,26 @@
     Hedging
   </a>
   
+    <nav class="md-nav" aria-label="Hedging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#externally" class="md-nav__link">
+    Externally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internally" class="md-nav__link">
+    Internally
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1497,6 +1517,26 @@
     Hedging
   </a>
   
+    <nav class="md-nav" aria-label="Hedging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#externally" class="md-nav__link">
+    Externally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internally" class="md-nav__link">
+    Internally
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1660,7 +1700,7 @@
     \text{Death Benefit} = \text{Surrender Benefit} = \text{Account Value}
 \]</div>
 <p>However, due to the <strong>volatile nature</strong> of investing, some policyholders could end up with <strong>low fund values</strong> and hence low coverage. Thus, most policies offer a <strong>guaranteed minimum benefit</strong> that will kick in <strong>if the account value is below a certain threshold</strong>.</p>
-<p>The most common variation is to offer a guaranteed minimum benefit based on some multiple <span class="arithmatex">\(\lambda\)</span> of the <strong>premiums paid to date</strong>:</p>
+<p>The most common variation is to offer a <strong>guaranteed minimum benefit</strong> based on some multiple <span class="arithmatex">\(\lambda\)</span> of the <strong>premiums paid to date</strong>:</p>
 <div class="arithmatex">\[
      \text{Minimum Benefit} = \text{Lambda} \cdot \text{Premium Paid to Date}
 \]</div>
@@ -1675,6 +1715,11 @@
     \end{cases} \\
     &amp;= \max (\text{AV}, \text{GB})
 \end{aligned}
+\]</div>
+<p>Thus, similar to UL policies, the insurer does not pay the full benefit amount - they pay the <strong>shortfall</strong> of the account value compared to the guarantee.</p>
+<p>Conceptually, this is analogous to the COI - which is why it is known as the <strong>Cost of Guarantees</strong> (COG).</p>
+<div class="arithmatex">\[
+    \text{COG} = \max(\text{GB} - \text{FV}) \cdot q_{x}
 \]</div>
 <h2 id="embedded-options_1"><strong>Embedded Options</strong><a class="headerlink" href="#embedded-options_1" title="Permanent link">&para;</a></h2>
 <p>With some manipulation, the above expression for policy benefit can be expressed in the form a <strong>European Put Option Payoff</strong>:</p>
@@ -1734,33 +1779,35 @@
 <p class="admonition-title">Warning</p>
 <p>Some questions might provide the monthly rates instead of annual rates - do not blindly apply the formulas.</p>
 </div>
-<p>Thus, the <strong>embedded option payoff</strong> <span class="arithmatex">\(h(t)\)</span> can be expressed as the following:</p>
+<p>The payoff of the option <em>on maturity</em> is denoted as <span class="arithmatex">\(h(n)\)</span> and can be expressed as the following:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    h(t)
-    &amp;= \max (\text{GB} - \text{AV}_{n}, 0) \\
-    &amp;= \max  \left(\lambda P - P \cdot \xi \cdot \frac{S_{n}}{S_{0}} \right) \\
-    &amp;= P \xi \cdot \max \left(\frac{\lambda}{\xi} - \frac{S_{n}}{S_{0}} \right)
+    h(n)
+    &amp;= \max (\text{GB} - \text{AV}_{t}, 0) \\
+    &amp;= \max  \left(\lambda P - P \cdot \xi \cdot \frac{S_{n}}{S_{0}}, 0 \right) \\
+    &amp;= P \xi \cdot \max \left(\frac{\lambda}{\xi} - \frac{S_{n}}{S_{0}}, 0 \right) \\
+    &amp;= P \xi \cdot \max \left(\frac{\lambda}{\xi} - S_{n}, 0 \right) \\
+    &amp;= P \xi \cdot \max \left(K^{*} - S_{n}, 0 \right) \\    
 \end{aligned}
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The above can be intepreted as requiring <span class="arithmatex">\(P \xi\)</span> put options with strike price <span class="arithmatex">\(\frac{\lambda}{\xi}\)</span>.</p>
+<p>The above can be intepreted as requiring <span class="arithmatex">\(P \xi\)</span> european put options with strike price <span class="arithmatex">\(\frac{\lambda}{\xi}\)</span>.</p>
 </div>
-<p>Using the Black Scholes Merton framework, the price (value) of <strong>ONE</strong> of the above put options <strong>on inception</strong> can be expressed as:</p>
+<p>Under the Black Scholes Merton framework, the value of <strong>ONE</strong> of the above european put options <strong>on inception</strong> is the <strong>risk neutral expected present value</strong> of the payoff:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    P(0)
-    &amp;= \frac{\lambda}{\xi} \cdot e^{-rn} \Phi [-d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \\
+    p(0)
+    &amp;= e^{-rn} \cdot E^{Q}_{t} \left[\max (K^{*} - S_{n}, 0) \right] \\
+    &amp;= e^{-rn} \cdot \left(K^{*} \cdot \Phi [- d_{2}(0)] - S_{n} \cdot \Phi [-d_{1}(0)] \right) \\
+    &amp;= K^{*} e^{-rn} \Phi [- d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \\
     \\
     d_{1}(0)
-    &amp;= \frac{\ln \frac{S_{0}}{\frac{\lambda}{\xi}} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
-    &amp;= \frac{\ln \frac{S_{0} \xi}{\lambda} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= \frac{\ln \frac{S_{0}}{K} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
     &amp;= d_{2}(0) + \sigma \sqrt{n} \\
     \\
     d_{2}(0)
-    &amp;= \frac{\ln \frac{S_{0}}{\frac{\lambda}{\xi}} + (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
-    &amp;= \frac{\ln \frac{S_{0} \xi}{\lambda}+ (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= \frac{\ln \frac{S_{0}}{K} + (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
     &amp;= d_{1}(0) - \sigma \sqrt{n}
 \end{aligned}
 \]</div>
@@ -1768,32 +1815,45 @@
 <p class="admonition-title">Tip</p>
 <p><span class="arithmatex">\(\Phi(x)\)</span> represents the CDF of the standard normal distribution at <span class="arithmatex">\(x\)</span>. It can be determined via the NORM.S.DIST <strong>Excel Function</strong>.</p>
 </div>
-<p>Thus, the <strong>value of the guarantee</strong> <span class="arithmatex">\(\pi(0)\)</span> must reflect the following items:</p>
-<ul>
-<li><strong>Number</strong> of options needed, <span class="arithmatex">\(P \xi\)</span></li>
-<li><strong>Probability</strong> of surviving till maturity <span class="arithmatex">\({}_{n}P_{x}\)</span></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In practice, investors take <strong>into account risk</strong> when looking for looking for returns (which affects asset prices). For instance, if the risk-free rate is <span class="arithmatex">\(r\)</span>, then investors demand a <strong>risk premium</strong> for that them to take on an <strong>investment with risk</strong>.</p>
+<p>Under a risk neutral basis, it assumes that investors do NOT take into account risk. Thus, assets will be <strong>priced based on the risk free rate</strong>, rather than on risk premiums.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    S_{n} &amp;= S_{0} \cdot e^{\alpha n} = S_{0} \cdot e^{rn} \\
+    \therefore e^{-rn} \cdot S_{n} &amp;= S_{0}
+\end{aligned}
+\]</div>
+</div>
+<p>The <em>value</em> of the <strong>entire embedded option</strong> is the <strong>expected number</strong> of european put options needed on maturity. Thus, the probability of maturing must be accounted for:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \pi(0)
-    &amp;= {}_{n}p_{x} \cdot P \xi \cdot P(0) \\
-    &amp;= {}_{n}p_{x} \cdot P \xi
-        \cdot \left(\frac{\lambda}{\xi} \cdot e^{-rn} \Phi [-d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \right) \\
-    &amp;= {}_{n}p_{x} \cdot P \cdot (\lambda \cdot e^{-rn} \Phi [-d_{2}(0)] - \xi S_{0} \cdot \Phi [-d_{1}(0)])
+    &amp;= {}_{n}p_{x} \cdot P \xi \cdot p(0) \\
+    &amp;= {}_{n}p_{x} \cdot P \xi \cdot \left(K^{*} e^{-rn} \Phi [- d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \right) \\
 \end{aligned}
 \]</div>
-<p>The above is the <strong>price of the guarantee</strong> on inception. From a reserving perspective, the value of the guarantee <strong>at a specified time</strong> is required:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since <span class="arithmatex">\(T_{x}\)</span> and <span class="arithmatex">\(S_{x}\)</span> are <strong>independent</strong> processes, the risk neutral expectation ("Q") of future lifetime is equivalent to the true ("P") probabilities.</p>
+<div class="arithmatex">\[
+    E^{Q}(T_{x} \gt n) = E^{P}(T_{x} \gt n) = {}_{10}p_{x}
+\]</div>
+</div>
+<p>The above can be adjusted to reflect <strong>valuation at any time</strong> <span class="arithmatex">\(t\)</span>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \pi(t)
-    &amp;= {}_{n-t}p_{x+t} \cdot P \cdot (\lambda \cdot e^{-r(n-t)} \Phi [-d_{2}(t)] - \xi S_{t} \cdot \Phi [-d_{1}(t)]) \\
+    &amp;= {}_{n-t}p_{x+t} \cdot P \xi \cdot p(t) \\
+    &amp;= {}_{n-t}p_{x+t} \cdot P \xi \cdot \left(K^{*} e^{-r(n-t)} \Phi [-d_{2}(t)] - S_{t} \cdot \Phi [-d_{1}(t)] \right) \\
     \\
     d_{1}(t)
-    &amp;= \frac{\ln \frac{S_{t} \xi}{\lambda} + (r + \frac{1}{2} \sigma^{2}) (n-t)}{\sigma \sqrt{n-t}} \\
+    &amp;= \frac{\ln \frac{S_{t}}{K^{*}} + (r + \frac{1}{2} \sigma^{2}) (n-t)}{\sigma \sqrt{n-t}} \\
     &amp;= d_{2}(t) + \sigma \sqrt{n-t} \\
     \\
     d_{2}(t)
-    &amp;= \frac{\ln \frac{S_{t} \xi}{\lambda}+ (r - \frac{1}{2} \sigma^{2}) (n-t)}{\sigma \sqrt{n-t}} \\
+    &amp;= \frac{\ln \frac{S_{t}}{K^{*}} + (r - \frac{1}{2} \sigma^{2}) (n-t)}{\sigma \sqrt{n-t}} \\
     &amp;= d_{1}(t) - \sigma \sqrt{n-t}
 \end{aligned}
 \]</div>
@@ -1952,13 +2012,24 @@
 <p>If the question specifies a risk premium rate and asks to calculate for the cost of the guarantee, it <strong>might NOT equate</strong> to the cost of the guarantee if it were calculated in a bottom's up manner.</p>
 </div>
 <h3 id="hedging"><strong>Hedging</strong><a class="headerlink" href="#hedging" title="Permanent link">&para;</a></h3>
-<p>Given that the guaranteed benefits follow the payoff of a european put option, the insurer can <strong>completely hedge the risk</strong> by investing in a <strong>replicating portfolio</strong> of stocks and zero-coupon bonds. Whenever the option is exercised, the insurer can <strong>liquidate the replicating portfolio to completely cover</strong> the payoff of the option.</p>
-<p>The intuition can be found in the <strong>Option Greeks</strong> section of exam IFM. However, the actual derivation is <strong>much more complicated</strong> in this case due to the inclusion of probability etc. For the purposes of this exam, it is sufficient to <strong>memorize the formulas</strong> instead.</p>
+<p>Given that the guaranteed benefits follow the payoff of a european put option, the insurer can <strong>perfectly hedge the risk</strong> by either:</p>
+<ol>
+<li>Purchasing a European Put Option with the specified parameters from a third party</li>
+<li>Creating a replicating portfolio of Stocks and Bonds</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Other than making their own replicating portfolio, the insurer can also purchase the put option(s) from a third party with the exact strike price and time to maturity. However, this <strong>may not be feasible</strong> as the options with <em>exact parameters</em> might not exist.</p>
-<p>Similarly, we will only consider hedging GMMBs, as <strong>only one put option</strong> needs to be hedged. For GMDBs, a <strong>set of put options</strong> need to be replicated for each possible period that the policyholder could die.</p>
+<p>Hedging GMMBs only require one put option while a GMDB requires multiple options, one expiring at each year.</p>
 </div>
+<h4 id="externally"><strong>Externally</strong><a class="headerlink" href="#externally" title="Permanent link">&para;</a></h4>
+<p>The first method involves <strong>purchasing</strong> the required options from an <strong>external third party</strong>. The cost of the option(s) are incurred as a <strong>pre-contract expense</strong>.</p>
+<p>With the option, the risk of the guarantee is effectively ceded to the option seller. Thus, the insurer should <strong>not incur any cost of guarantees</strong>.</p>
+<!-- Self Made -->
+<p>TBC Diagram</p>
+<p>The main issue with this approach is the <strong>availability</strong> of the option(s) with the specified parameters (Strike Price &amp; Duration).</p>
+<h4 id="internally"><strong>Internally</strong><a class="headerlink" href="#internally" title="Permanent link">&para;</a></h4>
+<p>Alternatively, the insurer can create a <strong>replicating portfolio</strong> of stocks and zero-coupon bonds that will match the payoff of the required option(s). If the guarantee would be exercised, the insurer can <strong>liquidate</strong> the replicating portfolio to cover the cost.</p>
+<p>The intuition can be found in the <strong>Option Greeks</strong> section of exam IFM. However, the actual derivation is <strong>much more complicated</strong> in this case due to the inclusion of probability etc. For the purposes of this exam, it is sufficient to <strong>memorize the formulas</strong> instead.</p>
 <p>The value of the put option can be decomposed into a portfolio of stocks and bonds:</p>
 <div class="arithmatex">\[
 \begin{aligned}
