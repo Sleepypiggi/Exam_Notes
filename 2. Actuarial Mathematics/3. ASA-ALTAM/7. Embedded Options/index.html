@@ -1867,58 +1867,34 @@
 <p>Note that <span class="arithmatex">\(\xi\)</span> <strong>does NOT</strong> depend on the time to maturity, thus does not need to be changed.</p>
 </div>
 <h3 id="guaranteed-death-benefit"><strong>Guaranteed Death Benefit</strong><a class="headerlink" href="#guaranteed-death-benefit" title="Permanent link">&para;</a></h3>
-<p>The death benefit is paid at an <strong>unknown time</strong> depending on when the policyholder dies. This adds <strong>another layer</strong> to the analysis as the <strong>possibility of death at every possible time</strong> must be considered.</p>
-<p>The value of the guarantee is thus the combination of the following items:</p>
+<p>Unlike the Maturity Benefit which is paid out at a fixed time (end of the policy term), the death benefit is paid out at an <strong>unknown time</strong> (<span class="arithmatex">\(T\)</span>), depending on when the policyholder dies. Thus, the insurer needs <strong>an option for every possible time</strong> that the policyholder could die.</p>
+<p>The expression is the same as before, just that the constant <span class="arithmatex">\(n\)</span> is replaced with the variable <span class="arithmatex">\(T\)</span> to reflect the unknown time of payout:</p>
 <ul>
-<li><strong>Gurantee value</strong> at each possible payout period</li>
-<li><strong>Discount factor</strong> for each of the above</li>
-<li><strong>Probability of payout</strong> (death) for each of the above</li>
+<li>Valuation Time, <span class="arithmatex">\(t\)</span></li>
+<li>Payout Time, <span class="arithmatex">\(T\)</span></li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Notice that the above is analagous to the <strong>triple sumproduct</strong> of the EPV. Both follow the <strong>same intuition</strong>.</p>
-</div>
 <p>The value of the guarantee for <strong>each possible period</strong> <span class="arithmatex">\(n\)</span> can be expressed as the following:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    V(0, n)
-    &amp;= P \xi \cdot P(0, n) \\
+    P(0, T) &amp;= K^{*} \cdot e^{-rT} \Phi [-d_{2}(0, T)] - S_{0} \cdot \Phi [-d_{1}(0, T)] \\
     \\
-    P(0, n)
-    &amp;= \frac{\lambda}{\xi} \cdot e^{-rn} \Phi [-d_{2}(0, n)] - S_{0} \cdot \Phi [-d_{1}(0, n)] \\
+    d_{1}(0, T)
+    &amp;= \frac{\ln \frac{S_{0}}{K^{*}} + (r + \frac{1}{2} \sigma^{2}) T}{\sigma \sqrt{T}} \\
+    &amp;= d_{2}(0, T) + \sigma \sqrt{T} \\
     \\
-    d_{1}(0, n)
-    &amp;= \frac{\ln \frac{S_{0}}{\frac{\lambda}{\xi}} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
-    &amp;= \frac{\ln \frac{S_{0} \xi}{\lambda} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
-    &amp;= d_{2}(0, n) + \sigma \sqrt{n} \\
-    \\
-    d_{2}(0, n)
-    &amp;= \frac{\ln \frac{S_{0}}{\frac{\lambda}{\xi}} + (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
-    &amp;= \frac{\ln \frac{S_{0} \xi}{\lambda}+ (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
-    &amp;= d_{1}(0, n) - \sigma \sqrt{n}
+    d_{2}(0, T)
+    &amp;= \frac{\ln \frac{S_{0}}{K^{*}} + (r - \frac{1}{2} \sigma^{2}) T}{\sigma \sqrt{T}} \\
+    &amp;= d_{1}(0, T) - \sigma \sqrt{T}
 \end{aligned}
 \]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Notice that the option price formula is <strong>exactly the same formula</strong> as before, just that <span class="arithmatex">\(n\)</span> is treated as a <strong>variable rather than a constant</strong>. This is because the time to maturity is known while the time to death is not, thus <strong>all possibilities</strong> are considered.</p>
-</div>
-<p>The value of the guarantee on whole is the <strong>expected value</strong> of the guarantee values in each period:</p>
+<p>The value of the entire embedded option must reflect the expected number of options needed to hedge the risk in each period, <strong>for ALL periods</strong>:</p>
 <div class="arithmatex">\[
-\begin{aligned}
-    \pi(0)
-    &amp;= \int p(0, n) \cdot {}_{n}p_{x} \mu_{x}(t) \\
-    &amp;= \sum P(0, n) \cdot {}_{k \mid}q_{x}
-\end{aligned}
+    \pi(0) = \sum^{n}_{1} P(0, T) \cdot {}_{T-1}p_{x} \cdot q_{x+T-1}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In the previous section, only one period needed to be considered. Thus, the number of options and probability of payout were combined into a single step. However, when considering multiple periods, it is <strong>easier to split</strong> them into two steps instead:</p>
-<ul>
-<li><span class="arithmatex">\(V(0,n)\)</span>: Account for <strong>number of options</strong> needed for each period</li>
-<li><span class="arithmatex">\(\pi(0)\)</span>: Account for <strong>probability</strong> of payment in each period</li>
-</ul>
 </div>
-<p>Similar to before, the above expression can be adjusted to determine the value of the guarantee at a specified period for reserving purposes. It can also be adjusted for benefits that are paid monthly as well.</p>
+<p>Similar to before, the above expression can be adjusted to determine the value of the guarantee at a <strong>specified period</strong> for reserving purposes. It can also be adjusted for benefits that are paid monthly as well.</p>
 <h3 id="funding"><strong>Funding</strong><a class="headerlink" href="#funding" title="Permanent link">&para;</a></h3>
 <p>The cost of the guarantee is passed down to the policyholder in one of two ways:</p>
 <ul>
