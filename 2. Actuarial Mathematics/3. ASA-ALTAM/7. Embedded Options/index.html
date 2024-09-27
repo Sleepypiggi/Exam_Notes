@@ -1054,28 +1054,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#externally" class="md-nav__link">
-    Externally
+  <a href="#external-hedging" class="md-nav__link">
+    External Hedging
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#internally" class="md-nav__link">
-    Internally
+  <a href="#internal-hedging" class="md-nav__link">
+    Internal Hedging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rebalancing" class="md-nav__link">
-    Rebalancing
-  </a>
   
 </li>
         
@@ -1521,28 +1521,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#externally" class="md-nav__link">
-    Externally
+  <a href="#external-hedging" class="md-nav__link">
+    External Hedging
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#internally" class="md-nav__link">
-    Internally
+  <a href="#internal-hedging" class="md-nav__link">
+    Internal Hedging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rebalancing" class="md-nav__link">
-    Rebalancing
-  </a>
   
 </li>
         
@@ -1997,61 +1997,80 @@
 <p class="admonition-title">Note</p>
 <p>Hedging GMMBs only require one put option while a GMDB requires multiple options, one expiring at each year.</p>
 </div>
-<h4 id="externally"><strong>Externally</strong><a class="headerlink" href="#externally" title="Permanent link">&para;</a></h4>
+<h4 id="external-hedging"><strong>External Hedging</strong><a class="headerlink" href="#external-hedging" title="Permanent link">&para;</a></h4>
 <p>The first method involves <strong>purchasing</strong> the required options from an <strong>external third party</strong>. The cost of the option(s) are incurred as a <strong>pre-contract expense</strong>.</p>
 <p>With the option, the risk of the guarantee is effectively ceded to the option seller. Thus, the insurer should <strong>not incur any cost of guarantees</strong>.</p>
-<!-- Self Made -->
-<p>TBC Diagram</p>
 <p>The main issue with this approach is the <strong>availability</strong> of the option(s) with the specified parameters (Strike Price &amp; Duration).</p>
-<h4 id="internally"><strong>Internally</strong><a class="headerlink" href="#internally" title="Permanent link">&para;</a></h4>
-<p>Alternatively, the insurer can create a <strong>replicating portfolio</strong> of stocks and zero-coupon bonds that will match the payoff of the required option(s). If the guarantee would be exercised, the insurer can <strong>liquidate</strong> the replicating portfolio to cover the cost.</p>
-<p>The intuition can be found in the <strong>Option Greeks</strong> section of exam IFM. However, the actual derivation is <strong>much more complicated</strong> in this case due to the inclusion of probability etc. For the purposes of this exam, it is sufficient to <strong>memorize the formulas</strong> instead.</p>
-<p>The value of the put option can be decomposed into a portfolio of stocks and bonds:</p>
+<h4 id="internal-hedging"><strong>Internal Hedging</strong><a class="headerlink" href="#internal-hedging" title="Permanent link">&para;</a></h4>
+<p>Alternatively, the insurer can create a <strong>replicating portfolio</strong> of stocks and zero-coupon bonds that will match the payoff of the required option(s). If the guarantee would be exercised, the insurer will <strong>liquidate</strong> the replicating portfolio to cover the cost.</p>
+<p>Each Put Option can be decomposed into a Stock and Zero-Coupon Bond:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \Delta S_{0} + B_{0}
-    &amp;= \pi(0) \\
+    p(0)
+    &amp;= K^{*} e^{-rn} \Phi [- d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)]
+    &amp;= \text{Bond Value} + S_{0} \cdot \text{Number of Stocks} \\
     \\
-    \Delta S_{0} + B_{0}
-    &amp;=  {}_{n}p_{x} \cdot P \cdot (\lambda \cdot e^{-rn} \Phi [-d_{2}(0)] - \xi S_{0} \cdot \Phi [-d_{1}(0)]) \\
-    \\
-    \therefore \Delta_{t} &amp;= {}_{n}p_{x} \cdot P \cdot \xi \cdot \Phi [-d_{1}(0)] \\
-    \therefore B_{0} &amp;= {}_{n}p_{x} \cdot P \cdot \lambda \cdot e^{-rn} \Phi [-d_{2}(0)]
+    \text{Bond Value} &amp;= K^{*} e^{-rn} \Phi [- d_{2}(0)] \\
+    \text{Number of Stocks} &amp;= - \Phi [-d_{1}(0)]
 \end{aligned}
 \]</div>
-<p>It can be understood more intuitively if expressed slightly differently:</p>
+<p>It can be intepreted as:</p>
+<ul>
+<li>Positive (Negative) Stock Value: <strong>Buy/Sell</strong> that amount of stocks</li>
+<li>Positive (Negative) Bond Value: <strong>Borrow/Lend</strong> that amount of money</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The derivation can be found in the <strong>Option Greeks</strong> section of exam IFM. For the purposes of this exam, it is sufficient to <strong>memorize the formulas</strong> instead.</p>
+</div>
+<p>The replicating portfolio is incurred at the start of the policy as is treated as a <strong>pre-contract expense</strong>. The replicating portfolio <strong>functionally acts as a reserve</strong> for the cost of the policy. Each period, part of the replicating portfolio will be <strong>liquidated</strong> (“released”) to cover the expected guarantee costs for that period.</p>
+<p>The release occurs due to the portfolio needing to <strong>re-balanced</strong> every period:</p>
+<ul>
+<li>The portfolios value changes every period due to <strong>market movement</strong></li>
+<li>It may become <strong>larger/smaller than what is required</strong> for future periods</li>
+<li>Thus, <strong>excesses are released</strong> while shortfalls are incurred as additional rebalancing costs</li>
+</ul>
 <div class="arithmatex">\[
 \begin{aligned}
-    \pi(0)
-    &amp;= {}_{n}p_{x} \cdot P \xi
-        \cdot \left(\frac{\lambda}{\xi} \cdot e^{-rn} \Phi [-d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \right) \\
-    &amp;= \text{Number of Puts} \\
-    &amp;\cdot (\text{Value of Bond per Put} - S_{0} \cdot \text{Number of Stock per Put})
+    \text{Heding Release}_{t}
+    &amp;= \text{Portfolio Before Rebalancing}_{t} - \text{Expected Portfolio Required}_{t} \\
+    \\
+    \text{Portfolio Before Rebalancing}_{t}
+    &amp;= \text{Stock Value}_{t-1} \cdot (1+g) + \text{Bond Value}_{t-1} \cdot (1+r) \\
+    \\
+    \text{Expected Required Portfolio}_{t}
+    &amp;= p_{x+t-1} \cdot \pi(t)
 \end{aligned}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The signs in the above expression represent the act of buying and selling. Thus, the insurer will enter the following positions:</p>
-<ul>
-<li><strong>Short Position</strong> on Stocks (Negative sign)</li>
-<li><strong>Long Position</strong> on Bonds (Positive sign)</li>
-</ul>
+<p>The expected required portfolio for that period is coming from a profit testing perspective, where it assumes all policies are <strong>in-force at the beginning</strong> of the year. Thus, it is similar to a reserve in the sense that the hedge portfolio only needs to be held for those policies in-force at the end of the year.</p>
 </div>
-<h3 id="rebalancing"><strong>Rebalancing</strong><a class="headerlink" href="#rebalancing" title="Permanent link">&para;</a></h3>
-<p>The replicating portfolio set up earlier needs to be <strong>rebalanced</strong> periodically, as the actual experience will <strong>deviate from the assumptions</strong> used. The rebalancing process will <strong>incur costs</strong> and thus should be considered during profit testing as well.</p>
-<p>The rebalancing cost is the difference between the value of assets that:</p>
-<ul>
-<li>Assets he insurer is <strong>currently holding</strong> - <strong>roll forward</strong> from previous period</li>
-<li>Assets the insurer <strong>needs to hold</strong> - calculated <strong>bottom's up</strong></li>
-</ul>
-<div class="arithmatex">\[
-\begin{aligned}
-    \text{Rebalancing Cost}_{t}
-    &amp;= \text{Portfolio}_{t} - \text{Portfolio}_{t-1} \cdot (1 + \growth_{t}) \\
-    &amp;= \text{Portfolio After Rebalancing} - \text{Portfolio Before Rebalancing} 
-\end{aligned}
-\]</div>
-<p>Insert section on profit testing? Based on which decrements to use? TBC after profit testsing.</p>
+<h4 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h4>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">External Hedge</th>
+<th align="center">Internal Hedge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Pre-contract cost to purchase option(s)</td>
+<td align="center">Pre-contract cost to establish portfolio</td>
+</tr>
+<tr>
+<td align="center">No other hedging costs incurred</td>
+<td align="center">Rebalancing Costs Incurred Each Period</td>
+</tr>
+<tr>
+<td align="center">No projectected cost of guarantee</td>
+<td align="center">Cost of guarantee still borne by insurer</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
 <h2 id="variable-annuities"><strong>Variable Annuities</strong><a class="headerlink" href="#variable-annuities" title="Permanent link">&para;</a></h2>
 <p>In the US, rather than having Unit Linked Insurance, they offer <strong>Variable Annuities</strong> instead. They are a form of <strong>Deferred Annuity</strong> where the premiums paid are <strong>invested into a mutual fund</strong> of their choice. At the end of the policy term, they have the option to either:</p>
 <ul>

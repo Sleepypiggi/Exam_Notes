@@ -1090,8 +1090,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#maximum-likelihood-estimation" class="md-nav__link">
-    Maximum Likelihood Estimation
+  <a href="#model-estimation" class="md-nav__link">
+    Model Estimation
   </a>
   
 </li>
@@ -1605,8 +1605,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#maximum-likelihood-estimation" class="md-nav__link">
-    Maximum Likelihood Estimation
+  <a href="#model-estimation" class="md-nav__link">
+    Model Estimation
   </a>
   
 </li>
@@ -1955,8 +1955,78 @@
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Multi_Decrement_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Multi_Decrement_Illustration.png" /></p>
 <p>All multi-state concepts apply to this model as well.</p>
-<h2 id="maximum-likelihood-estimation"><strong>Maximum Likelihood Estimation</strong><a class="headerlink" href="#maximum-likelihood-estimation" title="Permanent link">&para;</a></h2>
-<p>TBC</p>
+<h2 id="model-estimation"><strong>Model Estimation</strong><a class="headerlink" href="#model-estimation" title="Permanent link">&para;</a></h2>
+<p>Similar to FAM-L, the goal of this subsection is to estimate the <strong>Force of Transition</strong> using <strong>Maximum Likelihood Estimation</strong>. Recall that the goal of MLE is to determine the <strong>population parameter</strong> (Force of Transition) that <strong>most likely</strong> resulted in the observed sample.</p>
+<p>Recall that the likelihood function for a single observation is the <strong>PDF of the observation</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    L(\theta \mid x)
+    &amp;= \text{General PDF} \cdot \text{Probability of Observation} \\
+    &amp;= {}_{t}p^{\bar{ii}}_{x} \sum \mu^{i(\tau)}_{x+t} \cdot \frac{\mu^{ij}_{x+t}}{\mu^{i(\tau)}_{x+t}} \\
+    &amp;= {}_{t}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x+t}
+\end{aligned}
+\]</div>
+<p>!!!</p>
+<p>Most questions assume that the <strong>Force of Transition is constant</strong>. Thus, the age of the policyholder does not matter, allowing the above to be expanded to:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    L(\theta \mid x)
+    &amp;= {}_{t}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x+t} \\
+    &amp;= e^{-t \cdot \sum \mu^{i(\tau)}_{x+t}} \cdot \mu^{ij}_{x}
+\end{aligned}
+\]</div>
+<p>Thus, the likelihood function for the entire sample is the <strong>product</strong> of all individual likelihood functions:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    L(\theta)
+    &amp;= \prod L(\theta \mid x) \\
+    &amp;= e^{-T_{i} \cdot \sum \mu^{i(\tau)}_{x+t}} \cdot (\mu^{ij}_{x})^{D_{ij}} \cdot (\mu^{ik}_{x})^{D_{ik}}
+    \cdot e^{-T_{j} \cdot \sum \mu^{j(\tau)}_{x+t}} \cdot (\mu^{jk}_{x})^{D_{jk}} \cdot (\mu^{ji}_{x})^{D_{ji}}
+\end{aligned}
+\]</div>
+<p>The likelihood function can always be simplified into the above, where:</p>
+<ul>
+<li><span class="arithmatex">\(T_{i}\)</span>: <strong>Amount of time</strong> spent in state <span class="arithmatex">\(i\)</span></li>
+<li><span class="arithmatex">\(D_{ij}\)</span>: <strong>Number of transitions</strong> from state <span class="arithmatex">\(i\)</span> to <span class="arithmatex">\(j\)</span></li>
+</ul>
+<p>The log-likehood function can thus be shown to be:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ell(\theta)
+    &amp;= \ln L(\theta) \\
+    &amp;= -T_{i} \cdot \sum \mu^{i(\tau)}_{x+t} -T_{j} \cdot \sum \mu^{j(\tau)}_{x+t} \\
+    &amp;+ D_{ij} \ln \mu^{ij}_{x} + D_{ik} \ln \mu^{ik}_{x} + D_{jk} \ln \mu^{jk}_{x} + D_{ji} \ln \mu^{ji}_{x}
+\end{aligned}
+\]</div>
+<p>The MLE estimate for the forces of transition can be found by <strong>maximizing the log-likelihood function</strong>. Since there are multiple forces involved, the maximum can be found by taking the <strong>partial derivative</strong> with respect to each of the forces:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{\partial}{\partial \mu^{ij}_{x}} &amp;= 0 \\
+    -T_{i} + \frac{D_{ij}}{\hat{\mu}^{ij}_{x}} &amp;= 0 \\
+    \hat{\mu}^{ij}_{x} &amp;= \frac{D_{ij}}{T_{i}}
+\end{aligned}
+\]</div>
+<p>The Variance of the above MLE estimate can be approximated using <strong>Fisher's Information</strong>. The proof is beyond the scope of this exam. It is sufficient to know the following:</p>
+<ul>
+<li>The Asymptotic Variance is the <strong>Inverse of the Fisher's Information Function</strong></li>
+<li>Fisher's Information is the <strong>Expected Value of the Second Partial Derivative</strong></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Var} (\hat{\mu}^{ij}_{x})
+    &amp;= [I(\mu^{ij}_{x})]^{-1} \\
+    &amp;= E_{X} \left[\frac{\partial^{2}}{\partial (\mu^{ij}_{x})^{2}} \right]^{-1} \\
+    &amp;= E_{X} \left[\frac{D^{ij}}{(\hat{\mu}^{ij}_{x})^{2}} \right]^{-1} \\
+    &amp;= \left[\frac{D^{ij}}{(\hat{\mu}^{ij}_{x})^{2}} \right]^{-1} \\
+    &amp;= \frac{(\hat{\mu}^{ij}_{x})^{2}}{D^{ij}} \\
+    &amp;= \frac{\left(\frac{D_{ij}}{T_{i}} \right)^{2}}{D^{ij}} \\
+    &amp;= \frac{D_{ij}}{(T_{i})^{2}}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The expectation is the expectation with regards to random variable <span class="arithmatex">\(X\)</span>. Thus, since none of the components are with respect to <span class="arithmatex">\(X\)</span>, the expectation is simply equivalent to the values themselves.</p>
+</div>
 
 
 
