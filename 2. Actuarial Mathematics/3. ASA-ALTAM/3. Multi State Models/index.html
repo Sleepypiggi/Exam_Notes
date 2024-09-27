@@ -1888,6 +1888,14 @@
     {}_{t}p^{ij}_{x}
     = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot {}_{t-s}p^{\bar{jj}}_{x+s}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above represents the <strong>probability of being in state <span class="arithmatex">\(j\)</span></strong> at time <span class="arithmatex">\(t\)</span>. If more generally asked for the <strong>probability of transitioning</strong> to state <span class="arithmatex">\(j\)</span>, the last term can be dropped:</p>
+<div class="arithmatex">\[
+    {}_{t}p^{ij}_{x}
+    = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s)
+\]</div>
+</div>
 <p>It is also possible to determine the probability of a situation whereby after transitioning, the system <strong>does NOT stay in the same state</strong>:</p>
 <div class="arithmatex">\[
     \text{Prob} = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot (1 - {}_{t-s}p^{\bar{jj}}_{x+s})
