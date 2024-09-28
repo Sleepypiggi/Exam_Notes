@@ -1140,6 +1140,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#post-retirement" class="md-nav__link">
+    Post Retirement
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#health-benefits" class="md-nav__link">
     Health Benefits
   </a>
@@ -1609,6 +1616,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-retirement" class="md-nav__link">
+    Post Retirement
+  </a>
   
 </li>
       
@@ -2141,6 +2155,11 @@
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Contribution_Rates" class="center" src="../Assets/8.%20Pensions.md/Contribution_Rates.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The main reason why the normal cost is needed is to <strong>cover for the additional year of accruals</strong> (due to years of service and/or salary). It is <strong>NOT due to interest or mortality</strong> - if the experience follows as assumed, the current fund value will be sufficient to support the liability at retirement.</p>
+<p>However, since the <strong>retirement benefit increases each year of service</strong>, the <strong>liability increases</strong> which is why there must be an additional normal contribution each period to account for the increase. This is why there are no normal contributions past retirement - because the <strong>retirement benefit is fixed</strong>.</p>
+</div>
 <h3 id="mid-year-retirements"><strong>Mid Year Retirements</strong><a class="headerlink" href="#mid-year-retirements" title="Permanent link">&para;</a></h3>
 <p>Some questions provide a scenario where they assume retirements occur in the middle of ages instead - EG. employees who were supposed to retire at 63 <strong>instead retire at 63.5</strong>.</p>
 <div class="admonition warning">
@@ -2165,6 +2184,22 @@
 <!-- Self Made -->
 <p><img alt="MYE_FUNDING" class="center" src="../Assets/8.%20Pensions.md/MYE_FUNDING.png" /></p>
 <p>Unfortunately, there is no way to easily simplify the above expression to quickly determine the normal contribution. It will require manual calculation via <strong>first principles</strong>.</p>
+<h2 id="post-retirement"><strong>Post Retirement</strong><a class="headerlink" href="#post-retirement" title="Permanent link">&para;</a></h2>
+<p>The normal contribution is <strong>invested into a pension fund</strong>. The goal is that by retirement, the pension program is fully funded - the <strong>fund value is equal to the actuarial liability</strong>.</p>
+<p>During retirement, the pension fund is <strong>drawn down</strong> to pay for the pension benefits as they arise. Thus, the <strong>profit or loss</strong> of the program is the difference between the pension fund and the actuarial liability:</p>
+<ul>
+<li>Pension fund assets may grow at a different rate than what was assumed in liability calculation</li>
+<li>Pension members may have a different mortality than what was experienced</li>
+</ul>
+<p>The key difficulty is determining the pension fund value at a future time, <strong>after taking into account the withdrawals</strong>. The most intuitive method would be to:</p>
+<ol>
+<li>Assume that there are <strong>no withdrawals</strong>, grow the <strong>entire fund</strong> by the growth rate</li>
+<li>Determine the accumulated value of the <strong>withdrawals only</strong> during the time at the assumed growth rate</li>
+<li>Take the <strong>difference</strong> between the two</li>
+</ol>
+<div class="arithmatex">\[
+    \text{FV}_{t+n} = \text{FV}_{t} \cdot (1+g)^{n} - \text{Retirement Benefit} \cdot \ddot{s}_{\enclose{actuarial}{n}} 
+\]</div>
 <h2 id="health-benefits"><strong>Health Benefits</strong><a class="headerlink" href="#health-benefits" title="Permanent link">&para;</a></h2>
 <p>Alongside pensions, employers sometimes also offer <strong>Health Benefits</strong> to their employees in retirement. Operationally, this is done by <strong>sponsoring a health insurance policy</strong> for the employee for as long as they live post retirement.</p>
 <p>Similarly, the goal is to determine how much an employer needs to contribute while an employee is working in order to fund the health benefit.</p>

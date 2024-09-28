@@ -2433,14 +2433,15 @@
     &amp;= \ddot{a}^{\bar{ii}}_{x} - \frac{m-1}{2m} - \frac{m^{2} - 1}{12m^{2}} [\mu^{i \tau}_{x}(t) + \delta]
 \end{aligned}
 \]</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The above is not a typo; there is a different formula for the Soujourn and Non-Sourjourn annuities. Both are provided on the formula sheet.</p>
-</div>
+<p>The above is not a typo; there are <strong>different formulas</strong> for the Soujourn and Non-Sourjourn annuities. Both are provided on the formula sheet.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The above can then be converted into a Continuous or Temporary annuity approximation using the usual methods.</p>
 <p>Despite the non-sojourn annuity having <strong>only two terms</strong>, it is still known as the three term woolhouse approximation. If asked for the two term approximation, <strong>drop the last term</strong>. The approximation simply equal to the existing value.</p>
+<p>One interesting use case is to thus approximate the payable m-thly case from the continuous case using the <strong>two term</strong> approximation:</p>
+<div class="arithmatex">\[
+    \ddot{a}^{(m)ij}_{x} = \ddot{a}^{ij}_{x}
+\]</div>
+<p>This especially relevant for the Standard Sickness Death Model, where the continuous annuity functions are provided. By assuming m=1, the discrete annuity functions can be obtained.</p>
 </div>
 <p><strong>Sojourn</strong> approximations are closest to the typical life annuity covered. Thus, it is expected that the sojourn approximation is <strong>almost identical</strong> to the original approximation.</p>
 <div class="admonition note">
@@ -2536,6 +2537,10 @@
 <li><strong>Big B</strong>: <strong>Rate</strong> of benefit payment <strong>while in</strong> the current state</li>
 <li><strong>Small B</strong>: <strong>Lump Sum</strong> benefit payment <strong>upon transition</strong> into other state</li>
 </ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The reserve item is the <strong>expected CHANGE in reserve</strong> - not just the expected future reserve. Do not confuse this with profit testing basis. </p>
 </div>
 <p>Similarly, the DE can be solved using <strong>Euler's Method</strong>. Thiele's DE usually uses the <strong>backward variation</strong> instead:</p>
 <div class="arithmatex">\[

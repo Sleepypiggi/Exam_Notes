@@ -1080,6 +1080,26 @@
     Multi Life Model
   </a>
   
+    <nav class="md-nav" aria-label="Multi Life Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependence" class="md-nav__link">
+    Dependence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-shock-variation" class="md-nav__link">
+    Common Shock Variation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1093,6 +1113,33 @@
   <a href="#model-estimation" class="md-nav__link">
     Model Estimation
   </a>
+  
+    <nav class="md-nav" aria-label="Model Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variance" class="md-nav__link">
+    Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-interval" class="md-nav__link">
+    Confidence Interval
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probabilities" class="md-nav__link">
+    Probabilities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1595,6 +1642,26 @@
     Multi Life Model
   </a>
   
+    <nav class="md-nav" aria-label="Multi Life Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependence" class="md-nav__link">
+    Dependence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-shock-variation" class="md-nav__link">
+    Common Shock Variation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1608,6 +1675,33 @@
   <a href="#model-estimation" class="md-nav__link">
     Model Estimation
   </a>
+  
+    <nav class="md-nav" aria-label="Model Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variance" class="md-nav__link">
+    Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-interval" class="md-nav__link">
+    Confidence Interval
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probabilities" class="md-nav__link">
+    Probabilities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1899,31 +1993,31 @@
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Worker_Comp_Model" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Worker_Comp_Model.png" /></p>
 <h2 id="multi-life-model"><strong>Multi Life Model</strong><a class="headerlink" href="#multi-life-model" title="Permanent link">&para;</a></h2>
-<p>The multi-life model discussed previously can be expressed in the form of the following multi-state model. Most multi-life questions involve a couple, thus the states can be more easily referred to as:</p>
-<ul>
-<li>Married State (Both alive)</li>
-<li>Widowed State (One Dead)</li>
-</ul>
+<p>The multi-life model discussed previously can be expressed in the form of the following multi-state model:</p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Multi_Life_Multi_State" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Multi_Life_Multi_State.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Just because the model does not have a common shock, it does NOT mean that the lives are independent. Having a common shock is simply <strong>one of the ways</strong> of dependence; no common shock could still mean the lives are <strong>dependent in other ways</strong>:</p>
-<ul>
-<li>Common Shock</li>
-<li>Common Lifestyle</li>
-<li>Broken Heart Syndrome</li>
-</ul>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>One way to check for dependence is to <strong>compare the forces of transition</strong>. Notice that the following pairs of forces are measuring the <strong>same event</strong>:</p>
+<p>For multi-life questions, it is recommended to default to the above model to aid how we think about the problem. It is a common mistake to <strong>forget to consider future possibilities</strong> of only one of the lives being alive; using the model will reduce the chance of this error.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is one key difference when comparing the above model to the usual multi-life probabilities. Consider the following two probabilities:</p>
+<ul>
+<li><span class="arithmatex">\({}_{t}p^{01}_{x:y}\)</span>: Probability that only <span class="arithmatex">\(x\)</span> dies within <span class="arithmatex">\(t\)</span> years ("<span class="arithmatex">\(X\)</span> dies before <span class="arithmatex">\(Y\)</span>")</li>
+<li><span class="arithmatex">\({}_{t}q^{1}_{x:y}\)</span>: Probability that both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> die within <span class="arithmatex">\(t\)</span> years, but <span class="arithmatex">\(X\)</span> dies before <span class="arithmatex">\(Y\)</span></li>
+</ul>
+<p>The confusion comes about because <strong>both are a situation where <span class="arithmatex">\(X\)</span> dies before <span class="arithmatex">\(Y\)</span></strong> but the key difference is <strong>whether or not <span class="arithmatex">\(Y\)</span> dies</strong>.</p>
+</div>
+<h3 id="dependence"><strong>Dependence</strong><a class="headerlink" href="#dependence" title="Permanent link">&para;</a></h3>
+<p>One common question involving this model is to determine whether the future lifetimes are dependent. Even if the model does NOT have a common shock, it is still possible to be <strong>dependent in other ways</strong> (EG. Broken Heart Syndrome, Common Lifestyle).</p>
+<p>The <strong>ONLY</strong> definitive way to determine independence is to compare the forces of transition. The following pairs of forces are measuring the <strong>same event</strong> of either life dying:</p>
 <ul>
 <li>Death of <span class="arithmatex">\(x\)</span>: <span class="arithmatex">\(\mu^{02}\)</span> and <span class="arithmatex">\(\mu^{13}\)</span></li>
 <li>Death of <span class="arithmatex">\(y\)</span>: <span class="arithmatex">\(\mu^{01}\)</span> and <span class="arithmatex">\(\mu^{23}\)</span></li>
 </ul>
-<p>The difference between each pair is whether or not the other life is alive. If the lives are independent, then the presence of the other life <strong>should NOT have an effect</strong> the force of transition; they should be <strong>equal</strong>.</p>
-</div>
+<p>The difference <em>within</em> each pair is whether or not the other life is alive. If the lives are independent, then the presence of the other life <strong>should not matter; the two should be equal</strong>.</p>
+<h3 id="common-shock-variation"><strong>Common Shock Variation</strong><a class="headerlink" href="#common-shock-variation" title="Permanent link">&para;</a></h3>
 <p>If a <strong>Common Shock</strong> is allowed for, there will be an <strong>additional transition</strong> from state 0 to state 3 that could <strong>kill both lives simultaneously</strong>:</p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Common_Shock_Multi_State" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Common_Shock_Multi_State.png" /></p>
@@ -1949,7 +2043,6 @@
 <p>If the two lives are of the same age, the above model can be instead simplified into a <strong>three state model</strong>:</p>
 <!-- Self Made -->
 <p><img alt="Simplified Multi Life" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Simplified_Multi_Life.png" /></p>
-<p>Always default to one of the above models for multi-life questions.</p>
 <h2 id="multi-decrement-model"><strong>Multi-Decrement Model</strong><a class="headerlink" href="#multi-decrement-model" title="Permanent link">&para;</a></h2>
 <p>A multi-decrement model can be expressed as the following multi-state model:</p>
 <!-- Obtained from Coaching Actuaries -->
@@ -1966,13 +2059,12 @@
     &amp;= {}_{t}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x+t}
 \end{aligned}
 \]</div>
-<p>!!!</p>
-<p>Most questions assume that the <strong>Force of Transition is constant</strong>. Thus, the age of the policyholder does not matter, allowing the above to be expanded to:</p>
+<p>Most questions assume that the <strong>Force of Transition is constant</strong> between integer ages. Thus, the <strong>fractional age of the policyholder does not matter</strong>, allowing the above to be expanded to:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     L(\theta \mid x)
-    &amp;= {}_{t}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x+t} \\
-    &amp;= e^{-t \cdot \sum \mu^{i(\tau)}_{x+t}} \cdot \mu^{ij}_{x}
+    &amp;= {}_{t}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x} \\
+    &amp;= e^{-t \cdot \sum \mu^{i(\tau)}_{x}} \cdot \mu^{ij}_{x}
 \end{aligned}
 \]</div>
 <p>Thus, the likelihood function for the entire sample is the <strong>product</strong> of all individual likelihood functions:</p>
@@ -1980,38 +2072,38 @@
 \begin{aligned}
     L(\theta)
     &amp;= \prod L(\theta \mid x) \\
-    &amp;= e^{-T_{i} \cdot \sum \mu^{i(\tau)}_{x+t}} \cdot (\mu^{ij}_{x})^{D_{ij}} \cdot (\mu^{ik}_{x})^{D_{ik}}
-    \cdot e^{-T_{j} \cdot \sum \mu^{j(\tau)}_{x+t}} \cdot (\mu^{jk}_{x})^{D_{jk}} \cdot (\mu^{ji}_{x})^{D_{ji}}
+    &amp;= e^{-T^{i}_{x} \cdot \sum \mu^{i(\tau)}_{x}} \cdot (\mu^{ij}_{x})^{D^{ij}_{x}} \cdot (\mu^{ik}_{x})^{D^{ik}_{x}}
+    \cdot e^{-T^{j}_{x} \cdot \sum \mu^{j(\tau)}_{x}} \cdot (\mu^{jk}_{x})^{D^{jk}_{x}} \cdot (\mu^{ji}_{x})^{D^{ji}_{x}} \\
+    &amp;= e^{-T^{i}_{x} \cdot \sum \mu^{i(\tau)}_{x} - T^{j}_{x} \cdot \sum \mu^{j(\tau)}_{x}}
+    \cdot (\mu^{ij}_{x})^{D^{ij}_{x}} \cdot (\mu^{ik}_{x})^{D^{ik}_{x}}
+    \cdot (\mu^{jk}_{x})^{D^{jk}_{x}} \cdot (\mu^{ji}_{x})^{D^{ji}_{x}}
 \end{aligned}
 \]</div>
 <p>The likelihood function can always be simplified into the above, where:</p>
 <ul>
-<li><span class="arithmatex">\(T_{i}\)</span>: Total <strong>Amount of time</strong> spent in state <span class="arithmatex">\(i\)</span> for ALL individuals</li>
-<li><span class="arithmatex">\(D_{ij}\)</span>: <strong>Number of transitions</strong> from state <span class="arithmatex">\(i\)</span> to <span class="arithmatex">\(j\)</span></li>
+<li><span class="arithmatex">\(T^{i}_{x}\)</span>: Total <strong>observed time spent</strong> in state <span class="arithmatex">\(i\)</span> at age <span class="arithmatex">\(x\)</span></li>
+<li><span class="arithmatex">\(D^{ij}_{x}\)</span>: Total <strong>observed transitions</strong> from state <span class="arithmatex">\(i\)</span> to <span class="arithmatex">\(j\)</span> at age <span class="arithmatex">\(x\)</span></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two things to be aware of:</p>
+<ul>
+<li><strong>Total</strong>: Implies for ALL individuals in the study</li>
+<li><strong>Observed</strong>: Implies starting from <strong>when the study starts</strong></li>
+</ul>
+</div>
 <p>The log-likehood function can thus be shown to be:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \ell(\theta)
     &amp;= \ln L(\theta) \\
-    &amp;= -T_{i} \cdot \sum \mu^{i(\tau)}_{x+t} -T_{j} \cdot \sum \mu^{j(\tau)}_{x+t} \\
-    &amp;+ D_{ij} \ln \mu^{ij}_{x} + D_{ik} \ln \mu^{ik}_{x} + D_{jk} \ln \mu^{jk}_{x} + D_{ji} \ln \mu^{ji}_{x}
-\end{aligned}
-\]</div>
-<p>The MLE estimate for the forces of transition can be found by <strong>maximizing the log-likelihood function</strong>. Since there are multiple forces involved, the maximum can be found by taking the <strong>partial derivative</strong> with respect to each of the forces:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \frac{\partial}{\partial \mu^{ij}_{x}} &amp;= 0 \\
-    -T_{i} + \frac{D_{ij}}{\hat{\mu}^{ij}_{x}} &amp;= 0 \\
-    \\
-    \therefore \hat{\mu}^{ij}_{x}
-    &amp;= \frac{D_{ij}}{T_{i}} \\
-    &amp;= \frac{\text{Number of Transitions To Target State}}{\text{Time Spent In Current State}}
+    &amp;= -T^{i}_{x} \cdot \sum \mu^{i(\tau)}_{x} - T^{j}_{x} \cdot \sum \mu^{j(\tau)}_{x} \\
+    &amp;+ D^{ij}_{x} \ln \mu^{ij}_{x} + D^{ik}_{x} \ln \mu^{ik}_{x} + D^{jk}_{x} \ln \mu^{jk}_{x} + D^{ji}_{x} \ln \mu^{ji}_{x}
 \end{aligned}
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The difficulty is usually calcualating the total amount of time spent. Typically, it is <strong>easier to work backwards</strong> rather than forwards.</p>
+<p>The difficulty is usually calcualating the <strong>observed time spent</strong>. This is especially true when there are multiple people <strong>transitioning back and forth between states</strong>:</p>
 <ul>
 <li>There are <span class="arithmatex">\(n\)</span> people in the state at the start of the year</li>
 <li>3 individuals transitions <strong>out of the state</strong> at time 0.3</li>
@@ -2032,10 +2124,36 @@
 \end{aligned}
 \]</div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There may be odd situations where there are <strong>multiple years</strong> being studied or when the individuals do not start at an intger age. In these cases, it is best to visualize the transitions using a table:</p>
+<p><!-- Self Made -->
+<img alt="MLE_Multiple_Age" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/MLE_Multiple_Age.png" /></p>
+</div>
+<p>The MLE estimate for the forces of transition can be found by <strong>maximizing the log-likelihood function</strong>. Since there are multiple forces involved, the maximum can be found by taking the <strong>partial derivative</strong> with respect to each of the forces:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{\partial}{\partial \mu^{ij}_{x}} &amp;= 0 \\
+    -T^{i}_{x} + \frac{D^{ij}_{x}}{\hat{\mu}^{ij}_{x}} &amp;= 0 \\
+    \\
+    \therefore \hat{\mu}^{ij}_{x}
+    &amp;= \frac{D^{ij}_{x}}{T^{i}_{x}} \\
+    &amp;= \frac{\text{Number of Transitions To Target State}}{\text{Time Spent In Current State}}
+\end{aligned}
+\]</div>
+<p>Generally speaking, estimates are <strong>more reliable given a larger number of data points</strong>. Since most policyholders incept at state 0, estimates for transitions out of state 0 are generally more reliable given the larger pool of experience.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The above formula can be used WITHOUT proof - there is no need to go through the process of deriving the likelihood function.</p>
+<p>The above formula can be used <strong>WITHOUT proof</strong> - there is no need to go through the process of deriving the likelihood function.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The MLE estimates for each of the transition intensities are <strong>independent</strong>. This is because the <strong>cross-derivatives</strong> for each pair of transition intensities are zero:</p>
+<div class="arithmatex">\[
+    \frac{\partial^{2}}{\partial \mu^{ij}_{x} \partial \mu^{jk}_{x}} = 0
+\]</div>
+</div>
+<h3 id="variance"><strong>Variance</strong><a class="headerlink" href="#variance" title="Permanent link">&para;</a></h3>
 <p>The Variance of the above MLE estimate can be approximated using <strong>Fisher's Information</strong>. The proof is beyond the scope of this exam. It is sufficient to know the following:</p>
 <ul>
 <li>The Asymptotic Variance is the <strong>Inverse of the Fisher's Information Function</strong></li>
@@ -2045,26 +2163,51 @@
 \begin{aligned}
     \text{Var} (\hat{\mu}^{ij}_{x})
     &amp;= [I(\mu^{ij}_{x})]^{-1} \\
-    &amp;= E_{X} \left[\frac{\partial^{2}}{\partial (\mu^{ij}_{x})^{2}} \right]^{-1} \\
-    &amp;= E_{X} \left[\frac{D^{ij}}{(\hat{\mu}^{ij}_{x})^{2}} \right]^{-1} \\
-    &amp;= \left[\frac{D^{ij}}{(\hat{\mu}^{ij}_{x})^{2}} \right]^{-1} \\
-    &amp;= \frac{(\hat{\mu}^{ij}_{x})^{2}}{D^{ij}} \\
-    &amp;= \frac{\left(\frac{D_{ij}}{T_{i}} \right)^{2}}{D^{ij}} \\
-    &amp;= \frac{D_{ij}}{(T_{i})^{2}}
+    &amp;= \left(- E \left[\frac{\partial^{2}}{\partial (\mu^{ij}_{x})^{2}} \right] \right)^{-1} \\
+    &amp;= \left(- E \left[- \frac{D^{ij}_{x}}{(\mu^{ij}_{x})^{2}} \right] \right)^{-1} \\
+    &amp;= \left(\frac{E[D^{ij}_{x}]}{(\hat{\mu}^{ij}_{x})^{2}} \right)^{-1} \\
+    &amp;= \frac{(\mu^{ij}_{x})^{2}}{E[D^{ij}_{x}]} \\
+    &amp;= \frac{(\mu^{ij}_{x})^{2}}{D^{ij}_{x}}
 \end{aligned}
 \]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The expectation is the expectation with regards to random variable <span class="arithmatex">\(X\)</span>. Thus, since none of the components are with respect to <span class="arithmatex">\(X\)</span>, the expectation is simply equivalent to the values themselves.</p>
-</div>
+<p>Note that the force of transition in the above is the <strong>ACTUAL</strong> force of transition. It can be approximated using the MLE estimate of the force:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Var} (\hat{\mu}^{ij}_{x})
+    &amp;= \frac{(\mu^{ij}_{x})^{2}}{D^{ij}_{x}} \\
+    &amp;= \frac{\left(\frac{D^{ij}_{x}}{T^{i}_{x}} \right)^{2}}{D^{ij}_{x}} \\
+    &amp;= \frac{D^{ij}_{x}}{(T^{i}_{x})^{2}}
+\end{aligned}
+\]</div>
+<h3 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h3>
 <p>Using the variance of the estimator, the <strong>Linear Confidence Interval</strong> can be derived:</p>
 <div class="arithmatex">\[
-    \hat{mu}^{ij} \pm Z_{\frac{1+\alpha}{2}} \cdot \sqrt{\text{Var} (\hat{\mu}^{ij}_{x})}
+\begin{aligned}
+    \hat{\mu}^{ij}_{x} \pm Z_{\frac{1+\alpha}{2}} \cdot \sqrt{\text{Var} (\hat{\mu}^{ij}_{x})} \\
+    \left(\hat{\mu}^{ij}_{x} + Z_{\frac{1+\alpha}{2}} \cdot \sqrt{\text{Var} (\hat{\mu}^{ij}_{x})},
+    \hat{\mu}^{ij}_{x} - Z_{\frac{1+\alpha}{2}} \cdot \sqrt{\text{Var} (\hat{\mu}^{ij}_{x})} \right)
+\end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Generally speaking, estimates are more reliable given a larger number of data points. Since most policyholders incept at state 0, estimates for transitions out of state 0 are generally more reliable given the larger pool of experience.</p>
-</div>
+<h3 id="probabilities"><strong>Probabilities</strong><a class="headerlink" href="#probabilities" title="Permanent link">&para;</a></h3>
+<p>Recall that the probability of staying in a particular state can be given by:</p>
+<div class="arithmatex">\[
+    {}_{t}p^{\bar{ii}}_{x} = e^{- \mu^{i(\tau)}_{x}}
+\]</div>
+<p>Thus, the MLE estimate of the probability uses the <strong>MLE estimate of the forces exiting the state</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\mu}^{i(\tau)}_{x} &amp;= \sum \hat{\mu}^{ik}_{x} \\
+    \therefore {}_{t}\hat{p}^{\bar{ii}}_{x} &amp;= e^{- \hat{\mu}^{i(\tau)}_{x}}
+\end{aligned}
+\]</div>
+<p>Since the individual MLE estimates are <strong>independent</strong> of another, the variance of the above is simply the <strong>sum of the individual variances</strong>:</p>
+<div class="arithmatex">\[
+    \text{Var} \left(\hat{\mu}^{i(\tau)}_{x} \right) = \sum \text{Var} \left(\hat{\mu}^{ik}_{x} \right)
+\]</div>
+<p>The confidence interval of the probability is the probabilities <strong>computed using the resulting confidence interval of the forces</strong>. This can be applied for any function involving MLE estimates:</p>
+<div class="arithmatex">\[
+    (e^{- \hat{\mu}^{i(\tau)}_{x, \text{Lower Bound}}}, e^{- \hat{\mu}^{i(\tau)}_{x, \text{Upper Bound}}})
+\]</div>
 
 
 
