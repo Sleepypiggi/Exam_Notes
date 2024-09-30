@@ -1465,37 +1465,38 @@
 <td align="center">Variable Death Benefit</td>
 </tr>
 <tr>
-<td align="center">Variable SAR</td>
+<td align="center">Decreasing SAR</td>
 <td align="center">Fixed SAR</td>
 </tr>
 </tbody>
 </table>
 <p></center></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Since the SAR is fixed for a Type B policy, the COI can therefore be <strong>calculated seperately</strong>, without needing to go through the complicated process described above.</p>
-</div>
 <!-- Obtained from Wall Street Instructors -->
 <p><img alt="UL_Type" class="center" src="../Assets/6.%20Universal%20Life.md/UL_Type.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The above diagram assumes that the account value will always increase over time. While this is a reasonable expectation, the account value <strong>could decrease</strong> over time as well if insufficient premiums are paid.</p>
 </div>
-<p>Type A plans have a <strong>pre-defined</strong> account value. If the account value increases beyond the pre-defined amount, then the pre-defined amount <strong>MUST increase proportionally</strong> to the account value. The extent of the increase is guided by a pre-defined <strong>Corridoor Factor</strong> <span class="arithmatex">\((\gamma)\)</span>:</p>
+<p>UL policies are still fundamentally an <strong>insurance</strong> product, not an <strong>investment product</strong>. Thus, the policy must ensure that <strong>significant isurance benefit</strong> is provided. This is achieved via a <strong>Corridoor</strong> (<span class="arithmatex">\(\gamma\)</span>) - which is the <strong>minimum ratio</strong> of the death benefit to the account value:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{DB}_{t, c} &amp;= (1 + \gamma) \cdot \text{Account Value} \\
+    \gamma
+    &amp;= \frac{\text{DB}_{t}}{\text{AV}_{t}} \\
+    &amp;= \frac{\text{AV}_{t} + \text{SAR}_{t}}{\text{AV}_{t}} \\
+    &amp;= 1 + \frac{\text{SAR}_{t}}{\text{AV}_{t}}
+\end{aligned}
+\]</div>
+<p>The corridoor is applicable to <strong>BOTH type A and type B</strong> policies:</p>
+<ul>
+<li>Type A policies tend to be more impacted as the SAR decreases over time, causing it to <strong>fall below the minimum threshold</strong> in the later years</li>
+<li>Type B policies have a fixed SAR, thus are <strong>unlikely to be impacted</strong> unless the account value grows to extremely large size</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{DB}_{t, c} &amp;= (1 + \gamma) \cdot \text{AV}_{t} \\
     \therefore \text{DB}_{t} &amp;= \max (\text{DB}_{t, c}, \text{DB}_{t, nc})   
 \end{aligned}
 \]</div>
-<p>Another way of intepreting the corridoor factor is that it is the <strong>MINIMUM ratio</strong> that the death benefit must be larger than the account value <strong>at ALLB  times</strong>:</p>
-<div class="arithmatex">\[
-    \frac{\text{DB}_{t}}{\text{AV}_{t}} \ge \gamma
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Universal Life insurance is sold as a life insurance policy, thus must maintain <strong>significant life insurance coverage</strong> throughout the term of the contract. Thus, the sole purpose of the corridoor factor is to <strong>ensure that there is always SAR</strong> to the insurer.</p>
-</div>
 <p>The presence of a corridoor poses a challenge in terms of how to calculate the account value. This because the target variable (account value) is part of a maximum function. Thus, the following steps must be taken to determine the correct account value:</p>
 <ul>
 <li>Solve for the account value assuming there is <strong>NO corridoor</strong></li>

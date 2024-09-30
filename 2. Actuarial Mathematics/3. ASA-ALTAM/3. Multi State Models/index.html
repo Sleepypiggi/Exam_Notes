@@ -969,8 +969,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#direct-method" class="md-nav__link">
-    Direct Method
+  <a href="#direct-transitions" class="md-nav__link">
+    Direct Transitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indirect-transitions" class="md-nav__link">
+    Indirect Transitions
   </a>
   
 </li>
@@ -1505,8 +1512,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#direct-method" class="md-nav__link">
-    Direct Method
+  <a href="#direct-transitions" class="md-nav__link">
+    Direct Transitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indirect-transitions" class="md-nav__link">
+    Indirect Transitions
   </a>
   
 </li>
@@ -1858,7 +1872,7 @@
 <p class="admonition-title">Note</p>
 <p>This implicitly assumes that only <strong>ONE transition</strong> can occur in a small period of time.</p>
 </div>
-<h3 id="direct-method"><strong>Direct Method</strong><a class="headerlink" href="#direct-method" title="Permanent link">&para;</a></h3>
+<h3 id="direct-transitions"><strong>Direct Transitions</strong><a class="headerlink" href="#direct-transitions" title="Permanent link">&para;</a></h3>
 <p>The <strong>probability of staying in the same state</strong> can thus be calculated as follows:</p>
 <div class="arithmatex">\[
     {}_{t}p^{\bar{ii}}_{x} = e^{- \int \mu^{i \tau}_{x}(t)}
@@ -1888,29 +1902,39 @@
     {}_{t}p^{ij}_{x}
     = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot {}_{t-s}p^{\bar{jj}}_{x+s}
 \]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The above represents the <strong>probability of being in state <span class="arithmatex">\(j\)</span></strong> at time <span class="arithmatex">\(t\)</span>. If more generally asked for the <strong>probability of transitioning</strong> to state <span class="arithmatex">\(j\)</span>, the last term can be dropped:</p>
+<p>If the target state is absorbing, then the probability of staying in that state is always 1. Thus, the <strong>last term can be dropped</strong> in that scenario.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Using the same principles, it is possible to determine the probability of the system transitioning into state <span class="arithmatex">\(j\)</span> and then transitioning out before time <span class="arithmatex">\(t\)</span>:</p>
 <div class="arithmatex">\[
-    {}_{t}p^{ij}_{x}
+    \text{Probability Transition In then Out}
+    = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot (1 - {}_{t-s}p^{\bar{jj}}_{x+s})
+\]</div>
+<p>Similarly, the probability of just transitioning, regardless of the state at time <span class="arithmatex">\(t\)</span> is simply the first two terms:</p>
+<div class="arithmatex">\[
+    \text{Probability Transition Only}
     = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s)
 \]</div>
 </div>
-<p>It is also possible to determine the probability of a situation whereby after transitioning, the system <strong>does NOT stay in the same state</strong>:</p>
-<div class="arithmatex">\[
-    \text{Prob} = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot (1 - {}_{t-s}p^{\bar{jj}}_{x+s})
-\]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The above assumes that there is only <strong>ONE WAY</strong> of transitioning - <strong>directly</strong> from state <span class="arithmatex">\(i\)</span> to state <span class="arithmatex">\(j\)</span>. If there are <strong>multiple ways to transition</strong>, it may be easier to take another approach.</p>
-<p><!-- Obtained from ALTAM textbook -->
-<img alt="Perm Disability" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Perm%20Disability%20Model.png" /></p>
-<p>There are <strong>two ways</strong> to transition from state 0 to state 2:</p>
+<h3 id="indirect-transitions"><strong>Indirect Transitions</strong><a class="headerlink" href="#indirect-transitions" title="Permanent link">&para;</a></h3>
+<p>The above assumes that there is only <strong>ONE WAY</strong> of transitioning - <strong>directly</strong> from state <span class="arithmatex">\(i\)</span> to state <span class="arithmatex">\(j\)</span>. Consider a model where there <strong>multiple ways to transition</strong>:</p>
 <ol>
 <li><strong>Direct transition</strong> from state 0 to 2 (State 0 &gt; State 2)</li>
 <li><strong>Indirect transition</strong> via state 1 (State 0 &gt; State 1 &gt; State 2)</li>
 </ol>
-<p>The problem is in the second component. While it may be possible to derive an expression via first principles, it is generally not worth the time to do so. It easier to take the <strong>complement</strong> of the remaining direct transitions:</p>
+<!-- Obtained from ALTAM textbook -->
+<p><img alt="Perm Disability" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Perm%20Disability%20Model.png" /></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Indirect Transition 02}
+    &amp;= \int^{t}_{0} {}_{s}p^{01}_{x} \mu^{12}_{x+s} {}_{t-s}p^{\bar{22}}_{x+t}
+    &amp;= \int^{t}_{0} {}_{s}p^{01}_{x} \mu^{12}_{x+s} \\
+    &amp;= \int^{t}_{0} {}_{s}p^{00}_{x} \mu^{12}_{x+s} \mu^{12}_{x+s} \\
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above is based on a simplified example where the target state is absorbing. Generally, it is much easier to just use the <strong>complement</strong> for such cases:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}p^{00}_{x} + {}_{t}p^{01}_{x} + {}_{t}p^{02}_{x} &amp;= 1 \\
@@ -2522,7 +2546,12 @@
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If one of the target states is absorbing (EG. Death), then the reserve for that state is 0 as there are no more future payments.</p>
+<p>If one of the target states is absorbing (EG. Death), then the <strong>reserve for that state is 0</strong> as there are no more future payments.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One implicit assumption made is that the reserve is computed before receiving premiums. If the question states that the basis is after premiums, <strong>add the premiums to the opening reserve INSTEAD</strong>.</p>
+<p>The difference is material as it affects whether or not the premiums earn interest.</p>
 </div>
 <p>Similar to before, the DE is trying to <strong>approximate the change in the reserve</strong>:</p>
 <ul>

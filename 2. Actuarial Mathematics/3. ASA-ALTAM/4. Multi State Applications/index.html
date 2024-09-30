@@ -1936,7 +1936,7 @@
 <p>The <strong>definition</strong> of CI varies from insurer to insurer, but most insurers cover a basic set of illnesses such as Heart Attack, Stroke, Major Organ Failure and most common forms of Cancer.</p>
 <h3 id="product-features_3"><strong>Product Features</strong><a class="headerlink" href="#product-features_3" title="Permanent link">&para;</a></h3>
 <p><strong>Premiums</strong> are usually guaranteed and level throughout the policy term, <strong>payable regularly</strong> as long as the insured is <strong>healthy</strong>.</p>
-<p>A <strong>lump sum benefit</strong> is payable when the insured becomes diagosed with a CI. The <strong>benefit ceases</strong> once the benefit has been paid - but the policy <strong>does not necessarily lapse</strong> as a death benefit may be payable as well.</p>
+<p>An additional <strong>lump sum benefit</strong> is payable when the insured becomes diagosed with a CI. The <strong>benefit ceases</strong> once the benefit has been paid - but the policy <strong>does not necessarily lapse</strong> as a death benefit may be payable as well.</p>
 <p>Unlike LTCI, CII main plans themselve could offer a partial <strong>Return of Premium</strong> feature if the policy expires or lapses with no benefits paid.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2050,7 +2050,7 @@
 <p>All multi-state concepts apply to this model as well.</p>
 <h2 id="model-estimation"><strong>Model Estimation</strong><a class="headerlink" href="#model-estimation" title="Permanent link">&para;</a></h2>
 <p>Similar to FAM-L, the goal of this subsection is to estimate the <strong>Force of Transition</strong> using <strong>Maximum Likelihood Estimation</strong>. Recall that the goal of MLE is to determine the <strong>population parameter</strong> (Force of Transition) that <strong>most likely</strong> resulted in the observed sample.</p>
-<p>Recall that the likelihood function for a single observation is the <strong>PDF of the observation</strong>:</p>
+<p>Recall that the likelihood function is the <strong>joint probability density</strong> of all observtions (assuming sample is iid). Thus, each observation <strong>contributes its probability density</strong> to the likelihood:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     L(\theta \mid x)
@@ -2101,29 +2101,6 @@
     &amp;+ D^{ij}_{x} \ln \mu^{ij}_{x} + D^{ik}_{x} \ln \mu^{ik}_{x} + D^{jk}_{x} \ln \mu^{jk}_{x} + D^{ji}_{x} \ln \mu^{ji}_{x}
 \end{aligned}
 \]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The difficulty is usually calcualating the <strong>observed time spent</strong>. This is especially true when there are multiple people <strong>transitioning back and forth between states</strong>:</p>
-<ul>
-<li>There are <span class="arithmatex">\(n\)</span> people in the state at the start of the year</li>
-<li>3 individuals transitions <strong>out of the state</strong> at time 0.3</li>
-<li>5 individuals transitions <strong>into the state</strong> at time 0.8</li>
-</ul>
-<p>Assume no transitions occurred:</p>
-<ul>
-<li>The total amount of time spent in the state would be <span class="arithmatex">\(n\)</span> years. This will be used as the base for adjustments</li>
-<li>The 3 individuals would have spent a total of 3 years; but since they <strong>transitioned out</strong> at time 0.3, the remaining 0.7 years must be <strong>subtracted from the time spent</strong></li>
-<li>The 5 individuals would have spent no time in the state; but since they <strong>transitioned in</strong> at time 0.8, the remaining 0.2 years must be <strong>added to the time spent</strong></li>
-</ul>
-<div class="arithmatex">\[
-\begin{aligned}
-    \text{Time Spent} 
-    &amp;= \text{Base} \\
-    &amp;- \text{Remaining Transitions Out} \\
-    &amp;+ \text{Remaining Transitions In} \\    
-\end{aligned}
-\]</div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There may be odd situations where there are <strong>multiple years</strong> being studied or when the individuals do not start at an intger age. In these cases, it is best to visualize the transitions using a table:</p>
