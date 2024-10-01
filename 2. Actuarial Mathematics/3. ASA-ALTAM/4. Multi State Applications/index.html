@@ -1743,7 +1743,6 @@
 </div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="DII_Illustration" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/DII_Illustration.png" /></p>
-<p>However, there could be instances where being counted towards the same instance could result in more payments</p>
 <p>The <strong>magnitude of benefit</strong> is dependent on the type of coverage purchased. The more likely the coverage is to be claimed, the lower the benefit:</p>
 <ul>
 <li><strong>Total Disability</strong>: Unable to perform <em>any</em> job; unable to earn any income</li>
@@ -1773,7 +1772,7 @@
 <p class="admonition-title">Note</p>
 <p>Recalled that a deferred annuity can be expressed as the difference between a life annuity and an <strong>annuity certain</strong> equal to the deferral period:</p>
 <div class="arithmatex">\[
-    {}_{w \mid}\bar{a}_{x:\enclose{actuarial}{n-w}}
+    {}_{w \mid}\bar{a}_{x:\enclose{actuarial}{n}}
     = \bar{a}_{x:\enclose{actuarial}{n}} - \bar{a}_{\enclose{actuarial}{w}}
 \]</div>
 <p>Note that the term for the deferred annuity expression is <strong>less the deferral period</strong>.</p>
@@ -1949,17 +1948,18 @@
 <li><strong>No balance left</strong>: CI benefit <strong>fully accelerated</strong> the DB; <strong>nothing payable left</strong> thus policy lapses</li>
 </ul>
 <h3 id="modelling_3"><strong>Modelling</strong><a class="headerlink" href="#modelling_3" title="Permanent link">&para;</a></h3>
-<p>CII can be modelled using the following 3 state model:</p>
-<ol>
-<li><strong>State 0</strong>: Healthy</li>
-<li><strong>State 1</strong>: Critically Ill</li>
-<li><strong>State 2</strong>: Dead</li>
-</ol>
+<p>CII can be modelled using any of the following models:</p>
+<ul>
+<li><strong>Model 1</strong>: CI Benefits are <strong>fully accelerated</strong></li>
+<li><strong>Model 2</strong>: CI Benefits are <strong>partially accelerated</strong></li>
+<li><strong>Model 3</strong>: CI Benefits as an <strong>additional lump sum</strong></li>
+</ul>
+<p>The key is remembering that policy <strong>does NOT terminate</strong> upon being diagnosed with CI. Thus, the policy will still hold a reserve for the remaining death benefit. </p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="CI_Model" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/CI_Model.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The policy <strong>does NOT terminate</strong> upon being diagnosed with CI. Thus, the policy will still hold a reserve for the remaining death benefit. </p>
+<p>Technically, any of the models can be used for any of the type of CI with the correct set up. The proposed models above are the models that best suit the structure.</p>
 </div>
 <h2 id="structured-settlements"><strong>Structured Settlements</strong><a class="headerlink" href="#structured-settlements" title="Permanent link">&para;</a></h2>
 <p>Structured Settlements are an arrangement in a <strong>liability case</strong>, where the <strong>Responsible Party</strong> (RP) must compensate the <strong>Injured Party</strong> (IP). Compensation typically comes in the form of an <strong>annuity</strong> in order to replace the <strong>loss of income</strong> as a result of the accident.</p>

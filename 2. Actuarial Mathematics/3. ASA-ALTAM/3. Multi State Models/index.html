@@ -1656,7 +1656,7 @@
 
 <h1 id="multi-state-models"><strong>Multi State Models</strong><a class="headerlink" href="#multi-state-models" title="Permanent link">&para;</a></h1>
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>In FAM-L, we only considered simple contracts that paid a benefit upon the death or survival of the policyholder. In reality, more complicated contracts exist:</p>
+<p>In FAM-L, we only considered simple contracts that paid a benefit <strong>upon</strong> the death or survival of the policyholder. In reality, more complicated contracts exist:</p>
 <ul>
 <li>Paying a stream of benefits while the policyholder is stricken with disease</li>
 <li>Paying a benefit upon death of the policyholder</li>
@@ -1907,12 +1907,12 @@
 <p class="admonition-title">Tip</p>
 <p>Using the same principles, it is possible to determine the probability of the system transitioning into state <span class="arithmatex">\(j\)</span> and then transitioning out before time <span class="arithmatex">\(t\)</span>:</p>
 <div class="arithmatex">\[
-    \text{Probability Transition In then Out}
+    \text{Transition In then Out}
     = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s) \cdot (1 - {}_{t-s}p^{\bar{jj}}_{x+s})
 \]</div>
 <p>Similarly, the probability of just transitioning, regardless of the state at time <span class="arithmatex">\(t\)</span> is simply the first two terms:</p>
 <div class="arithmatex">\[
-    \text{Probability Transition Only}
+    \text{Transition In Only}
     = \int^{t}_{0} {}_{s}p^{\bar{ii}}_{x} \cdot \mu^{ij}_{x}(s)
 \]</div>
 </div>
@@ -1998,16 +1998,14 @@
     \text{Objective} &amp;= {}_{1}p^{10}_{x} \\
     \text{Step Size} &amp;= \frac{1}{2} \\
     \\
-    \therefore {}_{1}p^{10}_{x}
-    &amp;= {}_{0.5}p^{10} + 0.5 [{}_{0.5}p^{11}_{x} \mu^{10}_{x}(t)
-        - {}_{0.5}p^{10}_{x} \mu^{01}_{x}(t)] \\
+    {}_{0.5}p^{10}_{x}
+    &amp;= {}_{0}p^{10}_{x} + 0.5 [{}_{0}p^{11}_{x} \mu^{10}_{x}(t) - {}_{0}p^{10}_{x} \mu^{01}_{x}(t)]
     \\
-    {}_{0.5}p^{10}
-    &amp;= {}_{0}p^{10}_{x} + 0.5 [{}_{0}p^{11}_{x} \mu^{10}_{x}(t)
-        - {}_{0}p^{10}_{x} \mu^{01}_{x}(t)] \\
-    {}_{0.5}p^{11}
-    &amp;= {}_{0}p^{11}_{x} + 0.5 \left [{}_{0}p^{10}_{x} \mu^{01}_{x}(t)
-        - {}_{0}p^{10}_{x} \left(\mu^{10}_{x}(t) + \mu^{12}_{x}(t) \right) \right]
+    {}_{0.5}p^{11}_{x}
+    &amp;= {}_{0}p^{11}_{x} + 0.5 \left({}_{0}p^{10}_{x} \mu^{01}_{x}(t) - {}_{0}p^{10}_{x} [\mu^{10}_{x}(t) + \mu^{12}_{x}(t)] \right)
+    \\
+    \therefore {}_{1}p^{10}_{x}
+    &amp;= {}_{0.5}p^{10} + 0.5 [{}_{0.5}p^{11}_{x} \mu^{10}_{x}(t) - {}_{0.5}p^{10}_{x} \mu^{01}_{x}(t)] \\
 \end{aligned}
 \]</div>
 <p>The equation can be solved because the following two items can always be simplified:</p>
@@ -2016,11 +2014,12 @@
 <li><span class="arithmatex">\({}_{0}p^{11}_{x} = 1\)</span>: System <strong>must</strong> be in that state at the current time</li>
 </ul>
 <p>The above are known as the <strong>boundary conditions</strong> of the DE. Loosely speaking, they are <strong>constraints</strong> that must exist in order for the DE to be solved. If the equation is solving for <span class="arithmatex">\({}_{t}p^{ij}_{x}\)</span>, then the associated boundary condition is <span class="arithmatex">\({}_{0}p^{ij}_{x}\)</span>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>These questions typically require <strong>multiple recursions</strong> of the equation to a point where one of the values are <strong>known</strong> - either through the above <strong>boundary conditions</strong> or a <strong>value provided</strong> by the question.</p>
-<p>It is recommended to start from the boundary condition and roll forward the equation to avoid excessive notation. </p>
-<p>If the <strong>step size is equal to the specified duration</strong>, the probability can be solved in one step because it will recurse to time 0, where the boundary conditions can be used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The intuition is that we know the probability at the boundary. Using the kolmogorov equations, we can estimate how the probability will change over a given interval <span class="arithmatex">\(h\)</span> at different time points. Thus, by stacking the estimated changed onto the boundary conditions, we can estimate the probability at any desired duration.</p>
+<p>Due to the <strong>recursive nature</strong> of the problem, it is much easier to perform the calculations in Excel:</p>
+<p><!-- Obtained from SOA Sample Solutions -->
+<img alt="Kolmogorov_Excel" class="center" src="../Assets/3.%20Multi%20State%20Models.md/Kolmogorov_Excel.png" /></p>
 </div>
 <p>Notice that the two kolmogorov equations (Discrete &amp; Continuous) follow the same intuition - transitioning to some intermediate state before reaching the final state.</p>
 <h3 id="continuous-to-discrete"><strong>Continuous to Discrete</strong><a class="headerlink" href="#continuous-to-discrete" title="Permanent link">&para;</a></h3>
@@ -2335,7 +2334,7 @@
 \]</div>
 <h4 id="sorjourn-annuity"><strong>Sorjourn Annuity</strong><a class="headerlink" href="#sorjourn-annuity" title="Permanent link">&para;</a></h4>
 <p>The definition of "Sorjourn" is to <strong>stay temporarily</strong>. Thus, a Sojourn annuity is an annuity that pays a benefit while the insured <strong>stays in a specific state</strong>, given that they are already in that state (hence stay). It's acturial value is denoted by <span class="arithmatex">\(\ddot{a}^{\bar{ii}}_{x}\)</span>.</p>
-<p>They are usually used to calculate the <strong>PV of premiums</strong> as premiums are usually only payable while the insured is healthy. Consider the following example:</p>
+<p>They are usually used to calculate the <strong>EPV of premiums</strong> as premiums are usually only payable while the insured is healthy. Consider the following example:</p>
 <ul>
 <li>3-year Discrete Temporary Annuity</li>
 <li>Premium payable at the beginning of the year <strong>while in state 0</strong></li>
