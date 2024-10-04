@@ -1506,7 +1506,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There is no need to make any special adjustments needed to accomodate the corridoor in Excel using the <strong>previously stated approach</strong>:</p>
+<p>The same approach can be used from before. Simply update the death benefit logic to account for the Corridoor:</p>
 <p><!-- COI_Goalseek_Corridoor -->
 <img alt="COI_Goalseek_Corridoor" class="center" src="../Assets/6.%20Universal%20Life.md/COI_Goalseek_Corridoor.png" /></p>
 </div>
@@ -1543,17 +1543,19 @@
     \text{Account Value}
     &amp;= \text{Accumulated Premiums} \\
     &amp;- \text{Accumulated Expenses} \\
-    &amp;- \text{Accumulated COI} \\
-    \\
-    \text{Accumulated Premiums}
-    &amp;= \text{Premium} \cdot s_{\enclose{actuarial}{n}} \\
-    &amp;= \text{Premium} \cdot \frac{(1+i)^{n}-1}{i}
+    &amp;- \text{Accumulated COI}
 \end{aligned}
 \]</div>
-<p>Using this method, only the <strong>affected component</strong> needs to be changed. This can be used to handle assumption changes that impact only <strong>certain years</strong>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This method is usually more useful for type B plans with <strong>constant SAR</strong>.</p>
+<p>The key intuition is that the components of Account value are <strong>mostly independent</strong> of one another (excluding COI). Thus, a change in one of the assumptions should only influence that particular component - there is no need to re-calculate ALL components.</p>
+<p>For instance, if there is a change in the Y3 COI rate, then only the Y3 COI cashflow needs to be recalculated. Then, determine the impac to the accumulated COI and apply that to the existing account value.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the cashflow and credited interest rate is <strong>constant</strong>, then the account value at any time can be found using accumulation functions:</p>
+<div class="arithmatex">\[
+    \text{Accumulated Cashflow}
+    &amp;= \text{Cashflow} \cdot s_{\enclose{actuarial}{n}} \\
+    &amp;= \text{Cashflow} \cdot \frac{(1+i^{c})^{n}-1}{i^{c}}
+\]</div>
 </div>
 
 

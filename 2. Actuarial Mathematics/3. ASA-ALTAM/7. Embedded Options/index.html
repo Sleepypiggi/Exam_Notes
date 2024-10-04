@@ -976,11 +976,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unit-linked-insurance" class="md-nav__link">
-    Unit Linked Insurance
+  <a href="#equity-linked-insurance" class="md-nav__link">
+    Equity Linked Insurance
   </a>
   
-    <nav class="md-nav" aria-label="Unit Linked Insurance">
+    <nav class="md-nav" aria-label="Equity Linked Insurance">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1443,11 +1443,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unit-linked-insurance" class="md-nav__link">
-    Unit Linked Insurance
+  <a href="#equity-linked-insurance" class="md-nav__link">
+    Equity Linked Insurance
   </a>
   
-    <nav class="md-nav" aria-label="Unit Linked Insurance">
+    <nav class="md-nav" aria-label="Equity Linked Insurance">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1616,24 +1616,27 @@
 
 <h1 id="embedded-options"><strong>Embedded Options</strong><a class="headerlink" href="#embedded-options" title="Permanent link">&para;</a></h1>
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Due to developments in the financial market, insurance products had to evolve to remain relevant. This led to development of <strong>Unit Linked Insurance</strong>, where policy benefits were <strong>linked</strong> to the performance of an <strong>underlying mutual fund</strong>.</p>
-<p>In order to attract investors, these products usually come <strong>guarantees</strong> on their benefits, providing <strong>unlimited upside and limited downsides</strong>. However, this results in insurance companies bearing <strong>huge financial risks</strong>.</p>
+<p>Due to developments in the financial market, insurance products had to evolve to remain relevant. This led to development of <strong>Equity Linked Insurance</strong>, where policy benefits were <strong>linked</strong> to the performance of an <strong>underlying mutual fund</strong>.</p>
+<p>In order to attract investors, these products usually comes with <strong>guarantees</strong> on their benefits, providing <strong>unlimited upside and limited downsides</strong>. However, this results in insurance companies bearing <strong>huge financial risks</strong>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>These guarantees may not be part of the product features, but offered as a rider for additional cost.</p>
 </div>
 <p>Traditional actuarial methods were not well suited to effectively deal with these risks, which led to the insolvency of many insurance companies in the 1990s when interest rates fell. This led to the creation of <strong>Market Consistent</strong> valuation basis to ensure that these risks are appropriately accounted for.</p>
 <p>As its name suggests, market consistent valuation involves valuing an asset at its <strong>observed market value</strong>. However, insurance contracts are almost never traded, thus does not have an observable market value. Instead, the insurance cashflows are <strong>translated into tradeable assets</strong>, where the value of the contract is <strong>equivalent to the price</strong> of the assets.</p>
-<p>The guarantees offered unit linked insurance can be translated into an <strong>Option</strong>, which is why it can be valued as an <strong>Embedded Option</strong>.</p>
-<h2 id="unit-linked-insurance"><strong>Unit Linked Insurance</strong><a class="headerlink" href="#unit-linked-insurance" title="Permanent link">&para;</a></h2>
-<p>The defining feature of Unit Linked insurance is that the policyholder's premiums are <strong>invested into units</strong> of one or more mutual funds of the policyholder's choice. The <strong>policy benefits are directly linked</strong> to the total value of the units in the policyholder's account.</p>
+<p>The guarantees offered Equity Linked insurance can be translated into an <strong>Option</strong>, which is why it can be valued as an <strong>Embedded Option</strong>.</p>
+<h2 id="equity-linked-insurance"><strong>Equity Linked Insurance</strong><a class="headerlink" href="#equity-linked-insurance" title="Permanent link">&para;</a></h2>
+<p>The defining feature of Equity Linked insurance is that the policyholder's premiums are <strong>invested into units</strong> of one or more mutual funds of the policyholder's choice. The <strong>policy benefits are directly linked</strong> to the total value of the units in the policyholder's account.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>It is a common mistake to confuse universal life and unit linked policies as both involve an <strong>account</strong> for the policyholder.</p>
-<p>However, it is imperative to remember that the <strong>universal life account is purely notional</strong> while there <strong>exists an actual account</strong> for each policyholder under a unit linked policy.</p>
+<p>It is a common mistake to confuse universal life (UL) and Equity Linked (EL) policies as both involve an <strong>account</strong> for the policyholder:</p>
+<ul>
+<li><strong>Universal Life</strong>: Account is purely notional; known as <strong>Account Value</strong></li>
+<li><strong>Equity Linked</strong>: Account is actually invested in funds of choice; known as <strong>Fund Value</strong></li>
+</ul>
 </div>
 <h3 id="unit-vs-non-unit-account"><strong>Unit VS Non-Unit Account</strong><a class="headerlink" href="#unit-vs-non-unit-account" title="Permanent link">&para;</a></h3>
-<p>The key to understanding Unit Linked insurance is to understand the difference between:</p>
+<p>The key to understanding Equity Linked insurance is to understand the difference between:</p>
 <ul>
 <li><strong>Unit Account</strong>: Owned by Policyholders; where premiums are invested</li>
 <li><strong>Non-Unit Account</strong>: Owned by Company (Shareholders); where benefits and expenses are paid out from</li>
@@ -1643,8 +1646,12 @@
 <p><img alt="Unit_Linked" class="center" src="../Assets/7.%20Embedded%20Options.md/Unit_Linked.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The amount charged to the policyholder and the actual cost of the policy <strong>might be different</strong>. The charges are typically higher, allowing the insurer to <strong>earn the difference</strong>.</p>
-<p>For instance, the policyholder might have a fund management charge of $100. However, the insurer might actually only incur $70 in investment expenses, due to economies of scale.</p>
+<p>There are two distinct cashflows:</p>
+<ul>
+<li><strong>Charges</strong>: Posted to Unit Account, flows into Non Unit Account as Income</li>
+<li><strong>Cost</strong>: Posted to Non Unit Account, actual cost of the policy</li>
+</ul>
+<p>The amount charged to the policyholder and the actual are often different - where the charges are higher than the cost, allowing the insurer to <strong>earn the spread</strong>. For instance, the fund management charge might be $100 - but the insurer only incurs $70 of investment expenses (due to economies of scale), allowing them to earn the difference.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1664,8 +1671,8 @@
 <div class="arithmatex">\[
     \text{Allocated Premium} = \text{Premium} \cdot \text{Allocation Rate}
 \]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>It is possible for the allocation rate to be <em>above</em> 100%. The insurer will fund the additional amount as an outflow.</p>
 </div>
 <p>When purchasing units, part of the value will be lost due to <strong>Transactional Costs</strong> such as the <strong>Bid Offer Spread</strong>:</p>
@@ -1677,7 +1684,10 @@
 <div class="arithmatex">\[
     \text{Unit Value Purchased} = \text{Allocated Premium} \cdot (1 - \text{Bid Offer Spread})
 \]</div>
-<p>TBC proving the above </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some questions might not use the term BO spread but rather a <strong>Premium Charge</strong>. In either case, the key concept from this section is to understand that not the entire premium is invested in the fund.</p>
+</div>
 <h3 id="fund-value"><strong>Fund Value</strong><a class="headerlink" href="#fund-value" title="Permanent link">&para;</a></h3>
 <p>For the purposes of this exam, the fund value in each period can be calculated as:</p>
 <div class="arithmatex">\[
@@ -1818,7 +1828,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In practice, investors take <strong>into account risk</strong> when looking for looking for returns (which affects asset prices). For instance, if the risk-free rate is <span class="arithmatex">\(r\)</span>, then investors demand a <strong>risk premium</strong> for that them to take on an <strong>investment with risk</strong>.</p>
-<p>Under a risk neutral basis, it assumes that investors do NOT take into account risk. Thus, assets will be <strong>priced based on the risk free rate</strong>, rather than on risk premiums.</p>
+<p>Under a risk neutral basis, it assumes that investors do NOT take into account risk. Thus, assets will be <strong>priced based on the risk free rate</strong>, rather than on the actual return (with a risk premium).</p>
 <div class="arithmatex">\[
 \begin{aligned}
     S_{n} &amp;= S_{0} \cdot e^{\alpha n} = S_{0} \cdot e^{rn} \\
@@ -1863,12 +1873,13 @@
 <ul>
 <li><strong>Time to Maturity</strong>: Changed from <span class="arithmatex">\(n\)</span> to <span class="arithmatex">\(n-t\)</span></li>
 <li><strong>Initial Stock Price</strong>: Changed from <span class="arithmatex">\(S_{0}\)</span> to <span class="arithmatex">\(S_{t}\)</span></li>
+<li><strong>CDF</strong>: Updated to reflect the above changes as well</li>
 </ul>
 <p>Note that <span class="arithmatex">\(\xi\)</span> <strong>does NOT</strong> depend on the time to maturity, thus does not need to be changed.</p>
 </div>
 <h3 id="guaranteed-death-benefit"><strong>Guaranteed Death Benefit</strong><a class="headerlink" href="#guaranteed-death-benefit" title="Permanent link">&para;</a></h3>
 <p>Unlike the Maturity Benefit which is paid out at a fixed time (end of the policy term), the death benefit is paid out at an <strong>unknown time</strong> (<span class="arithmatex">\(T\)</span>), depending on when the policyholder dies. Thus, the insurer needs <strong>an option for every possible time</strong> that the policyholder could die.</p>
-<p>The expression is the same as before, just that the constant <span class="arithmatex">\(n\)</span> is replaced with the variable <span class="arithmatex">\(T\)</span> to reflect the unknown time of payout:</p>
+<p>The expression is the same as before, just that the <strong>constant <span class="arithmatex">\(n\)</span> is replaced with the variable <span class="arithmatex">\(T\)</span></strong> to reflect the unknown time of payout:</p>
 <ul>
 <li>Valuation Time, <span class="arithmatex">\(t\)</span></li>
 <li>Payout Time, <span class="arithmatex">\(T\)</span></li>
@@ -1887,14 +1898,14 @@
     &amp;= d_{1}(0, T) - \sigma \sqrt{T}
 \end{aligned}
 \]</div>
-<p>The value of the entire embedded option must reflect the expected number of options needed to hedge the risk in each period, <strong>for ALL periods</strong>:</p>
+<p>The value of the entire embedded option must reflect the expected number of options needed to hedge the risk in <strong>EACH period for ALL periods</strong>:</p>
 <div class="arithmatex">\[
     \pi(0) = \sum^{n}_{1} P(0, T) \cdot {}_{T-1}p_{x} \cdot q_{x+T-1}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>Similar to before, the above expression can be adjusted to determine the value of the guarantee at a <strong>specified period</strong> for reserving purposes. It can also be adjusted for benefits that are paid monthly as well.</p>
+</div>
 <h3 id="funding"><strong>Funding</strong><a class="headerlink" href="#funding" title="Permanent link">&para;</a></h3>
 <p>The cost of the guarantee is passed down to the policyholder in one of two ways:</p>
 <ul>
@@ -1990,17 +2001,17 @@
 <h3 id="hedging"><strong>Hedging</strong><a class="headerlink" href="#hedging" title="Permanent link">&para;</a></h3>
 <p>Given that the guaranteed benefits follow the payoff of a european put option, the insurer can <strong>perfectly hedge the risk</strong> by either:</p>
 <ol>
-<li>Purchasing a European Put Option with the specified parameters from a third party</li>
-<li>Creating a replicating portfolio of Stocks and Bonds</li>
+<li><strong>Purchasing a European Put Option</strong> with the specified parameters from a third party</li>
+<li><strong>Creating a replicating portfolio</strong> of Stocks and Bonds</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Hedging GMMBs only require one put option while a GMDB requires multiple options, one expiring at each year.</p>
+<p>Hedging GMMBs only require <strong>one</strong> put option while a GMDB requires <strong>multiple</strong> options, one expiring at each year.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Traditional life insurance policies bring <strong>mortality risk</strong> to the insurer. This can be diversified by selling more policies, as each policyholder has a different mortality. Given a sufficiently large pool, the mortality of the entire pool becomes stable (Law of Large Numbers).</p>
-<p>However, equity linked insurance brings investment risk to the insurer. Every policyholder experiences the same investment risk from the market, thus it <strong>cannot be diversified via selling more policies</strong>. This is why there is a need for specific hedging procedures.</p>
+<p>Traditional life insurance policies bring <strong>mortality risk</strong> to the insurer. This can be diversified by selling more policies, as <strong>each policyholder has a different mortality</strong>. Given a sufficiently large pool, the mortality of the entire pool becomes stable (Law of Large Numbers).</p>
+<p>However, equity linked insurance brings <strong>investment risk</strong> to the insurer. Every policyholder experiences the <strong>same investment risk</strong> from the market, thus it <strong>cannot be diversified via selling more policies</strong>. This is why there is a need for specific hedging procedures.</p>
 </div>
 <h4 id="external-hedging"><strong>External Hedging</strong><a class="headerlink" href="#external-hedging" title="Permanent link">&para;</a></h4>
 <p>The first method involves <strong>purchasing</strong> the required options from an <strong>external third party</strong>. The cost of the option(s) are incurred as a <strong>pre-contract expense</strong>.</p>
@@ -2038,18 +2049,19 @@
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Heding Release}_{t}
-    &amp;= \text{Portfolio Before Rebalancing}_{t} - \text{Expected Portfolio Required}_{t} \\
+    &amp;= \text{Before Rebalancing}_{t} - \text{Portfolio Required}_{t} \\
     \\
-    \text{Portfolio Before Rebalancing}_{t}
+    \text{Before Rebalancing}_{t}
     &amp;= \text{Stock Value}_{t-1} \cdot (1+g) + \text{Bond Value}_{t-1} \cdot (1+r) \\
     \\
-    \text{Expected Required Portfolio}_{t}
+    \text{Required Portfolio}_{t}
     &amp;= p_{x+t-1} \cdot \pi(t)
 \end{aligned}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The expected required portfolio for that period is coming from a profit testing perspective, where it assumes all policies are <strong>in-force at the beginning</strong> of the year. Thus, it is similar to a reserve in the sense that the hedge portfolio only needs to be held for those policies in-force at the end of the year.</p>
+<p>The expected required portfolio for that period is coming from a profit testing perspective, where it assumes all policies are <strong>in-force at the beginning</strong> of the year. Thus, it is similar to a reserve in the sense that the hedge portfolio only needs to be held for those <strong>policies in-force</strong> at the end of the year.</p>
+<p>The replicating portfolio functionally acts as a reserve that is released over time.</p>
 </div>
 <h4 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h4>
 <p><center></p>
@@ -2077,8 +2089,17 @@
 </table>
 <p></center></p>
 <p>One other method to mitigate the investment risk is to <strong>hold a reserve</strong>. <em>IF</em> the reserve is sufficiently large, it can withstand the shock of a poor investment and thus mitigate the risk completely. This method is usually a much <strong>cheaper</strong> compared to purchasing options, at the cost of the risk not being completely mitigated.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>More generally, there are many questions in the exam which asks for the <strong>Pros and Cons</strong> of DIY vs outsourcing via hedging or buying an annuity etc. The following logic can be applied to a wide range of situations:</p>
+<ul>
+<li>Outsourcing eliminates the risk of negative experience, but also eliminates potential upside from positive experience</li>
+<li>Outsourcing may be cheaper versus the cost of administering the program DIY</li>
+<li>Outsourcing might be more expensive as the other party has baked in profit margins etc while DIY is the true cost</li>
+</ul>
+</div>
 <h2 id="variable-annuities"><strong>Variable Annuities</strong><a class="headerlink" href="#variable-annuities" title="Permanent link">&para;</a></h2>
-<p>In the US, rather than having Unit Linked Insurance, they offer <strong>Variable Annuities</strong> instead. They are a form of <strong>Deferred Annuity</strong> where the premiums paid are <strong>invested into a mutual fund</strong> of their choice. At the end of the policy term, they have the option to either:</p>
+<p>In the US, rather than having Equity Linked Insurance, they offer <strong>Variable Annuities</strong> instead. They are a form of <strong>Deferred Annuity</strong> where the premiums paid are <strong>invested into a mutual fund</strong> of their choice. At the end of the policy term, they have the option to either:</p>
 <ul>
 <li>Receive the account value in <strong>cash</strong> (<strong>Maturity Benefit</strong>)</li>
 <li>Convert the amount into a <strong>life annuity</strong> (<strong>Annuitization</strong>)</li>
@@ -2088,7 +2109,7 @@
 <p>Despite having an Annuity in its name, it is actually a <strong>life insurance</strong> policy before it becomes annuitized. A <strong>death benefit is payable</strong> if the insured dies during the policy term. Once annuitized, the death benefit is no longer payable.</p>
 <p>The policy term above refers to the term of the <strong>variable annuity</strong>. The annuity will have a seperately specified term.</p>
 </div>
-<p>Similar to unit linked insurance, variable annuities also offer guaranteed maturity and death benefits. However, they also offer <strong>additional more complex guarantee features</strong> than those described previously:</p>
+<p>Similar to Equity Linked insurance, variable annuities also offer guaranteed maturity and death benefits. However, they also offer <strong>additional more complex guarantee features</strong> than those described previously:</p>
 <ul>
 <li>Reset Option</li>
 <li>Lookback Option</li>

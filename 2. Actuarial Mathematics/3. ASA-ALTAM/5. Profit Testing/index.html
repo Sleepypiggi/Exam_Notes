@@ -1778,11 +1778,11 @@
 <p>Consider the cashflows that occur in a <strong>single period</strong> from the <strong>insurer's perspective</strong>:</p>
 <ul>
 <li><strong>Period Start</strong>: Collect <strong>Premiums</strong> (P) and incur <strong>Maintenance Expenses</strong> (e)</li>
-<li><strong>Period End</strong>: Payout <strong>Claims</strong> (B) occurring in the period, along with any associated <strong>Claim Expenses</strong> (E)</li>
+<li><strong>Period End</strong>: Payout <strong>Claims</strong> (B) occurring in the period, along with any associated <strong>Claim Expenses</strong> (CE)</li>
 </ul>
 <p>It is typically assumed that the insurer will invest the net cashflows at the beginning of the period in order to <strong>earn interest</strong>. Thus, the net cashflow for the period is the combination of the above:</p>
 <div class="arithmatex">\[
-    \text{Net Cashflow} = (P - e)(1+i) - q_{x} \cdot (B + E)
+    \text{Net Cashflow}_{t} = (P_{t} - E_{t})(1 + i) - q_{x} \cdot (B_{t} + \text{CE}_{t})
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1823,12 +1823,17 @@
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Do NOT attempt to calculate the change in reserve as a seperate component. This is because the <strong>basis is different</strong> - one is PP and the other is IF.</p>
+<p>Do NOT attempt to calculate the change in reserve as a seperate component as the opening and ending reserves are on a different basis:</p>
+<ul>
+<li><strong>Opening Reserve</strong>: Per Policy Reserve, since profit assumes <strong>all policies in-force</strong> at start of year</li>
+<li><strong>Ending Reserve</strong>: In-force reserve</li>
+</ul>
+<p>Since the probabilities will already be accounted for the in the above equation, the chances of making an error are lower if the full equation is used.</p>
 </div>
 <p>The above expression is often referred to as the profit that <strong>emerges or arises</strong> from that period, as it occurs at the <strong>end of the period</strong> as a combination of all other cashflows that occurred in that period.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Some questions may provide the reserves will other questions may require us to compute it ourselves. Regardless, there are always two time points where the reserves are known:</p>
+<p>Some questions may provide the reserves while other questions may require us to compute it ourselves. Regardless, there are always two time points where the reserves are known:</p>
 <ul>
 <li><strong>Policy Start</strong>: Starting reserve is 0 (Reserve has not been set up yet)</li>
 <li><strong>Policy End</strong>: Ending reserve is 0 (No more future liabilities)</li>
@@ -1856,14 +1861,7 @@
 <h3 id="profit-vector"><strong>Profit Vector</strong><a class="headerlink" href="#profit-vector" title="Permanent link">&para;</a></h3>
 <p>The <strong>Profit Vector</strong> of a policy is a vector containing the emerging profits from each policy year:</p>
 <div class="arithmatex">\[
-\text{PR}
-=
-\begin{pmatrix}
-    \text{PR}_{0} \\
-    \text{PR}_ {1} \\
-    \vdots \\
-    \text{PR}_t
-\end{pmatrix}
+    \text{PR} = (\text{PR}_{0}, \text{PR}_ {1}, \dots ,\text{PR}_{t})
 \]</div>
 <!-- Self Made -->
 <p><img alt="Profit Vector" class="center" src="../Assets/5.%20Profit%20Testing.md/Profit%20Vector.png" /></p>
@@ -1901,20 +1899,8 @@
 <div class="arithmatex">\[
 \begin{aligned}
     \boldsymbol{\pi}
-    =
-    \begin{pmatrix}
-        \text{Unconditional Profit}_{0} \\
-        \text{Unconditional Profit}_{1} \\
-        \vdots
-        \text{Unconditional Profit}_{t} \\
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-        {}_{0}p_{x} \cdot \text{PR}_{0} \\
-        {}_{0}p_{x} \cdot \text{PR}_{1} \\
-        \vdots \\
-        {}_{t-2}p_{x} \cdot \text{PR}_{t}
-    \end{pmatrix}
+    &amp;= (\pi_{0}, \pi_{1}, \dots, \pi_{t})
+    &amp;= ({}_{0}p_{x} \cdot \text{PR}_{0}, {}_{0}p_{x} \cdot \text{PR}_{1}, {}_{t-1}p_{x} \cdot \text{PR}_{t})
 \end{aligned}
 \]</div>
 <div class="admonition tip">
@@ -1930,18 +1916,23 @@
 <li>Cashflows are <strong>dependent on the state</strong> that the policyholder is in</li>
 <li>Not possible to know <strong>which state</strong> the insured will be in at issue</li>
 </ul>
-<p>The first issue on multiple benefits can be easily accounted for by considering the outgo from <strong>ALL possible benefits</strong> with their associated probabilities. The probability of survival must then be changed to the <strong>probability of surviving ALL decrements</strong>:</p>
+<p>Thus, the following changes need to be made:</p>
+<ul>
+<li>Consider the outgo from <strong>ALL possible benefits</strong></li>
+<li><strong>Survival probability</strong> should be for ALL decrements</li>
+<li>Consider ALL possible states the policyholder could be in at the start of the year </li>
+</ul>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{NCF}_{t} &amp;= (P - e)(1+i) - \sum q^(ij)_{x} \cdot (B^{ij} + E^{ij}) \\
-    \text{PR}_{t} &amp;= \text{NCF}_{t} - [p^{(\tau)}_{x} \cdot {}_{t}V - {}_{t-1}V \cdot (1+i)]
+    \text{NCF}^{(i)}_{t} &amp;= (P - e)(1+i) - \sum q^{ij}_{x} \cdot (B^{ij} + E^{ij}) \\
+    \text{PR}^{(i)}_{t} &amp;= \text{NCF}_{t} - [p^{(\tau)}_{x} \cdot {}_{t}V - {}_{t-1}V \cdot (1+i)]
+    \pi &amp;= \sum_{t, i} {}_{t-1}p^{0i} \cdot \text{PR}^{i}_{t}
 \end{aligned}
 \]</div>
-<p>The remaining issues can be accounted for by considering <strong>ALL possible states</strong> that the policyholder could be in and their associated profit cashflows. The unconditional profit is the <strong>probability weighted average</strong> of the all possible states:</p>
-<div class="arithmatex">\[
-    \text{Unconditional Profit}
-    = p^{00} \cdot \text{PR}^{00} + p^{01} \cdot \text{PR}^{01} + p^{02} \cdot \text{PR}^{02} + \dots
-\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember that multi-decrement models are simply a variant of multi-state models. Thus, the same methods apply.</p>
+</div>
 <h2 id="profitability-metrics"><strong>Profitability Metrics</strong><a class="headerlink" href="#profitability-metrics" title="Permanent link">&para;</a></h2>
 <p>Using the profit cashflows above, insurers can gauge the <strong>profitability</strong> of the policy based on different metrics.</p>
 <h3 id="net-present-value"><strong>Net Present Value</strong><a class="headerlink" href="#net-present-value" title="Permanent link">&para;</a></h3>
@@ -1953,16 +1944,6 @@
     + v^{2} p_{x} \text{PR}_{2} + v^{3} {2}p_{x} \text{PR}_{3} + \dots \\
     &amp;= \text{PR}_{0} + v\text{PR}_{1}
     + v^{2} p_{x} \text{PR}_{2} + v^{3} p_{x} p_{x+1} \text{PR}_{3} + \dots \\  
-\end{aligned}
-\]</div>
-<p>If there are multiple decrements, then the multi-decrement survival probability should be used:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \text{NPV}
-    &amp;= \text{PR}_{0} + v\text{PR}_{1}
-    + v^{2} p^{(\tau)}_{x} \text{PR}_{2} + v^{3} {2}p^{(\tau)}_{x} \text{PR}_{3} + \dots \\
-    &amp;= \text{PR}_{0} + v\text{PR}_{1}
-    + v^{2} p^{(\tau)}_{x} \text{PR}_{2} + v^{3} p^{(\tau)}_{x} p^{(\tau)}_{x+1} \text{PR}_{3} + \dots \\  
 \end{aligned}
 \]</div>
 <div class="admonition note">
@@ -1996,13 +1977,13 @@
 <p>Similarly, another type of question involves <strong>estimating</strong> the impact to NPV given a <strong>change in decrements</strong>. There are only a few adjustments that need to be made. Consider a change in the first year decrements:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{NPV}_{0} &amp;= \text{PR}_{0} + v \text{PR}_{1} + v^{2} p_{x} \text{PR}_{2} + v^{3} p_{x} p_{x+1} \text{PR}_{3} + \dots \\
-    \text{NPV}'_{0} &amp;= \text{PR}_{0} + v \text{PR}'_{1} + v^{2} p'_{x} \text{PR}_{2} + v^{3} p'_{x} p_{x+1} \text{PR}_{3} + \dots \\
+    \text{NPV} &amp;= \text{PR}_{0} + v \text{PR}_{1} + v^{2} p_{x} \text{PR}_{2} + v^{3} p_{x} p_{x+1} \text{PR}_{3} + \dots \\
+    \text{NPV}' &amp;= \text{PR}_{0} + v \text{PR}'_{1} + v^{2} p'_{x} \text{PR}_{2} + v^{3} p'_{x} p_{x+1} \text{PR}_{3} + \dots \\
 \end{aligned}
 \]</div>
 <p>There are <strong>two</strong> key differences:</p>
 <ul>
-<li>The <strong>emerging profit</strong> from the <strong>AFFECTED YEAR must be changed to reflect the **new basis</strong></li>
+<li>The <strong>emerging profit</strong> from the <strong>AFFECTED YEAR</strong> must be changed to reflect the <strong>new basis</strong></li>
 <li>The <strong>profit signature</strong> for all <strong>FUTURE YEARS</strong> must be changed to reflect the <strong>new in-force probability</strong></li>
 <li>Profit signatures from all <strong>prior years are unaffected</strong></li>
 </ul>
@@ -2022,7 +2003,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>IRR measures the <strong>highest possible discount rate</strong> such that the project breaks even. If the actual cost of capital is <strong>lower than the IRR</strong>, the resulting NPV will always be positive. Thus, <strong>higher IRRs</strong> are preferred.</p>
+<p>IRR measures the <strong>highest possible discount rate</strong> such that the project breaks even. If the actual discount rate is <strong>lower than the IRR</strong>, the resulting NPV will always be positive. Thus, <strong>higher IRRs</strong> are preferred.</p>
 </div>
 <p>One common type of question involves determining how a change in cashflows affects the IRR. Generally speaking, any change that would result in a <strong>higher NPV would also result in a higher IRR</strong>, as the discount rate would need to be higher to force the new NPV to 0.</p>
 <h3 id="discounted-payback-period"><strong>Discounted Payback Period</strong><a class="headerlink" href="#discounted-payback-period" title="Permanent link">&para;</a></h3>
@@ -2031,6 +2012,9 @@
     \text{DPP} = \min [t: \text{Partial NPV}(t) &gt; 0]
 \]</div>
 <p>Partial NPV at time <span class="arithmatex">\(t\)</span> is the NPV that is calculated using a <strong>subset of cashflows</strong> from time 0 up to and including time <span class="arithmatex">\(t\)</span>. It is a measure of the <strong>accumulated profit</strong> (on a EPV basis) up till that time. Thus, the discounted payback period is a measure of the <strong>earliest time that the accumulated profits become positive</strong>.</p>
+<div class="arithmatex">\[
+    \text{Partial NPV}(t) = \pi_{0} + v^{1} \pi_{1} + v^{2} \pi_{2} + \dots + v^{t} \pi_{t}  
+\]</div>
 <h3 id="profit-margin"><strong>Profit Margin</strong><a class="headerlink" href="#profit-margin" title="Permanent link">&para;</a></h3>
 <p>Lastly, the <strong>Profit Margin</strong>. It is the ratio of the EPV of the profits (NPV) to that of the premiums, assuming the <strong>same discount rate</strong>:</p>
 <div class="arithmatex">\[
@@ -2153,8 +2137,8 @@
 \begin{aligned}
     \text{Expense Gain Per Policy}
     &amp;= \text{Assumed Expense Profit} - \text{Actual Expense Profit} \\
-    &amp;= e(1+i) - q_{x} \cdot E - [e'(1+i) - q_x \cdot E'] \\
-    &amp;= (e-e')(1+i) - q_{x} (E-E') \\
+    &amp;= E(1+i) - q_{x} \cdot \text{CE} - [E'(1+i) - q_{x} \cdot \text{CE}'] \\
+    &amp;= (E-E')(1+i) - q_{x} (\text{CE}-\text{CE}') \\
     &amp;= \text{Gain from Non Claim Expenses} + \text{Gain from Claim Expenses}
 \end{aligned}
 \]</div>
@@ -2165,8 +2149,8 @@
 \begin{aligned}
     \text{Interest Gain Per Policy}
     &amp;= \text{Actual Interest Profit} - \text{Expected Interest Profit} \\
-    &amp;= ({}_{t-1}V + P - e') \cdot i' - ({}_{t-1}V + P - e') \cdot i \\
-    &amp;= (i' - i)({}_{t-1}V + P - e')
+    &amp;= ({}_{t-1}V + P - E') \cdot i' - ({}_{t-1}V + P - E') \cdot i \\
+    &amp;= (i' - i)({}_{t-1}V + P - E')
 \end{aligned}
 \]</div>
 <p>Similarly, since this is <strong>NOT the first</strong> attribution step, all assumptions that have been attributed before must be included - <strong>ALL instances</strong> of the assumption should be using its <strong>actual value</strong>. This is to account for the <strong>correlation impact</strong> between the two.</p>
@@ -2180,12 +2164,12 @@
 \begin{aligned}
     \text{Mortality Gain Per Policy}
     &amp;= \text{Assumed Mortality Profit} - \text{Actual Mortality Profit} \\
-    &amp;= q_{x} \cdot (B+E') + (1-q_{x}) \cdot {}_{t}V - [q'_{x} \cdot (B+E') + (1-q'_{x}) \cdot {}_{t}V] \\
-    &amp;= q_{x} \cdot (B+E') + {}_{t}V - q_{x} \cdot {}_{t}V - [q'_{x} \cdot (B+E') + {}_{t}V - q'_{x} \cdot {}_{t}V] \\
-    &amp;= q_{x} \cdot (B+E') + {}_{t}V - q_{x} \cdot {}_{t}V - q'_{x} \cdot (B+E') - {}_{t}V + q'_{x} \cdot {}_{t}V \\
-    &amp;= (q_{x} - q'_{x})(B+E') - (q_{x} - q'_{x}){}_{t}V \\
-    &amp;= (q_{x} - q'_{x})(B+E'- {}_{t}V) \\
-    &amp;= (q_{x} - q'_{x})(B+E') - (q_{x} - q'_{x}){}_{t}V \\ 
+    &amp;= q_{x} \cdot (B+\text{CE}') + (1-q_{x}) \cdot {}_{t}V - [q'_{x} \cdot (B + \text{CE}') + (1-q'_{x}) {}_{t}V] \\
+    &amp;= q_{x} \cdot (B+\text{CE}') + {}_{t}V - q_{x} \cdot {}_{t}V - [q'_{x} \cdot (B+\text{CE}') + {}_{t}V - q'_{x} {}_{t}V] \\
+    &amp;= q_{x} \cdot (B+\text{CE}') + {}_{t}V - q_{x} \cdot {}_{t}V - q'_{x} \cdot (B+\text{CE}') - {}_{t}V + q'_{x} {}_{t}V \\
+    &amp;= (q_{x} - q'_{x})(B+\text{CE}') - (q_{x} - q'_{x}){}_{t}V \\
+    &amp;= (q_{x} - q'_{x})(B+\text{CE}'- {}_{t}V) \\
+    &amp;= (q_{x} - q'_{x})(B+\text{CE}') - (q_{x} - q'_{x}){}_{t}V \\ 
     &amp;= \text{Gain from Claims} + \text{Gain from Reserve}
 \end{aligned}
 \]</div>

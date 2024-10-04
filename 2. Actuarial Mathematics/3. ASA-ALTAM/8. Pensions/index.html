@@ -1740,6 +1740,7 @@
 </ul>
 <p><!-- Self Made -->
 <img alt="Retirement_Salary_MY" class="center" src="../Assets/8.%20Pensions.md/Retirement_Salary_MY.png" /></p>
+<p>The above is important because the salary while 63 is usually different while 64.</p>
 </div>
 <h3 id="salary-growth"><strong>Salary Growth</strong><a class="headerlink" href="#salary-growth" title="Permanent link">&para;</a></h3>
 <p>For the purposes of the exam, assume that the salary of the employee <strong>grows over time</strong>. Thus, rather than provide a salary schedule, they will provide the <strong>salary at a specified age</strong> and then require students to <strong>manually compute the salary</strong> at the required ages.</p>
@@ -1769,12 +1770,12 @@
 \]</div>
 <h3 id="continuous-salary"><strong>Continuous Salary</strong><a class="headerlink" href="#continuous-salary" title="Permanent link">&para;</a></h3>
 <p>In some rare cases, questions might provide the <strong>Salary Rate</strong> instead. In these cases, the salary also grows at a <strong>continuous rate</strong>.</p>
-<p>The same principles from before apply - the annual salary is the sum of the salaries received in the year. In a continuous scenario, the salaries are received every instant. To sum across all instances, integration must be used:</p>
+<p>The same principles from before apply - the annual salary is the <strong>sum of all the salaries</strong> received in the year. In a continuous scenario, the salaries are received every instant. To sum across all instances, integration must be used:</p>
 <div class="arithmatex">\[
     S_{x+t} = \int^{n}_{n-1} \text{Initial Salary Rate} \cdot e^{\delta t}
 \]</div>
 <h3 id="replacement-ratio"><strong>Replacement Ratio</strong><a class="headerlink" href="#replacement-ratio" title="Permanent link">&para;</a></h3>
-<p>The <strong>Replacement Ratio</strong> is the percentage of pre-retirement income that is replaced by the pension benefit:</p>
+<p>The <strong>Replacement Ratio</strong> is the percentage of <strong>FINAL salary</strong> that is replaced by the pension benefit:</p>
 <div class="arithmatex">\[
     \text{Replacement Ratio}
     = \frac{\text{Yearly Retirement Benefit}}{\text{Final Yearly Salary}}
@@ -2042,9 +2043,9 @@
 \begin{aligned}
     \text{Accrued Liability}_{y}
     &amp;= \text{EPV Withdrawal}_{z} \cdot v^{z-y} \cdot \frac{w_{z}}{\ell_{y}} \\
-    += \text{EPV Withdrawal}_{z+1} \cdot v^{z+1-y} \cdot \frac{w_{z+1}}{\ell_{y}} \\
-    += \text{EPV Withdrawal}_{z+2} \cdot v^{z+2-y} \cdot \frac{w_{z+2}}{\ell_{y}} \\
-    += \dots
+    &amp;+ \text{EPV Withdrawal}_{z+1} \cdot v^{z+1-y} \cdot \frac{w_{z+1}}{\ell_{y}} \\
+    &amp;+ \text{EPV Withdrawal}_{z+2} \cdot v^{z+2-y} \cdot \frac{w_{z+2}}{\ell_{y}} \\
+    &amp;+ \dots
 \end{aligned}
 \]</div>
 <div class="admonition note">
@@ -2058,7 +2059,7 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In order to simplify this process, some questions might provide a specialized annuity factor that can directly calculate the EPV of future retirement benefits <strong>as at the withdrawal date</strong>.</p>
+<p>In order to simplify this process, some questions might provide a <strong>specialized annuity factor</strong> that can directly calculate the EPV of future retirement benefits <strong>as at the withdrawal date</strong>.</p>
 </div>
 <h2 id="db-funding"><strong>DB Funding</strong><a class="headerlink" href="#db-funding" title="Permanent link">&para;</a></h2>
 <p>As stated previously, it is the employer's duty to ensure that they have sufficient funds to cover the DB pension liability. Thus, employers hols a <strong>reserve</strong> equal to the accrued liability of the pension at the time of valuation.</p>
@@ -2173,7 +2174,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>When determining <strong>ACCRUED</strong> benefits, the years of service should still reflect the years <strong>as at the valuation date</strong>.</p>
-<p>It is only when determining the <strong>ACTUAL</strong> benefits, that the additional half year of service is accounted for.</p>
+<p>It is only when determining the <strong>ACTUAL</strong> benefits, that the <strong>additional half year of service</strong> is accounted for.</p>
 </div>
 <p>The key complication comes from a funding perspective. Using the previous formula, the mid-year retirement is <strong>NOT accounted</strong> for. Thus, if mid-year retirements are present, the following should be used instead:</p>
 <div class="arithmatex">\[
