@@ -837,20 +837,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../0.%20Written%20Answer%20Presentation/" class="md-nav__link">
-        WA Presentation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../1.%20Multi%20Life%20Models/" class="md-nav__link">
         Multi Life Models
       </a>
@@ -1041,6 +1027,13 @@
           <li class="md-nav__item">
   <a href="#accumulated-value" class="md-nav__link">
     Accumulated Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#different-frequencies" class="md-nav__link">
+    Different Frequencies
   </a>
   
 </li>
@@ -1525,6 +1518,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#different-frequencies" class="md-nav__link">
+    Different Frequencies
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1805,7 +1805,7 @@
 \]</div>
 <p>Due to the rather straightforward nature of DC plans, most questions from this topic will <strong>focus on DB plans</strong> instead.</p>
 <h3 id="accumulated-value"><strong>Accumulated Value</strong><a class="headerlink" href="#accumulated-value" title="Permanent link">&para;</a></h3>
-<p>The contribution each period changes as the employee's salary grows. Thus, it is <strong>NOT possible</strong> to use the typical accumulated value function from exam FM (<span class="arithmatex">\(s_{x:\enclose{actuarial}{n}}\)</span>).</p>
+<p>The <strong>contribution each period changes</strong> as the employee's salary grows. Thus, it is <strong>NOT possible</strong> to use the typical accumulated value function from exam FM (<span class="arithmatex">\(s_{x:\enclose{actuarial}{n}}\)</span>).</p>
 <p>The best approach would be to use first principles via the <strong>Sum of Geometric Series</strong>. It must account for two dimensions:</p>
 <ul>
 <li>Each contribution is different due to <strong>Salary Increases</strong></li>
@@ -1834,6 +1834,29 @@
     \text{Sum of AV of Contributions}
      &amp;= \int^{n}_{0} S_{x} \cdot e^{\delta_{i} t} \cdot e^{(\delta_{g} - \delta_{i}) t}
 \end{aligned}
+\]</div>
+</div>
+<h3 id="different-frequencies"><strong>Different Frequencies</strong><a class="headerlink" href="#different-frequencies" title="Permanent link">&para;</a></h3>
+<p>The above above only works if all components are on the same frequency:</p>
+<ul>
+<li>Salary Contributions</li>
+<li>Salary Growth</li>
+<li>Interest Accumulation</li>
+</ul>
+<p>The main issue comes when Contributions are <strong>made monthly</strong> but Growth is <strong>made yearly</strong>. Thus, an additional step must be done to bridge the two together:</p>
+<!-- Self Made -->
+<p><img alt="Different_Frequencies" class="center" src="../Assets/8.%20Pensions.md/Different_Frequencies.png" /></p>
+<p>Since salary growth is only made yearly, the contributions <strong>within a given year are constant</strong>. Thus, the accumulated value of the monthly contributions at the end of the year can be expressed using the <strong>accumulation function</strong>:</p>
+<div class="arithmatex">\[
+    \text{Yearly Contribution}
+    = S_{x} \cdot c \cdot s_{\enclose{actuarial}{12}}
+\]</div>
+<p>The above yearly contribution can then be plugged into the usual geometric formula that to determine the accumulated value as at the valuation date.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The accumulation function is for the payments made in arrears (not the usual payment in advance) that is usually used for ALTAM:</p>
+<div class="arithmatex">\[
+    s_{\enclose{actuarial}{12}} = \frac{(1+j)^{12} - 1}{i}
 \]</div>
 </div>
 <h2 id="defined-benefit"><strong>Defined Benefit</strong><a class="headerlink" href="#defined-benefit" title="Permanent link">&para;</a></h2>

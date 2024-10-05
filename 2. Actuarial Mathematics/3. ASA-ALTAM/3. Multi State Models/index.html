@@ -837,20 +837,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../0.%20Written%20Answer%20Presentation/" class="md-nav__link">
-        WA Presentation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../1.%20Multi%20Life%20Models/" class="md-nav__link">
         Multi Life Models
       </a>
@@ -1738,8 +1724,9 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is conceptually similar to the <strong>Memoryless Property</strong> of the exponential distribution.</p>
-<p>In simple terms, the markov property assumes that incidence probability is the <strong>same</strong> for an entity that has <strong>just entered</strong> the state versus an entity that has <strong>been in the state for a long time</strong>.</p>
+<p>In effect, it assumes tha tthe history of the process (how long the system has been in a particular state) has no effect on the transition probabilities.</p>
+<p>An entity who has <strong>just transitioned</strong> into the state versus one that has <strong>been in the state for a long time</strong> has the same probability to transition out.</p>
+<p>While the above simplifies the calculation, in practice it might not hold true as the time spent in the state might have a bearing on the probabilities of transition.</p>
 </div>
 <h2 id="discrete-multi-state-models"><strong>Discrete Multi State Models</strong><a class="headerlink" href="#discrete-multi-state-models" title="Permanent link">&para;</a></h2>
 <p>A discrete multi state model that follows the markov property is known as a <strong>Markov Chain</strong>.</p>
@@ -1807,6 +1794,11 @@
     \ne p^{00}_{x} \cdot p^{00}_{x+1} \dots p^{00}_{x+n-1}
 \]</div>
 <p>This logic does <strong>NOT work</strong> due to the nature of matrix multiplication. It does not account for the <strong>possibility of transitioning to another state</strong> but eventually transitioning back to state 0 by time <span class="arithmatex">\(x+n\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the transition matrix is the same for each period, then it is known as a <strong>Homogenous Transition Matrix</strong>.</p>
+<p>Although this simplifies the calculations needed, it <strong>may not be appropriate</strong> as transition probabilities may be <strong>dependent on the age</strong> of the policyholder.</p>
 </div>
 <h3 id="chapman-kolmogorov-equation"><strong>Chapman Kolmogorov Equation</strong><a class="headerlink" href="#chapman-kolmogorov-equation" title="Permanent link">&para;</a></h3>
 <p>Matrix multiplication is a convenient way of summarizing ALL possible transitions. However, if only one transition is needed, it is faster to <strong>directly compute</strong> it instead.</p>
