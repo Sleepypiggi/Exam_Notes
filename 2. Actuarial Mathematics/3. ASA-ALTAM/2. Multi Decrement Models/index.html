@@ -1846,10 +1846,7 @@
 \]</div>
 <!-- Self Made -->
 <p><img alt="Conversion" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Conversion.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Unless otherwise stated, the rates provided should be assumed to be independent rates. This is important as this concept is applicable to every other chapter in the exam.</p>
-</div>
+<p>Unless otherwise stated, the rates provided should be assumed to be <strong>independent rates</strong>. This is important as this concept is applicable to every other chapter in the exam.</p>
 <p>Questions of this nature tend to involve <strong>fractional times</strong> (though not always). Similar to before, additional assumptions are required in order to determine the probabilities. These add <strong>another layer of complexity</strong> to the conversion.</p>
 <h4 id="constant-force"><strong>Constant Force</strong><a class="headerlink" href="#constant-force" title="Permanent link">&para;</a></h4>
 <p>Recall that under a constant force of mortality, the <strong>survival probabilities</strong> can be simplified to the following:</p>
@@ -2025,6 +2022,7 @@
 <p>It is NOT recommended to memorize any of the results in this section as the the situation will change from question to question.</p>
 <p>It is much better to understand the principles behind the calculation so that no matter what combination is given, the probabilities can be easily calculated.</p>
 </div>
+<p>In each of the above cases, the underlying decrement rates are assumed to be the same. The timing of the independent decrements only affects the <strong>split between each decrement</strong>; the resulting dependent probabilities. The <strong>total probabilities</strong> remain the same.</p>
 <h4 id="beginning-of-year"><strong>Beginning of Year</strong><a class="headerlink" href="#beginning-of-year" title="Permanent link">&para;</a></h4>
 <p>Consider a simple model with two decrements:</p>
 <ul>
@@ -2116,11 +2114,19 @@
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>It is a common mistake to use the UDD assumption to determine the last term; it is only applicable assuming the policyholder is at the <strong>start of the year</strong>.</p>
-<p>The reason is because it does not account for the fact that the policyholder has already <strong>survived till time</strong> <span class="arithmatex">\(s\)</span>. Thus, the true probability can be derived using <strong>conditional probability</strong>:</p>
+<p>It is a common mistake to apply the UDD assumption directly to the above equation:</p>
+<div class="arithmatex">\[
+    {}_{1-s}q^{'(1)}_{x+s} \ne (1-s) q^{'(1)}_{x}
+\]</div>
+<p>This is because the UDD assumption is only applicable to an individual who is <strong>alive at the start of the year</strong>. Thus, only when survival probability is accounted for can it be used:</p>
+<div class="arithmatex">\[
+    {}_{s}p^{'(1)}_{x} \cdot {}_{1-s}q^{'(1)}_{x+s} = (1-s) q^{'(1)}_{x}
+\]</div>
+<p>This can be proven via conditional probability:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{P(Fail from s to 1 | Survive to s)}
+    {}_{s}p^{'(1)}_{x} \cdot {}_{1-s}q^{'(1)}_{x+s}
+    &amp;= \text{P(Fail from s to 1 | Survive to s)} \\
     &amp;= \frac{\text{P(Fail from s to 1 and survive to s)}}{\text{P(Survive to s)}} \\
     &amp;= \frac{q^{'(1)}_{x} - {}_{s}q^{'(1)}_{x}}{{}_{s}p^{'(1)}_{x}} \\
     &amp;= \frac{q^{'(1)}_{x} - s \cdot q^{'(1)}_{x}}{{}_{s}p^{'(1)}_{x}} \\

@@ -1923,9 +1923,14 @@
     \pi &amp;= \sum_{t, i} {}_{t-1}p^{0i} \cdot \text{PR}^{i}_{t}
 \end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Remember that multi-decrement models are simply a variant of multi-state models. Thus, the same methods apply.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When dealing with multiple decrements, it is important to remember that only the <strong>dependent decrements</strong> should be used. Thus, pay attention to the following details:</p>
+<ol>
+<li>"Mortality follows the Standard Ultimate Life Table": Death decrement this way is dependent</li>
+<li>"X% of the surviving policyholders surrender": Survival occurs independently at the <strong>end of the year</strong></li>
+<li>"Of the 1000 policyholders, X died and Y surrendered": Death and Survival calculated this way are <strong>dependent</strong></li>
+</ol>
 </div>
 <h2 id="profitability-metrics"><strong>Profitability Metrics</strong><a class="headerlink" href="#profitability-metrics" title="Permanent link">&para;</a></h2>
 <p>Using the profit cashflows above, insurers can gauge the <strong>profitability</strong> of the policy based on different metrics.</p>
@@ -2126,11 +2131,11 @@
 <p>It is a common mistake to use the ending number of policies (after actual decrements) because the "intuition" is that the gain/loss is made on the remaining policies.</p>
 </div>
 <h3 id="expense-gain"><strong>Expense Gain</strong><a class="headerlink" href="#expense-gain" title="Permanent link">&para;</a></h3>
-<p>Since expense is a cash <em>outflow</em>, gains are recognised when the <strong>expected outflow is larger</strong> than the actual outflow:</p>
+<p>Since expense is a cash <em>outflow</em>, gains are recognised when the <strong>actual outflow is smaller</strong> than the actual outflow:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Expense Gain Per Policy}
-    &amp;= \text{Assumed Expense Profit} - \text{Actual Expense Profit} \\
+    &amp;= \text{Expected Expense Profit} - \text{Actual Expense Profit} \\
     &amp;= E(1+i) - q_{x} \cdot \text{CE} - [E'(1+i) - q_{x} \cdot \text{CE}'] \\
     &amp;= (E-E')(1+i) - q_{x} (\text{CE}-\text{CE}') \\
     &amp;= \text{Gain from Non Claim Expenses} + \text{Gain from Claim Expenses}
@@ -2138,7 +2143,7 @@
 \]</div>
 <p>Additionally, since this is the <strong>first attribution step</strong>, ONLY the difference in expense needs to be accounted for. This is because the other assumptions are still assumed to be at their expected value, thus it will <strong>offset</strong> one another.</p>
 <h3 id="interest-gain"><strong>Interest Gain</strong><a class="headerlink" href="#interest-gain" title="Permanent link">&para;</a></h3>
-<p>On the flipside, since interest is a cash <em>inflow</em>, gain is recognised when the <strong>expected inflow is smaller</strong> than the actual outflow:</p>
+<p>On the flipside, since interest is a cash <em>inflow</em>, gain is recognised when the <strong>actual inflow is larger</strong> than the actual outflow:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Interest Gain Per Policy}
@@ -2150,21 +2155,19 @@
 <p>Similarly, since this is <strong>NOT the first</strong> attribution step, all assumptions that have been attributed before must be included - <strong>ALL instances</strong> of the assumption should be using its <strong>actual value</strong>. This is to account for the <strong>correlation impact</strong> between the two.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Even though is says "Expected Profit", it is not truly the expected profit. This is because of the stepwise attribution, the expense assumption should be <strong>using the actual value</strong> instead.</p>
+<p>Even though is says "Expected Profit", it is not truly the expected profit. This is because of the <strong>stepwise attribution</strong>, the expense assumption should be <strong>using the actual value</strong> instead.</p>
 </div>
 <h3 id="mortality-gain"><strong>Mortality Gain</strong><a class="headerlink" href="#mortality-gain" title="Permanent link">&para;</a></h3>
-<p>Similarly, mortality is a cash <em>outflow</em>, gain is recognised when the <strong>expected outflow is larger</strong> than the actual outflow.</p>
+<p>Similarly, mortality is a cash <em>outflow</em>, gain is recognised when the <strong>actual outflow is smaller</strong> than the actual outflow.</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Mortality Gain Per Policy}
-    &amp;= \text{Assumed Mortality Profit} - \text{Actual Mortality Profit} \\
+    &amp;= \text{Expected Mortality Profit} - \text{Actual Mortality Profit} \\
     &amp;= q_{x} \cdot (B+\text{CE}') + (1-q_{x}) \cdot {}_{t}V - [q'_{x} \cdot (B + \text{CE}') + (1-q'_{x}) {}_{t}V] \\
     &amp;= q_{x} \cdot (B+\text{CE}') + {}_{t}V - q_{x} \cdot {}_{t}V - [q'_{x} \cdot (B+\text{CE}') + {}_{t}V - q'_{x} {}_{t}V] \\
     &amp;= q_{x} \cdot (B+\text{CE}') + {}_{t}V - q_{x} \cdot {}_{t}V - q'_{x} \cdot (B+\text{CE}') - {}_{t}V + q'_{x} {}_{t}V \\
     &amp;= (q_{x} - q'_{x})(B+\text{CE}') - (q_{x} - q'_{x}){}_{t}V \\
     &amp;= (q_{x} - q'_{x})(B+\text{CE}'- {}_{t}V) \\
-    &amp;= (q_{x} - q'_{x})(B+\text{CE}') - (q_{x} - q'_{x}){}_{t}V \\ 
-    &amp;= \text{Gain from Claims} + \text{Gain from Reserve}
 \end{aligned}
 \]</div>
 <p>Questions may alternatively provide the actual <strong>number of policyholders</strong> (NOP) instead of the probabilities. Thus, we need to solve for the actual probabilities using:</p>
@@ -2172,8 +2175,18 @@
     q'_{x} = \frac{\text{NOP}_\text{Beginning} - \text{NOP}_\text{Ending}}{\text{NOP}_\text{Beginning}}
 \]</div>
 <h3 id="other-gain"><strong>Other Gain</strong><a class="headerlink" href="#other-gain" title="Permanent link">&para;</a></h3>
-<p>Gains for other cashflows (EG. Surrender or Maturity) can be calculated by applying the same principles as above.</p>
-<p>Note that if the feature was not <strong>projected but eventually paid</strong> (EG. Expected profit does contain Surrender but actual profit do), then the <strong>expected profit from that component is 0</strong>.</p>
+<p>Gains for other cashflows (EG. Surrender or Maturity) can be calculated by applying the same principles as above:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Lapse Gain Per Policy}
+    &amp;= (w_{x} - w'_{x})(B^{w} + \text{CE}^{w}' - {}_{t}V) \\
+\end{aligned}
+\]</div>
+<p>The expression is analagous to the mortality gain. Note that even though the expected reserve appears in both the mortality and lapse gain, there is <strong>NO double counting</strong> - they each quantify the <strong>impact of its respective decrement</strong> on the expected reserve.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the feature was not <strong>expected but eventually paid</strong> (EG. Expected profit does contain Surrender but actual profit do), then the <strong>expected profit from that component is 0</strong> - the gain or loss is the <strong>entire outflow</strong> for that benefit.</p>
+</div>
 <h3 id="other-applications"><strong>Other Applications</strong><a class="headerlink" href="#other-applications" title="Permanent link">&para;</a></h3>
 <p>This method essentially attributes the impact of each assumption difference (Actual vs Profit Testing Basis) on Actual Profit. However, it <strong>can be used to determine Expected Profit</strong> as well.</p>
 <p>Recall that expected profit arises due to the difference in basis between Reserving and Profit Testing. Thus, by using the methods above, the expected profit from Investment, Mortality or Expense can be quantified.</p>

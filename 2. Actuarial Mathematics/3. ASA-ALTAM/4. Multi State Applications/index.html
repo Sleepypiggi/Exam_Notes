@@ -1982,9 +1982,16 @@
 <p>The multi-life model discussed previously can be expressed in the form of the following multi-state model:</p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Multi_Life_Multi_State" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Multi_Life_Multi_State.png" /></p>
+<p>For multi-life questions, it is recommended to default to the above model to aid how we think about the problem. It is a common mistake to <strong>forget to consider future possibilities</strong> of only one of the lives being alive; using the model will reduce the chance of this error.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For multi-life questions, it is recommended to default to the above model to aid how we think about the problem. It is a common mistake to <strong>forget to consider future possibilities</strong> of only one of the lives being alive; using the model will reduce the chance of this error.</p>
+<p>To determine the assurance factor for death, the conversion relationship can be used, where <span class="arithmatex">\(k\)</span> is the absorbing state:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    A^{ik}_{x} &amp;= 1 - d \cdot \sum_{j \ne k} \ddot{a}^{ij}_{x} \\
+    \therefore A^{03}_{x} &amp;= 1 - d \cdot (\ddot{a}^{00}_{x} + \ddot{a}^{01}_{x} + \ddot{a}^{02}_{x})
+\end{aligned}
+\]</div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
