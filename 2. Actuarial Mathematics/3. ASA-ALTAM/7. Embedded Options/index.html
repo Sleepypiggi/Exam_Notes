@@ -997,6 +997,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#profit-testing" class="md-nav__link">
+    Profit Testing
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1464,6 +1471,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#profit-testing" class="md-nav__link">
+    Profit Testing
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1609,7 +1623,7 @@
 <p>These guarantees may not be part of the product features, but offered as a rider for additional cost.</p>
 </div>
 <p>Traditional actuarial methods were not well suited to effectively deal with these risks, which led to the insolvency of many insurance companies in the 1990s when interest rates fell. This led to the creation of <strong>Market Consistent</strong> valuation basis to ensure that these risks are appropriately accounted for.</p>
-<p>As its name suggests, market consistent valuation involves valuing an asset at its <strong>observed market value</strong>. However, insurance contracts are almost never traded, thus does not have an observable market value. Instead, the insurance cashflows are <strong>translated into tradeable assets</strong>, where the value of the contract is <strong>equivalent to the price</strong> of the assets.</p>
+<p>As its name suggests, market consistent valuation involves valuing an asset at its <strong>observed market value</strong>. However, insurance contracts are almost never traded, thus does not hFVe an observable market value. Instead, the insurance cashflows are <strong>translated into tradeable assets</strong>, where the value of the contract is <strong>equivalent to the price</strong> of the assets.</p>
 <p>The guarantees offered Equity Linked insurance can be translated into an <strong>Option</strong>, which is why it can be valued as an <strong>Embedded Option</strong>.</p>
 <h2 id="equity-linked-insurance"><strong>Equity Linked Insurance</strong><a class="headerlink" href="#equity-linked-insurance" title="Permanent link">&para;</a></h2>
 <p>The defining feature of Equity Linked insurance is that the policyholder's premiums are <strong>invested into units</strong> of one or more mutual funds of the policyholder's choice. The <strong>policy benefits are directly linked</strong> to the total value of the units in the policyholder's account.</p>
@@ -1617,7 +1631,7 @@
 <p class="admonition-title">Warning</p>
 <p>It is a common mistake to confuse universal life (UL) and Equity Linked (EL) policies as both involve an <strong>account</strong> for the policyholder:</p>
 <ul>
-<li><strong>Universal Life</strong>: Account is purely notional; known as <strong>Account Value</strong></li>
+<li><strong>Universal Life</strong>: Account is purely notional; known as <strong>fund value</strong></li>
 <li><strong>Equity Linked</strong>: Account is actually invested in funds of choice; known as <strong>Fund Value</strong></li>
 </ul>
 </div>
@@ -1638,17 +1652,6 @@
 <li><strong>Cost</strong>: Posted to Non Unit Account, actual cost of the policy</li>
 </ul>
 <p>The amount charged to the policyholder and the actual are often different - where the charges are higher than the cost, allowing the insurer to <strong>earn the spread</strong>. For instance, the fund management charge might be $100 - but the insurer only incurs $70 of investment expenses (due to economies of scale), allowing them to earn the difference.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Only <strong>NON-unit</strong> account cashflows should be used for <strong>profit testing</strong>. The confusion arises because unit account cashflows must be projected as well to obtain the charges.</p>
-<p>The following cashflows are easily mixed up:</p>
-<ul>
-<li>Expense Fee Income vs Actual Expenses</li>
-<li>Fund Growth vs Investment Income</li>
-<li>Benefit Charge vs Benefit Cost</li>
-</ul>
-<p>Another common confusion comes from calculating <strong>Profit Margin</strong>. Even though only the unallocated premiums flow into the profit calculation, the profit margin is calculated <strong>based on the Total Premium</strong>.</p>
 </div>
 <p>Another intuitive way to think about it is that for <strong>all other types of policies</strong>, there exists only a <strong>non-unit account</strong>. The premiums paid might be more/less than the cost of the policy, the excess/shortfall is managed by the <strong>insurer's investments</strong>.</p>
 <p>The key difference is that the premiums are <strong>invested by the policyholder</strong>; only what is needed is deducted each period. The <strong>investment risk is borne by the policyholder</strong> instead.</p>
@@ -1688,7 +1691,7 @@
 <p><img alt="Unit Fund" class="center" src="../Assets/7.%20Embedded%20Options.md/Unit_Fund.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The above breakdown is based on what is commonly done in practice. It is possible for a question to have fewer cashflows or have them projected at different timings (EG. No mortality charge &amp; Management Charge at BOP). </p>
+<p>The above breakdown is based on what is commonly done in practice. It is possible for a question to hFVe fewer cashflows or hFVe them projected at different timings (EG. No mortality charge &amp; Management Charge at BOP). </p>
 </div>
 <p>The above can be calculated in Excel and presented as the following:</p>
 <!-- Self Made -->
@@ -1696,35 +1699,89 @@
 <h3 id="policy-benefits"><strong>Policy Benefits</strong><a class="headerlink" href="#policy-benefits" title="Permanent link">&para;</a></h3>
 <p>As mentioned previously, the benefits of the policy are <strong>tied</strong> to the value of the unit account:</p>
 <div class="arithmatex">\[
-    \text{Death Benefit} = \text{Surrender Benefit} = \text{Account Value}
+    \text{Death Benefit} = \text{Surrender Benefit} = \text{fund value}
 \]</div>
-<p>However, due to the <strong>volatile nature</strong> of investing, some policyholders could end up with <strong>low fund values</strong> and hence low coverage. Thus, most policies offer a <strong>guaranteed minimum benefit</strong> that will kick in <strong>if the account value is below a certain threshold</strong>.</p>
+<p>However, due to the <strong>volatile nature</strong> of investing, some policyholders could end up with <strong>low fund values</strong> and hence low coverage. Thus, most policies offer a <strong>guaranteed minimum benefit</strong> that will kick in <strong>if the fund value is below a certain threshold</strong>.</p>
 <p>The most common variation is to offer a <strong>guaranteed minimum benefit</strong> based on some multiple <span class="arithmatex">\(\lambda\)</span> of the <strong>premiums paid to date</strong>:</p>
 <div class="arithmatex">\[
      \text{Minimum Benefit} = \text{Lambda} \cdot \text{Premium Paid to Date}
 \]</div>
-<p>The Guaranteed Benefit (GB) will be paid <strong>if the Account Value (AV) is smaller</strong> than the guarantee. Thus, the benefit of the policy can be expressed as the following:</p>
+<p>The Guaranteed Benefit (GB) will be paid <strong>if the Fund Value (FV) is smaller</strong> than the guarantee. Thus, the benefit of the policy can be expressed as the following:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Policy Benefit}
     &amp;=
     \begin{cases}
-        \text{AV}, &amp; \text{AV} &gt; \text{GB} \\
-        \text{GB}, &amp; \text{AV} &lt;= \text{GB}
+        \text{FV}, &amp; \text{FV} &gt; \text{GB} \\
+        \text{GB}, &amp; \text{FV} &lt;= \text{GB}
     \end{cases} \\
-    &amp;= \max (\text{AV}, \text{GB})
+    &amp;= \max (\text{FV}, \text{GB}, 0)
 \end{aligned}
 \]</div>
-<p>Thus, similar to UL policies, the insurer does not pay the full benefit amount - they pay the <strong>shortfall</strong> of the account value compared to the guarantee.</p>
-<p>Conceptually, this is analogous to the COI - which is why it is known as the <strong>Cost of Guarantees</strong> (COG).</p>
+<p>Thus, the insurer does not pay the full benefit amount - they pay the <strong>shortfall</strong> of the fund value compared to the benefit.</p>
+<h3 id="profit-testing"><strong>Profit Testing</strong><a class="headerlink" href="#profit-testing" title="Permanent link">&para;</a></h3>
+<p>Profit testing is very different for Equity Linked Insurance compared to other products. There are several key differences:</p>
+<ul>
+<li>Only <strong>NON-UNIT</strong> account cashflows should be considered</li>
+<li><strong>Reserves are typically not held</strong> for Equity Linked Insurance</li>
+</ul>
+<!-- Self Made -->
+<p><img alt="Equity_Linked_Profit" class="center" src="../Assets/7.%20Embedded%20Options.md/Equity_Linked_Profit.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There are two common mistakes:</p>
+<ul>
+<li>The insurer receives only the <strong>unallocated portion</strong> of the premium</li>
+<li>The insurer receives the <strong>management charges as fee income</strong></li>
+<li>The insurer only pays the <strong>shortfall</strong> in the benefit amounts</li>
+</ul>
+<p>Note that even though both UL and EL policies pay the shortfall in the benefit amount, they are <strong>treated differently</strong> during profit testing due to the account set up.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Even though only the unallocated premiums flow into the profit calculation, the profit margin is calculated <strong>based on the Paid Premium</strong>.</p>
+</div>
+<p>As mentioned previously, the expected benefit above is the <strong>expected payment from the insurer</strong> (the shortfall):</p>
 <div class="arithmatex">\[
-    \text{COG} = \max(\text{GB} - \text{FV}) \cdot q_{x}
+\begin{aligned}
+    \text{EDB} &amp;= \max (\text{DB} - \text{FV}, 0) \cdot q_{x} \\
+    \text{ESB} &amp;= (\text{SB} - \text{FV}, 0) \cdot w_{x} \\
+    \text{EMB} &amp;= \max (\text{SB} - \text{FV}, 0) \cdot p_{x}
+\end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that for surrender benefit, the shortfall is <strong>NOT floored</strong> at 0. This is because the insurer may impose <strong>surrender charges</strong> which will show up as a "negative cost" (the doube negative will cause it to become <strong>cash inflow</strong>).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Another quantity of interest is the <strong>Cost of Guarantee</strong>. It is similar to the cost of benefit, where it measures the <strong>contribution of the guarantee</strong> to the benefit:</p>
+<div class="arithmatex">\[
+    \text{COG}_{t} = \max (\text{GB}_{t} - \text{DB}_{t}, 0) \cdot q_{x+t}
+\]</div>
+<p>For most policies where the death benefit is simply the account value, the cost of guarantee and cost of benefit are the <strong>same</strong>. However, if there is a <strong>multiplier</strong> on top of the benefit (EG. 105% times the account value), then the two would deviate:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{COG}_{t} &amp;=
+    \max (\text{GB}_{t} - 1.1 \cdot \text{FV}_{t}, 0) \cdot q_{x+t-1}
+    \\
+    \text{COB}_{t}
+    &amp;= \max (\max (\text{GB}_{t}, 1.1 \cdot \text{FV}_{t}) - \text{FV}, 0) \cdot q_{x+t-1}
+\end{aligned}
+\]</div>
+<p>The COG is typically calculated for all periods on issue:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{COG}_{0} &amp;= \sum \max (\text{GB}_{t} - \text{DB}_{t}, 0) \cdot {}_{k \mid}q_{x} \\
+    \text{COG}_{0} &amp;= \sum {}_{k-1}p_{x} \cdot \text{COG}_{t}
+\end{aligned}
+\]</div>
+</div>
 <h2 id="embedded-options_1"><strong>Embedded Options</strong><a class="headerlink" href="#embedded-options_1" title="Permanent link">&para;</a></h2>
 <p>With some manipulation, the above expression for policy benefit can be expressed in the form a <strong>European Put Option Payoff</strong>:</p>
 <ul>
 <li>Guaranteed Benefit is a <strong>fixed value</strong>, similar to the <strong>Strike Price</strong></li>
-<li>Account Value follows a <strong>stock price process</strong> (with charges applied)</li>
+<li>fund value follows a <strong>stock price process</strong> (with charges applied)</li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1732,9 +1789,9 @@
     &amp;= \max (K - S_{t}, 0) \\
     \\
     \text{Policy Benefit}_{t}
-    &amp;= \max (\text{AV}_{t}, \text{GB}) \\
-    &amp;= \max (\text{GB} - \text{AV}_{t}, \text{AV}_{t} - \text{AV}_{t}) \\
-    &amp;= \max (\text{GB} - \text{AV}_{t}, 0)
+    &amp;= \max (\text{FV}_{t}, \text{GB}) \\
+    &amp;= \max (\text{GB} - \text{FV}_{t}, \text{FV}_{t} - \text{FV}_{t}) \\
+    &amp;= \max (\text{GB} - \text{FV}_{t}, 0)
 \end{aligned}
 \]</div>
 <p>Thus, the same framework used to evaluate european put options - <strong>Black Scholes Merton</strong> model - can be used to evaluate these guaranteed benefits as well. However, there is one <strong>key difference</strong> between the two that must be accounted for:</p>
@@ -1758,10 +1815,10 @@
 <p class="admonition-title">Note</p>
 <p>The expression is simplified in this case since we assume a single premium policy.</p>
 </div>
-<p>The account value projection earlier assumes that the fund grows at a <strong>specified rate</strong>. An alternative method is to assume that it grows at the same rate as an <strong>underlying stock process</strong>. Thus, the account value <strong>at maturity</strong> of time <span class="arithmatex">\(n\)</span> can be expressed as:</p>
+<p>The fund value projection earlier assumes that the fund grows at a <strong>specified rate</strong>. An alternative method is to assume that it grows at the same rate as an <strong>underlying stock process</strong>. Thus, the fund value <strong>at maturity</strong> of time <span class="arithmatex">\(n\)</span> can be expressed as:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{AV}_{n}
+    \text{FV}_{n}
     &amp;= \text{Opening Value} \cdot \text{Charges} \cdot \text{Growth} \\
     &amp;= P \cdot (1 - \text{IC}) \cdot (1 - \text{RC})^{n-1} \cdot \frac{S_{n}}{S_{0}} \\
     &amp;= P \cdot \xi \cdot \frac{S_{n}}{S_{0}} \\
@@ -1771,8 +1828,8 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The charges in this scenario have have been simplified to <strong>Initial Charges</strong> (IC) and <strong>Renewal Charges</strong> (RC). Both are charged as a <strong>percentage of the account value</strong> at the time.</p>
-<p>They are then further <strong>combined</strong> into <span class="arithmatex">\(\xi\)</span>, since they have a <strong>fixed value</strong> (dependent only on policy term, which is fixed for each policy).</p>
+<p>The charges in this scenario hFVe hFVe been simplified to <strong>Initial Charges</strong> (IC) and <strong>Renewal Charges</strong> (RC). Both are charged as a <strong>percentage of the fund value</strong> at the time.</p>
+<p>They are then further <strong>combined</strong> into <span class="arithmatex">\(\xi\)</span>, since they hFVe a <strong>fixed value</strong> (dependent only on policy term, which is fixed for each policy).</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1782,7 +1839,7 @@
 <div class="arithmatex">\[
 \begin{aligned}
     h(n)
-    &amp;= \max (\text{GB} - \text{AV}_{t}, 0) \\
+    &amp;= \max (\text{GB} - \text{FV}_{t}, 0) \\
     &amp;= \max  \left(\lambda P - P \cdot \xi \cdot \frac{S_{n}}{S_{0}}, 0 \right) \\
     &amp;= P \xi \cdot \max \left(\frac{\lambda}{\xi} - \frac{S_{n}}{S_{0}}, 0 \right) \\
     &amp;= P \xi \cdot \max \left(\frac{\lambda}{\xi} - S_{n}, 0 \right) \\
@@ -1928,7 +1985,7 @@
 <h4 id="external-hedging"><strong>External Hedging</strong><a class="headerlink" href="#external-hedging" title="Permanent link">&para;</a></h4>
 <p>The first method involves <strong>purchasing</strong> the required options from an <strong>external third party</strong>. The cost of the option(s) are incurred as a <strong>pre-contract expense</strong>.</p>
 <p>With the option, the risk of the guarantee is effectively ceded to the option seller. Thus, the insurer should <strong>not incur any cost of guarantees</strong>.</p>
-<p>The main issue with this approach is the <strong>availability</strong> of the option(s) with the specified parameters (Strike Price &amp; Duration).</p>
+<p>The main issue with this approach is the <strong>FVailability</strong> of the option(s) with the specified parameters (Strike Price &amp; Duration).</p>
 <h4 id="internal-hedging"><strong>Internal Hedging</strong><a class="headerlink" href="#internal-hedging" title="Permanent link">&para;</a></h4>
 <p>Alternatively, the insurer can create a <strong>replicating portfolio</strong> of stocks and zero-coupon bonds that will match the payoff of the required option(s). If the guarantee would be exercised, the insurer will <strong>liquidate</strong> the replicating portfolio to cover the cost.</p>
 <p>Each Put Option can be decomposed into a Stock and Zero-Coupon Bond:</p>
@@ -2015,15 +2072,15 @@
 </ul>
 </div>
 <h2 id="variable-annuities"><strong>Variable Annuities</strong><a class="headerlink" href="#variable-annuities" title="Permanent link">&para;</a></h2>
-<p>In the US, rather than having Equity Linked Insurance, they offer <strong>Variable Annuities</strong> instead. They are a form of <strong>Deferred Annuity</strong> where the premiums paid are <strong>invested into a mutual fund</strong> of their choice. At the end of the policy term, they have the option to either:</p>
+<p>In the US, rather than hFVing Equity Linked Insurance, they offer <strong>Variable Annuities</strong> instead. They are a form of <strong>Deferred Annuity</strong> where the premiums paid are <strong>invested into a mutual fund</strong> of their choice. At the end of the policy term, they hFVe the option to either:</p>
 <ul>
-<li>Receive the account value in <strong>cash</strong> (<strong>Maturity Benefit</strong>)</li>
+<li>Receive the fund value in <strong>cash</strong> (<strong>Maturity Benefit</strong>)</li>
 <li>Convert the amount into a <strong>life annuity</strong> (<strong>Annuitization</strong>)</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Despite having an Annuity in its name, it is actually a <strong>life insurance</strong> policy before it becomes annuitized. A <strong>death benefit is payable</strong> if the insured dies during the policy term. Once annuitized, the death benefit is no longer payable.</p>
-<p>The policy term above refers to the term of the <strong>variable annuity</strong>. The annuity will have a seperately specified term.</p>
+<p>Despite hFVing an Annuity in its name, it is actually a <strong>life insurance</strong> policy before it becomes annuitized. A <strong>death benefit is payable</strong> if the insured dies during the policy term. Once annuitized, the death benefit is no longer payable.</p>
+<p>The policy term above refers to the term of the <strong>variable annuity</strong>. The annuity will hFVe a seperately specified term.</p>
 </div>
 <p>Similar to Equity Linked insurance, variable annuities also offer guaranteed maturity and death benefits. However, they also offer <strong>additional more complex guarantee features</strong> than those described previously:</p>
 <ul>
@@ -2031,24 +2088,24 @@
 <li>Lookback Option</li>
 <li>Rollover Guarantee</li>
 </ul>
-<p>Additionally, since they have an annuity component, there are <strong>additional annuity related guarantees</strong>:</p>
+<p>Additionally, since they hFVe an annuity component, there are <strong>additional annuity related guarantees</strong>:</p>
 <ul>
 <li>Guaranteed Income Benefits</li>
 <li>Guaranteed Withdrawal Benefits</li>
 </ul>
 <h3 id="reset-option"><strong>Reset Option</strong><a class="headerlink" href="#reset-option" title="Permanent link">&para;</a></h3>
-<p><strong>Reset Options</strong> allow the policy to increase the guaranteed benefit amount to <strong>match the account value</strong> at the time of exercising the option. It will <em>only</em> be exercised if the account value has <strong>increased beyond</strong> the guaranteed amount:</p>
+<p><strong>Reset Options</strong> allow the policy to increase the guaranteed benefit amount to <strong>match the fund value</strong> at the time of exercising the option. It will <em>only</em> be exercised if the fund value has <strong>increased beyond</strong> the guaranteed amount:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Original Guarantee} &amp;= \lambda \cdot P \\
-    \text{Reset Guarantee} &amp;= \lambda \cdot \text{AV at time of exercise}
+    \text{Reset Guarantee} &amp;= \lambda \cdot \text{FV at time of exercise}
 \end{aligned}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <strong>same scaling factor</strong> is applied for the new guarantee. Functionally, it is <strong>changing the base of the guarantee</strong>.</p>
 </div>
-<p>Policyholders have the <strong>flexibility</strong> to choose when to exercise the option, allowing them to time the market for a good amount. However, it comes with a "cost" of a <strong>minimum policy term post exercising</strong>:</p>
+<p>Policyholders hFVe the <strong>flexibility</strong> to choose when to exercise the option, allowing them to time the market for a good amount. However, it comes with a "cost" of a <strong>minimum policy term post exercising</strong>:</p>
 <ul>
 <li><strong>Less than <span class="arithmatex">\(k\)</span> years left</strong>: Remaining term increased to <span class="arithmatex">\(k\)</span> years</li>
 <li><strong>More than <span class="arithmatex">\(k\)</span> year left</strong>: No change to remaining term</li>
@@ -2057,18 +2114,18 @@
 <p class="admonition-title">Info</p>
 <p>The minimum term might come attached with a <strong>Surrender Charge</strong> condition if any amount is withdrawn then. This is to ensure that the insurer can recoup the costs associated with increasing the gurantee.</p>
 </div>
-<p>Apart from being competitive, there is another reason why such benefits are offered. If the account value is <strong>significantly higher</strong> than the guaranteed amount, the policyholder might surrender the policy and <strong>reinvest in a new policy</strong> with a higher guarantee - <strong>incurring costs</strong> related to cancelling and administering a new policy. Offering the option achieves the <strong>same outcome with cost savings</strong>.</p>
+<p>Apart from being competitive, there is another reason why such benefits are offered. If the fund value is <strong>significantly higher</strong> than the guaranteed amount, the policyholder might surrender the policy and <strong>reinvest in a new policy</strong> with a higher guarantee - <strong>incurring costs</strong> related to cancelling and administering a new policy. Offering the option achieves the <strong>same outcome with cost sFVings</strong>.</p>
 <p>However, such a complex guarantee does come with significant risks as well:</p>
 <ul>
 <li>If the entire market goes up, a <strong>significant number will exercise</strong> their reset option at once, resulting in a huge <strong>increase in liability</strong> for the insurer</li>
 <li>Similarly, they would <strong>mature at similar times</strong> (due to the minimum policy term), thus resulting in large <strong>concentration risks</strong></li>
 </ul>
 <h3 id="lookback-option"><strong>Lookback Option</strong><a class="headerlink" href="#lookback-option" title="Permanent link">&para;</a></h3>
-<p><strong>Lookback Options</strong> will increase the gurantee amount to match the account value at <strong>specific intervals</strong>. Functionally, it is a reset option that will be <strong>automatically exercised</strong> (if in the money) every few years, but with no minimum policy term after.</p>
+<p><strong>Lookback Options</strong> will increase the gurantee amount to match the fund value at <strong>specific intervals</strong>. Functionally, it is a reset option that will be <strong>automatically exercised</strong> (if in the money) every few years, but with no minimum policy term after.</p>
 <div class="arithmatex">\[
-    \text{Lookback Guarantee} = \max (\text{AV}_{x}, \text{AV}_{2x}, \text{AV}_{3x}, \dots)
+    \text{Lookback Guarantee} = \max (\text{FV}_{x}, \text{FV}_{2x}, \text{FV}_{3x}, \dots)
 \]</div>
-<p>While it provides <strong>more opportunities</strong> to reset the guarantee, it <strong>loses the flexibility</strong> to choose when it occurs. If the account value increases during the intervals but decreases before the specified time, the <strong>peak will not be captured</strong> by the option.</p>
+<p>While it provides <strong>more opportunities</strong> to reset the guarantee, it <strong>loses the flexibility</strong> to choose when it occurs. If the fund value increases during the intervals but decreases before the specified time, the <strong>peak will not be captured</strong> by the option.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>This option is sometimes referred to as a <strong>Step Up Guarantee</strong>, as the guarantee has the potentially to be stepped up at regular intervals (assuming the fund value continuously increases).</p>
@@ -2076,17 +2133,17 @@
 <h3 id="rollover-guarantee"><strong>Rollover Guarantee</strong><a class="headerlink" href="#rollover-guarantee" title="Permanent link">&para;</a></h3>
 <p>Rollover guarantees provide the following benefits at specified intervals:</p>
 <ul>
-<li>If the <strong>account value is higher</strong> than the guarantee, the <strong>guarantee is increased</strong> to match the account value</li>
-<li>If the <strong>account value is lower</strong> than the guarantee, the <strong>account value is increased</strong> to match the guarantee</li>
+<li>If the <strong>fund value is higher</strong> than the guarantee, the <strong>guarantee is increased</strong> to match the fund value</li>
+<li>If the <strong>fund value is lower</strong> than the guarantee, the <strong>fund value is increased</strong> to match the guarantee</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>It is a essentially a lookback option with downside protection. It is also sometimes referred to as a <strong>Guaranteed Accumulation Benefit</strong>.</p>
 </div>
-<p>One key consideration is that if the policy has a rollover guarantee, it must be <strong>projected seperately</strong>. This is because the capital injections at the specified intervals will modify the account value, <strong>affecting subsequent growth and charges</strong>.</p>
+<p>One key consideration is that if the policy has a rollover guarantee, it must be <strong>projected seperately</strong>. This is because the capital injections at the specified intervals will modify the fund value, <strong>affecting subsequent growth and charges</strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The capital injection by the insurer into the account value is <strong>NOT considered part of the guaranteed benefits payout</strong>. It should be thought of as a cost to the insurer. Thus, if asked to determine the payout of the option, <strong>do NOT include any capital injections</strong>.</p>
+<p>The capital injection by the insurer into the fund value is <strong>NOT considered part of the guaranteed benefits payout</strong>. It should be thought of as a cost to the insurer. Thus, if asked to determine the payout of the option, <strong>do NOT include any capital injections</strong>.</p>
 </div>
 <h3 id="guaranteed-income-benefit"><strong>Guaranteed Income Benefit</strong><a class="headerlink" href="#guaranteed-income-benefit" title="Permanent link">&para;</a></h3>
 <p>A <strong>Guaranteed Income Benefit</strong> sets a <strong>minimum payout</strong> from the resulting annuity:</p>
@@ -2100,16 +2157,16 @@
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Account Value} &amp;= \text{Payout} \cdot \text{Annuity Factor} \\
+    \text{fund value} &amp;= \text{Payout} \cdot \text{Annuity Factor} \\
     \text{Payout}
-    &amp;= \frac{\text{Account Value}}{\text{Annuity Factor}} \\
-    &amp;= \underbrace{\text{Account Value}}_{\text{Benefit Base}}
+    &amp;= \frac{\text{fund value}}{\text{Annuity Factor}} \\
+    &amp;= \underbrace{\text{fund value}}_{\text{Benefit Base}}
         \cdot \underbrace{\frac{1}{\text{Annuity Factor}}}_{\text{Annuitization Rate}}
 \end{aligned}
 \]</div>
 <p>The guarantee can specify a change to <strong>either or both of the components</strong>, which affects the minimum payout:</p>
 <ul>
-<li><strong>Benefit Base</strong>: Accumulate at different rate from account value (notional value; no charges)</li>
+<li><strong>Benefit Base</strong>: Accumulate at different rate from fund value (notional value; no charges)</li>
 <li><strong>Annuitization Rate</strong>: Determined using different assumptions </li>
 </ul>
 <div class="admonition warning">
@@ -2122,13 +2179,13 @@
 \]</div>
 <h3 id="guaranteed-withdrawal-benefit"><strong>Guaranteed Withdrawal Benefit</strong><a class="headerlink" href="#guaranteed-withdrawal-benefit" title="Permanent link">&para;</a></h3>
 <p>A <strong>Guaranteed Withdrawal Benefit</strong> ensures the policyholder can <strong>ALWAYS withdraw</strong> the specified amount from the fund, <em>within a specified period</em>.</p>
-<p>Naturally, withdrawals will <strong>reduce the account value</strong> accordingly. However, even if the <strong>account value is zero</strong>, the policyholder <strong>may still withdraw</strong> the specified amount, as long as it is within the specified period. Hence, the term "always" was used earlier.</p>
+<p>Naturally, withdrawals will <strong>reduce the fund value</strong> accordingly. However, even if the <strong>fund value is zero</strong>, the policyholder <strong>may still withdraw</strong> the specified amount, as long as it is within the specified period. Hence, the term "always" was used earlier.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>While the fund has value, the insurer may make withdrawals above the specified amount, <strong>subject to the amount left</strong> in the fund and any prevailing charges.</p>
 <p>Once the fund is depleted, the insurer can ONLY withdraw the specified amount - <strong>no additional withdrawal</strong> can be made, as there is nothing left to withdraw.</p>
 </div>
-<p>Any shortfall in the account value is <strong>funded by the insurer</strong>, which is the cost of the guarantee:</p>
+<p>Any shortfall in the fund value is <strong>funded by the insurer</strong>, which is the cost of the guarantee:</p>
 <div class="arithmatex">\[
     \text{Cost of Guarantee} = \sum \text{PV (Shortfall Funding)}
 \]</div>

@@ -1779,9 +1779,16 @@
 \begin{aligned}
     S_{x+t}
     &amp;= \text{Monthly Salary}_{x+t-1} \cdot [1 + (1+j)^{1} + (1+j)^{2} + (1+j)^{3} + \dots] \\
-    &amp;= \text{Monthly Salary}_{x+t-1} \cdot S_{\enclose{actuarial}{12} j}
+    &amp;= \text{Monthly Salary}_{x+t-1} \cdot s_{\enclose{actuarial}{12} j}
 \end{aligned}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The accumulation function is for the payments made in <strong>arrears</strong> (not the usual payment in advance) that is usually used for ALTAM:</p>
+<div class="arithmatex">\[
+    s_{\enclose{actuarial}{12}} = \frac{(1+j)^{12} - 1}{i}
+\]</div>
+</div>
 <h3 id="continuous-salary"><strong>Continuous Salary</strong><a class="headerlink" href="#continuous-salary" title="Permanent link">&para;</a></h3>
 <p>In some rare cases, questions might provide the <strong>Salary Rate</strong> instead. In these cases, the salary also grows at a <strong>continuous rate</strong>.</p>
 <p>The same principles from before apply - the annual salary is the <strong>sum of all the salaries</strong> received in the year. In a continuous scenario, the salaries are received every instant. To sum across all instances, integration must be used:</p>
@@ -1866,12 +1873,9 @@
     = S_{x} \cdot c \cdot s_{\enclose{actuarial}{12}}
 \]</div>
 <p>The above yearly contribution can then be plugged into the usual geometric formula that to determine the accumulated value as at the valuation date.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The accumulation function is for the payments made in arrears (not the usual payment in advance) that is usually used for ALTAM:</p>
-<div class="arithmatex">\[
-    s_{\enclose{actuarial}{12}} = \frac{(1+j)^{12} - 1}{i}
-\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is similar in principle to the monthly salary growth situation earlier. The key is to <strong>gross up</strong> the components with different frequencies to match the rest.</p>
 </div>
 <h2 id="defined-benefit"><strong>Defined Benefit</strong><a class="headerlink" href="#defined-benefit" title="Permanent link">&para;</a></h2>
 <p>Defined Benefit plans are a type pension where the retirement benefits are fixed, defined as some <strong>function of an employee's final salary</strong> upon retirement. It is the employer's duty to set aside and invest funds to ensure that they are able to pay out the benefit upon retirement.</p>
@@ -1992,7 +1996,7 @@
 <p>Ultimately, the benefit payments will only start on retirement. Thus, liability must be <strong>discounted back</strong> to the current valuation date to <strong>control for interest and decrements</strong>, known as the <strong>Accrued Liability</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Accrued Liability}_{y}
+    {}_{x}V
     &amp;= \text{EPV DB Benefits}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{y}} \\
     &amp;= (y - x) \cdot \alpha \cdot \text{PS} \cdot \ddot{a}^{(12)}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{y}}
 \end{aligned}
@@ -2039,7 +2043,7 @@
 <p>The accrued liability must <strong>account for all possibilities</strong> of retiring at each age:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Accrued Liability}_{y}
+    {}_{x}V
     &amp;= \text{EPV DB Benefits}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{y}} \\
     &amp;+ \text{EPV DB Benefits}_{64} \cdot v^{64-y} \cdot \frac{r_{64}}{\ell_{y}} \\
     &amp;+ \text{EPV DB Benefits}_{63} \cdot v^{63-y} \cdot \frac{r_{63}}{\ell_{y}} \\
@@ -2049,7 +2053,7 @@
 <p>If the <strong>PUC method</strong> is specified, then each scenario must use a <strong>different pensionable salary</strong>, based on the retirement age in that scenario:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Accrued Liability}_{y}
+    {}_{x}V
     &amp;= n \cdot \alpha \cdot \text{PS}_{65} \cdot \ddot{a}^{(12)}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{y}} \\
     &amp;+ n \cdot \alpha \cdot \text{PS}_{64} \cdot \ddot{a}^{(12)}_{64} \cdot v^{64-y} \cdot \frac{r_{64}}{\ell_{y}} \\
     &amp;+ n \cdot \alpha \cdot \text{PS}_{63} \cdot \ddot{a}^{(12)}_{63} \cdot v^{63-y} \cdot \frac{r_{63}}{\ell_{y}} \\
@@ -2059,7 +2063,7 @@
 <p>Consequently, if the <strong>TUC method</strong> is specified, then all scenarios would be based on the same retirement benefit. Thus, the expression can be <strong>greatly simplified</strong> to:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Accrued Liability}_{y}
+    {}_{x}V
     &amp;= n \cdot \alpha \cdot \text{PS}_{y} \\
     &amp; \cdot \biggl(\ddot{a}^{(12)}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{y}}
     + \ddot{a}^{(12)}_{64} \cdot v^{64-y} \cdot \frac{r_{64}}{\ell_{y}}
@@ -2078,7 +2082,7 @@
 <p>Similar to variable retirements, the accrued liability must account for the possibility of <strong>withdrawing at every possible age</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Accrued Liability}_{y}
+    {}_{x}V
     &amp;= \text{EPV Withdrawal}_{z} \cdot v^{z-y} \cdot \frac{w_{z}}{\ell_{y}} \\
     &amp;+ \text{EPV Withdrawal}_{z+1} \cdot v^{z+1-y} \cdot \frac{w_{z+1}}{\ell_{y}} \\
     &amp;+ \text{EPV Withdrawal}_{z+2} \cdot v^{z+2-y} \cdot \frac{w_{z+2}}{\ell_{y}} \\
@@ -2099,12 +2103,12 @@
 <p>In order to simplify this process, some questions might provide a <strong>specialized annuity factor</strong> that can directly calculate the EPV of future retirement benefits <strong>as at the withdrawal date</strong>.</p>
 </div>
 <h2 id="db-funding"><strong>DB Funding</strong><a class="headerlink" href="#db-funding" title="Permanent link">&para;</a></h2>
-<p>As stated previously, it is the employer's duty to ensure that they have sufficient funds to cover the DB pension liability. Thus, employers hols a <strong>reserve</strong> equal to the accrued liability of the pension at the time of valuation.</p>
+<p>As stated previously, it is the employer's duty to ensure that they have sufficient funds to cover the DB pension liability. Thus, employers hols a <strong>reserve</strong> equal to the accrued liability of the pension at the time of valuation (hence the notation).</p>
 <p>As the employees move towards retirement, the accrued liability increases, forcing the employer to <strong>increase their reserves</strong>. The <strong>extent of the reserve increase</strong> (after controlling for mortality and interest) is the amount that the <strong>contribution needed</strong> <span class="arithmatex">\((C_{t})\)</span> for that period.</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{AL}_{t} + C_{t} &amp;= \text{AL}_{t+1} \cdot vp_{x} \\
-    C_{t} = \text{AL}_{t+1} \cdot vp_{x} - \text{AL}_{t}
+    {}_{t}V + C_{t} &amp;= {}_{t+1}V \cdot vp_{x} \\
+    C_{t} &amp;= {}_{t+1}V \cdot vp_{x} - {}_{t}V 
 \end{aligned}
 \]</div>
 <div class="admonition note">
@@ -2125,14 +2129,14 @@
 <p class="admonition-title">Note</p>
 <p>Recall that the future accrued liability is controlled for interest and mortality. This means that the cashflows are <strong>discounted to the same time point</strong>.</p>
 </div>
-<p>Given that there is only <strong>one key difference</strong>, the <span class="arithmatex">\(\text{AL}_{t+1}\)</span> can be expressed as a function of <span class="arithmatex">\(\text{AL}_{t}\)</span>:</p>
+<p>Given that there is only <strong>one key difference</strong>, the <span class="arithmatex">\({}_{t+1}V\)</span> can be expressed as a function of <span class="arithmatex">\({}_{t}V\)</span>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    vp_{x} \cdot \text{AL}_{t+1}
+    vp_{x} \cdot {}_{t+1}V
     &amp;= vp_{x} \cdot \text{AB}_{t+1} \cdot \ddot{a}^{(12)}_{65} \cdot v^{65-(y+1)} \frac{r_{65}}{\ell_{y+1}} \\
     &amp;= \text{AB}_{t+1} \cdot \ddot{a}^{(12)}_{65} \cdot v^{65-y} \frac{r_{65}}{\ell_{y}} \\
     &amp;= \frac{n+1}{n} \cdot \text{AB}_{t} \cdot \ddot{a}^{(12)}_{65} \cdot v^{65-y} \frac{r_{65}}{\ell_{y}} \\
-    &amp;= \frac{n+1}{n} \cdot \text{AL}_{t} \\
+    &amp;= \frac{n+1}{n} \cdot {}_{t}V \\
     \\
     \text{AB}_{t+1}
     &amp;= (n+1) \cdot \alpha \cdot \text{PS}_{65} \\
@@ -2140,10 +2144,10 @@
     &amp;= \frac{n+1}{n} \cdot \text{AB}_{t} \\
     \\
     \therefore C_{t}
-    &amp;= \text{AL}_{t+1} \cdot vp_{x} - \text{AL}_{t} \\
-    &amp;= \frac{n+1}{n} \cdot \text{AL}_{t} - \text{AL}_{t} \\
-    &amp;= \left(\frac{n+1}{n} - 1 \right) \cdot \text{AL}_{t} \\
-    &amp;= \frac{1}{n} \cdot \text{AL}_{t}
+    &amp;= {}_{t+1}V \cdot vp_{x} - {}_{t}V \\
+    &amp;= \frac{n+1}{n} \cdot {}_{t}V - {}_{t}V \\
+    &amp;= \left(\frac{n+1}{n} - 1 \right) \cdot {}_{t}V \\
+    &amp;= \frac{1}{n} \cdot {}_{t}V
 \end{aligned}
 \]</div>
 <div class="admonition tip">
@@ -2156,11 +2160,11 @@
 <p>However, the approach is still the same. The goal is convert the <strong>re-express the liability</strong> at <span class="arithmatex">\(t+1\)</span> as a function of the liability at <span class="arithmatex">\(t\)</span>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    vp_{x} \cdot \text{AL}_{t+1}
+    vp_{x} \cdot {}_{t+1}V
     &amp;= vp_{x} \cdot \text{AB}_{t+1} \cdot \ddot{a}^{(12)}_{65} \cdot v^{65-(y+1)} \frac{r_{65}}{\ell_{y+1}} \\
     &amp;= \text{AB}_{t+1} \cdot \ddot{a}^{(12)}_{65} \cdot v^{65-y} \frac{r_{65}}{\ell_{y}} \\
     &amp;= (1+g) \cdot \frac{n+1}{n} \cdot \text{AB}_{t} \cdot \ddot{a}^{(12)}_{65} \cdot v^{65-y} \frac{r_{65}}{\ell_{y}} \\
-    &amp;= (1+g) \cdot \frac{n+1}{n} \cdot \text{AL}_{t} \\
+    &amp;= (1+g) \cdot \frac{n+1}{n} \cdot {}_{t}V \\
     \\
     \text{AB}_{t+1}
     &amp;= (n+1) \cdot \alpha \cdot \text{PS}_{t+1} \\
@@ -2168,9 +2172,9 @@
     &amp;= (1+g) \cdot \frac{n+1}{n} \cdot \text{AB}_{t} \\
     \\
     \therefore C_{t}
-    &amp;= \text{AL}_{t+1} \cdot vp_{x} - \text{AL}_{t} \\
-    &amp;= (1+g) \cdot \frac{n+1}{n} \cdot \text{AL}_{t} - \text{AL}_{t} \\
-    &amp;= \left((1+g) \cdot \frac{n+1}{n} - 1 \right) \cdot \text{AL}_{t} \\
+    &amp;= {}_{t+1}V \cdot vp_{x} - {}_{t}V \\
+    &amp;= (1+g) \cdot \frac{n+1}{n} \cdot {}_{t}V - {}_{t}V \\
+    &amp;= \left((1+g) \cdot \frac{n+1}{n} - 1 \right) \cdot {}_{t}V \\
 \end{aligned}
 \]</div>
 <p>Thus, the contribution under a TUC basis reflects two items:</p>
@@ -2222,7 +2226,7 @@
 </div>
 <p>The key complication comes from a funding perspective. Using the previous formula, the mid-year retirement is <strong>NOT accounted</strong> for. Thus, if mid-year retirements are present, the following should be used instead:</p>
 <div class="arithmatex">\[
-    \text{AL}_{t} + C_{t} = vp_{x} \cdot \text{AL}_{t+1} + v^{0.5} {}_{0.5}r_{x} \cdot \text{EPV Mid Year Retirements}
+    {}_{t}V + C_{t} = vp_{x} \cdot {}_{t+1}V + v^{0.5} {}_{0.5}r_{x} \cdot \text{EPV Mid Year Retirements}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2302,40 +2306,70 @@
 </div>
 <p>The value of the benefits as at the current date is known as the <strong>Actuarial Value of Total Health Benefits</strong> (AVTHB):</p>
 <div class="arithmatex">\[
-    \text{AVTHB}_{y} = \text{EPV}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{y}}
+    \text{AVTHB}_{x} = \text{EPV}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{x}}
 \]</div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="AVTHB_Illustration" class="center" src="../Assets/8.%20Pensions.md/AVTHB_Illustration.png" /></p>
 <p>Note that unlike Pensions, the <strong>AVTHB is NOT the accrued liability</strong> of the plan. Instead, the Accrued Liability is based on a <strong>linear accrual</strong> of the AVTHB:</p>
+<ul>
+<li>n: Number of years worked</li>
+<li>k: Number of years to retirement</li>
+</ul>
 <div class="arithmatex">\[
-    \text{Accrued Liability} = \frac{\text{Years Worked}}{\text{Total Years to Retirement}} \cdot \text{AVTHB}_{y}
+    {}_{x}V = \frac{n}{n+k} \cdot \text{AVTHB}_{x}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>By default, health benefits are assumed to only accrued to the <strong>earliest possible retirement age</strong>. This simplifies the problem, as there is <strong>only ONE time point</strong> to worry about.</p>
-<p>However, some questions my explicitly allow for linear accruals to <strong>each possible retirement age</strong>, thus the usual pension approach must be taken.</p>
-</div>
-<h3 id="health-funding"><strong>Health Funding</strong><a class="headerlink" href="#health-funding" title="Permanent link">&para;</a></h3>
-<p>Similar to pensions, the employer holds a reserve equal to the <strong>Accrued Liability</strong> of the plan. The contributions are determined using the same approach:</p>
+<p>There are two methodologies for the accruals:</p>
+<ul>
+<li><strong>Pro-Rata Method</strong>: Assume accrual to the <strong>EARLIEST</strong> possible retirement age</li>
+<li><strong>Other Method</strong>: Assume accrual to <strong>EACH</strong> possible retirement age</li>
+</ul>
 <div class="arithmatex">\[
 \begin{aligned}
-    vp_{x} \cdot \text{AL}_{t+1}
-    &amp;= vp_{x} \frac{n+1}{n+k} \cdot v^{65-(y+1)} \frac{r_{65}}{\ell_{y+1}} \cdot P_{65} \cdot \ddot{a}_{65 \mid i^{*}} \\
-    &amp;= \frac{n+1}{n+k} \cdot v^{65-y} \frac{r_{65}}{\ell_{y}} \cdot P_{65} \cdot \ddot{a}_{65 \mid i^{*}} \\
-    &amp;= \frac{n+1}{n} \cdot \frac{n}{n+k} \cdot v^{65-y} \frac{r_{65}}{\ell_{y}} \cdot P_{65} \cdot \ddot{a}_{65 \mid i^{*}} \\
-    &amp;= \frac{n+1}{n} \cdot \text{AL}_{t+1} \\
+    {}_{x}V_{\text{Pro Rata}}
+    &amp;= \frac{n}{n+k_{\text{Earliest}}} \cdot \text{AVTHB}_{\text{Earliest}} \\
     \\
-    \therefore C_{t}
-    &amp;= \text{AL}_{t+1} \cdot vp_{x} - \text{AL}_{t} \\
-    &amp;= \frac{n+1}{n} \cdot \text{AL}_{t} - \text{AL}_{t} \\
-    &amp;= \left(\frac{n+1}{n} - 1 \right) \cdot \text{AL}_{t} \\
-    &amp;= \frac{1}{n} \cdot \text{AL}_{t}
+    {}_{x}V_{\text{Other}}
+    &amp;= \sum \frac{n}{n+k} \cdot \text{AVTHB}_{x}
 \end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Notice that this is the <strong>exact same result</strong> as the pension contribution under a PUC basis - both are essentially just accounting for an additional year of accruals.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This section is confusing because the concepts are similar to pensions but the execution is slightly different:</p>
+<ul>
+<li><strong>Pensions</strong>: Accrual affects the pensionable benefit, which is included in the EPV</li>
+<li><strong>Health</strong>: Accrual and EPV seperated into two steps</li>
+</ul>
 </div>
+<h3 id="health-funding"><strong>Health Funding</strong><a class="headerlink" href="#health-funding" title="Permanent link">&para;</a></h3>
+<p>Similar to pensions, the employer holds a reserve equal to the <strong>Accrued Liability</strong> of the plan. Assuming Pro-Rata accruals, the contributions are determined using the <strong>same approach</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    C_{t}
+    &amp;= {}_{t+1}V \cdot vp_{x} - {}_{t}V \\
+    &amp;= \frac{n+1}{n+k} \cdot \text{AVTHB}_{x+1} \cdot vp_{x} - \frac{n}{n+k} \cdot \text{AVTHB}_{x} \\
+    &amp;= \frac{n+1}{n+k} \cdot \text{AVTHB}_{x} - \frac{n}{n+k} \cdot \text{AVTHB}_{x} \\
+    &amp;= \frac{1}{n+k} \cdot \text{AVTHB}_{x}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The formula LOOKS similar to the Pension one but it is different:</p>
+<ul>
+<li><strong>Pensions</strong>: Years of service &amp; accrued liability</li>
+<li><strong>Health</strong>: Years to retirement &amp; AVTHB</li>
+</ul>
+<p>Conceptually, is it similar to the pension contribution under a <strong>PUC basis</strong> - both are essentially just accounting for an <strong>additional year of accruals</strong>, since the health benefit does not change with accruals.</p>
+</div>
+<p>If the accrued liabilities was <strong>accrued to each possible age</strong>, then the total contribution needed is the SUM of the contributions requried for each possible age:</p>
+<div class="arithmatex">\[
+    C_{t} = \sum \frac{1}{n+k} \cdot \text{AVTHB}_{x}
+\]</div>
+<p>The contributions under a pro-rata method will <strong>always be higher</strong> than that of the each possible retirement age:</p>
+<ul>
+<li><strong>Pro-rata</strong>: Plan must be <strong>fully funded</strong> by the earliest possible retirement age (EG. Benefits at 65 fully funded <strong>by 60</strong>)</li>
+<li><strong>Other</strong>: Plan is funded up till the specified retiement age (EG. Benefits at 65 fully funded <strong>by 65</strong>)</li>
+<li>Under a pro-rata basis, there is <strong>less time</strong> to fund the plan, thus <strong>each contribution must be higher</strong> (all else equal)</li>
+</ul>
 
 
 

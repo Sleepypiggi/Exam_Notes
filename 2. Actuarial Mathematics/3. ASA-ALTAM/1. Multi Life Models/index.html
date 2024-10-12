@@ -2484,11 +2484,23 @@
 <p>Notice that the above is essentially the formula for <strong>'XOR' logic</strong> - only making a payment when either <span class="arithmatex">\(x\)</span> or <span class="arithmatex">\(y\)</span> is alive, but NOT both:</p>
 <p><!-- Obtained from Wikipedia -->
 <img alt="XOR_Diagram" class="center" src="../Assets/1.%20Multi%20Life%20Models.md/XOR_Diagram.png" /></p>
-<p>The same logic can be applied to be probabilities as well:</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The same logic can be applied to be probabilities as well. Note that when there are only two individuals, the probability of <strong>only person being alive</strong> is the same as the probability of <strong>only person dying</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{P(Exactly One Lives)} &amp;= p_{\overline{x:y}} - p_{x:y} \\  
-    \text{P(Exactly One Dies)} &amp;= q_{x:y} - q_{\overline{x:y}}
+    \text{P(Exactly One Lives)}
+    &amp;= \text{P(Exactly One Dies)} \\
+    &amp;= p_{\overline{x:y}} - p_{x:y} \\  
+    &amp;= q_{x:y} - q_{\overline{x:y}} \\
+    &amp;= 1 - (1 - q_{x})(1 - q_{y}) - q_{x} \cdot q_{y} \\
+    &amp;= 1 - (1 - q_{y} - q{x} + q_{x} \cdot q_{y}) - q_{x} \cdot q_{y} \\
+    &amp;= q_{y} + q_{x} - 2 \cdot q_{x} \cdot q_{y} \\
+    &amp;= q_{y} - q_{x} \cdot q_{y} + q_{x} - q_{x} \cdot q_{y} \\
+    &amp;= q_{y} (1 - q_{y}) + q_{x} (1 - q_{y}) \\
+    &amp;= q_{y} p_{x} + q_{x} p_{y} \\
+    &amp;= \text{P(X lives, Y dies)} + \text{P(X dies, Y lives)}
 \end{aligned}
 \]</div>
 </div>

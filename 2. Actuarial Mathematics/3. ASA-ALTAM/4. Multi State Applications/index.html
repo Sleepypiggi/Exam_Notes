@@ -934,6 +934,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#special-case" class="md-nav__link">
+    Special Case
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1496,6 +1503,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#special-case" class="md-nav__link">
+    Special Case
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1764,35 +1778,59 @@
 <p>Note that the term for the deferred annuity expression is <strong>less the deferral period</strong>.</p>
 </div>
 <p>The typical expression for multi-state annuities cannot be used due to the waiting period. This is because the expression implicitly assumes that payments will <strong>start immediately</strong> upon transitioning into the state. However, for DII, the payments must be delayed.</p>
-<p>Thus, the alternative, more <strong>flexible expression</strong> can be used instead. The annuity to specify is <span class="arithmatex">\(w\)</span> deferred annuity, which implies that the policy will only pay after <span class="arithmatex">\(w\)</span> periods upon each transition into the target state:</p>
+<p>Thus, the alternative, more <strong>flexible expression</strong> can be used instead. The annuity to specify is <span class="arithmatex">\(w\)</span> deferred annuity, which implies that the policy will only pay <strong>AFTER</strong> <span class="arithmatex">\(w\)</span> periods upon transition into the target state:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{EPV(Benefits)}
-    &amp;= \int \sum {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t}
-        \cdot \left(\bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{n-t}} - \bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{w}} \right)
+    &amp;= \int^{m-w}_{0}
+        {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t} \cdot 
+        \left(\bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{n-t}} - \bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{w}} \right)
 \end{aligned}
 \]</div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="Waiting_Period_No_Benefit" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Waiting_Period_No_Benefit_Term.png" /></p>
+<p>The key is understanding the <strong>limits</strong> of the integration:</p>
+<ul>
+<li><strong>Upper Limit</strong>: Worst Case scenario; time where policyholder receives <strong>NO benefits</strong> because the policy will end exactly as the waiting period is finished</li>
+<li><strong>Lower Limit</strong>: Best Case scenario; time where policyholder receives the <strong>MAXIMUM number of payments</strong> because they become disabled as soon as the policy incepts</li>
+</ul>
+<!-- Self Made -->
+<p><img alt="Base_Integration" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Base_Integration.png" /></p>
+<h3 id="special-case"><strong>Special Case</strong><a class="headerlink" href="#special-case" title="Permanent link">&para;</a></h3>
 <p>The above implicitly assumes that there is <strong>no benefit term</strong>. If there was a benefit term of <span class="arithmatex">\(m\)</span>, the following expression would be used instead:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{EPV(Benefits)}
-    &amp;= \int \sum {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t}
-        \cdot \left(\bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{m+w}} - \bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{w}} \right) \\
-    &amp;+ \int \sum {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t}
-        \cdot \left(\bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{n}} - \bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{w}} \right)
+    &amp;= \int^{n-m-w}_{0} {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t} \cdot
+        \left(\bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{m+w}} - \bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{w}} \right) \\
+    &amp;+ \int^{n-w}_{n-m-w} {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t} \cdot
+        \left(\bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{n}} - \bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{w}} \right)
 \end{aligned}
 \]</div>
+<p>With a specified benefit term, the previous EPV needs to be <strong>split into two components</strong> to account for differences in benefits payout across the two periods:</p>
+<p>The <strong>first case</strong> is that policyholder transitions <strong>sufficiently early</strong>, such that they can receive the <strong>full benefits</strong> before the end of the policy:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Benefit_Term_Case_1" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Benefit_Term_Case_1.png" /></p>
+<!-- Self Made -->
+<p><img alt="Case_1_Integration" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Case_1_Integration.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are two expressions because there are <strong>two cases</strong> to consider.</p>
-<p>The first case is where the policyholder <strong>transitions early</strong>, such that the disability benefits are paid finish <strong>before the end of the policy</strong>:</p>
-<p><!-- Obtained from Coaching Actuaries -->
-<img alt="Benefit_Term_Case_1" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Benefit_Term_Case_1.png" /></p>
-<p>The second case is where the policyholder <strong>transitions late</strong>, such that the disability benefits will <strong>NOT be paid in full</strong> because the policy has <strong>ended</strong>:</p>
-<p><!-- Obtained from Coaching Actuaries -->
-<img alt="Benefit_Term_Case_2" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Benefit_Term_Case_2.png" /></p>
+<ul>
+<li><strong>Best Case</strong>: <strong>Earliest</strong> possible time to receive the full benefits</li>
+<li><strong>Worst Case</strong>: <strong>Latest</strong> possble time to receive the full benefits</li>
+</ul>
+</div>
+<p>The <strong>other case</strong> is that the Policyholder transitions <strong>succifiently late</strong>, such that they only receive a <strong>portion of the benefits</strong> because the <strong>policy would end</strong> before the full payout is made:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Benefit_Term_Case_2" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Benefit_Term_Case_2.png" /></p>
+<!-- Self Made -->
+<p><img alt="Case_2_Integration" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Case_2_Integration.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li><strong>Best Case</strong>: Time where the policyholder will still receive some benefits (but not all)</li>
+<li><strong>Worst Case</strong>: Time where the policyholder will receive NO benefits</li>
+</ul>
 </div>
 <h2 id="long-term-care-insurance"><strong>Long Term Care Insurance</strong><a class="headerlink" href="#long-term-care-insurance" title="Permanent link">&para;</a></h2>
 <p>Long Term Care Insurance (LTCI) is a contract that pays out <strong>routine benefits</strong> to the insured <strong>for as long</strong> as they <strong>cannot live independently</strong> ("Unhealthy"), requiring long term care. LTCI is a form of <strong>health insurance</strong> whose primary purpose is to <strong>cover the costs</strong> of administering LTC, such as nursing homes.</p>
@@ -2089,6 +2127,10 @@
 <li><strong>Total</strong>: Implies for ALL individuals in the study</li>
 <li><strong>Observed</strong>: Implies starting from <strong>when the study starts</strong></li>
 </ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some questions might use <strong>lower case</strong> variables to represent the time spent and observations for a <strong>single observation</strong> and use <strong>upper case</strong> for the <strong>entire sample</strong>.</p>
 </div>
 <p>The log-likehood function can thus be shown to be:</p>
 <div class="arithmatex">\[
