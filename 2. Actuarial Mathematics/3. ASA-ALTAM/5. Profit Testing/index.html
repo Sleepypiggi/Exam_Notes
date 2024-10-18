@@ -1025,6 +1025,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#actual-experience" class="md-nav__link">
+    Actual Experience
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1575,6 +1582,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#actual-experience" class="md-nav__link">
+    Actual Experience
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1925,6 +1939,10 @@
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
+<p>For multi-state questions, note that the expression for profit may be <strong>different for each state</strong> - do not autopilot into the formulas. For instance, some states might not receive premiums or might not pay benefits.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>When dealing with multiple decrements, it is important to remember that only the <strong>dependent decrements</strong> should be used. Thus, pay attention to the following details:</p>
 <ol>
 <li>"Mortality follows the Standard Ultimate Life Table": Death decrement this way is dependent</li>
@@ -1991,6 +2009,14 @@
 <p class="admonition-title">Warning</p>
 <p>Even if the decrement has no impact on the benefit (EG. Change in Lapse but no surrender benefit), it will still have an impact on the profit as it <strong>affects the expected reserve</strong> for the year.</p>
 </div>
+<h4 id="actual-experience"><strong>Actual Experience</strong><a class="headerlink" href="#actual-experience" title="Permanent link">&para;</a></h4>
+<p>Another type of question could be to ask for the NPV assuming a certain event occurred - EG. The policyholder actually dies at the end of the second year.</p>
+<p>In these cases, the decrements must be adjusted. If the policyholder dies in the second year:</p>
+<ul>
+<li>Death and Lapse decrement in the <strong>first year</strong> is 0 (WILL NOT die or lapse)</li>
+<li>Death decrement in the <strong>second year</strong> is 1 (WILL die)</li>
+</ul>
+<p>The <strong>weighted average</strong> of the NPV of all scenarios in the policy will give the total NPV of the policy. This allows the insurer to better understand which scenarios are better for them.</p>
 <h3 id="internal-rate-of-return"><strong>Internal Rate of Return</strong><a class="headerlink" href="#internal-rate-of-return" title="Permanent link">&para;</a></h3>
 <p>Next, the <strong>Internal Rate of Return</strong> (IRR). It is the <strong>Risk Discount Rate</strong> that will cause the NPV to be 0:</p>
 <div class="arithmatex">\[
