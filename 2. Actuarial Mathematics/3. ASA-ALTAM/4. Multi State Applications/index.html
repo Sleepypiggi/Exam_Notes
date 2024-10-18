@@ -2048,10 +2048,13 @@
 <p class="admonition-title">Warning</p>
 <p>There is one key difference when comparing the above model to the usual multi-life probabilities. Consider the following two probabilities:</p>
 <ul>
-<li><span class="arithmatex">\({}_{t}p^{01}_{x:y}\)</span>: Probability that only <span class="arithmatex">\(x\)</span> dies within <span class="arithmatex">\(t\)</span> years ("<span class="arithmatex">\(X\)</span> dies before <span class="arithmatex">\(Y\)</span>")</li>
-<li><span class="arithmatex">\({}_{t}q^{1}_{x:y}\)</span>: Probability that both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> die within <span class="arithmatex">\(t\)</span> years, but <span class="arithmatex">\(X\)</span> dies before <span class="arithmatex">\(Y\)</span></li>
+<li><span class="arithmatex">\({}_{t}p^{01}_{x:y}\)</span>: Probability that <strong>ONLY</strong> <span class="arithmatex">\(x\)</span> dies within <span class="arithmatex">\(t\)</span> years; <span class="arithmatex">\(y\)</span> dies AFTER <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\({}_{t}q^{1}_{x:y}\)</span>: Probability that <span class="arithmatex">\(x\)</span> dies within <span class="arithmatex">\(t\)</span> years; <span class="arithmatex">\(y\)</span> can die before OR after <span class="arithmatex">\(t\)</span></li>
 </ul>
-<p>The confusion comes about because <strong>both are a situation where <span class="arithmatex">\(X\)</span> dies before <span class="arithmatex">\(Y\)</span></strong> but the key difference is <strong>whether or not <span class="arithmatex">\(Y\)</span> dies</strong>.</p>
+<p>The confusion comes about because <strong>both are a situation where <span class="arithmatex">\(X\)</span> dies before <span class="arithmatex">\(Y\)</span></strong> but the key difference is <strong>whether or not <span class="arithmatex">\(Y\)</span> dies</strong> within <span class="arithmatex">\(t\)</span>. Interestingly, the difference of the two is the probability that <span class="arithmatex">\(y\)</span> dies second within <span class="arithmatex">\(t\)</span> years:</p>
+<div class="arithmatex">\[
+    {}_{t}q^{1}_{x:y} - {}_{t}p^{01}_{x:y} = {}_{t}q^{\ \ \ 2}_{x:y} 
+\]</div>
 </div>
 <h3 id="dependence"><strong>Dependence</strong><a class="headerlink" href="#dependence" title="Permanent link">&para;</a></h3>
 <p>One common question involving this model is to determine whether the future lifetimes are dependent. Even if the model does NOT have a common shock, it is still possible to be <strong>dependent in other ways</strong>:</p>

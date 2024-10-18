@@ -1976,11 +1976,16 @@
 <p>There are two variations of the method:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Forward Method} &amp;= \frac{{}_{t+h}p - {}_{t}p}{h} &amp;= \frac{d}{dt} {}_{t}p_{x}
+    \text{Forward Method} &amp;= \frac{{}_{t+h}p - {}_{t}p}{h} &amp;= \frac{d}{dt} {}_{t}p_{x} \\
     \text{Backward Method} &amp;= \frac{{}_{t}p - {}_{t-h}p}{h} &amp;= \frac{d}{dt} {}_{t}p_{x}
 \end{aligned}
 \]</div>
-<p>Notice that the change term still uses <span class="arithmatex">\(t\)</span>, not <span class="arithmatex">\(t+h\)</span>. Both methods are valid - use the one that best suits the type of recursion to perform.</p>
+<p>The key is to remember the following:</p>
+<ul>
+<li>The change term always follow <span class="arithmatex">\(t\)</span></li>
+<li>The target term is always <span class="arithmatex">\(t+h\)</span> or <span class="arithmatex">\(t-h\)</span>; the positioning is different for the Forward and Backward variation</li>
+</ul>
+<p>Use the method that best suits the situation - to recurse forwards or backwards - based on the given information.</p>
 </div>
 <p>The step size <span class="arithmatex">\(h\)</span> is usually <strong>defined by the question</strong>. It affects the <strong>number of iterations</strong> needed to solve the question. Consider the following model:</p>
 <!-- Obtained from Coaching Actuaries -->
@@ -2052,9 +2057,10 @@
     {}_{h}p^{ii}_{x} &amp;= 1 - h \cdot \mu^{i \tau}_{x}(t)
 \end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Both are based on the same intuition as the force of mortality approximation from FAM-L, which will come naturally if the derivation is understood. Thus, similarly, a <strong>smaller step size</strong> will lead to a <strong>more accurate</strong> approximation.</p>
+<p>A <strong>smaller step size</strong> will lead to a <strong>more accurate</strong> approximation.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key to remember this is that the force of <strong>transition</strong> represents a transition - thus the approximation is for the transition probability. The probability of staying is the complement.</p>
 </div>
 <p>Using the same example as before:</p>
 <div class="arithmatex">\[
@@ -2437,7 +2443,7 @@
 <div class="arithmatex">\[
     \int^{\infty}_{0} \sum {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t} \bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{n}}
 \]</div>
-<p>Note that the expression is typically what we see of an Assurance, rather than an annuity, which is why it might be confusing to grasp.</p>
+<p>Note that the expression is typically what we see of an Assurance, rather than an annuity, which is why it <strong>might be confusing</strong> to grasp.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
