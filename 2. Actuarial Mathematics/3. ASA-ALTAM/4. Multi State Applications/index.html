@@ -1723,6 +1723,14 @@
 <h1 id="multi-state-applications"><strong>Multi State Applications</strong><a class="headerlink" href="#multi-state-applications" title="Permanent link">&para;</a></h1>
 <h2 id="disability-income-insurance"><strong>Disability Income Insurance</strong><a class="headerlink" href="#disability-income-insurance" title="Permanent link">&para;</a></h2>
 <p>Disability Income Insurance (DII) is a contract that pays out <strong>routine benefits</strong> to the insured <strong>for as long</strong> as they are <strong>unable to work due to a disability</strong> ("Unhealthy"). The primary purpose of DII is to <strong>replace a portion of the income</strong> of the insured while they are unable to work.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Benefits are paid out periodically (rather than a lump sum) is usually due to the following reasons:</p>
+<ul>
+<li>The intention is to replace the salary that the individual would have otherwise earned; which is on a <strong>periodic basis</strong></li>
+<li><strong>Avoid investment risk</strong> on the insured's end; if they receive a lump sum, they might not have the ability to manage the funds in a manner to tide them through the period of their disability</li>
+</ul>
+</div>
 <h3 id="product-features"><strong>Product Features</strong><a class="headerlink" href="#product-features" title="Permanent link">&para;</a></h3>
 <p><strong>Premiums</strong> are usually non-guaranteed and level throughout the policy term, <strong>payable regularly</strong> as long as the insured is <strong>healthy</strong>.</p>
 <p><strong>Benefits</strong> are <strong>payable regularly</strong> while the insured is <strong>unhealthy</strong>, till the end of the benefit term or till the insured recovers (<strong>whichever comes first</strong>). There is typically a <strong>waiting period</strong> which is the minimum amount of time that must pass <strong>since becoming disabled</strong> before a benefit is paid out.</p>
@@ -1751,8 +1759,11 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The magnitude is also affected by other minor factors such as <strong>Inflation</strong> or whether or not the insured is receiving <strong>other forms of income</strong>.</p>
-<p>Regardless, benefits are <strong>intentionally only a fraction</strong> of the original income (50-70%) to incentivize the insured to make a full recovery and return back to work.</p>
+<p>The magnitude of benefit received is typically smaller than the original salary of the insured due to the following reasons:</p>
+<ul>
+<li>To incentivize the insured to make a <strong>full recovery</strong> and return to work</li>
+<li>Annuity payments have <strong>no or lower tax</strong> rates; <strong>lower gross amount</strong> to match the same net income</li>
+</ul>
 </div>
 <h3 id="modelling"><strong>Modelling</strong><a class="headerlink" href="#modelling" title="Permanent link">&para;</a></h3>
 <p>DII is modelled using the <strong>Sickness Death Model</strong>:</p>
@@ -1836,12 +1847,12 @@
 <p>Long Term Care Insurance (LTCI) is a contract that pays out <strong>routine benefits</strong> to the insured <strong>for as long</strong> as they <strong>cannot live independently</strong> ("Unhealthy"), requiring long term care. LTCI is a form of <strong>health insurance</strong> whose primary purpose is to <strong>cover the costs</strong> of administering LTC, such as nursing homes.</p>
 <p>Being unable to live independently is defined as being unable to independently perform one or more <strong>Activities of Daily Living</strong> (ADL):</p>
 <ol>
+<li>Transferring (getting in and out of a bed or chair)</li>
+<li>Continence (ability to control bladder and bowel functions)</li>
+<li>Toileting (ability to use the toilet and manage personal hygiene)</li>
 <li>Bathing</li>
 <li>Dressing</li>
 <li>Eating</li>
-<li>Toileting (ability to use the toilet and manage personal hygiene)</li>
-<li>Continence (ability to control bladder and bowel functions)</li>
-<li>Transferring (getting in and out of a bed or chair)</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1999,19 +2010,10 @@
 <!-- ROP Cases -->
 <p><img alt="ROP_CASES" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/ROP_CASES.png" /></p>
 <h2 id="structured-settlements"><strong>Structured Settlements</strong><a class="headerlink" href="#structured-settlements" title="Permanent link">&para;</a></h2>
-<p>Structured Settlements are an arrangement in a <strong>liability case</strong>, where the <strong>Responsible Party</strong> (RP) must compensate the <strong>Injured Party</strong> (IP). Compensation typically comes in the form of an <strong>annuity</strong> in order to replace the <strong>loss of income</strong> as a result of the accident.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Another reason why payments are typically in the form of annuity rather than lump sum is to <strong>avoid investment risk</strong>. If the IP receives a large lump sum, they would be responsible to manage the funds to ensure that it is sufficient to cover the damages while they are injured.</p>
-</div>
+<p>Structured Settlements are an arrangement in a <strong>liability case</strong>, where the <strong>Responsible Party</strong> (RP) must compensate the <strong>Injured Party</strong> (IP). Compensation typically comes in the form of an <strong>annuity</strong> with monthly benefits, with similar reasoning to DII.</p>
 <p>The compensation schedule is usually determined by the RP’s <strong>Liability Insurance</strong> policy. The RP could either be another person (EG. Motor Insurance) or could be a corporation (EG. Worker’s Compensation).</p>
 <h3 id="product-features_4"><strong>Product Features</strong><a class="headerlink" href="#product-features_4" title="Permanent link">&para;</a></h3>
-<p>The magnitude of annuity payment is typically <strong>smaller than the the original income</strong> for several reasons:</p>
-<ul>
-<li>To incentivize the IP to make a <strong>full recovery</strong> and return to work</li>
-<li>Annuity payments have no or lower tax rates; <strong>lower gross amount</strong> to match the same net income</li>
-<li>IP <em>could</em> be <strong>partially at fault</strong> for the accident; should bear part of the cost</li>
-</ul>
+<p>The magnitude of annuity payment is typically <strong>smaller than the the original income</strong> for reasons similar to DII. However, one unique reason for structured settlements is that the IP <em>could</em> be <strong>partially at fault</strong> for the accident as well, thus should bear part of the cost.</p>
 <p>If the damage is <strong>severe</strong>, the long-term care needed will only be known after the IP goes through an initial period of treatment, till they reach the point of <strong>Maximum Medical Improvement</strong> (MMI). Before MMI, the RP will pay an interim benefit till the settlment is finalized.</p>
 <h3 id="modelling_4"><strong>Modelling</strong><a class="headerlink" href="#modelling_4" title="Permanent link">&para;</a></h3>
 <p>For the purposes of this exam, only structured settlements involving <strong>Workers Compensation</strong> will be covered. The key difference is that they are <strong>reviewable</strong>. This means that the annuity benefits can be <strong>conditional</strong> and <strong>stop once the individual is recovered</strong> (rather than being for life under a non-reviewable settlement).</p>
@@ -2051,10 +2053,14 @@
 <li><span class="arithmatex">\({}_{t}p^{01}_{x:y}\)</span>: Probability that <strong>ONLY</strong> <span class="arithmatex">\(x\)</span> dies within <span class="arithmatex">\(t\)</span> years; <span class="arithmatex">\(y\)</span> dies AFTER <span class="arithmatex">\(t\)</span></li>
 <li><span class="arithmatex">\({}_{t}q^{1}_{x:y}\)</span>: Probability that <span class="arithmatex">\(x\)</span> dies within <span class="arithmatex">\(t\)</span> years; <span class="arithmatex">\(y\)</span> can die before OR after <span class="arithmatex">\(t\)</span></li>
 </ul>
-<p>The confusion comes about because <strong>both are a situation where <span class="arithmatex">\(X\)</span> dies before <span class="arithmatex">\(Y\)</span></strong> but the key difference is <strong>whether or not <span class="arithmatex">\(Y\)</span> dies</strong> within <span class="arithmatex">\(t\)</span>. Interestingly, the difference of the two is the probability that <span class="arithmatex">\(y\)</span> dies second within <span class="arithmatex">\(t\)</span> years:</p>
+<p>The confusion comes about because <strong>both are a situation where <span class="arithmatex">\(X\)</span> dies before <span class="arithmatex">\(Y\)</span></strong> but the key difference is <strong>whether or not <span class="arithmatex">\(Y\)</span> dies</strong> within <span class="arithmatex">\(t\)</span>. The difference of the two is the <strong>probability that <span class="arithmatex">\(y\)</span> dies second within <span class="arithmatex">\(t\)</span> years</strong>:</p>
 <div class="arithmatex">\[
-    {}_{t}q^{1}_{x:y} - {}_{t}p^{01}_{x:y} = {}_{t}q^{\ \ \ 2}_{x:y} 
+\begin{aligned}
+    {}_{t}q^{1}_{x:y} - {}_{t}p^{01}_{x:y} &amp;= {}_{t}q^{\ \ \ 2}_{x:y} \\
+    {}_{t}q^{1}_{x:y} &amp;= {}_{t}q^{\ \ \ 2}_{x:y} + {}_{t}q_{x} \cdot {}_{t}p_{y}   
+\end{aligned}
 \]</div>
+<p>The above is one of the key relationships covered in the multi-life section.</p>
 </div>
 <h3 id="dependence"><strong>Dependence</strong><a class="headerlink" href="#dependence" title="Permanent link">&para;</a></h3>
 <p>One common question involving this model is to determine whether the future lifetimes are dependent. Even if the model does NOT have a common shock, it is still possible to be <strong>dependent in other ways</strong>:</p>

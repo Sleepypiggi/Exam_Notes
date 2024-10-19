@@ -1064,29 +1064,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#profit-testing_1" class="md-nav__link">
-    Profit Testing
+  <a href="#zeroization" class="md-nav__link">
+    Zeroization
   </a>
-  
-    <nav class="md-nav" aria-label="Profit Testing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pricing" class="md-nav__link">
-    Pricing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reserving" class="md-nav__link">
-    Reserving
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1621,29 +1601,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#profit-testing_1" class="md-nav__link">
-    Profit Testing
+  <a href="#zeroization" class="md-nav__link">
+    Zeroization
   </a>
-  
-    <nav class="md-nav" aria-label="Profit Testing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pricing" class="md-nav__link">
-    Pricing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reserving" class="md-nav__link">
-    Reserving
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1894,7 +1854,7 @@
 </div>
 <h3 id="profit-signature"><strong>Profit Signature</strong><a class="headerlink" href="#profit-signature" title="Permanent link">&para;</a></h3>
 <p>Consider the expression for profit - an implicit assumption it makes is that the policyholder is <strong>alive at the start of the period</strong>. However, this means that each term in the profit vector is on a different basis and thus cannot be analyzed together.</p>
-<p>To account for this, each element can be adjusted by accounting for the <strong>probabilities of survival to the start of each period</strong>. This converts each element into the <strong>unconditional profit</strong> that arises from the period, which can be analyzed together.</p>
+<p>To account for this, each element can be adjusted by accounting for the <strong>probabilities of survival to the start of each period</strong>. This converts each element into the <strong>profit at issue</strong> that arises from the period, which can be analyzed together.</p>
 <p>The resulting vector is known as the <strong>Profit Signature</strong> of the policy:</p>
 <ul>
 <li><strong>Profit Vector</strong>: Profit at the <strong>end</strong> of period, assuming the policy is <strong>in-force at the start of the period</strong></li>
@@ -1926,14 +1886,14 @@
 </ul>
 <p>Thus, the following changes need to be made:</p>
 <ul>
-<li>Consider the outgo from <strong>ALL possible benefits</strong></li>
-<li><strong>Survival probability</strong> should be for ALL decrements</li>
+<li>Consider the outgo from <strong>ALL possible benefits and decrements</strong></li>
+<li><strong>Dependent Decrements</strong> should be used; survival should include ALL decrements</li>
 <li>Consider ALL possible states the policyholder could be in at the start of the year </li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{NCF}^{(i)}_{t} &amp;= (P - e)(1+i) - \sum q^{ij}_{x} \cdot (B^{ij} + E^{ij}) \\
-    \text{PR}^{(i)}_{t} &amp;= \text{NCF}_{t} - [p^{(\tau)}_{x} \cdot {}_{t}V - {}_{t-1}V \cdot (1+i)] \\
+    \text{PR}^{(i)}_{t} &amp;= \text{NCF}_{t} -  \sum [p^{(ij)}_{x} \cdot {}_{t}V^{(j)} - {}_{t-1}V^{(i)} \cdot (1+i)] \\
     \pi &amp;= \sum_{t, i} {}_{t-1}p^{0i} \cdot \text{PR}^{i}_{t}
 \end{aligned}
 \]</div>
@@ -2046,7 +2006,7 @@
 \begin{aligned}
     \text{Profit Margin}
     &amp;= \frac{\text{NPV}}{\text{EPV(Premiums)}} \\
-    &amp;= \frac{\text{NPV (Unconditional Profit)}}{\text{EPV(Premiums)}}
+    &amp;= \frac{\text{NPV (Profit At Issue)}}{\text{EPV(Premiums)}}
 \end{aligned}
 \]</div>
 <div class="admonition warning">
@@ -2055,10 +2015,7 @@
 <p><!-- Self Made -->
 <img alt="Profit_Margin_Illustration" class="center" src="../Assets/5.%20Profit%20Testing.md/Profit_Margin_Illustration.png" /></p>
 </div>
-<h2 id="profit-testing_1"><strong>Profit Testing</strong><a class="headerlink" href="#profit-testing_1" title="Permanent link">&para;</a></h2>
-<h3 id="pricing"><strong>Pricing</strong><a class="headerlink" href="#pricing" title="Permanent link">&para;</a></h3>
-<p>An alternative method of pricing (compared to the equivalent principle) is to set premiums based on a <strong>target profitability metric</strong>. This is done by leaving the <strong>premium component as a variable</strong> within the profit calculation and solving for it given the desired profitability.</p>
-<h3 id="reserving"><strong>Reserving</strong><a class="headerlink" href="#reserving" title="Permanent link">&para;</a></h3>
+<h2 id="zeroization"><strong>Zeroization</strong><a class="headerlink" href="#zeroization" title="Permanent link">&para;</a></h2>
 <p>Apart from hitting the specified profitability metrics, another consideration during profit testing is the <strong>pattern of profits</strong>. As mentioned in the beginning of the section, without a reserve, the typical profit pattern for a life insurance policy is positive in the earlier years while <strong>negative in the later years</strong>, which motivates the reason for holding a reserve.</p>
 <p>Thus, the reserve held should achieve the following outcomes:</p>
 <ul>
@@ -2093,6 +2050,7 @@
 <p>The key intuition is that if the profit arising from that period is <strong>positive</strong>, then there is <strong>no need for a reserve</strong> (recall that the motivation for the reserve is to cover negative profit). If the profit arising is <strong>negative</strong>, then a reserve <strong>exactly equal to the negative profit</strong> is held to ensure it is non-negative.</p>
 <p>What this achieves is that the <strong>absolute minimum reserve is held</strong>; no "extra" reserve that will show up as a profit later on (no negative profits later on achieved). As a result, the <strong>maximum amount of positive profits</strong> from the early years are recognized.</p>
 </div>
+<p>In practice, it may be hard to hold reserves set via Zeroization as there are often <strong>staturory requirements</strong> to hold a certain level of reserves.</p>
 <h2 id="actual-profits"><strong>Actual Profits</strong><a class="headerlink" href="#actual-profits" title="Permanent link">&para;</a></h2>
 <p>If actual experience follows the assumptions exactly, the expected profit will materialize into <strong>Actual Profits</strong>. In reality, this is unlikely to occur, leading to deviation between the two. The difference is known as the <strong>Gain</strong> or <strong>Loss</strong> of the policy:</p>
 <div class="arithmatex">\[
