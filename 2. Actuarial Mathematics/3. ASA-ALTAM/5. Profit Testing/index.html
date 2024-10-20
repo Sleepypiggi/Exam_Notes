@@ -1688,6 +1688,13 @@
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>For regular consumer goods, the cost of the product is known beforehand, thus its profitability can be determined beforehand. For insurance, the cost is <strong>contingent on the mortality</strong> of the policyholder, thus it is impossible to determine if the premium charged was adequate or not.</p>
 <p>Thus, by making certain assumptions about the future experience of the policyholder, the insurer can project forward and determine the <strong>expected profit</strong> from the policy. The insurer can then <strong>make adjustments</strong> to assumptions or features to achieve their <strong>desired profitability</strong> - the process is known as <strong>Profit Testing</strong>.</p>
+<p>Profit testing can be used to:</p>
+<ol>
+<li>Set Premiums</li>
+<li>Set Reserves</li>
+<li>Measure Profitability</li>
+<li>Determine Distributable Surplus (For participating policies)</li>
+</ol>
 <h2 id="key-intuition"><strong>Key Intuition</strong><a class="headerlink" href="#key-intuition" title="Permanent link">&para;</a></h2>
 <p>For a traditional level regular premium life insurance product, the insurer collects <strong>more premium</strong> in the <strong>earlier years</strong> than the cost of providing insurance (expected benefit). In the <strong>later years</strong>, this reverses and the insurer collects <strong>less premiums</strong> than the cost of the expected benefit.</p>
 <!-- Obtained from -->
@@ -1697,7 +1704,8 @@
 <p class="admonition-title">Note</p>
 <p>This is why virtually all life insurance policies are <strong>Lapse Supported</strong> - the insurer is <strong>materially better off</strong> if the policyholder lapses the policy. The insurer will only recognize the positive profits in the early years, without needing to experience negative profits in the later years.</p>
 <p>From a layman's perspective, the insurer <strong>receives the revenue without needing to pay the cost</strong>. Even if the policy has a cash value, the cash value will be <strong>less than the benefit</strong> of the policy that the insurer had priced for, still leaving them better off.</p>
-<p>Lapse Supportability is somewhat 'dangerous' as insurer's might price products assuming an assumed lapse rate. However, since Lapse Rates are very <strong>unpredictable</strong>, <strong>actual experience could turn out to be much lower</strong>, resulting in negative profits for the insurer. </p>
+<p>Lapse Supportability is somewhat 'dangerous' as insurer's might price products assuming an assumed lapse rate. However, since Lapse Rates are very <strong>unpredictable</strong>, <strong>actual experience could turn out to be much lower</strong>, resulting in negative profits for the insurer.</p>
+<p>Thus, given the unpredictability, it is NOT advised to price products assuming a high lapse rate as it <strong>artificially inflates</strong> the financials of the product.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2000,6 +2008,10 @@
 <div class="arithmatex">\[
     \text{Partial NPV}(t) = \pi_{0} + v^{1} \pi_{1} + v^{2} \pi_{2} + \dots + v^{t} \pi_{t}  
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most policies have a large pre-contract expense while the profits in the initial years are small (due to building up the reserves). Thus, it takes a few years to recoup the costs - negative partial NPV for the first few years of the policy.</p>
+</div>
 <h3 id="profit-margin"><strong>Profit Margin</strong><a class="headerlink" href="#profit-margin" title="Permanent link">&para;</a></h3>
 <p>Lastly, the <strong>Profit Margin</strong>. It is the ratio of the EPV of the profits (NPV) to that of the premiums, assuming the <strong>same discount rate</strong>:</p>
 <div class="arithmatex">\[
@@ -2050,7 +2062,12 @@
 <p>The key intuition is that if the profit arising from that period is <strong>positive</strong>, then there is <strong>no need for a reserve</strong> (recall that the motivation for the reserve is to cover negative profit). If the profit arising is <strong>negative</strong>, then a reserve <strong>exactly equal to the negative profit</strong> is held to ensure it is non-negative.</p>
 <p>What this achieves is that the <strong>absolute minimum reserve is held</strong>; no "extra" reserve that will show up as a profit later on (no negative profits later on achieved). As a result, the <strong>maximum amount of positive profits</strong> from the early years are recognized.</p>
 </div>
-<p>In practice, it may be hard to hold reserves set via Zeroization as there are often <strong>staturory requirements</strong> to hold a certain level of reserves.</p>
+<p>In practice, insurers often do not hold the zeroized reserves due to the following reasons:</p>
+<ul>
+<li>Minimum reserves required via Statutory Reporting</li>
+<li>Additional reserves to cover for Adverse Experience</li>
+<li>Additional reserves to cover for Guarantees</li>
+</ul>
 <h2 id="actual-profits"><strong>Actual Profits</strong><a class="headerlink" href="#actual-profits" title="Permanent link">&para;</a></h2>
 <p>If actual experience follows the assumptions exactly, the expected profit will materialize into <strong>Actual Profits</strong>. In reality, this is unlikely to occur, leading to deviation between the two. The difference is known as the <strong>Gain</strong> or <strong>Loss</strong> of the policy:</p>
 <div class="arithmatex">\[
