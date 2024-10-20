@@ -1709,7 +1709,7 @@
 <div class="arithmatex">\[
     \mu^{(j)}_{x}(t) = c \cdot \mu^{(\tau)}_{x}
 \]</div>
-<p>Assuming this relationship exists, we can show that the termintation probability for a particular decrement is the same fraction of the total termination probability:</p>
+<p>Assuming this relationship exists, we can show that the termintation probability for a particular decrement is the <strong>same fraction</strong> of the total termination probability:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     {}_{t}q^{(j)}_{x}
@@ -1774,7 +1774,11 @@
 <li>Someone who might have lapsed in the later part of the year might have <strong>already died</strong> in the earlier part</li>
 <li>Thus, we expect fewer deaths and lapses when there are multiple decrements acting simultaneously</li>
 </ul>
-<p>The above is known as the <strong>Theory of Competing Risk</strong>:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The proper terminology to use when explaining this is that the lives are <em>exposed</em> to the force of death or lapse respectively.</p>
+</div>
+<p>The above is known as the <strong>Theory of Competing Risk</strong>, which leads to the following relationship:</p>
 <div class="arithmatex">\[
     {}_{t}q^{'(j)}_{x} \ge {}_{t}q^{(j)}_{x}
 \]</div>
@@ -2168,17 +2172,6 @@
     q^{(3)}_{x} &amp;= (1 - q^{'(1)}_{x}) \cdot (1 - q^{'(2)}_{x}) \cdot q^{'(3)}_{x}
 \end{aligned}
 \]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The key principle is that decrement 3 acts on the population that has <strong>survived all other decrements</strong>. Thus, the the last line might seem strange because we are using the independent survival probabilities when we have already established that there is some dependency between decrement 1 and 2.</p>
-<p>However, using basic probability principles:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \text{P(A and B)} &amp;= \text{P(A)} \cdot \text{P(B)}, \text{Independence} \\
-    \therefore \text{P(Survive Decrement 1 &amp; 2)} &amp;= (1 - q^{'(1)}_{x}) \cdot (1 - q^{'(2)}_{x})
-\end{aligned}
-\]</div>
-</div>
 <h4 id="moy-combination"><strong>MOY Combination</strong><a class="headerlink" href="#moy-combination" title="Permanent link">&para;</a></h4>
 <p>Consider the following scenario:</p>
 <ul>
@@ -2254,7 +2247,7 @@
 <p>The notation for these type of questions are extremely heavy, there is a high tendency to make mistakes as a result.</p>
 </div>
 <h3 id="surrender-benefit"><strong>Surrender Benefit</strong><a class="headerlink" href="#surrender-benefit" title="Permanent link">&para;</a></h3>
-<p>The most common additional benefit is the <strong>Surrender Benefit</strong>. In practice, virtually all whole life insurance policies offer a surrender benefit (usually referred to as the Cash Value) of the policy. It is <strong>typically equivalent to cash value</strong> of the policy.</p>
+<p>The most common additional benefit is the <strong>Surrender Benefit</strong>. In practice, virtually all whole life insurance policies offer a surrender benefit of the policy. It is also known as the <strong>cash value</strong> of the policy.</p>
 <p>However, surrender benefits are <strong>not typically offered</strong> for annuities. This is to avoid <strong>Adverse Selection</strong>:</p>
 <ul>
 <li>Goal of risk pooling annuities is to use the <strong>excess funds from those who die early</strong> to fund those who live longer</li>
