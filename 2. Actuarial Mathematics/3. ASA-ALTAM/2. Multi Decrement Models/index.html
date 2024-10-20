@@ -1975,10 +1975,16 @@
 \begin{aligned}
     {}_{t}q^{(j)}_{x}
     &amp;= \int {}_{t}p^{(\tau)}_{x} \cdot \mu^{(j)}_{x} \\
-    &amp;= {}_{t}p^{'(j)}_{x} \cdot \mu^{(j)}_{x} \cdot  \int \prod_{i \ne j} {}_{t}p^{'(i)}_{x} \\
-    &amp;= q^{'(j)}_{x} \cdot \int \prod_{i \ne j} {}_{t}p^{'(i)}_{x} \\
+    &amp;= \int {}_{t}p^{(\tau)}_{x} \prod_{i \ne j} {}_{t}p^{'(i)}_{x} \cdot \mu^{(j)}_{x} \\
+    &amp;= \int {}_{t}p^{'(j)}_{x} \cdot \mu^{(j)}_{x} \cdot \prod_{i \ne j} {}_{t}p^{'(i)}_{x} \\
+    &amp;= \int q^{'(j)}_{x} \cdot \prod_{i \ne j} {}_{t}p^{'(i)}_{x} \\
+    &amp;= q^{'(j)}_{x} \int  \prod_{i \ne j} {}_{t}p^{'(i)}_{x}
 \end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key is understanding that the termination probability is a constant within the integration, thus can be factorized out.</p>
+</div>
 <p>The final expression depends on the number of decrements in the model. The most commonly tested variation is the <strong>two decrement model</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}

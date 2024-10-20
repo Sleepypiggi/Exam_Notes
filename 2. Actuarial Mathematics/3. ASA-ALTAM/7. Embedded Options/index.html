@@ -1645,7 +1645,7 @@
 <p class="admonition-title">Warning</p>
 <p>It is a common mistake to confuse universal life (UL) and Equity Linked (EL) policies as both involve an <strong>account</strong> for the policyholder:</p>
 <ul>
-<li><strong>Universal Life</strong>: Account is purely notional; known as <strong>fund value</strong></li>
+<li><strong>Universal Life</strong>: Account is purely notional; known as <strong>Account Value</strong></li>
 <li><strong>Equity Linked</strong>: Account is actually invested in funds of choice; known as <strong>Fund Value</strong></li>
 </ul>
 </div>
@@ -1694,19 +1694,14 @@
 <h3 id="fund-value"><strong>Fund Value</strong><a class="headerlink" href="#fund-value" title="Permanent link">&para;</a></h3>
 <p>For the purposes of this exam, the fund value in each period can be calculated as:</p>
 <div class="arithmatex">\[
-\begin{aligned}
     \text{FV}
-    &amp;= (\text{Allocated Premium} - \text{Fund Expenses}) \\
-    &amp; \cdot (1 + \text{Fund Growth}) \cdot (1 - \text{Fund Charge})
-\end{aligned}
+    = (\text{Allocated Premium} - \text{Management Charge}) \cdot (1 + \text{Fund Growth})
 \]</div>
-<p>For the purposes of this exam, the <strong>methods</strong> and <strong>timing</strong> of the above cashflows will be <strong>specified by the question</strong>. They are all usually calculated as <strong>percentage of the fund value</strong> at different points (EG. Management Charges uses FV after interest etc).</p>
-<!-- Self Made -->
-<p><img alt="Unit Fund" class="center" src="../Assets/7.%20Embedded%20Options.md/Unit_Fund.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The above breakdown is based on what is commonly done in practice. It is possible for a question to have fewer cashflows or have them projected at different timings (EG. No mortality charge &amp; Management Charge at BOP). </p>
-</div>
+<p>For the purposes of this exam, the <strong>methods</strong> and <strong>timing</strong> of the above cashflows will be <strong>specified by the question</strong>. The key component is the management charge timing:</p>
+<ul>
+<li><strong>BOP</strong>: Based on fund value BEFORE or AFTER premium?</li>
+<li><strong>EOP</strong>: Based on fund value BEFORE or AFTER growth?</li>
+</ul>
 <p>The above can be calculated in Excel and presented as the following:</p>
 <!-- Self Made -->
 <p><img alt="Fund_Cashflows_Excel" class="center" src="../Assets/7.%20Embedded%20Options.md/Fund_Cashflows_Excel.png" /></p>
@@ -1718,7 +1713,7 @@
 <p>However, due to the <strong>volatile nature</strong> of investing, some policyholders could end up with <strong>low fund values</strong> and hence low coverage. Thus, most policies offer a <strong>guaranteed minimum benefit</strong> that will kick in <strong>if the fund value is below a certain threshold</strong>.</p>
 <p>The most common variation is to offer a <strong>guaranteed minimum benefit</strong> based on some multiple <span class="arithmatex">\(\lambda\)</span> of the <strong>premiums paid to date</strong>:</p>
 <div class="arithmatex">\[
-     \text{Minimum Benefit} = \text{Lambda} \cdot \text{Premium Paid to Date}
+     \text{Minimum Benefit} = \lambda \cdot \text{Premium Paid to Date}
 \]</div>
 <p>The Guaranteed Benefit (GB) will be paid <strong>if the Fund Value (FV) is smaller</strong> than the guarantee. Thus, the benefit of the policy can be expressed as the following:</p>
 <div class="arithmatex">\[
@@ -1743,7 +1738,7 @@
 <p><img alt="Equity_Linked_Profit" class="center" src="../Assets/7.%20Embedded%20Options.md/Equity_Linked_Profit.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>There are two common mistakes:</p>
+<p>There are a few points to take note of:</p>
 <ul>
 <li>The insurer receives only the <strong>unallocated portion</strong> of the premium</li>
 <li>The insurer receives the <strong>management charges as fee income</strong></li>
@@ -1987,9 +1982,50 @@
 <h3 id="funding"><strong>Funding</strong><a class="headerlink" href="#funding" title="Permanent link">&para;</a></h3>
 <p>The cost of the guarantee is passed down to the policyholder in one of two ways:</p>
 <ul>
-<li><strong>Front-End Load</strong>: Deducted <strong>once</strong> on inception</li>
-<li><strong>Risk Premium</strong>: Deducted <strong>routinely</strong> as part of the <strong>management charges</strong></li>
+<li><strong>Front-End Load</strong>: Deducted <strong>once</strong> on inception (% of single premium)</li>
+<li><strong>Risk Premium</strong>: Deducted <strong>routinely</strong> from the fund as part of the management charges</li>
 </ul>
+<p>Consider the following parameters:</p>
+<ul>
+<li><span class="arithmatex">\(m\)</span>: Management Charge rate as a % of fund value</li>
+<li><span class="arithmatex">\(m^*\)</span>: Management Charge rate as a % of fund value (Excluding the Risk Premium)</li>
+<li><span class="arithmatex">\(c\)</span>: Risk Premium rate as a % of fund value</li>
+</ul>
+<div class="arithmatex">\[
+    m = m^* + c
+\]</div>
+<p>Assuming a single premium policy, recall that the fund value at any point can be expressed as:</p>
+<div class="arithmatex">\[
+    \text{FV}_{t} = P \cdot (1-m)^{t}
+\]</div>
+<p>The risk premium will only be charged if the policy is still in-force:</p>
+<div class="arithmatex">\[
+    \text{RP}_{t} = \text{FV}_{t} \cdot c \cdot {}_{t}p_{x}
+\]</div>
+<p>Assuming that they are charged at the start of the period, it can be expressed as an annuity:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{EPV Risk Premium}
+    &amp;= \sum \text{RP}_{t} \\
+    &amp;= \sum \text{FV}_{t} \cdot c \cdot {}_{t}p_{x} \\
+    &amp;= \sum P \cdot (1-m)^{t} \cdot c \cdot {}_{t}p_{x} \\
+    &amp;= cP \cdot \sum (1-m)^{t} {}_{t}p_{x} \\
+    &amp;= cP \cdot \sum v^{*} {}_{t}p_{x} \\
+    &amp;= cP \cdot \ddot{a}_{x:\enclose{actuarial}{n} \mid i^{*}} \\
+    \\
+    v^{*} &amp;= (1-m) \\
+    (1 + i^{*}) &amp;= \frac{1}{1-m} \\
+    i^{*} &amp;= \frac{m}{1-m}
+\end{aligned}
+\]</div>
+<p>Thus, the EPV of the risk premium should be equal to the cost of the options:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \pi(0) &amp;= \text{EPV Risk Premium} \\
+    \pi(0) &amp;= cP \cdot \ddot{a}_{x:\enclose{actuarial}{n} \mid i^{*}} \\
+    c &amp;= \frac{\pi(0)}{\ddot{a}_{x:\enclose{actuarial}{n} \mid i^{*}}}
+\end{aligned}
+\]</div>
 <h3 id="hedging"><strong>Hedging</strong><a class="headerlink" href="#hedging" title="Permanent link">&para;</a></h3>
 <p>Given that the guaranteed benefits follow the payoff of a european put option, the insurer can <strong>perfectly hedge the risk</strong> by either:</p>
 <ol>
@@ -2025,7 +2061,7 @@
 <p>For a put option,</p>
 <ul>
 <li>Stock Component is always <strong>negative</strong>: <strong>Short</strong> that amount of stocks</li>
-<li>Bond Component is always <strong>positive</strong>: <strong>Borrow</strong> that amount of money</li>
+<li>Bond Component is always <strong>positive</strong>: <strong>Lend</strong> that amount of money</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2060,6 +2096,7 @@
 <p>The replicating portfolio functionally acts as a reserve that is released over time.</p>
 </div>
 <h4 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h4>
+<p>One key difference between the two approaches is their <strong>treatment in profit testing</strong>:</p>
 <p><center></p>
 <table>
 <thead>

@@ -1747,7 +1747,7 @@
 <p><img alt="Retirement_Salary" class="center" src="../Assets/8.%20Pensions.md/Retirement_Salary.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For most questions, the individual is assumed to <strong>retire at age 65</strong>. Thus, the final annual salary that the individual receives is <span class="arithmatex">\(S_{64}\)</span>.</p>
+<p>For most questions, the individual is assumed to <strong>retire at age 65</strong> (Beginning of age 65; end of age 64). Thus, the final annual salary that the individual receives is <span class="arithmatex">\(S_{64}\)</span>.</p>
 <p>When in doubt, always draw a <strong>timeline to visualize</strong> the salaries paid.</p>
 </div>
 <div class="admonition warning">
@@ -1820,6 +1820,10 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>For DB contributions, the salary is <strong>different</strong> from the salary used to compute the benefits, especially if using <strong>TUC method</strong>:</p>
+<ul>
+<li>Valuation Salary: Previous Salary</li>
+<li>Contribution Salary: Current Salary</li>
+</ul>
 <p><!-- Self Made-->
 <img alt="Contribution_Ratio" class="center" src="../Assets/8.%20Pensions.md/Contribution_Ratio.png" /></p>
 </div>
@@ -1866,7 +1870,7 @@
 <p>The key is knowing HOW MANY years to accumulate:</p>
 <ul>
 <li><strong>Salary Growth</strong>: Starts from 0, ends at <span class="arithmatex">\(n-1\)</span></li>
-<li><strong>Accumulation</strong>: Starts from <span class="arithmatex">\(n\)</span>, end at <span class="arithmatex">\(1\)</span></li>
+<li><strong>Accumulation</strong>: Starts from <span class="arithmatex">\(n-1\)</span>, end at <span class="arithmatex">\(0\)</span></li>
 <li>In both cases, the total is still <span class="arithmatex">\(n\)</span> times</li>
 </ul>
 <div class="admonition tip">
@@ -1968,7 +1972,7 @@
 <p>Legally speaking, an employer can cancel their pension program at any time. However, they must <strong>still make pension payments</strong> to employees based on the <strong>number of years</strong> they have worked <strong>up to the point of cancellation</strong>. Thus, the liability of a DB program is only the <strong>accrued (earned) portion</strong> of the retirement benefit at any point in time.</p>
 <p>To better understand this, consider the following situation:</p>
 <ul>
-<li>Employee jonined the company at age <span class="arithmatex">\(x\)</span></li>
+<li>Employee joined the company at age <span class="arithmatex">\(x\)</span></li>
 <li>The employee is currently aged <span class="arithmatex">\(y\)</span> with <span class="arithmatex">\((y-x)\)</span> <strong>years of service</strong></li>
 <li>Retirements occur upon exact age 65</li>
 </ul>
@@ -2027,14 +2031,6 @@
     &amp;= (y - x) \cdot \alpha \cdot \text{PS} \cdot \ddot{a}^{(12)}_{65} \cdot v^{65-y} \cdot \frac{r_{65}}{\ell_{y}}
 \end{aligned}
 \]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>It is important to have a <strong>clear distinction</strong> between the two:</p>
-<ul>
-<li><strong>EPV @ Valuation Date</strong>: Accrued Liability</li>
-<li><strong>EPV @ Retirement Date</strong>: Value of Retirement Benefits</li>
-</ul>
-</div>
 <p>The probability of retirement is a combination of two probabilities:</p>
 <ul>
 <li>Probability of <strong>surviving till retirement age</strong></li>

@@ -1786,14 +1786,14 @@
     {}_{w \mid}\bar{a}_{x:\enclose{actuarial}{n}}
     = \bar{a}_{x:\enclose{actuarial}{n}} - \bar{a}_{\enclose{actuarial}{w}}
 \]</div>
-<p>Note that the term for the deferred annuity expression is <strong>less the deferral period</strong>.</p>
+<p>The deferred period is an annuity certain, as the waiting period is known and fixed.</p>
 </div>
 <p>The typical expression for multi-state annuities cannot be used due to the waiting period. This is because the expression implicitly assumes that payments will <strong>start immediately</strong> upon transitioning into the state. However, for DII, the payments must be delayed.</p>
 <p>Thus, the alternative, more <strong>flexible expression</strong> can be used instead. The annuity to specify is <span class="arithmatex">\(w\)</span> deferred annuity, which implies that the policy will only pay <strong>AFTER</strong> <span class="arithmatex">\(w\)</span> periods upon transition into the target state:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{EPV(Benefits)}
-    &amp;= \int^{m-w}_{0}
+    &amp;= \int^{n-w}_{0}
         {}_{t}p^{ik}_{x} \mu^{kj}_{x+t} \cdot e^{-\delta t} \cdot 
         \left(\bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{n-t}} - \bar{a}^{\bar{jj}}_{x+t:\enclose{actuarial}{w}} \right)
 \end{aligned}
@@ -1826,6 +1826,7 @@
 <p><img alt="Case_1_Integration" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Case_1_Integration.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>The premise is that the policyholder will be able to receive the full benefits. Thus, the worst and best case is about the <strong>timing</strong> of when they receive it:</p>
 <ul>
 <li><strong>Best Case</strong>: <strong>Earliest</strong> possible time to receive the full benefits</li>
 <li><strong>Worst Case</strong>: <strong>Latest</strong> possble time to receive the full benefits</li>
@@ -1838,6 +1839,7 @@
 <p><img alt="Case_2_Integration" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Case_2_Integration.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>The premise is that the policyholder will NOT be able to receive the full benefits. Thus, the worst and best case is about <strong>how much benefits</strong> that they can receive:</p>
 <ul>
 <li><strong>Best Case</strong>: Time where the policyholder will still receive some benefits (but not all)</li>
 <li><strong>Worst Case</strong>: Time where the policyholder will receive NO benefits</li>
@@ -2098,10 +2100,10 @@
 \begin{aligned}
     {}_{t}p_{x:y}
     &amp;= {}_{t}p^{00}_{x:y} \\
-    &amp;= e^{- (\int \mu^{01} - \lambda + \mu^{02} - \lambda + \lambda)} \\
-    &amp;= e^{- (\int \mu^{01} + \mu^{02} - \lambda)} \\
-    &amp;= e^{- (\int \mu^{01} + \mu^{02})} e^{-(- \lambda)} \\
-    &amp;= {}_{t}p_{y} \cdot {}_{t}p_{x} \cdot e^{\lambda}
+    &amp;= e^{- (\int \mu^{01} + \lambda + \mu^{02} + \lambda - \lambda)} \\
+    &amp;= e^{- (\int \mu^{01} + \mu^{02} + \lambda)} \\
+    &amp;= e^{- (\int \mu^{01} + \mu^{02})} e^{-(\lambda)} \\
+    &amp;= {}_{t}p_{y} \cdot {}_{t}p_{x} \cdot e^{-\lambda}
 \end{aligned}
 \]</div>
 <div class="admonition warning">
