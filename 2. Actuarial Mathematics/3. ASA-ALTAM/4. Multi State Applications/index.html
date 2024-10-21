@@ -1096,13 +1096,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#multi-decrement-model" class="md-nav__link">
-    Multi-Decrement Model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#model-estimation" class="md-nav__link">
     Model Estimation
   </a>
@@ -1665,13 +1658,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#multi-decrement-model" class="md-nav__link">
-    Multi-Decrement Model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#model-estimation" class="md-nav__link">
     Model Estimation
   </a>
@@ -1781,12 +1767,11 @@
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Recalled that a deferred annuity can be expressed as the difference between a life annuity and an <strong>annuity certain</strong> equal to the deferral period:</p>
+<p>Recalled that a deferred annuity can be expressed as the difference between a life annuity and an <strong>temporary annuity</strong> equal to the deferral period:</p>
 <div class="arithmatex">\[
     {}_{w \mid}\bar{a}_{x:\enclose{actuarial}{n}}
-    = \bar{a}_{x:\enclose{actuarial}{n}} - \bar{a}_{\enclose{actuarial}{w}}
+    = \bar{a}_{x:\enclose{actuarial}{n}} - \bar{a}_{x:\enclose{actuarial}{w}}
 \]</div>
-<p>The deferred period is an annuity certain, as the waiting period is known and fixed.</p>
 </div>
 <p>The typical expression for multi-state annuities cannot be used due to the waiting period. This is because the expression implicitly assumes that payments will <strong>start immediately</strong> upon transitioning into the state. However, for DII, the payments must be delayed.</p>
 <p>Thus, the alternative, more <strong>flexible expression</strong> can be used instead. The annuity to specify is <span class="arithmatex">\(w\)</span> deferred annuity, which implies that the policy will only pay <strong>AFTER</strong> <span class="arithmatex">\(w\)</span> periods upon transition into the target state:</p>
@@ -2113,11 +2098,6 @@
 <p>If the two lives are of the same age, the above model can be instead simplified into a <strong>three state model</strong>:</p>
 <!-- Self Made -->
 <p><img alt="Simplified Multi Life" class="center" src="../Assets/4.%20Multi%20State%20Applications.md/Simplified_Multi_Life.png" /></p>
-<h2 id="multi-decrement-model"><strong>Multi-Decrement Model</strong><a class="headerlink" href="#multi-decrement-model" title="Permanent link">&para;</a></h2>
-<p>A multi-decrement model can be expressed as the following multi-state model:</p>
-<!-- Obtained from Coaching Actuaries -->
-<p><img alt="Multi_Decrement_Illustration" class="center" src="../Assets/2.%20Multi%20Decrement%20Models.md/Multi_Decrement_Illustration.png" /></p>
-<p>All multi-state concepts apply to this model as well.</p>
 <h2 id="model-estimation"><strong>Model Estimation</strong><a class="headerlink" href="#model-estimation" title="Permanent link">&para;</a></h2>
 <p>Similar to FAM-L, the goal of this subsection is to estimate the <strong>Force of Transition</strong> using <strong>Maximum Likelihood Estimation</strong>. Recall that the goal of MLE is to determine the <strong>population parameter</strong> (Force of Transition) that <strong>most likely</strong> resulted in the observed sample.</p>
 <p>Recall that the likelihood function is the <strong>joint probability density</strong> of all observtions (assuming sample is iid). Thus, each observation <strong>contributes its probability density</strong> to the likelihood:</p>

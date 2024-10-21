@@ -1971,16 +1971,15 @@
 <p>Because of this, they are sometimes referred to as <span class="arithmatex">\(\text{WL}_{\text{Due}}\)</span> annuities that are <strong>certain for <span class="arithmatex">\(n\)</span> years</strong>.</p>
 </div>
 <p>Thus, the EPV can be determined:</p>
-<p>$$
+<div class="arithmatex">\[
 \begin{aligned}
-    E(\text{GA}<em _enclose_actuarial="\enclose{actuarial">{\text{Due}})
-    &amp;= \ddot{a}</em>{n}} + 0 \cdot {}<em k="k">{n}q_x + \sum^{\infty}</em> (\ddot{a}<em _enclose_actuarial="\enclose{actuarial">{\enclose{actuarial}{k+1}} - \ddot{a}</em>{n}}) \cdot {}<em x="x">{k|}q</em> \</p>
-<div class="highlight"><pre><span></span><code>\ddot{a}_{\overline{x:\enclose{actuarial}{n}}}
-&amp;= \ddot{a}_{\enclose{actuarial}{n}} + {}_{n|}\ddot{a}_{x} \\
-&amp;= \ddot{a}_{\enclose{actuarial}{n}} + {}_{n}E_{x} \cdot \ddot{a}_{x+n}
-</code></pre></div>
-<p>\end{aligned}
-$$</p>
+    E(\text{GA}_{\text{Due}})
+    &amp;= \ddot{a}_{\enclose{actuarial}{n}} + 0 \cdot {}_{n}q_x + \sum^{\infty}_{k = n} (\ddot{a}_{\enclose{actuarial}{k+1}} - \ddot{a}_{\enclose{actuarial}{n}}) \cdot {}_{k|}q_{x} \\
+    \ddot{a}_{\overline{x:\enclose{actuarial}{n}}}
+    &amp;= \ddot{a}_{\enclose{actuarial}{n}} + {}_{n|}\ddot{a}_{x} \\
+    &amp;= \ddot{a}_{\enclose{actuarial}{n}} + {}_{n}E_{x} \cdot \ddot{a}_{x+n}
+\end{aligned}
+\]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>It is an extremely common mistake to <strong>forget to update the age of the policyholder</strong> in the second term.</p>
