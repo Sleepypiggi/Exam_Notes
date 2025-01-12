@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://example.com/3.%20Predictive%20Analytics/1.%20ASA-SRM/Review%20of%20Statistical%20Theory/">
+        <link rel="canonical" href="https://example.com/3.%20Predictive%20Analytics/1.%20ASA-SRM/0.%20Review%20of%20Statistical%20Theory/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
@@ -1057,8 +1057,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-sample-statistics" class="md-nav__link">
-    Common Sample Statistics
+  <a href="#sample-statistics" class="md-nav__link">
+    Sample Statistics
   </a>
   
 </li>
@@ -1067,6 +1067,19 @@
   <a href="#sampling-distribution" class="md-nav__link">
     Sampling Distribution
   </a>
+  
+    <nav class="md-nav" aria-label="Sampling Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-properties" class="md-nav__link">
+    Key Properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1354,8 +1367,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-sample-statistics" class="md-nav__link">
-    Common Sample Statistics
+  <a href="#sample-statistics" class="md-nav__link">
+    Sample Statistics
   </a>
   
 </li>
@@ -1364,6 +1377,19 @@
   <a href="#sampling-distribution" class="md-nav__link">
     Sampling Distribution
   </a>
+  
+    <nav class="md-nav" aria-label="Sampling Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-properties" class="md-nav__link">
+    Key Properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1457,46 +1483,36 @@
 <p>A <strong>Population</strong> refers to the <em>theoretical</em> set of <strong>all possible</strong> data of the event of interest. The goal of statistics is to determine certain attributes that <strong>summarizes or describes</strong> the population, known as <strong>Parameters</strong>.</p>
 <p>However, it is impossible to study the entire population at once, thus a <strong>subset of the population</strong> is studied instead, known as the <strong>Sample</strong>. Attributes that summarize or describe the sample are known as <strong>Statistics</strong>.</p>
 <p>Ideally, the sample is <strong>representative</strong> of the population, which means that findings from the sample can be applied to the population as a whole. This means that the sample statistics can be used <strong>estimate</strong> population parameters.</p>
-<p>We distinguish between the two (when they have the same notation) through the <strong>Hat accent</strong> (^) - Population Parameters are their written without the hat (<span class="arithmatex">\(x\)</span>) while their corresponding sample statistics are written with the hat (<span class="arithmatex">\(\hat{x}\)</span>).</p>
-<h2 id="common-sample-statistics"><strong>Common Sample Statistics</strong><a class="headerlink" href="#common-sample-statistics" title="Permanent link">&para;</a></h2>
+<p>We distinguish between the two (when they have the same notation) through the <strong>Hat accent</strong> (^) - Population Parameters are their written <strong>without the hat</strong> (<span class="arithmatex">\(x\)</span>) while their corresponding sample statistics are written <strong>with the hat</strong> (<span class="arithmatex">\(\hat{x}\)</span>).</p>
+<h2 id="sample-statistics"><strong>Sample Statistics</strong><a class="headerlink" href="#sample-statistics" title="Permanent link">&para;</a></h2>
 <p>The <strong>Mean</strong> is the average of the population.</p>
 <!-- Central Tendency -->
 
-<p><center></p>
-<table>
-<thead>
-<tr>
-<th align="center">Population Mean</th>
-<th align="center">Sample Mean</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(\mu = \sum\limits_{i=i}^n x_i * p(x_i)\)</span></td>
-<td align="center"><span class="arithmatex">\(\bar{x} = \frac{1}{n} \sum\limits_{i=i}^n x_i\)</span></td>
-</tr>
-</tbody>
-</table>
-<p></center></p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|}
+\hline
+    \text{Population Mean} &amp;
+    \text{Sample Mean} \\
+\hline
+    \mu = \sum x_{i} \cdot P(x_{i}) &amp;
+    \bar{x} = \frac{1}{n} \sum x_{i} \\
+\hline
+\end{array}
+\]</div>
 <p>Mean is a measure of centrality
 But if there are outliers, then median is better</p>
 <p>The <strong>Variance</strong> measures the spread of values about the mean. However, the units of Variance are unintuitive, thus we consider the <strong>Standard Deviation</strong> for more practical purposes, which is the <strong>square root of the variance</strong>.</p>
-<p><center></p>
-<table>
-<thead>
-<tr>
-<th align="center">Population Variance</th>
-<th align="center">Sample Variance</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(\sigma^2 = \sum\limits_{i=i}^n (x_i - \mu)^2 * p(x_i)\)</span></td>
-<td align="center"><span class="arithmatex">\(s^2 = \frac{1}{n-1} \sum\limits_{i=i}^n (x_i - \bar{x})^2\)</span></td>
-</tr>
-</tbody>
-</table>
-<p></center></p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|}
+\hline
+    \text{Population Variance} &amp;
+    \text{Sample Variance} \\
+\hline
+    \sigma^{2} = \sum (x_{i} - \mu)^{2} \cdot P(x_{i}) &amp;
+    s^{2} = \frac{1}{n-1} \sum (x_{i} - \bar{x})^{2} \\
+\hline
+\end{array}
+\]</div>
 <!--Bessel's correction-->
 
 <p><strong>Covariance</strong> is a measure of the <strong>linear relationship</strong> between two variables:</p>
@@ -1504,47 +1520,37 @@ But if there are outliers, then median is better</p>
 <li><strong>Positive Covariance</strong> - Variables move in the <strong>same direction</strong></li>
 <li><strong>Negative Covariance</strong> - Variables move in <strong>opposite directions</strong></li>
 </ul>
-<p><center></p>
-<table>
-<thead>
-<tr>
-<th align="center">Population Covariance</th>
-<th align="center">Sample Covariance</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(\sigma_{x, y} = \mu_{xy} - \mu_x \mu_y\)</span></td>
-<td align="center"><span class="arithmatex">\(\hat{\sigma}_{x, y} = \frac{1}{n-1} \sum\limits_{i=i}^n (x_i - \bar{x}) * (y_i - \bar{y})\)</span></td>
-</tr>
-</tbody>
-</table>
-<p></center></p>
-<p>However, there are two issues with Covariance - the units are unintuitive (similar to variance) and there is no benchmark as to what constitutes a strong/weak relationship. Thus, the <strong>Correlation</strong> is an adjusted measure of the relationship <strong>between -1 and 1</strong>.</p>
-<p><center></p>
-<table>
-<thead>
-<tr>
-<th align="center">Population Correlation</th>
-<th align="center">Sample Correlation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(\rho = \frac{\sigma_{x,y}}{\sigma_x * \sigma_y}\)</span></td>
-<td align="center"><span class="arithmatex">\(r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x} \sum(y_i - \bar{y})}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p></center></p>
-<p>Properties of Estimators
-Biased
-Consistent
-Efficient
-Degrees of freedom</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|}
+\hline
+    \text{Population Covariance} &amp;
+    \text{Sample Covariance} \\
+\hline
+    \sigma_{x, y} = \mu_{x, y} - \mu_{x} \cdot \mu_{y} &amp;
+    \hat{\sigma}_{x, y} = \frac{1}{n-1} \sum (x_{i} - \bar{x}) \cdot (y_{i} - \bar{y}) \\
+\hline
+\end{array}
+\]</div>
+<p>However, there are two issues with Covariance:</p>
+<ol>
+<li>Units are unintuitive (similar to variance)</li>
+<li>No benchmark as to what constitutes a strong/weak relationship</li>
+</ol>
+<p>Thus, the <strong>Correlation</strong> is an adjusted measure of the relationship <strong>between -1 and 1</strong>, which accounts for the above issues:</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|}
+\hline
+    \text{Population Correlation} &amp;
+    \text{Sample Correlation} \\
+\hline
+    \rho = \frac{\sigma_{x, y}}{\sigma_{x} \cdot \sigma_{y}} &amp;
+    r = \frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum(x_{i} - \bar{x}) \cdot \sum(y_{i} - \bar{y})} \\
+\hline
+\end{array}
+\]</div>
 <h2 id="sampling-distribution"><strong>Sampling Distribution</strong><a class="headerlink" href="#sampling-distribution" title="Permanent link">&para;</a></h2>
 <p>Whenever a sample is drawn from a population and a statistic is calculated, it is known as a <strong>Point Estimate</strong>.</p>
-<p>Due to measurement error, a different sample would be drawn each time, thus leading to a <strong>different point estimate</strong>. If this process were to be repeated a large number times, the <strong>probability distribution</strong> of the resulting point estimates is known as the <strong>Sampling Distribution</strong> of the statistic.</p>
+<p>Due to measurement errors, a different sample would be drawn each time, thus leading to a <strong>different point estimate</strong>. If this process were to be repeated a large number times, the <strong>probability distribution</strong> of the resulting point estimates is known as the <strong>Sampling Distribution</strong> of the statistic.</p>
 <p>There is <strong>no rule</strong> surrounding the sampling distribution - it depends on the distribution of the population, statistic being measured, sampling method etc.</p>
 <p>The standard deviation of this sampling distribution is known as the <strong>Standard Error</strong> of the statistic:</p>
 <div class="arithmatex">\[
@@ -1565,6 +1571,12 @@ Degrees of freedom</p>
 <blockquote>
 <p>Note that only the sample variance is an unbiased estimator for the population variance. Although it may look like it, the sample SD is NOT an unbiased estimator for the population SD.</p>
 </blockquote>
+<h3 id="key-properties"><strong>Key Properties</strong><a class="headerlink" href="#key-properties" title="Permanent link">&para;</a></h3>
+<p>Properties of Estimators
+Biased
+Consistent
+Efficient
+Degrees of freedom</p>
 <h2 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h2>
 <p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a point estimate, a range of estimates is used, known as a <strong>Confidence Interval</strong>.</p>
 <p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the same manner were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
@@ -1876,8 +1888,6 @@ t_{n-1}^2
       <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
         <script src="../../../config/mathjax.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
