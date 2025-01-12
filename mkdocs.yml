@@ -53,7 +53,7 @@ nav:
       - Pensions: 2. Actuarial Mathematics\3. ASA-ALTAM\8. Pensions.md
   - Predictive Analytics: 
     - ASA-SRM:
-      - Review of Statistical Theory: 3. Predictive Analytics/1. ASA-SRM/Review of Statistical Theory.md
+      - Review of Statistical Theory: 3. Predictive Analytics/1. ASA-SRM/0. Review of Statistical Theory.md
       - Regression Overview: 3. Predictive Analytics/1. ASA-SRM/1. Regression Overview.md
       - Simple Linear Regression: 3. Predictive Analytics/1. ASA-SRM/2. Simple Linear Regression.md
       - Multiple Linear Regression: 3. Predictive Analytics/1. ASA-SRM/3. Multiple Linear Regression.md
@@ -104,5 +104,4 @@ extra_css:
 
 extra_javascript:
   - config/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
