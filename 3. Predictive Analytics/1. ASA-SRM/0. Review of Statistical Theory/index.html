@@ -1061,6 +1061,33 @@
     Sample Statistics
   </a>
   
+    <nav class="md-nav" aria-label="Sample Statistics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#central-tendency" class="md-nav__link">
+    Central Tendency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispersion" class="md-nav__link">
+    Dispersion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    Relationships
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1074,6 +1101,13 @@
           <li class="md-nav__item">
   <a href="#key-properties" class="md-nav__link">
     Key Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bias-variance-tradeoff" class="md-nav__link">
+    Bias Variance Tradeoff
   </a>
   
 </li>
@@ -1371,6 +1405,33 @@
     Sample Statistics
   </a>
   
+    <nav class="md-nav" aria-label="Sample Statistics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#central-tendency" class="md-nav__link">
+    Central Tendency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispersion" class="md-nav__link">
+    Dispersion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    Relationships
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1384,6 +1445,13 @@
           <li class="md-nav__item">
   <a href="#key-properties" class="md-nav__link">
     Key Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bias-variance-tradeoff" class="md-nav__link">
+    Bias Variance Tradeoff
   </a>
   
 </li>
@@ -1484,37 +1552,89 @@
 <p>However, it is impossible to study the entire population at once, thus a <strong>subset of the population</strong> is studied instead, known as the <strong>Sample</strong>. Attributes that summarize or describe the sample are known as <strong>Statistics</strong>.</p>
 <p>Ideally, the sample is <strong>representative</strong> of the population, which means that findings from the sample can be applied to the population as a whole. This means that the sample statistics can be used <strong>estimate</strong> population parameters.</p>
 <p>We distinguish between the two (when they have the same notation) through the <strong>Hat accent</strong> (^) - Population Parameters are their written <strong>without the hat</strong> (<span class="arithmatex">\(x\)</span>) while their corresponding sample statistics are written <strong>with the hat</strong> (<span class="arithmatex">\(\hat{x}\)</span>).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For more common statistics, they typically have their own unique notation. It is important to recognise both notations.</p>
+</div>
 <h2 id="sample-statistics"><strong>Sample Statistics</strong><a class="headerlink" href="#sample-statistics" title="Permanent link">&para;</a></h2>
-<p>The <strong>Mean</strong> is the average of the population.</p>
-<!-- Central Tendency -->
-
+<h3 id="central-tendency"><strong>Central Tendency</strong><a class="headerlink" href="#central-tendency" title="Permanent link">&para;</a></h3>
+<p>The first most important set of parameters &amp; statistics involve <strong>Central Tendency</strong>, which is a measure of the <strong>most representative value</strong> from a population or sample.</p>
+<p>The most common measure is the <strong>Mean</strong>, which is the sum of all observations divided by the number of observations:</p>
 <div class="arithmatex">\[
 \begin{array}{|c|c|}
 \hline
     \text{Population Mean} &amp;
     \text{Sample Mean} \\
 \hline
-    \mu = \sum x_{i} \cdot P(x_{i}) &amp;
+    \mu_{x} = E(X) = \sum x_{i} \cdot P(x_{i}) &amp;
     \bar{x} = \frac{1}{n} \sum x_{i} \\
 \hline
 \end{array}
 \]</div>
-<p>Mean is a measure of centrality
-But if there are outliers, then median is better</p>
-<p>The <strong>Variance</strong> measures the spread of values about the mean. However, the units of Variance are unintuitive, thus we consider the <strong>Standard Deviation</strong> for more practical purposes, which is the <strong>square root of the variance</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above is more formally known as the <strong>Arithmetic Mean</strong>. There is also the <strong>Geometric Mean</strong>, which uses the <strong>n-th root of the product</strong> of the observations:</p>
+<div class="arithmatex">\[
+    \bar{x}_{\text{Geom}} = \left(\Pi x_{i} \right)^{\frac{1}{n}}
+\]</div>
+<p>The two are best applied to measurements that are:</p>
+<ul>
+<li><strong>Change Linearly</strong>: Arithmetic average (Think Arithmetic Series)</li>
+<li><strong>Change Exponentially</strong>: Geometric Average (Think Geometric Series)</li>
+</ul>
+</div>
+<p>One problem with the Mean is that it is <strong>sensitive to outliers</strong>. An extremely large outlier could cause the mean to be well above or below the rest of the observations, reducing its reliability.</p>
+<p>Thus, the <strong>Median</strong> is considered as well, which is the <strong>midpoint of the population</strong>, where <strong>at least half the observations</strong> is at least above or below the value:</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|}
+\hline
+    \text{Population Median} &amp;
+    \text{Sample Median} \\
+\hline
+    P(X \le m) \ge \frac{1}{2} &amp; m_{\text{Odd}} = x_{\frac{n+1}{2}} \\
+    P(X \ge m) \le \frac{1}{2} &amp; m_{\text{Even}} = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}}{2} \\
+\hline
+\end{array}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The formula for the sample median assumes that the sample is <strong>sorted in ascending order</strong>.</p>
+</div>
+<p>The last common measure is the <strong>Mode</strong> of the population, which is the <strong>most common value</strong> in the distribution or sample.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The term mode came from "Maximum Ordinate Frequency".</p>
+</div>
+<!-- Obtained from Ledidi -->
+<p><img alt="CENTRAL_TENDENCY" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/CENTRAL_TENDENCY.png" /></p>
+<h3 id="dispersion"><strong>Dispersion</strong><a class="headerlink" href="#dispersion" title="Permanent link">&para;</a></h3>
+<p>Another important set of parameters and statistics are concerned with the <strong>Dispersion</strong>, which is a measure of how stretched or squeezed</p>
+<p>The <strong>Variance</strong> measures the <strong>spread</strong> of values about the mean:</p>
 <div class="arithmatex">\[
 \begin{array}{|c|c|}
 \hline
     \text{Population Variance} &amp;
     \text{Sample Variance} \\
 \hline
-    \sigma^{2} = \sum (x_{i} - \mu)^{2} \cdot P(x_{i}) &amp;
+    \sigma^{2} = \text{Var}(X) = \sum (x_{i} - \mu)^{2} \cdot P(x_{i}) &amp;
     s^{2} = \frac{1}{n-1} \sum (x_{i} - \bar{x})^{2} \\
 \hline
 \end{array}
 \]</div>
+<p>However, the units of the variance are squared, which makes it <strong>unintuitive</strong>. Thus, the <strong>Standard Deviation</strong> which is the square root of the variance is also considered:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Variance still has the following key properties which makes it desirable: </p>
+<ul>
+<li>Values are squared thus <strong>outliers are emphasised</strong>, giving <strong>better sense</strong> of spread</li>
+<li>Values are squared thus has <strong>positive</strong> values only, ensuring <strong>no offsetting</strong> effects</li>
+<li><strong>Mathematical properties</strong> which makes it easier to manipulate (EG. Variance of sum of independent variables is the sum of the individual variances)</li>
+</ul>
+<p>Thus, between Variance and Standard Deviation, one is not strictly better than the other. </p>
+</div>
 <!--Bessel's correction-->
 
+<h3 id="relationships"><strong>Relationships</strong><a class="headerlink" href="#relationships" title="Permanent link">&para;</a></h3>
 <p><strong>Covariance</strong> is a measure of the <strong>linear relationship</strong> between two variables:</p>
 <ul>
 <li><strong>Positive Covariance</strong> - Variables move in the <strong>same direction</strong></li>
@@ -1526,15 +1646,15 @@ But if there are outliers, then median is better</p>
     \text{Population Covariance} &amp;
     \text{Sample Covariance} \\
 \hline
-    \sigma_{x, y} = \mu_{x, y} - \mu_{x} \cdot \mu_{y} &amp;
+    \sigma_{x, y} = \text{Cov}(X, Y) = \mu_{x, y} - \mu_{x} \cdot \mu_{y} &amp;
     \hat{\sigma}_{x, y} = \frac{1}{n-1} \sum (x_{i} - \bar{x}) \cdot (y_{i} - \bar{y}) \\
 \hline
 \end{array}
 \]</div>
 <p>However, there are two issues with Covariance:</p>
 <ol>
-<li>Units are unintuitive (similar to variance)</li>
-<li>No benchmark as to what constitutes a strong/weak relationship</li>
+<li>Units are <strong>unintuitive</strong> (similar to variance)</li>
+<li><strong>No benchmark</strong> as to what constitutes a strong/weak relationship</li>
 </ol>
 <p>Thus, the <strong>Correlation</strong> is an adjusted measure of the relationship <strong>between -1 and 1</strong>, which accounts for the above issues:</p>
 <div class="arithmatex">\[
@@ -1543,7 +1663,7 @@ But if there are outliers, then median is better</p>
     \text{Population Correlation} &amp;
     \text{Sample Correlation} \\
 \hline
-    \rho = \frac{\sigma_{x, y}}{\sigma_{x} \cdot \sigma_{y}} &amp;
+    \rho = \text{Corr}(X, Y) = \frac{\sigma_{x, y}}{\sigma_{x} \cdot \sigma_{y}} &amp;
     r = \frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum(x_{i} - \bar{x}) \cdot \sum(y_{i} - \bar{y})} \\
 \hline
 \end{array}
@@ -1552,9 +1672,13 @@ But if there are outliers, then median is better</p>
 <p>Whenever a sample is drawn from a population and a statistic is calculated, it is known as a <strong>Point Estimate</strong>.</p>
 <p>Due to measurement errors, a different sample would be drawn each time, thus leading to a <strong>different point estimate</strong>. If this process were to be repeated a large number times, the <strong>probability distribution</strong> of the resulting point estimates is known as the <strong>Sampling Distribution</strong> of the statistic.</p>
 <p>There is <strong>no rule</strong> surrounding the sampling distribution - it depends on the distribution of the population, statistic being measured, sampling method etc.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It may be hard to understand initially, but the distribution of sample statistics is <strong>itself a population</strong>. It is <strong>different from the underlying population</strong> that is being sampled.</p>
+</div>
 <p>The standard deviation of this sampling distribution is known as the <strong>Standard Error</strong> of the statistic:</p>
 <div class="arithmatex">\[
-\sigma_{\theta} = \sqrt {\sigma^2_{\theta}}
+    \sigma_{\theta} = \sqrt {\sigma^2_{\theta}}
 \]</div>
 <p>A special case is the <strong>Sample Mean</strong>. If the population is normally distributed, then it is normally distributed as well. Regardless of the population distribution, it is also approximately normally distributed through the <strong>Central Limit Theorem</strong> or <strong>Law of Large Numbers</strong>.</p>
 <div class="arithmatex">\[
@@ -1566,20 +1690,55 @@ But if there are outliers, then median is better</p>
 \]</div>
 <p>However, the population variance is usually unknown. Thus, it can be approximated using the Sample Variance, which is an unbiased estimator for it. The result is known as an <strong>Estimate for the Standard Error</strong>:</p>
 <div class="arithmatex">\[
-\hat{\sigma}_{\bar{x}} = \sqrt \frac{s^2}{n} = \frac{s}{\sqrt{n}}
+    \hat{\sigma}_{\bar{x}} = \sqrt \frac{s^2}{n} = \frac{s}{\sqrt{n}}
 \]</div>
 <blockquote>
 <p>Note that only the sample variance is an unbiased estimator for the population variance. Although it may look like it, the sample SD is NOT an unbiased estimator for the population SD.</p>
 </blockquote>
 <h3 id="key-properties"><strong>Key Properties</strong><a class="headerlink" href="#key-properties" title="Permanent link">&para;</a></h3>
+<p>The <strong>Error</strong> of an estimate is the difference between the Sample Estimate and the Population Parameter:</p>
+<div class="arithmatex">\[
+    \epsilon = \hat{\theta} - \theta
+\]</div>
+<p>The Bias of an estimator is the <strong>expected value</strong> of the error:</p>
+<div class="arithmatex">\[
+    B(\hat{\theta}) = E(\hat{\theta} - \theta)
+\]</div>
+<p>An estimator is <strong>unbiased if and only if the Bias is 0</strong>. It can be understood that - <strong>on average</strong>, the estimator produces an <strong>estimate that is equal to the true value</strong>; individual estimates may still have errors.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Biasness is a property of the <strong>Estimator, not the estimate</strong>. Thus, the term “Biased Estimate” should not be used in a statistical context.</p>
+</div>
+<p>The Variance of an Estimator (Sampling Variance) is the spread of estimates about its mean:</p>
+<p>$$</p>
+<p>$$</p>
+<p>Variance is independent of Bias; an estimator can be unbiased but yet have high variance. On average, the estimator is correct, but the individual estimates are too high or too low (offsetting in the average).</p>
+<p>Consider the common example of Archery:</p>
+<p>The Standard Deviation of the Estimator (Sampling Deviation) is similarly the square root of the sampling variance:</p>
+<p>Population of interest | Standard Deviation
+Sample | Sample Standard Deviation
+Sampling Distribution | Standard Error</p>
+<p>Standard error is widely used in a lot of applications
+However the standard error itself is from a population (sampling distribution), which must be estimated again</p>
+<p>Thus there is the estimate of the standard error, which is another layer of estimation</p>
+<h3 id="bias-variance-tradeoff"><strong>Bias Variance Tradeoff</strong><a class="headerlink" href="#bias-variance-tradeoff" title="Permanent link">&para;</a></h3>
+<p>The combination of the Bias and Variance in an estimator is known as the Mean Squared Error (MSE):</p>
+<p>It can be shown that the MSE is also mathematically equivalent to the spread of estimates about the parameter:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Variance and MSE look functionally the same, but the key difference is what the spread is centered on:</p>
+<ul>
+<li>Variance: Centered on the average of the estimates</li>
+<li>MSE: Centered on the average of the parameter</li>
+</ul>
+</div>
 <p>Properties of Estimators
-Biased
 Consistent
 Efficient
 Degrees of freedom</p>
 <h2 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h2>
 <p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a point estimate, a range of estimates is used, known as a <strong>Confidence Interval</strong>.</p>
-<p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the same manner were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
+<p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the same manner were to be made, <span class="arithmatex">\(1-\alpha)%\)</span> of them would contain the true value.</p>
 <div class="arithmatex">\[
 P(- \text{Margin of Error} &lt; \theta &lt; \text{Margin of Error}) = 1 - \alpha
 \]</div>
