@@ -1558,7 +1558,7 @@
 </div>
 <h2 id="sample-statistics"><strong>Sample Statistics</strong><a class="headerlink" href="#sample-statistics" title="Permanent link">&para;</a></h2>
 <h3 id="central-tendency"><strong>Central Tendency</strong><a class="headerlink" href="#central-tendency" title="Permanent link">&para;</a></h3>
-<p>The first most important set of parameters &amp; statistics involve <strong>Central Tendency</strong>, which is a measure of the <strong>most representative value</strong> from a population or sample.</p>
+<p>The first set of Parameters &amp; Statistics are concerned with <strong>Central Tendency</strong>, which is a measure of where the centre of the distribution is, to be used as a <strong>representative value</strong>.</p>
 <p>The most common measure is the <strong>Mean</strong>, which is the sum of all observations divided by the number of observations:</p>
 <div class="arithmatex">\[
 \begin{array}{|c|c|}
@@ -1566,7 +1566,7 @@
     \text{Population Mean} &amp;
     \text{Sample Mean} \\
 \hline
-    \mu_{x} = E(X) = \sum x_{i} \cdot P(x_{i}) &amp;
+    \mu_{x} = \sum x_{i} \cdot P(x_{i}) &amp;
     \bar{x} = \frac{1}{n} \sum x_{i} \\
 \hline
 \end{array}
@@ -1577,7 +1577,7 @@
 <div class="arithmatex">\[
     \bar{x}_{\text{Geom}} = \left(\Pi x_{i} \right)^{\frac{1}{n}}
 \]</div>
-<p>The two are best applied to measurements that are:</p>
+<p>The two are best applied in the following situations:</p>
 <ul>
 <li><strong>Change Linearly</strong>: Arithmetic average (Think Arithmetic Series)</li>
 <li><strong>Change Exponentially</strong>: Geometric Average (Think Geometric Series)</li>
@@ -1608,32 +1608,73 @@
 <!-- Obtained from Ledidi -->
 <p><img alt="CENTRAL_TENDENCY" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/CENTRAL_TENDENCY.png" /></p>
 <h3 id="dispersion"><strong>Dispersion</strong><a class="headerlink" href="#dispersion" title="Permanent link">&para;</a></h3>
-<p>Another important set of parameters and statistics are concerned with the <strong>Dispersion</strong>, which is a measure of how stretched or squeezed</p>
-<p>The <strong>Variance</strong> measures the <strong>spread</strong> of values about the mean:</p>
+<p>The next set of parameters and statistics are concerned with <strong>Dispersion</strong>, which is a measure of how <strong>stretched or squeezed</strong> a distribution is.</p>
+<!-- Obtained from Six Sigma -->
+<p><img alt="SIX_SIGMA" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/DISPERSION.png" /></p>
+<p>The most common measure is the <strong>Variance</strong>, which measures the <strong>spread</strong> of values about the mean:</p>
 <div class="arithmatex">\[
 \begin{array}{|c|c|}
 \hline
     \text{Population Variance} &amp;
     \text{Sample Variance} \\
 \hline
-    \sigma^{2} = \text{Var}(X) = \sum (x_{i} - \mu)^{2} \cdot P(x_{i}) &amp;
-    s^{2} = \frac{1}{n-1} \sum (x_{i} - \bar{x})^{2} \\
+    \sigma^{2} = \frac{\sum (x_{i} - \mu)^{2}}{N} &amp;
+    s^{2} = \frac{\sum (x_{i} - \bar{x})^{2}}{n-1} \\
 \hline
 \end{array}
 \]</div>
-<p>However, the units of the variance are squared, which makes it <strong>unintuitive</strong>. Thus, the <strong>Standard Deviation</strong> which is the square root of the variance is also considered:</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The Variance still has the following key properties which makes it desirable: </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The variance has the following key properties which makes it desirable:</p>
 <ul>
-<li>Values are squared thus <strong>outliers are emphasised</strong>, giving <strong>better sense</strong> of spread</li>
-<li>Values are squared thus has <strong>positive</strong> values only, ensuring <strong>no offsetting</strong> effects</li>
-<li><strong>Mathematical properties</strong> which makes it easier to manipulate (EG. Variance of sum of independent variables is the sum of the individual variances)</li>
+<li>Differences are squared thus <strong>outliers are emphasised</strong>, giving <strong>better sense</strong> of spread</li>
+<li>Consequently, the spread is <strong>positive only</strong>, ensuring <strong>no offsetting</strong> effects</li>
+<li><strong>Other Mathematical properties</strong> which makes it <strong>easier to manipulate</strong> (EG. Variance of sum of independent variables is the sum of the individual variances)</li>
 </ul>
-<p>Thus, between Variance and Standard Deviation, one is not strictly better than the other. </p>
 </div>
-<!--Bessel's correction-->
-
+<p>However, the units of the variance are squared, which makes it hard to <strong>hard to interpret</strong>. Thus, the <strong>Standard Deviation</strong> (SD) which is the square root of the variance is also considered:</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|}
+\hline
+    \text{Population Standard Deviation} &amp;
+    \text{Sample Standard Deviation} \\
+\hline
+    \sigma = \sqrt{\frac{\sum (x_{i} - \mu)^{2}}{N}} &amp;
+    s = \sqrt{\frac{\sum (x_{i} - \bar{x})}{n-1}} \\
+\hline
+\end{array}
+\]</div>
+<p>Similarly, the SD may <strong>not be meaningful</strong> to be used to <strong>compare</strong> the dispersion across different groups due to <strong>different units and scale</strong>. Thus, the <strong>Coefficient of Variation</strong> (CV) is measured, which is the <strong>ratio of the SD relative to the mean</strong>:</p>
+<div class="arithmatex">\[
+\begin{array}{|c|c|}
+\hline
+    \text{Population Coefficient of Variation} &amp;
+    \text{Sample Coefficient of Variation} \\
+\hline
+    \text{CV} = \frac{\sigma}{\mu} &amp;
+    \hat{\text{CV}} = \frac{s}{\bar{x}} \\
+\hline
+\end{array}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Naturally, the CV is not useful in situations where the <strong>Mean is close to 0</strong>, as the CV will <strong>approach infinity</strong>.</p>
+</div>
+<p>The last common measure is the <strong>Interquartile Range</strong> (IQR). It is the <strong>difference</strong> between the 75<sup>th</sup> and 25<sup>th</sup> Percentiles:</p>
+<div class="arithmatex">\[
+    \text{IQR} = P_{75} - P_{25} = Q_{3} - Q_{1}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The 25<sup>th</sup>, 50<sup>th</sup> and 75<sup>th</sup> Percentiles are specially known as <strong>Quartiles</strong>, hence the naming. They are denoted by <span class="arithmatex">\(Q_{i}\)</span>.</p>
+</div>
+<p>The IQR is most often used to <strong>identify Outliers</strong>. It is generally accepted that observations that fall outside of <strong>1.5 times the IQR from the respective IQR boundaries</strong> are considered outliers:</p>
+<!-- Obtained from Scribbor -->
+<p><img alt="IQR_OUTLIERS" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/IQR_OUTLIERS.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The above diagram is known as a <strong>Box-Plot</strong>. The threshold for outliers are often referred to as Fences.</p>
+</div>
 <h3 id="relationships"><strong>Relationships</strong><a class="headerlink" href="#relationships" title="Permanent link">&para;</a></h3>
 <p><strong>Covariance</strong> is a measure of the <strong>linear relationship</strong> between two variables:</p>
 <ul>
@@ -1676,25 +1717,10 @@
 <p class="admonition-title">Warning</p>
 <p>It may be hard to understand initially, but the distribution of sample statistics is <strong>itself a population</strong>. It is <strong>different from the underlying population</strong> that is being sampled.</p>
 </div>
-<p>The standard deviation of this sampling distribution is known as the <strong>Standard Error</strong> of the statistic:</p>
-<div class="arithmatex">\[
-    \sigma_{\theta} = \sqrt {\sigma^2_{\theta}}
-\]</div>
 <p>A special case is the <strong>Sample Mean</strong>. If the population is normally distributed, then it is normally distributed as well. Regardless of the population distribution, it is also approximately normally distributed through the <strong>Central Limit Theorem</strong> or <strong>Law of Large Numbers</strong>.</p>
 <div class="arithmatex">\[
-\bar{x} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
+    \bar{x} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
 \]</div>
-<p>Following that, we can compute the standard error:</p>
-<div class="arithmatex">\[
-\sigma_{\bar{x}} = \sqrt \frac{\sigma^2_{\bar{x}}}{n} = \frac{\sigma}{\sqrt{n}}
-\]</div>
-<p>However, the population variance is usually unknown. Thus, it can be approximated using the Sample Variance, which is an unbiased estimator for it. The result is known as an <strong>Estimate for the Standard Error</strong>:</p>
-<div class="arithmatex">\[
-    \hat{\sigma}_{\bar{x}} = \sqrt \frac{s^2}{n} = \frac{s}{\sqrt{n}}
-\]</div>
-<blockquote>
-<p>Note that only the sample variance is an unbiased estimator for the population variance. Although it may look like it, the sample SD is NOT an unbiased estimator for the population SD.</p>
-</blockquote>
 <h3 id="key-properties"><strong>Key Properties</strong><a class="headerlink" href="#key-properties" title="Permanent link">&para;</a></h3>
 <p>The <strong>Error</strong> of an estimate is the difference between the Sample Estimate and the Population Parameter:</p>
 <div class="arithmatex">\[
@@ -1712,8 +1738,9 @@
 <p>The Variance of an Estimator (Sampling Variance) is the spread of estimates about its mean:</p>
 <p>$$</p>
 <p>$$</p>
-<p>Variance is independent of Bias; an estimator can be unbiased but yet have high variance. On average, the estimator is correct, but the individual estimates are too high or too low (offsetting in the average).</p>
-<p>Consider the common example of Archery:</p>
+<p>Variance is independent of Bias; an estimator <strong>can be unbiased but yet have high variance</strong>. On average, the estimator is correct, but the individual estimates are too high or too low (<strong>offsetting</strong> in the average):</p>
+<!-- Obtained from Scott Fortman Roe -->
+<p><img alt="BIAS_VARIANCE" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/BIAS_VARIANCE.png" /></p>
 <p>The Standard Deviation of the Estimator (Sampling Deviation) is similarly the square root of the sampling variance:</p>
 <p>Population of interest | Standard Deviation
 Sample | Sample Standard Deviation
@@ -1732,13 +1759,25 @@ However the standard error itself is from a population (sampling distribution), 
 <li>MSE: Centered on the average of the parameter</li>
 </ul>
 </div>
+<!--—Bessel’s correction—-->
 <p>Properties of Estimators
 Consistent
 Efficient
 Degrees of freedom</p>
+<p>Following that, we can compute the standard error:</p>
+<div class="arithmatex">\[
+\sigma_{\bar{x}} = \sqrt \frac{\sigma^2_{\bar{x}}}{n} = \frac{\sigma}{\sqrt{n}}
+\]</div>
+<p>However, the population variance is usually unknown. Thus, it can be approximated using the Sample Variance, which is an unbiased estimator for it. The result is known as an <strong>Estimate for the Standard Error</strong>:</p>
+<div class="arithmatex">\[
+    \hat{\sigma}_{\bar{x}} = \sqrt \frac{s^2}{n} = \frac{s}{\sqrt{n}}
+\]</div>
+<blockquote>
+<p>Note that only the sample variance is an unbiased estimator for the population variance. Although it may look like it, the sample SD is NOT an unbiased estimator for the population SD.</p>
+</blockquote>
 <h2 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h2>
 <p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a point estimate, a range of estimates is used, known as a <strong>Confidence Interval</strong>.</p>
-<p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the same manner were to be made, <span class="arithmatex">\(1-\alpha)%\)</span> of them would contain the true value.</p>
+<p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the same manner were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
 <div class="arithmatex">\[
 P(- \text{Margin of Error} &lt; \theta &lt; \text{Margin of Error}) = 1 - \alpha
 \]</div>
