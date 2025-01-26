@@ -1105,13 +1105,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#bias-variance-tradeoff" class="md-nav__link">
-    Bias Variance Tradeoff
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1449,13 +1442,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#bias-variance-tradeoff" class="md-nav__link">
-    Bias Variance Tradeoff
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1717,10 +1703,11 @@
 <p class="admonition-title">Warning</p>
 <p>It may be hard to understand initially, but the distribution of sample statistics is <strong>itself a population</strong>. It is <strong>different from the underlying population</strong> that is being sampled.</p>
 </div>
-<p>A special case is the <strong>Sample Mean</strong>. If the population is normally distributed, then it is normally distributed as well. Regardless of the population distribution, it is also approximately normally distributed through the <strong>Central Limit Theorem</strong> or <strong>Law of Large Numbers</strong>.</p>
-<div class="arithmatex">\[
-    \bar{x} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
-\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A well-known sampling distribution is that of the <strong>Sample Mean</strong>. Given a large enough sample size, it can be shown that the Sample Mean is approximately <strong>normally distributed</strong>.</p>
+<p>This is a result of the <strong>Central Limit Theorem</strong>, which is out of scope for the purposes of this exam.</p>
+</div>
 <h3 id="key-properties"><strong>Key Properties</strong><a class="headerlink" href="#key-properties" title="Permanent link">&para;</a></h3>
 <p>The <strong>Error</strong> of an estimate is the difference between the Sample Estimate and the Population Parameter:</p>
 <div class="arithmatex">\[
@@ -1735,30 +1722,53 @@
 <p class="admonition-title">Info</p>
 <p>Biasness is a property of the <strong>Estimator, not the estimate</strong>. Thus, the term “Biased Estimate” should not be used in a statistical context.</p>
 </div>
-<p>The Variance of an Estimator (Sampling Variance) is the spread of estimates about its mean:</p>
-<p>$$</p>
-<p>$$</p>
-<p>Variance is independent of Bias; an estimator <strong>can be unbiased but yet have high variance</strong>. On average, the estimator is correct, but the individual estimates are too high or too low (<strong>offsetting</strong> in the average):</p>
-<!-- Obtained from Scott Fortman Roe -->
-<p><img alt="BIAS_VARIANCE" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/BIAS_VARIANCE.png" /></p>
-<p>The Standard Deviation of the Estimator (Sampling Deviation) is similarly the square root of the sampling variance:</p>
+<p>The Variance of an Estimator (<strong>Sampling Variance</strong>) is the spread of estimates about its mean:</p>
+<div class="arithmatex">\[
+    \text{Var}(\hat{\theta}) = E[\hat{\theta} - E(\hat{\theta})]^{2}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Standard Deviation of the Estimator (<strong>Sampling Deviation</strong>) is the square root of the sampling variance.</p>
+</div>
+<p>A similar measure is known as the <strong>Mean Squared Error</strong> (MSE), which is the spread of estimates <strong>about the Population Parameter</strong>. It can be shown to be the <strong>combination of the Bias and Variance</strong> of the estimator:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{MSE}(\hat{\theta})
+    &amp;= E[\hat{\theta} - \theta]^{2} \\
+    &amp;= \text{Var}(\hat{\theta} - \theta) + [E(\hat{\theta} - \theta)]^{2} \\
+    &amp;= \text{Var}(\hat{\theta}) + \text{Bias}^{2}(\hat{\theta})
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The proof for the above relationship is based on the relationship between the Mean and Variance:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Var}(X) &amp;= E(X^{2}) - [E(X)]^{2} \\
+    \text{Var} &amp;= \text{MSE} - \text{Bias}^{2} \\
+    \text{MSE} &amp;= \text{Var} + \text{Bias}^{2}
+\end{aligned}
+\]</div>
+</div>
+<p>Variance and MSE are <strong>both measuring the dispersion</strong> of the estimator. The key difference is the reference point:</p>
+<ul>
+<li><strong>Variance</strong>: Relative to the average of the estimator</li>
+<li><strong>MSE</strong>: Relative to the population parameter</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As seen in the above formula, MSE is not just about the spread of the estimates. An estimator which produces <strong>clustered estimates that are far from the true value</strong> has low variance, but <strong>high bias and hence high MSE</strong>.</p>
+<p>To have a low MSE, the estimator must have both low bias AND low variance:</p>
+<p><!-- Obtained from Scott Fortman Roe -->
+<img alt="BIAS_VARIANCE" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/BIAS_VARIANCE.png" /></p>
+</div>
 <p>Population of interest | Standard Deviation
 Sample | Sample Standard Deviation
 Sampling Distribution | Standard Error</p>
 <p>Standard error is widely used in a lot of applications
 However the standard error itself is from a population (sampling distribution), which must be estimated again</p>
 <p>Thus there is the estimate of the standard error, which is another layer of estimation</p>
-<h3 id="bias-variance-tradeoff"><strong>Bias Variance Tradeoff</strong><a class="headerlink" href="#bias-variance-tradeoff" title="Permanent link">&para;</a></h3>
-<p>The combination of the Bias and Variance in an estimator is known as the Mean Squared Error (MSE):</p>
-<p>It can be shown that the MSE is also mathematically equivalent to the spread of estimates about the parameter:</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Variance and MSE look functionally the same, but the key difference is what the spread is centered on:</p>
-<ul>
-<li>Variance: Centered on the average of the estimates</li>
-<li>MSE: Centered on the average of the parameter</li>
-</ul>
-</div>
+<p>T</p>
 <!--—Bessel’s correction—-->
 <p>Properties of Estimators
 Consistent
@@ -1776,13 +1786,24 @@ Degrees of freedom</p>
 <p>Note that only the sample variance is an unbiased estimator for the population variance. Although it may look like it, the sample SD is NOT an unbiased estimator for the population SD.</p>
 </blockquote>
 <h2 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h2>
-<p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a point estimate, a range of estimates is used, known as a <strong>Confidence Interval</strong>.</p>
-<p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the same manner were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
+<p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a single point estimate, a range is used, known as a <strong>Confidence Interval</strong>.</p>
+<p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the <strong>same manner</strong> were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
 <div class="arithmatex">\[
-P(- \text{Margin of Error} &lt; \theta &lt; \text{Margin of Error}) = 1 - \alpha
+    P(- \text{Margin of Error} &lt; \theta &lt; \text{Margin of Error}) = 1 - \alpha
 \]</div>
-<p>The <strong>Margin of Error</strong> represents the range of values on <em>either side</em> of the point estimate that the true value could lie. For instance, for a 95% confidence interval, the confidence lies within the 0.025 and 0.975 percentile of the sampling distribution.</p>
-<p>The margin of error can be calculated by finding the <strong>corresponding values</strong> of the sampling distribution at these percentiles.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A common misinterpretation is that there is a <span class="arithmatex">\((1-\alpha)%\)</span> probability that the population parameter lies within the interval. This is WRONG. Once an interval is determined, the population parameter either lies within or outside that interval; it is <strong>not a probability</strong>.</p>
+<p>Thus, the confidence level is measuring the <strong>reliability of the estimation procedure</strong>, not a specific estimate.</p>
+</div>
+<p>The <strong>Margin of Error</strong> represents the range of values on <em>either side</em> of the point estimate that the true value could lie. The most common confidence level is 95%, which means that <strong>95% of the density of the sampling distribution</strong> lies within the interval.</p>
+<p>The margin of errors are thus the corresponding <strong>percentiles</strong> at the boundary of the confidence interval. For a 95% confidence interval, the remaining 5% density is split equally in two:</p>
+<ul>
+<li><strong>Lower Bound</strong>: 0.025</li>
+<li><strong>Upper Bound</strong>: 0.975</li>
+</ul>
+<!-- Obtained from Analyst Prep -->
+<p><img alt="95% Confidence Interval" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
 <p>Consider the 95% confidence interval for the <strong>Sample Mean</strong>, which is normally distributed. For convenience, it is usually normalized such that it will become a <strong>Standard Normal Distribution</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1793,8 +1814,6 @@ P(\bar{x} - 1.96 \frac{\sigma}{\sqrt n} &lt; \mu &lt; \bar{x} + 1.96 \frac{\sigm
 <div class="arithmatex">\[
 \therefore \text{Margin of Error} = \bar{x} + Z_{\frac{\alpha}{2}} * \frac{\sigma}{\sqrt n}
 \]</div>
-<!-- Obtained from Analyst Prep -->
-<p><img alt="95% Confidence Interval" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
 <h2 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h2>
 <p><strong>Hypothesis Testing</strong> is a formal method of making inferences about the population parameters based on the sample statistic.</p>
 <p>It starts with a <strong>Hypothesis</strong> which is a conjecture about the population parameters:</p>
