@@ -1105,15 +1105,22 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#confidence-interval" class="md-nav__link">
     Confidence Interval
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normal-sampling-distribution" class="md-nav__link">
+    Normal Sampling Distribution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1124,6 +1131,20 @@
   
     <nav class="md-nav" aria-label="Hypothesis Testing">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sources-of-error" class="md-nav__link">
+    Sources of Error
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-statistics" class="md-nav__link">
+    Test Statistics
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#z-statistic" class="md-nav__link">
@@ -1442,15 +1463,22 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#confidence-interval" class="md-nav__link">
     Confidence Interval
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normal-sampling-distribution" class="md-nav__link">
+    Normal Sampling Distribution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1461,6 +1489,20 @@
   
     <nav class="md-nav" aria-label="Hypothesis Testing">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sources-of-error" class="md-nav__link">
+    Sources of Error
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-statistics" class="md-nav__link">
+    Test Statistics
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#z-statistic" class="md-nav__link">
@@ -1531,11 +1573,15 @@
 
 
 <h1 id="review-of-statistical-theory"><strong>Review of Statistical Theory</strong><a class="headerlink" href="#review-of-statistical-theory" title="Permanent link">&para;</a></h1>
-<p>This section assumes some basic knowledge on <strong>Random Variables</strong>, which can be found under another set of notes covering a <a href="../../2. Actuarial Mathematics/ASA-FAMS/1. Review of Probability Theory.md">Review of Probability Theory</a>.</p>
+<p>This section assumes some basic knowledge on <strong>Probability Theory</strong>, which can be found under another set of notes covering a <a href="../../2. Actuarial Mathematics/ASA-FAMS/1. Review of Probability Theory.md">Review of Probability Theory</a>.</p>
 <h2 id="overview-of-statistics"><strong>Overview of Statistics</strong><a class="headerlink" href="#overview-of-statistics" title="Permanent link">&para;</a></h2>
 <p>Statistics is a discipline revolving around data.</p>
 <p>A <strong>Population</strong> refers to the <em>theoretical</em> set of <strong>all possible</strong> data of the event of interest. The goal of statistics is to determine certain attributes that <strong>summarizes or describes</strong> the population, known as <strong>Parameters</strong>.</p>
-<p>However, it is impossible to study the entire population at once, thus a <strong>subset of the population</strong> is studied instead, known as the <strong>Sample</strong>. Attributes that summarize or describe the sample are known as <strong>Statistics</strong>.</p>
+<p>However, it is impossible to study the entire population at once, thus a <strong>subset of the population</strong> is studied instead, known as <strong>Sample</strong>. Attributes that summarize or describe the sample are known as <strong>Statistics</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In practice, there are many different sampling methods that may result in vastly different samples. That is beyond the scope of this exam.</p>
+</div>
 <p>Ideally, the sample is <strong>representative</strong> of the population, which means that findings from the sample can be applied to the population as a whole. This means that the sample statistics can be used <strong>estimate</strong> population parameters.</p>
 <p>We distinguish between the two (when they have the same notation) through the <strong>Hat accent</strong> (^) - Population Parameters are their written <strong>without the hat</strong> (<span class="arithmatex">\(x\)</span>) while their corresponding sample statistics are written <strong>with the hat</strong> (<span class="arithmatex">\(\hat{x}\)</span>).</p>
 <div class="admonition info">
@@ -1617,6 +1663,11 @@
 <li>Consequently, the spread is <strong>positive only</strong>, ensuring <strong>no offsetting</strong> effects</li>
 <li><strong>Other Mathematical properties</strong> which makes it <strong>easier to manipulate</strong> (EG. Variance of sum of independent variables is the sum of the individual variances)</li>
 </ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The division by <span class="arithmatex">\(n-1\)</span> rather than <span class="arithmatex">\(n\)</span> in the sample variance is known as <strong>Bessel's Correction</strong>, to ensure that the resulting sample variance is an <strong>Unbiased estimator</strong> of the population variance. It is not necessary to know the proof for the purposes of this exam.</p>
+<p>Additionally, Bessel's Correction <strong>only affects the sample variance</strong> - the resulting sample SD is a biased estimator.</p>
 </div>
 <p>However, the units of the variance are squared, which makes it hard to <strong>hard to interpret</strong>. Thus, the <strong>Standard Deviation</strong> (SD) which is the square root of the variance is also considered:</p>
 <div class="arithmatex">\[
@@ -1706,7 +1757,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A well-known sampling distribution is that of the <strong>Sample Mean</strong>. Given a large enough sample size, it can be shown that the Sample Mean is approximately <strong>normally distributed</strong>.</p>
-<p>This is a result of the <strong>Central Limit Theorem</strong>, which is out of scope for the purposes of this exam.</p>
+<p>This is a result of the <strong>Central Limit Theorem</strong>. The technical proof is out of scope for the purposes of this exam.</p>
 </div>
 <h3 id="key-properties"><strong>Key Properties</strong><a class="headerlink" href="#key-properties" title="Permanent link">&para;</a></h3>
 <p>The <strong>Error</strong> of an estimate is the difference between the Sample Estimate and the Population Parameter:</p>
@@ -1728,7 +1779,7 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Standard Deviation of the Estimator (<strong>Sampling Deviation</strong>) is the square root of the sampling variance.</p>
+<p>The Standard Deviation of the Estimator (<strong>Sampling Deviation</strong>) is the square root of the sampling variance. It is also known as the <strong>Standard Error</strong> of the estimator.</p>
 </div>
 <p>A similar measure is known as the <strong>Mean Squared Error</strong> (MSE), which is the spread of estimates <strong>about the Population Parameter</strong>. It can be shown to be the <strong>combination of the Bias and Variance</strong> of the estimator:</p>
 <div class="arithmatex">\[
@@ -1762,34 +1813,15 @@
 <p><!-- Obtained from Scott Fortman Roe -->
 <img alt="BIAS_VARIANCE" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/BIAS_VARIANCE.png" /></p>
 </div>
-<p>Population of interest | Standard Deviation
-Sample | Sample Standard Deviation
-Sampling Distribution | Standard Error</p>
-<p>Standard error is widely used in a lot of applications
-However the standard error itself is from a population (sampling distribution), which must be estimated again</p>
-<p>Thus there is the estimate of the standard error, which is another layer of estimation</p>
-<p>T</p>
-<!--—Bessel’s correction—-->
 <p>Properties of Estimators
 Consistent
 Efficient
 Degrees of freedom</p>
-<p>Following that, we can compute the standard error:</p>
-<div class="arithmatex">\[
-\sigma_{\bar{x}} = \sqrt \frac{\sigma^2_{\bar{x}}}{n} = \frac{\sigma}{\sqrt{n}}
-\]</div>
-<p>However, the population variance is usually unknown. Thus, it can be approximated using the Sample Variance, which is an unbiased estimator for it. The result is known as an <strong>Estimate for the Standard Error</strong>:</p>
-<div class="arithmatex">\[
-    \hat{\sigma}_{\bar{x}} = \sqrt \frac{s^2}{n} = \frac{s}{\sqrt{n}}
-\]</div>
-<blockquote>
-<p>Note that only the sample variance is an unbiased estimator for the population variance. Although it may look like it, the sample SD is NOT an unbiased estimator for the population SD.</p>
-</blockquote>
-<h2 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h2>
+<h3 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h3>
 <p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a single point estimate, a range is used, known as a <strong>Confidence Interval</strong>.</p>
 <p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the <strong>same manner</strong> were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
 <div class="arithmatex">\[
-    P(- \text{Margin of Error} &lt; \theta &lt; \text{Margin of Error}) = 1 - \alpha
+    P(- \text{Lower Bound} &lt; \theta &lt; \text{Upper Bound}) = 1 - \alpha
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1798,41 +1830,128 @@ Degrees of freedom</p>
 </div>
 <p>The <strong>Margin of Error</strong> represents the range of values on <em>either side</em> of the point estimate that the true value could lie. The most common confidence level is 95%, which means that <strong>95% of the density of the sampling distribution</strong> lies within the interval.</p>
 <p>The margin of errors are thus the corresponding <strong>percentiles</strong> at the boundary of the confidence interval. For a 95% confidence interval, the remaining 5% density is split equally in two:</p>
-<ul>
-<li><strong>Lower Bound</strong>: 0.025</li>
-<li><strong>Upper Bound</strong>: 0.975</li>
-</ul>
-<!-- Obtained from Analyst Prep -->
-<p><img alt="95% Confidence Interval" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
-<p>Consider the 95% confidence interval for the <strong>Sample Mean</strong>, which is normally distributed. For convenience, it is usually normalized such that it will become a <strong>Standard Normal Distribution</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-P(-1.96 &lt; \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt n}} &lt; 1.96) &amp;= 0.95 \\
-P(\bar{x} - 1.96 \frac{\sigma}{\sqrt n} &lt; \mu &lt; \bar{x} + 1.96 \frac{\sigma}{\sqrt n}) &amp;= 0.95 \\
+    \text{Lower Bound} &amp;= P_{0 + \frac{1+\alpha}{2}} \\
+    \text{Upper Bound} &amp;= P_{100 - \frac{1+\alpha}{2}} \\
+    \therefore \text{Confidence Interval} &amp;= \text{(Lower Bound, Upper Bound)}
 \end{aligned}
 \]</div>
+<!-- Obtained from Analyst Prep -->
+<p><img alt="95% Confidence Interval" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
+<h3 id="normal-sampling-distribution"><strong>Normal Sampling Distribution</strong><a class="headerlink" href="#normal-sampling-distribution" title="Permanent link">&para;</a></h3>
+<p>Many commonly studied sampling distributions can be shown to be normally distributed. Due to the shifting and scaling properties of the normal distribution, any normal distribution can be converted to a <strong>Standard Normal Distribution</strong> via a process known as <strong>Standardization</strong>:</p>
 <div class="arithmatex">\[
-\therefore \text{Margin of Error} = \bar{x} + Z_{\frac{\alpha}{2}} * \frac{\sigma}{\sqrt n}
+    Z = \frac{\hat{\theta} - E(\hat{\theta})}{\text{SE}(\hat{\theta})}   
 \]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is recommended to Standardize for two reasons:</p>
+<ol>
+<li>It removes scale from the picture, <strong>facilitating comparison</strong> across different distributions</li>
+<li>Probabilities for the standard normal are well documented, <strong>no need to compute</strong> for each unique normal distribution </li>
+</ol>
+</div>
+<p>The SE of the sampling distributor is typically a <strong>function of the underlying</strong> population standard deviation. However, in many cases, it is an <strong>unknown value</strong>. Thus, it can be estimated using the sample standard deviation instead:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{SE}(\hat{\theta}) &amp;\approx \hat{\text{SE}}(\hat{\theta}) \\
+    f(\sigma_{\theta}) &amp;\approx f(\hat{\sigma}_{\theta})   
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The sample SD is not estimating the SE, it is the <strong>function of the sample SD</strong> that is the estimating the SE.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are now four layers to the estimation:</p>
+<ol>
+<li><strong>Population</strong> - Standard Deviation <span class="arithmatex">\(\sigma_{\theta}\)</span></li>
+<li><strong>Estimate of the Population</strong> - Sample Standard Deviation <span class="arithmatex">\(\hat{\sigma}_{\theta}\)</span></li>
+<li><strong>Sampling Distribution</strong> - Standard Error <span class="arithmatex">\(\sigma_{\hat{\theta}}\)</span></li>
+<li><strong>Estimate of the Sampling Distribution</strong> - Estimator of the Standard Error <span class="arithmatex">\(\hat{\sigma}_{\hat{\theta}}\)</span></li>
+</ol>
+</div>
+<p>If the standard error was estimated this way, then the resulting distribution now follows a <strong>t-distribution</strong>. It is essentially a standard normal distribution with a <strong>lower peak and fatter tails</strong>, which accounts for the <strong>increased uncertainty</strong> from using an estimate instead of the actual value in specifying the distribution.</p>
+<p>The t-distribution has only one parameter - the <strong>degrees of freedom</strong> of the statistic of the sampling distribution. As the degrees of freedom (sample size) increases, the t-distribution <strong>tends towards the standard normal distribution</strong>:</p>
+<!-- Obtained from Scribbr -->
+<p><img alt="T_Distribution" class="center" src="Assets/0.%20Review%20of%20Statistical%20Theory.md/T_Distribution.png" /></p>
+<p>The process of converting a normal distributed quantity into a t-distributed one is known as Studentization:</p>
+<div class="arithmatex">\[
+    t = \frac{\hat{\theta} - E(\hat{\theta})}{\hat{\text{SE}}(\hat{\theta})}   
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Standardization is known as such because it is converting the distribution to a <strong>Standard</strong> normal distribution.</p>
+<p>Studentization is known as such because the t-distribution is more formally known as the <strong>Student's</strong> t-distribution.</p>
+</div>
 <h2 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h2>
-<p><strong>Hypothesis Testing</strong> is a formal method of making inferences about the population parameters based on the sample statistic.</p>
-<p>It starts with a <strong>Hypothesis</strong> which is a conjecture about the population parameters:</p>
+<p><strong>Hypothesis Testing</strong> is a formal method of making inferences about the population parameters based on the sample statistic. It starts with a <strong>Hypothesis</strong> which is a conjecture about the population parameters:</p>
 <ul>
-<li><strong>Null Hypothesis</strong> - What is currently believed to be true</li>
-<li><strong>Alternative Hypothesis</strong> - What is to be proven</li>
+<li><strong>Null Hypothesis</strong> (<span class="arithmatex">\(H_{0}\)</span>) - What is currently believed to be true</li>
+<li><strong>Alternative Hypothesis</strong> (<span class="arithmatex">\(H_{0}\)</span>) - What is to be proven</li>
 </ul>
-<p>A <strong>Test Statistic</strong> is then calculated, which would quantify the behaviour of population such that it would <strong>distinguish</strong> the null and alternative hypothesis.</p>
-<p><em>Assuming the Null Hypothesis is true</em>, the sampling distribution of the test statistic is determined. From the sampling distribution, the <strong>p-value</strong> is calculated, which is the <strong>probability</strong> of observing the <strong>calculated sample statistic or more extreme</strong>.</p>
-<p>If the <strong>p-value is smaller</strong> than a pre-determined level of <strong>Statistical Significance</strong> (<span class="arithmatex">\(\alpha\)</span>), then the test is "successful" and the null hypothesis is rejected. If not, then the test "fails" and the null is not rejected.</p>
-<blockquote>
-<p>Note that it rejecting the null hypothesis does NOT mean that the alternative hypothesis is accepted - EG. Rejected then hypothesis of a large paw print being from a bear does not mean that it is from Bigfoot.</p>
-<p>Thus, the hypotheses are usually constructed such that the two hypothesis are <strong>complementary</strong>, such that rejecting the null allows acceptance of the alternative, leading to a definitive insight.</p>
-</blockquote>
-<p>In layman terms, a hypothesis test is a <strong>test of extremeness</strong>. Assuming the null hypothesis is true, how extreme (low probability) is the observed sample? If the p-value is sufficiently low, it means that the sample is rare - it could be due to <strong>pure chance</strong> or that it is <strong>actually not rare</strong> because the null is not true.</p>
-<p>We distinguish between the two mathematically through <span class="arithmatex">\(\alpha\)</span>. It is the <strong>probability of a False Positive</strong> - that the result obtained was by pure chance. It is typically set at 5%, which means that 5% of all statistics calculated are expected to be extreme under the null. Thus, if the p-value of the sample is smaller than <span class="arithmatex">\(\alpha\)</span>, then it is likely that the observation was <strong>not due to chance but instead because the null was false</strong>.</p>
-<!-- Obtained from Zscore geek -->
-<p><img alt="Hypothesis Testing" class="center" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Hypothesis%20Testing.png" /></p>
-<p>Alternatively, instead of comparing p-value to <span class="arithmatex">\(alpha\)</span>, the test-statistic and the <strong>corresponding value</strong> of <span class="arithmatex">\(\alpha\)</span> on the sampling distribution can be used. It is known as the <strong>Critical Value</strong>, which represents the boundary of </p>
+<p>The key idea is that it is a <strong>test of extremeness</strong> - <strong>assuming the null hypothesis is true</strong>, how likely (how extreme) was that particular sample (or more extreme) to be drawn?</p>
+<ul>
+<li>Sample was <strong>likely to be drawn</strong>, then it is likely that the <strong>null is true</strong> (Expected outcome)</li>
+<li>Sample was <strong>unlikely to be drawn</strong> but yet it was drawn, is it due to <strong>variance</strong> or because the sampling distribution is misspecified because the <strong>null not being true</strong>? (Extreme outcome)</li>
+</ul>
+<p>The probability of drawing the sample is formally known as the <strong>p-value</strong> (<span class="arithmatex">\(p\)</span>). The <strong>threshold</strong> for how likely a sample to be drawn is known is known as the <strong>Significance Level</strong> (<span class="arithmatex">\(\alpha\)</span>):</p>
+<ul>
+<li><span class="arithmatex">\(p &lt; \alpha\)</span>: Test is successful; null can be rejected</li>
+<li><span class="arithmatex">\(p &gt; \alpha\)</span>: Test fails; null CANNOT be rejected</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most textbooks commonly use either 0.05 or 0.01 as the significance level for the tests.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Rejecting the null hypothesis does NOT mean that the alternative is accepted. For instance, rejecting the null hypothesis that a large paw print came from a bear does not mean that the paw print came from big foot.</p>
+<p>Thus, the two hypothesis are usually constructed such that they are <strong>complementary</strong> - such that rejecting null <strong>must necessarily mean that the alternative is true</strong>, which provides more insight:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \theta = x\)</span></li>
+<li><span class="arithmatex">\(H_{1}: \theta \ne x\)</span></li>
+</ul>
+</div>
+<h3 id="sources-of-error"><strong>Sources of Error</strong><a class="headerlink" href="#sources-of-error" title="Permanent link">&para;</a></h3>
+<p>Given the probabilistic nature of hypothesis testing, there are bound to be errors. In particular, there are two types:</p>
+<ul>
+<li><strong>Type I Error</strong> (<span class="arithmatex">\(\alpha\)</span>): False Positive (Rejecting the null when it is true)</li>
+<li><strong>Type II Error</strong> (<span class="arithmatex">\(\beta\)</span>): False Negative (Not rejecting the null when it is false)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A real world example of hypothesis testing is in court. Generally speaking, the <strong>defendant is innocent until proven guilty</strong> (similar to assuming the null true).</p>
+<ul>
+<li><strong>Type I Error</strong>: Convicting to defendant when they are innocent</li>
+<li><strong>Type II Error</strong>: Failing to convict the defenant when they are guilty</li>
+</ul>
+</div>
+<!-- Obtained from Scribbr -->
+<p><img alt="ERROR_SOURCES" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/ERROR_SOURCES.png" /></p>
+<p>The errors occur as a result of the <strong>overlap</strong> between the sampling distributions under the Null and Alternative:</p>
+<!-- Obtained from Scribbr -->
+<p><img alt="ERROR_DISTRIBUTION" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/ERROR_DISTRIBUTION.png" /></p>
+<p>Consider a rejection of the null under the two possible scenarios:</p>
+<ul>
+<li>Sample is due to <strong>Variance</strong>; results in <strong>Type I Error</strong></li>
+<li>Sample is due to <strong>Misspecification</strong>; results in <strong>True Positive</strong></li>
+</ul>
+<p>The significance level sets the <strong>threshold for extremeness</strong> which rules out variance, thus the probability of type I errors occuring IS the significance level of the test. In essence, if the sample is <strong>more extreme than it is likely to make this error</strong>, then the test is willing to take the risk to conclude that the null can be rejected.</p>
+<p>Type II errors are essentially the opposite scenario - the sample is extreme, but <strong>not considered extreme enough</strong> under our significance level, causing it to fail to reject the null. Since the threshold for extremeness is the type I error, <strong>both errors are at odds with each other</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike confidence levels, the probability of a type I or II error occuring is for that <em>particular</em> test.</p>
+</div>
+<h3 id="test-statistics"><strong>Test Statistics</strong><a class="headerlink" href="#test-statistics" title="Permanent link">&para;</a></h3>
+<p>In order to determine the p-value, the value of the sample statistic on the sampling distribution (percentile) must be determined. This value is known as the <strong>Test Statistic</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For instance, if the sampling distribution is normally distributed, this requires normalizing or studentizing the sample statistic.</p>
+</div>
+<p>Rather than compare the probabilities (which requires an additional step to convert from test statisic to probability), the test statistic itself can be compared to the corresponding <strong>percentile of the significance level</strong>, known as the <strong>Critical Value</strong>. The two comparisons are identical:</p>
 <p><center></p>
 <table>
 <thead>
@@ -1853,6 +1972,8 @@ P(\bar{x} - 1.96 \frac{\sigma}{\sqrt n} &lt; \mu &lt; \bar{x} + 1.96 \frac{\sigm
 </tbody>
 </table>
 <p></center></p>
+<!-- Obtained from Zscore geek -->
+<p><img alt="Hypothesis Testing" class="center" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Hypothesis%20Testing.png" /></p>
 <p>Let the random variable <span class="arithmatex">\(T\)</span> denote the test statistics. There are many different kinds of test statistics depending on the distribution and what is being investigated.</p>
 <h3 id="z-statistic"><strong>Z-statistic</strong><a class="headerlink" href="#z-statistic" title="Permanent link">&para;</a></h3>
 <p>The most simple test statistic involve the <strong>Sample Mean</strong>, which is normally distributed:</p>
