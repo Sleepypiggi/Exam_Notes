@@ -1106,15 +1106,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#confidence-interval" class="md-nav__link">
-    Confidence Interval
+  <a href="#degrees-of-freedom" class="md-nav__link">
+    Degrees of Freedom
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#normal-sampling-distribution" class="md-nav__link">
-    Normal Sampling Distribution
+  <a href="#confidence-interval" class="md-nav__link">
+    Confidence Interval
   </a>
   
 </li>
@@ -1146,23 +1146,70 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal-sampling-distribution" class="md-nav__link">
+    Normal Sampling Distribution
+  </a>
+  
+    <nav class="md-nav" aria-label="Normal Sampling Distribution">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#z-statistic" class="md-nav__link">
-    Z-statistic
+  <a href="#standard-normal-distribution" class="md-nav__link">
+    Standard Normal Distribution
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#t-statistic" class="md-nav__link">
-    t-statistic
+  <a href="#t-distribution" class="md-nav__link">
+    t-Distribution
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#f-statistic" class="md-nav__link">
-    F-statistic
+  <a href="#chi-squared-distribution" class="md-nav__link">
+    Chi-Squared Distribution
+  </a>
+  
+    <nav class="md-nav" aria-label="Chi-Squared Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-variance" class="md-nav__link">
+    Sample Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reformulated-t" class="md-nav__link">
+    Reformulated t
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goodness-of-fit" class="md-nav__link">
+    Goodness of fit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-distribution" class="md-nav__link">
+    F-Distribution
   </a>
   
 </li>
@@ -1464,15 +1511,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#confidence-interval" class="md-nav__link">
-    Confidence Interval
+  <a href="#degrees-of-freedom" class="md-nav__link">
+    Degrees of Freedom
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#normal-sampling-distribution" class="md-nav__link">
-    Normal Sampling Distribution
+  <a href="#confidence-interval" class="md-nav__link">
+    Confidence Interval
   </a>
   
 </li>
@@ -1504,23 +1551,70 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal-sampling-distribution" class="md-nav__link">
+    Normal Sampling Distribution
+  </a>
+  
+    <nav class="md-nav" aria-label="Normal Sampling Distribution">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#z-statistic" class="md-nav__link">
-    Z-statistic
+  <a href="#standard-normal-distribution" class="md-nav__link">
+    Standard Normal Distribution
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#t-statistic" class="md-nav__link">
-    t-statistic
+  <a href="#t-distribution" class="md-nav__link">
+    t-Distribution
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#f-statistic" class="md-nav__link">
-    F-statistic
+  <a href="#chi-squared-distribution" class="md-nav__link">
+    Chi-Squared Distribution
+  </a>
+  
+    <nav class="md-nav" aria-label="Chi-Squared Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-variance" class="md-nav__link">
+    Sample Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reformulated-t" class="md-nav__link">
+    Reformulated t
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goodness-of-fit" class="md-nav__link">
+    Goodness of fit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-distribution" class="md-nav__link">
+    F-Distribution
   </a>
   
 </li>
@@ -1813,10 +1907,15 @@
 <p><!-- Obtained from Scott Fortman Roe -->
 <img alt="BIAS_VARIANCE" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/BIAS_VARIANCE.png" /></p>
 </div>
-<p>Properties of Estimators
-Consistent
-Efficient
-Degrees of freedom</p>
+<p>Generally speaking, <strong>estimators with lower MSE are preferred</strong>. Note that this could also mean using a slightly biased estimator with low variance compared to using a unbiased estimator with high variance. There is <strong>no clear rule given the two dimensional nature of MSE</strong>.</p>
+<h3 id="degrees-of-freedom"><strong>Degrees of Freedom</strong><a class="headerlink" href="#degrees-of-freedom" title="Permanent link">&para;</a></h3>
+<p>Degrees of freedom (df) refer to the <strong>number of independent pieces of data that are free to vary</strong> in the calculation of a statistic <strong>without violating any of the constraints</strong> of said statistic.</p>
+<p>Number of independent pieces of data typically refers to the number of observations used; <strong>sample size</strong>. It is then usually <strong>reduced by the number of constraints</strong> imposed during the calculation:</p>
+<div class="arithmatex">\[
+    \text{df} = n - \text{Constraints}
+\]</div>
+<p>For instance, the <strong>sample mean has no constraints</strong>, thus the df of the mean is simply the sample size.</p>
+<p>However, the sample variance has one constraint </p>
 <h3 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h3>
 <p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a single point estimate, a range is used, known as a <strong>Confidence Interval</strong>.</p>
 <p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the <strong>same manner</strong> were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
@@ -1839,53 +1938,6 @@ Degrees of freedom</p>
 \]</div>
 <!-- Obtained from Analyst Prep -->
 <p><img alt="95% Confidence Interval" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
-<h3 id="normal-sampling-distribution"><strong>Normal Sampling Distribution</strong><a class="headerlink" href="#normal-sampling-distribution" title="Permanent link">&para;</a></h3>
-<p>Many commonly studied sampling distributions can be shown to be normally distributed. Due to the shifting and scaling properties of the normal distribution, any normal distribution can be converted to a <strong>Standard Normal Distribution</strong> via a process known as <strong>Standardization</strong>:</p>
-<div class="arithmatex">\[
-    Z = \frac{\hat{\theta} - E(\hat{\theta})}{\text{SE}(\hat{\theta})}   
-\]</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>It is recommended to Standardize for two reasons:</p>
-<ol>
-<li>It removes scale from the picture, <strong>facilitating comparison</strong> across different distributions</li>
-<li>Probabilities for the standard normal are well documented, <strong>no need to compute</strong> for each unique normal distribution </li>
-</ol>
-</div>
-<p>The SE of the sampling distributor is typically a <strong>function of the underlying</strong> population standard deviation. However, in many cases, it is an <strong>unknown value</strong>. Thus, it can be estimated using the sample standard deviation instead:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \text{SE}(\hat{\theta}) &amp;\approx \hat{\text{SE}}(\hat{\theta}) \\
-    f(\sigma_{\theta}) &amp;\approx f(\hat{\sigma}_{\theta})   
-\end{aligned}
-\]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The sample SD is not estimating the SE, it is the <strong>function of the sample SD</strong> that is the estimating the SE.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>There are now four layers to the estimation:</p>
-<ol>
-<li><strong>Population</strong> - Standard Deviation <span class="arithmatex">\(\sigma_{\theta}\)</span></li>
-<li><strong>Estimate of the Population</strong> - Sample Standard Deviation <span class="arithmatex">\(\hat{\sigma}_{\theta}\)</span></li>
-<li><strong>Sampling Distribution</strong> - Standard Error <span class="arithmatex">\(\sigma_{\hat{\theta}}\)</span></li>
-<li><strong>Estimate of the Sampling Distribution</strong> - Estimator of the Standard Error <span class="arithmatex">\(\hat{\sigma}_{\hat{\theta}}\)</span></li>
-</ol>
-</div>
-<p>If the standard error was estimated this way, then the resulting distribution now follows a <strong>t-distribution</strong>. It is essentially a standard normal distribution with a <strong>lower peak and fatter tails</strong>, which accounts for the <strong>increased uncertainty</strong> from using an estimate instead of the actual value in specifying the distribution.</p>
-<p>The t-distribution has only one parameter - the <strong>degrees of freedom</strong> of the statistic of the sampling distribution. As the degrees of freedom (sample size) increases, the t-distribution <strong>tends towards the standard normal distribution</strong>:</p>
-<!-- Obtained from Scribbr -->
-<p><img alt="T_Distribution" class="center" src="Assets/0.%20Review%20of%20Statistical%20Theory.md/T_Distribution.png" /></p>
-<p>The process of converting a normal distributed quantity into a t-distributed one is known as Studentization:</p>
-<div class="arithmatex">\[
-    t = \frac{\hat{\theta} - E(\hat{\theta})}{\hat{\text{SE}}(\hat{\theta})}   
-\]</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Standardization is known as such because it is converting the distribution to a <strong>Standard</strong> normal distribution.</p>
-<p>Studentization is known as such because the t-distribution is more formally known as the <strong>Student's</strong> t-distribution.</p>
-</div>
 <h2 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h2>
 <p><strong>Hypothesis Testing</strong> is a formal method of making inferences about the population parameters based on the sample statistic. It starts with a <strong>Hypothesis</strong> which is a conjecture about the population parameters:</p>
 <ul>
@@ -1966,91 +2018,164 @@ Degrees of freedom</p>
 <td align="center">p-value smaller than <span class="arithmatex">\(\alpha\)</span></td>
 </tr>
 <tr>
-<td align="center">test-statistic <em>larger</em> than critical value</td>
-<td align="center">test-statistic <em>smaller</em> than critical value</td>
+<td align="center">Test statistic <em>larger</em> than critical value</td>
+<td align="center">Test-statistic <em>smaller</em> than critical value</td>
 </tr>
 </tbody>
 </table>
 <p></center></p>
 <!-- Obtained from Zscore geek -->
 <p><img alt="Hypothesis Testing" class="center" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Hypothesis%20Testing.png" /></p>
-<p>Let the random variable <span class="arithmatex">\(T\)</span> denote the test statistics. There are many different kinds of test statistics depending on the distribution and what is being investigated.</p>
-<h3 id="z-statistic"><strong>Z-statistic</strong><a class="headerlink" href="#z-statistic" title="Permanent link">&para;</a></h3>
-<p>The most simple test statistic involve the <strong>Sample Mean</strong>, which is normally distributed:</p>
+<h2 id="normal-sampling-distribution"><strong>Normal Sampling Distribution</strong><a class="headerlink" href="#normal-sampling-distribution" title="Permanent link">&para;</a></h2>
+<p>Many commonly studied sampling distributions can be shown to be <strong>normally distributed</strong>. However, it can also be <strong>transformed to a variety of other distributions</strong> that are commonly used in Statistical Theory.</p>
+<h3 id="standard-normal-distribution"><strong>Standard Normal Distribution</strong><a class="headerlink" href="#standard-normal-distribution" title="Permanent link">&para;</a></h3>
+<p>Due to the shifting and scaling properties of the normal distribution, any normal distribution can be converted to a <strong>Standard Normal Distribution</strong> via a process known as <strong>Standardization</strong>:</p>
 <div class="arithmatex">\[
-T = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}}
+    Z = \frac{\hat{\theta} - E(\hat{\theta})}{\text{SE}(\hat{\theta})}   
 \]</div>
-<p>If the <strong>population variance is known</strong>, then the test statistic has a <strong>Standard Normal Distribution</strong> and thus the test-statistic is known as a <strong>Z-Statistic</strong>.</p>
-<div class="arithmatex">\[
-\begin{aligned}
-T
-&amp;= \frac{\bar{x} - \mu}{\sigma} * \sqrt n \\
-&amp;= Z * \sqrt n \\
-\therefore T &amp;\sim N(0,1)
-\end{aligned}
-\]</div>
-<h3 id="t-statistic"><strong>t-statistic</strong><a class="headerlink" href="#t-statistic" title="Permanent link">&para;</a></h3>
-<p>If the population variance is unknown, then it will be approximated by the <strong>Sample Variance</strong>. Through algebraic manipulation, the test statistic can still be expressed in the form of a Z variable, but with an additional term:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-T
-&amp;= \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}} \\
-&amp;= \frac{\bar{x} - \mu}{s} * \sqrt n \\
-&amp;= \frac{\bar{x} - \mu}{\sigma} * \frac{\sigma}{s} * \sqrt n \\
-&amp;= Z\sqrt n \div \sqrt \frac{s^2}{\sigma^2} \\
-&amp;= Z\sqrt n \div \sqrt \frac{(n-1)s^2}{(n-1)\sigma^2} \\
-&amp;= Z\sqrt n \div \sqrt {\frac{(n-1)s^2}{\sigma^2} * \frac{1}{n-1}} \\
-\end{aligned}
-\]</div>
-<p>The additional term can be shown to have a <strong>Chi-Squared Distribution</strong> of <span class="arithmatex">\(n-1\)</span> degrees of freedom, which by definition is the <strong>sum</strong> of <span class="arithmatex">\(n-1\)</span> independent standard normal variables:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\chi^2_n
-&amp;= Z^2 \\
-&amp;= \sum \left(\frac {\bar{x} - \mu}{\sigma}\right)^2 \\
-&amp;= \sum \left(\frac {(x_i - \bar{x}) + (\bar{x} - \mu)}{\sigma}\right)^2 \\
-&amp;= \sum \left(\frac{x_i - \bar{x}}{\sigma}\right)^2 + \sum \left(\frac{\bar{x} - \mu}{\sigma}\right)^2 \\
-&amp;= \frac{1}{\sigma^2} \sum (x_i - \bar{x})^2 + \sum Z^2 + 0 \\
-&amp;= \frac{(n-1)}{\sigma^2} \frac{\sum (x_i - \bar{x})^2}{n-1} + \chi^2_1 \\
-&amp;= \frac{(n-1)s^2}{\sigma^2} + \chi^2_1 \\
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[\therefore \frac{(n-1)s^2}{\sigma^2} \sim \chi^2_{n-1}\]</div>
-<p>Thus, the test statistic is the <strong>ratio of a Standard Normal Variable to the squareroot of a Chi Squared Variable</strong> (divided by its degrees of freedom). By definition, this test statistic has a <strong>t-distribution</strong> with the same degrees of freedom and is known as the <strong>t-statistic</strong>:</p>
-<div class="arithmatex">\[
-\begin{align*}
-T
-&amp;= \frac{Z}{\sqrt \frac{\chi^2_{n-1}}{n-1}} * \sqrt n \\
-&amp;= t_{n-1} * \sqrt{n} \\
-\end{align*}
-\]</div>
-<div class="arithmatex">\[\therefore T \sim t_{n-1}\]</div>
-<p>Despite the slightly convoluted proof, the t-distribution is simply a <strong>standard normal distribution with heavier tails</strong>. This means that extreme values are slightly more likely, which is meant to account for the <strong>increase in variability</strong> due to the use of the sample variance rather than the population variance.</p>
-<!-- Obtained from Medium -->
-<p><img alt="t-distribution" class="center" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/t-distribution.png" /></p>
-<h3 id="f-statistic"><strong>F-statistic</strong><a class="headerlink" href="#f-statistic" title="Permanent link">&para;</a></h3>
-<p>The <strong>square of t-statisic</strong> has an <strong>F-Distribution</strong>, which is defined as the <strong>ratio of two independent chi-square variables</strong> (divided by their respective degrees of freedom). It has two dimensions for its degree of freedom, reflecting the two chi-square variables.</p>
-<div class="arithmatex">\[
-F_{m,n} = \frac{\frac{\chi_m}{m}}{\frac{\chi_n}{n}}
-\]</div>
-<p>The square of a t-statistic follows an F-distribution because:</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is recommended to Standardize for two reasons:</p>
 <ol>
-<li>The square of the standard normal variable in the numerator becomes a <span class="arithmatex">\(\chi_1\)</span> variable</li>
-<li>The squareroot is removed in the denominator, becoming a <span class="arithmatex">\(\chi_{n-1}\)</span> over its degree of freedom</li>
+<li>It removes scale from the picture, <strong>facilitating comparison</strong> across different distributions</li>
+<li>Probabilities for the standard normal are well documented, <strong>no need to compute</strong> for each unique normal distribution </li>
 </ol>
+</div>
+<h3 id="t-distribution"><strong>t-Distribution</strong><a class="headerlink" href="#t-distribution" title="Permanent link">&para;</a></h3>
+<p>The SE of the sampling distribution is typically a <strong>function of the underlying</strong> population standard deviation. However, in many cases, it is an <strong>unknown value</strong>. Thus, it can be <strong>estimated</strong> using the sample standard deviation instead:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-t_{n-1}^2
-&amp;= \left(\frac{Z}{\sqrt \frac{\chi^2_{n-1}}{n-1}} * \sqrt n \right)^2 \\
-&amp;= \frac{\chi_1}{\frac{\chi^2_{n-1}}{n-1}} * n \\
-&amp;= \frac{\frac{\chi_1}{1}}{\frac{\chi^2_{n-1}}{n-1}} * n \\
-&amp;= F_{1,n-1} * n
+    \text{SE}(\hat{\theta}) &amp;\approx \hat{\text{SE}}(\hat{\theta}) \\
+    f(\sigma_{\theta}) &amp;\approx f(\hat{\sigma}_{\theta})   
 \end{aligned}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The sample SD is not estimating the SE, it is the <strong>function of the sample SD</strong> that is the estimating the SE.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are now four layers to the estimation:</p>
+<ol>
+<li><strong>Population</strong> - Standard Deviation <span class="arithmatex">\(\sigma_{\theta}\)</span></li>
+<li><strong>Estimate of the Population</strong> - Sample Standard Deviation <span class="arithmatex">\(\hat{\sigma}_{\theta}\)</span></li>
+<li><strong>Sampling Distribution</strong> - Standard Error <span class="arithmatex">\(\sigma_{\hat{\theta}}\)</span></li>
+<li><strong>Estimate of the Sampling Distribution</strong> - Estimator of the Standard Error <span class="arithmatex">\(\hat{\sigma}_{\hat{\theta}}\)</span></li>
+</ol>
+</div>
+<p>If the standard error was estimated this way, then the resulting distribution now follows a <strong>t-distribution</strong>. It is essentially a standard normal distribution with a <strong>lower peak and fatter tails</strong>, which accounts for the <strong>increased uncertainty</strong> from using an estimate instead of the actual value in specifying the distribution.</p>
+<p>The t-distribution has only one parameter - the <strong>degrees of freedom</strong> of the statistic of the sampling distribution. As the degrees of freedom (sample size) increases, the t-distribution <strong>tends towards the standard normal distribution</strong>:</p>
+<!-- Obtained from Scribbr -->
+<p><img alt="T_Distribution" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/T_DISTRIBUTION.png" /></p>
+<p>The process of converting a normal distributed quantity into a t-distributed one is known as <strong>Studentization</strong>:</p>
 <div class="arithmatex">\[
-\therefore t_{n-1}^2 \sim F_{1, n-1}
+\begin{aligned}
+    t_{n-1}
+    &amp;= \frac{\hat{\theta} - E(\hat{\theta})}{\hat{\text{SE}}(\hat{\theta})} \\
+    &amp;= \frac{\hat{\theta} - E(\hat{\theta})}{\hat{\sigma}_{\theta}}
+\end{aligned}
 \]</div>
-<p>Thus, the square of the t-statistic is known as the <strong>F-statistic</strong>, which is usually used to test for the <strong>equality of variance</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Standardization is known as such because it is converting the distribution to a <strong>Standard</strong> normal distribution.</p>
+<p>Studentization is known as such because the t-distribution is more formally known as the <strong>Student's</strong> t-distribution.</p>
+</div>
+<h3 id="chi-squared-distribution"><strong>Chi-Squared Distribution</strong><a class="headerlink" href="#chi-squared-distribution" title="Permanent link">&para;</a></h3>
+<p>A well-known sampling distribution is the <strong>Chi-Square Distribution</strong>. It is equivalent to a <strong>Squared Standard Normal Distribution</strong>:</p>
+<div class="arithmatex">\[
+    \chi^{2}_{1} = Z^{2}
+\]</div>
+<p>Similar to the t-distribution, it only has one parameter - the <strong>degrees of freedom</strong> of the underlying statistic. The sum of <span class="arithmatex">\(n\)</span> <strong>independent</strong> squared normal variables results in a Chi-Squared Distribution with <strong><span class="arithmatex">\(n\)</span> degrees of freedom</strong>:</p>
+<div class="arithmatex">\[
+    \chi^{2}_{n} = Z^{2}_{1} + Z^{2}_{2} + Z^{2}_{3} + \dots + Z^{2}_{n}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As the degrees of freedom increases (as more standard normals are summed), the chi-square distribution will tend towards a normal distribution due to the <strong>Central Limit Theorem</strong>.</p>
+</div>
+<p>The shape of the chi-squared distribution is quite different compared to the Standard Normal, reflecting two key properties:</p>
+<ol>
+<li>Squared variables are always <strong>non-negative</strong></li>
+<li>Square of 0 (standard normal peak) is still 0, thus the <strong>peak of the chi-square is still 0</strong>, which <strong>declines thereafter</strong></li>
+<li>Squared variables result in larger variance, thus has a <strong>right skew</strong></li>
+</ol>
+<!-- Obtained from Live Boost -->
+<p><img alt="CHI_SQUARED" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/CHI_SQUARED.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Very few real world phenomena follow a chi-squared distribution; it is mainly used for hypothesis testing.</p>
+</div>
+<h4 id="sample-variance"><strong>Sample Variance</strong><a class="headerlink" href="#sample-variance" title="Permanent link">&para;</a></h4>
+<p>By definition, a chi-square variable can be written as:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \chi^{2}_{n}
+    &amp;= \sum^{n}_{1} Z^{2} \\
+    &amp;= \sum^{n}_{1} \left(\frac{\theta_{i} - \mu}{\sigma} \right)^{2}    
+\end{aligned}
+\]</div>
+<p>It can be shown via <strong>Cochran's Theorem</strong> (out of scope for this exam) that the following is true:</p>
+<div class="arithmatex">\[
+    \sum^{n}_{1} (\theta_{i} - \bar{\theta}) \sim \sigma^{2} \cdot \chi^{2}_{n-1}   
+\]</div>
+<p>Thus, the sample variance (following Bessel's Correction) can be shown to be have a <strong>scaled chi-square distribution</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \sum^{n}_{1} (\theta_{i} - \bar{\theta}) &amp;\sim \sigma^{2} \cdot \chi^{2}_{n-1} \\
+    \frac{\sum^{n}_{1} (\theta_{i} - \bar{\theta})}{n-1} &amp;\sim \frac{\sigma^{2} \cdot \chi^{2}_{n-1}}{n-1} \\
+    \frac{s^{2}}{\sigma^{2}} &amp;\sim \frac{\chi^{2}_{n-1}}{n-1}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A scaled chi-square distribution refers to a one that has been <strong>divided by its degrees of freedom</strong>; average of the squared normals.</p>
+</div>
+<h4 id="reformulated-t"><strong>Reformulated t</strong><a class="headerlink" href="#reformulated-t" title="Permanent link">&para;</a></h4>
+<p>Using the above, it is possible to express the t-distribution in terms of a chi-squared one:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    t_{n-1}
+    &amp;= \frac{\theta - E(\hat{\theta})}{s} \\
+    &amp;= \frac{\theta - E(\hat{\theta})}{\sqrt{\text{Var}(\hat{\theta})}} \cdot \sqrt{\frac{\text{Var}(\hat{\theta})}{s^{2}}} \\
+    &amp;= \frac{\theta - E(\hat{\theta})}{\sqrt{\text{Var}(\hat{\theta})}} \div \sqrt{\frac{s^{2}}{\text{Var}(\hat{\theta})}} \\
+    &amp;= \frac{Z}{\sqrt{\frac{\chi^{2}_{n-1}}{n-1}}}
+\end{aligned}
+\]</div>
+<p>Thus, a t-distribution is the ratio of standard normal variable to the squareroot of a chi-squared distribution divided by its degrees of freedom.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As the <strong>degrees of freedom tends to infinity</strong>, the scaled chi-squared distribution will tend to 1. This is why the t-distribution tends towards a standard normal distribution:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \lim_{n \to \infty} \frac{\chi_{n}}{n} \to 1 \\
+    \therefore \lim_{n \to \infty} t_{n} \to Z
+\end{aligned}
+\]</div>
+<p>The limit of the scaled chi-square variable is a result of <strong>Slutsky's theorem</strong>, which is out of scope for the purposes of this exam.</p>
+</div>
+<h4 id="goodness-of-fit"><strong>Goodness of fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h4>
+<h3 id="f-distribution"><strong>F-Distribution</strong><a class="headerlink" href="#f-distribution" title="Permanent link">&para;</a></h3>
+<p>The <strong>ratio</strong> of two <strong>independent</strong> scaled chi-square distributions results in a <strong>F-distribution</strong> with BOTH the degrees of freedom as parameters:</p>
+<div class="arithmatex">\[
+    F_{m,n} = \frac{\frac{\chi_{m}}{m}}{\frac{\chi_{n}}{n}}
+\]</div>
+<p>The F-distribution can be reformulated in terms of the previous two distributions:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    (t_{n-1})^{2}
+    &amp;= \left(\frac{Z}{\sqrt{\frac{\chi^{2}_{n-1}}{n-1}}} \right)^{2} \\
+    &amp;= \frac{Z^{2}}{\frac{\chi^{2}_{n-1}}{n-1}} \\
+    &amp;= \frac{\frac{\chi^{2}_{1}}{1}}{\frac{\chi^{2}_{n-1}}{n-1}} \\
+    &amp;= F_{1,n-1} \\
+    \therefore t^{2} &amp;\sim F_{1, n-1} \\
+    \therefore t^{-2} &amp;\sim F_{n-1, 1} \\
+    \\
+    \lim_{n \to \infty} \frac{\chi_{n}}{n} &amp;\to 1 \\
+    \lim_{n \to \infty} F_{m, n} &amp;\to \frac{\chi_{m}}{m} \\
+    \therefore F_{m, \infty} &amp;\sim F_{n-1, 1} \\
+\end{aligned}
+\]</div>
+<p>Equality of variance</p>
 <h2 id="maximum-likelihood-estimation"><strong>Maximum Likelihood Estimation</strong><a class="headerlink" href="#maximum-likelihood-estimation" title="Permanent link">&para;</a></h2>
 <p>If the <strong>population distribution is known</strong>, there is an <strong>alternative method of estimating</strong> the parameters apart from calculating the corresponding sample statistics, known as <strong>Maximum Likelihood Estimation</strong> (MLE).</p>
 <p>There are an infinite number of <strong>variations of the distribution</strong> that could have resulted in the sample, each with <strong>different parameters</strong>.</p>
