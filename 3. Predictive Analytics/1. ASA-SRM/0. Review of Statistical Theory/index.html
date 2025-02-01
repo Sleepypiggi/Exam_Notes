@@ -1212,6 +1212,19 @@
     F-Distribution
   </a>
   
+    <nav class="md-nav" aria-label="F-Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#equality-of-variance" class="md-nav__link">
+    Equality of Variance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1617,6 +1630,19 @@
     F-Distribution
   </a>
   
+    <nav class="md-nav" aria-label="F-Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#equality-of-variance" class="md-nav__link">
+    Equality of Variance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1909,13 +1935,37 @@
 </div>
 <p>Generally speaking, <strong>estimators with lower MSE are preferred</strong>. Note that this could also mean using a slightly biased estimator with low variance compared to using a unbiased estimator with high variance. There is <strong>no clear rule given the two dimensional nature of MSE</strong>.</p>
 <h3 id="degrees-of-freedom"><strong>Degrees of Freedom</strong><a class="headerlink" href="#degrees-of-freedom" title="Permanent link">&para;</a></h3>
-<p>Degrees of freedom (df) refer to the <strong>number of independent pieces of data that are free to vary</strong> in the calculation of a statistic <strong>without violating any of the constraints</strong> of said statistic.</p>
+<p>Degrees of freedom (<span class="arithmatex">\(\nu\)</span>) refer to the <strong>number of independent pieces of data that are free to vary</strong> in the calculation of a statistic <strong>without violating any of the constraints</strong> of said statistic.</p>
 <p>Number of independent pieces of data typically refers to the number of observations used; <strong>sample size</strong>. It is then usually <strong>reduced by the number of constraints</strong> imposed during the calculation:</p>
 <div class="arithmatex">\[
-    \text{df} = n - \text{Constraints}
+    \nu = n - \text{Constraints}
 \]</div>
-<p>For instance, the <strong>sample mean has no constraints</strong>, thus the df of the mean is simply the sample size.</p>
-<p>However, the sample variance has one constraint </p>
+<p>To illustrate, consider the two most basic statistics:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Sample Mean</strong></th>
+<th align="center"><strong>Sample Variance</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">No constraints</td>
+<td align="center">Constrained by the sample mean</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(n\)</span> degrees of freedom</td>
+<td align="center"><span class="arithmatex">\(n-1\)</span> degrees of freedom</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>When computing the variance, the sample mean is <strong>already a fixed quantity</strong>. The average of the observations used in the sample <strong>MUST be equal to the sample mean</strong> (constraints). Thus, only <span class="arithmatex">\(n-1\)</span> points are able to freely vary, the last observation MUST force the average to be the sample mean; not free to vary.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This can be better understood as one degree of freedom being "used up" to determine the sample mean, thus all subsequent calculations <strong>involving the sample mean</strong> has one less degree of freedom.</p>
+</div>
 <h3 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h3>
 <p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a single point estimate, a range is used, known as a <strong>Confidence Interval</strong>.</p>
 <p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the <strong>same manner</strong> were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
@@ -1949,6 +1999,10 @@
 <li>Sample was <strong>likely to be drawn</strong>, then it is likely that the <strong>null is true</strong> (Expected outcome)</li>
 <li>Sample was <strong>unlikely to be drawn</strong> but yet it was drawn, is it due to <strong>variance</strong> or because the sampling distribution is misspecified because the <strong>null not being true</strong>? (Extreme outcome)</li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A common phrase is that hypothesis testing is used to differentiate the Signal (True Misspecification) from the noise (Variance).</p>
+</div>
 <p>The probability of drawing the sample is formally known as the <strong>p-value</strong> (<span class="arithmatex">\(p\)</span>). The <strong>threshold</strong> for how likely a sample to be drawn is known is known as the <strong>Significance Level</strong> (<span class="arithmatex">\(\alpha\)</span>):</p>
 <ul>
 <li><span class="arithmatex">\(p &lt; \alpha\)</span>: Test is successful; null can be rejected</li>
@@ -1967,6 +2021,19 @@
 <li><span class="arithmatex">\(H_{1}: \theta \ne x\)</span></li>
 </ul>
 </div>
+<p>The "tail" of a hypothesis test refers to the <strong>side of the distribution</strong> where the values are considered extreme. It is based on the Alternative Hypothesis:</p>
+<ul>
+<li><strong>Right Tail</strong>: <span class="arithmatex">\(H_{1}: \theta \gt x\)</span></li>
+<li><strong>Left Tail</strong>: <span class="arithmatex">\(H_{1}: \theta \lt x\)</span></li>
+<li><strong>Two Tail</strong>: <span class="arithmatex">\(H_{1}: \theta \ne x\)</span></li>
+</ul>
+<p>The key difference is that the critical region is split into two for a two-tail test, requiring the sample to be even more extreme to be reject the null:</p>
+<ul>
+<li><strong>One Tail</strong>: <span class="arithmatex">\(\alpha\)</span> on <strong>either</strong> side</li>
+<li><strong>Two tail</strong>: <span class="arithmatex">\(\frac{\alpha}{2}\)</span> on <strong>both</strong> sides</li>
+</ul>
+<!-- Obtained from Medium -->
+<p><img alt="TAIL_TEST" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/TAIL_TEST.png" /></p>
 <h3 id="sources-of-error"><strong>Sources of Error</strong><a class="headerlink" href="#sources-of-error" title="Permanent link">&para;</a></h3>
 <p>Given the probabilistic nature of hypothesis testing, there are bound to be errors. In particular, there are two types:</p>
 <ul>
@@ -2024,6 +2091,10 @@
 </tbody>
 </table>
 <p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The area bounded by the critical value (area of the significance level) is known as the <strong>Critical Region</strong>.</p>
+</div>
 <!-- Obtained from Zscore geek -->
 <p><img alt="Hypothesis Testing" class="center" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Hypothesis%20Testing.png" /></p>
 <h2 id="normal-sampling-distribution"><strong>Normal Sampling Distribution</strong><a class="headerlink" href="#normal-sampling-distribution" title="Permanent link">&para;</a></h2>
@@ -2116,14 +2187,14 @@
 \]</div>
 <p>It can be shown via <strong>Cochran's Theorem</strong> (out of scope for this exam) that the following is true:</p>
 <div class="arithmatex">\[
-    \sum^{n}_{1} (\theta_{i} - \bar{\theta}) \sim \sigma^{2} \cdot \chi^{2}_{n-1}   
+    \sum^{n}_{1} (\theta_{i} - \bar{\theta}) \sim \sigma^{2} \cdot \chi^{2}_{\nu}   
 \]</div>
 <p>Thus, the sample variance (following Bessel's Correction) can be shown to be have a <strong>scaled chi-square distribution</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \sum^{n}_{1} (\theta_{i} - \bar{\theta}) &amp;\sim \sigma^{2} \cdot \chi^{2}_{n-1} \\
-    \frac{\sum^{n}_{1} (\theta_{i} - \bar{\theta})}{n-1} &amp;\sim \frac{\sigma^{2} \cdot \chi^{2}_{n-1}}{n-1} \\
-    \frac{s^{2}}{\sigma^{2}} &amp;\sim \frac{\chi^{2}_{n-1}}{n-1}
+    \sum^{n}_{1} (\theta_{i} - \bar{\theta}) &amp;\sim \sigma^{2} \cdot \chi^{2}_{\nu} \\
+    \frac{\sum^{n}_{1} (\theta_{i} - \bar{\theta})}{n-1} &amp;\sim \frac{\sigma^{2} \cdot \chi^{2}_{\nu}}{\nu} \\
+    \frac{s^{2}}{\sigma^{2}} &amp;\sim \frac{\chi^{2}_{\nu}}{\nu}
 \end{aligned}
 \]</div>
 <div class="admonition note">
@@ -2134,11 +2205,11 @@
 <p>Using the above, it is possible to express the t-distribution in terms of a chi-squared one:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    t_{n-1}
+    t_{\nu}
     &amp;= \frac{\theta - E(\hat{\theta})}{s} \\
     &amp;= \frac{\theta - E(\hat{\theta})}{\sqrt{\text{Var}(\hat{\theta})}} \cdot \sqrt{\frac{\text{Var}(\hat{\theta})}{s^{2}}} \\
     &amp;= \frac{\theta - E(\hat{\theta})}{\sqrt{\text{Var}(\hat{\theta})}} \div \sqrt{\frac{s^{2}}{\text{Var}(\hat{\theta})}} \\
-    &amp;= \frac{Z}{\sqrt{\frac{\chi^{2}_{n-1}}{n-1}}}
+    &amp;= \frac{Z}{\sqrt{\frac{\chi^{2}_{\nu}}{\nu}}}
 \end{aligned}
 \]</div>
 <p>Thus, a t-distribution is the ratio of standard normal variable to the squareroot of a chi-squared distribution divided by its degrees of freedom.</p>
@@ -2147,13 +2218,65 @@
 <p>As the <strong>degrees of freedom tends to infinity</strong>, the scaled chi-squared distribution will tend to 1. This is why the t-distribution tends towards a standard normal distribution:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \lim_{n \to \infty} \frac{\chi_{n}}{n} \to 1 \\
-    \therefore \lim_{n \to \infty} t_{n} \to Z
+    \lim_{\nu \to \infty} \frac{\chi_{\nu}}{\nu} \to 1 \\
+    \therefore \lim_{n \to \infty} t_{\nu} \to Z
 \end{aligned}
 \]</div>
 <p>The limit of the scaled chi-square variable is a result of <strong>Slutsky's theorem</strong>, which is out of scope for the purposes of this exam.</p>
 </div>
 <h4 id="goodness-of-fit"><strong>Goodness of fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h4>
+<p>A Chi-Square test is used to determine whether the population <strong>follows a specified distribution</strong>; how good the population fits the distribution. It can only be used for <strong>Discrete Variables</strong>.</p>
+<p>Discrete Variables generally follow a <strong>Multinomial distribution</strong> (out of scope for this exam), which is a generalization of the Binomial distribution:</p>
+<ul>
+<li><strong>Bi-Nomial</strong>: Two outcomes (EG. Heads or Tails)</li>
+<li><strong>Multi-Nomial</strong>: Multiple Outcomes (EG. Roll of a six sided die)</li>
+</ul>
+<p>Multinomial distributions can typically be expressed in the form of a <strong>Contingency Table</strong>, which contains the <strong>count/frequency</strong> of each observation:</p>
+<!-- Obtained from Research Gate -->
+<p><img alt="CONTINGENCY_TABLE" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/CONTINGENCY_TABLE.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The distribution of majors among for each level of expertise.</p>
+</div>
+<p>The Chi-Square test is to determine whether the <strong>Observed distribution</strong> (<span class="arithmatex">\(O\)</span>) follows the <strong>Expected Distribution</strong> (<span class="arithmatex">\(E\)</span>):</p>
+<!-- Obtained from JMP -->
+<p><img alt="GOODNESS_OF_FIT" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/GOODNESS_OF_FIT.png" /></p>
+<p>Consider a variable with <span class="arithmatex">\(k\)</span> possible outcomes. The resulting Chi-Squared test-statistic is:</p>
+<div class="arithmatex">\[
+    \chi^{2}_{\text{test}} = \frac{\sum^{k}_{i} (O_{i} - E_{i})^{2}}{E_{i}}
+\]</div>
+<p>The above can be shown to follow a Chi-Square distribution:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \chi^{2}_{\text{test}}
+    &amp;= \frac{\sum^{k}_{i} (O_{i} - E_{i})^{2}}{E_{i}} \\
+    &amp;= \left(\frac{\sum^{k}_{i} (O_{i} - E_{i})}{\sqrt{E_{i}}} \right)^{2} \\
+    \\
+    \frac{(O_{i} - E_{i})}{\sqrt{E_{i}}} &amp;\sim Z \\
+    \\
+    \therefore \chi^{2}_{\text{test}} &amp;\sim \chi^{2}_{k-1}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Despite being the sum of <span class="arithmatex">\(k\)</span> standard normals, the test-statistic loses one degree of freedom since there is a constraint the total number of observations is fixed.</p>
+<p>If we know the frequencies for <span class="arithmatex">\(k-1\)</span> categories, then the last observation MUST be a certain number such that the total number of observations tally.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The expression within the statistic is standard normal for two reasons:</p>
+<ol>
+<li>For large sample sizes, due to CLT, the observations follow a <strong>normal distribution</strong></li>
+<li>For large sample sizes, the variance is <strong>approximately equal to the mean</strong></li>
+<li>Thus, the expression is simply a result of <strong>standardization of this distribution</strong></li>
+</ol>
+<p>The properties of a multinomial distribution are extremely similar to a binomial one:</p>
+<ul>
+<li>Expectation of <em>each</em> category = <span class="arithmatex">\(n \cdot p_{i}\)</span></li>
+<li>Variance of <em>each</em> category = <span class="arithmatex">\(n \cdot p_{i} \cdot (1 - p_{i})\)</span></li>
+</ul>
+<p>When <span class="arithmatex">\(n\)</span> is large, <span class="arithmatex">\((1 - p_{i}) \approx 1\)</span> thus the variance is approximately equal to the mean.</p>
+</div>
 <h3 id="f-distribution"><strong>F-Distribution</strong><a class="headerlink" href="#f-distribution" title="Permanent link">&para;</a></h3>
 <p>The <strong>ratio</strong> of two <strong>independent</strong> scaled chi-square distributions results in a <strong>F-distribution</strong> with BOTH the degrees of freedom as parameters:</p>
 <div class="arithmatex">\[
@@ -2162,20 +2285,43 @@
 <p>The F-distribution can be reformulated in terms of the previous two distributions:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    (t_{n-1})^{2}
-    &amp;= \left(\frac{Z}{\sqrt{\frac{\chi^{2}_{n-1}}{n-1}}} \right)^{2} \\
-    &amp;= \frac{Z^{2}}{\frac{\chi^{2}_{n-1}}{n-1}} \\
-    &amp;= \frac{\frac{\chi^{2}_{1}}{1}}{\frac{\chi^{2}_{n-1}}{n-1}} \\
-    &amp;= F_{1,n-1} \\
-    \therefore t^{2} &amp;\sim F_{1, n-1} \\
-    \therefore t^{-2} &amp;\sim F_{n-1, 1} \\
+    (t_{\nu})^{2}
+    &amp;= \left(\frac{Z}{\sqrt{\frac{\chi^{2}_{\nu}}{\nu}}} \right)^{2} \\
+    &amp;= \frac{Z^{2}}{\frac{\chi^{2}_{\nu}}{\nu}} \\
+    &amp;= \frac{\frac{\chi^{2}_{1}}{1}}{\frac{\chi^{2}_{\nu}}{\nu}} \\
+    &amp;= F_{1,\nu} \\
+    \therefore t^{2}_{\nu} &amp;\sim F_{1, \nu} \\
+    \therefore t^{-2}_{\nu} &amp;\sim F_{\nu, 1} \\
     \\
-    \lim_{n \to \infty} \frac{\chi_{n}}{n} &amp;\to 1 \\
-    \lim_{n \to \infty} F_{m, n} &amp;\to \frac{\chi_{m}}{m} \\
-    \therefore F_{m, \infty} &amp;\sim F_{n-1, 1} \\
+    \lim_{\nu \to \infty} \frac{\chi_{\nu}}{\nu} &amp;\to 1 \\
+    \lim_{\nu \to \infty} F_{m, \nu} &amp;\to \frac{\chi_{\nu}}{\nu} \\
+    \therefore F_{m, \infty} &amp;\sim \frac{\chi_{\nu}}{\nu}
 \end{aligned}
 \]</div>
-<p>Equality of variance</p>
+<h4 id="equality-of-variance"><strong>Equality of Variance</strong><a class="headerlink" href="#equality-of-variance" title="Permanent link">&para;</a></h4>
+<p>An F-test is typically used to compare if the Variance of two populations are equal:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \sigma^{2}_{A} = \sigma^{2}_{B}\)</span></li>
+<li><span class="arithmatex">\(H_{1}: \sigma^{2}_{A} \ne \sigma^{2}_{B}\)</span></li>
+</ul>
+<p>The corresponding <strong>F-statistic</strong> is the ratio of the two sample variances being tested:</p>
+<div class="arithmatex">\[
+    F_{\text{Statistic}} = \frac{s^{2}_{A}}{s^{2}_{B}}
+\]</div>
+<p>Under the null, the statistic can be shown to be following a F-distribution:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F_{\text{Statistic}}
+    &amp;= \frac{\frac{\chi_{n_{A}-1}}{n_{A}-1}}{\frac{\chi_{n_{B}-1}}{n_{B}-1}} \\
+    &amp;= \frac{\frac{s^{2}_{A}}{\sigma^{2}_{A}}}{\frac{s^{2}_{B}}{\sigma^{2}_{B}}} \\
+    &amp;= \frac{s^{2}_{A}}{\sigma^{2}_{A}} \cdot \frac{\sigma^{2}_{B}}{s^{2}_{B}} \\
+    &amp;= \frac{s^{2}_{A}}{s^{2}_{B}} \cdot \frac{\sigma^{2}_{B}}{\sigma^{2}_{A}} \\
+    &amp;= \frac{s^{2}_{A}}{s^{2}_{B}} \\
+    \\
+    F_{\text{test}} &amp;\sim F_{n_{A}-1, n_{B}-1}
+\end{aligned}
+\]</div>
+<p>Thus, if the two variances are not equal, the statistic would not follow a F-distribution and hence result in extreme values (relative to the F-distribution).</p>
 <h2 id="maximum-likelihood-estimation"><strong>Maximum Likelihood Estimation</strong><a class="headerlink" href="#maximum-likelihood-estimation" title="Permanent link">&para;</a></h2>
 <p>If the <strong>population distribution is known</strong>, there is an <strong>alternative method of estimating</strong> the parameters apart from calculating the corresponding sample statistics, known as <strong>Maximum Likelihood Estimation</strong> (MLE).</p>
 <p>There are an infinite number of <strong>variations of the distribution</strong> that could have resulted in the sample, each with <strong>different parameters</strong>.</p>
