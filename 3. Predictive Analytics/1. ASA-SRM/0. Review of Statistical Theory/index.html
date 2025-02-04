@@ -1274,6 +1274,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../1.%20Regression%20Overview/" class="md-nav__link">
         Regression Overview
       </a>
@@ -1331,7 +1345,7 @@
   
     <li class="md-nav__item">
       <a href="../5.%20Statistical%20Learning/" class="md-nav__link">
-        Statistical Learning
+        Statistical Learning New
       </a>
     </li>
   
@@ -1825,12 +1839,19 @@
 <p class="admonition-title">Info</p>
 <p>The 25<sup>th</sup>, 50<sup>th</sup> and 75<sup>th</sup> Percentiles are specially known as <strong>Quartiles</strong>, hence the naming. They are denoted by <span class="arithmatex">\(Q_{i}\)</span>.</p>
 </div>
-<p>The IQR is most often used to <strong>identify Outliers</strong>. It is generally accepted that observations that fall outside of <strong>1.5 times the IQR from the respective IQR boundaries</strong> are considered outliers:</p>
+<p>The IQR is most often used to <strong>identify outliers</strong>. It is generally accepted that fall outside of the "fences" are considered outliers:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Lower Fence} &amp;= Q_{1} - 1.5 \cdot \text{IQR}
+    \text{Upper Fence} &amp;= Q_{3} + 1.5 \cdot \text{IQR}
+\end{aligned}
+\]</div>
+<p>The IQR and the "fences" can be illustrated using a <strong>Box-plot</strong>:</p>
 <!-- Obtained from Scribbor -->
-<p><img alt="IQR_OUTLIERS" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/IQR_OUTLIERS.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The above diagram is known as a <strong>Box-Plot</strong>. The threshold for outliers are often referred to as Fences.</p>
+<p><img alt="BOXPLOT" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/BOXPLOT.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is actually <strong>no formal definition for what is considered an outlier</strong> in statistics. There is also <strong>no strong mathematical basis</strong> for why the fence was set at that level; it was a reasonable range that became popularized.</p>
 </div>
 <h3 id="relationships"><strong>Relationships</strong><a class="headerlink" href="#relationships" title="Permanent link">&para;</a></h3>
 <p><strong>Covariance</strong> is a measure of the <strong>linear relationship</strong> between two variables:</p>
@@ -1866,6 +1887,9 @@
 \hline
 \end{array}
 \]</div>
+<p>The relationship between the variables can also be visualized using a Scatterplot of the data:</p>
+<!-- Obtained from Latest Quality -->
+<p><img alt="SCATTEPLOT" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/SCATTERPLOT.png" /></p>
 <h2 id="sampling-distribution"><strong>Sampling Distribution</strong><a class="headerlink" href="#sampling-distribution" title="Permanent link">&para;</a></h2>
 <p>Whenever a sample is drawn from a population and a statistic is calculated, it is known as a <strong>Point Estimate</strong>.</p>
 <p>Due to measurement errors, a different sample would be drawn each time, thus leading to a <strong>different point estimate</strong>. If this process were to be repeated a large number times, the <strong>probability distribution</strong> of the resulting point estimates is known as the <strong>Sampling Distribution</strong> of the statistic.</p>
@@ -1988,6 +2012,10 @@
 \]</div>
 <!-- Obtained from Analyst Prep -->
 <p><img alt="95% Confidence Interval" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The confidence interval will <strong>gradually shrink to 0 as the sample size approaches the population size</strong>. Intuitively, this is because if the sample = population, then there is no more uncertainty; the resulting statistic IS the population parameter!</p>
+</div>
 <h2 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h2>
 <p><strong>Hypothesis Testing</strong> is a formal method of making inferences about the population parameters based on the sample statistic. It starts with a <strong>Hypothesis</strong> which is a conjecture about the population parameters:</p>
 <ul>
@@ -2277,6 +2305,23 @@
 </ul>
 <p>When <span class="arithmatex">\(n\)</span> is large, <span class="arithmatex">\((1 - p_{i}) \approx 1\)</span> thus the variance is approximately equal to the mean.</p>
 </div>
+<p>For non-categorical data, an alternative (though less rigorous) method of determining goodness of fit is using a <strong>Quantile-Quantile</strong> plot (Q-Q Plot):</p>
+<ol>
+<li>Quantiles of the Sample and Theoretical distribution are plotted against each other</li>
+<li>A reference identity line of <span class="arithmatex">\(y=x\)</span> is drawn</li>
+<li>If the quantiles lie mostly on the line (Sample Quantile = Theoretical Quantile), then the sample can be concluded to follow the theoretical distribution </li>
+</ol>
+<!-- Obtained from Analyst Prep -->
+<p><img alt="QQ_PLOT" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/QQ_PLOT.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Quantiles are "cut-points" in a distribution which <strong>equally splits</strong> the resulting intervals. For instance, the two statistics covered earlier are examples of commonly used Quantiles:</p>
+<ul>
+<li><strong>Percentile</strong>: Splits 100 ways, each with 1% density</li>
+<li><strong>Quartile</strong>: Splits 4 ways, each with 25% density</li>
+</ul>
+<p>Do not confuse them with Quartiles!</p>
+</div>
 <h3 id="f-distribution"><strong>F-Distribution</strong><a class="headerlink" href="#f-distribution" title="Permanent link">&para;</a></h3>
 <p>The <strong>ratio</strong> of two <strong>independent</strong> scaled chi-square distributions results in a <strong>F-distribution</strong> with BOTH the degrees of freedom as parameters:</p>
 <div class="arithmatex">\[
@@ -2454,13 +2499,13 @@
       
       
         
-        <a href="../1.%20Regression%20Overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Regression Overview" rel="next">
+        <a href="../1.%20Statistical%20Learning/" class="md-footer__link md-footer__link--next" aria-label="Next: Statistical Learning" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Regression Overview
+              Statistical Learning
             </div>
           </div>
           <div class="md-footer__button md-icon">
