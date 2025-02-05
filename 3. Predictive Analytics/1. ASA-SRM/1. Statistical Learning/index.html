@@ -1071,8 +1071,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-elements" class="md-nav__link">
-    Key Elements
+  <a href="#overview-of-key-elements" class="md-nav__link">
+    Overview of key elements
   </a>
   
 </li>
@@ -1293,8 +1293,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-elements" class="md-nav__link">
-    Key Elements
+  <a href="#overview-of-key-elements" class="md-nav__link">
+    Overview of key elements
   </a>
   
 </li>
@@ -1337,7 +1337,130 @@
 </tbody>
 </table>
 <p></center></p>
-<h2 id="key-elements"><strong>Key Elements</strong><a class="headerlink" href="#key-elements" title="Permanent link">&para;</a></h2>
+<p>For instance, given that <span class="arithmatex">\(X \sim \text{Dist}(\theta)\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span> is the distribution</li>
+<li><span class="arithmatex">\(\theta\)</span> is a parameter of the distribution (to be estimated)</li>
+<li><span class="arithmatex">\(x_{i}\)</span> is a realization of the distribution (to be predicted)</li>
+</ul>
+<h2 id="overview-of-key-elements"><strong>Overview of key elements</strong><a class="headerlink" href="#overview-of-key-elements" title="Permanent link">&para;</a></h2>
+<p>There are two main components to a prediction problem:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Dependent Variable</strong></th>
+<th align="center"><strong>Independent Variable</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Variable to be predicted</td>
+<td align="center">Variable used to predict</td>
+</tr>
+<tr>
+<td align="center">Only 1</td>
+<td align="center">May have multiple</td>
+</tr>
+<tr>
+<td align="center">Output Variable</td>
+<td align="center">Input Variable</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(y_{i}\)</span></td>
+<td align="center"><span class="arithmatex">\(x_{i}, x_{i,j}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observations typically record the two variables together (<span class="arithmatex">\(y_{i}\)</span>, <span class="arithmatex">\(x_{i}\)</span>). In the case where there are multiple independent variables (<span class="arithmatex">\(x_{i,j}\)</span>), <span class="arithmatex">\(i\)</span> represents the observation while <span class="arithmatex">\(j\)</span> represents the independent variable.</p>
+</div>
+<p>Within the above, they are further split by their nature:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Quantitative Variable</strong></th>
+<th align="center"><strong>Qualitative Variable</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Continuous Values</td>
+<td align="center">Discrete Categories</td>
+</tr>
+<tr>
+<td align="center">EG. 3.14, 1.849</td>
+<td align="center">EG. North, South, East &amp; West</td>
+</tr>
+<tr>
+<td align="center">Regression</td>
+<td align="center">Classification</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Categorical variables are more generally represented by a <strong>discrete number</strong>. For instance:</p>
+<ul>
+<li>True (1), False (0)</li>
+<li>North (0), East (1), South (2), West (4)</li>
+</ul>
+<p>If there the <strong>order of the categories</strong> are important, then they are known as <strong>Ordinal variables</strong>. If not, they are known as <strong>Nominal Variables</strong>.</p>
+</div>
+<p>Then there are two types of statistical learning:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Supervised</strong></th>
+<th align="center"><strong>Unsupervised</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Has a specified Indpendent Variable</td>
+<td align="center">No Independent Variable</td>
+</tr>
+<tr>
+<td align="center">To identify what influences <span class="arithmatex">\(y\)</span></td>
+<td align="center">To identify patterns in the data</td>
+</tr>
+<tr>
+<td align="center">EG. Linear Regression</td>
+<td align="center">EG. Principal Component Analysis</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Within Supervised learning methods, it can be further broken down into two types:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Parametric</strong></th>
+<th align="center"><strong>Non-parametric</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">User specified relationship between <span class="arithmatex">\(y\)</span> and <span class="arithmatex">\(x\)</span></td>
+<td align="center">No specified relationship</td>
+</tr>
+<tr>
+<td align="center"><strong>Equation with parameters</strong> to be estimated</td>
+<td align="center">Algorithmic method with <strong>no parameters</strong></td>
+</tr>
+<tr>
+<td align="center">EG. Linear Regression</td>
+<td align="center">EG. Decision Trees</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
 <p>Predictor comes with additional uncertaitnty due to the stochastic nature (on top of uncertaintity in the estimation parameters)
 EVen with increasing sample size, the prediction does not shrink to 0 (Irreducible randomness)</p>
 
