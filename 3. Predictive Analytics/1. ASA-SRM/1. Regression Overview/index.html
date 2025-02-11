@@ -1344,7 +1344,6 @@
 
 <h1 id="linear-regression"><strong>Linear Regression</strong><a class="headerlink" href="#linear-regression" title="Permanent link">&para;</a></h1>
 <h2 id="population-regression-model"><strong>Population Regression Model</strong><a class="headerlink" href="#population-regression-model" title="Permanent link">&para;</a></h2>
-<p>Regression is a statistical model that relates a <strong>Dependent Variable</strong> (DV) to one or more <strong>Independent Variables</strong> (IV). The dependent variable is <em>regressed on to</em> the independent variable.</p>
 <p>They are fundamentally a function of the independent variables and several <strong>Regression Parameters</strong>, <span class="arithmatex">\(\beta\)</span>. The functional form of the regression is based on the relationship between the variables. The goal is to use a model that <strong>best captures the relationship</strong> between the variables.</p>
 <div class="arithmatex">\[
 Y = f(X, \beta)
@@ -1391,7 +1390,7 @@ Y|X \sim Conditional~Distribution}
 E(Y|X) = f(X, \beta)
 \]</div>
 <!-- Obtained from Colorado Uni -->
-<p><img alt="Dependent Expectation" class="center" src="../Assets/1.%20Regression%20Overview.md/Regression%20Expectation.png" /></p>
+<p><img alt="Dependent Expectation" class="center" src="Assets/1.%20Regression%20Overview.md/Regression%20Expectation.png" /></p>
 <p>The actual observations are unlikely to be <em>exactly equal</em> to its expectation, thus there is a <strong>difference</strong> between an observation and the corresponding regression output. It known as the <strong>Random Error Term</strong> which accounts for <strong>all other factors</strong> that affect the DV that are not captured in the regression.</p>
 <p>This means that the relationship between the <span class="arithmatex">\(Y\)</span> and <span class="arithmatex">\(X\)</span> is only <strong>approximate</strong>, as the true relationship is probably different due to the possibility of unaccounted variables.</p>
 <p>Note that the <strong>sign of the errors</strong> are significant - positive implies the actual value lies above the regression output while negative implies it lies below.</p>
@@ -1399,7 +1398,7 @@ E(Y|X) = f(X, \beta)
 \varepsilon_i = y_i - f(x_i, \beta)
 \]</div>
 <!-- Obtained from Cloudera -->
-<p><img alt="Regression Errors" class="center" src="../Assets/1.%20Regression%20Overview.md/Regression%20Errors.png" /></p>
+<p><img alt="Regression Errors" class="center" src="Assets/1.%20Regression%20Overview.md/Regression%20Errors.png" /></p>
 <p>This means that <span class="arithmatex">\(Y\)</span> (not its expectation!) can be expressed as a sum of the regression model and the error terms:</p>
 <div class="arithmatex">\[
 y_i = f(x_i,\beta) + \varepsilon_i

@@ -1732,8 +1732,8 @@
     \text{Population Mean} &amp;
     \text{Sample Mean} \\
 \hline
-    \mu_{x} = \sum x_{i} \cdot P(x_{i}) &amp;
-    \bar{x} = \frac{1}{n} \sum x_{i} \\
+    \displaystyle{\mu_{x} = \sum x_{i} \cdot P(x_{i})} &amp;
+    \displaystyle{\bar{x} = \frac{1}{n} \sum x_{i}} \\
 \hline
 \end{array}
 \]</div>
@@ -1757,8 +1757,8 @@
     \text{Population Median} &amp;
     \text{Sample Median} \\
 \hline
-    P(X \le m) \ge \frac{1}{2} &amp; m_{\text{Odd}} = x_{\frac{n+1}{2}} \\
-    P(X \ge m) \le \frac{1}{2} &amp; m_{\text{Even}} = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}}{2} \\
+    \displaystyle{P(X \le m) \ge \frac{1}{2}} &amp; \displaystyle{m_{\text{Odd}} = x_{\frac{n+1}{2}}} \\
+    \displaystyle{P(X \ge m) \le \frac{1}{2}} &amp; \displaystyle{m_{\text{Even}} = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}}{2}} \\
 \hline
 \end{array}
 \]</div>
@@ -1784,8 +1784,8 @@
     \text{Population Variance} &amp;
     \text{Sample Variance} \\
 \hline
-    \sigma^{2} = \frac{\sum (x_{i} - \mu)^{2}}{N} &amp;
-    s^{2} = \frac{\sum (x_{i} - \bar{x})^{2}}{n-1} \\
+    \displaystyle{\sigma^{2} = \frac{\sum (x_{i} - \mu)^{2}}{N}} &amp;
+    \displaystyle{s^{2} = \frac{\sum (x_{i} - \bar{x})^{2}}{n-1}} \\
 \hline
 \end{array}
 \]</div>
@@ -1810,8 +1810,8 @@
     \text{Population Standard Deviation} &amp;
     \text{Sample Standard Deviation} \\
 \hline
-    \sigma = \sqrt{\frac{\sum (x_{i} - \mu)^{2}}{N}} &amp;
-    s = \sqrt{\frac{\sum (x_{i} - \bar{x})}{n-1}} \\
+    \displaystyle{\sigma = \sqrt{\frac{\sum (x_{i} - \mu)^{2}}{N}}} &amp;
+    \displaystyle{s = \sqrt{\frac{\sum (x_{i} - \bar{x})}{n-1}}} \\
 \hline
 \end{array}
 \]</div>
@@ -1822,8 +1822,8 @@
     \text{Population Coefficient of Variation} &amp;
     \text{Sample Coefficient of Variation} \\
 \hline
-    \text{CV} = \frac{\sigma}{\mu} &amp;
-    \hat{\text{CV}} = \frac{s}{\bar{x}} \\
+    \displaystyle{\text{CV} = \frac{\sigma}{\mu}} &amp;
+    \displaystyle{\hat{\text{CV}} = \frac{s}{\bar{x}}} \\
 \hline
 \end{array}
 \]</div>
@@ -1865,8 +1865,8 @@
     \text{Population Covariance} &amp;
     \text{Sample Covariance} \\
 \hline
-    \sigma_{x, y} = \text{Cov}(X, Y) = \mu_{x, y} - \mu_{x} \cdot \mu_{y} &amp;
-    \hat{\sigma}_{x, y} = \frac{1}{n-1} \sum (x_{i} - \bar{x}) \cdot (y_{i} - \bar{y}) \\
+    \displaystyle{\sigma_{x, y} = \text{Cov}(X, Y) = \mu_{x, y} - \mu_{x} \cdot \mu_{y}} &amp;
+    \displaystyle{\hat{\sigma}_{x, y} = \frac{1}{n-1} \sum (x_{i} - \bar{x}) \cdot (y_{i} - \bar{y})} \\
 \hline
 \end{array}
 \]</div>
@@ -1882,8 +1882,8 @@
     \text{Population Correlation} &amp;
     \text{Sample Correlation} \\
 \hline
-    \rho = \text{Corr}(X, Y) = \frac{\sigma_{x, y}}{\sigma_{x} \cdot \sigma_{y}} &amp;
-    r = \frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum(x_{i} - \bar{x}) \cdot \sum(y_{i} - \bar{y})} \\
+    \displaystyle{\rho = \text{Corr}(X, Y) = \frac{\sigma_{x, y}}{\sigma_{x} \cdot \sigma_{y}}} &amp;
+    \displaystyle{r = \frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum(x_{i} - \bar{x}) \cdot \sum(y_{i} - \bar{y})}} \\
 \hline
 \end{array}
 \]</div>
@@ -1919,7 +1919,7 @@
 </div>
 <p>The Variance of an Estimator (<strong>Sampling Variance</strong>) is the spread of estimates about its mean:</p>
 <div class="arithmatex">\[
-    \text{Var}(\hat{\theta}) = E[\hat{\theta} - E(\hat{\theta})]^{2}
+    \mathrm{Var}(\hat{\theta}) = E[\hat{\theta} - E(\hat{\theta})]^{2}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1930,8 +1930,8 @@
 \begin{aligned}
     \text{MSE}(\hat{\theta})
     &amp;= E[\hat{\theta} - \theta]^{2} \\
-    &amp;= \text{Var}(\hat{\theta} - \theta) + [E(\hat{\theta} - \theta)]^{2} \\
-    &amp;= \text{Var}(\hat{\theta}) + \text{Bias}^{2}(\hat{\theta})
+    &amp;= \mathrm{Var}(\hat{\theta} - \theta) + [E(\hat{\theta} - \theta)]^{2} \\
+    &amp;= \mathrm{Var}(\hat{\theta}) + \text{Bias}^{2}(\hat{\theta})
 \end{aligned}
 \]</div>
 <div class="admonition tip">
@@ -1939,9 +1939,11 @@
 <p>The proof for the above relationship is based on the relationship between the Mean and Variance:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Var}(X) &amp;= E(X^{2}) - [E(X)]^{2} \\
-    \text{Var} &amp;= \text{MSE} - \text{Bias}^{2} \\
-    \text{MSE} &amp;= \text{Var} + \text{Bias}^{2}
+    \mathrm{Var}(X) &amp;= E(X^{2}) - [E(X)]^{2} \\
+    X &amp;= \theta - \hat{\theta} \\
+    \\
+    \therefore \mathrm{Var} &amp;= \text{MSE} - \text{Bias}^{2} \\
+    \therefore \text{MSE} &amp;= \mathrm{Var} + \text{Bias}^{2}
 \end{aligned}
 \]</div>
 </div>
@@ -1953,7 +1955,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>As seen in the above formula, MSE is not just about the spread of the estimates. An estimator which produces <strong>clustered estimates that are far from the true value</strong> has low variance, but <strong>high bias and hence high MSE</strong>.</p>
-<p>To have a low MSE, the estimator must have both low bias AND low variance:</p>
+<p>To have a low MSE, the estimator must have both a low bias AND low variance:</p>
 <p><!-- Obtained from Scott Fortman Roe -->
 <img alt="BIAS_VARIANCE" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/BIAS_VARIANCE.png" /></p>
 </div>
@@ -2235,8 +2237,8 @@
 \begin{aligned}
     t_{\nu}
     &amp;= \frac{\theta - E(\hat{\theta})}{s} \\
-    &amp;= \frac{\theta - E(\hat{\theta})}{\sqrt{\text{Var}(\hat{\theta})}} \cdot \sqrt{\frac{\text{Var}(\hat{\theta})}{s^{2}}} \\
-    &amp;= \frac{\theta - E(\hat{\theta})}{\sqrt{\text{Var}(\hat{\theta})}} \div \sqrt{\frac{s^{2}}{\text{Var}(\hat{\theta})}} \\
+    &amp;= \frac{\theta - E(\hat{\theta})}{\sqrt{\mathrm{Var}(\hat{\theta})}} \cdot \sqrt{\frac{\mathrm{Var}(\hat{\theta})}{s^{2}}} \\
+    &amp;= \frac{\theta - E(\hat{\theta})}{\sqrt{\mathrm{Var}(\hat{\theta})}} \div \sqrt{\frac{s^{2}}{\mathrm{Var}(\hat{\theta})}} \\
     &amp;= \frac{Z}{\sqrt{\frac{\chi^{2}_{\nu}}{\nu}}}
 \end{aligned}
 \]</div>

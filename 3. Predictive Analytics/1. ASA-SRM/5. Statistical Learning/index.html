@@ -1153,88 +1153,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resampling-methods" class="md-nav__link">
-    Resampling Methods
-  </a>
-  
-    <nav class="md-nav" aria-label="Resampling Methods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#validation-set" class="md-nav__link">
-    Validation Set
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loo-cross-validation" class="md-nav__link">
-    LOO Cross Validation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#k-fold-cross-validation" class="md-nav__link">
-    K fold Cross Validation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model-selection" class="md-nav__link">
-    Model Selection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#feature-selection" class="md-nav__link">
-    Feature Selection
-  </a>
-  
-    <nav class="md-nav" aria-label="Feature Selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#forward-stepwise-selection" class="md-nav__link">
-    Forward Stepwise Selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backward-stepwise-selection" class="md-nav__link">
-    Backward Stepwise Selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stepwise-selection" class="md-nav__link">
-    Stepwise Selection
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shrinkage-methods" class="md-nav__link">
-    Shrinkage Methods
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1393,88 +1311,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resampling-methods" class="md-nav__link">
-    Resampling Methods
-  </a>
-  
-    <nav class="md-nav" aria-label="Resampling Methods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#validation-set" class="md-nav__link">
-    Validation Set
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loo-cross-validation" class="md-nav__link">
-    LOO Cross Validation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#k-fold-cross-validation" class="md-nav__link">
-    K fold Cross Validation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model-selection" class="md-nav__link">
-    Model Selection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#feature-selection" class="md-nav__link">
-    Feature Selection
-  </a>
-  
-    <nav class="md-nav" aria-label="Feature Selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#forward-stepwise-selection" class="md-nav__link">
-    Forward Stepwise Selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backward-stepwise-selection" class="md-nav__link">
-    Backward Stepwise Selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stepwise-selection" class="md-nav__link">
-    Stepwise Selection
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shrinkage-methods" class="md-nav__link">
-    Shrinkage Methods
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1491,71 +1327,12 @@
 
 
 <h1 id="statistical-learning"><strong>Statistical Learning</strong><a class="headerlink" href="#statistical-learning" title="Permanent link">&para;</a></h1>
-<p>The regression concepts covered in the previous sections are widely considered to be <em>traditional applied statistics</em>. In a contemporary context, regression is just one of the many methods that fall under <strong>Statistical Learning</strong>.</p>
 <p>It is a framework of harnessing data to gain an <strong>understanding</strong> of how the data is related to one another and/or how a group of variables can be used to accurately <strong>predict</strong> another.</p>
 <p>Similar to regression, the relationship between variables can be expressed as a combination of a <strong>Signal Function</strong> and a <strong>Noise</strong> term:</p>
 <div class="arithmatex">\[
     y = f(x) + \varepsilon
 \]</div>
 <p>The two terms originate from Engineering, where <strong>Signal</strong> refers to the <em>meaningful</em> component of the data while <strong>Noise</strong> refers to the <em>random variation</em> that inteferes with the signal.</p>
-<p>Statistical learning models are distinguished based on their signal function. There are two main kinds of models:</p>
-<p><center></p>
-<table>
-<thead>
-<tr>
-<th align="center">Parametric Models</th>
-<th align="center">Non-Parametric</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Assumes DV follows a specific functional form</td>
-<td align="center">Does not assume any functional form</td>
-</tr>
-<tr>
-<td align="center">Function parameters determined from the data</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td align="center">Does not require a large amount of data</td>
-<td align="center">Requires a large amount of data to work well</td>
-</tr>
-<tr>
-<td align="center">EG. Linear Regression</td>
-<td align="center">EG. Clustering</td>
-</tr>
-</tbody>
-</table>
-<p>| May not fit the data well | Fits the data well |</p>
-<p>| Described by parameters | No parameters used |
-| Simple to implement | Requires large amount of data to implement |
-| Risk that assumed function is wrong | Does not make any assumption about data |</p>
-<p></center></p>
-<p>They can also be further split according to:</p>
-<p><center></p>
-<table>
-<thead>
-<tr>
-<th align="center">Supervised Learning</th>
-<th align="center">Unsupervised Learning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Specified DV to supervise the learning</td>
-<td align="center">No specific variable chosen</td>
-</tr>
-<tr>
-<td align="center">Inference/Prediction with respect to the DV</td>
-<td align="center">Inference/Prediction for all variables</td>
-</tr>
-<tr>
-<td align="center">EG. Linear Regression</td>
-<td align="center">EG. Clustering</td>
-</tr>
-</tbody>
-</table>
-<p></center></p>
 <p>Regression vs classification
 classification - classifying the observations to a certian level</p>
 <h2 id="model-accuracy"><strong>Model Accuracy</strong><a class="headerlink" href="#model-accuracy" title="Permanent link">&para;</a></h2>
@@ -1606,16 +1383,6 @@ classification - classifying the observations to a certian level</p>
 <p>A relatively <strong>simple model</strong> (underfitted) tends to have a <strong>high bias but low variance</strong>. As the complexity increases, the <strong>bias initially decreases more than the variance increases</strong>, causing the test MSE to fall.</p>
 <p>At some point, the model becomes <strong>too complex</strong> (overfitted), where the <strong>increase in variance outweighs the fall in bias</strong>, resulting in the U-shaped curve as seen previously.</p>
 <p>Thus, the goal is to find an optimal balance in between Bias and Variance where the test MSE is minimized.</p>
-<h2 id="resampling-methods"><strong>Resampling Methods</strong><a class="headerlink" href="#resampling-methods" title="Permanent link">&para;</a></h2>
-<h3 id="validation-set">Validation Set<a class="headerlink" href="#validation-set" title="Permanent link">&para;</a></h3>
-<h3 id="loo-cross-validation"><strong>LOO Cross Validation</strong><a class="headerlink" href="#loo-cross-validation" title="Permanent link">&para;</a></h3>
-<h3 id="k-fold-cross-validation"><strong>K fold Cross Validation</strong><a class="headerlink" href="#k-fold-cross-validation" title="Permanent link">&para;</a></h3>
-<h2 id="model-selection"><strong>Model Selection</strong><a class="headerlink" href="#model-selection" title="Permanent link">&para;</a></h2>
-<h2 id="feature-selection"><strong>Feature Selection</strong><a class="headerlink" href="#feature-selection" title="Permanent link">&para;</a></h2>
-<h3 id="forward-stepwise-selection"><strong>Forward Stepwise Selection</strong><a class="headerlink" href="#forward-stepwise-selection" title="Permanent link">&para;</a></h3>
-<h3 id="backward-stepwise-selection"><strong>Backward Stepwise Selection</strong><a class="headerlink" href="#backward-stepwise-selection" title="Permanent link">&para;</a></h3>
-<h3 id="stepwise-selection"><strong>Stepwise Selection</strong><a class="headerlink" href="#stepwise-selection" title="Permanent link">&para;</a></h3>
-<h2 id="shrinkage-methods"><strong>Shrinkage Methods</strong><a class="headerlink" href="#shrinkage-methods" title="Permanent link">&para;</a></h2>
 
 
 
