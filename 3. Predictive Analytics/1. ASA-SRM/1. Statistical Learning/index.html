@@ -1133,20 +1133,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../1.%20Regression%20Overview/" class="md-nav__link">
-        Regression Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../2.%20Simple%20Linear%20Regression/" class="md-nav__link">
         Simple Linear Regression
       </a>
@@ -1576,7 +1562,7 @@
 <h3 id="specification"><strong>Specification</strong><a class="headerlink" href="#specification" title="Permanent link">&para;</a></h3>
 <p>There exists a <strong>true relationship</strong> between the Dependent and Independent Variables:</p>
 <div class="arithmatex">\[
-    Y = f(X_{1}, X_{2}, \dots, X_{n}) + \epsilon 
+    Y = f(X_{i}) + \varepsilon 
 \]</div>
 <p>The above can be understood as the combination of:</p>
 <ul>
@@ -1586,9 +1572,9 @@
 <p>In the above, both <span class="arithmatex">\(Y\)</span> and <span class="arithmatex">\(X\)</span> are random variables. However, for statistical learning, we are interested in knowing what the value of <span class="arithmatex">\(Y\)</span> is <strong>GIVEN a set of realized <span class="arithmatex">\(X\)</span>'s</strong>. Thus, we are focused on the <strong>Conditional Distribution</strong> of <span class="arithmatex">\(Y \mid X\)</span>. The prediction is the <strong>expected value</strong> of this conditional distribution:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    Y \mid X=x &amp;\sim f(x_{1}, x_{2}, \dots, x_{n}) \\
-    E(Y \mid X=x) &amp;= E \left[f(x_{1}, x_{2}, \dots, x_{n}) \right] + E(\epsilon \mid X) \\
-    E(Y \mid X=x) &amp;= f(x_{1}, x_{2}, \dots, x_{n})
+    Y \mid X = x_{i} &amp;\sim f(x_{i}) \\
+    E(Y \mid X = x_{i}) &amp;= E \left[f(x_{i}) \right] + E(\varepsilon \mid X = x_{i}) \\
+    E(Y \mid X = x_{i}) &amp;= f(x_{i})
 \end{aligned}
 \]</div>
 <p>The signal function is known what is commonly referred to as the <strong>Regression Model</strong>.</p>
@@ -1608,16 +1594,36 @@
 <li>The mean of the error is 0, reflecting that random events are typically symmetrical</li>
 </ol>
 </div>
+<p>It is important to understand that the regression model is the <strong>MEAN, not the actual observations</strong> of <span class="arithmatex">\(Y\)</span>:</p>
 <!-- Obtained from Colorado Uni -->
 <p><img alt="CONDITIONAL_EXPECTATION" class="center" src="../Assets/1.%20Statistical%20Learning.md/CONDITIONAL_EXPECTATION.png" /></p>
-<p>It is important to understand that the regression model is the <strong>MEAN, not the actual observations</strong> of <span class="arithmatex">\(Y\)</span>:</p>
 <!-- Obtained from Cloudera -->
 <p><img alt="ERROR_TERM" class="center" src="../Assets/1.%20Statistical%20Learning.md/ERROR_TERM.png" /></p>
 <p>The true specification for the <strong>Population Regression Model</strong> (<span class="arithmatex">\(f\)</span>) is unknown. Different statistical learning methods assume a <strong>different form for <span class="arithmatex">\(f\)</span></strong>, which is then estimated based on the sample to obtain a <strong>Sample Regression Model</strong> <span class="arithmatex">\(\hat{f}\)</span>.  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The process of estimating <span class="arithmatex">\(\hat{f}\)</span> is also known as "Training" the model. It also sometimes referred to as "Fitting" the model to the data.</p>
-<p>It can also be intepreted that <span class="arithmatex">\(\hat{f}\)</span> is the <strong>estimator of the mean of the conditional distribution</strong>.</p>
+</div>
+<p>The fitted <span class="arithmatex">\(\hat{f}\)</span> is the <strong>estimator of the mean of the conditional distribution</strong>. Consequently, the difference between the observation and the fitted model is known as the <strong>Residual</strong>, which is the <strong>estimator of the error</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{i}
+    &amp;= \hat{f} + \hat{\varepsilon} \\
+    &amp;= \widehat{E(Y \mid X)} + \hat{\varepsilon} \\
+    &amp;= \hat{y} + \hat{\varepsilon}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For simplicity, the estimate of the mean of the conditional distribution is denoted as <span class="arithmatex">\(\hat{y}\)</span>. <strong>DO NOT</strong> confuse this as the estimate of the actual observation!</p>
+<p>The residuals are also sometimes noted as <span class="arithmatex">\(e_{i}\)</span> for convenience.</p>
+</div>
+<!-- Self Made -->
+<p><img alt="ERROR_VS_RESIDUALS" class="center" src="../Assets/1.%20Statistical%20Learning.md/ERROR_VS_RESIDUALS.png" /></p>
+<p>If <span class="arithmatex">\(\hat{f}\)</span> was correctly specified and fitted, the resulting residuals should exhibit the <strong>same characteristics</strong> as the underlying errors. This is important, as many statistical learning methods make <strong>assumptions about the nature of the Errors</strong>. Thus, the residuals can be used to <strong>check the validity of the assumptions</strong> or make other inferences.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For simplicity, the above diagrams were illustrated using Simple Linear Regression. However, the concepts apply more generally to all statistical learning methods.</p>
 </div>
 <h3 id="evaluation"><strong>Evaluation</strong><a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h3>
 <p>The main goal of the model is to be <strong>used for prediction</strong>. Thus, the strength of the model should be evaluated based on its ability to make <strong>accurate predictions</strong>.</p>
@@ -1674,7 +1680,7 @@
 <div class="arithmatex">\[
     \text{MSE}
     = \underbrace{(\text{Bias}[f(x_{1}, x_{2}, \dots, x_{n})])^{2} + \mathrm{Var}[f(x_{1}, x_{2}, \dots, x_{n})]}_{\text{Reducible}}
-    + \underbrace{\mathrm{Var}(\epsilon)}_{\text{Irreducible}}
+    + \underbrace{\mathrm{Var}(\varepsilon)}_{\text{Irreducible}}
 \]</div>
 <ul>
 <li><strong>Reducible</strong>: Error stemming from the <strong>choice</strong> of <span class="arithmatex">\(\hat{f}\)</span></li>
@@ -1737,6 +1743,7 @@
 <p>In an extreme example, the confidence interval will <strong>shrink to 0</strong> as the sample size increases to the population, but the prediction interval will always <strong>at least be equal to the variance of the error</strong>.</p>
 </div>
 <h2 id="classification-problems"><strong>Classification Problems</strong><a class="headerlink" href="#classification-problems" title="Permanent link">&para;</a></h2>
+<p>TBC</p>
 
 
 
@@ -1773,13 +1780,13 @@
       
       
         
-        <a href="../1.%20Regression%20Overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Regression Overview" rel="next">
+        <a href="../2.%20Simple%20Linear%20Regression/" class="md-footer__link md-footer__link--next" aria-label="Next: Simple Linear Regression" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Regression Overview
+              Simple Linear Regression
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -1222,6 +1222,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    ANOVA
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1276,20 +1283,6 @@
     <li class="md-nav__item">
       <a href="../1.%20Statistical%20Learning/" class="md-nav__link">
         Statistical Learning
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../1.%20Regression%20Overview/" class="md-nav__link">
-        Regression Overview
       </a>
     </li>
   
@@ -1654,6 +1647,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    ANOVA
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1798,10 +1798,11 @@
 <li><strong>Other Mathematical properties</strong> which makes it <strong>easier to manipulate</strong> (EG. Variance of sum of independent variables is the sum of the individual variances)</li>
 </ul>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The division by <span class="arithmatex">\(n-1\)</span> rather than <span class="arithmatex">\(n\)</span> in the sample variance is known as <strong>Bessel's Correction</strong>, to ensure that the resulting sample variance is an <strong>Unbiased estimator</strong> of the population variance. It is not necessary to know the proof for the purposes of this exam.</p>
-<p>Additionally, Bessel's Correction <strong>only affects the sample variance</strong> - the resulting sample SD is a biased estimator.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The variance is essentially the mean of the squared deviations from the mean. Thus, it is sometimes also referred to as the <strong>Mean Squared</strong>.</p>
+<p>However, it is not truly the "mean" as the division is by <span class="arithmatex">\(n-1\)</span> rather than <span class="arithmatex">\(n\)</span>. This is a result of <strong>Bessel's Correction</strong>, which ensures that the resulting sample variance is an <strong>Unbiased Estimator</strong> of the population variance. It is not necessary to know the proof for the purposes of this exam.</p>
+<p>Additionally, Bessel's Correction <strong>only affects the sample variance</strong> - the resulting sample SD is a BIASED estimator.</p>
 </div>
 <p>However, the units of the variance are squared, which makes it hard to <strong>hard to interpret</strong>. Thus, the <strong>Standard Deviation</strong> (SD) which is the square root of the variance is also considered:</p>
 <div class="arithmatex">\[
@@ -2013,7 +2014,7 @@
 \end{aligned}
 \]</div>
 <!-- Obtained from Analyst Prep -->
-<p><img alt="95% Confidence Interval" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
+<p><img alt="95% Confidence Interval" src="Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The confidence interval will <strong>gradually shrink to 0 as the sample size approaches the population size</strong>. Intuitively, this is because if the sample = population, then there is no more uncertainty; the resulting statistic IS the population parameter!</p>
@@ -2126,7 +2127,7 @@
 <p>The area bounded by the critical value (area of the significance level) is known as the <strong>Critical Region</strong>.</p>
 </div>
 <!-- Obtained from Zscore geek -->
-<p><img alt="Hypothesis Testing" class="center" src="../Assets/3.%20Review%20of%20Statistical%20Theory.md/Hypothesis%20Testing.png" /></p>
+<p><img alt="Hypothesis Testing" class="center" src="Assets/3.%20Review%20of%20Statistical%20Theory.md/Hypothesis%20Testing.png" /></p>
 <h2 id="normal-sampling-distribution"><strong>Normal Sampling Distribution</strong><a class="headerlink" href="#normal-sampling-distribution" title="Permanent link">&para;</a></h2>
 <p>Many commonly studied sampling distributions can be shown to be <strong>normally distributed</strong>. However, it can also be <strong>transformed to a variety of other distributions</strong> that are commonly used in Statistical Theory.</p>
 <h3 id="standard-normal-distribution"><strong>Standard Normal Distribution</strong><a class="headerlink" href="#standard-normal-distribution" title="Permanent link">&para;</a></h3>
@@ -2369,6 +2370,30 @@
 \end{aligned}
 \]</div>
 <p>Thus, if the two variances are not equal, the statistic would not follow a F-distribution and hence result in extreme values (relative to the F-distribution).</p>
+<h4 id="anova"><strong>ANOVA</strong><a class="headerlink" href="#anova" title="Permanent link">&para;</a></h4>
+<p>Although F-tests compare variances, they can be used to make inferences about the mean as well. This is done through a process known as <strong>Analysis of Variance</strong> (ANOVA).</p>
+<p>Under ANOVA, the F-test can be restated as:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F_{\text{Statistic}}
+    &amp;= \frac{\text{Variance Between Groups}}{\text{Variance Within Groups}} \\
+    &amp;= \frac{\text{Explained Variance}}{\text{Unexplained Variance}}
+\end{aligned}
+\]</div>
+<p>By the <strong>Law of Total Variance</strong>, variance can be decomposed into two components:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Var(X)}
+    &amp;= E_{Y}[\text{Var}(X \mid Y)] + \text{Var}_{Y}[E_{Y}(X \mid Y)] \\
+    &amp;= \text{Variance Within Groups} + \text{Variance Between Groups} \\
+    &amp;= \text{Unexplained Variance} + \text{Explained Variance}
+\end{aligned}
+\]</div>
+<ul>
+<li><strong>Variance Within Groups</strong>: Variance within the distribution of <span class="arithmatex">\(X \mid Y\)</span> for a given <span class="arithmatex">\(Y\)</span> (<strong>Noise</strong>)</li>
+<li><strong>Variance Between Groups</strong>: Variance between the means of <span class="arithmatex">\(X \mid Y\)</span> for different <span class="arithmatex">\(Y\)</span> (<strong>Signal</strong>)</li>
+</ul>
+<p>The key is to identify if any differences between groups is <strong>due to a true difference between groups, or if it is due to random variation</strong>. ANOVA uses the variance within groups as a benchmark - if the variance between groups is significantly larger, then it is likely that there is a <strong>true difference</strong> in the two groups.</p>
 <h2 id="maximum-likelihood-estimation"><strong>Maximum Likelihood Estimation</strong><a class="headerlink" href="#maximum-likelihood-estimation" title="Permanent link">&para;</a></h2>
 <p>If the <strong>population distribution is known</strong>, there is an <strong>alternative method of estimating</strong> the parameters apart from calculating the corresponding sample statistics, known as <strong>Maximum Likelihood Estimation</strong> (MLE).</p>
 <p>There are an infinite number of <strong>variations of the distribution</strong> that could have resulted in the sample, each with <strong>different parameters</strong>.</p>

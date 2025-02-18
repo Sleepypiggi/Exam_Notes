@@ -1042,20 +1042,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../1.%20Regression%20Overview/" class="md-nav__link">
-        Regression Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -1092,71 +1078,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ordinary-least-squares" class="md-nav__link">
-    Ordinary Least Squares
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
-  
-    <nav class="md-nav" aria-label="Ordinary Least Squares">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ols-properties" class="md-nav__link">
-    OLS Properties
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    ANOVA
+  </a>
+  
+    <nav class="md-nav" aria-label="ANOVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#goodness-of-fit" class="md-nav__link">
     Goodness of Fit
   </a>
   
-    <nav class="md-nav" aria-label="Goodness of Fit">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#null-model" class="md-nav__link">
-    Null Model
-  </a>
-  
 </li>
         
           <li class="md-nav__item">
-  <a href="#sum-of-squares" class="md-nav__link">
-    Sum of Squares
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#degrees-of-freedom" class="md-nav__link">
-    Degrees of Freedom
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mean-squared" class="md-nav__link">
-    Mean Squared
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#f-statistic" class="md-nav__link">
-    F Statistic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anova-table" class="md-nav__link">
-    ANOVA Table
+  <a href="#f-test" class="md-nav__link">
+    F-Test
   </a>
   
 </li>
@@ -1198,6 +1150,13 @@
           <li class="md-nav__item">
   <a href="#prediction-intervals" class="md-nav__link">
     Prediction Intervals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ols-properties" class="md-nav__link">
+    OLS Properties
   </a>
   
 </li>
@@ -1388,71 +1347,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ordinary-least-squares" class="md-nav__link">
-    Ordinary Least Squares
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
-  
-    <nav class="md-nav" aria-label="Ordinary Least Squares">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ols-properties" class="md-nav__link">
-    OLS Properties
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    ANOVA
+  </a>
+  
+    <nav class="md-nav" aria-label="ANOVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#goodness-of-fit" class="md-nav__link">
     Goodness of Fit
   </a>
   
-    <nav class="md-nav" aria-label="Goodness of Fit">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#null-model" class="md-nav__link">
-    Null Model
-  </a>
-  
 </li>
         
           <li class="md-nav__item">
-  <a href="#sum-of-squares" class="md-nav__link">
-    Sum of Squares
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#degrees-of-freedom" class="md-nav__link">
-    Degrees of Freedom
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mean-squared" class="md-nav__link">
-    Mean Squared
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#f-statistic" class="md-nav__link">
-    F Statistic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anova-table" class="md-nav__link">
-    ANOVA Table
+  <a href="#f-test" class="md-nav__link">
+    F-Test
   </a>
   
 </li>
@@ -1498,6 +1423,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ols-properties" class="md-nav__link">
+    OLS Properties
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1519,98 +1451,446 @@
 
 
 <h1 id="simple-linear-regression"><strong>Simple Linear Regression</strong><a class="headerlink" href="#simple-linear-regression" title="Permanent link">&para;</a></h1>
-<p><strong>Simple Linear Regression</strong> (SLR) assumes a <strong>Linear Relationship</strong> between a <strong>Numeric</strong> DV and <em>single</em> continuous quantitative IV. The model is considered to be <em>simple</em> because it only contains a <em>single</em> independent variable.</p>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>One of the most basic forms of statistical learning is known as <strong>Simple Linear Regression</strong> (SLR). It is a <strong>supervised and parametric</strong> method which assumes that the Dependent and Independent variable have a <strong>linear relationship</strong>:</p>
 <div class="arithmatex">\[
-E(Y|X) = \beta_0 + \beta_1 X
+\begin{aligned}
+    f &amp;= \beta_{0} + \beta_{1} \cdot X \\
+    \\
+    \therefore E(Y \mid X = x_{i}) &amp;= \beta_{0} + \beta_{1} \cdot x_{i} \\
+    \therefore y_{i} &amp;= \beta_{0} + \beta_{1} \cdot x_{i} + \varepsilon_{i}
+\end{aligned}
 \]</div>
+<ul>
+<li><strong>Intercept Parameter</strong> (<span class="arithmatex">\(\beta_{0}\)</span>): <strong>Expected value</strong> of <span class="arithmatex">\(Y\)</span> when <span class="arithmatex">\(X = 0\)</span></li>
+<li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{1}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X\)</span> </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The intepretation uses EXPECTED to emphasise that the model is predicting <span class="arithmatex">\(E(Y \mid X)\)</span>, NOT <span class="arithmatex">\(Y\)</span> itself.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The model is called "Simple" because it only contains a <em>single</em> independent variable.</p>
+</div>
+<h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
+<p>The model is fitted using the <strong>Ordinary Least Squares</strong> (OLS) method. The parameters are estimated such that the resulting fitted model <strong>minimizes the sum of squared residuals</strong>, also known as the <strong>Residual Sum Squared</strong> (RSS):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{RSS}
+    &amp;= \sum (y_{i} - \hat{y})^{2} \\
+    &amp;= \sum [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i})]^{2}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The SQUARED residuals are taken to avoid offsetting effects between the positive and negative residuals.</p>
+</div>
+<p>The minimization is done through calculus by setting the <strong>partial derivatives</strong> for each parameter to 0:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{\partial}{\partial \beta_{0}} \text{RSS} &amp;= 0 \\
+    -2 \sum [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i})] &amp;= 0 \\
+    \sum y_{i} - \hat{\beta}_{0} \sum 1  - \hat{\beta}_{1} \sum  x_{i} &amp;= 0 \\
+    n \bar{y} - \hat{\beta}_{0} \cdot n - \hat{\beta}_{1} \cdot n \bar{x} &amp;= 0 \\
+    \\
+    \therefore \hat{\beta}_{0} &amp;= \bar{y} - \hat{\beta}_{1} \cdot \bar{x}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are two points to note for the above proof:</p>
+<ol>
+<li><span class="arithmatex">\(\hat{\beta}_{0}\)</span> and <span class="arithmatex">\(\hat{\beta}_{1}\)</span> are <strong>constants</strong> in the above equation</li>
+<li>The sum of all observations can be <strong>equivalently expressed</strong> as the average multiplied by the number of observations; <span class="arithmatex">\(\sum x_{i} = n \cdot \bar{x}\)</span></li>
+</ol>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{\partial}{\partial \beta_{1}} \text{RSS} &amp;= 0 \\
+    -2 \sum x_{i} [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i})] &amp;= 0 \\
+    \sum (y_{i} x_{i}) - \hat{\beta}_{0} \sum x_{i} - \hat{\beta}_{1} \sum x^{2}_{i} &amp;= 0 \\
+    \sum (y_{i} x_{i}) - (\bar{y} - \hat{\beta}_{1} \bar{x}) \sum x_{i} - \hat{\beta}_{1} \sum x^{2}_{i} &amp;= 0 \\
+    \sum (y_{i} x_{i}) - \bar{y} \sum x_{i} + \hat{\beta}_{1} \bar{x} \sum x_{i} - \hat{\beta}_{1} \sum x^{2}_{i} &amp;= 0 \\
+    \sum (y_{i} x_{i}) - \bar{y} \cdot n\bar{x} + \hat{\beta}_{1} \bar{x} \cdot n \bar{x} - \hat{\beta}_{1} \sum x^{2}_{i} &amp;= 0 \\
+    \sum (y_{i} x_{i}) - n\bar{x}\bar{y} &amp;= \hat{\beta}_{1} \sum (x^{2}_{i}) - n\bar{x}^{2} \\
+    \\
+    \therefore \hat{\beta}_{1}
+    &amp;= \frac{\sum (x_{i} y_{i}) - n\bar{x}\bar{y}}{\sum (x_{i}^{2}) - n\bar{x}^{2}} \\
+    &amp;= \frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum (x_{i} - \bar{x})^{2}} \\
+    &amp;= r_{x,y} \cdot \frac{s_{y}}{s_{x}}
+\end{aligned}
+\]</div>
+<p>Graphically, the fitted model will be the <strong>line of best fit</strong> that passes through the sample; the line will pass through the <strong>middle of all observations</strong>, with a <strong>roughly equal residuals above and below</strong> the line:</p>
+<!-- Obtained from ISLR -->
+<p><img alt="BEST_FIT_LINE" class="center" src="Assets/2.%20Simple%20Linear%20Regression.md/Fitted%20Regression%20Line.png" /></p>
+<h2 id="anova"><strong>ANOVA</strong><a class="headerlink" href="#anova" title="Permanent link">&para;</a></h2>
+<h3 id="goodness-of-fit"><strong>Goodness of Fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h3>
+<p><strong>Goodness of Fit</strong> refers to how well the fitted the model can explain the sample data. Residuals are essentially the <strong>unexplained portion</strong> of the sample - the smaller the residuals, the <strong>better the fit</strong> of the model.</p>
+<p>The <strong>RSS</strong> from before is used to quantify the residuals. As stated before, the squared nature makes it ideal as it prevents offsetting effects from positive and negative residuals.</p>
+<p>However, the RSS on its own is not very meaningful as there is <strong>no indication on what is a "high" or "low" value</strong>. Thus, we consider a <strong>Total Sum of Squares</strong> (TSS) to use as a benchmark:</p>
+<div class="arithmatex">\[
+    \text{TSS} = \sum (y_{i} - \bar{y})^{2}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The TSS is the RSS for a special model known as the <strong>Null Model</strong>, which ONLY contains the intercept parameter (<span class="arithmatex">\(\beta_{0}\)</span>). Using OLS, the output of the null model will always be the <strong>sample mean of the dependent variable</strong> <span class="arithmatex">\(\bar{y}\)</span>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{i} &amp;= \hat{\beta_{0}} + \hat{\varepsilon} \\
+    \\
+    -2 \sum (y_{i} - \hat{\beta_{0}}) &amp;= 0 \\
+    n \bar{y} - n \hat{\beta_{0}} &amp;= 0 \\
+    \hat{\beta_{0}} &amp;= \bar{y} \\
+    \\
+    \therefore \hat{y} &amp;= \bar{y}
+\end{aligned}
+\]</div>
+<p>Due to this, the RSS will always be <strong>at least smaller than or equal to</strong> the TSS as it contains additional components to explain the variation.</p>
+</div>
+<p>Intuitively, the TSS represents the <strong>inherent variation</strong> in the sample; notice that it is essentially the numerator of the <strong>sample variance</strong>.</p>
+<p>The TSS can be then decomposed into two parts to further aid analysis:</p>
+<ul>
+<li><strong>TSS</strong>: Total Sum of Squares; <strong>inherent variation</strong> in the sample</li>
+<li><strong>RSS</strong>: Residual Sum of Squares; <strong>unexplained variation</strong> (Hence residual)</li>
+<li><strong>RegSS</strong>: Regression Sum of Squares; <strong>explained variation</strong> (Hence regression)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{TSS}
+    &amp;= \sum (y_{i} - \bar{y})^{2} \\
+    &amp;= \sum[(y_{i} - \hat{y}) + (\hat{y} - \bar{y})]^{2} \\
+    &amp;= \sum(y_{i} - \hat{y})^{2} + \sum(\hat{y} - \bar{y})^{2} + 2 \sum \left([y_{i} - \hat{y}][\hat{y}-\bar{y}] \right) \\
+    &amp;= \sum(y_{i} - \hat{y})^{2} + \sum(\hat{y} - \bar{y})^{2} + 0 \\
+    &amp;= \text{RSS} + \text{RegSS}
+\end{aligned}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The proof for why the last term is equal to 0 is beyond the scope of this exam. It is sufficient to know the result.</p>
+</div>
+<p>The Goodness of Fit can be measured by the <strong>proportion of inherent variation that is explained</strong> by the regression, known as the <strong>Coefficient of Variation</strong>:</p>
+<div class="arithmatex">\[
+    R^{2} = \frac{\text{RegSS}}{\text{TSS}} = 1 - \frac{\text{RSS}}{\text{TSS}}
+\]</div>
+<!-- Self Made -->
+<p><img alt="SUM_OF_SQUARES" class="center" src="../Assets/2.%20Simple%20Linear%20Regression.md/SUM_OF_SQUARES.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some texts may use different terminology for the above terms:</p>
 <p><center></p>
 <table>
 <thead>
 <tr>
-<th align="center"><span class="arithmatex">\(\beta_0\)</span></th>
-<th align="center"><span class="arithmatex">\(\beta_1\)</span></th>
+<th align="center"><strong>Current Terminology</strong></th>
+<th align="center"><strong>Alternate Terminology</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>Expected value</strong> of <span class="arithmatex">\(Y\)</span> when <span class="arithmatex">\(X = 0\)</span></td>
-<td align="center"><strong>Change in the expected value</strong> of <span class="arithmatex">\(Y\)</span> given a one unit increase in <span class="arithmatex">\(X\)</span></td>
+<td align="center">Total Sum of Squares (TSS)</td>
+<td align="center">Sum of Squared Total (SST)</td>
 </tr>
 <tr>
-<td align="center">Intercept Parameter</td>
-<td align="center">Slope Parameter</td>
+<td align="center">Residual Sum of Squares (RSS)</td>
+<td align="center">Sum of Squared Errors (SSE)</td>
+</tr>
+<tr>
+<td align="center">Regression sum of Squares (RegSS)</td>
+<td align="center">Sum of Squared Regression (SSR)</td>
 </tr>
 </tbody>
 </table>
 <p></center></p>
-<p>Each observation can also be expressed as sum of the regression and its error term:</p>
+<p>There is no universally accepted terminology; both are acceptable. <strong>The key is not to confuse RSS with SSR</strong>. They are using the same letters but are completely different.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two <strong>alternate expressions</strong> for the above concepts:</p>
+<ul>
+<li>RegSS can be expressed as a function of the Slope Parameter</li>
+<li>Coefficient of determination can be expressed as a function of the sample correlation</li>
+</ul>
 <div class="arithmatex">\[
-y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+\begin{align}
+    \text{RegSS}
+    &amp;= \sum(\hat{y} - \bar{y})^{2} \\
+    &amp;= \sum(\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i} - \bar{y})^{2} \\
+    &amp;= \sum[(\bar{y} - \hat{\beta}_{1} \cdot \bar{x}) + \hat{\beta}_{1} \cdot x_{i} - \bar{y}]^{2} \\
+    &amp;= \sum[\hat{\beta}_{1} (x_{i} - \bar{x})]^{2} \\
+    &amp;= \hat{\beta}^{2}_{1} \sum(x_{i} - \bar{x})^{2} \\
+\end{align}
 \]</div>
-<h2 id="ordinary-least-squares"><strong>Ordinary Least Squares</strong><a class="headerlink" href="#ordinary-least-squares" title="Permanent link">&para;</a></h2>
-<p>SLR parameters are estimated using the <strong>Ordinary Least Squares</strong> method, which minimizes the <strong>Sum of Squared Residuals</strong> of the fitted model. It is commonly referred to as the <strong>Residual Sum Squared</strong> (RSS).</p>
-<div class="arithmatex">\[
-RSS = \sum y_i - \hat{y} =\sum [y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i)]^2
-\]</div>
-<p>The minimization is solved through calculus by setting the partial derivatives of the RSS to 0:</p>
-<p>For the intercept parameter,</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\frac{\partial}{\partial \beta_0} RSS &amp;= 0 \\
--2 \sum [y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i)] &amp;= 0 \\
-\sum y_i - \sum \hat{\beta}_0 - \sum \hat{\beta}_1 x &amp;= 0 \\
-n\bar{y} -n\hat{\beta}_0 - n\hat{\beta}_1 \bar{x} &amp;= 0 \\
+    R^{2}
+    &amp;= \frac{\text{RegSS}}{\text{TSS}} \\
+    &amp;= \frac{\hat{\beta}^{2}_{1} \sum(x_{i} - \bar{x})^{2}}{\sum (y_{i} - \bar{y})^{2}} \\
+    &amp;= \left(\frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum (x_{i} - \bar{x})^{2}}\right)^{2}
+        \cdot \frac{\sum(x_{i} - \bar{x})^{2}}{\sum (y_{i} - \bar{y}) ^{2}} \\
+    &amp;= \frac{\sum (x_{i} - \bar{x})^{2} (y_{i} - \bar{y})^{2}}{\sum (x_{i} - \bar{x})^4}
+        \cdot \frac{\sum(x_{i} - \bar{x})^{2}}{\sum (y_{i} - \bar{y}) ^{2}} \\
+    &amp;= \frac{\sum (x_{i} - \bar{x})^{2} (y_{i} - \bar{y})^{2}}{\sum (x_{i} - \bar{x})^{2} \sum (y_{i} - \bar{y})^{2}} \\
+    &amp;= \left(\frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum (x_{i} - \bar{x}) \sum (y_{i} - \bar{y})}\right)^{2} \\
+    &amp;= r_{x,y}^{2}
 \end{aligned}
 \]</div>
-<div class="arithmatex">\[\therefore \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}\]</div>
-<p>For the slope parameter,</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The decomposition of total variance (TSS) into explainable (RegSS) and unexplainable (RSS) components is known as an ANOVA process.</p>
+</div>
+<h3 id="f-test"><strong>F-Test</strong><a class="headerlink" href="#f-test" title="Permanent link">&para;</a></h3>
+<p>Using the above ANOVA components, an F-test can be conducted to determine if there is a true relationship between <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}\)</span>: <span class="arithmatex">\(\beta_{1} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}\)</span>: <span class="arithmatex">\(\beta_{1} \ne 0\)</span></li>
+</ul>
+<p>However, an F-test uses <strong>Variance</strong> while the ANOVA components are <strong>sum of squared deviations</strong>. Thus, they can be coverted into "Variances" by <strong>dividing by their degrees of freedom</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Source</strong></th>
+<th align="center"><strong>Sum of Squares</strong></th>
+<th align="center"><strong>df</strong></th>
+<th align="center"><strong>Variance/Mean Squared</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Regression</strong></td>
+<td align="center">RegSS</td>
+<td align="center"><span class="arithmatex">\(1\)</span></td>
+<td align="center"><span class="arithmatex">\(\sigma^{2}_{\text{RegSS}} = \frac{\text{RegSS}}{1}\)</span></td>
+</tr>
+<tr>
+<td align="center"><strong>Residuals</strong></td>
+<td align="center">RSS</td>
+<td align="center"><span class="arithmatex">\(n-2\)</span></td>
+<td align="center"><span class="arithmatex">\(\sigma^{2}_\text{RSS} = \frac{\text{RSS}}{n-1}\)</span></td>
+</tr>
+<tr>
+<td align="center"><strong>Total</strong></td>
+<td align="center">TSS</td>
+<td align="center"><span class="arithmatex">\(n-1\)</span></td>
+<td align="center"><span class="arithmatex">\(\sigma^{2}_\text{TSS} = \frac{\text{TSS}}{n-1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some texts refer to the Mean Square of Residuals as the <strong>Mean Square Error</strong> (MSE). This is because residuals and errors are used interchangeably. However, to avoid confusion within the notes, we avoid that notation.</p>
+<p>Also note that the Mean Square of Total is essentially the unbiased sample variance.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The degrees of freedom for the different components can be tricky to understand.</p>
+<p>TSS is the deviations of the <strong>observations from the mean</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but one degree of freedom has been <strong>used up by the mean</strong>; <span class="arithmatex">\(\nu = n - 1\)</span>.</p>
+<p>RSS is the deviations of the <strong>observations from the prediction</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but two degrees of freedom has been <strong>used up by the Intercept and Slope</strong>; <span class="arithmatex">\(\nu = n-2\)</span>.</p>
+<p>RegSS is the deviations of the <strong>prediction from the sample mean</strong>. Since the prediction only relies on a <strong>single input</strong>, there is only one degree of freedom; <span class="arithmatex">\(\nu = 1\)</span>.</p>
+<p>Alternatively, since <span class="arithmatex">\(\text{v} = \text{RegSS} + \text{RSS}\)</span>, the degrees of freedom should follow the same sum. Thus, RegSS must have one degree of freedom.</p>
+</div>
+<p>Thus, the F-statistic can be constructed:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\frac{\partial}{\partial \beta_1} RSS &amp;= 0 \\
--2 \sum x_i [y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i)] &amp;= 0 \\
-\sum (y_i x_i) - \hat{\beta}_0 \sum x_i - \hat{\beta}_1 \sum x^2_i &amp;= 0 \\
-\sum (y_i x_i) - (\bar{y} - \hat{\beta}_1 \bar{x}) \sum x_i - \hat{\beta}_1 \sum x^2_i &amp;= 0 \\
-\sum (y_i x_i) - n\bar{x}\bar{y} + n\hat{\beta}_1 \bar{x}^2 - \hat{\beta}_1 \sum x^2_i &amp;= 0 \\
-\sum (y_i x_i) - n\bar{x}\bar{y} &amp;= \hat{\beta}_1 \sum (x^2_i) - n\bar{x}^2 \\
+    \text{F}_{\text{Statistic}}
+    &amp;= \frac{\text{Between-Group-Variance}}{\text{Within-Group-Variance}} \\
+    &amp;= \frac{\sigma^{2}_{\text{RegSS}}}{\sigma^{2}_\text{RSS}} \\
+    \\
+    \text{F}_{\text{Statistic}} &amp;\sim F_{1, n-2}
+\end{aligned}
+\]</div>
+<p>The key is understanding that if the null is true (no relationship), then the RegSS and RSS are both noise and will have similar variances. Thus, the ratio of the two will have an F-distribution.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The F-statistic can also be re-expressed as a function of <span class="arithmatex">\(R^{2}\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{F}_{\text{Statistic}}
+    &amp;= \frac{\sigma^{2}_{\text{RegSS}}}{\sigma^{2}_\text{RSS}} \\
+    &amp;= \frac{\frac{\text{RegSS}}{1}}{\frac{\text{RSS}}{n-2}} \\
+    &amp;= \frac{\text{RegSS}}{\text{RSS}} \cdot (n-2) \\
+    &amp;= \frac{\text{TSS} - \text{RSS}}{\text{RSS}} \cdot (n-2) \\
+    &amp;= \frac{\frac{\text{TSS} - \text{RSS}}{\text{TSS}}}{\frac{\text{RSS}}{\text{TSS}}} \cdot (n-2) \\
+    &amp;= \frac{R^{2}}{1 - R^{2}} \cdot (n-2)
+\end{aligned}
+\]</div>
+</div>
+<h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
+<h3 id="sampling-distributions"><strong>Sampling Distributions</strong><a class="headerlink" href="#sampling-distributions" title="Permanent link">&para;</a></h3>
+<p>Since the errors are assumed to be normally distributed, then <span class="arithmatex">\(Y\)</span> is assumed to be normally distributed as well. Since <span class="arithmatex">\(Y\)</span> is a linear combination of the regression parameters, then the parameters (&amp; their estimates) are <strong>normally distributed</strong> as well.</p>
+<p>Both estimates can be <strong>expressed in another form</strong> that makes it <em>more convenient</em> to find their expectation &amp; variances.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\hat{\beta}_{1}
+&amp;= \frac{\sum [(x_{i} - \bar{x})(y_{i} - \bar{y})]}{\sum (x_{i} - \bar{x})^{2}} \\
+&amp;= \frac{\sum (x_{i} - \bar{x})y_{i}}{\sum (x^{2}_{i} - \bar{x})} - \frac{\bar{y} \sum (x_{i} - \bar{x})}{\sum (x^{2}_{i} - \bar{x})} \\
+&amp;= \sum \frac{(x_{i} - \bar{x})}{(x^{2}_{i} - \bar{x})}* y_{i} - 0 \\
+&amp;= \sum w_{i} * y_{i} \\
+\\
+\hat{\beta}_{0}
+&amp;= \bar{y} - \hat{\beta}_{1} \bar{x} \\
+&amp;= \frac{1}{n} \sum y_{i} - \bar{x} \sum w_{i} * y_{i} \\
+&amp;= \sum y_{i} (\frac{1}{n} - \bar{x}w_{i})
+\end{aligned}
+\]</div>
+<p><span class="arithmatex">\(w_{i}\)</span> is a sort of "weight" parameter of the sum of squares. It has three interesting properties that makes it useful:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\sum w_{i}
+&amp;= \frac{\sum (x_{i} - \bar{x})}{\sum (x_{i} - \bar{x})^{2}} \\
+&amp;= \frac{n\bar{x}-n\bar{x}}{\sum (x_{i} - \bar{x})^{2}} \\
+&amp;= \frac{0}{\sum (x^{2}_{i} - \bar{x})} \\
+&amp;= 0 \\
+\\
+\sum w_{i} x_{i}
+&amp;= \frac{\sum x_{i}(x_{i} - \bar{x})}{\sum (x_{i} - \bar{x})^{2}} \\
+&amp;= \frac{\sum (x^{2}_{i} - \bar{x} \sum x_{i})}{\sum x^{2}_{i} - 2\bar{x}\sum x_{i} + \sum \bar{x}^{2}} \\
+&amp;= \frac{\sum x^{2}_{i} - \bar{x}(n \bar{x})}{\sum x^{2}_{i} - 2\bar{x}(n\bar{x}) + n\bar{x}^{2}} \\
+&amp;= \frac{\sum x^{2}_{i} - n\bar{x}^{2}}{\sum x^{2}_{i} - 2n\bar{x}^{2} + n\bar{x}^{2}} \\
+&amp;=\frac{\sum x^{2}_{i} - n\bar{x}^{2}}{\sum x^{2}_{i} - n\bar{x}^{2}} \\
+&amp;= 1 \\
+\\
+\sum w_{i}^{2}
+&amp;= \frac{\sum (x_{i} - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^4} \\
+&amp;= \frac{1}{\sum (x_{i} - \bar{x})^{2}} \\
+\\
+\sum (\frac{1}{n} - \bar{x}w_{i})
+&amp;= n(\frac{1}{n}) - \bar{x} \sum w_{i} \\
+&amp;= 1 - 0 \\
+&amp;= 1 \\
+\\
+\sum (\frac{1}{n} - \bar{x}w_{i})x_{i}
+&amp;= \frac{1}{n} \sum x_{i} - \bar{x} \sum w_{i} x_{i} \\
+&amp;= \frac{1}{n} (n\bar{x}) - \bar{x} (1) \\
+&amp;= \bar{x} - \bar{x} \\
+&amp;= 0
+\end{aligned}
+\]</div>
+<p>Using this, the Expectation &amp; Variance can be determined:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+E(\hat{\beta}_{1})
+&amp;= \sum w_{i} E(y_{i}) \\
+&amp;= \sum w_{i} E(\beta_{0} + \beta_{1} x_{i}) \\
+&amp;= \beta_{0} \sum w_{i} + \beta_{1} \sum w_{i} x_{i} \\
+&amp;= \beta_{0} (0) + \beta_{1} (1) \\
+&amp;= \beta_{1}\\
+\\
+Var(\hat{\beta}_{1})
+&amp;= Var(\sum w_{i} y_{i}) \\
+&amp;= \sum w_{i}^{2} Var (y_{i}) \\
+&amp;= \frac{1}{\sum (x_{i} - \bar{x})^{2}} \\
+&amp;= \frac{\sigma^{2}}{\sum (x_{i} - \bar{x})^{2}}
 \end{aligned}
 \]</div>
 <div class="arithmatex">\[
-\therefore \hat{\beta}_1
-= \frac{\sum (x_i y_i) - n\bar{x}\bar{y}}{\sum (x_i^2) - n\bar{x}^2}
-= \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}
-= r * \frac{s_y}{s_x}
+\therefore \hat{\beta}_{1} \sim N(\beta_{1}, \frac{\sigma^{2}}{\sum (x_{i} - \bar{x})^{2}})
 \]</div>
-<p>This results in the following fitted regression model, which can be graphically expressed as a <strong>Regression Line</strong>:</p>
 <div class="arithmatex">\[
-\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x_i
+\begin{aligned}
+E(\hat{\beta}_{0})
+&amp;= \sum (\frac{1}{n} - \bar{x}w_{i}) E(y_{i}) \\
+&amp;= \sum (\frac{1}{n} - \bar{x}w_{i}) (\beta_{0} + \beta_{1} x_{i}) \\
+&amp;= \beta_{0} \sum (\frac{1}{n} - \bar{x}w_{i}) + \beta_{1} \sum (\frac{1}{n} - \bar{x}w_{i})x_{i} \\
+&amp;= \beta_{0} (1) + \beta_{1} (0) \\
+&amp;= \beta_{0} \\
+\\
+Var(\hat{\beta}_{0})
+&amp;= Var(\sum (\frac{1}{n} - \bar{x}w_{i})y_{i}) \\
+&amp;= \sum (\frac{1}{n} - \bar{x}w_{i})^{2} Var (y_{i}) \\
+&amp;= \sigma^{2} \sum (\frac{1}{n^{2}} -\frac{2\bar{x}w_{i}}{n} + \bar{x}^{2} w_{i}^{2}) \\
+&amp;= \sigma^{2} (\sum \frac{1}{n^{2}} - \frac{2\bar{x}}{n} \sum w_{i} + \bar{x}^{2} \sum w_{i}^{2}) \\
+&amp;= \sigma^{2} [n(\frac{1}{n^{2}}) - \frac{2\bar{x}}{n} (0) + \bar{x}^{2} (\frac{1}{\sum (x_{i} - \bar{x})^{2}})] \\
+&amp;= \sigma^{2} (\frac{1}{n} + \frac{\bar{x}^{2}}{\sum (x_{i} - \bar{x})^{2}})
+\end{aligned}
 \]</div>
-<!-- Obtained from ISLR -->
-<p><img alt="Fitted Regression Line" class="center" src="../Assets/2.%20Simple%20Linear%20Regression.md/Fitted%20Regression%20Line.png" /></p>
-<blockquote>
-<p>Note that it should <span class="arithmatex">\(\hat{\varepsilon}\)</span> in the above image, not <span class="arithmatex">\(e_i\)</span>.</p>
-</blockquote>
+<div class="arithmatex">\[
+\therefore \hat{\beta}_{0} \sim N(\beta_{0}, \sigma^{2} (\frac{1}{n} + \frac{\bar{x}^{2}}{\sum (x_{i} - \bar{x})^{2}}))
+\]</div>
+<h3 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h3>
+<p>Since the regression parameters are normally distributed, a z-statistic can also be used to conduct the tests. However, since the population variance is not known, a <strong>t-statistic</strong> is used instead:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+t &amp;= \frac{\hat{\beta_{1}} - \beta_{1}}{\hat{\sigma}_{\hat{\beta_{1}}}}
+\end{aligned}
+\]</div>
+<p>Since the population variance is estimated by the MSE which has <span class="arithmatex">\(n-2\)</span> degrees of freedom, the corresponding chi-squared and hence t-distribution has <span class="arithmatex">\(n-2\)</span> degrees of freedom as well.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\hat{Var}(\hat{\beta_{1}})
+&amp;= \frac{MS_{RSS}}{\sum (x_{i} - \bar{x})^{2}} \\
+&amp;= \frac{MS_{RSS}}{\sum (x_{i} - \bar{x})^{2}} * \frac{\frac{1}{n-1}}{\frac{1}{n-1}} \\
+&amp;= \frac{MS_{RSS}}{(n-1) s^{2}}
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+t \sim t_{n-2}
+\]</div>
+<p>Since the square of the t-statistic is the F-statistic, both are <strong>equivalent</strong> ways of doing so and will always lead to the same conclusions.</p>
+<div class="arithmatex">\[
+t^{2} \sim F_{1, n-2}
+\]</div>
+<h3 id="confidence-intervals"><strong>Confidence Intervals</strong><a class="headerlink" href="#confidence-intervals" title="Permanent link">&para;</a></h3>
+<p>Since the distribution of t-statistic is known, it can be used to determine the confidence interval of the estimate:</p>
+<div class="arithmatex">\[
+P\left(\text{Margin of Error} &lt; \frac{\hat{\beta_{1}} - \beta_{1}}{\hat{\sigma}_{\hat{\beta_{1}}}} &lt; \text{Margin of Error}\right) = 1 - \alpha
+\]</div>
+<div class="arithmatex">\[
+\text{Confidence Interval} = \hat{\beta}_{1} \pm t_{n-2, \frac{\alpha}{2}} * \hat{\sigma}_{\hat{\beta_{1}}}
+\]</div>
+<h3 id="prediction-intervals"><strong>Prediction Intervals</strong><a class="headerlink" href="#prediction-intervals" title="Permanent link">&para;</a></h3>
+<p>Consider the Prediction Error of the SLR model:</p>
+<div class="arithmatex">\[
+y_* - \hat{y_*} = \varepsilon_* + [(\beta_{0} + \beta_{1} x_*) - (\hat{\beta_{0}} + \hat{\beta_{1}}x_*)]
+\]</div>
+<p>Since both <span class="arithmatex">\(y_*\)</span> and <span class="arithmatex">\(\hat{y_*}\)</span> are normally distributed, the prediction errors are <strong>normally distributed</strong> as well:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+E(y_* - \hat{y_*})
+&amp;= E[\varepsilon_* + [(\beta_{0} + \beta_{1} x_*) - (\hat{\beta_{0}} + \hat{\beta_{1}}x_*)]] \\
+&amp;= 0 + \beta_{0} + \beta_{1} E(x_*) - \beta_{0} - \beta_{1} E(x_*) \\
+&amp;= 0 \\
+\\
+Var(y_* - \hat{y_*})
+&amp;= Var(\varepsilon_* + [(\beta_{0} + \beta_{1} x_*) - (\hat{\beta_{0}} + \hat{\beta_{1}}x_*)] \\
+&amp;= Var(\varepsilon_*) + Var[(\beta_{0} + \beta_{1} x_*) - (\hat{\beta_{0}} + \hat{\beta_{1}}x_*)] \\
+&amp;= ... \\
+&amp;= \sigma^{2} [1 + \frac{1}{n} + \frac{(x_* - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}}]
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+\therefore y_* - \hat{y_*} \sim N\left(0, \sigma^{2} [1 + \frac{1}{n} + \frac{(x_* - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}}]\right)
+\]</div>
+<p>Similar to before, since the population variance is unknown, it can be approximated using the MSE. Thus, a t-statistic constructed from this sample will have a <strong>t-distribution</strong>, allowing the following prediction interval to be calculated:</p>
+<div class="arithmatex">\[
+\text{Prediction Interval} = \hat{y}_* \pm t_{n-2, \frac{\alpha}{2}} * \hat{\sigma}_{y_* - \hat{y_*}}
+\]</div>
+<p>Notice that the standard error of the prediction interval increases as <span class="arithmatex">\(x_*\)</span> moves <strong>further away</strong> <span class="arithmatex">\(\bar{x}\)</span>, indicating that the predictions become <strong>less accurate</strong> for those values.</p>
 <h3 id="ols-properties"><strong>OLS Properties</strong><a class="headerlink" href="#ols-properties" title="Permanent link">&para;</a></h3>
-<p>By re-arranging the formula for <span class="arithmatex">\(\hat{\beta}_0\)</span>, we can show that <strong><span class="arithmatex">\((\bar{x}, \bar{y})\)</span> always lies</strong> on the fitted regression model:</p>
+<p>By re-arranging the formula for <span class="arithmatex">\(\hat{\beta}_{0}\)</span>, we can show that <strong><span class="arithmatex">\((\bar{x}, \bar{y})\)</span> always lies</strong> on the fitted regression model:</p>
 <div class="arithmatex">\[
-\bar{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x}
+\bar{y} = \hat{\beta}_{0} + \hat{\beta}_{1} \bar{x}
 \]</div>
 <p>Additionally, since the parameters are estimated through minimization, the resulting model <strong>must always fulfil the two first order conditions</strong>. The model thus has <span class="arithmatex">\(n-2\)</span> degrees of freedom to reflect these "constraints".</p>
 <p><center></p>
 <table>
 <thead>
 <tr>
-<th align="center"><span class="arithmatex">\(\beta_0\)</span> FOC</th>
-<th align="center"><span class="arithmatex">\(\beta_1\)</span> FOC</th>
+<th align="center"><span class="arithmatex">\(\beta_{0}\)</span> FOC</th>
+<th align="center"><span class="arithmatex">\(\beta_{1}\)</span> FOC</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><span class="arithmatex">\(\frac{\partial}{\partial \beta_0} = -2 \sum [y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i)] = 0\)</span></td>
-<td align="center"><span class="arithmatex">\(\frac{\partial}{\partial \beta_1} = -2 \sum x_i [y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i)] = 0\)</span></td>
+<td align="center"><span class="arithmatex">\(\frac{\partial}{\partial \beta_{0}} = -2 \sum [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} x_{i})] = 0\)</span></td>
+<td align="center"><span class="arithmatex">\(\frac{\partial}{\partial \beta_{1}} = -2 \sum x_{i} [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} x_{i})] = 0\)</span></td>
 </tr>
 <tr>
-<td align="center"><span class="arithmatex">\(\sum \hat{\varepsilon_i} = 0\)</span></td>
-<td align="center"><span class="arithmatex">\(\sum x_i \hat{\varepsilon_i} = 0\)</span></td>
+<td align="center"><span class="arithmatex">\(\sum \hat{\varepsilon_{i}} = 0\)</span></td>
+<td align="center"><span class="arithmatex">\(\sum x_{i} \hat{\varepsilon_{i}} = 0\)</span></td>
 </tr>
 <tr>
 <td align="center">Residuals are negatively correlated</td>
@@ -1622,344 +1902,12 @@ n\bar{y} -n\hat{\beta}_0 - n\hat{\beta}_1 \bar{x} &amp;= 0 \\
 <p>Using the above results, we can also show the following that the mean of the regression outputs is equal to the mean of the population:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\hat{\varepsilon_i} &amp;= y_i - \hat{y_i} \\
-\sum \hat{\varepsilon_i} &amp;= \sum y_i - \hat{y_i} \\
+\hat{\varepsilon_{i}} &amp;= y_{i} - \hat{y_{i}} \\
+\sum \hat{\varepsilon_{i}} &amp;= \sum y_{i} - \hat{y_{i}} \\
 0 &amp;= n\bar{y} - n\bar{\hat{y}} \\
 \bar{\hat{y}} &amp;= \bar{y} \\
 \end{aligned}
 \]</div>
-<h2 id="goodness-of-fit"><strong>Goodness of Fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h2>
-<p>Ideally, the regression should fit the sample closely, having <strong>as small as residuals as possible</strong>. The size of all the residuals in the model can be summarized through the RSS. The lower the RSS, the better the fit of the model.</p>
-<p>Recall that the residuals naturally sum to 0 under OLS - the residuals are thus squared to remove the sign so that they can be summed together.</p>
-<div class="arithmatex">\[
-RSS = \sum (y_i - \hat{y})^2
-\]</div>
-<p>However, the SSR on its own is hard to intepret as there is no indication of how low or high it actually is. Thus, the <strong>Total Sum of Squares</strong> (TSS) can be used as a <strong>benchmark for the RSS</strong> as it is at least equal to or higher than the RSS.</p>
-<p>The TSS represents the RSS for a <strong>Null Regression</strong> - a model with containing <strong>only the intercept parameter</strong>. The output of this regression is <strong>always the sample mean <span class="arithmatex">\(\bar{y}\)</span></strong>, which is used for the computation of its residuals.</p>
-<p>It represents the worst possible model which thus has the <strong>highest possible RSS</strong>. The lower the RSS compared to the TSS, the better the fit of the model.</p>
-<div class="arithmatex">\[
-TSS = \sum (y_i - \bar{y})
-\]</div>
-<h3 id="null-model"><strong>Null Model</strong><a class="headerlink" href="#null-model" title="Permanent link">&para;</a></h3>
-<p>Consider a regression with only the intercept; <span class="arithmatex">\(\beta_1 = 0\)</span>. It is known as the <strong>Null Model</strong> as there are <strong>no independent variables</strong> used.</p>
-<div class="arithmatex">\[
-y = \beta_0
-\]</div>
-<p>We can estimate <span class="arithmatex">\(\hat{\beta_0}\)</span> using OLS, which results in the following result:</p>
-<div class="arithmatex">\[
-\begin{aligned}
--2 \sum (y_i - \hat{\beta_0}) &amp;= 0 \\
-n \bar{y} - n \hat{\beta_0} &amp;= 0 \\
-\hat{\beta_0} &amp;= \bar{y} \\
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-\therefore \hat{y} = \bar{y}
-\]</div>
-<h3 id="sum-of-squares"><strong>Sum of Squares</strong><a class="headerlink" href="#sum-of-squares" title="Permanent link">&para;</a></h3>
-<p>The TSS can be further decomposed into two more parts for analysis:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-TSS &amp;= \sum (y_i - \bar{y})^2 \\
-TSS &amp;= \sum[(y_i - \hat{y}) + (\hat{y}-\bar{y})]^2 \\
-TSS &amp;= \sum(y_i - \hat{y})^2 + \sum(\hat{y}-\bar{y})^2 + 2 \sum((y_i - \hat{y})(\hat{y}-\bar{y})) \\
-TSS &amp;= \sum(y_i - \hat{y})^2 + \sum(\hat{y}-\bar{y})^2 + 0 \\
-TSS &amp;= RSS + RegSS
-\end{aligned}
-\]</div>
-<table>
-<thead>
-<tr>
-<th align="center">Residual SS (RSS)</th>
-<th align="center">Regression SS (RegSS)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(\sum(\hat{y}-\bar{y})^2\)</span></td>
-<td align="center"><span class="arithmatex">\(\sum(y_i - \hat{y})^2\)</span></td>
-</tr>
-<tr>
-<td align="center">Variation of the observed values about the regression</td>
-<td align="center">Variation of the regression output about the sample mean</td>
-</tr>
-<tr>
-<td align="center">Variation explained by the regression</td>
-<td align="center">Variation unexplained by the regression</td>
-</tr>
-</tbody>
-</table>
-<!-- Obtained from Vitaflux -->
-<p><img alt="Sum of Squares" class="center" src="../Assets/2.%20Simple%20Linear%20Regression.md/Sum%20of%20Squares.png" /></p>
-<p>Note that it can also be expressed in terms of the <strong>Slope Parameter</strong>:</p>
-<div class="arithmatex">\[
-\begin{align}
-RegSS
-&amp;= \sum(\hat{y}-\bar{y})^2 \\
-&amp;= \sum(\hat{\beta}_0 + \hat{\beta}_1 x - \bar{y})^2 \\
-&amp;= \sum(\bar{y} - \beta_1 \bar{x} + \hat{\beta}_1 x - \bar{y})^2 \\
-&amp;= \sum[\hat{\beta}_1 (x_i - \bar{x})]^2 \\
-&amp;= \hat{\beta}^2_1 \sum(x_i - \bar{x})^2 \\
-\end{align}
-\]</div>
-<p>The <strong>Coefficient of Determination</strong> <span class="arithmatex">\(R^2\)</span> can also be used to demonstrate goodness of fit. It measures the <strong>proportion of variation</strong> explained by the regression model:</p>
-<div class="arithmatex">\[
-R^2 = \frac{RegSS}{TSS} = 1 - \frac{RSS}{TSS}
-\]</div>
-<p>Building off the above expression, it can also be expressed in terms of the <strong>Sample Correlation</strong>:</p>
-<div class="arithmatex">\[
-\begin{align}
-R^2
-&amp;= \frac{\hat{\beta}^2_1 \sum(x_i - \bar{x})^2}{\sum (y_i - \bar{y}) ^2} \\
-&amp;= \left(\frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}\right)^2 \frac{\sum(x_i - \bar{x})^2}{\sum (y_i - \bar{y}) ^2} \\
-&amp;= \frac{\sum (x_i - \bar{x})^2 (y_i - \bar{y})^2}{\sum (x_i - \bar{x})^4} \frac{\sum(x_i - \bar{x})^2}{\sum (y_i - \bar{y}) ^2} \\
-&amp;= \frac{\sum (x_i - \bar{x})^2 (y_i - \bar{y})^2}{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2} \\
-&amp;= \left(\frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x}) \sum (y_i - \bar{y})}\right)^2 \\
-&amp;= r_{y,x}^2
-\end{align}
-\]</div>
-<h3 id="degrees-of-freedom"><strong>Degrees of Freedom</strong><a class="headerlink" href="#degrees-of-freedom" title="Permanent link">&para;</a></h3>
-<p>The TSS is based on the naive model with only the intercept parameter, thus, it is subject to the <strong>single contraint</strong> of all residuals summing to 0. The TSS thus has <strong><span class="arithmatex">\(n-1\)</span> degrees of freedom</strong>.</p>
-<p>The RSS is based on the SLR with both the intercept and slope parameter, thus it is subject to an <strong>additional constraint</strong> of the sumproduct of all residuals and independent variables being 0. The RSS thus has <strong><span class="arithmatex">\(n-2\)</span> degrees of freedom.</strong></p>
-<p>The sum of the RSS and RegSS is equal to the TSS, thus the sum of their degrees of freedom must also be equal to that of the TSS. By working backwards, the RegSS thus has <strong>only <span class="arithmatex">\(1\)</span> degree of freedom</strong>.</p>
-<h3 id="mean-squared"><strong>Mean Squared</strong><a class="headerlink" href="#mean-squared" title="Permanent link">&para;</a></h3>
-<p>The division of any Sum of Square (TSS, RSS, RegSS) by its Degrees of Freedom is known as the <strong>Mean Squared</strong> (MS), which is a measure of its <strong>average variance</strong>.</p>
-<p>The MS of the TSS is the <strong>Unbiased Estimator for Population Variance</strong>, which is why this process is known as the <strong>Analysis of Variance</strong>, as it decomposes the variance of <span class="arithmatex">\(Y\)</span> into its constituent components:</p>
-<div class="arithmatex">\[
-s = \frac{TSS}{n-1}
-\]</div>
-<p>The MS of the RSS is known the <strong>Mean Squared Residuals</strong>, often also referred to as the <strong>Mean Squared Error</strong>, as it is an estimate for the population variance of the error <span class="arithmatex">\(\sigma^2\)</span>:</p>
-<div class="arithmatex">\[
-MS_{\text{Residuals}} = \frac{RSS}{n-2}
-\]</div>
-<p>The MS of the RegSS is known as the <strong>Mean Squared Regression</strong>, which represents the proportion of variance explained per <span class="arithmatex">\(X\)</span> used.</p>
-<div class="arithmatex">\[
-MS_{\text{Regression}} = \frac{RegSS}{1}
-\]</div>
-<h3 id="f-statistic"><strong>F Statistic</strong><a class="headerlink" href="#f-statistic" title="Permanent link">&para;</a></h3>
-<p>The ANOVA parameters can be used to conduct a hypothesis test to determine if there is in fact a relationship between <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span>:</p>
-<ul>
-<li><span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\beta_1 = 0\)</span></li>
-<li><span class="arithmatex">\(H_1\)</span>: <span class="arithmatex">\(\beta_1 \ne 0\)</span></li>
-</ul>
-<p>Under the null hypothesis, there should be <strong>no difference</strong> between the assumed model and a null model as both only contain the intercept parameter, thus <span class="arithmatex">\(TSS = RSS\)</span>, where <span class="arithmatex">\(RegSS = 0\)</span>.</p>
-<p>Thus, the F-statistic is testing for the <strong>equality of variance between the TSS and RSS</strong> - if there is a significant difference in the variance of the two, then the null should be rejected and thus <span class="arithmatex">\(\beta_1 \ne 0\)</span>.</p>
-<p>The F-statistic can be constructed using the sum of squares:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-F
-&amp;= \frac{MS_{RegSS}}{MS_{RSS}} \\
-&amp;= \frac{RegSS/1}{RSS/(n-2)} \\
-&amp;= \frac{(TSS - RSS)/1}{RSS/(n-2)} \\
-&amp;= (n-2) * \frac{R^2}{1-R^2}, \text{divide both by TSS}
-\end{aligned}
-\]</div>
-<p>Similar to the variance test, it can be shown that under the null, this test-statistic follows an F distribution with <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(n-2\)</span> degrees of freedom:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-T
-&amp;= \frac{MS_{RegSS}}{MS_{RSS}} \\
-&amp;= \frac{\sigma^2_{RegSS} \frac{MS_{Reg}}{\sigma^2_{RegSS}}}{\sigma^2_{RSS} \frac{MS_{RSS}}{\sigma^2_{RSS}}} \\
-&amp;= \frac{\sigma^2_{RegSS}}{\sigma^2_{RSS}} * \frac{\frac{1 * MS_{Reg}}{\sigma^2_{RegSS}} * \frac{1}{1}}{\frac{(n-2) * MS_{RegSS}}{\sigma^2_{RegSS}}* \frac{1}{n-2}} \\
-&amp;= \frac{\sigma^2_{RegSS}}{\sigma^2_{RSS}} * \frac{\chi_1}{\chi_{n-2}} * (n-2) \\
-&amp;= 1 * F_{1, n-2} * (n-2) \\
-&amp;= F_{1, n-2} * (n-2)
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-\therefore F \sim F_{1, n-2}
-\]</div>
-<!--As with the sample variance case, the key to understanding the proof is that the ratio of $\sigma^2_{RegSS}$ and $\sigma^2_{RSS}$ is 1 u-->
-
-<h3 id="anova-table"><strong>ANOVA Table</strong><a class="headerlink" href="#anova-table" title="Permanent link">&para;</a></h3>
-<p>All the above information is then summarized in a table for convenience, known as the <strong>ANOVA Table</strong>:</p>
-<p><center></p>
-<table>
-<thead>
-<tr>
-<th align="center">Source</th>
-<th align="center">Sum of Squares</th>
-<th align="center">Degrees of Freedom</th>
-<th align="center">Mean Square</th>
-<th align="center">F-Statistic</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Regression</td>
-<td align="center">RegSS</td>
-<td align="center"><span class="arithmatex">\(1\)</span></td>
-<td align="center"><span class="arithmatex">\(MS_{RegSS}\)</span></td>
-<td align="center"><span class="arithmatex">\(\frac{RegSS}{MSE}\)</span></td>
-</tr>
-<tr>
-<td align="center">Error</td>
-<td align="center">RSS</td>
-<td align="center"><span class="arithmatex">\(n-2\)</span></td>
-<td align="center"><span class="arithmatex">\(MSE\)</span></td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td align="center">Total</td>
-<td align="center">TSS</td>
-<td align="center"><span class="arithmatex">\(n-1\)</span></td>
-<td align="center"><span class="arithmatex">\(s^2\)</span></td>
-<td align="center">-</td>
-</tr>
-</tbody>
-</table>
-<p></center></p>
-<h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
-<h3 id="sampling-distributions"><strong>Sampling Distributions</strong><a class="headerlink" href="#sampling-distributions" title="Permanent link">&para;</a></h3>
-<p>Since the errors are assumed to be normally distributed, then <span class="arithmatex">\(Y\)</span> is assumed to be normally distributed as well. Since <span class="arithmatex">\(Y\)</span> is a linear combination of the regression parameters, then the parameters (&amp; their estimates) are <strong>normally distributed</strong> as well.</p>
-<p>Both estimates can be <strong>expressed in another form</strong> that makes it <em>more convenient</em> to find their expectation &amp; variances.</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\hat{\beta}_1
-&amp;= \frac{\sum [(x_i - \bar{x})(y_i - \bar{y})]}{\sum (x_i - \bar{x})^2} \\
-&amp;= \frac{\sum (x_i - \bar{x})y_i}{\sum (x^2_i - \bar{x})} - \frac{\bar{y} \sum (x_i - \bar{x})}{\sum (x^2_i - \bar{x})} \\
-&amp;= \sum \frac{(x_i - \bar{x})}{(x^2_i - \bar{x})}* y_i - 0 \\
-&amp;= \sum w_i * y_i \\
-\\
-\hat{\beta}_0
-&amp;= \bar{y} - \hat{\beta}_1 \bar{x} \\
-&amp;= \frac{1}{n} \sum y_i - \bar{x} \sum w_i * y_i \\
-&amp;= \sum y_i (\frac{1}{n} - \bar{x}w_i)
-\end{aligned}
-\]</div>
-<p><span class="arithmatex">\(w_i\)</span> is a sort of "weight" parameter of the sum of squares. It has three interesting properties that makes it useful:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\sum w_i
-&amp;= \frac{\sum (x_i - \bar{x})}{\sum (x_i - \bar{x})^2} \\
-&amp;= \frac{n\bar{x}-n\bar{x}}{\sum (x_i - \bar{x})^2} \\
-&amp;= \frac{0}{\sum (x^2_i - \bar{x})} \\
-&amp;= 0 \\
-\\
-\sum w_i x_i
-&amp;= \frac{\sum x_i(x_i - \bar{x})}{\sum (x_i - \bar{x})^2} \\
-&amp;= \frac{\sum (x^2_i - \bar{x} \sum x_i)}{\sum x^2_i - 2\bar{x}\sum x_i + \sum \bar{x}^2} \\
-&amp;= \frac{\sum x^2_i - \bar{x}(n \bar{x})}{\sum x^2_i - 2\bar{x}(n\bar{x}) + n\bar{x}^2} \\
-&amp;= \frac{\sum x^2_i - n\bar{x}^2}{\sum x^2_i - 2n\bar{x}^2 + n\bar{x}^2} \\
-&amp;=\frac{\sum x^2_i - n\bar{x}^2}{\sum x^2_i - n\bar{x}^2} \\
-&amp;= 1 \\
-\\
-\sum w_i^2
-&amp;= \frac{\sum (x_i - \bar{x})^2}{\sum (x_i - \bar{x})^4} \\
-&amp;= \frac{1}{\sum (x_i - \bar{x})^2} \\
-\\
-\sum (\frac{1}{n} - \bar{x}w_i)
-&amp;= n(\frac{1}{n}) - \bar{x} \sum w_i \\
-&amp;= 1 - 0 \\
-&amp;= 1 \\
-\\
-\sum (\frac{1}{n} - \bar{x}w_i)x_i
-&amp;= \frac{1}{n} \sum x_i - \bar{x} \sum w_i x_i \\
-&amp;= \frac{1}{n} (n\bar{x}) - \bar{x} (1) \\
-&amp;= \bar{x} - \bar{x} \\
-&amp;= 0
-\end{aligned}
-\]</div>
-<p>Using this, the Expectation &amp; Variance can be determined:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-E(\hat{\beta}_1)
-&amp;= \sum w_i E(y_i) \\
-&amp;= \sum w_i E(\beta_0 + \beta_1 x_i) \\
-&amp;= \beta_0 \sum w_i + \beta_1 \sum w_i x_i \\
-&amp;= \beta_0 (0) + \beta_1 (1) \\
-&amp;= \beta_1\\
-\\
-Var(\hat{\beta}_1)
-&amp;= Var(\sum w_i y_i) \\
-&amp;= \sum w_i^2 Var (y_i) \\
-&amp;= \frac{1}{\sum (x_i - \bar{x})^2} \\
-&amp;= \frac{\sigma^2}{\sum (x_i - \bar{x})^2}
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-\therefore \hat{\beta}_1 \sim N(\beta_1, \frac{\sigma^2}{\sum (x_i - \bar{x})^2})
-\]</div>
-<div class="arithmatex">\[
-\begin{aligned}
-E(\hat{\beta}_0)
-&amp;= \sum (\frac{1}{n} - \bar{x}w_i) E(y_i) \\
-&amp;= \sum (\frac{1}{n} - \bar{x}w_i) (\beta_0 + \beta_1 x_i) \\
-&amp;= \beta_0 \sum (\frac{1}{n} - \bar{x}w_i) + \beta_1 \sum (\frac{1}{n} - \bar{x}w_i)x_i \\
-&amp;= \beta_0 (1) + \beta_1 (0) \\
-&amp;= \beta_0 \\
-\\
-Var(\hat{\beta}_0)
-&amp;= Var(\sum (\frac{1}{n} - \bar{x}w_i)y_i) \\
-&amp;= \sum (\frac{1}{n} - \bar{x}w_i)^2 Var (y_i) \\
-&amp;= \sigma^2 \sum (\frac{1}{n^2} -\frac{2\bar{x}w_i}{n} + \bar{x}^2 w_i^2) \\
-&amp;= \sigma^2 (\sum \frac{1}{n^2} - \frac{2\bar{x}}{n} \sum w_i + \bar{x}^2 \sum w_i^2) \\
-&amp;= \sigma^2 [n(\frac{1}{n^2}) - \frac{2\bar{x}}{n} (0) + \bar{x}^2 (\frac{1}{\sum (x_i - \bar{x})^2})] \\
-&amp;= \sigma^2 (\frac{1}{n} + \frac{\bar{x}^2}{\sum (x_i - \bar{x})^2})
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-\therefore \hat{\beta}_0 \sim N(\beta_0, \sigma^2 (\frac{1}{n} + \frac{\bar{x}^2}{\sum (x_i - \bar{x})^2}))
-\]</div>
-<h3 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h3>
-<p>Since the regression parameters are normally distributed, a z-statistic can also be used to conduct the tests. However, since the population variance is not known, a <strong>t-statistic</strong> is used instead:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-t &amp;= \frac{\hat{\beta_1} - \beta_1}{\hat{\sigma}_{\hat{\beta_1}}}
-\end{aligned}
-\]</div>
-<p>Since the population variance is estimated by the MSE which has <span class="arithmatex">\(n-2\)</span> degrees of freedom, the corresponding chi-squared and hence t-distribution has <span class="arithmatex">\(n-2\)</span> degrees of freedom as well.</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\hat{Var}(\hat{\beta_1})
-&amp;= \frac{MS_{RSS}}{\sum (x_i - \bar{x})^2} \\
-&amp;= \frac{MS_{RSS}}{\sum (x_i - \bar{x})^2} * \frac{\frac{1}{n-1}}{\frac{1}{n-1}} \\
-&amp;= \frac{MS_{RSS}}{(n-1) s^2}
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-t \sim t_{n-2}
-\]</div>
-<p>Since the square of the t-statistic is the F-statistic, both are <strong>equivalent</strong> ways of doing so and will always lead to the same conclusions.</p>
-<div class="arithmatex">\[
-t^2 \sim F_{1, n-2}
-\]</div>
-<h3 id="confidence-intervals"><strong>Confidence Intervals</strong><a class="headerlink" href="#confidence-intervals" title="Permanent link">&para;</a></h3>
-<p>Since the distribution of t-statistic is known, it can be used to determine the confidence interval of the estimate:</p>
-<div class="arithmatex">\[
-P\left(\text{Margin of Error} &lt; \frac{\hat{\beta_1} - \beta_1}{\hat{\sigma}_{\hat{\beta_1}}} &lt; \text{Margin of Error}\right) = 1 - \alpha
-\]</div>
-<div class="arithmatex">\[
-\text{Confidence Interval} = \hat{\beta}_1 \pm t_{n-2, \frac{\alpha}{2}} * \hat{\sigma}_{\hat{\beta_1}}
-\]</div>
-<h3 id="prediction-intervals"><strong>Prediction Intervals</strong><a class="headerlink" href="#prediction-intervals" title="Permanent link">&para;</a></h3>
-<p>Consider the Prediction Error of the SLR model:</p>
-<div class="arithmatex">\[
-y_* - \hat{y_*} = \varepsilon_* + [(\beta_0 + \beta_1 x_*) - (\hat{\beta_0} + \hat{\beta_1}x_*)]
-\]</div>
-<p>Since both <span class="arithmatex">\(y_*\)</span> and <span class="arithmatex">\(\hat{y_*}\)</span> are normally distributed, the prediction errors are <strong>normally distributed</strong> as well:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-E(y_* - \hat{y_*})
-&amp;= E[\varepsilon_* + [(\beta_0 + \beta_1 x_*) - (\hat{\beta_0} + \hat{\beta_1}x_*)]] \\
-&amp;= 0 + \beta_0 + \beta_1 E(x_*) - \beta_0 - \beta_1 E(x_*) \\
-&amp;= 0 \\
-\\
-Var(y_* - \hat{y_*})
-&amp;= Var(\varepsilon_* + [(\beta_0 + \beta_1 x_*) - (\hat{\beta_0} + \hat{\beta_1}x_*)] \\
-&amp;= Var(\varepsilon_*) + Var[(\beta_0 + \beta_1 x_*) - (\hat{\beta_0} + \hat{\beta_1}x_*)] \\
-&amp;= ... \\
-&amp;= \sigma^2 [1 + \frac{1}{n} + \frac{(x_* - \bar{x})^2}{\sum (x_i - \bar{x})^2}]
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-\therefore y_* - \hat{y_*} \sim N\left(0, \sigma^2 [1 + \frac{1}{n} + \frac{(x_* - \bar{x})^2}{\sum (x_i - \bar{x})^2}]\right)
-\]</div>
-<p>Similar to before, since the population variance is unknown, it can be approximated using the MSE. Thus, a t-statistic constructed from this sample will have a <strong>t-distribution</strong>, allowing the following prediction interval to be calculated:</p>
-<div class="arithmatex">\[
-\text{Prediction Interval} = \hat{y}_* \pm t_{n-2, \frac{\alpha}{2}} * \hat{\sigma}_{y_* - \hat{y_*}}
-\]</div>
-<p>Notice that the standard error of the prediction interval increases as <span class="arithmatex">\(x_*\)</span> moves <strong>further away</strong> <span class="arithmatex">\(\bar{x}\)</span>, indicating that the predictions become <strong>less accurate</strong> for those values.</p>
 
 
 
@@ -1980,7 +1928,7 @@ Var(y_* - \hat{y_*})
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../1.%20Regression%20Overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Regression Overview" rel="prev">
+        <a href="../1.%20Statistical%20Learning/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Statistical Learning" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1989,7 +1937,7 @@ Var(y_* - \hat{y_*})
               <span class="md-footer__direction">
                 Previous
               </span>
-              Regression Overview
+              Statistical Learning
             </div>
           </div>
         </a>
