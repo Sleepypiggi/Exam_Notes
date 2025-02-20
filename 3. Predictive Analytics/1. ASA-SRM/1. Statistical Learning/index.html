@@ -1175,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../5.%20Statistical%20Learning/" class="md-nav__link">
+      <a href="../../../3. Predictive Analytics/1. ASA-SRM/5. Statistical Learning.md" class="md-nav__link">
         Statistical Learning New
       </a>
     </li>
@@ -1553,7 +1553,7 @@
 <p>Consider the following two models:</p>
 <ul>
 <li><strong>LHS</strong>: Less Flexible but easier to intepret (Linear relationship)</li>
-<li><strong>RHS</strong>: More flexible but harder to intepret (Unknown relationship)</li>
+<li><strong>RHS</strong>: More flexible but harder to intepret (Complex relationship)</li>
 </ul>
 <p><!-- Obtained from Coaching Actuaries -->
 <img alt="FLEXIBILITY_INFERENCE" class="center" src="../Assets/1.%20Statistical%20Learning.md/FLEXIBILITY_INFERENCE.png" /></p>
@@ -1639,9 +1639,11 @@
 <p>The above concerns can be quantified using the <strong>Mean Squared Error</strong> (MSE):</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{MSE}
-    &amp;= E(Y - \hat{Y}) \\
-    &amp;= \frac{\sum (y_{i} - \hat{y}_{i})^{2}}{n}    
+    \text{MSE}_{\text{Training}}
+    &amp;= \frac{\sum (y_{i, \text{Training}} - \hat{y}_{i})^{2}}{n_{\text{Training}}} \\
+    \\
+    \text{MSE}_{\text{Test}}
+    &amp;= \frac{\sum (y_{i, \text{Test}} - \hat{y}_{i})^{2}}{n_{\text{Test}}}    
 \end{aligned}
 \]</div>
 <p><center></p>
@@ -1691,12 +1693,18 @@
 <li><strong>Bias</strong>: Too little flexibility fails to capture the signals in the data (<strong>Underfitting</strong>)</li>
 <li><strong>Variance</strong>: Too much flexibility results in mistakenly capturing noise in the data as signals (<strong>Overfitting</strong>)</li>
 </ul>
-<p>The reduction in Bias from choosing a more complex model is greater than the increased variance, causing test MSE to fall. However at some point, the increase in variance outweighs the falling bias, causing the test MSE to rise. It is <strong>not possible to minimize both</strong>; there is a <strong>Bias-Variance Tradeoff</strong>.</p>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="UNDER_OVER_FITTING" class="center" src="../Assets/1.%20Statistical%20Learning.md/UNDER_OVER_FITTING.png" /></p>
+<p>The reduction in Bias from choosing a more complex model is greater than the increased variance, causing test MSE to fall. However at some point, the increase in variance outweighs the falling bias, causing the test MSE to rise. It is <strong>not possible to minimize both</strong>; there is a <strong>Bias-Variance Tradeoff</strong>:</p>
+<ul>
+<li><strong>Underfitting</strong>: High Bias, Low Variance</li>
+<li><strong>Overfitting</strong>: Low Bias, High Variance</li>
+</ul>
 <!-- Obtained from Geek for Geeks -->
 <p><img alt="BIAS_VARIANCE_TRADEOFF" class="center" src="../Assets/1.%20Statistical%20Learning.md/BIAS_VARIANCE_TRADEOFF.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>GENERALLY speaking, the flexibility of the model is often <strong>proportional to the number of free parameters</strong> available (for a supervised learning method).</p>
+<p>Some texts may refer to the above as Accuracy (Bias) &amp; Precision (Variance). Although they are used interchangeably in day to day conversations, they have a specific meaning in a statistical context.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

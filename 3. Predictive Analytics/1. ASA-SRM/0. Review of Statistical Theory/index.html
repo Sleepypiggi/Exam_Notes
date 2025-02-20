@@ -1337,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../5.%20Statistical%20Learning/" class="md-nav__link">
+      <a href="../../../3. Predictive Analytics/1. ASA-SRM/5. Statistical Learning.md" class="md-nav__link">
         Statistical Learning New
       </a>
     </li>
@@ -2051,6 +2051,7 @@
 <li><span class="arithmatex">\(H_{0}: \theta = x\)</span></li>
 <li><span class="arithmatex">\(H_{1}: \theta \ne x\)</span></li>
 </ul>
+<p>Consequently, hypothesis testing is not able to confirm the true value of a parameter; it is only able to quantify whether there is enough statistical evidence to dispute a hypothesized value of a parameter.</p>
 </div>
 <p>The "tail" of a hypothesis test refers to the <strong>side of the distribution</strong> where the values are considered extreme. It is based on the Alternative Hypothesis:</p>
 <ul>
@@ -2097,6 +2098,9 @@
 </div>
 <h3 id="test-statistics"><strong>Test Statistics</strong><a class="headerlink" href="#test-statistics" title="Permanent link">&para;</a></h3>
 <p>In order to determine the p-value, the value of the sample statistic on the sampling distribution (percentile) must be determined. This value is known as the <strong>Test Statistic</strong>.</p>
+<div class="arithmatex">\[
+    \text{Test Statistic} = \frac{\hat{\theta} - \theta_{H_{0}}}{\text{SE}(\hat{\theta})}
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For instance, if the sampling distribution is normally distributed, this requires normalizing or studentizing the sample statistic.</p>
@@ -2126,8 +2130,8 @@
 <p class="admonition-title">Note</p>
 <p>The area bounded by the critical value (area of the significance level) is known as the <strong>Critical Region</strong>.</p>
 </div>
-<!-- Obtained from Zscore geek -->
-<p><img alt="Hypothesis Testing" class="center" src="Assets/3.%20Review%20of%20Statistical%20Theory.md/Hypothesis%20Testing.png" /></p>
+<!-- Obtained from Analyst Prep -->
+<p><img alt="HYPOTHESIS_TESTING" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/HYPOTHESIS_TESTING.png" /></p>
 <h2 id="normal-sampling-distribution"><strong>Normal Sampling Distribution</strong><a class="headerlink" href="#normal-sampling-distribution" title="Permanent link">&para;</a></h2>
 <p>Many commonly studied sampling distributions can be shown to be <strong>normally distributed</strong>. However, it can also be <strong>transformed to a variety of other distributions</strong> that are commonly used in Statistical Theory.</p>
 <h3 id="standard-normal-distribution"><strong>Standard Normal Distribution</strong><a class="headerlink" href="#standard-normal-distribution" title="Permanent link">&para;</a></h3>
