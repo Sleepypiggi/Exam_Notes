@@ -1146,6 +1146,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#link-to-confidence-intervals" class="md-nav__link">
+    Link to Confidence Intervals
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1571,6 +1578,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#link-to-confidence-intervals" class="md-nav__link">
+    Link to Confidence Intervals
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1904,6 +1918,8 @@
 <p>A well-known sampling distribution is that of the <strong>Sample Mean</strong>. Given a large enough sample size, it can be shown that the Sample Mean is approximately <strong>normally distributed</strong>.</p>
 <p>This is a result of the <strong>Central Limit Theorem</strong>. The technical proof is out of scope for the purposes of this exam.</p>
 </div>
+<!-- Obtained from Claus Wike -->
+<p><img alt="SAMPLING_DISTRIBUTION" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/SAMPLING_DISTRIBUTION.png" /></p>
 <h3 id="key-properties"><strong>Key Properties</strong><a class="headerlink" href="#key-properties" title="Permanent link">&para;</a></h3>
 <p>The <strong>Error</strong> of an estimate is the difference between the Sample Estimate and the Population Parameter:</p>
 <div class="arithmatex">\[
@@ -1997,12 +2013,14 @@
 <p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a single point estimate, a range is used, known as a <strong>Confidence Interval</strong>.</p>
 <p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the <strong>same manner</strong> were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
 <div class="arithmatex">\[
-    P(- \text{Lower Bound} &lt; \theta &lt; \text{Upper Bound}) = 1 - \alpha
+    P(\text{Lower Bound} &lt; \theta &lt; \text{Upper Bound}) = 1 - \alpha
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>A common misinterpretation is that there is a <span class="arithmatex">\((1-\alpha)%\)</span> probability that the population parameter lies within the interval. This is WRONG. Once an interval is determined, the population parameter either lies within or outside that interval; it is <strong>not a probability</strong>.</p>
+<p>A common misinterpretation is that there is a <span class="arithmatex">\((1-\alpha)%\)</span> probability that the population parameter lies within a specific interval. This is WRONG. Once an interval is determined, the population parameter either lies within or outside that interval; it is <strong>not a probability</strong>.</p>
 <p>Thus, the confidence level is measuring the <strong>reliability of the estimation procedure</strong>, not a specific estimate.</p>
+<p><!-- Obtained from Clausewike -->
+<img alt="CONFIDENCE_INTERVAL_PROPORTION" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/CONFIDENCE_INTERVAL_PROPORTION.png" /></p>
 </div>
 <p>The <strong>Margin of Error</strong> represents the range of values on <em>either side</em> of the point estimate that the true value could lie. The most common confidence level is 95%, which means that <strong>95% of the density of the sampling distribution</strong> lies within the interval.</p>
 <p>The margin of errors are thus the corresponding <strong>percentiles</strong> at the boundary of the confidence interval. For a 95% confidence interval, the remaining 5% density is split equally in two:</p>
@@ -2014,11 +2032,15 @@
 \end{aligned}
 \]</div>
 <!-- Obtained from Analyst Prep -->
-<p><img alt="95% Confidence Interval" src="Assets/3.%20Review%20of%20Statistical%20Theory.md/Confidence%20Interval.png" /></p>
+<p><img alt="CONFIDENCE_INTERVAL" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/CONFIDENCE_INTERVAL.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The confidence interval will <strong>gradually shrink to 0 as the sample size approaches the population size</strong>. Intuitively, this is because if the sample = population, then there is no more uncertainty; the resulting statistic IS the population parameter!</p>
 </div>
+<p>If the sampling distribution is normal, then the distribution is symmetrical about the mean.</p>
+<div class="arithmatex">\[
+    \text{Confidence Interval} = \hat{\theta} \pm \text{Percentile} \cdot \text{Standard Error}
+\]</div>
 <h2 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h2>
 <p><strong>Hypothesis Testing</strong> is a formal method of making inferences about the population parameters based on the sample statistic. It starts with a <strong>Hypothesis</strong> which is a conjecture about the population parameters:</p>
 <ul>
@@ -2132,6 +2154,10 @@
 </div>
 <!-- Obtained from Analyst Prep -->
 <p><img alt="HYPOTHESIS_TESTING" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/HYPOTHESIS_TESTING.png" /></p>
+<h3 id="link-to-confidence-intervals"><strong>Link to Confidence Intervals</strong><a class="headerlink" href="#link-to-confidence-intervals" title="Permanent link">&para;</a></h3>
+<p>Confidence Intervals measure the <strong>range of values</strong> that the true parameter could lie. Hypothesis tests determine the <strong>reasonability</strong> of a hypothesized value.</p>
+<p>If both are constructed based on the same significance level and the hypothesized value lies <strong>WITHIN the confidence interval</strong>, then the <strong>null hypothesised CANNOT be rejected</strong>.</p>
+<p>Intuitively, this is because being within the confidence interval itself indicates that the <strong>value is reasonable</strong>, thus automatically failing the test. Mathematically, this is because any value within the confidence interval will <strong>always have a p-value greater than the significance level</strong>.</p>
 <h2 id="normal-sampling-distribution"><strong>Normal Sampling Distribution</strong><a class="headerlink" href="#normal-sampling-distribution" title="Permanent link">&para;</a></h2>
 <p>Many commonly studied sampling distributions can be shown to be <strong>normally distributed</strong>. However, it can also be <strong>transformed to a variety of other distributions</strong> that are commonly used in Statistical Theory.</p>
 <h3 id="standard-normal-distribution"><strong>Standard Normal Distribution</strong><a class="headerlink" href="#standard-normal-distribution" title="Permanent link">&para;</a></h3>
