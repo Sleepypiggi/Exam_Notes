@@ -1743,11 +1743,24 @@
 </tbody>
 </table>
 <p></center></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(y_{i}-\hat{y}_{i}) &amp;= 0 \\
+    \\
+    \text{Var}(y_{i}-\hat{y}_{i})
+    &amp;= \text{Var}(y_{i}) + \text{Var}(\hat{y}_{i}) \\
+    &amp;= \text{Irreducible} + \text{Reducible}
+\end{aligned}
+\]</div>
+<p>Both Confidence and Prediction Intervals are expressed using the same formula:</p>
+<div class="arithmatex">\[
+    \text{Interval} = \hat{\theta} \pm \text{Percentile} \cdot \text{SE}
+\]</div>
 <!-- Obtained from Datacamp -->
 <p><img alt="PREDICTION_CONFIDENCE" class="center" src="../Assets/1.%20Statistical%20Learning.md/PREDICTION_CONFIDENCE.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Intuitively, the confidence interval represents the uncertainty arising from the <strong>reducible variance</strong> while the prediction interval arises as a result of the <strong>irreducible variance</strong>.</p>
+<p>Intuitively, the confidence interval represents the uncertainty arising from the <strong>reducible variance</strong> while the prediction interval additionally includes the <strong>irreducible variance</strong> from inherent randomness.</p>
 <p>In an extreme example, the confidence interval will <strong>shrink to 0</strong> as the sample size increases to the population, but the prediction interval will always <strong>at least be equal to the variance of the error</strong>.</p>
 </div>
 <h2 id="classification-problems"><strong>Classification Problems</strong><a class="headerlink" href="#classification-problems" title="Permanent link">&para;</a></h2>

@@ -1092,11 +1092,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ordinary-least-squares" class="md-nav__link">
-    Ordinary Least Squares
+  <a href="#matrix-notation" class="md-nav__link">
+    Matrix Notation
   </a>
   
-    <nav class="md-nav" aria-label="Ordinary Least Squares">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Fitting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1112,12 +1119,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#goodness-of-fit" class="md-nav__link">
-    Goodness of Fit
+  <a href="#anova" class="md-nav__link">
+    ANOVA
   </a>
   
-    <nav class="md-nav" aria-label="Goodness of Fit">
+    <nav class="md-nav" aria-label="ANOVA">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-test" class="md-nav__link">
+    F-Test
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#partial-f-test" class="md-nav__link">
@@ -1380,11 +1394,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ordinary-least-squares" class="md-nav__link">
-    Ordinary Least Squares
+  <a href="#matrix-notation" class="md-nav__link">
+    Matrix Notation
   </a>
   
-    <nav class="md-nav" aria-label="Ordinary Least Squares">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Fitting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1400,12 +1421,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#goodness-of-fit" class="md-nav__link">
-    Goodness of Fit
+  <a href="#anova" class="md-nav__link">
+    ANOVA
   </a>
   
-    <nav class="md-nav" aria-label="Goodness of Fit">
+    <nav class="md-nav" aria-label="ANOVA">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-test" class="md-nav__link">
+    F-Test
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#partial-f-test" class="md-nav__link">
@@ -1517,9 +1545,17 @@
 
 
 <h1 id="multiple-linear-regression"><strong>Multiple Linear Regression</strong><a class="headerlink" href="#multiple-linear-regression" title="Permanent link">&para;</a></h1>
-<p>The natural extension of the SLR model is to include <strong>more than one independent variable</strong>, which thus results in the more generalized <strong>Multiple Linear Regression</strong> (MLR) model.</p>
+<p>The natural extension of the SLR model is to include <strong>more than one independent variable</strong>, which thus results in a <strong>Multiple Linear Regression</strong> (MLR) model.</p>
 <div class="arithmatex">\[
-E(Y|X_1, ... X_p) = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_{p}X_{p}
+\begin{aligned}
+    f &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \beta_{2} \cdot X_{2} + ... + \beta_{p} \cdot X_{p} \\
+    \\
+    \therefore E(Y \mid X_{1} = x_{1, i}, ... X_{p} = x_{p,i})
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1, i} + \beta_{2} \cdot x_{2, i} + \dots
+    \\ 
+    \therefore y_{i}
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1, i} + \beta_{2} \cdot x_{2, i} + \dots + \varepsilon_{i}
+\end{aligned}
 \]</div>
 <p>Unlike the SLR which studies how each <em>individual</em> IV influences the DV, the goal of the MLR model is to study how all the IVs operate <strong>together</strong> to influence the DV.</p>
 <p><center></p>
@@ -1545,6 +1581,7 @@ E(Y|X_1, ... X_p) = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_{p}X_{p}
 <blockquote>
 <p>For avoidance of doubt, the subscript <span class="arithmatex">\(i\)</span> will be used to denote observations while <span class="arithmatex">\(j\)</span> will be used to denote independent variables.</p>
 </blockquote>
+<h2 id="matrix-notation"><strong>Matrix Notation</strong><a class="headerlink" href="#matrix-notation" title="Permanent link">&para;</a></h2>
 <p>Every observation can also be expressed as the sum of the regression and the error term. However, due to the multi-dimensional nature of the model, it is commonly expressed in matrix notation:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1560,7 +1597,7 @@ E(Y|X_1, ... X_p) = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_{p}X_{p}
     \boldsymbol{y} &amp;= \boldsymbol{X\beta + \varepsilon}
 \end{aligned}
 \]</div>
-<h2 id="ordinary-least-squares"><strong>Ordinary Least Squares</strong><a class="headerlink" href="#ordinary-least-squares" title="Permanent link">&para;</a></h2>
+<h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
 <p>Similar to the SLR model, the regression parameters can be found by minimizing the sum of squared residuals:</p>
 <div class="arithmatex">\[
 RSS = \sum y_i - \hat{y} =\sum [y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i1 + \hat{\beta}_2 x_i2 + ... + \hat{\beta}_p x_ip)]^2
@@ -1583,7 +1620,7 @@ RSS = \sum y_i - \hat{y} =\sum [y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i1 + \hat
 <p>The tricky part is that <span class="arithmatex">\((\boldsymbol{X'X})^{-1}\)</span> is <strong>hard to compute by manually</strong>, except for the special case where <span class="arithmatex">\(p=1\)</span> (SLR). Thus, it is likely that the parameters will be provided by the question.</p>
 <p>If required to compute them manually, then <span class="arithmatex">\((\boldsymbol{X'X})^{-1}\)</span> is <em>likely</em> to be provided. The remaining <span class="arithmatex">\(\boldsymbol{X'y}\)</span> still needs to be computed and put together to obtain the regression parameters.</p>
 <p>However, if the model has <span class="arithmatex">\(p=2\)</span> but <strong>no intercept</strong>, then <span class="arithmatex">\((\boldsymbol{X'X})^{-1}\)</span> is a <strong>2 x 2 Matrix</strong> whose inverse can be easily calculated. Similarly, if <span class="arithmatex">\((\boldsymbol{X'X})^{-1}\)</span> is a <strong>Diagonal Matrix</strong>, its inverse can be easily calculated as well.</p>
-<h2 id="goodness-of-fit"><strong>Goodness of Fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h2>
+<h2 id="anova"><strong>ANOVA</strong><a class="headerlink" href="#anova" title="Permanent link">&para;</a></h2>
 <p>The ANOVA for MLR follows the same intuition as the SLR version, adjusted for the new degrees of freedom:</p>
 <p><center></p>
 <table>
@@ -1626,6 +1663,7 @@ RSS = \sum y_i - \hat{y} =\sum [y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i1 + \hat
 R^2 = \frac{RegSS}{TSS} = r_{y,\hat{y}}^2
 \]</div>
 <p>The multiple IVs of the model are now captured through <span class="arithmatex">\(\hat{y}\)</span> instead of <span class="arithmatex">\(x\)</span> directly.</p>
+<h3 id="f-test"><strong>F-Test</strong><a class="headerlink" href="#f-test" title="Permanent link">&para;</a></h3>
 <p>However, the hypothesis test under the MLR is vastly different from the SLR version. Instead of testing if an individual IV is useful, it tests if all the IVs are <strong>collectively useful</strong> in helping to explain the DV.</p>
 <div class="arithmatex">\[
 \begin{aligned}

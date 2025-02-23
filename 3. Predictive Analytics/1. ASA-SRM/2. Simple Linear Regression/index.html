@@ -1141,22 +1141,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#confidence-prediction-intervals" class="md-nav__link">
-    Confidence &amp; Prediction Intervals
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prediction-intervals" class="md-nav__link">
-    Prediction Intervals
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ols-properties" class="md-nav__link">
-    OLS Properties
+  <a href="#confidence-and-prediction-intervals" class="md-nav__link">
+    Confidence and Prediction Intervals
   </a>
   
 </li>
@@ -1410,22 +1396,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#confidence-prediction-intervals" class="md-nav__link">
-    Confidence &amp; Prediction Intervals
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prediction-intervals" class="md-nav__link">
-    Prediction Intervals
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ols-properties" class="md-nav__link">
-    OLS Properties
+  <a href="#confidence-and-prediction-intervals" class="md-nav__link">
+    Confidence and Prediction Intervals
   </a>
   
 </li>
@@ -1472,6 +1444,7 @@
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The model is called "Simple" because it only contains a <em>single</em> independent variable.</p>
+<p>The parameters are also sometimes collectively referred to as the <strong>Regression Coefficients</strong>.</p>
 </div>
 <h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
 <p>The model is fitted using the <strong>Ordinary Least Squares</strong> (OLS) method. The parameters are estimated such that the resulting fitted model <strong>minimizes the sum of squared residuals</strong>, also known as the <strong>Residual Sum Squared</strong> (RSS):</p>
@@ -1504,6 +1477,13 @@
 <li><span class="arithmatex">\(\hat{\beta}_{0}\)</span> and <span class="arithmatex">\(\hat{\beta}_{1}\)</span> are <strong>constants</strong> in the above equation</li>
 <li>The sum of all observations can be <strong>equivalently expressed</strong> as the average multiplied by the number of observations; <span class="arithmatex">\(\sum x_{i} = n \cdot \bar{x}\)</span></li>
 </ol>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>By rearranging the terms, it can be shown that the regression model <strong>passes through the mean of the two variables</strong> <span class="arithmatex">\((\bar{x}, \bar{y})\)</span>:</p>
+<div class="arithmatex">\[
+    \bar{y} = \hat{\beta}_{0} + \hat{\beta}_{1} \cdot \bar{x}
+\]</div>
 </div>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1686,11 +1666,25 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The degrees of freedom for the different components can be tricky to understand.</p>
-<p>TSS is the deviations of the <strong>observations from the mean</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but one degree of freedom has been <strong>used up by the mean</strong>; <span class="arithmatex">\(\nu = n - 1\)</span>.</p>
-<p>RSS is the deviations of the <strong>observations from the prediction</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but two degrees of freedom has been <strong>used up by the Intercept and Slope</strong>; <span class="arithmatex">\(\nu = n-2\)</span>.</p>
-<p>RegSS is the deviations of the <strong>prediction from the sample mean</strong>. Since the prediction only relies on a <strong>single input</strong>, there is only one degree of freedom; <span class="arithmatex">\(\nu = 1\)</span>.</p>
+<p>The degrees of freedom for the different components can be tricky to understand:</p>
+<ul>
+<li><strong>TSS</strong> is the deviations of the <strong>observations from the mean</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but one degree of freedom has been <strong>used up by the mean</strong>; <span class="arithmatex">\(\nu = n - 1\)</span>.</li>
+<li><strong>RSS</strong> is the deviations of the <strong>observations from the prediction</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but two degrees of freedom has been <strong>used up by the Intercept and Slope</strong>; <span class="arithmatex">\(\nu = n-2\)</span>.</li>
+<li><strong>RegSS</strong> is the deviations of the <strong>prediction from the sample mean</strong>. Since the prediction only relies on a <strong>single input</strong>, there is only one degree of freedom; <span class="arithmatex">\(\nu = 1\)</span>.</li>
+</ul>
 <p>Alternatively, since <span class="arithmatex">\(\text{v} = \text{RegSS} + \text{RSS}\)</span>, the degrees of freedom should follow the same sum. Thus, RegSS must have one degree of freedom.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The estimation of the two parameters involves a minimization problem which sets their first derivative to 0. It can be shown the following two constraints must hold true:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \sum \hat{\varepsilon_{i}} &amp;= 0 \\
+    \sum x_{i} \hat{\varepsilon_{i}} &amp;= 0       
+\end{aligned}
+\]</div>
+<p>The first constraint is that the <strong>residuals must sum to 0</strong>. This is intuitive, as the line of best fit is sort of a "mean" of the datapoints, ensuring that the residuals are equally above and below the line.</p>
+<p>The second constraint is that the <strong>dot product of the independent and residuals sum to 0</strong>. This means that the two are <strong>uncorrelated</strong>; all information from <span class="arithmatex">\(X\)</span> has been fitted inside the model.</p>
 </div>
 <p>Thus, the F-statistic can be constructed:</p>
 <div class="arithmatex">\[
@@ -1810,80 +1804,27 @@
     t^{2}_{n-2} \sim F_{1, n-2}
 \]</div>
 </div>
-<h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
-<p>Since the distribution of t-statistic is known, it can be used to determine the confidence interval of the estimate:</p>
+<h3 id="confidence-and-prediction-intervals"><strong>Confidence and Prediction Intervals</strong><a class="headerlink" href="#confidence-and-prediction-intervals" title="Permanent link">&para;</a></h3>
+<p>Using the sampling distributions for the above estimators, the confidence interval can be constructed using the general expression:</p>
 <div class="arithmatex">\[
-P\left(\text{Margin of Error} &lt; \frac{\hat{\beta_{1}} - \beta_{1}}{\hat{\sigma}_{\hat{\beta_{1}}}} &lt; \text{Margin of Error}\right) = 1 - \alpha
+    \text{CI} = \hat{\theta} + t_{\frac{1-\alpha}{2}, n-2} \cdot \text{SE}(\hat{\theta})
 \]</div>
-<div class="arithmatex">\[
-\text{Confidence Interval} = \hat{\beta}_{1} \pm t_{n-2, \frac{\alpha}{2}} * \hat{\sigma}_{\hat{\beta_{1}}}
-\]</div>
-<h3 id="prediction-intervals"><strong>Prediction Intervals</strong><a class="headerlink" href="#prediction-intervals" title="Permanent link">&para;</a></h3>
-<p>Consider the Prediction Error of the SLR model:</p>
-<div class="arithmatex">\[
-y_* - \hat{y_*} = \varepsilon_* + [(\beta_{0} + \beta_{1} x_*) - (\hat{\beta_{0}} + \hat{\beta_{1}}x_*)]
-\]</div>
-<p>Since both <span class="arithmatex">\(y_*\)</span> and <span class="arithmatex">\(\hat{y_*}\)</span> are normally distributed, the prediction errors are <strong>normally distributed</strong> as well:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Confidence Intervals can be computed for all <span class="arithmatex">\(\hat{\beta}_{0}\)</span>, <span class="arithmatex">\(\hat{\beta}_{1}\)</span> AND <span class="arithmatex">\(\hat{y}\)</span>.</p>
+</div>
+<p>For prediction intervals, the SE of the prediction error must be first determined:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-E(y_* - \hat{y_*})
-&amp;= E[\varepsilon_* + [(\beta_{0} + \beta_{1} x_*) - (\hat{\beta_{0}} + \hat{\beta_{1}}x_*)]] \\
-&amp;= 0 + \beta_{0} + \beta_{1} E(x_*) - \beta_{0} - \beta_{1} E(x_*) \\
-&amp;= 0 \\
-\\
-Var(y_* - \hat{y_*})
-&amp;= Var(\varepsilon_* + [(\beta_{0} + \beta_{1} x_*) - (\hat{\beta_{0}} + \hat{\beta_{1}}x_*)] \\
-&amp;= Var(\varepsilon_*) + Var[(\beta_{0} + \beta_{1} x_*) - (\hat{\beta_{0}} + \hat{\beta_{1}}x_*)] \\
-&amp;= ... \\
-&amp;= \sigma^{2} [1 + \frac{1}{n} + \frac{(x_* - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}}]
+    \text{Var}(y_{i} - \hat{y}_{i})
+    &amp;= \text{Var}(y_{i}) + \text{Var}(\hat{y}_{i}) \\
+    &amp;= \sigma^{2}_{\text{RSS}} + \sigma^{2}_{\text{RSS}} \cdot \left(\frac{1}{n} + \frac{(x - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}} \right) \\
+    &amp;= \sigma^{2}_{\text{RSS}} \cdot \left(1 + \frac{1}{n} + \frac{(x - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}} \right)
 \end{aligned}
 \]</div>
+<p>Thus, the prediction interval can be constructed using the general expression:</p>
 <div class="arithmatex">\[
-\therefore y_* - \hat{y_*} \sim N\left(0, \sigma^{2} [1 + \frac{1}{n} + \frac{(x_* - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}}]\right)
-\]</div>
-<p>Similar to before, since the population variance is unknown, it can be approximated using the MSE. Thus, a t-statistic constructed from this sample will have a <strong>t-distribution</strong>, allowing the following prediction interval to be calculated:</p>
-<div class="arithmatex">\[
-\text{Prediction Interval} = \hat{y}_* \pm t_{n-2, \frac{\alpha}{2}} * \hat{\sigma}_{y_* - \hat{y_*}}
-\]</div>
-<p>Notice that the standard error of the prediction interval increases as <span class="arithmatex">\(x_*\)</span> moves <strong>further away</strong> <span class="arithmatex">\(\bar{x}\)</span>, indicating that the predictions become <strong>less accurate</strong> for those values.</p>
-<h3 id="ols-properties"><strong>OLS Properties</strong><a class="headerlink" href="#ols-properties" title="Permanent link">&para;</a></h3>
-<p>By re-arranging the formula for <span class="arithmatex">\(\hat{\beta}_{0}\)</span>, we can show that <strong><span class="arithmatex">\((\bar{x}, \bar{y})\)</span> always lies</strong> on the fitted regression model:</p>
-<div class="arithmatex">\[
-\bar{y} = \hat{\beta}_{0} + \hat{\beta}_{1} \bar{x}
-\]</div>
-<p>Additionally, since the parameters are estimated through minimization, the resulting model <strong>must always fulfil the two first order conditions</strong>. The model thus has <span class="arithmatex">\(n-2\)</span> degrees of freedom to reflect these "constraints".</p>
-<p><center></p>
-<table>
-<thead>
-<tr>
-<th align="center"><span class="arithmatex">\(\beta_{0}\)</span> FOC</th>
-<th align="center"><span class="arithmatex">\(\beta_{1}\)</span> FOC</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(\frac{\partial}{\partial \beta_{0}} = -2 \sum [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} x_{i})] = 0\)</span></td>
-<td align="center"><span class="arithmatex">\(\frac{\partial}{\partial \beta_{1}} = -2 \sum x_{i} [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} x_{i})] = 0\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\sum \hat{\varepsilon_{i}} = 0\)</span></td>
-<td align="center"><span class="arithmatex">\(\sum x_{i} \hat{\varepsilon_{i}} = 0\)</span></td>
-</tr>
-<tr>
-<td align="center">Residuals are negatively correlated</td>
-<td align="center">Residuals and Independendent variables are uncorrelated</td>
-</tr>
-</tbody>
-</table>
-<p></center></p>
-<p>Using the above results, we can also show the following that the mean of the regression outputs is equal to the mean of the population:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\hat{\varepsilon_{i}} &amp;= y_{i} - \hat{y_{i}} \\
-\sum \hat{\varepsilon_{i}} &amp;= \sum y_{i} - \hat{y_{i}} \\
-0 &amp;= n\bar{y} - n\bar{\hat{y}} \\
-\bar{\hat{y}} &amp;= \bar{y} \\
-\end{aligned}
+    \text{PI} = \hat{\theta} + t_{\frac{1-\alpha}{2}, n-2} \cdot \text{SE}(y_{i} - \hat{y}_{i})
 \]</div>
 
 
