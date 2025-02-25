@@ -1085,6 +1085,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    Interpretation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#model-fitting" class="md-nav__link">
     Model Fitting
   </a>
@@ -1340,6 +1347,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    Interpretation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#model-fitting" class="md-nav__link">
     Model Fitting
   </a>
@@ -1433,6 +1447,12 @@
     \therefore y_{i} &amp;= \beta_{0} + \beta_{1} \cdot x_{i} + \varepsilon_{i}
 \end{aligned}
 \]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The model is called “Simple” because it only contains a <em>single</em> independent variable.</p>
+</div>
+<h2 id="interpretation"><strong>Interpretation</strong><a class="headerlink" href="#interpretation" title="Permanent link">&para;</a></h2>
+<p>The parameters are collectively referred to as the <strong>Regression Coefficients</strong>:</p>
 <ul>
 <li><strong>Intercept Parameter</strong> (<span class="arithmatex">\(\beta_{0}\)</span>): <strong>Expected value</strong> of <span class="arithmatex">\(Y\)</span> when <span class="arithmatex">\(X = 0\)</span></li>
 <li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{1}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X\)</span> </li>
@@ -1440,11 +1460,6 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The intepretation uses EXPECTED to emphasise that the model is predicting <span class="arithmatex">\(E(Y \mid X)\)</span>, NOT <span class="arithmatex">\(Y\)</span> itself.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The model is called "Simple" because it only contains a <em>single</em> independent variable.</p>
-<p>The parameters are also sometimes collectively referred to as the <strong>Regression Coefficients</strong>.</p>
 </div>
 <h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
 <p>The model is fitted using the <strong>Ordinary Least Squares</strong> (OLS) method. The parameters are estimated such that the resulting fitted model <strong>minimizes the sum of squared residuals</strong>, also known as the <strong>Residual Sum Squared</strong> (RSS):</p>
