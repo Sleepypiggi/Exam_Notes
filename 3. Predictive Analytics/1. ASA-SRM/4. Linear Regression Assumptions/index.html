@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://example.com/3.%20Predictive%20Analytics/1.%20ASA-SRM/4.%20Gauss%20Markov%20Theorem/">
+        <link rel="canonical" href="https://example.com/3.%20Predictive%20Analytics/1.%20ASA-SRM/4.%20Linear%20Regression%20Assumptions/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Gauss Markov Theorem - Exam Notes</title>
+        <title>Linear Regression Assumptions - Exam Notes</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gauss-markov-theorem" class="md-skip">
+        <a href="#linear-regression-asssumptions" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gauss Markov Theorem
+              Linear Regression Assumptions
             
           </span>
         </div>
@@ -1082,12 +1082,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Gauss Markov Theorem
+          Linear Regression Assumptions
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Gauss Markov Theorem
+        Linear Regression Assumptions
       </a>
       
         
@@ -1106,46 +1106,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ols-assumptions" class="md-nav__link">
-    OLS Assumptions
-  </a>
-  
-    <nav class="md-nav" aria-label="OLS Assumptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-linearity" class="md-nav__link">
-    #1: Linearity
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2-exogenity" class="md-nav__link">
-    #2: Exogenity
-  </a>
-  
-    <nav class="md-nav" aria-label="#2: Exogenity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#residual-analysis" class="md-nav__link">
-    Residual Analysis
+      
+        <li class="md-nav__item">
+  <a href="#assumption-1-linearity" class="md-nav__link">
+    Assumption 1: Linearity
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-no-perfect-collinearity" class="md-nav__link">
-    #3: No Perfect Collinearity
+      
+        <li class="md-nav__item">
+  <a href="#assumption-2-perfect-collinearity" class="md-nav__link">
+    Assumption 2: Perfect Collinearity
   </a>
   
-    <nav class="md-nav" aria-label="#3: No Perfect Collinearity">
+    <nav class="md-nav" aria-label="Assumption 2: Perfect Collinearity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1166,13 +1145,95 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#4-no-extreme-outliers" class="md-nav__link">
-    #4: No Extreme Outliers
+      
+        <li class="md-nav__item">
+  <a href="#assumption-3-exogenity" class="md-nav__link">
+    Assumption 3: Exogenity
   </a>
   
-    <nav class="md-nav" aria-label="#4: No Extreme Outliers">
+    <nav class="md-nav" aria-label="Assumption 3: Exogenity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#residual-analysis" class="md-nav__link">
+    Residual Analysis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-4-homoscedasticity" class="md-nav__link">
+    Assumption 4: Homoscedasticity
+  </a>
+  
+    <nav class="md-nav" aria-label="Assumption 4: Homoscedasticity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifying-heteroscedasticity" class="md-nav__link">
+    Identifying Heteroscedasticity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dealing-with-heteroscedasticity" class="md-nav__link">
+    Dealing with Heteroscedasticity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumption-5-serial-correlation" class="md-nav__link">
+    Assumption 5: Serial Correlation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-6-normality" class="md-nav__link">
+    Assumption 6: Normality
+  </a>
+  
+    <nav class="md-nav" aria-label="Assumption 6: Normality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q-q-plots" class="md-nav__link">
+    Q-Q Plots
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-assumptions" class="md-nav__link">
+    Other Assumptions
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Assumptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-extreme-outliers" class="md-nav__link">
+    No Extreme Outliers
+  </a>
+  
+    <nav class="md-nav" aria-label="No Extreme Outliers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1207,69 +1268,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gauss-markov-assumptions" class="md-nav__link">
-    Gauss Markov Assumptions
+  <a href="#high-dimension" class="md-nav__link">
+    High dimension
   </a>
-  
-    <nav class="md-nav" aria-label="Gauss Markov Assumptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-conditional-homoscedasticity" class="md-nav__link">
-    #1: Conditional Homoscedasticity
-  </a>
-  
-    <nav class="md-nav" aria-label="#1: Conditional Homoscedasticity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identifying-heteroscedasticity" class="md-nav__link">
-    Identifying Heteroscedasticity
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dealing-with-heteroscedasticity" class="md-nav__link">
-    Dealing with Heteroscedasticity
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-no-serial-correlation" class="md-nav__link">
-    #2: No Serial Correlation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-distribution" class="md-nav__link">
-    Error Distribution
-  </a>
-  
-    <nav class="md-nav" aria-label="Error Distribution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#q-q-plots" class="md-nav__link">
-    Q-Q Plots
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1426,46 +1427,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ols-assumptions" class="md-nav__link">
-    OLS Assumptions
-  </a>
-  
-    <nav class="md-nav" aria-label="OLS Assumptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-linearity" class="md-nav__link">
-    #1: Linearity
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2-exogenity" class="md-nav__link">
-    #2: Exogenity
-  </a>
-  
-    <nav class="md-nav" aria-label="#2: Exogenity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#residual-analysis" class="md-nav__link">
-    Residual Analysis
+      
+        <li class="md-nav__item">
+  <a href="#assumption-1-linearity" class="md-nav__link">
+    Assumption 1: Linearity
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-no-perfect-collinearity" class="md-nav__link">
-    #3: No Perfect Collinearity
+      
+        <li class="md-nav__item">
+  <a href="#assumption-2-perfect-collinearity" class="md-nav__link">
+    Assumption 2: Perfect Collinearity
   </a>
   
-    <nav class="md-nav" aria-label="#3: No Perfect Collinearity">
+    <nav class="md-nav" aria-label="Assumption 2: Perfect Collinearity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1486,13 +1466,95 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#4-no-extreme-outliers" class="md-nav__link">
-    #4: No Extreme Outliers
+      
+        <li class="md-nav__item">
+  <a href="#assumption-3-exogenity" class="md-nav__link">
+    Assumption 3: Exogenity
   </a>
   
-    <nav class="md-nav" aria-label="#4: No Extreme Outliers">
+    <nav class="md-nav" aria-label="Assumption 3: Exogenity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#residual-analysis" class="md-nav__link">
+    Residual Analysis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-4-homoscedasticity" class="md-nav__link">
+    Assumption 4: Homoscedasticity
+  </a>
+  
+    <nav class="md-nav" aria-label="Assumption 4: Homoscedasticity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifying-heteroscedasticity" class="md-nav__link">
+    Identifying Heteroscedasticity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dealing-with-heteroscedasticity" class="md-nav__link">
+    Dealing with Heteroscedasticity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumption-5-serial-correlation" class="md-nav__link">
+    Assumption 5: Serial Correlation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-6-normality" class="md-nav__link">
+    Assumption 6: Normality
+  </a>
+  
+    <nav class="md-nav" aria-label="Assumption 6: Normality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q-q-plots" class="md-nav__link">
+    Q-Q Plots
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-assumptions" class="md-nav__link">
+    Other Assumptions
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Assumptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-extreme-outliers" class="md-nav__link">
+    No Extreme Outliers
+  </a>
+  
+    <nav class="md-nav" aria-label="No Extreme Outliers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1527,69 +1589,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gauss-markov-assumptions" class="md-nav__link">
-    Gauss Markov Assumptions
+  <a href="#high-dimension" class="md-nav__link">
+    High dimension
   </a>
-  
-    <nav class="md-nav" aria-label="Gauss Markov Assumptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-conditional-homoscedasticity" class="md-nav__link">
-    #1: Conditional Homoscedasticity
-  </a>
-  
-    <nav class="md-nav" aria-label="#1: Conditional Homoscedasticity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identifying-heteroscedasticity" class="md-nav__link">
-    Identifying Heteroscedasticity
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dealing-with-heteroscedasticity" class="md-nav__link">
-    Dealing with Heteroscedasticity
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-no-serial-correlation" class="md-nav__link">
-    #2: No Serial Correlation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-distribution" class="md-nav__link">
-    Error Distribution
-  </a>
-  
-    <nav class="md-nav" aria-label="Error Distribution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#q-q-plots" class="md-nav__link">
-    Q-Q Plots
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1608,25 +1610,82 @@
                   
 
 
-<h1 id="gauss-markov-theorem">Gauss Markov Theorem<a class="headerlink" href="#gauss-markov-theorem" title="Permanent link">&para;</a></h1>
-<p>Using OLS, the estimated regression parameters will always be <strong>unbiased</strong> under certain assumptions. The <strong>Gauss Markov Theorem</strong> extends this, which states that under certain assumptions, the OLS estimators will have the <strong>lowest variance</strong> among all possible linear unbiased estimators.</p>
-<p>In a statistics context, they are said to be the <strong>most efficient</strong> among all other linear unbiased estimators. In a regression context, the OLS estimators are said to be the <strong>Best Linear Unbiased Estimators</strong> (BLUE).</p>
-<p>This section will go over the various <strong>assumptions</strong> for both OLS and Gauss Markov Theorem. It will also cover the <strong>diagnostics</strong> to determine if the assumptions have been violated.</p>
-<p>The assumptions needed for OLS and the Gauss Markov theorem are often <strong>mixed up with each other</strong> as the assumptions needed for OLS are also needed for the theorem. This set of notes makes a clear distinction between the two.</p>
+<h1 id="linear-regression-asssumptions"><strong>Linear Regression Asssumptions</strong><a class="headerlink" href="#linear-regression-asssumptions" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>There are <strong>5 key assumptions</strong> that have been implicitly made thus far for Linear Regression, each allowing us to make key conclusions about the model:</p>
 <!-- Obtained from Stack Exchange User DVL -->
-<p><img alt="Regression Assumptions" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/Regression%20Assumptions.png" /></p>
-<h2 id="ols-assumptions"><strong>OLS Assumptions</strong><a class="headerlink" href="#ols-assumptions" title="Permanent link">&para;</a></h2>
-<h3 id="1-linearity"><strong>#1: Linearity</strong><a class="headerlink" href="#1-linearity" title="Permanent link">&para;</a></h3>
-<p>Linear regression is a model where the <strong>relationship</strong> between the DV and IVs are linear. Thus, the <strong>regression parameters must be linear</strong>, but NOT the DV or IV.</p>
-<p>This means that the model is still considered a "Linear Regression" even after a transformation of the DV and/or IV.</p>
+<p><img alt="REGRESSION_ASSUMPTIONS" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/REGRESSION_ASSUMPTIONS.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The colours of the arrows indicate which assumptions are cumulatively needed:</p>
+<ul>
+<li>Red + Blue = Purple</li>
+<li>Green + Purple = Black</li>
+</ul>
+</div>
+<p>The purpose of this section is to examine WHY we need the respective assumptions, CONSEQUENCES on the results if they are violated and HOW to verify the assumptions.</p>
+<p>If the first two blocks of assumptions are fulfilled, then the resulting regression esimate is known as the <strong>Best Linear Unbiased Estimator</strong> (BLUE), which has the <strong>lowest variance</strong> (most efficient) among all other linear unbiased estimates. This is known as the <strong>Guass Markov Theorem</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The last block of assumptions on the distribution of the errors being normal and iid are NOT needed for the estimates to be BLUE. They are however needed for <strong>statistical inference</strong>.</p>
+</div>
+<h2 id="assumption-1-linearity"><strong>Assumption 1: Linearity</strong><a class="headerlink" href="#assumption-1-linearity" title="Permanent link">&para;</a></h2>
+<p>This assumes that the <strong>true relationship</strong> between the dependent and independent variables are Linear, but not the dependent or independent variables themselves. This allows for <strong>transformations</strong> of the respective variables:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    y_i &amp;= \beta_0 + \beta_1 x_1 + \beta_2 x_2 \\
-    y_i &amp;= \beta_0 + \beta_1 x^2 + \beta_2 x^3 \\
-    \ln y_i &amp;= \beta_0 + \beta_1 x_1 + \beta_2 x_2
+    Y &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \beta_{2} \cdot X_{2} \\
+    Y &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \beta_{2} \cdot X^{2}_{1} \\
+    \ln Y &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \beta_{2} \cdot X_{2}
 \end{aligned}
 \]</div>
-<h3 id="2-exogenity"><strong>#2: Exogenity</strong><a class="headerlink" href="#2-exogenity" title="Permanent link">&para;</a></h3>
+<p>If the relationship between the two is not linear, a linear regression model will not be able to accurately capture the relationship between the two, resulting in <strong>Bias estimates</strong>, which consequently impacts the validity of BLUE and the statistical inferences.</p>
+<p>Linearity can be verified using either of the following:</p>
+<ul>
+<li><strong>Scatterplot of the dependent and independent</strong>: Plot should show a linear relationship (intuitive)</li>
+<li><strong>Scatterplot of the residuals and the fitted model</strong> (Residual Plot): Plot should be centered around 0</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The intuition behind Residual Plots is that IF the fitted model has <strong>fully captured the relationship</strong> between the dependent and independent, then the resulting residuals should be <strong>random</strong> - with an average of 0.</p>
+<p>Thus, if we observe the residuals to be centered around 0, it implied the fitted linear model has fully captured the relationship, implying that the <strong>true relationship is indeed linear</strong>.</p>
+</div>
+<!-- Obtained from Lumen Learning -->
+<p><img alt="SCATTER_RESIDUAL_PLOT" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/SCATTER_RESIDUAL_PLOT.png" /></p>
+<p>If it is found that the relationship is non-linear, <strong>transformations</strong> could be done on the dependent and/or independent variable to make the resulting relationship linear.</p>
+<h2 id="assumption-2-perfect-collinearity"><strong>Assumption 2: Perfect Collinearity</strong><a class="headerlink" href="#assumption-2-perfect-collinearity" title="Permanent link">&para;</a></h2>
+<p>Collinearity (or Multi-collinearity) refers to when an independent variable can be expressed as a <strong>linear combination of one or more other independent variables</strong>.</p>
+<p>Perfect collinearity refers to when it can be <strong>perfectly expressed</strong> as another variable:</p>
+<ul>
+<li>Multiple of another variable: <span class="arithmatex">\(x_{1} = c \cdot x_{2}\)</span></li>
+<li>Differs by a constant: <span class="arithmatex">\(x_{1} = x_{2} \pm c\)</span></li>
+<li>Dummy variable trap</li>
+<li>Affine transformations</li>
+</ul>
+<p>If there are perfectly collinear variables, then there will be <strong>insufficient information</strong> to solve for the parameter estimates (EG. Two equations to solve for three unknowns). This results in <strong>non-unique solutions</strong>.</p>
+<h3 id="imperfect-collinearity"><strong>Imperfect Collinearity</strong><a class="headerlink" href="#imperfect-collinearity" title="Permanent link">&para;</a></h3>
+<p>Imperfect collinearity occurs when one variable is <strong>highly (but NOT perfectly) correlated</strong> with one or more other variables. Intuitively, this means that the variable does not add much predictive power as its effects would have <strong>already been captured via the related predictors</strong>, hence can be removed from the model with little loss.</p>
+<p>Imperfect collinearity does NOT prevent OLS from finding a solution and does NOT affect the overall predictive power of the model. It affects the inferences of the model:</p>
+<ul>
+<li>Usual intepretation of "holding other variables constant" no longer holds true as the variables move together; <strong>hard to seperate the effects of individual variables</strong></li>
+<li>Consequently, OLS has difficulty estimating the estimates as it cannot clearly distinguish them; resulting in <strong>unstable estimates</strong> which can change drastically over different samples</li>
+<li>Consequently, this <strong>increases the variance of the estimates</strong>, which increases p-values, potentially leading to <strong>more false negatives</strong> and hence important variables being omitted from the regression</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Collinearity only affects t-test results, overall predictive power (measured by F-tests), are unaffected.</p>
+</div>
+<h3 id="detecting-collinearity"><strong>Detecting Collinearity</strong><a class="headerlink" href="#detecting-collinearity" title="Permanent link">&para;</a></h3>
+<p>The simplest way to detect collinearity is through a <strong>Scatterplot or Correlation Matrix</strong>, which shows the correlations between <strong>pairs of variables</strong>. A <strong>correlation of 0.8 and higher</strong> is typically considered high enough where the collinearity becomes problematic.</p>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="CORRELATION_MATRIX" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/CORRELATION_MATRIX.png" /></p>
+<p>However, the above method can only detect collinearity between pairs of variables at a time. To check for collinearity between 3 or more variables, the <strong>Variance Inflation Factor</strong> (VIF) can be used instead.</p>
+<p>Recall that in the presence of collinearity, the variance of estimates increases; the VIF is a <strong>measure of the increase in variance</strong>. Different texts have <strong>different thresholds</strong> for high collinearity. For this exam, assume the <strong>threshold to be 10</strong>.</p>
+<div class="arithmatex">\[
+    \text{VIF}_{p} = \frac{1}{1 - R^{2}_{p}}
+\]</div>
+<p><span class="arithmatex">\(R^{2}_{p}\)</span> is the R-squared for a model where the p-th predictor is regressed against ALL OTHER predictors. If this R-squared is high, it implies that this predictor is well explained by other predictors (high correlation, high collinearity).</p>
+<p>Naturally, the solution is to <strong>drop highly collinear variables</strong>; keep only one of the bunch.</p>
+<h2 id="assumption-3-exogenity"><strong>Assumption 3: Exogenity</strong><a class="headerlink" href="#assumption-3-exogenity" title="Permanent link">&para;</a></h2>
 <p>Exogenity refers to how a variable comes from <strong>outside</strong> the model and is thus <strong>independent of any other variables within the model</strong>.</p>
 <p>In a regression context, this comes in the form of the errors having a <strong>conditional mean of 0</strong>, ensuring that the errors are random and thus not related to the IVs.</p>
 <div class="arithmatex">\[
@@ -1676,45 +1735,80 @@
 <p><img alt="Residual Plot" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/Residual%20Plot.png" /></p>
 <!-- Added variable plots? -->
 
-<h3 id="3-no-perfect-collinearity"><strong>#3: No Perfect Collinearity</strong><a class="headerlink" href="#3-no-perfect-collinearity" title="Permanent link">&para;</a></h3>
-<p>Collinearity refers to when an IV can be expressed as a <strong>linear combination of one or more other IVs</strong>. Perfect collinearity is an extreme case where an IV can be <em>perfectly</em> expressed as a combination of another.</p>
-<blockquote>
-<p>Technically speaking, Collinearity refers to one to one variable relationship, while Multicollinearity refers to one to many variable relationship, hence "Multi".</p>
-</blockquote>
-<ol>
-<li>Variable is a <strong>multiple</strong> of another: <span class="arithmatex">\(x_1 = cx_2\)</span></li>
-<li>Variable <strong>differs by a constant</strong> from another: <span class="arithmatex">\(x_1 = x_2 \pm c\)</span></li>
-<li>Variable is an <strong>affine transformation</strong> of another:</li>
-<li>Sum of several variables is fixed: <strong>Dummy Variable Trap</strong></li>
-</ol>
-<p>The issue with perfect collinearity is that it affects the linear algebra used to solve for the coefficients (EG. Two equations to solve for three unknowns). There will be <strong>no unique solutions</strong> - many different values for the coefficients could work equally well.</p>
-<h4 id="imperfect-collinearity"><strong>Imperfect Collinearity</strong><a class="headerlink" href="#imperfect-collinearity" title="Permanent link">&para;</a></h4>
-<p>Imperfect Collinearity is a less extreme case where an IV is highly (but not perfectly) correlated with one or more other IVs.</p>
-<blockquote>
-<p>Recall that correlation refers to the extent of a <em>Linear</em> relationship. Non-linear relationships between variables are fine (EG. Polynomial Regression).</p>
-</blockquote>
-<p>This means that including the IV does not bring much additional predctive power into the model as its effects are already captured through related predictors and thus can be removed from the model.</p>
-<p>Unlike in the perfect case, high collinearity does not prevent OLS from finding a solution. However, the intepretation of the variables become complicated:</p>
-<ol>
-<li>The original intepretation of coefficients "holding other variables constant" is <strong>no longer true</strong> as highly correlated variables tend to move together. Thus, it is <strong>hard to seperate the effects of an individual variable</strong>.</li>
-<li>Consequently, OLS has difficulty estimating these coefficients, which could result in <strong>weird meaningless estimates</strong>; EG. Large positive coefficient but large negative for its correlated counterpart.</li>
-<li>This also results in <strong>higher standard errors</strong> for the coefficients of correlated variables. This <strong>reduces the magnitude of t-statistic</strong>, which results in <strong>more false negatives</strong>, failing to reject the null when it should. This results in important variables being omitted from the regression.</li>
-</ol>
-<p>Technically speaking, there is <em>nothing wrong</em> with collinearity if the purpose of the model is solely for prediction. However, if the purpose of the model was to establish causality, then collinearity poses a problem as it interferes with statistical inference.</p>
-<h4 id="detecting-collinearity"><strong>Detecting Collinearity</strong><a class="headerlink" href="#detecting-collinearity" title="Permanent link">&para;</a></h4>
-<p>The simplest way to detect collinearity is through a <strong>Scatterplot or Correlation Matrix</strong>, which shows the correlations between <strong>pairs of variables</strong>. A <strong>correlation of 0.8 and higher</strong> is typically considered high enough where the collinearity becomes problematic.</p>
-<!-- Obtained from ACTEX Manual -->
-<p><img alt="Correlation Matrix" class="center" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/Correlation%20Matrix.png" /></p>
-<p>However, the issue is that this method can only detect collinearity between pairs of variable at a time. In order to detect collinearity among three or more variables (<em>multicollinearity</em>), then the <strong>Variance Inflation Factor (VIF)</strong> should be used instead.</p>
+<h2 id="assumption-4-homoscedasticity"><strong>Assumption 4: Homoscedasticity</strong><a class="headerlink" href="#assumption-4-homoscedasticity" title="Permanent link">&para;</a></h2>
+<p>Homoscedasticity refers to the error terms having <strong>constant variance</strong> while Heteroscedasticity refers to having non-constant variance.</p>
 <div class="arithmatex">\[
-    VIF = \frac{1}{1-R^2_j}
+    var(\varepsilon_i | x_i) = \sigma^2
 \]</div>
-<p>The VIF is derived from the variance of the regression coefficient. As mentioned previously, under the presence of collinearity, the standard error and hence <strong>variance of the coefficient increases</strong> ("inflated"). The <em>extent</em> of the increase is known as the VIF.</p>
+<p>Under homoscedasticity, the sampling distribution of the estimates are easily derived and thus it can be shown that they are the most efficient estimators. The same cannot be proven under heteroscedasticity.</p>
+<blockquote>
+<p>Note that that the OLS estimates are still unbiased; they are just not the most efficient.</p>
+</blockquote>
+<h4 id="identifying-heteroscedasticity"><strong>Identifying Heteroscedasticity</strong><a class="headerlink" href="#identifying-heteroscedasticity" title="Permanent link">&para;</a></h4>
+<p>Similar to before, if the model is adequate, then the residuals should resemble the errors and have <strong>constant variance</strong>. Thus, this can be easily determined through a <strong>residual plot</strong> of the Residuals against the fitted values.</p>
+<p>If the points are <strong>equally spread out</strong> about the mean (0) and show <strong>no pattern</strong>, then homoscedasticity is present. However, if the points show an increasing or decreasing variance (typically in the <strong>shape of a funnel</strong>), then heteroscedasticity is present.</p>
+<!-- Obtained from Corporate Finance Institute -->
+<p><img alt="Homoscedastacity" class="center" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/Homoscedasticity.png" /></p>
+<p>Alternatively, a hypothesis test can be conducted to determine if heteroscedasticity is present, known as the <strong>Bresuch Pagan Test</strong>.</p>
 <div class="arithmatex">\[
-    \hat{Var}(\hat{\beta_1}) = \frac{MS_{RSS}}{(n-1) s^2} * \frac{1}{1-R^2_j}
+\begin{aligned}
+    H_0 &amp;: \sigma^2 \\
+    H_1 &amp;: \sigma^2 + \boldsymbol{Z\gamma}
+\end{aligned}
 \]</div>
-<p>The <span class="arithmatex">\(R^2_j\)</span> in the VIF is the coefficient of determination of a model where the <strong>jth IV is regressed against all other IVs</strong>. A high <span class="arithmatex">\(R^2_j\)</span> means that the <strong>IV is well explained by the other IVs</strong> (high correlation), which indicates the presence of collinearity. Generally, a <span class="arithmatex">\(VIF &gt; 10\)</span> is deemed to have <em>severe collinearity</em>.</p>
-<h3 id="4-no-extreme-outliers"><strong>#4: No Extreme Outliers</strong><a class="headerlink" href="#4-no-extreme-outliers" title="Permanent link">&para;</a></h3>
+<p>The test-statistic is computed as follows:</p>
+<ol>
+<li>Compute the squared standardized residuals from the original model</li>
+<li>Regress them onto the variables in Z (LOL need to change this part)</li>
+<li>Compute the RegSS of the new regression</li>
+</ol>
+<div class="arithmatex">\[
+    T = \frac{RegSS}{2}
+\]</div>
+<p>The test-statistic follows a <strong>chi-square distribution</strong> with <span class="arithmatex">\(q\)</span> degrees of freedom, where <span class="arithmatex">\(q\)</span> is the <strong>number of variables</strong> in <span class="arithmatex">\(\boldsymbol{Z}\)</span>.</p>
+<div class="arithmatex">\[
+    T \sim \chi^2_q
+\]</div>
+<h4 id="dealing-with-heteroscedasticity"><strong>Dealing with Heteroscedasticity</strong><a class="headerlink" href="#dealing-with-heteroscedasticity" title="Permanent link">&para;</a></h4>
+<p>If prior information is known about the structure of the data, then the most intuitive method would be to incorporate that information into the data.</p>
+<!-- Buff up this section -->
+
+<div class="arithmatex">\[
+    Var(\varepsilon_i) = \frac{\sigma^2}{w_i}
+\]</div>
+<p>If no prior information is known, then the Heteroscedasticity can be reduced by using a <strong>Variance Stabilizing Transformation</strong>, such as the <strong>Log</strong> or <strong>Squareroot</strong>. Note that since they require positive data, a <strong>constant can be added</strong> to each term before the transformation to ensure that the values are positive.</p>
+<blockquote>
+<p>It is out of the scope for this set of notes to show why these help to stabilize variance.</p>
+</blockquote>
+<p>Alternatively, if there is only mild heteroscedasticity in the data, then OLS can be used but with an <strong>adjustment to the standard errors</strong> of the coefficients, known as <strong>heteroscedastic-robust standard errors</strong>.</p>
+<p>Due to complexity of the computations, it will not be covered in this set of notes. However, the general idea is that an <strong>weighted estimate</strong> of the variance covariance matrix is computed and the standard errors are computed from there.</p>
+<h3 id="assumption-5-serial-correlation"><strong>Assumption 5: Serial Correlation</strong><a class="headerlink" href="#assumption-5-serial-correlation" title="Permanent link">&para;</a></h3>
+<p>If errors are correlated with one another, it is known as <strong>Serial Correlation</strong> or <strong>Autocorrelation</strong>.</p>
+<p>It implies that there are other unmodelled factors that can be used for prediction, which would imply the current model specification to be wrong.</p>
+<p>Thus, for the SLR model to be true, the errors <strong>must be independent of one another</strong>.</p>
+<div class="arithmatex">\[
+    Cov(\varepsilon_i,\varepsilon_j) = 0
+\]</div>
+<p>Confidence Intervals and PI are narrower than it should be &gt; 95% PI is actually &lt; 95%&gt;
+P values lower &gt; Appear statisticlaly significant when they shld not be</p>
+<p>Time series tends to have errors that are positively correlated, which is why it has its own dedicated section
+No Serial Correlation &gt; Outcome of zero conditional mean, but most likely in time series data</p>
+<h2 id="assumption-6-normality"><strong>Assumption 6: Normality</strong><a class="headerlink" href="#assumption-6-normality" title="Permanent link">&para;</a></h2>
+<p>Although not needed for OLS estimation or Guass Markov, the errors of the regression are usually assumed to be <strong>normally distributed</strong>.</p>
+<!-- To check on specific normal distributions for Y > Does it have the same variance as E? -->
+<div class="arithmatex">\[
+    \varepsilon \sim N(0, \sigma^2)
+\]</div>
+<p>If the errors are normally distributed, then it follows that <strong><span class="arithmatex">\(\beta\)</span> is normally distributed</strong> as well since they are linear and additive. This greatly eases the computation needed to determine the <strong>sampling distribution</strong> for statistical inference.</p>
+<h3 id="q-q-plots"><strong>Q-Q Plots</strong><a class="headerlink" href="#q-q-plots" title="Permanent link">&para;</a></h3>
+<p>Since the errors are normally distributed, the residuals should be normally distributed as well. This can be verified using a <strong>Quantile-Quantile Plot (QQ Plot)</strong>, which <strong>compares the quantiles</strong> of two distributions.</p>
+<p>The first distribution is plotted on the x-axis while the second on the y-axis. If the quantiles are the same (same distribution), then the points should lie on <span class="arithmatex">\(y = x\)</span>, the 45 degree line.</p>
+<!-- Obtained from STHDA -->
+<p><img alt="QQ Plot" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/QQ%20Plot.png" /></p>
+<!-- Simple random sample refer to Econometrics bible -->
+
+<h2 id="other-assumptions"><strong>Other Assumptions</strong><a class="headerlink" href="#other-assumptions" title="Permanent link">&para;</a></h2>
+<h3 id="no-extreme-outliers"><strong>No Extreme Outliers</strong><a class="headerlink" href="#no-extreme-outliers" title="Permanent link">&para;</a></h3>
 <p>Outliers are observations with <strong>unusual values of the DV</strong> relative to fitted regression model.</p>
 <p>The last OLS assumption is that there are <strong>no extreme outliers</strong> in the dataset used to create the regression model. Generally, as long as the DV and IVs have a <strong>positive and finite Kurtosis</strong>, then the probability of such observations occuring are low.</p>
 <p>Outliers are problematic as OLS is <strong>sensitive to outliers</strong>. Extreme outliers have large residuals which <strong>receive more weight</strong> in the optimization process, which causes the resulting model to accomodate it (when it should not), causing the resulting coefficients to be biased.</p>
@@ -1780,78 +1874,8 @@
     D_i = \frac{1}{p+1} \cdot (e^{\text{standardized}})^2 \cdot \frac{h_{ii}}{1-h_{ii}}
 \]</div>
 <p>Thus, an observation must be <strong>unusual in BOTH the DV and IV</strong> in order to be considered influential. Outliers and High leverage points are <em>necessary but not sufficient</em> conditions to be influential.</p>
-<h2 id="gauss-markov-assumptions"><strong>Gauss Markov Assumptions</strong><a class="headerlink" href="#gauss-markov-assumptions" title="Permanent link">&para;</a></h2>
-<h3 id="1-conditional-homoscedasticity"><strong>#1: Conditional Homoscedasticity</strong><a class="headerlink" href="#1-conditional-homoscedasticity" title="Permanent link">&para;</a></h3>
-<p>Homoscedasticity refers to the error terms having <strong>constant variance</strong> while Heteroscedasticity refers to having non-constant variance.</p>
-<div class="arithmatex">\[
-    var(\varepsilon_i | x_i) = \sigma^2
-\]</div>
-<p>Under homoscedasticity, the sampling distribution of the estimates are easily derived and thus it can be shown that they are the most efficient estimators. The same cannot be proven under heteroscedasticity.</p>
-<blockquote>
-<p>Note that that the OLS estimates are still unbiased; they are just not the most efficient.</p>
-</blockquote>
-<h4 id="identifying-heteroscedasticity"><strong>Identifying Heteroscedasticity</strong><a class="headerlink" href="#identifying-heteroscedasticity" title="Permanent link">&para;</a></h4>
-<p>Similar to before, if the model is adequate, then the residuals should resemble the errors and have <strong>constant variance</strong>. Thus, this can be easily determined through a <strong>residual plot</strong> of the Residuals against the fitted values.</p>
-<p>If the points are <strong>equally spread out</strong> about the mean (0) and show <strong>no pattern</strong>, then homoscedasticity is present. However, if the points show an increasing or decreasing variance (typically in the <strong>shape of a funnel</strong>), then heteroscedasticity is present.</p>
-<!-- Obtained from Corporate Finance Institute -->
-<p><img alt="Homoscedastacity" class="center" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/Homoscedasticity.png" /></p>
-<p>Alternatively, a hypothesis test can be conducted to determine if heteroscedasticity is present, known as the <strong>Bresuch Pagan Test</strong>.</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    H_0 &amp;: \sigma^2 \\
-    H_1 &amp;: \sigma^2 + \boldsymbol{Z\gamma}
-\end{aligned}
-\]</div>
-<p>The test-statistic is computed as follows:</p>
-<ol>
-<li>Compute the squared standardized residuals from the original model</li>
-<li>Regress them onto the variables in Z (LOL need to change this part)</li>
-<li>Compute the RegSS of the new regression</li>
-</ol>
-<div class="arithmatex">\[
-    T = \frac{RegSS}{2}
-\]</div>
-<p>The test-statistic follows a <strong>chi-square distribution</strong> with <span class="arithmatex">\(q\)</span> degrees of freedom, where <span class="arithmatex">\(q\)</span> is the <strong>number of variables</strong> in <span class="arithmatex">\(\boldsymbol{Z}\)</span>.</p>
-<div class="arithmatex">\[
-    T \sim \chi^2_q
-\]</div>
-<h4 id="dealing-with-heteroscedasticity"><strong>Dealing with Heteroscedasticity</strong><a class="headerlink" href="#dealing-with-heteroscedasticity" title="Permanent link">&para;</a></h4>
-<p>If prior information is known about the structure of the data, then the most intuitive method would be to incorporate that information into the data.</p>
-<!-- Buff up this section -->
-
-<div class="arithmatex">\[
-    Var(\varepsilon_i) = \frac{\sigma^2}{w_i}
-\]</div>
-<p>If no prior information is known, then the Heteroscedasticity can be reduced by using a <strong>Variance Stabilizing Transformation</strong>, such as the <strong>Log</strong> or <strong>Squareroot</strong>. Note that since they require positive data, a <strong>constant can be added</strong> to each term before the transformation to ensure that the values are positive.</p>
-<blockquote>
-<p>It is out of the scope for this set of notes to show why these help to stabilize variance.</p>
-</blockquote>
-<p>Alternatively, if there is only mild heteroscedasticity in the data, then OLS can be used but with an <strong>adjustment to the standard errors</strong> of the coefficients, known as <strong>heteroscedastic-robust standard errors</strong>.</p>
-<p>Due to complexity of the computations, it will not be covered in this set of notes. However, the general idea is that an <strong>weighted estimate</strong> of the variance covariance matrix is computed and the standard errors are computed from there.</p>
-<h3 id="2-no-serial-correlation"><strong>#2: No Serial Correlation</strong><a class="headerlink" href="#2-no-serial-correlation" title="Permanent link">&para;</a></h3>
-<p>If errors are correlated with one another, it is known as <strong>Serial Correlation</strong> or <strong>Autocorrelation</strong>.</p>
-<p>It implies that there are other unmodelled factors that can be used for prediction, which would imply the current model specification to be wrong.</p>
-<p>Thus, for the SLR model to be true, the errors <strong>must be independent of one another</strong>.</p>
-<div class="arithmatex">\[
-    Cov(\varepsilon_i,\varepsilon_j) = 0
-\]</div>
-<p>Confidence Intervals and PI are narrower than it should be &gt; 95% PI is actually &lt; 95%&gt;
-P values lower &gt; Appear statisticlaly significant when they shld not be</p>
-<p>Time series tends to have errors that are positively correlated, which is why it has its own dedicated section
-No Serial Correlation &gt; Outcome of zero conditional mean, but most likely in time series data</p>
-<h2 id="error-distribution"><strong>Error Distribution</strong><a class="headerlink" href="#error-distribution" title="Permanent link">&para;</a></h2>
-<p>Although not needed for OLS estimation or Guass Markov, the errors of the regression are usually assumed to be <strong>normally distributed</strong>.</p>
-<!-- To check on specific normal distributions for Y > Does it have the same variance as E? -->
-<div class="arithmatex">\[
-    \varepsilon \sim N(0, \sigma^2)
-\]</div>
-<p>If the errors are normally distributed, then it follows that <strong><span class="arithmatex">\(\beta\)</span> is normally distributed</strong> as well since they are linear and additive. This greatly eases the computation needed to determine the <strong>sampling distribution</strong> for statistical inference.</p>
-<h3 id="q-q-plots"><strong>Q-Q Plots</strong><a class="headerlink" href="#q-q-plots" title="Permanent link">&para;</a></h3>
-<p>Since the errors are normally distributed, the residuals should be normally distributed as well. This can be verified using a <strong>Quantile-Quantile Plot (QQ Plot)</strong>, which <strong>compares the quantiles</strong> of two distributions.</p>
-<p>The first distribution is plotted on the x-axis while the second on the y-axis. If the quantiles are the same (same distribution), then the points should lie on <span class="arithmatex">\(y = x\)</span>, the 45 degree line.</p>
-<!-- Obtained from STHDA -->
-<p><img alt="QQ Plot" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/QQ%20Plot.png" /></p>
-<!-- Simple random sample refer to Econometrics bible -->
+<h2 id="high-dimension">High dimension<a class="headerlink" href="#high-dimension" title="Permanent link">&para;</a></h2>
+<p>df</p>
 
 
 

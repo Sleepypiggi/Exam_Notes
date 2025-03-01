@@ -1161,8 +1161,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.%20Gauss%20Markov%20Theorem/" class="md-nav__link">
-        Gauss Markov Theorem
+      <a href="../4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
       </a>
     </li>
   
@@ -1743,19 +1743,14 @@
 </tbody>
 </table>
 <p></center></p>
-<div class="arithmatex">\[
-\begin{aligned}
-    E(y_{i}-\hat{y}_{i}) &amp;= 0 \\
-    \\
-    \text{Var}(y_{i}-\hat{y}_{i})
-    &amp;= \text{Var}(y_{i}) + \text{Var}(\hat{y}_{i}) \\
-    &amp;= \text{Irreducible} + \text{Reducible}
-\end{aligned}
-\]</div>
 <p>Both Confidence and Prediction Intervals are expressed using the same formula:</p>
 <div class="arithmatex">\[
-    \text{Interval} = \hat{\theta} \pm \text{Percentile} \cdot \text{SE}
+    \text{Interval} = \text{Estimate} \pm \text{Percentile} \cdot \text{SE of Estimate}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For a prediction interval, the prediction is technically not an estimate; the term above is used for simplicity.</p>
+</div>
 <!-- Obtained from Datacamp -->
 <p><img alt="PREDICTION_CONFIDENCE" class="center" src="../Assets/1.%20Statistical%20Learning.md/PREDICTION_CONFIDENCE.png" /></p>
 <div class="admonition note">

@@ -1117,19 +1117,6 @@
     Model Fitting
   </a>
   
-    <nav class="md-nav" aria-label="Model Fitting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#manual-computation" class="md-nav__link">
-    Manual Computation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1182,15 +1169,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#confidence-intervals" class="md-nav__link">
-    Confidence Intervals
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prediction-intervals" class="md-nav__link">
-    Prediction Intervals
+  <a href="#confidence-prediction-intervals" class="md-nav__link">
+    Confidence &amp; Prediction Intervals
   </a>
   
 </li>
@@ -1201,37 +1181,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#variations-of-mlr" class="md-nav__link">
-    Variations of MLR
+  <a href="#special-variations" class="md-nav__link">
+    Special Variations
   </a>
   
-    <nav class="md-nav" aria-label="Variations of MLR">
+    <nav class="md-nav" aria-label="Special Variations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#qualitative-iv" class="md-nav__link">
-    Qualitative IV
+  <a href="#polynomial-variables" class="md-nav__link">
+    Polynomial Variables
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#interaction-model" class="md-nav__link">
-    Interaction Model
+  <a href="#dummy-variables" class="md-nav__link">
+    Dummy Variables
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#piecewise-model" class="md-nav__link">
-    Piecewise Model
+  <a href="#interaction-variables" class="md-nav__link">
+    Interaction Variables
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#polynomial-model" class="md-nav__link">
-    Polynomial Model
+  <a href="#indicator-variables" class="md-nav__link">
+    Indicator Variables
   </a>
   
 </li>
@@ -1256,8 +1236,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.%20Gauss%20Markov%20Theorem/" class="md-nav__link">
-        Gauss Markov Theorem
+      <a href="../4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
       </a>
     </li>
   
@@ -1433,19 +1413,6 @@
     Model Fitting
   </a>
   
-    <nav class="md-nav" aria-label="Model Fitting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#manual-computation" class="md-nav__link">
-    Manual Computation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1498,15 +1465,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#confidence-intervals" class="md-nav__link">
-    Confidence Intervals
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prediction-intervals" class="md-nav__link">
-    Prediction Intervals
+  <a href="#confidence-prediction-intervals" class="md-nav__link">
+    Confidence &amp; Prediction Intervals
   </a>
   
 </li>
@@ -1517,37 +1477,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#variations-of-mlr" class="md-nav__link">
-    Variations of MLR
+  <a href="#special-variations" class="md-nav__link">
+    Special Variations
   </a>
   
-    <nav class="md-nav" aria-label="Variations of MLR">
+    <nav class="md-nav" aria-label="Special Variations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#qualitative-iv" class="md-nav__link">
-    Qualitative IV
+  <a href="#polynomial-variables" class="md-nav__link">
+    Polynomial Variables
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#interaction-model" class="md-nav__link">
-    Interaction Model
+  <a href="#dummy-variables" class="md-nav__link">
+    Dummy Variables
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#piecewise-model" class="md-nav__link">
-    Piecewise Model
+  <a href="#interaction-variables" class="md-nav__link">
+    Interaction Variables
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#polynomial-model" class="md-nav__link">
-    Polynomial Model
+  <a href="#indicator-variables" class="md-nav__link">
+    Indicator Variables
   </a>
   
 </li>
@@ -1591,7 +1551,7 @@
 <p>MLR models study how the independent variables <strong>operate together</strong> to influence the dependent variable, thus the regression coefficients have a slightly different interpretation:</p>
 <ul>
 <li><strong>Intercept Parameter</strong> (<span class="arithmatex">\(\beta_{0}\)</span>): <strong>Expected value</strong> of <span class="arithmatex">\(Y\)</span> when <span class="arithmatex">\(X_{1} = X_{2} = \dots = 0\)</span></li>
-<li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{p}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X_{p}\)</span>, assuming all other X's are constant </li>
+<li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{p}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X_{p}\)</span>, assuming all others are constant </li>
 </ul>
 <h2 id="matrix-notation"><strong>Matrix Notation</strong><a class="headerlink" href="#matrix-notation" title="Permanent link">&para;</a></h2>
 <p>Given that the MLR model can have infinitely many independent variables, expressing the model in regular algebra format can become tedious. Thus, it is commonly expressed in <strong>Matrix Notation</strong> instead:</p>
@@ -1609,16 +1569,26 @@
     \boldsymbol{y} &amp;= \boldsymbol{X\beta + \varepsilon}
 \end{aligned}
 \]</div>
-<p>XB is known as the design matrix</p>
+<p><span class="arithmatex">\(\boldsymbol{X}\)</span> is known as the <strong>Design Matrix</strong>, which contains the independent variables used for the regression. Note that the first column is all '1' to account for the intercept term.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Matrices are defined using a <strong>"(Row x Column)"</strong> notation and are differentiated from scalar quantities with a <strong>Bolded</strong> symbol.</p>
-<p><strong>Addition and subtraction</strong> of matrices work intuitively, with corresponding elements being added and subtracted with each other.</p>
-<p><strong>Multiplication</strong> of matrices involves an <strong>inverted 7</strong>:</p>
+<p>Recall the key properties of matrices:</p>
+<ul>
+<li>They are defined using a <strong>"(Row x Column)"</strong> notation</li>
+<li>They are differentiated from scalar quantities with a <strong>Bolded</strong> symbol</li>
+<li><strong>Addition and subtraction</strong> of matrices simply add or subtract the corresponding elements</li>
+<li><strong>Multiplication</strong> of matrices involves an <strong>inverted 7</strong> (See image below)</li>
+</ul>
 <p>The <strong>order of multiplication</strong> is important as the resulting matrix will retain the Rows of the LHS and columns of the RHS (which is intuitive from the inverted 7):</p>
 <div class="arithmatex">\[
     (m * n) \cdot (n * k) = (m * k)
 \]</div>
+<p><!-- Obtained from Resourceaholic -->
+<img alt="MATRIX_MULTIPLICATION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/MATRIX_MULTIPLICATION.png" /></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For the purposes of this exam, it is not necessary to know how to evaluate or manipulate matrices. It is however, necessary to recognize and intepret them.</p>
 </div>
 <h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
 <p>Similar to the SLR model, the regression parameters can be found by minimizing the sum of squared residuals:</p>
@@ -1632,20 +1602,46 @@
 \]</div>
 <p>Given that there are <span class="arithmatex">\(p\)</span> independent variables, there are thus <span class="arithmatex">\(p+1\)</span> minimization problems to solve (<span class="arithmatex">\(p\)</span> slopes and 1 intercept). It is necessary to use linear algebra to solve the system of equations, resulting in the following <strong>matrix solution</strong>:</p>
 <div class="arithmatex">\[
-    \hat{\boldsymbol{\beta}} = \begin{pmatrix} \hat{\beta_0} \\ \hat{\beta_1} \\ \vdots \\ \hat{\beta_p} \end{pmatrix} = (\boldsymbol{X'X})^{-1}\boldsymbol{X'y}
+    \hat{\boldsymbol{\beta}}
+    = \begin{pmatrix} \hat{\beta_0} \\ \hat{\beta_1} \\ \vdots \\ \hat{\beta_p} \end{pmatrix}
+    = (\boldsymbol{X^{T} X})^{-1} \boldsymbol{X^{T} y}
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The operation <span class="arithmatex">\(X^{T}\)</span> means to <strong>Transpose</strong> the matrix - swapping the Rows and Columns of the Matrix. It has several useful properties which is why it is beneficial to leave in this form:</p>
+<p><!-- Obtained from Cuemath -->
+<img alt="TRANSPOSE_MATRIX" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/TRANSPOSE_MATRIX.png" /></p>
+</div>
 <p>The resulting fitted model is thus a <strong>regression plane of best fit</strong>, reflecting the multi-dimensional nature of the MLR:</p>
 <div class="arithmatex">\[
-    \hat{y}_{i}
-    = \hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i ,1}
-    + ... + \hat{\beta}_{p} \cdot x_{i,p}
+    \hat{y}
+    = \hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i ,1} + ... + \hat{\beta}_{p} \cdot x_{i,p}
 \]</div>
 <!-- Obtained from ISLR -->
 <p><img alt="REGRESSION_PLANE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGRESSION_PLANE.png" /></p>
-<h3 id="manual-computation"><strong>Manual Computation</strong><a class="headerlink" href="#manual-computation" title="Permanent link">&para;</a></h3>
-<p>The tricky part is that <span class="arithmatex">\((\boldsymbol{X'X})^{-1}\)</span> is <strong>hard to compute by manually</strong>, except for the special case where <span class="arithmatex">\(p=1\)</span> (SLR). Thus, it is likely that the parameters will be provided by the question.</p>
-<p>If required to compute them manually, then <span class="arithmatex">\((\boldsymbol{X'X})^{-1}\)</span> is <em>likely</em> to be provided. The remaining <span class="arithmatex">\(\boldsymbol{X'y}\)</span> still needs to be computed and put together to obtain the regression parameters.</p>
-<p>However, if the model has <span class="arithmatex">\(p=2\)</span> but <strong>no intercept</strong>, then <span class="arithmatex">\((\boldsymbol{X'X})^{-1}\)</span> is a <strong>2 x 2 Matrix</strong> whose inverse can be easily calculated. Similarly, if <span class="arithmatex">\((\boldsymbol{X'X})^{-1}\)</span> is a <strong>Diagonal Matrix</strong>, its inverse can be easily calculated as well.</p>
+<p>The actual observations can be linked to the fitted regression plane via a <strong>Hat Matrix</strong> <span class="arithmatex">\(\boldsymbol{H}\)</span>:</p>
+<div class="arithmatex">\[
+    \hat{\boldsymbol{y}} = \boldsymbol{H} \boldsymbol{y}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is referred to as a "Hat" matrix as it puts a "hat" onto <span class="arithmatex">\(y\)</span>, which is an easy way to remember the expression.</p>
+</div>
+<p>Consequently, this allows the residuals to be expressed using the Hat matrix, sometimes referred to as the <strong>Residual Maker Matrix</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\varepsilon}_{i}
+    &amp;= \boldsymbol{y} - \hat{\boldsymbol{y}} \\
+    &amp;= \boldsymbol{y} - \boldsymbol{H} \boldsymbol{y} \\
+    &amp;= (\boldsymbol{I} - \boldsymbol{H})\boldsymbol{y}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="arithmatex">\(\boldsymbol{I}\)</span> is known as the <strong>Identity Matrix</strong>, which is a Square Matrix <strong>consisting of 1's in the diagonal and 0's in every other</strong> position. Again, it has several useful properties which makes it desirable to be expressed in this form.</p>
+<p><!-- Obtained from Geek for Geeks -->
+<img alt="IDENTITY_MATRIX" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/IDENTITY_MATRIX.png" /></p>
+</div>
 <h2 id="anova"><strong>ANOVA</strong><a class="headerlink" href="#anova" title="Permanent link">&para;</a></h2>
 <h3 id="goodness-of-fit"><strong>Goodness of Fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h3>
 <p>Similar to SLR, ANOVA can be used to decompose the variance into RegSS &amp; RSS, and R-squared can be computed with the <strong>same interpretation</strong>:</p>
@@ -1659,7 +1655,7 @@
     R^{2} \ne r^{2}_{x_{p}, y}
 \]</div>
 </div>
-<p>Recall that for parametric learning methods, increasing the number of parameters tends to increase the flexibility of the model; ability to fit the data (RegSS). Thus, in a MLR setting, R-squared can be <strong>artifically inflated</strong> by adding more parameters, even when they are nonsensical!</p>
+<p>Recall that for parametric learning methods, increasing the number of parameters (all else equal) tends to <strong>increase the flexibility</strong> of the model; ability to fit the data (RegSS). Thus, in a MLR setting, R-squared can be <strong>artifically inflated</strong> by adding more parameters, even when they are nonsensical!</p>
 <p>Thus, to account for this, the <strong>Adjusted R-squared</strong> is considered by dividing each term by their degrees of freedom:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1721,48 +1717,56 @@
 <p class="admonition-title">Note</p>
 <p>The df for RegSS is <span class="arithmatex">\(p\)</span> reflecting that there are now <span class="arithmatex">\(p\)</span> independent variables used in the regression. Similarly, the df for RSS reflects that there are now <span class="arithmatex">\(p+1\)</span> estimated parameters.</p>
 </div>
-<p>However, rather than testing if an individual independent variable is useful, it tests if ALL independent variables are <strong>collectively useful</strong> in explaining the dependent:</p>
+<p>However, rather than testing if an individual independent variable is useful, it tests if the <strong>entire model</strong> (all the independent variables collectively) is useful in explaining the dependent variable:</p>
 <ul>
 <li><span class="arithmatex">\(H_{0}: \beta_{1} = \beta_{2} = ... = \beta_{p} = 0\)</span></li>
 <li><span class="arithmatex">\(H_{1}\)</span>: At least one <span class="arithmatex">\(\beta_{p} \ne 0\)</span></li>
 </ul>
+<div class="arithmatex">\[
+    \text{F}_{\text{Statistic}}
+    = \frac{\sigma^{2}_{\text{RegSS}}}{\sigma^{2}_\text{RSS}}
+\]</div>
 <p>Thus, rejecting the null allows us to conclude that <strong>at least one</strong> of the independent variables are useful, but does not provide insight on <em>which</em> of them are useful.</p>
-<p>Thus, rejecting the null hypothesis implies that <strong>at least one</strong> of the IVs used is useful, but does not provide much insight into <em>which</em> of them are useful.</p>
-<p>A partial F-test can be used to precisely <strong>determine which</strong> of the IVs are useful in explaining the DV.</p>
-<p>A regular F test compares the null model with no IVs to the desired model with all the IVs. If the sum of squares are significantly different, then it implies that the <strong>additional IVs are jointly useful</strong> in explaining <span class="arithmatex">\(Y\)</span>.</p>
-<p>The partial F test generalizes this idea. Instead of considering a null model with no IVs, a <strong>Reduced Model</strong> with a limited number IVs (<span class="arithmatex">\(q\)</span>) is considered instead. Consequently, the desired model is known as the <strong>Full Model</strong> with all <span class="arithmatex">\(p\)</span> IVs, where <span class="arithmatex">\(q &lt; p\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above intuition applies for SLR as well. However, since there is only one variable, the F-test is akin to testing the significance of just that variable.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Similar to the adjusted R-squared, the partial F-test measures whether the reduction in RSS is "worth" the loss of the degrees of freedom to estimate the new parameters.</p>
+</div>
+<p>In order to determine which variables are useful, a <strong>Partial F-test</strong> can be used, which compares two models:</p>
+<ul>
+<li><strong>Full Model</strong>: Model with all <span class="arithmatex">\(p\)</span> independent variables</li>
+<li><strong>Reduced Model</strong>: Model with lesser than <span class="arithmatex">\(q\)</span> variables (where <span class="arithmatex">\(q \lt p\)</span>); <strong>subset</strong> of full model</li>
+</ul>
+<p>The partial F-test determines whether the additional variables are <strong>jointly useful</strong> in explaining the dependent. The intuition is that if the variables are useful, then there should be a <strong>decrease in RSS</strong> when moving from the reduced to full, known as the <strong>Extra Sum of Squares</strong> (ExtraSS):</p>
 <div class="arithmatex">\[
-\begin{aligned}
-H_0: \beta_{p-q+1} = ... = \beta_p = 0 \\
-H_1: \beta_{p-q+1} = ... = \beta_p \ne 0
-\end{aligned}
+    \text{ExtraSS} = \text{RSS}_{\text{Reduced}} - \text{RSS}_{\text{Full}} 
 \]</div>
-<blockquote>
-<p>The test is also commonly referred to as the Generalized F test, where the models are referred to as the Restricted and Unrestricted Models.</p>
-</blockquote>
-<p>The <strong>difference in the RSS</strong> between the Full and Reduced Model is known as the <strong>Extra Sum of Squares (ExtraSS)</strong>. It represents the contribution of the missing variables in explaining the variance of <span class="arithmatex">\(Y\)</span>. Under the null hypothesis, there should be no difference between the two RSS, and thus <span class="arithmatex">\(ExtraSS = 0\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The most intuitive way to quantify the degrees of freedom for the ExtraSS is to take the difference in degrees of freedom of the two models:</p>
 <div class="arithmatex">\[
-ExtraSS = RSS_{Reduced} - RSS_{Full}
+    \text{df}_{\text{ExtraSS}} = \text{df}_{\text{Full}} - \text{df}_{\text{Reduced}}
 \]</div>
-<p>Thus, the Partial F-statistic is testing for the <strong>equality of variance between the two RSS</strong> - if there is a significant difference in the variance of the two, then the null should be rejected and thus <span class="arithmatex">\(\beta_{p-q+1} = ... = \beta_p \ne 0\)</span>.</p>
+</div>
+<p>Formally, the partial F-test can be expressed as the following:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \beta_{q+1} = ... = \beta_{p} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}\)</span>: At least one <span class="arithmatex">\(\beta_{q+n} \ne 0\)</span></li>
+</ul>
 <div class="arithmatex">\[
-\begin{aligned}
-F
-&amp;= \frac{MS_{ExtraSS}}{MS_{RSS_{Full}}} \\
-&amp;= \frac{ExtraSS/q}{RSS/(n-2)} \\
-&amp;= \frac{(RSS_{Reduced} - RSS_{Full})/q}{RSS/(n-2)} \\
-&amp;= (n-2) * \frac{(1- R_{Reduced}^2) - (1 - R_{Full}^2)}{1-RSS_{Full}^2}, \text{divide both by TSS} \\
-&amp;= (n-2) * \frac{R_{Full}^2 - R_{Reduced}^2}{1-RSS_{Full}^2}
-\end{aligned}
+    \text{F}_{\text{Partial}}
+    = \frac{\sigma^{2}_{\text{ExtraSS}}}{\sigma^{2}_\text{RSS}}
 \]</div>
 <h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
 <h3 id="sampling-distributions"><strong>Sampling Distributions</strong><a class="headerlink" href="#sampling-distributions" title="Permanent link">&para;</a></h3>
-<p>Similar to SLR, the regression parameters are normally distributed as well. However, since there are multiple regression parameters, they collectively follow a <strong>multivariate normal distribution</strong>.</p>
+<p>Similar to SLR, the regression parameters are normally distributed as well. However, since there are multiple regression parameters, they collectively follow a <strong>multivariate normal distribution</strong>:</p>
 <div class="arithmatex">\[
-\hat{\beta} \sim N_{p+1}(\beta, \sigma^2 (\boldsymbol{X'X})^{-1})
+    \hat{\beta} \sim N_{p+1} \left(\beta, \sigma^{2} (\boldsymbol{X^{T} X})^{-1} \right)
 \]</div>
-<p>The variance of the distribution is known as the <strong>Variance Covariance Matrix</strong>, which provides the covariances between every possible pair of regression parameters.</p>
-<p>Since the covariance of a variable with itself is its variance, the <strong>diagonals are the respective variances</strong> of the parameters. Note that the first element of the diagonal is the intercept, thus the variance of the jth IV is the <strong>(j+1)th element of the diagonal</strong>.</p>
+<p>The matrix in the variance term is known as the <strong>Variance Covariance Matrix</strong>, which provides the covariance between every possible pair of regression parameters, INCLUDING the intercept:</p>
 <div class="arithmatex">\[
 Var(\hat{\beta}) =
 \begin{pmatrix}
@@ -1772,194 +1776,202 @@ Var(\hat{\beta}) =
     Cov(\hat{\beta}_p, \hat{\beta}_0) &amp; Cov(\hat{\beta}_1, \hat{\beta}_p) &amp; ... &amp; Var(\hat{\beta}_p)
 \end{pmatrix}
 \]</div>
-<blockquote>
-<p>Note that the covariances are symmetrical about the diagonal - <span class="arithmatex">\(Cov(\hat{\beta}_0, \hat{\beta}_1) = Cov(\hat{\beta}_1, \hat{\beta}_0)\)</span>.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Covariance of the same independent variable is its Variance. Thus, the <strong>diagonals of the matrix</strong> represent the variances of the estimators. The matrix is also <strong>symmetrical about the diagonal</strong>, since <span class="arithmatex">\(\text{Cov}(X,Y) = \text{Cov}(Y,X)\)</span>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The matrix always starts with the intercept parameter, thus do not mistakenly take the wrong value.</p>
+</div>
 <h3 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h3>
-<p>Similar to SLR, the t-test can be used to test for the significance of an individual IV, but the intepretation of the test is different from the SLR case. It tests the usefulness of an <strong>individual IV</strong> in the <em>presence of the other predictors</em>.</p>
+<p>Similar to SLR, a t-test can be used to test the usefulness of a single predictor. However, the interpretation is slightly different - it tests the usefulness of the variable while <strong>holding the other variables constant</strong>.</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \beta_{p} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}: \beta_{p} \ne 0\)</span></li>
+</ul>
+<div class="arithmatex">\[
+    t = \frac{\hat{\beta_{p}} - \beta_{j}}{\text{SE}({\hat{\beta_{p}}})}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>However, this could lead to several odd situations:</p>
+<ul>
+<li>Individual variables are significant, but <strong>NOT significant</strong> when considered in totality (Pass t-test, fail F-test)</li>
+<li>Individual variables are <strong>NOT significant</strong>, but significant when considered in totality (Fail t-test, pass F-test)</li>
+</ul>
+<p>The likely reason for such situations will be covered in a later section.</p>
+</div>
+<p>There are now two possible ways to test for statistical significance:</p>
+<ul>
+<li><strong>Single F-test</strong> for the entire model</li>
+<li><strong>Multiple t-test</strong> for each variable</li>
+</ul>
+<p>Conducting multiple t-tests simultaneously could lead to the <strong>Multiple Comparisons Problem</strong>. Recall that hypothesis tests assume an <span class="arithmatex">\((1-\alpha)%\)</span> chance of correctly rejecting the null. If each test is conducted on independent samples, then the <strong>probability of correctly rejecting the null for ALL tests</strong> drops to <span class="arithmatex">\((1-\alpha)^{p}\)</span>. The resulting type I error rate is much higher than the intended <span class="arithmatex">\(\alpha\)</span>:</p>
+<div class="arithmatex">\[
+    \text{Type I Error Rate across all tests} = 1 - (1-\alpha)^{p} \gt \alpha
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are methods to manage this problem through the use of several corrections such as the <strong>Bonferroni Correction</strong> which adjusts the <span class="arithmatex">\(\alpha\)</span> for each test such that on whole, the desired type I error rate is achieved. However, it has the consequence of <strong>increasing the probability of type II errors</strong>. The details are beyond the scope of the exam.</p>
+</div>
+<p>This is why the <strong>F-test is generally preferred</strong> for MLR, as it has the advantage of naturally controlling the error rate regardless of the number of predictors along with considering the joint effect of variables.</p>
+<h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
+<p>Similar to SLR, the confidence and prediction intervals can be constructed using the usual expression:</p>
+<div class="arithmatex">\[
+    \text{Interval} = \text{Estimate} \pm \text{Percentile} \cdot \text{SE of Estimate}
+\]</div>
+<p>It is mathematically intensive to show derive the variance of the prediction error. It is sufficient to know the result:</p>
+<div class="arithmatex">\[
+    \text{Var}(y_{i} - \hat{y}_{i}) = \sigma^{2} \left(1 + X^{T}_{i} \cdot (\boldsymbol{X^{T} X})^{-1} \cdot x_{i} \right)
+\]</div>
+<p>The key intepretations remain the same.</p>
+<h2 id="special-variations"><strong>Special Variations</strong><a class="headerlink" href="#special-variations" title="Permanent link">&para;</a></h2>
+<h3 id="polynomial-variables"><strong>Polynomial Variables</strong><a class="headerlink" href="#polynomial-variables" title="Permanent link">&para;</a></h3>
+<p>So far, we have implicitly assumed that all independent variables are first order only. However, it is possible to to use <strong>Higher Order</strong> ones, resulting in a <strong>Polynomial Model</strong>:</p>
+<div class="arithmatex">\[
+    E(Y \mid X) = \beta_{0} + \beta_{1} \cdot x^{1}_{p} + \beta_{2} \cdot x^{2}_{p} + \beta_{3} \cdot x^{3}_{p} + \dots
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is still considered a <strong>Linear Model</strong> because the dependent variable is a <strong>Linear Combination</strong> of the independent variables; the independent variables themselves can be non-linear.</p>
+<p>The model can still include other independent variables, regardless of their powers; mix of polynomial and non-polynomials are possible.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Typically, if there is a known relationship between <span class="arithmatex">\(Y\)</span> and the k-th order of the independent variable, <strong>all orders from <span class="arithmatex">\(1\)</span> up to <span class="arithmatex">\(k\)</span></strong> are added for the variable.</p>
+<p>The reason is because we are interested in the way that <span class="arithmatex">\(Y\)</span> relates to <span class="arithmatex">\(X\)</span> as a whole. Keeping all powers allows the relationship to better expressed and hence have a better fit.</p>
+</div>
+<p>Although the relationship is better quantified, the regression coefficients become <strong>hard to intepret</strong>. Polynomials have a <strong>non-constant slope</strong>, thus they cannot be intepreted as the change in the dependent given a one unit increase anymore.</p>
+<!-- Obtained from Medium -->
+<p><img alt="POLYNOMIAL_REGRESSION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/POLYNOMIAL_REGRESSION.png" /></p>
+<h3 id="dummy-variables"><strong>Dummy Variables</strong><a class="headerlink" href="#dummy-variables" title="Permanent link">&para;</a></h3>
+<p>So far, we have implicitly assumed that all independent variables are quantitative. However, it is possible to to use <strong>Qualitative</strong> ones as well. They are typically represented using a <strong>Dummy Variables</strong>, which are can only take on <strong>1 (Yes) or 0 (No)</strong>.</p>
+<p>If there are <span class="arithmatex">\(n\)</span> possible categories, then <span class="arithmatex">\(n-1\)</span> dummy variables are needed to fully represent all possible categories. For instance,</p>
+<div class="arithmatex">\[
+    E(Y \mid X)
+    = \beta_{0} + \beta_{\text{North}} \cdot x_{\text{North}} + \beta_{\text{West}} \cdot x_{\text{West}} + \beta_{\text{South}} \cdot x_{\text{South}}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only <span class="arithmatex">\(n-1\)</span> are needed because the final level can be deduced from the other variables. If the final level is included, then the variables will become <strong>Perfectly Collinear</strong>, causing problems which will be discussed in the next section. This is known as the <strong>Dummy Variable Trap</strong>.</p>
+</div>
+<p>The <strong>sum of all dummy variables must equal to 1</strong>. Consider the following two cases:</p>
+<ul>
+<li><strong>North Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 1, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
+<li><strong>East Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 0, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
+</ul>
+<p>The last category that does not have its own variable is known as the <strong>Baseline</strong> of the model, which is the default category when <strong>all other variables are 0</strong>. Thus, the intepretation of the coefficients is as follows:</p>
+<ul>
+<li><span class="arithmatex">\(\beta_{0}\)</span>: Value of <span class="arithmatex">\(E(Y \mid X)\)</span> at the Baseline</li>
+<li><span class="arithmatex">\(\beta_{1}\)</span>: Change in value of <span class="arithmatex">\(Y\)</span> from the Baseline to chosen Category</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Given the above, the choice of which category to set as the baseline matters as it will result in a different model altogether.</p>
+</div>
+<p>Dummy variables are usually used in conjunction with quantitatve ones. This creates a <strong>seperate but parallel regression line</strong> for each of the levels:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-H_0: \beta_j = 0 \\
-H_1: \beta_j \ne 0
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-t(\beta_j) = \frac{\hat{\beta_j} - \beta_j}{\hat{\sigma}_{\hat{\beta_1}}}
-\]</div>
-<blockquote>
-<p>Recall that the variance of the jth IV si the (j+1)th element of the variance covariance matrix.</p>
-</blockquote>
-<div class="arithmatex">\[
-t(\beta_j) \sim t_{n-p-1}
-\]</div>
-<p>However, this leads to several odd results which needs to be accounted for:</p>
-<ol>
-<li>Predictor is not significant individually but <strong>significant when taken alone</strong>.</li>
-<li>Predictors are not significant individually but <strong>significant when taken together</strong>.</li>
-</ol>
-<!-- Covered more in a later section -->
-
-<p>There are now two possible ways to test for the significance of IVs:</p>
-<ol>
-<li>Conduct a <strong>single F-test</strong> to test for the joint significance of <strong>all IVs</strong></li>
-<li>Conduct <strong>multiple t-tests</strong> to test for the joint significance of <strong>each IV</strong></li>
-</ol>
-<p>The problem with the multiple t-test approach lies with the <strong>type I error</strong> of the tests. For <span class="arithmatex">\(\alpha = 0.05\)</span>, the probability of <strong>correctly rejecting</strong> the null is <span class="arithmatex">\(0.95\)</span>. Assuming that all the tests are independent, the <strong>probability of correctly rejecting all the nulls</strong> is <span class="arithmatex">\(0.95^p\)</span>, which drastically decreases with the number of tests conducted.</p>
-<p>Given enough predictors, this means that the probability drops to approximately 0, which means that there is bound to be a wrongly rejected null; a <strong>type I error is guaranteed</strong> even though it was supposed to be limited at a 0.05 chance.</p>
-<blockquote>
-<p>The <strong>Bonferroni Correction</strong> is a method of adjusting <span class="arithmatex">\(\alpha\)</span> of each hypothesis test such that the overall type I error is kept at its desired level. However, this has the consequence of increasing the probability of type II errors, which is why it is not popular.</p>
-</blockquote>
-<p>The F-test has the advantage of controlling the type I error <strong>regardless of the number of predictors</strong>, which is why it is preferred for hypothesis testing in the MLR.</p>
-<h3 id="confidence-intervals"><strong>Confidence Intervals</strong><a class="headerlink" href="#confidence-intervals" title="Permanent link">&para;</a></h3>
-<p>Similar to SLR, the confidence intervals can be constructed using the distribution of the test-statistic:</p>
-<div class="arithmatex">\[
-\text{Confidence Interval} = \hat{\beta}_j \pm t_{n-p-1, \frac{\alpha}{2}} * \hat{\sigma}_{\hat{\beta_j}}
-\]</div>
-<h3 id="prediction-intervals"><strong>Prediction Intervals</strong><a class="headerlink" href="#prediction-intervals" title="Permanent link">&para;</a></h3>
-<p>Unlike in SLR, it is difficult to determine the distribution of the prediction error. Thus, the final result can be found below:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\text{Prediction Interval}
-&amp;= \hat{y}_* \pm t_{n-p-1, \frac{\alpha}{2}} * \hat{\sigma}_{y_* - \hat{y_*}} \\
-&amp;= \hat{y}_* \pm t_{n-p-1, \frac{\alpha}{2}} * \sqrt{s^2 [1 + x'_* (\boldsymbol{X'X})^-1 * x_*]}
-\end{aligned}
-\]</div>
-<p>Despite the result looking more complicated, the key takeaway remains the same - the further away <span class="arithmatex">\(x_*\)</span> is from <span class="arithmatex">\(\bar{x}\)</span>, the greater</p>
-<h2 id="variations-of-mlr"><strong>Variations of MLR</strong><a class="headerlink" href="#variations-of-mlr" title="Permanent link">&para;</a></h2>
-<h3 id="qualitative-iv"><strong>Qualitative IV</strong><a class="headerlink" href="#qualitative-iv" title="Permanent link">&para;</a></h3>
-<p>The discussion so far has mostly focused on Quantitative IVs, thus this section will explore Qualitative IVs. They can only take values from a list of <em>pre-defined</em> values, known as the <strong>Levels</strong> of the variable.</p>
-<p>In a regression context, most qualitative IVs are represented in the form of a <strong>Dummy Variable</strong> which can only take two possible levels - Yes (1) or No (0).</p>
-<blockquote>
-<p>Note that there are other ways of encoding a dummy variable (-1/0/1 etc), but the principles stay large the same.</p>
-</blockquote>
-<div class="arithmatex">\[
-\text{Dummy Variable} =
-\begin{cases}
-    1,  &amp; \text{First Level} \\
-    0, &amp; \text{Second Level}
-\end{cases}
-\]</div>
-<p>In general, <span class="arithmatex">\(n-1\)</span> dummy variables are needed to represent a qualitative variable with <span class="arithmatex">\(n\)</span> levels. This is because the status of the last level can be <strong>deduced from the other dummy variables</strong>. Thus, including a seperate dummy variable for this last level is <strong>redundant</strong> and will lead to the problem of <strong>Collinearity</strong>, which will be explored in a later section.</p>
-<p>For instance, consider four levels (North, East, South &amp; West), represented by the three dummy variables (<span class="arithmatex">\(N, E , S\)</span>). If any of the variables are 1, they represent their respective direction (North, East &amp; South). If all of them are 0, then the direction is the <strong>remaining level</strong> (West).</p>
-<p>The last remaining level is often referred to as the <strong>Baseline Level</strong> as it is the default level of the variable when all other dummies are 0. Any level can be used as the baseline, but the <strong>parameters will differ</strong> across models with different baselines.</p>
-<div class="arithmatex">\[
-E(Y|X) = \beta_0 + \beta_{1, North} x_{North} + \beta_{2, East} * x_{East} + \beta_{3, South} * x_{South}
-\]</div>
-<p><center></p>
-<table>
-<thead>
-<tr>
-<th align="center"><span class="arithmatex">\(\beta_0\)</span></th>
-<th align="center"><span class="arithmatex">\(\beta_j\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(E(Y)\)</span> at the baseline level</td>
-<td align="center">Change in <span class="arithmatex">\(E(Y)\)</span> from the baseline to the chosen level</td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(X_1 = X_2 = ... = X_j = 0\)</span></td>
-<td align="center"><span class="arithmatex">\(X_1 = X_2 = ... = 0; X_j = 1\)</span></td>
-</tr>
-</tbody>
-</table>
-<p></center></p>
-<p>Dummy variables are usually <strong>used in conjunction with quantitative ones</strong>. This essentially creates a "seperate" regression model for each of the levels.</p>
-<p>For the simplest case of one quantiative and one dummy, <span class="arithmatex">\(\beta_2\)</span> is the <strong>difference in the intercept</strong> of the two resulting SLR models.</p>
-<div class="arithmatex">\[
-E(Y|X) = \beta_0 + \beta_1 x_1 + \beta_2 x_2
-\]</div>
-<div class="arithmatex">\[
-E(Y|X)  =
-\begin{cases}
-    (\beta_0 + \beta_2) + \beta_1 x_1, &amp; x_2 = 1 \\
-    \beta_0 + \beta_1 x_1, &amp; x_2 = 0
-\end{cases}
-\]</div>
-<!-- Obtained from ACTEX Manual -->
-<p><img alt="Dummy Variable" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/Dummy%20Variable.png" /></p>
-<h3 id="interaction-model"><strong>Interaction Model</strong><a class="headerlink" href="#interaction-model" title="Permanent link">&para;</a></h3>
-<p>So far, it was assumed that each IV had an independent effect on the DV. However, IVs may <strong>interact</strong> to produce a <strong>joint effect</strong> on the DV, where the effect of one IV depends on the value of another IV.</p>
-<p>For instance, the production of a factory may depend on the number of Machines and Workers. However, the more machines there are, the <strong>greater the effect of an additional worker</strong>.</p>
-<p>Thus, this interaction effect can be captured through an <strong>Interaction Variable</strong>, which is the product of both IVs:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-E(Y|X)
-&amp;= \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 x_2 \\
-&amp;= \beta_0 + (\beta_1 + \beta_3 x_2)x_1 + \beta_2 x_2 \\
-&amp;= \beta_0 + \beta_1 x_1 + (\beta_2 + \beta_3 x_1) x_2 \\
-\end{aligned}
-\]</div>
-<p>A one unit increase in <span class="arithmatex">\(x_1\)</span> will increase E(Y) by <span class="arithmatex">\(\beta_1 + \beta_3 x_2\)</span>, which <strong>depends on the value of <span class="arithmatex">\(x_2\)</span></strong> as well, which is is why they interact with each another. Phrased another way, for every one unit increase in <span class="arithmatex">\(x_2\)</span>, the change in E(Y) from a unit increase in <span class="arithmatex">\(x_1\)</span> increases by <span class="arithmatex">\(\beta_3\)</span>.</p>
-<blockquote>
-<p>Something unusual to take note of is that the Interaction Variable tests significant but the constituent variables do not. In this case, it is common practice to <strong>retain both the interaction and the consistuent variables</strong> in the model. This is practice is known as the <strong>Hierarchical Principle</strong>.</p>
-</blockquote>
-<p>Models containing dummy variables can also have an interaction effect. Building off the example from the previous section, <span class="arithmatex">\(\beta_2\)</span> is still the difference in the intercept but with the new <span class="arithmatex">\(\beta_3\)</span> being the <strong>difference in slopes</strong> of the two resulting SLR models.</p>
-<div class="arithmatex">\[
-E(Y|X)  =
-\begin{cases}
-    (\beta_0 + \beta_2) + (\beta_1 + \beta_3)x_1, &amp; x_2 = 1 \\
-    \beta_0 + \beta_1 x_1, &amp; x_2 = 0
-\end{cases}
-\]</div>
-<!-- Obtained from ACTEX Manual -->
-<p><img alt="Dummy Interaction" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/Dummy%20Interaction.png" /></p>
-<h3 id="piecewise-model"><strong>Piecewise Model</strong><a class="headerlink" href="#piecewise-model" title="Permanent link">&para;</a></h3>
-<p>If the DV has an abrupt change in behaviour over different values of the IVs, it can be accounted for the through the use of a <strong>Piecewise Regression</strong>.</p>
-<p>The first method of creating a piecewise regression involves the use of an <strong>Indicator Function</strong>. It is essentially a dummy variable which depends on the value of the other IVs.</p>
-<div class="arithmatex">\[
-z_{\{x&gt;=c\}} =
-\begin{cases}
-    0, &amp; x &lt; c \\
-    1, &amp; x \ge c
-\end{cases}
-\]</div>
-<div class="arithmatex">\[
-\begin{aligned}
-E(Y|X)
-&amp;= \beta_0 + \beta_1 x_1 + \beta_2 z(x-c) \\
-&amp;=
-\begin{cases}
-    \beta_0 + \beta_1 x_1, &amp; x &lt; c \\
-    (\beta_0 - \beta_2c) + (\beta_1 + \beta_2) x_1, &amp; x \ge c
-\end{cases}
-\end{aligned}
-\]</div>
-<blockquote>
-<p>Note that <span class="arithmatex">\(z(x-c)\)</span> is treated as a distinct IV and hence can be equivalently expressed as <span class="arithmatex">\(x_2\)</span>; the full notation is used here for clarity.</p>
-</blockquote>
-<p><span class="arithmatex">\(c\)</span> is the value at which the DV abruptly changes in behaviour, known as a <strong>Kink</strong> in the graph, which <em>continuously</em> connects the two regression lines.</p>
-<!-- Obtained from ACTEX Manual -->
-<p><img alt="Piecewise Kink Model" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/Piecewise%20Kink%20Model.png" /></p>
-<p>The other method is to use an <strong>interaction variable</strong> instead. Similar to how the interaction variables resulted in the model to "split", the model now splits at <span class="arithmatex">\(x = c\)</span>, resulting in a <em>non-continuous</em> gap.</p>
-<div class="arithmatex">\[
-\begin{aligned}
-E(Y|X)
-&amp;= \beta_0 + \beta_1 x_1 + \beta_2z + \beta_3 zx \\
-&amp;=
-\begin{cases}
-    \beta_0 + \beta_1 x_1, &amp; x &lt; c \\
-    (\beta_0 - \beta_2) + (\beta_1 + \beta_3) x_1, &amp; x \ge c
-\end{cases}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot x_{\text{Dummy}} \\
+    &amp;=
+    \begin{cases}
+        (\beta_{0} + \beta_{2}) + \beta_{1} \cdot x_{1}, &amp; x_{\text{Dummy}} = 1 \\
+        \beta_{0} + \beta_{1} \cdot x_{1}, &amp; x_{\text{Dummy}} = 0
+    \end{cases}
 \end{aligned}
 \]</div>
 <!-- Obtained from ACTEX Manual -->
-<p><img alt="Piecewise Gap Model" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/Piecewise%20Gap%20Model.png" /></p>
-<h3 id="polynomial-model"><strong>Polynomial Model</strong><a class="headerlink" href="#polynomial-model" title="Permanent link">&para;</a></h3>
-<p>If the relationship between the DV and IV is complex (non-linear), then a <strong>Polynomial Regression</strong> can be used to better model the relationship between the two.</p>
+<p><img alt="DUMMY_VARIABLE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/DUMMY_VARIABLE.png" /></p>
+<h3 id="interaction-variables"><strong>Interaction Variables</strong><a class="headerlink" href="#interaction-variables" title="Permanent link">&para;</a></h3>
+<p>So far, we have assumed the individual predictors do not affect one another. However, it is possible that variables might interact with one another to produce <strong>joint effects</strong>. For instance, the production of a factory may depend on the number of <strong>Machines and Workers</strong>. However, the more machines there are, the <strong>greater the effect of an additional worker</strong>.</p>
+<p>This joint effect can be captured via an <strong>Interaction Variable</strong>, which is the product of the two predictors:</p>
 <div class="arithmatex">\[
-E(Y|X) = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot x_{2} + \beta_{3} \cdot x_{1} \cdot x_{2} \\
+    &amp;= \beta_{0} + (\beta_{1} + \beta_{3} \cdot x_{2}) \cdot x_{1} + \beta_{2} \cdot x_{2} \\
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + (\beta_{2} + \beta_{3} \cdot x_{1}) \cdot x_{2} \\
+\end{aligned}
 \]</div>
-<blockquote>
-<p>Note that it is the same IV used in the regression, just with additional powers.</p>
-</blockquote>
-<p>Although a polynomial regression may capture the true relationship better, the regression parameters become hard to intepret. The partial derivatives can no longer be intepreted as holding other IVs constant as each IV is dependent on the same quantity, just to different powers.</p>
+<p>The previous intepretation about the coefficients no longer hold true - a one unit increase in <span class="arithmatex">\(x_{1}\)</span> will increase <span class="arithmatex">\(Y\)</span> by <span class="arithmatex">\((\beta_{1} + \beta_{3} \cdot x_{2})\)</span>, which DEPENDS on the value of <span class="arithmatex">\(x_{2}\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This could lead to scenarios where the Interaction Variable is statistically significant but the <strong>underlying variables individually are not</strong>.</p>
+<p>Through the <strong>Hierarchical Principle</strong>, it is common practice that to include the individual variables as well regardless of their significance. Note that this applies to <strong>Polynomial Regression</strong> as well, which is why all lower order terms are retained as well.</p>
+</div>
+<p>If the interaction variable contains a dummy variable, then the interpretation changes from before. The existing coefficient of the dummy remains the same, but there is an additional <strong>coefficient from the interaction</strong> which represents the <strong>difference in slope</strong> from the two lines:</p>
 <div class="arithmatex">\[
-\frac{\partial E(Y|X)}{\partial x} = \beta_1 + 2\beta_2 x + ... + m \beta_m x^{m-1}
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot x_{\text{Dummy}} + \beta_{3} \cdot x_{1} \cdot x_{\text{Dummy}} \\
+    &amp;=
+    \begin{cases}
+        (\beta_{0} + \beta_{2}) + (\beta_{1} + \beta_{3}) \cdot x_{1}, &amp; x_{\text{Dummy}} = 1 \\
+        \beta_{0} + \beta_{1} \cdot x_{1}, &amp; x_{\text{Dummy}} = 0
+    \end{cases}
+\end{aligned}
 \]</div>
-<!-- Obtained from Javatpoint -->
-<p><img alt="Polynomial Regression" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/Polynomial%20Regression.png" /></p>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="DUMMY_INTERACTION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/DUMMY_INTERACTION.png" /></p>
+<h3 id="indicator-variables"><strong>Indicator Variables</strong><a class="headerlink" href="#indicator-variables" title="Permanent link">&para;</a></h3>
+<p>In some cases, there might be an <strong>change in the behaviour</strong> of the predictor <strong>across different values</strong> it can take. For instance, high net worth individuals have different spending patterns than regular consumers - behaviour changes past a certain Income threshold.</p>
+<p>This effect can be achieved through the use of an <strong>Indicator Function</strong>, which is a essentially a <strong>Dummy Variable</strong> that is dependent on the value of other variables:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    I_{x \gt c}
+    &amp;=
+    \begin{cases}
+        0, &amp; x_{1} \lt c \\
+        1, &amp; x_{1} \ge c
+    \end{cases} \\
+\end{aligned}
+\]</div>
+<p>The resulting regression is known as a <strong>Piecewise Model</strong>. There are two possible variations:</p>
+<ul>
+<li><strong>Continuous</strong>: <strong>Kink</strong> at the threshold; relationship is equal at the threshold</li>
+<li><strong>Non-continuous</strong>: <strong>Jump</strong> at the threshold; relationship is NOT the same at the threshold</li>
+</ul>
+<p><strong>Continuous piecewise</strong> models directly consider the relationship after the threshold as a <strong>seperate variable</strong>:</p>
+<ul>
+<li><span class="arithmatex">\(\beta_{0}\)</span>: Intercept before the threshold</li>
+<li><span class="arithmatex">\(\beta_{1}\)</span>: Slope before the threshold</li>
+<li><span class="arithmatex">\(\beta_{2}\)</span>: Change in slope AFTER the threshold</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot (x_{1}-c) \cdot I_{x \gt c} \\
+    &amp;=
+    \begin{cases}
+        \beta_{0} + \beta_{1} \cdot x_{1}, &amp; x_{1} \lt c \\
+        (\beta_{0} - \beta_{2} \cdot c) + (\beta_{1} + \beta_{2}) \cdot x_{1}, &amp; x_{1} \ge c
+    \end{cases}
+\end{aligned}
+\]</div>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="PIECEWISE_CONTINUOUS" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/PIECEWISE_CONTINUOUS.png" /></p>
+<p><strong>Non-continuous piecewise</strong> models instead use an interaction variable instead:</p>
+<ul>
+<li><span class="arithmatex">\(\beta_{0}\)</span>: Intercept before the threshold</li>
+<li><span class="arithmatex">\(\beta_{1}\)</span>: Slope before the threshold</li>
+<li><span class="arithmatex">\(\beta_{2}\)</span>: Change in intercept <strong>AT</strong> the threshold; the "Jump"</li>
+<li><span class="arithmatex">\(\beta_{3}\)</span>: Change in slope <strong>AFTER</strong> the threshold</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot I_{x \gt c} + \beta_{3} \cdot (x_{1}-c) \cdot I_{x \gt c} \\
+    &amp;=
+    \begin{cases}
+        \beta_{0} + \beta_{1} \cdot x_{1}, &amp; x_{1} \lt c \\
+        (\beta_{0} + \beta_{2} - \beta_{3} \cdot c) + (\beta_{1} + \beta_{3}) \cdot x_{1}, &amp; x_{1} \ge c
+    \end{cases}
+\end{aligned}
+\]</div>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="PIECEWISE_NON_CONTINUOUS" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/PIECEWISE_NON_CONTINUOUS.png" /></p>
 
 
 
@@ -1996,13 +2008,13 @@ E(Y|X) = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3
       
       
         
-        <a href="../4.%20Gauss%20Markov%20Theorem/" class="md-footer__link md-footer__link--next" aria-label="Next: Gauss Markov Theorem" rel="next">
+        <a href="../4.%20Linear%20Regression%20Assumptions/" class="md-footer__link md-footer__link--next" aria-label="Next: Linear Regression Assumptions" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Gauss Markov Theorem
+              Linear Regression Assumptions
             </div>
           </div>
           <div class="md-footer__button md-icon">
