@@ -1175,44 +1175,31 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#other-assumptions" class="md-nav__link">
-    Other Assumptions
+  <a href="#other-considerations" class="md-nav__link">
+    Other Considerations
   </a>
   
-    <nav class="md-nav" aria-label="Other Assumptions">
+    <nav class="md-nav" aria-label="Other Considerations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#no-extreme-outliers" class="md-nav__link">
-    No Extreme Outliers
-  </a>
-  
-    <nav class="md-nav" aria-label="No Extreme Outliers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identifying-outliers" class="md-nav__link">
-    Identifying Outliers
+  <a href="#leverage" class="md-nav__link">
+    Leverage
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#high-leverage-points" class="md-nav__link">
-    High Leverage Points
+  <a href="#outliers" class="md-nav__link">
+    Outliers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#influential-points" class="md-nav__link">
-    Influential Points
+  <a href="#influence" class="md-nav__link">
+    Influence
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1450,44 +1437,31 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#other-assumptions" class="md-nav__link">
-    Other Assumptions
+  <a href="#other-considerations" class="md-nav__link">
+    Other Considerations
   </a>
   
-    <nav class="md-nav" aria-label="Other Assumptions">
+    <nav class="md-nav" aria-label="Other Considerations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#no-extreme-outliers" class="md-nav__link">
-    No Extreme Outliers
-  </a>
-  
-    <nav class="md-nav" aria-label="No Extreme Outliers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identifying-outliers" class="md-nav__link">
-    Identifying Outliers
+  <a href="#leverage" class="md-nav__link">
+    Leverage
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#high-leverage-points" class="md-nav__link">
-    High Leverage Points
+  <a href="#outliers" class="md-nav__link">
+    Outliers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#influential-points" class="md-nav__link">
-    Influential Points
+  <a href="#influence" class="md-nav__link">
+    Influence
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1726,14 +1700,34 @@
 \]</div>
 <p>It can verified by using a <strong>QQ plot</strong> or other equivalent distribution tests (EG. Kolmogorov Test).</p>
 <p>Violating the normality assumption does not impact the validity of the estimates or predictive power; it only impacts the validity of statistical inference.</p>
-<h2 id="other-assumptions"><strong>Other Assumptions</strong><a class="headerlink" href="#other-assumptions" title="Permanent link">&para;</a></h2>
-<h3 id="no-extreme-outliers"><strong>No Extreme Outliers</strong><a class="headerlink" href="#no-extreme-outliers" title="Permanent link">&para;</a></h3>
-<p>Outliers are observations with <strong>unusual values of the DV</strong> relative to fitted regression model.</p>
-<p>The last OLS assumption is that there are <strong>no extreme outliers</strong> in the dataset used to create the regression model. Generally, as long as the DV and IVs have a <strong>positive and finite Kurtosis</strong>, then the probability of such observations occuring are low.</p>
-<p>Outliers are problematic as OLS is <strong>sensitive to outliers</strong>. Extreme outliers have large residuals which <strong>receive more weight</strong> in the optimization process, which causes the resulting model to accomodate it (when it should not), causing the resulting coefficients to be biased.</p>
-<!-- Obatained from Research Gate -->
-<p><img alt="Outliers" class="center" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/Outliers.png" /></p>
-<h4 id="identifying-outliers"><strong>Identifying Outliers</strong><a class="headerlink" href="#identifying-outliers" title="Permanent link">&para;</a></h4>
+<p>For large samples, CLT states that the distribution of the estimators are <strong>approximately normal</strong>, thus inferences are still valid. However, this does NOT apply to prediction intervals as they directly contain the variance of the error term, which follows an unknown distribution.</p>
+<h2 id="other-considerations"><strong>Other Considerations</strong><a class="headerlink" href="#other-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="leverage"><strong>Leverage</strong><a class="headerlink" href="#leverage" title="Permanent link">&para;</a></h3>
+<p>While outliers are unusual points of the DV, <strong>High Leverage observations</strong> have unusual values of the IV relative to the majority of the values.</p>
+<p>It is easy to identify high leverage points when there is only one IV through a scatterplot - simply find the observation that is away from the rest.</p>
+<p>It becomes much more complicated when there are multiple IVs. The observation's values for each of the IVs could be in the common range of each IV, but <strong>unusual when taken collectively</strong>:</p>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="High Leverage Points" class="center" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/High%20Leverage.png" /></p>
+<p>The leverage of the observation can be determined from the MLR:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\boldsymbol{y}}
+    &amp;= \boldsymbol{X}\boldsymbol{\beta} \\
+    &amp;= \boldsymbol{X}[(X'X)^{-1}y] \\
+    &amp;= \boldsymbol{H}\boldsymbol{y}
+\end{aligned}
+\]</div>
+<p><span class="arithmatex">\(\boldsymbol{H}\)</span> is known as the <strong>Hat Matrix</strong> as it puts a hat on y in the notation. The leverage of the <span class="arithmatex">\(ith\)</span> observation is the <strong><span class="arithmatex">\(ith\)</span> diagonal element</strong> of the matrix, <span class="arithmatex">\(h_{ii}\)</span>.</p>
+<p>An observation is considered to have <em>high</em> leverage if its leverage is greater than three times the average leverage:</p>
+<div class="arithmatex">\[
+    h_{ii} \gt 3 \left(\frac{p+1}{n}\right)
+\]</div>
+<h3 id="outliers"><strong>Outliers</strong><a class="headerlink" href="#outliers" title="Permanent link">&para;</a></h3>
+<p>Outliers are observations with <strong>unusually large values of the dependent variable</strong>, relative to the fitted regression model. In other words, they have <strong>large residuals</strong>, relative to other observations.</p>
+<p>Outliers are usually associated with <strong>miscoded or missing observations</strong>, but they could also be due to unmodelled behaviour for a sub-group of predictors. Investigation needs to be done to understand what is driving the outliers, and hence whether or not they can be omitted.</p>
+<p>The issue is that <strong>OLS is sensitive</strong> to outliers as it uses the residuals as the basis to estimate the the coefficients; a model with and without outliers can have very different estimates:</p>
+<!-- Obtained from Quantitative Research Methods for Political Science -->
+<p><img alt="OUTLIERS" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/OUTLIERS.png" /></p>
 <p>By definition, Outliers have <strong>unusually large residuals</strong>. In order to gauge what is considered a "large residual", the residuals are standardized for comparison.</p>
 <p>Standardization requires knowledge of the <strong>sampling distribution of the residuals</strong>. Given that the errors have a constant variance of <span class="arithmatex">\(\sigma^2\)</span>, the variance of the residuals can be shown to be:</p>
 <div class="arithmatex">\[
@@ -1754,27 +1748,7 @@
 <p>In practice, the variance of the errors are unknown, thus it is estimated using the Sample Variance of the residuals instead.</p>
 </blockquote>
 <p>Residuals with standardized values of <strong>larger than 2 or 3</strong> are considered large and thus can be considered as an outlier.</p>
-<h4 id="high-leverage-points"><strong>High Leverage Points</strong><a class="headerlink" href="#high-leverage-points" title="Permanent link">&para;</a></h4>
-<p>While outliers are unusual points of the DV, <strong>High Leverage observations</strong> have unusual values of the IV relative to the majority of the values.</p>
-<p>It is easy to identify high leverage points when there is only one IV through a scatterplot - simply find the observation that is away from the rest.</p>
-<p>It becomes much more complicated when there are multiple IVs. The observation's values for each of the IVs could be in the common range of each IV, but <strong>unusual when taken collectively</strong>:</p>
-<!-- Obtained from ACTEX Manual -->
-<p><img alt="High Leverage Points" class="center" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/High%20Leverage.png" /></p>
-<p>The leverage of the observation can be determined from the MLR:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \hat{\boldsymbol{y}}
-    &amp;= \boldsymbol{X}\boldsymbol{\beta} \\
-    &amp;= \boldsymbol{X}[(X'X)^{-1}y] \\
-    &amp;= \boldsymbol{H}\boldsymbol{y}
-\end{aligned}
-\]</div>
-<p><span class="arithmatex">\(\boldsymbol{H}\)</span> is known as the <strong>Hat Matrix</strong> as it puts a hat on y in the notation. The leverage of the <span class="arithmatex">\(ith\)</span> observation is the <strong><span class="arithmatex">\(ith\)</span> diagonal element</strong> of the matrix, <span class="arithmatex">\(h_{ii}\)</span>.</p>
-<p>An observation is considered to have <em>high</em> leverage if its leverage is greater than three times the average leverage:</p>
-<div class="arithmatex">\[
-    h_{ii} \gt 3 \left(\frac{p+1}{n}\right)
-\]</div>
-<h4 id="influential-points"><strong>Influential Points</strong><a class="headerlink" href="#influential-points" title="Permanent link">&para;</a></h4>
+<h3 id="influence"><strong>Influence</strong><a class="headerlink" href="#influence" title="Permanent link">&para;</a></h3>
 <p>The effect of Outliers and High leverage points can both be summarized into a concept known as <strong>Influence</strong>. An observation is influential if the <strong>exclusion of the observation from the regression</strong> leads to significantly differently results.</p>
 <p>In general the process involves three steps:</p>
 <ol>
