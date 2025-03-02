@@ -1151,19 +1151,6 @@
     Assumption 3: Exogenity
   </a>
   
-    <nav class="md-nav" aria-label="Assumption 3: Exogenity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#residual-analysis" class="md-nav__link">
-    Residual Analysis
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1171,32 +1158,12 @@
     Assumption 4: Homoscedasticity
   </a>
   
-    <nav class="md-nav" aria-label="Assumption 4: Homoscedasticity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identifying-heteroscedasticity" class="md-nav__link">
-    Identifying Heteroscedasticity
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#dealing-with-heteroscedasticity" class="md-nav__link">
-    Dealing with Heteroscedasticity
+      
+        <li class="md-nav__item">
+  <a href="#assumption-5-no-serial-correlation" class="md-nav__link">
+    Assumption 5: No Serial Correlation
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assumption-5-serial-correlation" class="md-nav__link">
-    Assumption 5: Serial Correlation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1204,19 +1171,6 @@
   <a href="#assumption-6-normality" class="md-nav__link">
     Assumption 6: Normality
   </a>
-  
-    <nav class="md-nav" aria-label="Assumption 6: Normality">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#q-q-plots" class="md-nav__link">
-    Q-Q Plots
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1472,19 +1426,6 @@
     Assumption 3: Exogenity
   </a>
   
-    <nav class="md-nav" aria-label="Assumption 3: Exogenity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#residual-analysis" class="md-nav__link">
-    Residual Analysis
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1492,32 +1433,12 @@
     Assumption 4: Homoscedasticity
   </a>
   
-    <nav class="md-nav" aria-label="Assumption 4: Homoscedasticity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identifying-heteroscedasticity" class="md-nav__link">
-    Identifying Heteroscedasticity
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#dealing-with-heteroscedasticity" class="md-nav__link">
-    Dealing with Heteroscedasticity
+      
+        <li class="md-nav__item">
+  <a href="#assumption-5-no-serial-correlation" class="md-nav__link">
+    Assumption 5: No Serial Correlation
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assumption-5-serial-correlation" class="md-nav__link">
-    Assumption 5: Serial Correlation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1525,19 +1446,6 @@
   <a href="#assumption-6-normality" class="md-nav__link">
     Assumption 6: Normality
   </a>
-  
-    <nav class="md-nav" aria-label="Assumption 6: Normality">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#q-q-plots" class="md-nav__link">
-    Q-Q Plots
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1646,7 +1554,8 @@
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The intuition behind Residual Plots is that IF the fitted model has <strong>fully captured the relationship</strong> between the dependent and independent, then the resulting residuals should be <strong>random</strong> - with an average of 0.</p>
+<p>In reality, Errors are unobservable, thus the best estimate of them are the residuals.</p>
+<p>IF the fitted model has <strong>fully captured the relationship</strong> between the dependent and independent, then the resulting residuals should be <strong>random</strong> - with an average of 0.</p>
 <p>Thus, if we observe the residuals to be centered around 0, it implied the fitted linear model has fully captured the relationship, implying that the <strong>true relationship is indeed linear</strong>.</p>
 </div>
 <!-- Obtained from Lumen Learning -->
@@ -1686,127 +1595,137 @@
 <p><span class="arithmatex">\(R^{2}_{p}\)</span> is the R-squared for a model where the p-th predictor is regressed against ALL OTHER predictors. If this R-squared is high, it implies that this predictor is well explained by other predictors (high correlation, high collinearity).</p>
 <p>Naturally, the solution is to <strong>drop highly collinear variables</strong>; keep only one of the bunch.</p>
 <h2 id="assumption-3-exogenity"><strong>Assumption 3: Exogenity</strong><a class="headerlink" href="#assumption-3-exogenity" title="Permanent link">&para;</a></h2>
-<p>Exogenity refers to how a variable comes from <strong>outside</strong> the model and is thus <strong>independent of any other variables within the model</strong>.</p>
-<p>In a regression context, this comes in the form of the errors having a <strong>conditional mean of 0</strong>, ensuring that the errors are random and thus not related to the IVs.</p>
-<div class="arithmatex">\[
-    E(\varepsilon_i | x_{ij}) = 0 \\
-\]</div>
-<blockquote>
-<p>"Endo" and "Exo" in Greek means "In" and "Out" respectively, which is how the meaning of the words were derived.</p>
-</blockquote>
-<p>There are two key implications of Exogenity:</p>
-<ol>
-<li>By the Law of Total Expectations, the <em>unconditional</em> expectation of the error is also 0.</li>
-<li>By the Linearity of Conditional Expectations, the expectation of the product of the Error and IVs is 0.</li>
-</ol>
+<p><strong>Exogenity</strong> refers to a variable that is <strong>outside</strong> the model and thus must be <strong>independent of the other variables inside the model</strong>. In the context of linear regression, the <strong>errors should be independent of any of the predictors</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    E(\varepsilon_i) = 0 \\
-    E(\varepsilon_i x_{ij}) = 0
-\end{aligned}
-\]</div>
-<p>Following these two implications, it can be shown that the Covariance between the Error and IVs are also 0, which is another <em>consequence</em> of independence (NOT the other way around).</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    Cov (\varepsilon_i, x_{ij})
-    &amp;= E(\varepsilon_i x_{ij}) - E(\varepsilon_i) * E(x_{ij}) \\
-    &amp;= 0 - 0 * E(x_{ij}) \\
+    E(\varepsilon \mid X) &amp;= 0 \\
+    \\
+    E(\varepsilon)
+    &amp;= E[E(\varepsilon \mid X)] \\
+    &amp;= E[0] \\
+    &amp;= 0 \\
+    \\
+    E(X \cdot \varepsilon)
+    &amp;= E[X \cdot E(\varepsilon \mid X)] \\
+    &amp;= E(X \cdot 0) \\
+    &amp;= 0 \\
+    \\
+    \therefore \text{Cov}(\varepsilon, X)
+    &amp;= E(\varepsilon, X) - E(X) \cdot E(\varepsilon) \\
+    &amp;= 0 - E(X) \cdot 0 \\
     &amp;= 0
 \end{aligned}
 \]</div>
-<p>Without exogenity, the regression parameters would reflect the <strong>effect of both the IV and the unmodelled variable</strong> within the error term. This causes the OLS <strong>estimate to be biased</strong>, known as the <strong>Omitted Variable Bias</strong>. Since the unmodelled variable confounds the results of the regression, it is known as a <strong>Confounding Variable</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>"Exo" and "Endo" in greek means "In" and "Out" respectively. Thus, another way of referring to the assumptions is whether or not Endogenity is present.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Recall that Zero Covariance is a result of independence, NOT the other way around.</p>
+</div>
+<p>If Exogenity is violated, there is a relationship between the predictors and the error (reflecting unmodelled variables). This means that the estimated coefficients would reflect the <strong>effect of BOTH the predictor and the unmodelled variable</strong>, resulting in a <strong>biased estimate</strong>, which consequently impacts the validity of BLUE and the statistical inferences.</p>
 <!-- Obtained from Statology -->
-<p><img alt="Confounding Variables" class="center" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/Confounding%20Variable.png" /></p>
-<h4 id="residual-analysis"><strong>Residual Analysis</strong><a class="headerlink" href="#residual-analysis" title="Permanent link">&para;</a></h4>
-<p>Since the errors are unobservable, the residuals are used to estimate the errors.</p>
-<p>If the fitted model is adequate - all relavent IVs are included in the right form, then the residuals should closely <strong>resemble the errors</strong> and therefore be <strong>structureless</strong> (random). However, if there are <strong>patterns in the residuals</strong>, it indicates that there is additional information that can be used to improve the model and thus should be included.</p>
-<p>Due to the OLS, the correlation between residuals and existing IVs will <strong>always be 0</strong> indicating <strong>no linear relationship</strong>. To check for unmodelled <strong>non-linear relationships</strong>, a <strong>Residual Plot</strong> of the IVs against the Residuals can be used.</p>
-<p>For instance, if the residual plot shows a quadractic pattern (curve), then a quadractic IV should be added into the model. Mathematically, it can be expressed as a function of the existing estimates:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \hat{y_i} &amp;= \hat{\beta}_0 + \hat{\beta}_1 x + \hat{\varepsilon}_i \\
-    \hat{\varepsilon_i} &amp;= \hat{\gamma}_0 + \hat{\gamma}_1 x + \hat{\gamma}_2 x^2 \text{ (From residual plot)} \\
-    \hat{y_i} &amp;= \hat{\beta}_0 + \hat{\beta}_1 x + \hat{\gamma}_0 + \hat{\gamma}_1 x + \hat{\gamma}_2 x^2 \\
-    \hat{y_i} &amp;= (\hat{\beta}_0 + \hat{\gamma}_0) + (\hat{\beta}_1 + \hat{\gamma}_1)x + \hat{\gamma}_2 x^2 \\
-    \hat{y_i} &amp;= \hat{\beta}_0' + \hat{\beta}_1'x + \hat{\beta}_2' x^2
-\end{aligned}
-\]</div>
+<p><img alt="OMITTED_VARIABLE_BIAS" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/OMITTED_VARIABLE_BIAS.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The ommitted correlated variable is said to Confound (mix up) the regression results. Thus, it is sometimes referred to as the <strong>Confounding Variable</strong>. This process in general is known as the <strong>Omitted Variable Bias</strong>.</p>
+</div>
+<p>Similar to before, a <strong>residual plot of the residuals against the predictors</strong> can be used to check for Exogenity; there should be no visible trend in the plots:</p>
 <!-- Obtained from ACTEX Manual -->
-<p><img alt="Residual Plot" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/Residual%20Plot.png" /></p>
-<!-- Added variable plots? -->
-
+<p><img alt="Residual Plot" src="Assets/4.%20Gauss%20Markov%20Theorem.md/Residual%20Plot.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above plot are the residuals against a single predictor. Plotting against the fitted values would imply plotting against all predictors at once.</p>
+</div>
+<p>There are two possible solutions if Exogenity is violated:</p>
+<ol>
+<li>Include the Confounding Variable</li>
+<li>Introduce an Instrumental Variable</li>
+</ol>
+<!-- Obtained From Shakrim Blog -->
+<p><img alt="INSTRUMENTAL_VARIABLE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/INSTRUMENTAL_VARIABLE.png" /></p>
 <h2 id="assumption-4-homoscedasticity"><strong>Assumption 4: Homoscedasticity</strong><a class="headerlink" href="#assumption-4-homoscedasticity" title="Permanent link">&para;</a></h2>
-<p>Homoscedasticity refers to the error terms having <strong>constant variance</strong> while Heteroscedasticity refers to having non-constant variance.</p>
+<p><strong>Homoscedasticity</strong> refers to the error terms having <strong>constant variance</strong> while <strong>Heteroscedasticity</strong> refers to having non-constant variance.</p>
 <div class="arithmatex">\[
-    var(\varepsilon_i | x_i) = \sigma^2
+    \text{Var}(\varepsilon \mid X) = \sigma^{2}
 \]</div>
-<p>Under homoscedasticity, the sampling distribution of the estimates are easily derived and thus it can be shown that they are the most efficient estimators. The same cannot be proven under heteroscedasticity.</p>
-<blockquote>
-<p>Note that that the OLS estimates are still unbiased; they are just not the most efficient.</p>
-</blockquote>
-<h4 id="identifying-heteroscedasticity"><strong>Identifying Heteroscedasticity</strong><a class="headerlink" href="#identifying-heteroscedasticity" title="Permanent link">&para;</a></h4>
-<p>Similar to before, if the model is adequate, then the residuals should resemble the errors and have <strong>constant variance</strong>. Thus, this can be easily determined through a <strong>residual plot</strong> of the Residuals against the fitted values.</p>
-<p>If the points are <strong>equally spread out</strong> about the mean (0) and show <strong>no pattern</strong>, then homoscedasticity is present. However, if the points show an increasing or decreasing variance (typically in the <strong>shape of a funnel</strong>), then heteroscedasticity is present.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Similarly, they come from the terms "Homo" and "Hetero" which means "Same" and "Different".</p>
+</div>
+<p>If Homoscedastacity is not present, the <strong>sampling distribution of the estimates are not easily derived</strong> and hence cannot be proven that they are the most efficient estimators. Consequently, statistical inference results might not be reliable as well.</p>
+<p>Similar to before, a residual plot can be used to identify patterns. If the <strong>spread of the plots are changing</strong> (typically in the shape of a funnel for increasing variance), then Heteroscedasticity is present:</p>
 <!-- Obtained from Corporate Finance Institute -->
-<p><img alt="Homoscedastacity" class="center" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/Homoscedasticity.png" /></p>
-<p>Alternatively, a hypothesis test can be conducted to determine if heteroscedasticity is present, known as the <strong>Bresuch Pagan Test</strong>.</p>
+<p><img alt="HOMOSCEDASTICITY" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HOMOSCEDASTICITY.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A model can be both Unbiased and Heteroscedastic, they have no influence on one another:</p>
+<p><!-- Obtained from Condor -->
+<img alt="HETEROSCEDASTIC_SCENARIOS" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HETEROSCEDASTIC_SCENARIOS.png" /></p>
+</div>
+<p>The most direct method to deal with Heteroscedasticity is to perform a <strong>transformation</strong> on the variables that will stabilize its variance, such the <strong>Logarithm or Squareroot</strong>. These transformations typically compress larger values while expanding smaller values, helping to shrink the variance.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The transformations listed above require positive-only data, thus a constant can be added to all variables to ensure that they are positive.</p>
+</div>
+<p>Alternatively, if the source of heteroscedasticity is known, it is possible to use a <strong>Weighted Least Squares</strong> approach to account for it. Weights are assigned to <strong>each observation</strong>, such that the weight is the amount needed to <strong>scale the the variance to a constant amount</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    H_0 &amp;: \sigma^2 \\
-    H_1 &amp;: \sigma^2 + \boldsymbol{Z\gamma}
+    \text{Assumed Constant Variance} &amp;= \sigma^{2} \\
+    \text{Current Variance} &amp;= \text{Var}(\varepsilon_{i}) \\
+    \text{Var}(\varepsilon_{i}) &amp;= \frac{\sigma^{2}}{w_{i}}
 \end{aligned}
 \]</div>
-<p>The test-statistic is computed as follows:</p>
-<ol>
-<li>Compute the squared standardized residuals from the original model</li>
-<li>Regress them onto the variables in Z (LOL need to change this part)</li>
-<li>Compute the RegSS of the new regression</li>
-</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In practice, the weights are completely arbitrary and up to the modeller. They must be positive and do not need to sum to 1.</p>
+</div>
+<p>A new funcitonal form is assumed, where the <strong>resulting variance is constant</strong>:</p>
 <div class="arithmatex">\[
-    T = \frac{RegSS}{2}
+\begin{aligned}
+    y_{i} &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \varepsilon \\
+    \sqrt{w_{i}} \cdot y_{i} &amp;= \sqrt{w_{i}} \cdot \left(\beta_{0} + \beta_{1} \cdot x_{1} + \varepsilon_{i} \right) \\
+    \\
+    \text{Var}(\sqrt{w_{i}} \cdot \varepsilon_{i})
+    &amp;= \left(\sqrt{w_{i}} \right)^{2} \cdot \text{Var}(\varepsilon_{i}) \\
+    &amp;= w_{i} \cdot \frac{\sigma^{2}}{w_{i}} \\
+    &amp;= \sigma^{2}
+\end{aligned}
 \]</div>
-<p>The test-statistic follows a <strong>chi-square distribution</strong> with <span class="arithmatex">\(q\)</span> degrees of freedom, where <span class="arithmatex">\(q\)</span> is the <strong>number of variables</strong> in <span class="arithmatex">\(\boldsymbol{Z}\)</span>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above doesnt "fix" the heteroscedasticity, it simply accounts for it by using an alternative method.</p>
+<p>In another way, heteroscedasticity is not inherently problematic; the problem is applying a method that assumes Homoscedastacity (linear regression) to a dataset with heteroscedasticity.</p>
+</div>
+<h2 id="assumption-5-no-serial-correlation"><strong>Assumption 5: No Serial Correlation</strong><a class="headerlink" href="#assumption-5-no-serial-correlation" title="Permanent link">&para;</a></h2>
+<p>This assumption states that the error terms should <strong>NOT be correlated</strong> with one another:</p>
 <div class="arithmatex">\[
-    T \sim \chi^2_q
+\begin{aligned}
+    \text{Cov}(\varepsilon_{i}, \varepsilon_{j})
+    &amp;= E(\varepsilon_{i}, \varepsilon_{j}) - E(\varepsilon_{i}) \cdot E(\varepsilon_{j}) \\
+    &amp;= E(\varepsilon_{i}, \varepsilon_{j}) - 0 \\
+    \\
+    E(\varepsilon_{i}) &amp;= E(\varepsilon_{j}) = 0, \text{(Assumption 3)} \\
+    \\
+    \therefore \text{Cov}(\varepsilon_{i}, \varepsilon_{j}) &amp;= 0 \rightarrow E(\varepsilon_{i}, \varepsilon_{j}) = 0
+\end{aligned}
 \]</div>
-<h4 id="dealing-with-heteroscedasticity"><strong>Dealing with Heteroscedasticity</strong><a class="headerlink" href="#dealing-with-heteroscedasticity" title="Permanent link">&para;</a></h4>
-<p>If prior information is known about the structure of the data, then the most intuitive method would be to incorporate that information into the data.</p>
-<!-- Buff up this section -->
-
-<div class="arithmatex">\[
-    Var(\varepsilon_i) = \frac{\sigma^2}{w_i}
-\]</div>
-<p>If no prior information is known, then the Heteroscedasticity can be reduced by using a <strong>Variance Stabilizing Transformation</strong>, such as the <strong>Log</strong> or <strong>Squareroot</strong>. Note that since they require positive data, a <strong>constant can be added</strong> to each term before the transformation to ensure that the values are positive.</p>
-<blockquote>
-<p>It is out of the scope for this set of notes to show why these help to stabilize variance.</p>
-</blockquote>
-<p>Alternatively, if there is only mild heteroscedasticity in the data, then OLS can be used but with an <strong>adjustment to the standard errors</strong> of the coefficients, known as <strong>heteroscedastic-robust standard errors</strong>.</p>
-<p>Due to complexity of the computations, it will not be covered in this set of notes. However, the general idea is that an <strong>weighted estimate</strong> of the variance covariance matrix is computed and the standard errors are computed from there.</p>
-<h3 id="assumption-5-serial-correlation"><strong>Assumption 5: Serial Correlation</strong><a class="headerlink" href="#assumption-5-serial-correlation" title="Permanent link">&para;</a></h3>
-<p>If errors are correlated with one another, it is known as <strong>Serial Correlation</strong> or <strong>Autocorrelation</strong>.</p>
-<p>It implies that there are other unmodelled factors that can be used for prediction, which would imply the current model specification to be wrong.</p>
-<p>Thus, for the SLR model to be true, the errors <strong>must be independent of one another</strong>.</p>
-<div class="arithmatex">\[
-    Cov(\varepsilon_i,\varepsilon_j) = 0
-\]</div>
-<p>Confidence Intervals and PI are narrower than it should be &gt; 95% PI is actually &lt; 95%&gt;
-P values lower &gt; Appear statisticlaly significant when they shld not be</p>
-<p>Time series tends to have errors that are positively correlated, which is why it has its own dedicated section
-No Serial Correlation &gt; Outcome of zero conditional mean, but most likely in time series data</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This is also sometimes referred to as the <strong>No Autocorrelation</strong> assumption.</p>
+</div>
+<p>Similarly, this can be validated using a residual plot against other residuals <strong>over different predictions</strong>. The resulting plot should not have any exhibit any clear trend or pattern:</p>
+<!-- Obtained from Stack Exchange -->
+<p><img alt="AUTOCORRELATION" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/AUTOCORRELATION_PLOT.png" /></p>
+<p>If violated, it implies that knowing one error can <strong>systematically provide information about another</strong>; meaning that there are additional <strong>unmodelled factors</strong> to consider. The residuals are no longer accurate, which consequently impacts the validity of BLUE and the statistical inferences.</p>
 <h2 id="assumption-6-normality"><strong>Assumption 6: Normality</strong><a class="headerlink" href="#assumption-6-normality" title="Permanent link">&para;</a></h2>
-<p>Although not needed for OLS estimation or Guass Markov, the errors of the regression are usually assumed to be <strong>normally distributed</strong>.</p>
-<!-- To check on specific normal distributions for Y > Does it have the same variance as E? -->
+<p>The last assumption is assuming that the error terms follow a <strong>Normal Distribution</strong>:</p>
 <div class="arithmatex">\[
-    \varepsilon \sim N(0, \sigma^2)
+    \varepsilon \sim N(0, \sigma^{2})
 \]</div>
-<p>If the errors are normally distributed, then it follows that <strong><span class="arithmatex">\(\beta\)</span> is normally distributed</strong> as well since they are linear and additive. This greatly eases the computation needed to determine the <strong>sampling distribution</strong> for statistical inference.</p>
-<h3 id="q-q-plots"><strong>Q-Q Plots</strong><a class="headerlink" href="#q-q-plots" title="Permanent link">&para;</a></h3>
-<p>Since the errors are normally distributed, the residuals should be normally distributed as well. This can be verified using a <strong>Quantile-Quantile Plot (QQ Plot)</strong>, which <strong>compares the quantiles</strong> of two distributions.</p>
-<p>The first distribution is plotted on the x-axis while the second on the y-axis. If the quantiles are the same (same distribution), then the points should lie on <span class="arithmatex">\(y = x\)</span>, the 45 degree line.</p>
-<!-- Obtained from STHDA -->
-<p><img alt="QQ Plot" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/QQ%20Plot.png" /></p>
-<!-- Simple random sample refer to Econometrics bible -->
-
+<p>It can verified by using a <strong>QQ plot</strong> or other equivalent distribution tests (EG. Kolmogorov Test).</p>
+<p>Violating the normality assumption does not impact the validity of the estimates or predictive power; it only impacts the validity of statistical inference.</p>
 <h2 id="other-assumptions"><strong>Other Assumptions</strong><a class="headerlink" href="#other-assumptions" title="Permanent link">&para;</a></h2>
 <h3 id="no-extreme-outliers"><strong>No Extreme Outliers</strong><a class="headerlink" href="#no-extreme-outliers" title="Permanent link">&para;</a></h3>
 <p>Outliers are observations with <strong>unusual values of the DV</strong> relative to fitted regression model.</p>
