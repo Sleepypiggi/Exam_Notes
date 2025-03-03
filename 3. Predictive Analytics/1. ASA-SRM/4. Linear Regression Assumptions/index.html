@@ -1209,8 +1209,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#high-dimension" class="md-nav__link">
-    High dimension
+  <a href="#high-dimensionality" class="md-nav__link">
+    High Dimensionality
   </a>
   
 </li>
@@ -1471,8 +1471,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#high-dimension" class="md-nav__link">
-    High dimension
+  <a href="#high-dimensionality" class="md-nav__link">
+    High Dimensionality
   </a>
   
 </li>
@@ -1703,72 +1703,108 @@
 <p>For large samples, CLT states that the distribution of the estimators are <strong>approximately normal</strong>, thus inferences are still valid. However, this does NOT apply to prediction intervals as they directly contain the variance of the error term, which follows an unknown distribution.</p>
 <h2 id="other-considerations"><strong>Other Considerations</strong><a class="headerlink" href="#other-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="leverage"><strong>Leverage</strong><a class="headerlink" href="#leverage" title="Permanent link">&para;</a></h3>
-<p>While outliers are unusual points of the DV, <strong>High Leverage observations</strong> have unusual values of the IV relative to the majority of the values.</p>
-<p>It is easy to identify high leverage points when there is only one IV through a scatterplot - simply find the observation that is away from the rest.</p>
-<p>It becomes much more complicated when there are multiple IVs. The observation's values for each of the IVs could be in the common range of each IV, but <strong>unusual when taken collectively</strong>:</p>
+<p>Observations with unusually high values in the <strong>Independent Variable</strong> are known as <strong>High Leverage Points</strong>.</p>
+<p>The easiest way to identify high leverage points would be through a scatterplot of independent variables:</p>
 <!-- Obtained from ACTEX Manual -->
-<p><img alt="High Leverage Points" class="center" src="../Assets/4.%20Gauss%20Markov%20Theorem.md/High%20Leverage.png" /></p>
-<p>The leverage of the observation can be determined from the MLR:</p>
+<p><img alt="High Leverage Points" class="center" src="Assets/4.%20Gauss%20Markov%20Theorem.md/High%20Leverage.png" /></p>
+<p>When there are multiple variables, another consideration is that the observation might seem normal within each variable, but <strong>unusual when taken collectively</strong>. This is hard to visualize in multiple dimensions, thus leverage can also be quantified via the following:</p>
 <div class="arithmatex">\[
-\begin{aligned}
-    \hat{\boldsymbol{y}}
-    &amp;= \boldsymbol{X}\boldsymbol{\beta} \\
-    &amp;= \boldsymbol{X}[(X'X)^{-1}y] \\
-    &amp;= \boldsymbol{H}\boldsymbol{y}
-\end{aligned}
+    h_{i} = \boldsymbol{X}_{i} \cdot (\boldsymbol{X}^{T} \cdot \boldsymbol{X})^{-1} \cdot \boldsymbol{X}_{i}
 \]</div>
-<p><span class="arithmatex">\(\boldsymbol{H}\)</span> is known as the <strong>Hat Matrix</strong> as it puts a hat on y in the notation. The leverage of the <span class="arithmatex">\(ith\)</span> observation is the <strong><span class="arithmatex">\(ith\)</span> diagonal element</strong> of the matrix, <span class="arithmatex">\(h_{ii}\)</span>.</p>
-<p>An observation is considered to have <em>high</em> leverage if its leverage is greater than three times the average leverage:</p>
+<p>It can be mathematically shown that the leverage is equivalent to the <strong>element on the diagonal</strong> in the Hat matrix for that particular observation:</p>
+<div class="arithmatex">\[
+    h_{i} = \boldsymbol{H}_{ii}
+\]</div>
+<!-- Obtained from Stack Exchange -->
+<p><img alt="LEVERAGE_HAT_MATRIX" class="centee" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/LEVERAGE_HAT_MATRIX.png" /></p>
+<p>An observation is considered to have <em>high</em> leverage if its leverage is greater than three times the <strong>average leverage</strong>:</p>
 <div class="arithmatex">\[
     h_{ii} \gt 3 \left(\frac{p+1}{n}\right)
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The leverage for each observations lies within the following range:</p>
+<div class="arithmatex">\[
+    \frac{1}{n} \lt h_{i} \lt 1
+\]</div>
+<p>It can be shown that the sum of diagonal of the Hat matrix (the leverage) is <span class="arithmatex">\(p+1\)</span>:</p>
+<div class="arithmatex">\[
+    \sum H_{ii} = p+1
+\]</div>
+<p>Thus, the average leverage per observation is:</p>
+<div class="arithmatex">\[
+    \text{Average Leverage} = \frac{p+1}{n}
+\]</div>
+</div>
 <h3 id="outliers"><strong>Outliers</strong><a class="headerlink" href="#outliers" title="Permanent link">&para;</a></h3>
+<p>Observations with unusually high values in the <strong>dependent variable</strong> are known as <strong>Outliers</strong>.</p>
+<p>Naturally, these observations have <strong>large residuals</strong>. However, residuals contain the units the of the dependent variable, which affects its scale. Thus, the residuals must be transformed into a <strong>unitless form</strong> to determine a universal benchmark.</p>
 <p>Outliers are observations with <strong>unusually large values of the dependent variable</strong>, relative to the fitted regression model. In other words, they have <strong>large residuals</strong>, relative to other observations.</p>
-<p>Outliers are usually associated with <strong>miscoded or missing observations</strong>, but they could also be due to unmodelled behaviour for a sub-group of predictors. Investigation needs to be done to understand what is driving the outliers, and hence whether or not they can be omitted.</p>
-<p>The issue is that <strong>OLS is sensitive</strong> to outliers as it uses the residuals as the basis to estimate the the coefficients; a model with and without outliers can have very different estimates:</p>
-<!-- Obtained from Quantitative Research Methods for Political Science -->
-<p><img alt="OUTLIERS" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/OUTLIERS.png" /></p>
-<p>By definition, Outliers have <strong>unusually large residuals</strong>. In order to gauge what is considered a "large residual", the residuals are standardized for comparison.</p>
-<p>Standardization requires knowledge of the <strong>sampling distribution of the residuals</strong>. Given that the errors have a constant variance of <span class="arithmatex">\(\sigma^2\)</span>, the variance of the residuals can be shown to be:</p>
+<p>It can be shown that the variance of the residual is a function of its Leverage:</p>
 <div class="arithmatex">\[
-    var(\hat{\varepsilon}_i) = \sigma^2 (1-h_{ii})
+    \text{Var}(\hat{\varepsilon}_{i}) = \sigma^{2} \cdot (1 - h_{i})
 \]</div>
-<blockquote>
-<p><span class="arithmatex">\(h_ii\)</span> is known as the Leverage of the observation, which will be covered in the following section.</p>
-</blockquote>
-<p>The sampling distribution can then be determined:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above the is the variance of the RESIDUAL, NOT the error term!</p>
+</div>
+<p>Following the OLS assumptions made earlier, it can be shown to have the following sampling distribution:</p>
 <div class="arithmatex">\[
-    \hat{\varepsilon}_i ~ N(0, \sigma^2 (1-h_{ii}))
+    \hat{\varepsilon}_{i} \sim N(0, \sigma^{2} \cdot (1 - h_{i}))
 \]</div>
-<p>Thus, the standardized residuals are the raw residuals scaled by their standard error:</p>
+<p>Thus, the residual can be <strong>standardized</strong> via division of its standard error. However, the true variance is likely unknown in practice. Thus, it is replaced with the mean squared of the residual:</p>
 <div class="arithmatex">\[
-    \hat{\varepsilon}_i^{\text{standardized}} = \frac{\hat{\varepsilon}_i}{\sqrt{\sigma^2 (1-h_{ii})}}
+\begin{aligned}
+    \hat{\varepsilon}_{i, \text{Standardized}}
+    &amp;= \frac{\hat{\varepsilon}_{i}}{\sqrt{\sigma^{2} (1 - h_{ii})}} \\
+    &amp;= \frac{\hat{\varepsilon}_{i}}{\sqrt{\sigma^{2}_{\text{RSS}} (1 - h_{ii})}}
+\end{aligned}
 \]</div>
-<blockquote>
-<p>In practice, the variance of the errors are unknown, thus it is estimated using the Sample Variance of the residuals instead.</p>
-</blockquote>
-<p>Residuals with standardized values of <strong>larger than 2 or 3</strong> are considered large and thus can be considered as an outlier.</p>
+<p>It is generally accepted that observations with Standardized Residuals <strong>larger than 2</strong> are considered to be Outliers:</p>
+<div class="arithmatex">\[
+    \hat{\varepsilon}_{i, \text{Standardized}} \ge 2
+\]</div>
 <h3 id="influence"><strong>Influence</strong><a class="headerlink" href="#influence" title="Permanent link">&para;</a></h3>
-<p>The effect of Outliers and High leverage points can both be summarized into a concept known as <strong>Influence</strong>. An observation is influential if the <strong>exclusion of the observation from the regression</strong> leads to significantly differently results.</p>
-<p>In general the process involves three steps:</p>
-<ol>
-<li>Fit the original model with all <span class="arithmatex">\(n\)</span> observations; determine the <span class="arithmatex">\(j-th\)</span> fitted value <span class="arithmatex">\(\hat{y}_j\)</span></li>
-<li>Fit an adjusted model with omitting the <span class="arithmatex">\(i-th\)</span> observation, determine the <span class="arithmatex">\(j-th\)</span> fitted value <span class="arithmatex">\(\hat{y}_{j(i)}\)</span></li>
-<li>Calculate the <strong>change in the <span class="arithmatex">\(j-th\)</span> fitted value</strong></li>
-</ol>
-<p>This process has to be repeated for <strong>all fitted values for all observations</strong>.</p>
-<p><strong>Cook's Distance</strong> summarizes the effect of the <span class="arithmatex">\(i-th\)</span> observation on the whole model:</p>
+<p>The effect of Leverage and Residual Size can be combined into a single measure known as <strong>Influence</strong>. The influence of an observation is quantified via <strong>Cook's Distance</strong>, which is a measure of <strong>how the fitted model changes</strong> if the observation were removed:</p>
 <div class="arithmatex">\[
-    D_i = \frac{\sum^n_{j=1} (\hat{y}_j - \hat{y}_{j(i)})^2}{(p+1) \cdot MS_{Residuals}}
+    D_{i} = \frac{\sum (\hat{y}_{j} - \hat{y}_{j(i)})^{2}}{(p+1) \cdot \text{MS}_{\text{RSS}}}
 \]</div>
-<p>This method of computation requires <span class="arithmatex">\(n+1\)</span> datasets - 1 dataset with all the observation and <span class="arithmatex">\(n\)</span> datasets with the <span class="arithmatex">\(i-th\)</span> observation omitted. It is also extremely time consuming to have to fit a model to each dataset.</p>
-<p>An alternative method of determining Cook's Distance is to make use of both the Outliers and Leverage:</p>
+<p>However, this method is <strong>computationally expensive</strong> as it requires <span class="arithmatex">\(n+1\)</span> datasets and models:</p>
+<ul>
+<li>1 dataset and fitted model with all observations</li>
+<li>n datasets and fitted models, each with the i-th observation removed</li>
+</ul>
+<p>Thus, it can expressed as a combination of the <strong>Leverage and Residual Size</strong>:</p>
 <div class="arithmatex">\[
-    D_i = \frac{1}{p+1} \cdot (e^{\text{standardized}})^2 \cdot \frac{h_{ii}}{1-h_{ii}}
+\begin{aligned}
+    \sum (\hat{y}_{j} - \hat{y}_{j(i)})^{2} &amp;= \frac{e^{2}_{i} \cdot h_{i}}{(1 - h_{i})^{2}} \\
+    \\
+    \therefore D_{i}
+    &amp;= \frac{\sum (\hat{y}_{j} - \hat{y}_{j(i)})^{2}}{(p+1) \cdot \text{MS}_{\text{RSS}}} \\
+    &amp;= \frac{\frac{e^{2}_{i} \cdot h_{i}}{(1 - h_{i})^{2}}}{(p+1) \cdot \text{MS}_{\text{RSS}}} \\
+    &amp;= \frac{e^{2}_{i} \cdot h_{i}}{(p+1) \cdot \text{MS}_{\text{RSS}}(1 - h_{i})^{2}} \\
+    &amp;= \frac{e^{2}_{i}}{\text{MS}_{\text{RSS}}(1 - h_{i})} \cdot \frac{h_{i}}{(p+1)(1 - h_{i})} \\
+    &amp;= \left(\frac{e_{i}}{\sqrt{\text{MS}_{\text{RSS}}(1 - h_{i})}} \right)^{2} \cdot \frac{h_{i}}{(p+1)(1 - h_{i})} \\
+    &amp;= (\hat{\varepsilon}_{i, \text{Standardized}})^{2} \cdot \frac{h_{i}}{(p+1)(1 - h_{i})}
+\end{aligned}
 \]</div>
-<p>Thus, an observation must be <strong>unusual in BOTH the DV and IV</strong> in order to be considered influential. Outliers and High leverage points are <em>necessary but not sufficient</em> conditions to be influential.</p>
-<h2 id="high-dimension">High dimension<a class="headerlink" href="#high-dimension" title="Permanent link">&para;</a></h2>
-<p>df</p>
+<p>The issue with highly influential points is that the fitted model would be <strong>vastly different without them</strong>, causing <strong>instability</strong> in the estimates:  </p>
+<!-- Obtained from Quantitative Research Methods for Political Science -->
+<p><img alt="INFLUENCE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/INFLUENCE.png" /></p>
+<p>Thus, they <strong>need to be investigated</strong> to better understand them - are they miscoded observations, or are they representing unique behaviour of a sub-group of predictors? Following this, an informed decision can be made on whether or not they should be included in the model.</p>
+<h2 id="high-dimensionality"><strong>High Dimensionality</strong><a class="headerlink" href="#high-dimensionality" title="Permanent link">&para;</a></h2>
+<p>As alluded to previously, increasing the number of parameters in the model does not necessarily benefit the model. This phenomenon is known as the <strong>Curse of Dimensionality</strong>.</p>
+<p>A sample of 100 observations is a lot of information for a model with 2 predictors, but is sparse for a model with 50 predictors. Thus, <strong>increasing the number of predictors relative to the sample size</strong> tends to have detrimental effects:</p>
+<ul>
+<li><span class="arithmatex">\(p \gt n\)</span>: <strong>Insufficient information</strong> to fit the model</li>
+<li><span class="arithmatex">\(p = n\)</span>: Model fits data <em>perfectly</em>, resulting in <strong>overfitting</strong></li>
+<li><span class="arithmatex">\(p \lt n\)</span>, but limited degrees of freedom: Esimates become <strong>unstable</strong>, resulting in higher standard errors and hence <strong>incorrect statistical inferences</strong></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also a possibility that increasing the number of predictors results in choosing two or more highly correlated variables, resulting in Multicollinearity.</p>
+</div>
+<p>The natural solution would be to <strong>limit the number of predictors</strong> by choosing only truly relevant variables and/or to <strong>increase the sample size</strong>.</p>
 
 
 
