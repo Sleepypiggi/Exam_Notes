@@ -1221,6 +1221,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#regularization-methods" class="md-nav__link">
+    Regularization Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Regularization Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l2-ridge" class="md-nav__link">
+    L2: Ridge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l1-lasso" class="md-nav__link">
+    L1: LASSO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformations" class="md-nav__link">
+    Transformations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1508,6 +1542,40 @@
           <li class="md-nav__item">
   <a href="#indicator-variables" class="md-nav__link">
     Indicator Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regularization-methods" class="md-nav__link">
+    Regularization Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Regularization Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l2-ridge" class="md-nav__link">
+    L2: Ridge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l1-lasso" class="md-nav__link">
+    L1: LASSO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformations" class="md-nav__link">
+    Transformations
   </a>
   
 </li>
@@ -1972,6 +2040,105 @@ Var(\hat{\beta}) =
 \]</div>
 <!-- Obtained from ACTEX Manual -->
 <p><img alt="PIECEWISE_NON_CONTINUOUS" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/PIECEWISE_NON_CONTINUOUS.png" /></p>
+<h2 id="regularization-methods"><strong>Regularization Methods</strong><a class="headerlink" href="#regularization-methods" title="Permanent link">&para;</a></h2>
+<p>A key problem with MLR is that the addition of more variables makes it <strong>more prone to overfitting</strong> (Low Bias, High Variance). Thus, <strong>regularization methods</strong> have been devised to <strong>reduce variance</strong> at the cost of slightly increasing bias.</p>
+<p>The mathematics behind the methods is complicated, it is sufficient to understand the intuition.</p>
+<h3 id="l2-ridge"><strong>L2: Ridge</strong><a class="headerlink" href="#l2-ridge" title="Permanent link">&para;</a></h3>
+<p>The first method is known as the <strong>Ridge Regression</strong>. It works by adding a <strong>penalty</strong> to the OLS minimization problem:</p>
+<div class="arithmatex">\[
+    \min \left(\text{RSS} + \lambda \cdot \sum \beta^{2}_{p} \right)
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The penalty term is known as the <span class="arithmatex">\(\ell_{2}\)</span> norm of the vector of predictors. The <strong>intercept is untouched</strong>.</p>
+</div>
+<p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The hyperparameter <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong></p>
+<ul>
+<li><span class="arithmatex">\(\lambda = 0\)</span>: No Shrinkage; same as OLS (maximum flexibiliy)</li>
+<li><span class="arithmatex">\(\lambda = \infty\)</span>: Fully shrinked; all estimates are 0 (minimum flexibility)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ridge Regression will <strong>NEVER</strong> fully shrink the predictor to 0 for any finite <span class="arithmatex">\(\lambda\)</span>. The resulting coefficients will be <strong>close but never exactly 0</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that the penalty is applied on the SUM of squared predictors; the sum must shrink to 0. Thus, it is possible for most predictors to shrink while a specific predictor increases (offsetting effects).</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="RIDGE_SHRINKAGE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/RIDGE_SHRINKAGE.png" /></p>
+</div>
+<h3 id="l1-lasso"><strong>L1: LASSO</strong><a class="headerlink" href="#l1-lasso" title="Permanent link">&para;</a></h3>
+<p>The second method is known as <strong>LASSO regression</strong>. Similarly, it works by adding a <strong>L1 penalty</strong> to the OLS minimization problem:</p>
+<div class="arithmatex">\[
+    \min \left(\text{RSS} + \lambda \cdot \sum |\beta_{p}| \right)
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The penalty term is known as the <span class="arithmatex">\(\ell_{1}\)</span> norm of the vector of predictors. The <strong>intercept is untouched</strong>.</p>
+</div>
+<p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the hyperparameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is why LASSO can also be used as a feature selection method.</p>
+</div>
+<p>There is no clear advantage between the two; the key difference lies in the ability to drop predictors:</p>
+<ul>
+<li><strong>Ridge</strong>: Will always retain variables thus allowing it to capture predictors that truly of small coefficients; at the cost of interpretability due to large number of predictors</li>
+<li><strong>LASSO</strong>: Will always drop varaibles thus increasing the interpretability of the model; at the cost of missing predctors that truly have small coefficients</li>
+</ul>
+<!-- Obtained from Towards Data Science -->
+<p><img alt="REGULARIZATION_VISUAL" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGULARIZATION_VISUAL.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The approach that combines both Ridge and LASSO together is known as the <strong>Elastic Net</strong>.</p>
+</div>
+<h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
+<p>Before using the two methods, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong>, thus they need to be on the <strong>same basis</strong> to ensure proper results, since they are now combined together in the constraint.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This was not a problem in regular OLS as the residuals were used, which were all following the scale of the dependent.</p>
+</div>
+<p>There are two main methods of transforming predictors:</p>
+<ul>
+<li><strong>Centering</strong>: Subtracting the sample mean of each predictor</li>
+<li><strong>Scaling</strong>: Dividing each predictor by its sample standard error</li>
+</ul>
+<p>Regardless of which method is used, after expanding the relevant terms, the expression remains the same. The difference lies in the <strong>allocation between the intercept and slope</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Centering</strong></th>
+<th align="center"><strong>Scaling</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Intercept changed</td>
+<td align="center">Intercept unchanged</td>
+</tr>
+<tr>
+<td align="center">Slope unchanged</td>
+<td align="center">Slope changed</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{y}
+    &amp;= 50.7909 - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
+    \\
+    \hat{y}_{\text{Centered}}
+    &amp;= 34 - 1.6995 \cdot (x_{1} - 8) - 0.3227 \cdot (x_{2} - 10) \\
+    &amp;= 34 + 1.6995(8) + 0.3227(10) - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
+    &amp;= 50.7909 - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
+    \\
+    \hat{y}_{\text{Scaled}}
+    &amp;= 34 - 3.909 \cdot \frac{x_{1}}{2} - 1.2909 \cdot \frac{x_{2}}{4} \\
+    &amp;= 50.7909 - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
+\end{aligned}
+\]</div>
 
 
 
