@@ -58,7 +58,8 @@ nav:
       - Simple Linear Regression: 3. Predictive Analytics/1. ASA-SRM/2. Simple Linear Regression.md
       - Multiple Linear Regression: 3. Predictive Analytics/1. ASA-SRM/3. Multiple Linear Regression.md
       - Linear Regression Assumptions: 3. Predictive Analytics/1. ASA-SRM/4. Linear Regression Assumptions.md
-      - Statistical Learning New: 3. Predictive Analytics/1. ASA-SRM/5. Statistical Learning.md
+      - Model Selection: 3. Predictive Analytics/1. ASA-SRM/5. Model Selection.md
+      - Generalized Linear Models: 3. Predictive Analytics/1. ASA-SRM/6. Generalized Linear Models.md
     - ASA-PA: Placeholder.md
   - ILA Track:
     - FSA-LPM: Placeholder.md
