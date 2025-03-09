@@ -15,7 +15,7 @@
     
     
       
-        <title>6. Generalized Linear Models - Exam Notes</title>
+        <title>Generalized Linear Models - Exam Notes</title>
       
     
     
@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#generalized-linear-models" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6. Generalized Linear Models
+              Generalized Linear Models
             
           </span>
         </div>
@@ -953,12 +958,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -979,12 +986,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
       
       
       
@@ -1077,9 +1086,193 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../3. Predictive Analytics/1. ASA-SRM/5. Statistical Learning.md" class="md-nav__link">
-        Statistical Learning New
+      <a href="../5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Generalized Linear Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Generalized Linear Models
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    Key Concepts
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-exponential-family" class="md-nav__link">
+    Linear Exponential Family
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-functions" class="md-nav__link">
+    Link Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-examples" class="md-nav__link">
+    Common Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goodness-of-fit" class="md-nav__link">
+    Goodness of Fit
+  </a>
+  
+    <nav class="md-nav" aria-label="Goodness of Fit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deviance" class="md-nav__link">
+    Deviance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-inference" class="md-nav__link">
+    Statistical Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#likelihood-ratio-test" class="md-nav__link">
+    Likelihood Ratio Test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goodness-of-fit-test" class="md-nav__link">
+    Goodness of Fit Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specific-forms-of-glm" class="md-nav__link">
+    Specific Forms of GLM
+  </a>
+  
+    <nav class="md-nav" aria-label="Specific Forms of GLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logit-regression" class="md-nav__link">
+    Logit Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probit-regression" class="md-nav__link">
+    Probit Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poisson-rgeression" class="md-nav__link">
+    Poisson Rgeression
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1205,6 +1398,152 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    Key Concepts
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-exponential-family" class="md-nav__link">
+    Linear Exponential Family
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-functions" class="md-nav__link">
+    Link Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-examples" class="md-nav__link">
+    Common Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goodness-of-fit" class="md-nav__link">
+    Goodness of Fit
+  </a>
+  
+    <nav class="md-nav" aria-label="Goodness of Fit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deviance" class="md-nav__link">
+    Deviance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-inference" class="md-nav__link">
+    Statistical Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#likelihood-ratio-test" class="md-nav__link">
+    Likelihood Ratio Test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goodness-of-fit-test" class="md-nav__link">
+    Goodness of Fit Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specific-forms-of-glm" class="md-nav__link">
+    Specific Forms of GLM
+  </a>
+  
+    <nav class="md-nav" aria-label="Specific Forms of GLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logit-regression" class="md-nav__link">
+    Logit Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probit-regression" class="md-nav__link">
+    Probit Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poisson-rgeression" class="md-nav__link">
+    Poisson Rgeression
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1219,9 +1558,139 @@
                   
 
 
-  <h1>6. Generalized Linear Models</h1>
-
-
+<h1 id="generalized-linear-models"><strong>Generalized Linear Models</strong><a class="headerlink" href="#generalized-linear-models" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Linear Regression assumes that the dependent variable <strong>can change constantly and indefinitely</strong> in either direction, which is not appropriate for certain quantities that <strong>changes non-linearly</strong> or for values that can <strong>only take values of a certain range</strong> (EG. Positive only or between 0 and 1).</p>
+<p>Another assumption made is that the dependent variable is normally distributed. Despite it being one of the most common distributions in reality, not all quantities follow it.</p>
+<p>Thus, a <strong>Generalized Linear Model</strong> (GLM) overcomes the above two constraints by allowing the dependent to follow a distribution</p>
+<ol>
+<li>Allowing the dependent variable to have a distribution from the <strong>Linear Exponential Family</strong> (LEF)</li>
+<li>Specifying a <strong>link function</strong> that allows the dependent variable to change <strong>non-linearly</strong></li>
+</ol>
+<!-- Obtained from Daily Dose of Data Science -->
+<p><img alt="SLR_VS_GLM" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/SLR_VS_GLM.png" /></p>
+<h2 id="key-concepts"><strong>Key Concepts</strong><a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="linear-exponential-family"><strong>Linear Exponential Family</strong><a class="headerlink" href="#linear-exponential-family" title="Permanent link">&para;</a></h3>
+<p>The LEF of distributions encompasses a wide range of distributions, each with their own <strong>unique parameterization</strong>. However, they have common characteristics that allow them them to be <strong>re-parameterized</strong> into a common format:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Y} &amp;\sim \text{LEF}(\theta, \phi) \\
+    \\
+    f(Y \mid \theta, \phi) &amp;= \exp \left(\frac{y \theta - b(\theta)}{\phi} + a(y, \phi) \right) \\
+    \\
+    E(Y) &amp;= b'(\theta) \\
+    \text{Var}(Y) &amp;= \phi \cdot b''(\theta)
+\end{aligned}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Apart from providing a common framework, re-paramterizing this way has certain mathematical properties which makes the resulting calculations smoother. It is not necessary to understand the intricate mathematical details.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The two paraemters are referred to as the <strong>Canonical (<span class="arithmatex">\(\theta\)</span>) and the Dispersion (<span class="arithmatex">\(\phi\)</span>) Parameters</strong> respectively. They have no clear interpretation, it is sufficient to know that they affect the <strong>mean and variance</strong> respectively.</p>
+<p>Consequently, the first and second derivatives are known as the <strong>Mean and Variance Function</strong> respectively. The key is remembering that the Variance function is <strong>not entirely determined by the variance function</strong>, unlike the mean.</p>
+<p>It is typically assumed that <span class="arithmatex">\(\phi\)</span> is a <strong>known constant</strong>.</p>
+</div>
+<!-- Obtained from Daily Dose of Data Science -->
+<p><img alt="LEF" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/LEF.png" /></p>
+<h3 id="link-functions"><strong>Link Functions</strong><a class="headerlink" href="#link-functions" title="Permanent link">&para;</a></h3>
+<p>Under linear regression, the model <strong>directly affects</strong> the dependent variable. Since the model changes linearly, the dependent variable <strong>must change linearly</strong> as well:</p>
+<div class="arithmatex">\[
+    E(Y \mid X)
+    = \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot x_{2} + \dots
+\]</div>
+<p>Thus, this can be overcome by introducing an intermediate <strong>Link Function</strong> between the dependent variable and the model output. Thus, even if the model changes linearly, the link function can cause a <strong>non-linear impact on the dependent variable</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= g^{-1}(\beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot x_{2} + \dots) \\
+    &amp;= g^{-1}(\boldsymbol{X}^{T} \boldsymbol{\beta}) 
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By definition, the link functions maps the dependent variable to the linear predictors. Hence, going the other way round, it is known as the <strong>Inverse Link Function</strong>.</p>
+</div>
+<p>The key consideration when choosing a link function is the <strong>domain</strong>:</p>
+<ul>
+<li>Linear Predictor generally has an <strong>unrestricted domain</strong> <span class="arithmatex">\((-\infty, \infty)\)</span></li>
+<li>Dependent Variable generally has a <strong>restricted domain</strong> <span class="arithmatex">\((a, b)\)</span></li>
+<li>Link function must be able to <strong>map the two domains together</strong></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Another consideration is <strong>interpretability</strong>. Since link functions directly impact the dependent variable, it is desirable to use a <strong>simpler function</strong> (all else equal) to ease understanding.</p>
+</div>
+<!-- Self Made -->
+<p><img alt="LINK_FUNCTION" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/LINK_FUNCTION.png" /></p>
+<p>Within the subset of possible link functions, there exists a <strong>Canonical Link Function</strong> which is the <strong>Inverse Mean Function</strong>. This means that the linear predictor will be equivalent to the <strong>canonical parameter</strong> for the distribution:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \boldsymbol{X}^{T} \boldsymbol{\beta}
+    &amp;= g \left[E(Y \mid X) \right] \\
+    &amp;= b'^{-1} \left[E(Y \mid X) \right] \\
+    &amp;= b'^{-1} \left[b'(\theta) \right] \\
+    &amp;= \theta
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The canonical link has certain mathematical properties that will <strong>ease the parameter estimation process</strong>, which is why it is generally preferred.</p>
+</div>
+<!-- Self Made -->
+<p><img alt="CANONICAL_LINK" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/CANONICAL_LINK.png" /></p>
+<h3 id="common-examples"><strong>Common Examples</strong><a class="headerlink" href="#common-examples" title="Permanent link">&para;</a></h3>
+<p>The following table summarizes the key distributions and their corresponding link functions:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="COMMON_EXAMPLES" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/COMMON_EXAMPLES.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Any <strong>multiplicative constant</strong> within the canonical link function itself does not make a difference to the result. An expression <strong>with or without</strong> the constant can be deemed as the Canonical Link function.</p>
+</div>
+<h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
+<p>The parameters are estimated using <strong>Maximum Likelihood Estimation</strong> (MLE).</p>
+<div class="arithmatex">\[
+    TBC
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>There are <strong>no closed form solutions</strong> to the above system of equations, they are typically solved through numerical methods. It is not necessary to know the details for this exam.</p>
+</div>
+<h2 id="goodness-of-fit"><strong>Goodness of Fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h2>
+<h3 id="deviance"><strong>Deviance</strong><a class="headerlink" href="#deviance" title="Permanent link">&para;</a></h3>
+<p>For linear rgeression, the parameters were estimated based on the residuals; thus, the goodness of fit was measured using the residuals via ANOVA. Similarly, since GLMs use MLE, their fit should be <strong>measuring using likelihood</strong>.</p>
+<p>Consider an extreme case of GLM where the <strong>number of parameters in the model is exactly equal to the number observations</strong>, causing it to <strong>fit the data perfectly</strong>. This is known as a <strong>Saturated Model</strong>. This saturated model obviously suffers from overfitting (as it perfectly captures the noise in each sample), thus should not be used for prediction.</p>
+<p>However, it can be used as a <strong>benchmark</strong> for the total information available in the sample and consequently <strong>how much is lost</strong> through the fitting process. This is measured via the <strong>Deviance</strong> of the model, which is the <strong>difference in the likelihood</strong> of the two models:</p>
+<div class="arithmatex">\[
+    D = 2 \cdot (\ell_{\text{Saturated} - \ell_{Fitted}})
+\]</div>
+<p>The fitted model should have sufficiently high likelihood to ensure that it captures the signals, but be reasonably smaller than the saturated model to prevent overfitting. Thus, models with <strong>smaller (but NOT too small) deviance</strong> are preferred.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Another reason is that under GLM, the total variance <strong>CANNOT be decomposed</strong> into Explained and Unexplained components; there is an addittional component:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{TSS}
+    &amp;= \sum(y_{i} - \hat{y})^{2} + \sum(\hat{y} - \bar{y})^{2}
+        + 2 \sum \left([y_{i} - \hat{y}][\hat{y}-\bar{y}] \right) \\
+    &amp;= \text{RSS} + \text{RegSS} + 2 \sum \left([y_{i} - \hat{y}][\hat{y}-\bar{y}] \right)
+\end{aligned}
+\]</div>
+<p>The above additional component would cancel out under OLS, thus was not issue. However, this does not apply to GLMs.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It can be shown that for linear regression, the Deviance is <strong>equivalent to the RSS</strong>.</p>
+</div>
+<h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
+<h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
+<h3 id="likelihood-ratio-test"><strong>Likelihood Ratio Test</strong><a class="headerlink" href="#likelihood-ratio-test" title="Permanent link">&para;</a></h3>
+<h3 id="goodness-of-fit-test"><strong>Goodness of Fit Test</strong><a class="headerlink" href="#goodness-of-fit-test" title="Permanent link">&para;</a></h3>
+<h2 id="specific-forms-of-glm"><strong>Specific Forms of GLM</strong><a class="headerlink" href="#specific-forms-of-glm" title="Permanent link">&para;</a></h2>
+<h3 id="logit-regression"><strong>Logit Regression</strong><a class="headerlink" href="#logit-regression" title="Permanent link">&para;</a></h3>
+<h3 id="probit-regression"><strong>Probit Regression</strong><a class="headerlink" href="#probit-regression" title="Permanent link">&para;</a></h3>
+<h3 id="poisson-rgeression"><strong>Poisson Rgeression</strong><a class="headerlink" href="#poisson-rgeression" title="Permanent link">&para;</a></h3>
 
 
 
@@ -1237,6 +1706,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../5.%20Model%20Selection/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Model Selection" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Model Selection
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../Placeholder/" class="md-footer__link md-footer__link--next" aria-label="Next: ASA-PA" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              ASA-PA
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

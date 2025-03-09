@@ -1230,8 +1230,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../3. Predictive Analytics/1. ASA-SRM/5. Statistical Learning.md" class="md-nav__link">
-        Statistical Learning New
+      <a href="../5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
       </a>
     </li>
   
@@ -1698,9 +1712,12 @@
 <div class="arithmatex">\[
     \varepsilon \sim N(0, \sigma^{2})
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This assumption also implies that the dependent is normally distributed, as a linear function involving a normal variable is also normally distributed.</p>
+</div>
 <p>It can verified by using a <strong>QQ plot</strong> or other equivalent distribution tests (EG. Kolmogorov Test).</p>
-<p>Violating the normality assumption does not impact the validity of the estimates or predictive power; it only impacts the validity of statistical inference.</p>
-<p>For large samples, CLT states that the distribution of the estimators are <strong>approximately normal</strong>, thus inferences are still valid. However, this does NOT apply to prediction intervals as they directly contain the variance of the error term, which follows an unknown distribution.</p>
+<p>Violating the normality assumption does not impact the validity of the estimates or predictive power; it only impacts the <strong>validity of statistical inference</strong>. For large samples, CLT states that the distribution of the estimators are <strong>approximately normal</strong>, thus inferences are still valid. However, this <strong>does NOT apply to prediction intervals</strong> as they directly contain the variance of the error term, which follows an unknown distribution.</p>
 <h2 id="other-considerations"><strong>Other Considerations</strong><a class="headerlink" href="#other-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="leverage"><strong>Leverage</strong><a class="headerlink" href="#leverage" title="Permanent link">&para;</a></h3>
 <p>Observations with unusually high values in the <strong>Independent Variable</strong> are known as <strong>High Leverage Points</strong>.</p>
@@ -1841,13 +1858,13 @@
       
       
         
-        <a href="../../../Placeholder/" class="md-footer__link md-footer__link--next" aria-label="Next: ASA-PA" rel="next">
+        <a href="../5.%20Model%20Selection/" class="md-footer__link md-footer__link--next" aria-label="Next: Model Selection" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ASA-PA
+              Model Selection
             </div>
           </div>
           <div class="md-footer__button md-icon">
