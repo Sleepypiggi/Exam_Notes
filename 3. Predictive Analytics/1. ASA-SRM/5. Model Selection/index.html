@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#model-selection" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1087,10 +1092,77 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Model Selection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Model Selection
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selection-algorithm" class="md-nav__link">
+    Selection Algorithm
+  </a>
+  
+    <nav class="md-nav" aria-label="Selection Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-subset-selection" class="md-nav__link">
+    Best Subset Selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stepwise-selection" class="md-nav__link">
+    Stepwise Selection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-selection_1" class="md-nav__link">
+    Model Selection
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1231,6 +1303,57 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selection-algorithm" class="md-nav__link">
+    Selection Algorithm
+  </a>
+  
+    <nav class="md-nav" aria-label="Selection Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-subset-selection" class="md-nav__link">
+    Best Subset Selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stepwise-selection" class="md-nav__link">
+    Stepwise Selection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-selection_1" class="md-nav__link">
+    Model Selection
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1245,9 +1368,76 @@
                   
 
 
-  <h1>Model Selection</h1>
+<h1 id="model-selection"><strong>Model Selection</strong><a class="headerlink" href="#model-selection" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>As previously covered, there are goodness of fit measures that can be used to determine the best model from a given spread.</p>
+<p>However, the number of possible models tend to <strong>increase exponentially</strong> with the number of possible predictors as <strong>each combination of predictors</strong> is considered a different model.</p>
+<div class="arithmatex">\[
+    \text{Number of Possible Models} = 2^{g}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above does NOT consider the possibility of interaction terms or polynomial predictors; the amount is <strong>understated</strong>.</p>
+<p>Similarly, the above is the number of models for a single machine learning type. In reality, multiple methods could be considered leading to an even higher number!</p>
+</div>
+<p>Thus, it is <strong>impractical</strong> to fit every possible model. There are well-accepted algorithms that can be used to find the determine the best model in an efficient manner.</p>
+<h2 id="selection-algorithm"><strong>Selection Algorithm</strong><a class="headerlink" href="#selection-algorithm" title="Permanent link">&para;</a></h2>
+<h3 id="best-subset-selection"><strong>Best Subset Selection</strong><a class="headerlink" href="#best-subset-selection" title="Permanent link">&para;</a></h3>
+<p>The <strong>Best Subset Selection</strong> algorithm is the ideal model selection algorithm, assuming there are no resource constraints.</p>
+<p>There are three key considerations:</p>
+<ol>
+<li><strong>How many predictors</strong> should the model use?</li>
+<li><strong>Which of the predictors</strong> should be used?</li>
+<li>What <strong>criteria</strong> should be used to determine the 'best' model?</li>
+</ol>
+<p>Thus, the algorithm tracks the following variables:</p>
+<ul>
+<li>Predictors allowed in the model <span class="arithmatex">\((p)\)</span></li>
+<li>Predictors being used in the model <span class="arithmatex">\((g)\)</span></li>
+<li>Best combination of predictors for a given number of allowed predictors <span class="arithmatex">\((M_{p})\)</span></li>
+<li>Best combination of predictors for the best number of allowed predictors; the <strong>final model</strong> <span class="arithmatex">\((M_{f})\)</span></li>
+</ul>
+<div class="highlight"><pre><span></span><code>    FOR p = 0 TO p_max THEN
+        FOR g = 1 TO g_max THEN
 
+            1. Fit all possible combinations of g into the p allowed predictors
+            2. Compute the selection criteria for the fitted model
 
+        NEXT g
+
+        1. Set M_p to be the model with the best fit among all g
+
+    NEXT p
+
+    1. Set M_f to be the model with the best selection score among all p
+</code></pre></div>
+<p>As alluded to, this method is impractical given the number of models that need to be fitted. However, it is important to understand what is the theoretically best possible method to select models as a benchmark.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The number of predictors allowed in the model starts at 0 to reflect that the null model is also a possible model.</p>
+</div>
+<h3 id="stepwise-selection"><strong>Stepwise Selection</strong><a class="headerlink" href="#stepwise-selection" title="Permanent link">&para;</a></h3>
+<p>Stepwise Selection using an iterative algorithm that 'locks' in the </p>
+<p><strong>Forward Stepwise</strong> starts with 1 predictor and iteratively adds one predictor at a time:</p>
+<ol>
+<li>Fit all possible models for <span class="arithmatex">\(p = 1\)</span></li>
+<li>Determine the best model based on the selection criteria</li>
+<li>Fit a new model by <strong>ADDING ONE predictor</strong> from the remaining predictors to the previous model; consider all possibilities</li>
+<li>Repeat (2) - (3) for all until <span class="arithmatex">\(p = p_{\text{Max}}\)</span></li>
+</ol>
+<p><strong>Backward Stepwise</strong> starts with the maximum and iteratively drops one predictor at a time:</p>
+<ol>
+<li>Fit all possible models for <span class="arithmatex">\(p = p_{\text{Max}}\)</span></li>
+<li>Fit a new model by <strong>DROPPING ONE predictor</strong> from the current predictors from the previous model; consider all possibilities</li>
+<li>Determine the best model based on the selection criteria</li>
+<li>Repeat (2) - (3) for all until <span class="arithmatex">\(p = 1\)</span></li>
+</ol>
+<p>Using either of the approaches, the <strong>number of models fitted reduces</strong>, especially so for large <span class="arithmatex">\(g\)</span>:</p>
+<div class="arithmatex">\[
+    \text{Number of Stepwise} = 1 + \frac{g(g+1)}{2}
+\]</div>
+<p>However, stepwise selection is a <strong>greedy algorithm</strong> as it picks the best available model at that moment, which may cause it to <strong>miss the overall best model</strong>, since it does not allow retrospective changes.</p>
+<h2 id="model-selection_1"><strong>Model Selection</strong><a class="headerlink" href="#model-selection_1" title="Permanent link">&para;</a></h2>
 
 
 

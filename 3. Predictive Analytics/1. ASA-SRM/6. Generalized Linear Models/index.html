@@ -1686,6 +1686,18 @@
 <h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
 <h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
 <h3 id="likelihood-ratio-test"><strong>Likelihood Ratio Test</strong><a class="headerlink" href="#likelihood-ratio-test" title="Permanent link">&para;</a></h3>
+<p>Similar to how F-tests made use of the ANOVA results to perform statistical inference, GLMs can make use of the Deviance results in a similar fashion, via a <strong>Likelihood Ratio Test (LRT)</strong>.</p>
+<p>The key intuition is the same. A par of nested models are considered (Full &amp; Restricted). If there is a <strong>significant drop in likelihood</strong> between the two models, then the reduced predictors are significant.</p>
+<p>Consider two nested models - Full &amp; Restricted:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}\)</span>:</li>
+<li><span class="arithmatex">\(H_{1}\)</span></li>
+</ul>
+<p>Under the null hypothesis, the test statistic asymptotically follows a Chi Squared Distribution. Thus, there must be a sizeable difference in the two for the test to reject the null.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is because Chi-squared distributions are positive only, having higher density in smaller values. Thus, only truly large differences in likelihood will be flagged out. </p>
+</div>
 <h3 id="goodness-of-fit-test"><strong>Goodness of Fit Test</strong><a class="headerlink" href="#goodness-of-fit-test" title="Permanent link">&para;</a></h3>
 <h2 id="specific-forms-of-glm"><strong>Specific Forms of GLM</strong><a class="headerlink" href="#specific-forms-of-glm" title="Permanent link">&para;</a></h2>
 <h3 id="logit-regression"><strong>Logit Regression</strong><a class="headerlink" href="#logit-regression" title="Permanent link">&para;</a></h3>
