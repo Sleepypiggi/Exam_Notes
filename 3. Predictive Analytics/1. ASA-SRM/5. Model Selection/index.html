@@ -1154,9 +1154,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-selection_1" class="md-nav__link">
-    Model Selection
+  <a href="#selection-criteria" class="md-nav__link">
+    Selection Criteria
   </a>
+  
+    <nav class="md-nav" aria-label="Selection Criteria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#information-criteria" class="md-nav__link">
+    Information Criteria
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-validation" class="md-nav__link">
+    Cross Validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1347,9 +1367,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-selection_1" class="md-nav__link">
-    Model Selection
+  <a href="#selection-criteria" class="md-nav__link">
+    Selection Criteria
   </a>
+  
+    <nav class="md-nav" aria-label="Selection Criteria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#information-criteria" class="md-nav__link">
+    Information Criteria
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-validation" class="md-nav__link">
+    Cross Validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1425,6 +1465,8 @@
 <li>Fit a new model by <strong>ADDING ONE predictor</strong> from the remaining predictors to the previous model; consider all possibilities</li>
 <li>Repeat (2) - (3) for all until <span class="arithmatex">\(p = p_{\text{Max}}\)</span></li>
 </ol>
+<!-- Obtained from Quantifying Health -->
+<p><img alt="FORWARD_STEPWISE" class="center" src="../Assets/5.%20Model%20Selection.md/FORWARD_STEPWISE.png" /></p>
 <p><strong>Backward Stepwise</strong> starts with the maximum and iteratively drops one predictor at a time:</p>
 <ol>
 <li>Fit all possible models for <span class="arithmatex">\(p = p_{\text{Max}}\)</span></li>
@@ -1432,12 +1474,16 @@
 <li>Determine the best model based on the selection criteria</li>
 <li>Repeat (2) - (3) for all until <span class="arithmatex">\(p = 1\)</span></li>
 </ol>
+<!-- Obtained from Quantifying Health -->
+<p><img alt="BACKWARD_STEPWISE" class="center" src="../Assets/5.%20Model%20Selection.md/BACKWARD_STEPWISE.png" /></p>
 <p>Using either of the approaches, the <strong>number of models fitted reduces</strong>, especially so for large <span class="arithmatex">\(g\)</span>:</p>
 <div class="arithmatex">\[
     \text{Number of Stepwise} = 1 + \frac{g(g+1)}{2}
 \]</div>
 <p>However, stepwise selection is a <strong>greedy algorithm</strong> as it picks the best available model at that moment, which may cause it to <strong>miss the overall best model</strong>, since it does not allow retrospective changes.</p>
-<h2 id="model-selection_1"><strong>Model Selection</strong><a class="headerlink" href="#model-selection_1" title="Permanent link">&para;</a></h2>
+<h2 id="selection-criteria"><strong>Selection Criteria</strong><a class="headerlink" href="#selection-criteria" title="Permanent link">&para;</a></h2>
+<h3 id="information-criteria"><strong>Information Criteria</strong><a class="headerlink" href="#information-criteria" title="Permanent link">&para;</a></h3>
+<h3 id="cross-validation"><strong>Cross Validation</strong><a class="headerlink" href="#cross-validation" title="Permanent link">&para;</a></h3>
 
 
 
