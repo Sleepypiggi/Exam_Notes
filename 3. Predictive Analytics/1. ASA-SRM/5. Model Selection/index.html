@@ -1203,6 +1203,76 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%20Other%20Methods/" class="md-nav__link">
+        Other Methods
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1483,7 +1553,23 @@
 <p>However, stepwise selection is a <strong>greedy algorithm</strong> as it picks the best available model at that moment, which may cause it to <strong>miss the overall best model</strong>, since it does not allow retrospective changes.</p>
 <h2 id="selection-criteria"><strong>Selection Criteria</strong><a class="headerlink" href="#selection-criteria" title="Permanent link">&para;</a></h2>
 <h3 id="information-criteria"><strong>Information Criteria</strong><a class="headerlink" href="#information-criteria" title="Permanent link">&para;</a></h3>
+<p>Recall how the adjusted R-squared applies a penalty for adding parameters to the model.</p>
+<p>Similarly, there are other more general metrics that achieve the same effect:</p>
+<ul>
+<li>Aikake’s Information Criterion (AIC)</li>
+<li>Bayesian Information Criterion (BIC)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There are <strong>slightly different formulations</strong> for AIC and BIC; the above is what is used in the source text. Regardless, they should arrive at similar conclusions.</p>
+</div>
+<p>They are not meant to be used to evaluate a <em>particular</em> model’s effectiveness. They are used to compare the <strong>relative effectiveness</strong> of models; as a model selection criteria.</p>
 <h3 id="cross-validation"><strong>Cross Validation</strong><a class="headerlink" href="#cross-validation" title="Permanent link">&para;</a></h3>
+<p>As alluded to in the beginning, training data should not be used to evaluate a model’s predictive power; the test MSE should be used.</p>
 
 
 
