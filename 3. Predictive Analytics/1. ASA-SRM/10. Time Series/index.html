@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#time-series" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1157,10 +1162,84 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Time Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Time Series
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    Components
+  </a>
+  
+    <nav class="md-nav" aria-label="Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trend-seasonality" class="md-nav__link">
+    Trend &amp; Seasonality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#white-noise" class="md-nav__link">
+    White Noise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-walk" class="md-nav__link">
+    Random Walk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoregression" class="md-nav__link">
+    Autoregression
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1301,6 +1380,64 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    Components
+  </a>
+  
+    <nav class="md-nav" aria-label="Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trend-seasonality" class="md-nav__link">
+    Trend &amp; Seasonality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#white-noise" class="md-nav__link">
+    White Noise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-walk" class="md-nav__link">
+    Random Walk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoregression" class="md-nav__link">
+    Autoregression
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1315,9 +1452,55 @@
                   
 
 
-  <h1>Time Series</h1>
-
-
+<h1 id="time-series"><strong>Time Series</strong><a class="headerlink" href="#time-series" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Generally speaking, there are <strong>three main types</strong> of data:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Cross Sectional</strong></th>
+<th align="center"><strong>Time Series</strong></th>
+<th align="center"><strong>Panel</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Multiple Entities</td>
+<td align="center">Single Entity</td>
+<td align="center">Multiple Entities</td>
+</tr>
+<tr>
+<td align="center">Single Point in time</td>
+<td align="center">Multiple points in time</td>
+<td align="center">Multiple points in time</td>
+</tr>
+<tr>
+<td align="center">Predict new entity</td>
+<td align="center">Predict future value</td>
+<td align="center">Predict new entity in future</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<!-- Obtained from Vecteezy -->
+<p><img alt="DATA_TYPES" class="center" src="../Assets/10.%20Time%20Series.md/DATA_TYPES.png" /></p>
+<p>Up until this point, the focus has been on Cross Sectional data. Thus, this section will focus exclusively on <strong>Time Series data</strong>:</p>
+<ul>
+<li>Observations are made at <strong>fixed intervals</strong> in time (EG. Daily, Monthly)</li>
+<li>Observations are <strong>ordered</strong> over time</li>
+</ul>
+<h2 id="components"><strong>Components</strong><a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
+<h3 id="trend-seasonality"><strong>Trend &amp; Seasonality</strong><a class="headerlink" href="#trend-seasonality" title="Permanent link">&para;</a></h3>
+<h3 id="white-noise"><strong>White Noise</strong><a class="headerlink" href="#white-noise" title="Permanent link">&para;</a></h3>
+<h2 id="random-walk"><strong>Random Walk</strong><a class="headerlink" href="#random-walk" title="Permanent link">&para;</a></h2>
+<h2 id="autoregression"><strong>Autoregression</strong><a class="headerlink" href="#autoregression" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Violation of Independence Assumption: In linear regression, one of the key assumptions is that the observations (data points) are independent of each other. In time series data, observations are often dependent on previous observations, violating this assumption. Time series data typically exhibit autocorrelation, where the value at one time point is correlated with values at previous time points.
+Temporal Order Matters: Time series data has a natural temporal ordering, and the order of observations is crucial. Linear regression does not account for this temporal structure, which is important in understanding and modeling time-dependent patterns.
+Seasonality and Trends: Time series data often contains seasonality (repeating patterns) and trends, which linear regression may not capture well without additional modifications. Seasonal and trend components introduce non-linearity into the data.
+Non-Constant Variance: Time series data can have changing variance over time, known as heteroscedasticity. Linear regression assumes constant variance, which may not hold in many time series datasets.
+Auto-Regressive Components: Time series data can exhibit autoregressive behavior, where future values depend on past values. Linear regression does not incorporate lagged values as predictors, which are essential for modeling autoregressive behavior.
+</code></pre></div>
 
 
 

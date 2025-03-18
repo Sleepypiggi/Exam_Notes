@@ -1191,8 +1191,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#boost" class="md-nav__link">
-    Boost
+  <a href="#boosting" class="md-nav__link">
+    Boosting
   </a>
   
 </li>
@@ -1440,8 +1440,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#boost" class="md-nav__link">
-    Boost
+  <a href="#boosting" class="md-nav__link">
+    Boosting
   </a>
   
 </li>
@@ -1508,7 +1508,6 @@
 <li>For each possibility, compute the <strong>total RSS</strong> from the resulting two regions</li>
 <li>Select the split with the <strong>lowest total RSS</strong></li>
 <li>Repeat steps (2) - (4) for each resulting region</li>
-<li><strong>Stop the algorithm</strong> when any of the conditions are met</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1524,22 +1523,24 @@
 <li>Split <span class="arithmatex">\(X_{2}\)</span> at the following: <span class="arithmatex">\({6.5, 7.5, \dots}\)</span></li>
 </ul>
 </div>
+<p>In general, the algorithm can be said to choose the <strong>split that minimizes the RSS at the time</strong>. Similar to subset selection, it is a <strong>greedy algorithm</strong> as it chooses the local best choice at each step, not the global best.</p>
+<h2 id="pruning"><strong>Pruning</strong><a class="headerlink" href="#pruning" title="Permanent link">&para;</a></h2>
+<p>Recursive binary splitting tends to result in <strong>large complex trees</strong> with many internal nodes, which is prone to <strong>overfitting</strong>. In this case, certain <strong>internal nodes should be dropped</strong>, akin to <strong>Pruning the leaves</strong> of a tree.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The stopping conditions of the algorithm are arbitrarily chosen by the developer. For instance:</p>
+<p>Recall that the complexity of a linear regression model was proportional to the <strong>number of predictors</strong> it had. In a similar fashion, the <strong>number of internal nodes</strong> is proportional to its complexity.</p>
+</div>
+<p>The first type of pruning is known as <strong>Pre-pruning</strong>. The algorithm includes a <strong>stopping condition</strong> which prevents the tree from becoming too complex.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The conditions are typically chosen such that they avoid overfitting:</p>
 <ul>
 <li>Requires some <strong>minimum number of observations</strong> within each region</li>
 <li>Requires some <strong>minimum reduction of RSS</strong> for each split</li>
 </ul>
 </div>
-<p>In general, the algorithm can be said to choose the <strong>split that minimizes the RSS at the time</strong>. Similar to subset selection, it is a <strong>greedy algorithm</strong> as it chooses the local best choice at each step, not the global best.</p>
-<h2 id="pruning"><strong>Pruning</strong><a class="headerlink" href="#pruning" title="Permanent link">&para;</a></h2>
-<p>Even if the stopping conditions are well defined, recursive binary splitting tends to result in <strong>large complex trees</strong> with many internal nodes, which is prone to <strong>overfitting</strong>. In this case, certain <strong>internal nodes should be dropped</strong>, akin to <strong>Pruning the leaves</strong> of a tree.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Recall that the complexity of a linear regression model was proportional to the <strong>number of predictors</strong> it had. In a similar fashion, the <strong>number of internal nodes</strong> is proportional to its complexity.</p>
-</div>
-<p>...</p>
+<p>The second type of pruning is known as <strong>Post-pruning</strong>. The original tree is <strong>iteratively split</strong> into a <strong>series of subtrees</strong> until only the root is left. </p>
+<p>..</p>
 <p>Notice that the above is akin to the way Ridge and Lasso applies a constraint to the regression. Thus, in a similar fashion, the hyperparameter <span class="arithmatex">\(\lambda\)</span> can be determined via <strong>Cross Validation</strong>.</p>
 <h2 id="alternative-approaches"><strong>Alternative Approaches</strong><a class="headerlink" href="#alternative-approaches" title="Permanent link">&para;</a></h2>
 <h3 id="bagging"><strong>Bagging</strong><a class="headerlink" href="#bagging" title="Permanent link">&para;</a></h3>
@@ -1551,7 +1552,8 @@
 <p class="admonition-title">Tip</p>
 <p>It can be understood that Bagging is a <strong>special case of Random Forests</strong> where all the predictors are allowed.</p>
 </div>
-<h3 id="boost"><strong>Boost</strong><a class="headerlink" href="#boost" title="Permanent link">&para;</a></h3>
+<h3 id="boosting"><strong>Boosting</strong><a class="headerlink" href="#boosting" title="Permanent link">&para;</a></h3>
+<p>Boosting refers to the process of <strong>iteratively training</strong> a series of shallow trees on the <strong>error of the previous tree</strong>. The results of each tree are <strong>aggregated</strong> together to form the overall prediction.</p>
 
 
 
