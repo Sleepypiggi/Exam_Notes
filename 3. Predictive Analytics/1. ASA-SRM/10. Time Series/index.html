@@ -1197,23 +1197,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
+  <a href="#decomposition" class="md-nav__link">
+    Decomposition
   </a>
   
-    <nav class="md-nav" aria-label="Components">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stationary" class="md-nav__link">
+    Stationary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark-models" class="md-nav__link">
+    Benchmark Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Benchmark Models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#trend-seasonality" class="md-nav__link">
-    Trend &amp; Seasonality
+  <a href="#white-noise-model" class="md-nav__link">
+    White Noise Model
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#white-noise" class="md-nav__link">
-    White Noise
+  <a href="#random-walk-model" class="md-nav__link">
+    Random Walk Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoregression" class="md-nav__link">
+    Autoregression
   </a>
   
 </li>
@@ -1224,16 +1245,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#random-walk" class="md-nav__link">
-    Random Walk
+  <a href="#other-models" class="md-nav__link">
+    Other Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smoothing" class="md-nav__link">
+    Smoothing?
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#autoregression" class="md-nav__link">
-    Autoregression
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1397,23 +1424,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
+  <a href="#decomposition" class="md-nav__link">
+    Decomposition
   </a>
   
-    <nav class="md-nav" aria-label="Components">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stationary" class="md-nav__link">
+    Stationary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark-models" class="md-nav__link">
+    Benchmark Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Benchmark Models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#trend-seasonality" class="md-nav__link">
-    Trend &amp; Seasonality
+  <a href="#white-noise-model" class="md-nav__link">
+    White Noise Model
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#white-noise" class="md-nav__link">
-    White Noise
+  <a href="#random-walk-model" class="md-nav__link">
+    Random Walk Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoregression" class="md-nav__link">
+    Autoregression
   </a>
   
 </li>
@@ -1424,16 +1472,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#random-walk" class="md-nav__link">
-    Random Walk
+  <a href="#other-models" class="md-nav__link">
+    Other Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smoothing" class="md-nav__link">
+    Smoothing?
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#autoregression" class="md-nav__link">
-    Autoregression
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1489,12 +1543,169 @@
 <ul>
 <li>Observations are made at <strong>fixed intervals</strong> in time (EG. Daily, Monthly)</li>
 <li>Observations are <strong>ordered</strong> over time</li>
+<li>Observations are visualized using a <strong>timeplot</strong>:</li>
 </ul>
-<h2 id="components"><strong>Components</strong><a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
-<h3 id="trend-seasonality"><strong>Trend &amp; Seasonality</strong><a class="headerlink" href="#trend-seasonality" title="Permanent link">&para;</a></h3>
-<h3 id="white-noise"><strong>White Noise</strong><a class="headerlink" href="#white-noise" title="Permanent link">&para;</a></h3>
-<h2 id="random-walk"><strong>Random Walk</strong><a class="headerlink" href="#random-walk" title="Permanent link">&para;</a></h2>
-<h2 id="autoregression"><strong>Autoregression</strong><a class="headerlink" href="#autoregression" title="Permanent link">&para;</a></h2>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="TIME_SERIES_PLOT" class="center" src="../Assets/10.%20Time%20Series.md/TIME_SERIES_PLOT.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Predicting the <strong>future value</strong> of an variable is known as <strong>Forecasting</strong>. The terminology is used to make a clear distinction between cross-sectional and time series analysis.</p>
+</div>
+<h2 id="decomposition"><strong>Decomposition</strong><a class="headerlink" href="#decomposition" title="Permanent link">&para;</a></h2>
+<p>Time series data can be split into four main components:</p>
+<ul>
+<li><strong>Trends</strong> (<span class="arithmatex">\(T\)</span>) - Long term increase or decrease</li>
+<li><strong>Season</strong> (<span class="arithmatex">\(S\)</span>) - Short term changes occuring at <strong>fixed intervals</strong></li>
+<li><strong>Cyclical</strong> (<span class="arithmatex">\(C\)</span>) - Long term changes occuring at <strong>unknown intervals</strong></li>
+<li><strong>White Noise</strong> (<span class="arithmatex">\(\varepsilon\)</span>) - Random fluctuations</li>
+</ul>
+<!-- Obtained from Medium -->
+<p><img alt="TIME_SERIES_COMPONENTS" class="center" src="../Assets/10.%20Time%20Series.md/TIME_SERIES_COMPONENTS.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cyclical effects are sometimes not decomposed seperately but considered as part of the trend as both are long-term.</p>
+</div>
+<p>There are two types of decomposition, depending on the nature of the data:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Additive</strong></th>
+<th align="center"><strong>Multiplicative</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(Y = T + S + \varepsilon\)</span></td>
+<td align="center"><span class="arithmatex">\(Y = T \cdot S \cdot \varepsilon\)</span></td>
+</tr>
+<tr>
+<td align="center">Fluctuation <strong>NOT proportional to trend</strong></td>
+<td align="center">Fluctuation <strong>proportional</strong> to trend</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<!-- Obtained From Crystall Ball Services -->
+<p><img alt="TIME_SERIES_DECOMPOSITION" class="center" src="../Assets/10.%20Time%20Series.md/TIME_SERIES_DECOMPOSITION.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Using a <strong>variance stabilizing transformation</strong> such as the Log function will convert a multiplicative model to become additive:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y_{t} &amp;= T_{t} \cdot S_{t} \cdot \varepsilon_{t} \\
+    \ln Y_{t} &amp;= \ln \left(T_{t} \cdot S_{t} \cdot \varepsilon_{t} \right) \\
+    \ln Y_{t} &amp;= \ln T_{t} + \ln S_{t} + \ln \varepsilon_{t}
+\end{aligned}
+\]</div>
+</div>
+<h2 id="stationary"><strong>Stationary</strong><a class="headerlink" href="#stationary" title="Permanent link">&para;</a></h2>
+<p>Stationarity refers to how certain properties of the <strong>data do not change over time</strong>; stationary relative to moving time. There are two levels:</p>
+<ul>
+<li><strong>Weakly Stationary</strong>: <strong>Only</strong> Mean and Variance are unchanging</li>
+<li><strong>Strongly Stationary</strong>: Entire distribution (<strong>all properties</strong>) are unchanging</li>
+</ul>
+<p>The implicit assumption for all predictive models is that the <strong>underlying data-generating-process will not change</strong>. Stationarity is key to forecasting as it ensures that the underlying DGP has not changed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, we are only concerned with the properties of <strong>weak stationarity</strong>. Weak stationarity is a <strong>subset</strong> of strong stationarity; thus it does not matter which of the two are present.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The actual statistical definition of weak stationarity is:</p>
+<ul>
+<li>Mean is independent of <span class="arithmatex">\(t\)</span></li>
+<li>Covariance of two variables is only dependent on the <strong>difference in time</strong> between them:</li>
+</ul>
+<div class="arithmatex">\[
+    |a-b| = |c-d| \implies \text{Cov}(Y_{a}, Y_{b}) = \text{Cov}(Y_{c}, Y_{d}) 
+\]</div>
+<p>Using the above, it can be shown that the <strong>variance is the same</strong> between two time points as well:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Var}(Y_{t}) &amp;= \text{Cov}(Y_{t}, Y_{t}) \\
+    \text{Var}(Y_{s}) &amp;= \text{Cov}(Y_{s}, Y_{s}) \\
+    \\
+    |t-t| = |s-s| = 0 &amp;\implies \text{Cov}(Y_{t}, Y_{t}) = \text{Cov}(Y_{s}, Y_{s}) \\
+    \therefore \text{Var}(Y_{t}) &amp;= \text{Var}(Y_{s}) 
+\end{aligned}
+\]</div>
+</div>
+<p>Stationarity can be identified via the use of <strong>Control Limit Plots</strong>. The limits are <strong>derived based on the mean and variance</strong>. If stationarity holds, the observations should almost always <strong>stay within the limits</strong> with <strong>no observable pattern</strong>:</p>
+<ul>
+<li><strong>Upper Control Limit</strong> (UCL): <span class="arithmatex">\(\bar{y} + 3 \cdot \s_{y}\)</span></li>
+<li><strong>Lower Control Limit</strong> (LCL): <span class="arithmatex">\(\bar{y} - 3 \cdot \s_{y}\)</span></li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="CONTROL_LIMIT_CHART" class="center" src="../Assets/10.%20Time%20Series.md/CONTROL_LIMIT_CHART.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The limits are likely based on the idea that the 99.7% of the density of a normal distribution is within 3 standard deviations of the mean.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are two other variations of the control chart, which <strong>directly checks the mean and variance</strong> over time, known as <strong>x-bar and R charts</strong> respectively. They plot the sample statistics of <strong>samples taken over time</strong>.</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="XBAR_CHART" class="center" src="../Assets/10.%20Time%20Series.md/XBAR_CHART.png" /></p>
+<p>To be precise, the actual variance is not plotted but rather the range of the sample. Hence it is called a <em>R</em>-chart:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="R_CHART" class="center" src="../Assets/10.%20Time%20Series.md/R_CHART.png" /></p>
+<p>The <strong>same formula applies</strong> for the limits of the x-bar and R chart. Naturally, they are the mean and variances of the mean and range respectively; all three charts will have different numerical limits.</p>
+</div>
+<h2 id="benchmark-models"><strong>Benchmark Models</strong><a class="headerlink" href="#benchmark-models" title="Permanent link">&para;</a></h2>
+<h3 id="white-noise-model"><strong>White Noise Model</strong><a class="headerlink" href="#white-noise-model" title="Permanent link">&para;</a></h3>
+<p>A variable that is naturally stationary is often referred to as <strong>White Noise</strong>, which is a term used to refer to a process that is <strong>completely random</strong>.</p>
+<p>The best forecast for such a variable is <strong>simply its mean</strong>; since it is assumed to be completely random: </p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{y}_{t+m} &amp;= \bar{y} \\
+    \text{SE}({\hat{y}_{t+m}}) &amp;= s_{y} \cdot \sqrt{1 + \frac{1}{n}} \\
+    \text{PI} &amp;= \bar{y} \pm t_{\alpha} \cdot s_{y} \cdot \sqrt{1 + \frac{1}{n}}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that the forecasts are <strong>independent of time</strong>; the forecast is the <strong>same for all future periods</strong>.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="WHITE_NOISE_MODEL" class="center" src="../Assets/10.%20Time%20Series.md/WHITE_NOISE_MODEL.png" /></p>
+<h3 id="random-walk-model"><strong>Random Walk Model</strong><a class="headerlink" href="#random-walk-model" title="Permanent link">&para;</a></h3>
+<p>A variable that <strong>grows randomly</strong> (grows by a white noise) each time is known as a <strong>Random Walk</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{t+1}
+    &amp;= y_{t} + W_{1} \\
+    &amp;= \dots \\
+    &amp;= y_{1} + \sum W_{t}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The random walk itself is clearly not stationary. However, the <strong>DIFFERENCE</strong> in the observations is stationary:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="DIFFERENCED_STATIONARY" src="../Assets/10.%20Time%20Series.md/DIFFERENCED_STATIONARY.png" /></p>
+</div>
+<p>Thus, the modelling uses the <strong>differencing</strong> to estimate the effect of white noise:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{y}_{t+m} &amp;= y_{t} + s \cdot \bar{w} \\
+    \text{SE}(\hat{y}_{t+m}) &amp;= s_{w} \cdot \sqrt{m} \\
+    \text{PI} &amp;= y_{t} + s \cdot \bar{w} \pm t_{\alpha} \cdot s_{w} \cdot \sqrt{m} \\
+    \\
+    w_{t} &amp;= y_{t} - y_{t-1}
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="RANDOM_WALK_MODEL" class="center" src="../Assets/10.%20Time%20Series.md/RANDOM_WALK_MODEL.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Random walks are said to have increasing variance over time. It is difficult to see this over one random walk, but over many different random walks it becomes clear:</p>
+<p><!-- Obtained from Github -->
+<img alt="RANDOM_WALK_VARIANCE" class="center" src="../Assets/10.%20Time%20Series.md/RANDOM_WALK_VARIANCE.png" /></p>
+</div>
+<h3 id="autoregression"><strong>Autoregression</strong><a class="headerlink" href="#autoregression" title="Permanent link">&para;</a></h3>
+<h2 id="other-models"><strong>Other Models</strong><a class="headerlink" href="#other-models" title="Permanent link">&para;</a></h2>
+<h3 id="smoothing">Smoothing?<a class="headerlink" href="#smoothing" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>Violation of Independence Assumption: In linear regression, one of the key assumptions is that the observations (data points) are independent of each other. In time series data, observations are often dependent on previous observations, violating this assumption. Time series data typically exhibit autocorrelation, where the value at one time point is correlated with values at previous time points.
 Temporal Order Matters: Time series data has a natural temporal ordering, and the order of observations is crucial. Linear regression does not account for this temporal structure, which is important in understanding and modeling time-dependent patterns.
 Seasonality and Trends: Time series data often contains seasonality (repeating patterns) and trends, which linear regression may not capture well without additional modifications. Seasonal and trend components introduce non-linearity into the data.

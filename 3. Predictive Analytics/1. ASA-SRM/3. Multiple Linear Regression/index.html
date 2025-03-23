@@ -2136,7 +2136,7 @@ Var(\hat{\beta}) =
 <p class="admonition-title">Note</p>
 <p>The penalty term is known as the <span class="arithmatex">\(\ell_{2}\)</span> norm of the vector of predictors. The <strong>intercept is untouched</strong>.</p>
 </div>
-<p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The hyperparameter <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong></p>
+<p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>hyperparameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong></p>
 <ul>
 <li><span class="arithmatex">\(\lambda = 0\)</span>: No Shrinkage; same as OLS (maximum flexibiliy)</li>
 <li><span class="arithmatex">\(\lambda = \infty\)</span>: Fully shrinked; all estimates are 0 (minimum flexibility)</li>
@@ -2163,13 +2163,33 @@ Var(\hat{\beta}) =
 <p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the hyperparameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This is why LASSO can also be used as a feature selection method.</p>
+<p>This it is known as the <strong>Least Absolute Shrinktage Selection Operator</strong> (LASSO). Its ability to drop predictors allows it to be used as a model selection tool.</p>
 </div>
-<p>There is no clear advantage between the two; the key difference lies in the ability to drop predictors:</p>
-<ul>
-<li><strong>Ridge</strong>: Will always retain variables thus allowing it to capture predictors that truly of small coefficients; at the cost of interpretability due to large number of predictors</li>
-<li><strong>LASSO</strong>: Will always drop varaibles thus increasing the interpretability of the model; at the cost of missing predctors that truly have small coefficients</li>
-</ul>
+<p>There is no clear advantage between the two; the key difference lies in the <strong>ability to drop predictors</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Ridge</strong></th>
+<th align="center"><strong>LASSO</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Always Retain</td>
+<td align="center">Always Drop</td>
+</tr>
+<tr>
+<td align="center">Decreases Interpretability</td>
+<td align="center">Increases Interpretability</td>
+</tr>
+<tr>
+<td align="center">Able to capture small effects</td>
+<td align="center">Unable to capture small effects</td>
+</tr>
+</tbody>
+</table>
+<p><center></p>
 <!-- Obtained from Towards Data Science -->
 <p><img alt="REGULARIZATION_VISUAL" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGULARIZATION_VISUAL.png" /></p>
 <div class="admonition info">

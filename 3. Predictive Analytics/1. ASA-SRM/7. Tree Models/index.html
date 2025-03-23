@@ -1500,6 +1500,12 @@
     \dots
 \end{aligned}
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A tree with only a <strong>single internal node</strong> (only one split) is known as a <strong>Stump</strong>. It is a tree with only <strong>one predictor</strong>:</p>
+<p><!-- Self Made -->
+<img alt="TREE_STUMP" class="center" src="../Assets/7.%20Tree%20Models.md/TREE_STUMP.png" /></p>
+</div>
 <h2 id="construction"><strong>Construction</strong><a class="headerlink" href="#construction" title="Permanent link">&para;</a></h2>
 <p>For the purposes of this exam, there is only one algorithm that is used to construct trees, <strong>Recursive Binary Splitting</strong>:</p>
 <ol>
@@ -1530,7 +1536,7 @@
 <p class="admonition-title">Note</p>
 <p>Recall that the complexity of a linear regression model was proportional to the <strong>number of predictors</strong> it had. In a similar fashion, the <strong>number of internal nodes</strong> is proportional to its complexity.</p>
 </div>
-<p>The first type of pruning is known as <strong>Pre-pruning</strong>. The algorithm includes a <strong>stopping condition</strong> which prevents the tree from becoming too complex.</p>
+<p>The first type of pruning is known as <strong>Pre-pruning</strong>. The algorithm includes a <strong>stopping condition</strong> which <strong>prevents the tree from becoming too complex</strong> in the first place.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The conditions are typically chosen such that they avoid overfitting:</p>
@@ -1539,21 +1545,116 @@
 <li>Requires some <strong>minimum reduction of RSS</strong> for each split</li>
 </ul>
 </div>
-<p>The second type of pruning is known as <strong>Post-pruning</strong>. The original tree is <strong>iteratively split</strong> into a <strong>series of subtrees</strong> until only the root is left. </p>
-<p>..</p>
-<p>Notice that the above is akin to the way Ridge and Lasso applies a constraint to the regression. Thus, in a similar fashion, the hyperparameter <span class="arithmatex">\(\lambda\)</span> can be determined via <strong>Cross Validation</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This type of pruning could <strong>already have been baked into the training algorithm</strong>, which is why it is not what people think of when pruning in is mentioned.</p>
+</div>
+<!-- Obtained from Research Gate -->
+<p><img alt="PRE_PRUNING" class="center" src="../Assets/7.%20Tree%20Models.md/PRE_PRUNING.png" /></p>
+<p>The second type of pruning is known as <strong>Post-pruning</strong>. A hyperparameter <strong>constraint</strong> is added to the RSS, where T is the <strong>number of leaves</strong> in the tree:</p>
+<div class="arithmatex">\[
+    \min (\text{RSS} + \lambda \cdot T)
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is why this method is known as <strong>Cost Complexity Pruning</strong>.</p>
+</div>
+<p>For every possible <span class="arithmatex">\(T\)</span>, there exists a <strong>subtree that minimizes</strong> the above function. Among the above shortlisted subtrees, the one with the <strong>lowest constrained RSS</strong> is chosen as the final tree.</p>
+<p>The key idea is that <span class="arithmatex">\(\lambda\)</span> and <span class="arithmatex">\(T\)</span> are <strong>inversely related</strong>. The higher the constraint, the smaller the tree must be; hence different <span class="arithmatex">\(\lambda\)</span> will result in a <strong>different final tree</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Since the T is an <strong>integer</strong> and while the <span class="arithmatex">\(\lambda\)</span> is <strong>continuous</strong>, a range of <span class="arithmatex">\(\lambda\)</span> could result in the <strong>same T; same pruned tree</strong>:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="LAMBDA_RANGE" class="center" src="../Assets/7.%20Tree%20Models.md/LAMBDA_RANGE.png" /></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When <span class="arithmatex">\(\lambda=0\)</span>, the constrained RSS is the <strong>same as the regular RSS</strong> and hence will result in the original tree. Thus, the trees that minimizes the constrained RSS will <strong>always be a subtree</strong> of the original.</p>
+<p>Intuitively, this is because the tree was fitted using a <strong>forward greedy algorithm</strong> to begin with. Thus, going backwards should result in the same tree.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that converting a subtree into a leaf is NOT simply taking the average of the two original leaves, as there is a different weightage applied to each leaf.</p>
+</div>
 <h2 id="alternative-approaches"><strong>Alternative Approaches</strong><a class="headerlink" href="#alternative-approaches" title="Permanent link">&para;</a></h2>
 <h3 id="bagging"><strong>Bagging</strong><a class="headerlink" href="#bagging" title="Permanent link">&para;</a></h3>
 <p>Bagging refers to <strong>Bootstrap Aggregation</strong>. Bootstrapping is a process whereby "new" samples are created based on the existing sample. Thus, Bagging refers to constructing <strong>multiple trees using bootstrap samples and aggregating their results</strong> to form the final prediction.</p>
+<p>Bootstrapping uses <strong>random sampling with replacement</strong> to create artificial samples of the <strong>same size</strong> from the original sample:</p>
+<ul>
+<li><span class="arithmatex">\(n^{n}\)</span> <strong>possible samples</strong> (Different permutations count)</li>
+<li><span class="arithmatex">\(2n-1 \choose n-1\)</span> <strong>distinct samples</strong> (Different permutations NOT counted)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since every sample has an equal chance of being selected, the probability that an observation is <strong>NOT selected for a draw</strong> is:</p>
+<div class="arithmatex">\[
+    \text{Probability NOT selected for draw} = 1 - \frac{1}{n}
+\]</div>
+<p>Thus, the probability that an observation is <strong>NOT selected at all across the entire sample</strong> (<span class="arithmatex">\(n\)</span> draws) is:</p>
+<div class="arithmatex">\[
+    \text{Probability NOT selected} = \left(1 - \frac{1}{n} \right)^{n}
+\]</div>
+<p>As the sample size approaches infinity, the above converges to the following, showing that <strong>about two-thirds of the observations are used</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \lim \left(1 - \frac{1}{n} \right)^{n} &amp; \approx \frac{1}{3}
+    \\
+    \text{Probability selected}
+    &amp;= 1 - \frac{1}{3} \\
+    &amp;= \frac{2}{3}
+\end{aligned}
+\]</div>
+</div>
+<p>Something unique about Bagging is that since <strong>only two-thirds</strong> of the original observations are used for each tree, it is possible to use the <strong>observations that were NOT drawn</strong> as the <strong>validation set</strong>. The resulting (average) error across all instances is known as the <strong>Out of Bag Error</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The intuition is similar to cross-validation where the <strong>OOB observations were not used to train that particular bagged tree</strong>, thus serves as a good estimate for the test MSE.</p>
+</div>
+<p>The <strong>key advantage</strong> to bagging lies in <strong>Variance</strong>. An estimate coming from multiple samples is always <strong>more stable</strong> than estimate coming from just one sample.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Since bagging helps to reduce the variance, the underlying trees are often <strong>not pruned</strong> as the nature of bagging helps to counter the problem of high variance for unpruned trees.</p>
+<p>In general, having <strong>more bootstrapped samples is beneficial</strong>; having too many samples does NOT cause overfitting. However, it is <strong>computationally expensive</strong>. Thus, the number of samples should be chosen such that the increase in accuracy is higher than the cost of computing.</p>
+</div>
+<p>However, the <strong>key disadvantage</strong> is that the method is that is <strong>not easily interpreted</strong>. A single tree is easily visualized while a forest is not.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>One way to add more insight to the model is through the use of <strong>Variable Importance Plots</strong>:</p>
+<ul>
+<li><strong>Sensitivity</strong> analysis, removing one variable at a time from the model</li>
+<li>Increase in MSE is recorded for each variable</li>
+<li>The variable whose absence results in the <strong>greatest increase in MSE is the most important</strong> variable</li>
+</ul>
+<p><!-- Obtained from Research Gate -->
+<img alt="VARIABLE_IMPORTANCE" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE.png" /></p>
+</div>
 <h3 id="random-forest"><strong>Random Forest</strong><a class="headerlink" href="#random-forest" title="Permanent link">&para;</a></h3>
 <p>One of the primary issues with Bagging is <strong>Correlation</strong>. Since the bootstrapped <strong>samples are all similar</strong> to the underlying sample, it is likely that each bootstrapped tree will contain the <strong>same set of predictors</strong> (especially if there especially strong predictors).</p>
 <p>This can be overcome by <strong>limiting each bootstrapped tree</strong> to be constructed only based on a <strong>random subset of the predictors available</strong>, reducing the monopoly of certain predictors and hence reducing the similarities. Hence, the method is called "Random Forest".</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>It can be understood that Bagging is a <strong>special case of Random Forests</strong> where all the predictors are allowed.</p>
+<p>It can be understood that Bagging is a <strong>special case of Random Forests</strong> where all the predictors are allowed; bagging is a <strong>non-random forest</strong>.</p>
+<p>Most of the concepts from Bagging thus carry over.</p>
 </div>
 <h3 id="boosting"><strong>Boosting</strong><a class="headerlink" href="#boosting" title="Permanent link">&para;</a></h3>
-<p>Boosting refers to the process of <strong>iteratively training</strong> a series of shallow trees on the <strong>error of the previous tree</strong>. The results of each tree are <strong>aggregated</strong> together to form the overall prediction.</p>
+<p>Boosting refers to the process of <strong>sequentially training</strong> a series of <strong>shallow trees</strong> on the <strong>error of the previous tree</strong>. The strength of weak trees are "boosted" by <strong>aggregating</strong> them together to form a stronger model.</p>
+<p>The key idea is that the errors of the trees contain the effects of the <strong>predictors not included in the model</strong>. Thus, training each successive model on the errors of the prior ones forces the model to <strong>explained the unexplained</strong>.</p>
+<!-- Obtained from Research Gate -->
+<p><img alt="BOOSTING" class="center" src="../Assets/7.%20Tree%20Models.md/BOOSTING.png" /></p>
+<!-- Obtained from Affine -->
+<p><img alt="BOOSTING_VS_BAGGING" class="center" src="../Assets/7.%20Tree%20Models.md/BOOSTING_VS_BAGGING.png" /></p>
+<p>There are three hyperparameters for Boosting:</p>
+<ul>
+<li><strong>Number of Trees</strong> (b) - How many trees should be used</li>
+<li><strong>Depth of Trees</strong> (d) - How many splits each tree should have</li>
+<li><strong>Learning Rate</strong> (<span class="arithmatex">\(\lambda\)</span>) - How much each tree contributes to the overall prediction (<span class="arithmatex">\(\lambda \lt 1\)</span>)</li>
+</ul>
+<p>Boosting as a method will result in low bias. However, if too many trees are used, the model could become <strong>overfitted</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The learning rate can also be referred to as the <strong>shrinkage parameter</strong> as it reduces the influence of each tree on the overall prediction.</p>
+<p>It is especially important for the first few trees as the <strong>numerical prediction tends to be higher</strong>.</p>
+</div>
 
 
 

@@ -1173,11 +1173,31 @@
     Validation Approach
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Validation Approach">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#cross-validation" class="md-nav__link">
     Cross Validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparisons" class="md-nav__link">
+    Comparisons
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyperparameter-tuning" class="md-nav__link">
+    Hyperparameter Tuning
   </a>
   
 </li>
@@ -1463,11 +1483,31 @@
     Validation Approach
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Validation Approach">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#cross-validation" class="md-nav__link">
     Cross Validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparisons" class="md-nav__link">
+    Comparisons
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyperparameter-tuning" class="md-nav__link">
+    Hyperparameter Tuning
   </a>
   
 </li>
@@ -1502,9 +1542,11 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The above does NOT consider the possibility of interaction terms or polynomial predictors; the amount is <strong>understated</strong>.</p>
-<p>Similarly, the above is the number of models for a single machine learning type. In reality, multiple methods could be considered leading to an even higher number!</p>
+<p>Similarly, the above is the number of models for a single machine learning type. In reality, <strong>multiple methods could be considered</strong> leading to an even higher number!</p>
 </div>
 <p>Thus, it is <strong>impractical</strong> to fit every possible model. There are well-accepted algorithms that can be used to find the determine the best model in an efficient manner.</p>
+<!-- Obtained from Kaggle -->
+<p><img alt="MODEL_SELECTION" class="center" src="../Assets/5.%20Model%20Selection.md/MODEL_SELECTION.png" /></p>
 <h2 id="selection-algorithm"><strong>Selection Algorithm</strong><a class="headerlink" href="#selection-algorithm" title="Permanent link">&para;</a></h2>
 <h3 id="best-subset-selection"><strong>Best Subset Selection</strong><a class="headerlink" href="#best-subset-selection" title="Permanent link">&para;</a></h3>
 <p>The <strong>Best Subset Selection</strong> algorithm is the ideal model selection algorithm, assuming there are no resource constraints.</p>
@@ -1592,13 +1634,8 @@
 </div>
 <!-- Obtained from Galaxy Inferno -->
 <p><img alt="VALIDATION_SET" class="center" src="../Assets/5.%20Model%20Selection.md/VALIDATION_SET.png" /></p>
-<h3 id="cross-validation"><strong>Cross Validation</strong><a class="headerlink" href="#cross-validation" title="Permanent link">&para;</a></h3>
-<p>There are two issues with the Validation approach:</p>
-<ol>
-<li><strong>No fixed method of splitting</strong> the data - Prone to variation</li>
-<li>Only a <strong>subset of observations</strong> are used - Prone to poorer fits</li>
-</ol>
-<p>This above can be overcome by using <strong>Cross Validation</strong> instead:</p>
+<h4 id="cross-validation"><strong>Cross Validation</strong><a class="headerlink" href="#cross-validation" title="Permanent link">&para;</a></h4>
+<p>A more systematic method is to use <strong>Cross Validation</strong> instead:</p>
 <ul>
 <li>Split the model into <strong><span class="arithmatex">\(k\)</span> groups</strong> of roughly equal size; each group is known as a <strong>Fold</strong></li>
 <li>For each fold, train the model on the data <strong>outside the fold</strong> and calculate the validation error against the fold</li>
@@ -1606,6 +1643,55 @@
 </ul>
 <!-- Obtained from Statology -->
 <p><img alt="CROSS_VALIDATION" class="center" src="../Assets/5.%20Model%20Selection.md/CROSS_VALIDATION.png" /></p>
+<p>An extreme version of Cross Validation is known as the <strong>Leave One Out Cross Validation</strong> (LOOCV), where the number of folds is equal to the number of observations; <strong>each fold contains only one observation</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If there are <span class="arithmatex">\(k\)</span> folds, then <span class="arithmatex">\(k\)</span> models will be fitted. Thus, for LOOCV, as many models will be fitted <strong>as there are observations</strong>, making it extremely <strong>computationally intensive</strong>.</p>
+</div>
+<h4 id="comparisons"><strong>Comparisons</strong><a class="headerlink" href="#comparisons" title="Permanent link">&para;</a></h4>
+<p>Recall that the purpose of the validation error is to <strong>estimate the test MSE</strong>. Thus, it can be evaluated based on the typical <strong>estimator metrics</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Metric</strong></th>
+<th align="center"><strong>VS</strong></th>
+<th align="center"><strong>CV</strong></th>
+<th align="center"><strong>LOOCV</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Bias</strong></td>
+<td align="center">High</td>
+<td align="center">Medium</td>
+<td align="center">Low</td>
+</tr>
+<tr>
+<td align="center"><strong>Variance</strong></td>
+<td align="center">Low</td>
+<td align="center">Medium</td>
+<td align="center">High</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that the above comparisons are RELATIVE to one another.</p>
+</div>
+<p>The validation set approach has the <strong>highest bias</strong> as it only uses a <strong>subset</strong> of the data while <strong>LOOCV</strong> uses all but one, making its bias substantially lower.</p>
+<p>For variance, since training set in the LOOCV only differ by one observation, the training sets are highly correlated, making the results <strong>extremely correlated</strong>, resulting in a high variance. Om the flipside, the validation set approach only has one training set, thus the result has limited variance.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>LOOCV having high variance maybe <strong>untuitive</strong> as the correlated results should result in <strong>clustered predictions</strong>.</p>
+<p>However, consider the possibility that consecutive predictions are close, but there is a trend in the predictions. The resulting predictions will follow the trend, resulting in <strong>high variance</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Cross Validation with <span class="arithmatex">\(k=5\)</span> provides a good balance, which also takes into account computational efficiency.</p>
+</div>
+<h3 id="hyperparameter-tuning"><strong>Hyperparameter Tuning</strong><a class="headerlink" href="#hyperparameter-tuning" title="Permanent link">&para;</a></h3>
 
 
 
