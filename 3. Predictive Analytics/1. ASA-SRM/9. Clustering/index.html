@@ -1187,19 +1187,19 @@
     Euclidean Distance
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#k-means-clustering" class="md-nav__link">
-    K-Means Clustering
-  </a>
-  
-    <nav class="md-nav" aria-label="K-Means Clustering">
+    <nav class="md-nav" aria-label="Euclidean Distance">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#cluster-variation" class="md-nav__link">
     Cluster Variation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#centroid" class="md-nav__link">
+    Centroid
   </a>
   
 </li>
@@ -1210,8 +1210,42 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#k-means-clustering" class="md-nav__link">
+    K-Means Clustering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hierarchical-clustering" class="md-nav__link">
     Hierarchical Clustering
+  </a>
+  
+    <nav class="md-nav" aria-label="Hierarchical Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#similarity-measure" class="md-nav__link">
+    Similarity Measure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dendrogram-analysis" class="md-nav__link">
+    Dendrogram Analysis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
   </a>
   
 </li>
@@ -1394,19 +1428,19 @@
     Euclidean Distance
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#k-means-clustering" class="md-nav__link">
-    K-Means Clustering
-  </a>
-  
-    <nav class="md-nav" aria-label="K-Means Clustering">
+    <nav class="md-nav" aria-label="Euclidean Distance">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#cluster-variation" class="md-nav__link">
     Cluster Variation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#centroid" class="md-nav__link">
+    Centroid
   </a>
   
 </li>
@@ -1417,8 +1451,42 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#k-means-clustering" class="md-nav__link">
+    K-Means Clustering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hierarchical-clustering" class="md-nav__link">
     Hierarchical Clustering
+  </a>
+  
+    <nav class="md-nav" aria-label="Hierarchical Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#similarity-measure" class="md-nav__link">
+    Similarity Measure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dendrogram-analysis" class="md-nav__link">
+    Dendrogram Analysis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
   </a>
   
 </li>
@@ -1440,11 +1508,16 @@
 
 <h1 id="clustering"><strong>Clustering</strong><a class="headerlink" href="#clustering" title="Permanent link">&para;</a></h1>
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Clustering is an <strong>Unsupervised</strong> statistical learning method that is used to find <strong>Clusters</strong> within the dataset. They are a <strong>subgroup of observations</strong> that are <strong>similar</strong> to one another.</p>
+<p>Clustering is an <strong>Unsupervised</strong> statistical learning method that is used to find <strong>Clusters</strong> within the dataset. They are a <strong>subgroup of observations</strong> that are <strong>similar</strong> to one another; different clusters naturally have different characteristics.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>An observation can only be part of ONE cluster.</p>
 </div>
+<p>Generally speaking there are two types of clustering - <strong>Observation vs Feature</strong> Clustering:</p>
+<ul>
+<li><strong>Observation</strong>: Grouping Customers into Income brackets</li>
+<li><strong>Feature</strong>: Grouping Features</li>
+</ul>
 <h2 id="euclidean-distance"><strong>Euclidean Distance</strong><a class="headerlink" href="#euclidean-distance" title="Permanent link">&para;</a></h2>
 <p>Similarity between observations is quantified via <strong>Euclidean Distance</strong>. It is essentially the <strong>shortest possible distance</strong> between two observations in a multi-dimensional space.</p>
 <div class="arithmatex">\[
@@ -1459,9 +1532,40 @@
 <p class="admonition-title">Tip</p>
 <p>In a two-dimensional context, the Euclidean Distance is essentially the straight line distance between two points:</p>
 </div>
-<p>The Euclidean Distance between the two</p>
+<h3 id="cluster-variation"><strong>Cluster Variation</strong><a class="headerlink" href="#cluster-variation" title="Permanent link">&para;</a></h3>
+<p>The variation within a cluster is the sum of all <strong>squared euclidean distances</strong> for all pairs of observations within that cluster, <strong>divided by the number of observations</strong>:</p>
+<p>$$</p>
+<p>$$</p>
+<p>This is best visualized through a table:</p>
+<ul>
+<li>Each cell contains the squared euclidean distance between the two observations</li>
+<li>The sum of all cells is the total squared euclidean distances for the cluster</li>
+</ul>
+<!-- Self Made -->
+<p><img alt="VARIATION_TABLE" class="center" src="../Assets/9.%20Clustering.md/VARIATION_TABLE.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>diagonal is always 0</strong> because the euclidean distance between a point and itself is 0.</p>
+<p>The table considers <strong>ALL pairs of observations</strong>, not just unique pairs. In other words, 1-2 and 2-1 are both considered, even though they result in the same euclidean distance. This is why the values are <strong>symmetrical about the diagonal</strong>.</p>
+</div>
+<h3 id="centroid"><strong>Centroid</strong><a class="headerlink" href="#centroid" title="Permanent link">&para;</a></h3>
+<p>Another related concept is the <strong>Centroid of the cluster</strong>. As its name suggests, it is the <strong>centre of the cluster</strong> in multi-dimensional space, equivalent to the average of each individual dimension.</p>
+<!-- Self Made -->
+<p><img alt="CLUSTER_CENTROID" class="center" src="../Assets/9.%20Clustering.md/CLUSTER_CENTROID.png" /></p>
+<p>Similar to Variance, the centroid can be used to determine the cluster variation as well:</p>
+<div class="arithmatex">\[
+    \text{Cluster Variation} = 2 \cdot \text{Sum of Squared ED from Centroid}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The two reflects the idea from before that the variation should consider all pairs of observations (symmetry).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike the previous formula, there is NO need to divide by the number of observations.</p>
+</div>
 <h2 id="k-means-clustering"><strong>K-Means Clustering</strong><a class="headerlink" href="#k-means-clustering" title="Permanent link">&para;</a></h2>
-<p>The first type of clustering is known as <strong>K-means clustering</strong>. It works by clustering the data into a <strong>pre-specified number of clusters</strong> (<span class="arithmatex">\(k\)</span>), such that the <strong>total within cluster variation is minimized</strong>.</p>
+<p>The first type of clustering is known as <strong>K-means clustering</strong>. It works by clustering the data into a <strong>pre-specified number of clusters</strong> (<span class="arithmatex">\(k\)</span>), such that the <strong>total within cluster variation is minimized</strong>:</p>
 <ol>
 <li><strong>Randomly assign each observation</strong> to one of the <span class="arithmatex">\(k\)</span> clusters</li>
 <li>Calculate the <strong>Centroid</strong> of the clusters</li>
@@ -1474,8 +1578,105 @@
 <p>Additionally, since the <strong>initial cluster assignment is random</strong>, the algorithm will produce <strong>different clusters</strong> each time it is run. This is contrast to subset selection where the starting point is always the same, thus will produce the same results.</p>
 </div>
 <p>The choice of <span class="arithmatex">\(k\)</span> is <strong>arbitrary</strong>, thus it might not yield the best results. It is thus recommended to <strong>repeat the algorithm</strong> several times for different <span class="arithmatex">\(k\)</span> to have a better understanding of the data.</p>
-<h3 id="cluster-variation"><strong>Cluster Variation</strong><a class="headerlink" href="#cluster-variation" title="Permanent link">&para;</a></h3>
 <h2 id="hierarchical-clustering"><strong>Hierarchical Clustering</strong><a class="headerlink" href="#hierarchical-clustering" title="Permanent link">&para;</a></h2>
+<p>The second type is known as <strong>Hierarchical Clustering</strong>. It works by iteratively merging or splitting data points based on their <strong>similarity</strong>, till all observations are either in one giant cluster or in individual clusters.</p>
+<!-- Obtained from Medium -->
+<p><img alt="DENDROGRAM" class="center" src="../Assets/9.%20Clustering.md/DENDROGRAM.png" /></p>
+<p>Due to the iterative nature of the method, a <em>hierarchy</em> of clusters are formed, where clusters are <strong>subsets of one another</strong>. The clustering can be <strong>"sliced"</strong> to determine the final number of clusters. It is thus best visualized in a tree-like structure known as a <strong>Dendrogram</strong>:</p>
+<!-- Obtained from Medium -->
+<p><img alt="SLICED_DENDROGRAM" class="center" src="../Assets/9.%20Clustering.md/SLICED_DENDROGRAM.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Dendrogram can be sliced at any possible level, resulting in a different number of clusters:</p>
+<p><!-- Obtained from Medium -->
+<img alt="SLICED_DENDROGRAM_ALT" class="center" src="../Assets/9.%20Clustering.md/SLICED_DENDROGRAM_ALT.png" /></p>
+<p>Note that not all dendrogram extend the branches all the way down, which may lead to incorrectly counting the number of clusters.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The act of slicing the dendrogram is akin to choosing <span class="arithmatex">\(k\)</span> in <span class="arithmatex">\(k\)</span> means clustering. Thus, some domain knowledge is important to ensure that the number of clusters produced are reasonable.</p>
+</div>
+<p>Generally speaking, there are two approaches to hierarchical clustering:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Bottom-Up</strong></th>
+<th align="center"><strong>Top-Down</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Each starts in its own cluster</td>
+<td align="center">All start in one big cluster</td>
+</tr>
+<tr>
+<td align="center">Iteratively merge until all in one</td>
+<td align="center">Iteratively split until each in its own</td>
+</tr>
+<tr>
+<td align="center">Agglomerative</td>
+<td align="center">Divisive</td>
+</tr>
+<tr>
+<td align="center">SRM focus</td>
+<td align="center">Out of Scope</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<ol>
+<li>Assign each observation to its own cluster</li>
+<li>Compute the distance between each pair of clusters</li>
+<li>Merge the two clusters with the least dissimilarity (most similar)</li>
+<li>Repeat step (2) and (3) until there is one cluster left</li>
+</ol>
+<p>If there two or more pairs of clusters have the same dissimilarity, then the pair of clusters which contain the <strong>lowest indexed observation</strong> will be merged.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>At each step, if there <span class="arithmatex">\(n\)</span> clusters before merging, then <span class="arithmatex">\(n \choose 2\)</span> <strong>unique pairs</strong> of clusters are considered. The number naturally decreases per iteration of the algorithm:</p>
+<p><!-- Self Made -->
+<img alt="PAIRWISE_CLUSTERS" class="center" src="../Assets/9.%20Clustering.md/PAIRWISE_CLUSTERS.png" /></p>
+<p>Another fact is that if there are a total of <span class="arithmatex">\(n\)</span> clusters, the algorithm will result in <span class="arithmatex">\(n-1\)</span> merges.</p>
+</div>
+<h3 id="similarity-measure"><strong>Similarity Measure</strong><a class="headerlink" href="#similarity-measure" title="Permanent link">&para;</a></h3>
+<p>The basis for merging a cluster is based on how similar the two clusters are, known as <strong>Dissimilarity Measure</strong>. For the purposes of this exam, assume that <strong>Euclidean Distance</strong> is used unless explicitly stated otherwise.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Another type of measure is known as the <strong>Peason Correlation Distance</strong>. Type of items vs number of items?</p>
+<p>However, one caveat is that it requires the dataset to have <strong>at least three features</strong> for it to be used.</p>
+</div>
+<p>The key difference is that dissimilarity is measuring the Euclidean Distance <strong>between two clusters</strong> rather than two observations. There are four main ways to perform this, known as the choice of <strong>Linkage</strong>:</p>
+<ul>
+<li><strong>Complete</strong>: Compute all pairwise distances, use the <strong>highest</strong></li>
+<li><strong>Single</strong>: Compute all pairwise distances, use the <strong>lowest</strong></li>
+<li><strong>Average</strong>: Compute all pairwise distances, use the <strong>average</strong></li>
+<li><strong>Centroid</strong>: Use the distance <strong>between centroids</strong></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a cluster with <strong>only one observation</strong>; starting cluster - the choice of linkage <strong>does not matter</strong> as they will all lead to the same result.</p>
+</div>
+<p>The choice of linkage does affect how the <strong>shape</strong> of the resulting Dendrogram:</p>
+<ul>
+<li><strong>Single</strong>: Tends to merge single observation clusters first, resulting in a <strong>skewed diagram</strong></li>
+<li><strong>Centroid</strong>: May result in <strong>Inversions</strong> where the clusters are merged at a lower level; <strong>unintuitive</strong></li>
+<li><strong>Complete &amp; Average</strong>: Tend to produce more <strong>balanced trees</strong></li>
+</ul>
+<h3 id="dendrogram-analysis"><strong>Dendrogram Analysis</strong><a class="headerlink" href="#dendrogram-analysis" title="Permanent link">&para;</a></h3>
+<p>The vertical axis on the Dendrogram is the <strong>dissimilarity measure</strong>. Thus, we are able to tell the <strong>exact dissimilarity</strong> when two clusters merge. However, they do not provide direct insight into the relationship between sub-clusters; that <strong>must be inferred</strong>.</p>
+<p>Consider the following simple Dendrogram:</p>
+<p>Firstly, the <strong>order of fusion</strong> matters - Clusters that <strong>merge earlier are more similar</strong> than clusters that merge later - <span class="arithmatex">\((B,C)\)</span> is more similar than <span class="arithmatex">\((A,B)\)</span> or <span class="arithmatex">\((A,C)\)</span>!</p>
+<p>Next, the <strong>choice of linkage matters</strong>, as it allows us to draw simple relationships about the distance:</p>
+<ul>
+<li><strong>Complete</strong>: <span class="arithmatex">\(\max [(A,B), (A,C)] = 10\)</span>; pairs cant be larger than 10</li>
+<li><strong>Single</strong>: <span class="arithmatex">\(\min [(A,B), (A,C)] = 10\)</span>; pairs cant be smaller than 10</li>
+</ul>
+<p>Questions of this nature will generally be simple in nature.</p>
+<h2 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h2>
+<p>Standardize to ensure all same scale, equal importance
+Non robust -&gt; Sensitive to changes
+HARD TO CHECK</p>
 
 
 
