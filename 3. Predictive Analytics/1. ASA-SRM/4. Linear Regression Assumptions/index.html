@@ -1158,6 +1158,19 @@
     Assumption 4: Homoscedasticity
   </a>
   
+    <nav class="md-nav" aria-label="Assumption 4: Homoscedasticity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weighted-least-squares" class="md-nav__link">
+    Weighted Least Squares
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1203,15 +1216,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#high-dimensionality" class="md-nav__link">
     High Dimensionality
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1504,6 +1517,19 @@
     Assumption 4: Homoscedasticity
   </a>
   
+    <nav class="md-nav" aria-label="Assumption 4: Homoscedasticity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weighted-least-squares" class="md-nav__link">
+    Weighted Least Squares
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1549,15 +1575,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#high-dimensionality" class="md-nav__link">
     High Dimensionality
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1594,6 +1620,10 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The last block of assumptions on the distribution of the errors being normal and iid are NOT needed for the estimates to be BLUE. They are however needed for <strong>statistical inference</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember that being unbiased means that the <strong>EXPECTED VALUE</strong> of the estimates are equal to the true value. Thus, for a particular sample, the estimated coefficients might be different.</p>
 </div>
 <h2 id="assumption-1-linearity"><strong>Assumption 1: Linearity</strong><a class="headerlink" href="#assumption-1-linearity" title="Permanent link">&para;</a></h2>
 <p>This assumes that the <strong>true relationship</strong> between the dependent and independent variables are Linear, but not the dependent or independent variables themselves. This allows for <strong>transformations</strong> of the respective variables:</p>
@@ -1639,7 +1669,12 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Collinearity only affects t-test results, overall predictive power (measured by F-tests), are unaffected.</p>
+<p>Collinearity ONLY affects t-test results, overall predictive power (measured by F-tests), are unaffected.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There is a special type of Variable known as a <strong>Suppressor Variable</strong>, which by itself is not strongly correlated with the dependent, but when combined with another variable, leads to a significantly stronger model.</p>
+<p>Collinearity is likely (but not guaranteed) to be present when supressor variables are present.</p>
 </div>
 <h3 id="detecting-collinearity"><strong>Detecting Collinearity</strong><a class="headerlink" href="#detecting-collinearity" title="Permanent link">&para;</a></h3>
 <p>The simplest way to detect collinearity is through a <strong>Scatterplot or Correlation Matrix</strong>, which shows the correlations between <strong>pairs of variables</strong>. A <strong>correlation of 0.8 and higher</strong> is typically considered high enough where the collinearity becomes problematic.</p>
@@ -1722,11 +1757,16 @@
 <p><!-- Obtained from Condor -->
 <img alt="HETEROSCEDASTIC_SCENARIOS" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HETEROSCEDASTIC_SCENARIOS.png" /></p>
 </div>
-<p>The most direct method to deal with Heteroscedasticity is to perform a <strong>transformation</strong> on the variables that will stabilize its variance, such the <strong>Logarithm or Squareroot</strong>. These transformations typically compress larger values while expanding smaller values, helping to shrink the variance.</p>
+<p>The most direct method to deal with Heteroscedasticity is to perform a <strong>transformation</strong> on the variables that will stabilize its variance, such the <strong>Logarithm or Squareroot</strong>. These transformations typically <strong>compress larger values while expanding smaller values</strong>, helping to shrink the variance.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The transformations listed above require positive-only data, thus a constant can be added to all variables to ensure that they are positive.</p>
+<p>The transformations listed above require positive-only data, thus a <strong>positive constant</strong> can be added to all variables to ensure that they are positive - EG. <span class="arithmatex">\(\ln(1+Y)\)</span></p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>direction of heteroscedasticity</strong> matters. Concave transformations like log or squareroot work for datasets with <strong>increasing variance</strong>, which is usually the case. For decreasing variance or more complex patterns, other methods should be used.</p>
+</div>
+<h3 id="weighted-least-squares"><strong>Weighted Least Squares</strong><a class="headerlink" href="#weighted-least-squares" title="Permanent link">&para;</a></h3>
 <p>Alternatively, if the source of heteroscedasticity is known, it is possible to use a <strong>Weighted Least Squares</strong> approach to account for it. Weights are assigned to <strong>each observation</strong>, such that the weight is the amount needed to <strong>scale the the variance to a constant amount</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1790,8 +1830,7 @@
 <p>Violating the normality assumption does not impact the validity of the estimates or predictive power; it only impacts the <strong>validity of statistical inference</strong>. For large samples, CLT states that the distribution of the estimators are <strong>approximately normal</strong>, thus inferences are still valid. However, this <strong>does NOT apply to prediction intervals</strong> as they directly contain the variance of the error term, which follows an unknown distribution.</p>
 <h2 id="other-considerations"><strong>Other Considerations</strong><a class="headerlink" href="#other-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="leverage"><strong>Leverage</strong><a class="headerlink" href="#leverage" title="Permanent link">&para;</a></h3>
-<p>Observations with unusually high values in the <strong>Independent Variable</strong> are known as <strong>High Leverage Points</strong>.</p>
-<p>The easiest way to identify high leverage points would be through a scatterplot of independent variables:</p>
+<p>Observations with unusually high values in the <strong>Independent Variable</strong> are known as <strong>High Leverage Points</strong>. The easiest way to identify high leverage points would be through a scatterplot of independent variables:</p>
 <!-- Obtained from ACTEX Manual -->
 <p><img alt="High Leverage Points" class="center" src="Assets/4.%20Gauss%20Markov%20Theorem.md/High%20Leverage.png" /></p>
 <p>When there are multiple variables, another consideration is that the observation might seem normal within each variable, but <strong>unusual when taken collectively</strong>. This is hard to visualize in multiple dimensions, thus leverage can also be quantified via the following:</p>
@@ -1824,9 +1863,16 @@
 \]</div>
 </div>
 <h3 id="outliers"><strong>Outliers</strong><a class="headerlink" href="#outliers" title="Permanent link">&para;</a></h3>
-<p>Observations with unusually high values in the <strong>dependent variable</strong> are known as <strong>Outliers</strong>.</p>
-<p>Naturally, these observations have <strong>large residuals</strong>. However, residuals contain the units the of the dependent variable, which affects its scale. Thus, the residuals must be transformed into a <strong>unitless form</strong> to determine a universal benchmark.</p>
-<p>Outliers are observations with <strong>unusually large values of the dependent variable</strong>, relative to the fitted regression model. In other words, they have <strong>large residuals</strong>, relative to other observations.</p>
+<p>Observations with unusually high values in the <strong>dependent variable</strong> are known as <strong>Outliers</strong>. Naturally, these observations have <strong>large residuals</strong>. However, residuals contain the units the of the dependent variable, which affects its scale. Thus, the residuals must be transformed into a <strong>unitless form</strong> to determine a universal benchmark.</p>
+<p>Outliers are observations with <strong>unusually large values of the dependent variable</strong>, relative to the fitted regression model. In other words, they have <strong>large residuals</strong>, relative to other observations:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="RESIDUAL_OUTLIER" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/RESIDUAL_OUTLIER.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>One consequence of having many outliers is that the calculated MSE is <strong>inflated</strong> because the outliers artifically increase the RSS. This created a <strong>TENDENCY</strong> for statistical tests to fail to reject the null.</p>
+<p>In reality, if there are outliers and the statistical test are able to reject the null, there is no reason to doubt its validity. This is because even under "adverse" situations, the test can still reject the null, thus under normal circumstances it would continue to reject the null.</p>
+<p>However, if the test currently fails to reject the null, it could be due to the "adverse" situation; under normal circumstances it might reject the null thus there is a reason to doubt the results.</p>
+</div>
 <p>It can be shown that the variance of the residual is a function of its Leverage:</p>
 <div class="arithmatex">\[
     \text{Var}(\hat{\varepsilon}_{i}) = \sigma^{2} \cdot (1 - h_{i})
@@ -1879,7 +1925,7 @@
 <!-- Obtained from Quantitative Research Methods for Political Science -->
 <p><img alt="INFLUENCE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/INFLUENCE.png" /></p>
 <p>Thus, they <strong>need to be investigated</strong> to better understand them - are they miscoded observations, or are they representing unique behaviour of a sub-group of predictors? Following this, an informed decision can be made on whether or not they should be included in the model.</p>
-<h2 id="high-dimensionality"><strong>High Dimensionality</strong><a class="headerlink" href="#high-dimensionality" title="Permanent link">&para;</a></h2>
+<h3 id="high-dimensionality"><strong>High Dimensionality</strong><a class="headerlink" href="#high-dimensionality" title="Permanent link">&para;</a></h3>
 <p>As alluded to previously, increasing the number of parameters in the model does not necessarily benefit the model. This phenomenon is known as the <strong>Curse of Dimensionality</strong>.</p>
 <p>A sample of 100 observations is a lot of information for a model with 2 predictors, but is sparse for a model with 50 predictors. Thus, <strong>increasing the number of predictors relative to the sample size</strong> tends to have detrimental effects:</p>
 <ul>

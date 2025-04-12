@@ -1879,13 +1879,17 @@
     = \frac{\sigma^{2}_{\text{RegSS}}}{\sigma^{2}_\text{RSS}}
 \]</div>
 <p>Thus, rejecting the null allows us to conclude that <strong>at least one</strong> of the independent variables are useful, but does not provide insight on <em>which</em> of them are useful.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The above intuition applies for SLR as well. However, since there is only one variable, the F-test is akin to testing the significance of just that variable.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Similar to the adjusted R-squared, the F-test measures whether the reduction in RSS is "worth" the loss of the degrees of freedom to estimate the new parameters.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Similar to the adjusted R-squared, the partial F-test measures whether the reduction in RSS is "worth" the loss of the degrees of freedom to estimate the new parameters.</p>
+<p>The F-statistic can also be re-expressed as a function of <span class="arithmatex">\(R^{2}\)</span>:</p>
+<div class="arithmatex">\[
+    \text{F}_{\text{Statistic}} = \frac{R^{2}}{1 - R^{2}} \cdot \frac{n-p-1}{p}
+\]</div>
+<p>The above applies to SLR as well.</p>
 </div>
 <p>In order to determine which variables are useful, a <strong>Partial F-test</strong> can be used, which compares two models:</p>
 <ul>
@@ -1968,6 +1972,15 @@ Var(\hat{\beta}) =
 <p>There are methods to manage this problem through the use of several corrections such as the <strong>Bonferroni Correction</strong> which adjusts the <span class="arithmatex">\(\alpha\)</span> for each test such that on whole, the desired type I error rate is achieved. However, it has the consequence of <strong>increasing the probability of type II errors</strong>. The details are beyond the scope of the exam.</p>
 </div>
 <p>This is why the <strong>F-test is generally preferred</strong> for MLR, as it has the advantage of naturally controlling the error rate regardless of the number of predictors along with considering the joint effect of variables.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The relationship between t and F tests only holds true in a SINGLE variable context. For multiple variables, the two can result in DIFFERENT conclusions!</p>
+<ul>
+<li>t-tests: Including a single variable is better than excluding it</li>
+<li>F-tests: Including multiple variables is better than excluding them</li>
+</ul>
+<p>The difference lies in the fact that a variable alone might be strong, but in conjunction with others is not.</p>
+</div>
 <h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
 <p>Similar to SLR, the confidence and prediction intervals can be constructed using the usual expression:</p>
 <div class="arithmatex">\[
@@ -2013,14 +2026,14 @@ Var(\hat{\beta}) =
 <li><strong>North Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 1, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
 <li><strong>East Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 0, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
 </ul>
-<p>The last category that does not have its own variable is known as the <strong>Baseline</strong> of the model, which is the default category when <strong>all other variables are 0</strong>. Thus, the intepretation of the coefficients is as follows:</p>
+<p>The last category that does not have its own variable is known as the <strong>Baseline</strong> of the model (known as the <strong>Reference Category</strong>), which is the default category when <strong>all other variables are 0</strong>. Thus, the intepretation of the coefficients is as follows:</p>
 <ul>
 <li><span class="arithmatex">\(\beta_{0}\)</span>: Value of <span class="arithmatex">\(E(Y \mid X)\)</span> at the Baseline</li>
-<li><span class="arithmatex">\(\beta_{1}\)</span>: Change in value of <span class="arithmatex">\(Y\)</span> from the Baseline to chosen Category</li>
+<li><span class="arithmatex">\(\beta_{1}\)</span>: Change in value of <span class="arithmatex">\(Y\)</span> when <strong>moving</strong> from the reference category to the current category</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Given the above, the choice of which category to set as the baseline matters as it will result in a different model altogether.</p>
+<p>Given the above, the choice of reference category matters as it will result in a different model altogether.</p>
 </div>
 <p>Dummy variables are usually used in conjunction with quantitatve ones. This creates a <strong>seperate but parallel regression line</strong> for each of the levels:</p>
 <div class="arithmatex">\[
@@ -2067,6 +2080,11 @@ Var(\hat{\beta}) =
 \]</div>
 <!-- Obtained from ACTEX Manual -->
 <p><img alt="DUMMY_INTERACTION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/DUMMY_INTERACTION.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are questions which may ask for the impact of a variable on the response given all other variables are held constant.</p>
+<p>If the variable is part of the an interaction term, two extremes must be considered - Maximum and Minimum value for the other variable in the interaction and then determine if there is a clear one directional impact.</p>
+</div>
 <h3 id="indicator-variables"><strong>Indicator Variables</strong><a class="headerlink" href="#indicator-variables" title="Permanent link">&para;</a></h3>
 <p>In some cases, there might be an <strong>change in the behaviour</strong> of the predictor <strong>across different values</strong> it can take. For instance, high net worth individuals have different spending patterns than regular consumers - behaviour changes past a certain Income threshold.</p>
 <p>This effect can be achieved through the use of an <strong>Indicator Function</strong>, which is a essentially a <strong>Dummy Variable</strong> that is dependent on the value of other variables:</p>
@@ -2163,7 +2181,7 @@ Var(\hat{\beta}) =
 <p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the hyperparameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This it is known as the <strong>Least Absolute Shrinktage Selection Operator</strong> (LASSO). Its ability to drop predictors allows it to be used as a model selection tool.</p>
+<p>This it is known as the <strong>Least Absolute Shrinktage Selection Operator</strong> (LASSO). Its ability to drop predictors allows it to be used as a <strong>model selection</strong> tool.</p>
 </div>
 <p>There is no clear advantage between the two; the key difference lies in the <strong>ability to drop predictors</strong>:</p>
 <p><center></p>
@@ -2180,8 +2198,12 @@ Var(\hat{\beta}) =
 <td align="center">Always Drop</td>
 </tr>
 <tr>
-<td align="center">Decreases Interpretability</td>
-<td align="center">Increases Interpretability</td>
+<td align="center">Lower Interpretability</td>
+<td align="center">Higher Interpretability</td>
+</tr>
+<tr>
+<td align="center">Higher Flexibility</td>
+<td align="center">Lower Flexibility</td>
 </tr>
 <tr>
 <td align="center">Able to capture small effects</td>
@@ -2197,7 +2219,7 @@ Var(\hat{\beta}) =
 <p>The approach that combines both Ridge and LASSO together is known as the <strong>Elastic Net</strong>.</p>
 </div>
 <h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
-<p>Before using the two methods, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong>, thus they need to be on the <strong>same basis</strong> to ensure proper results, since they are now combined together in the constraint.</p>
+<p>Before using the two methods, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since they are now combined together in the constraint.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This was not a problem in regular OLS as the residuals were used, which were all following the scale of the dependent.</p>

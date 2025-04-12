@@ -1169,11 +1169,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alternative-approaches" class="md-nav__link">
-    Alternative Approaches
+  <a href="#ensemble-methods" class="md-nav__link">
+    Ensemble Methods
   </a>
   
-    <nav class="md-nav" aria-label="Alternative Approaches">
+    <nav class="md-nav" aria-label="Ensemble Methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1418,11 +1418,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alternative-approaches" class="md-nav__link">
-    Alternative Approaches
+  <a href="#ensemble-methods" class="md-nav__link">
+    Ensemble Methods
   </a>
   
-    <nav class="md-nav" aria-label="Alternative Approaches">
+    <nav class="md-nav" aria-label="Ensemble Methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1475,6 +1475,10 @@
 <p><img alt="TREE_PARTITION" class="center" src="../Assets/7.%20Tree%20Models.md/TREE_PARTITION.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
+<p>Only “vertical” and “horizontal” lines (lines parallel to the axis in higher dimensions) can be used to partition the observation space.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>NOT ALL independent variables in the data will be used to form the tree, only the relatively more important ones.</p>
 </div>
 <p>The different points along the tree are known as <strong>Nodes</strong>:</p>
@@ -1482,13 +1486,18 @@
 <li><strong>Internal Nodes</strong> (Parent Nodes): Nodes where the tree <strong>splits further</strong></li>
 <li><strong>Terminal Nodes</strong> (Child Nodes): Nodes where the tree <strong>no longer splits</strong></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>They can also be interpreted using an actual tree analogy - Roots, Branches &amp; Leaves. In this case, the structure is more of an inverted tree.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>For the purposes of this exam, assume that <strong>TRUE is on the left</strong> while FALSE is on the right. In practice, either is fine as long as it is clearly defined.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For a tree with <span class="arithmatex">\(n\)</span> internal nodes, it will always have <span class="arithmatex">\(n+1\)</span> terminal nodes.</p>
+<p>Internal Nodes are also sometimes referred to as Split, given that the tree splits at that point.</p>
 </div>
 <!-- Self Made -->
 <p><img alt="TREE_TERMINOLOGY" class="center" src="../Assets/7.%20Tree%20Models.md/TREE_TERMINOLOGY.png" /></p>
@@ -1578,7 +1587,13 @@
 <p>Note that converting a subtree into a leaf is NOT simply taking the average of the two original leaves, as there is a <strong>different weightage</strong> applied to each leaf.</p>
 </div>
 <p>Generally speaking, <strong>Post-Pruning is preferred</strong>. Stunting the growth of the tree early might reduce a small amount of RSS early, but result in a large RSS later on. Thus, it is better to let the tree grow and then prune it back to the right size with a full view.</p>
-<h2 id="alternative-approaches"><strong>Alternative Approaches</strong><a class="headerlink" href="#alternative-approaches" title="Permanent link">&para;</a></h2>
+<h2 id="ensemble-methods"><strong>Ensemble Methods</strong><a class="headerlink" href="#ensemble-methods" title="Permanent link">&para;</a></h2>
+<p>Ensemble Methods use a collection of statistical learning  techniques in conjunction with one another to produce better results than any of the individual methods.</p>
+<p>Ensemble Methods are typically used with basic models known as Weak Learners to produce a stronger model.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Although Ensemble methods are only discussed in the context of trees, they can be used for other methods as well.</p>
+</div>
 <h3 id="bagging"><strong>Bagging</strong><a class="headerlink" href="#bagging" title="Permanent link">&para;</a></h3>
 <p>Bagging refers to <strong>Bootstrap Aggregation</strong>. Bootstrapping is a process whereby "new" samples are created based on the existing sample. Thus, Bagging refers to constructing <strong>multiple trees using bootstrap samples and aggregating their results</strong> to form the final prediction.</p>
 <p>Bootstrapping uses <strong>random sampling with replacement</strong> to create artificial samples of the <strong>same size</strong> from the original sample:</p>
@@ -1615,7 +1630,7 @@
 <p>The <strong>key advantage</strong> to bagging lies in <strong>Variance</strong>. An estimate coming from multiple samples is always <strong>more stable</strong> than estimate coming from just one sample.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Since bagging helps to reduce the variance, the underlying trees are often <strong>not pruned</strong> as the nature of bagging helps to counter the problem of high variance for unpruned trees.</p>
+<p>Since bagging helps to reduce the variance, the underlying trees are often <strong>not pruned</strong> (pre &amp; post) as the nature of bagging helps to counter the problem of high variance for unpruned trees.</p>
 <p>In general, having <strong>more bootstrapped samples is beneficial</strong>; having too many samples does NOT cause overfitting. However, it is <strong>computationally expensive</strong>. Thus, the number of samples should be chosen such that the increase in accuracy is higher than the cost of computing.</p>
 </div>
 <p>However, the <strong>key disadvantage</strong> is that the method is that is <strong>not easily interpreted</strong>. A single tree is easily visualized while a forest is not.</p>
@@ -1638,6 +1653,14 @@
 <p>It can be understood that Bagging is a <strong>special case of Random Forests</strong> where all the predictors are allowed; bagging is a <strong>non-random forest</strong>.</p>
 <p>Most of the concepts from Bagging thus carry over.</p>
 </div>
+<p>If there are <span class="arithmatex">\(p\)</span> available predictors and <span class="arithmatex">\(m\)</span> are excluded, then the probability that a <em>particular predictor</em> is not chosen at a given split is:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{P(Predictor not Chosen)}
+    &amp;= \frac{{p-1 \choose m} \cdot {1 \choose 0}}{{p \choose m}} \\
+    &amp;= \frac{p-m}{p}   
+\end{aligned}
+\]</div>
 <h3 id="boosting"><strong>Boosting</strong><a class="headerlink" href="#boosting" title="Permanent link">&para;</a></h3>
 <p>Boosting refers to the process of <strong>sequentially training</strong> a series of <strong>shallow trees</strong> on the <strong>error of the previous tree</strong>. The strength of weak trees are "boosted" by <strong>aggregating</strong> them together to form a stronger model.</p>
 <p>The key idea is that the errors of the trees contain the effects of the <strong>predictors not included in the model</strong>. Thus, training each successive model on the errors of the prior ones forces the model to <strong>explained the unexplained</strong>.</p>
@@ -1655,7 +1678,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The learning rate can also be referred to as the <strong>shrinkage parameter</strong> as it reduces the influence of each tree on the overall prediction.</p>
-<p>A <strong>small</strong> shrinkage parameter (<span class="arithmatex">\(\lambda \lt 1\)</span>) is preferred so that the learning process is slowed; requiring many trees.</p>
+<p>A <strong>small</strong> shrinkage parameter (<span class="arithmatex">\(\lambda \lt 1\)</span>) is preferred so that the learning process is slowed; requiring many trees. </p>
 </div>
 
 
