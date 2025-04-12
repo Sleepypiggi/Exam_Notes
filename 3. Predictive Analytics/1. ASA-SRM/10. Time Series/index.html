@@ -1232,9 +1232,56 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoregression" class="md-nav__link">
     Autoregression
+  </a>
+  
+    <nav class="md-nav" aria-label="Autoregression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autocorrelation" class="md-nav__link">
+    Autocorrelation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smoothing" class="md-nav__link">
+    Smoothing
+  </a>
+  
+    <nav class="md-nav" aria-label="Smoothing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moving-average-smoothing" class="md-nav__link">
+    Moving Average Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponential-smoothing" class="md-nav__link">
+    Exponential Smoothing
   </a>
   
 </li>
@@ -1253,8 +1300,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#smoothing" class="md-nav__link">
-    Smoothing?
+  <a href="#seasonal-models" class="md-nav__link">
+    Seasonal Models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volatility-models" class="md-nav__link">
+    Volatility Models
   </a>
   
 </li>
@@ -1459,9 +1513,56 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoregression" class="md-nav__link">
     Autoregression
+  </a>
+  
+    <nav class="md-nav" aria-label="Autoregression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autocorrelation" class="md-nav__link">
+    Autocorrelation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smoothing" class="md-nav__link">
+    Smoothing
+  </a>
+  
+    <nav class="md-nav" aria-label="Smoothing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moving-average-smoothing" class="md-nav__link">
+    Moving Average Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponential-smoothing" class="md-nav__link">
+    Exponential Smoothing
   </a>
   
 </li>
@@ -1480,8 +1581,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#smoothing" class="md-nav__link">
-    Smoothing?
+  <a href="#seasonal-models" class="md-nav__link">
+    Seasonal Models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volatility-models" class="md-nav__link">
+    Volatility Models
   </a>
   
 </li>
@@ -1654,10 +1762,11 @@
 </div>
 <h2 id="benchmark-models"><strong>Benchmark Models</strong><a class="headerlink" href="#benchmark-models" title="Permanent link">&para;</a></h2>
 <h3 id="white-noise-model"><strong>White Noise Model</strong><a class="headerlink" href="#white-noise-model" title="Permanent link">&para;</a></h3>
-<p>A variable that is naturally stationary is often referred to as <strong>White Noise</strong>, which is a term used to refer to a process that is <strong>completely random</strong>.</p>
-<p>The best forecast for such a variable is <strong>simply its mean</strong>; since it is assumed to be completely random: </p>
+<p>A variable that is naturally stationary is often referred to as <strong>White Noise</strong>, which is a term used to refer to a process that is <strong>completely random</strong>. The best forecast for such a variable is <strong>simply its mean</strong>; since it is assumed to be completely random: </p>
 <div class="arithmatex">\[
 \begin{aligned}
+    y_{t} = \varepsilon_{t} \\
+    \\
     \hat{y}_{t+m} &amp;= \bar{y} \\
     \text{SE}({\hat{y}_{t+m}}) &amp;= s_{y} \cdot \sqrt{1 + \frac{1}{n}} \\
     \text{PI} &amp;= \bar{y} \pm t_{\alpha} \cdot s_{y} \cdot \sqrt{1 + \frac{1}{n}}
@@ -1674,9 +1783,9 @@
 <div class="arithmatex">\[
 \begin{aligned}
     y_{t+1}
-    &amp;= y_{t} + W_{1} \\
+    &amp;= y_{t} + \varepsilon_{1} \\
     &amp;= \dots \\
-    &amp;= y_{1} + \sum W_{t}
+    &amp;= y_{1} + \sum \varepsilon_{t}
 \end{aligned}
 \]</div>
 <div class="admonition warning">
@@ -1688,9 +1797,9 @@
 <p>Thus, the modelling uses the <strong>differencing</strong> to estimate the effect of white noise:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \hat{y}_{t+m} &amp;= y_{t} + s \cdot \bar{w} \\
-    \text{SE}(\hat{y}_{t+m}) &amp;= s_{w} \cdot \sqrt{m} \\
-    \text{PI} &amp;= y_{t} + s \cdot \bar{w} \pm t_{\alpha} \cdot s_{w} \cdot \sqrt{m} \\
+    \hat{y}_{t+m} &amp;= y_{t} + s \cdot \bar{\varepsilon} \\
+    \text{SE}(\hat{y}_{t+m}) &amp;= \sigma \cdot \sqrt{m} \\
+    \text{PI} &amp;= y_{t} + s \cdot \bar{\varepsilon} \pm t_{\alpha} \cdot \sigma \cdot \sqrt{m} \\
     \\
     w_{t} &amp;= y_{t} - y_{t-1}
 \end{aligned}
@@ -1702,16 +1811,176 @@
 <p>Random walks are said to have <strong>increasing variance</strong> over time. It is difficult to see this over one random walk, but over many different random walks it becomes clear:</p>
 <p><!-- Obtained from Github -->
 <img alt="RANDOM_WALK_VARIANCE" class="center" src="../Assets/10.%20Time%20Series.md/RANDOM_WALK_VARIANCE.png" /></p>
+<p>Mathematically, it is the variance arising from the sum of errors:</p>
+<div class="arithmatex">\[
+    \text{Var}(\sum \varepsilon_{t}) = t \cdot \sigma^{2}
+\]</div>
 </div>
-<h3 id="autoregression"><strong>Autoregression</strong><a class="headerlink" href="#autoregression" title="Permanent link">&para;</a></h3>
+<h2 id="autoregression"><strong>Autoregression</strong><a class="headerlink" href="#autoregression" title="Permanent link">&para;</a></h2>
+<p>Autoregression refers to using past observations to predict future observations of the same series. The number of past observations used for the prediction is known as the <strong>Order</strong> (<span class="arithmatex">\(k\)</span>) of the model:</p>
+<div class="arithmatex">\[
+    Y_{t} = \beta_{0} + \beta_{1} \cdot Y_{t-1} + \dots + \beta_{k} \cdot Y_{t-k} + \varepsilon_{t}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, Autoregressive model of order 1 are considered; AR(1).</p>
+</div>
+<p>An AR(1) model can be seen as a generalization of a White Noise and Random Walk:</p>
+<ul>
+<li><span class="arithmatex">\(\beta_{1} = 0\)</span>: Reduces to <strong>White Noise</strong> Model</li>
+<li><span class="arithmatex">\(\beta_{1} = 1\)</span>: Reduces to <strong>Random Walk</strong> Model</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \beta_{1} &amp;= 0 \\
+    Y_{t} &amp;= \beta_{0} + 0 \cdot Y_{t-1} + \varepsilon_{t} \\
+    Y_{t} &amp;= \beta_{0} + \varepsilon_{t} \\
+    \\
+    \beta_{1} &amp;= 1 \\
+    Y_{t} &amp;= \beta_{0} + 1 \cdot Y_{t-1} + \varepsilon_{t} \\
+    Y_{t} &amp;= \beta_{0} + Y_{t-1} + \varepsilon_{t} \\
+    Y_{t} - Y_{t-1} &amp;= \beta_{0} + \varepsilon_{t}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Adding a constant to a white noise process <strong>still results in a white noise process</strong>, thus the above is valid.</p>
+</div>
+<p>AR(1) models are stationary, as they have a constant mean, variance and covariance:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(y_{t}) &amp;= \frac{\beta_{0}}{1 - \beta_{1}} \\
+    \text{Var}(y_{t}) &amp;= \frac{\sigma^{2}}{1 - \beta^{2}_{1}} \\
+    \text{Cov}(Y_{t}, Y_{t-k}) &amp;= \beta^{k}_{1}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above is true because an AR(1) model can be <strong>recursively expressed</strong> as a sum of itself. Using the geometric <strong>sum to infinity</strong>, the mean and variance are derived:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{t}
+    &amp;= \beta_{0} + \beta_{1} \cdot y_{t-1} + \varepsilon_{t} \\
+    &amp;= \beta_{0} + \beta_{1} \cdot (\beta_{0} + \beta_{1} \cdot y_{t-2} + \varepsilon_{t}) + \varepsilon_{t-1} \\
+    &amp;= \beta_{0} + \beta_{0} \cdot \beta_{1} + \beta^{2}_{1} \cdot y_{t-2}
+    + \varepsilon_{t} + \beta_{1} \cdot \varepsilon_{t-1} \\
+    &amp;= \dots \\
+    &amp;= (\beta_{0} + \beta_{0} \cdot \beta_{1} + \dots)
+    + (\varepsilon_{t} + \beta_{1} \cdot \varepsilon_{t} + \dots)
+\end{aligned}
+\]</div>
+<p>Thus, for the model to be stationary, the sum to infinity MUST exist. This is fulfilled if <span class="arithmatex">\(-1 \lt \beta_{1} \lt 1\)</span>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We can determine if autoregression is a good choice to model the data based on the following, which can be determined using different plots:</p>
+<ol>
+<li>If the series is stationary</li>
+<li>If adjacent (in time) values follow a linear trend</li>
+<li>Autocorrelations follow a <strong>decreasing geometric series</strong> as <span class="arithmatex">\(k\)</span> increases</li>
+</ol>
+<p>The third point is in reference to the relationship between autocorrelation and the regression coefficient. Since <span class="arithmatex">\(|\beta_{1}| \lt 1\)</span>, the autocorrelation will be <strong>decreasing for higher powers</strong>.</p>
+</div>
+<h3 id="autocorrelation"><strong>Autocorrelation</strong><a class="headerlink" href="#autocorrelation" title="Permanent link">&para;</a></h3>
+<p>Autocorrelation refers to the correlation between an observation and a "lagged" version of itself. The k-lagged autocorrelation determines the correlation for <strong>each observation</strong> and a <span class="arithmatex">\(k\)</span> lagged version of itself:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \varrho_{k} &amp;= \text{Corr}(Y_{t}, Y_{t-k}) \\
+    \hat{\varrho}_{k} &amp;= \frac{\sum^{n}_{k+1} (y_{t-k} -\bar{y})(y_{t} -\bar{y})}{\sum^{n}_{1} (y_{t} - \bar{y})}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the 1-lag autocorrelation is positive, it is said to be <strong>Meandering process</strong>. This fact is stated in the text but does not have an intuitive explanation.</p>
+</div>
+<p>In order to determine if autocorrelation is truly present, a hypothesis test can be used:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \varrho = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}: \varrho \ne 0\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{SE}(\hat{\varrho}_{k}) &amp;= \frac{1}{\sqrt{n}} \\
+    Q_{\text{Statistic}} &amp;= \frac{\hat{\varrho}_{k}}{\text{SE}(\hat{\varrho}_{k})} \\
+    Q_{\text{Statistic}} &amp;\sim N(0,1)
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For the purposes of this exam, it is assumed that the standard error of the autocorrelation estimate is <strong>constant regardless of the lag</strong>. In reality, there would intuitively, be some dependency.</p>
+</div>
+<h3 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h3>
+<h2 id="smoothing"><strong>Smoothing</strong><a class="headerlink" href="#smoothing" title="Permanent link">&para;</a></h2>
+<p>Smoothing is a technique that involves averaging data points over a period to <strong>remove short-term fluctuations</strong> (reducing noise) and thus better revealing the underlying signal.</p>
+<h3 id="moving-average-smoothing"><strong>Moving Average Smoothing</strong><a class="headerlink" href="#moving-average-smoothing" title="Permanent link">&para;</a></h3>
+<p>The (simple) average at a given time is the <strong>arithmetic average</strong> of the last <span class="arithmatex">\(k\)</span> observations, where <span class="arithmatex">\(k\)</span> is known as the <strong>moving average length</strong>. The collection of MAs for each observation creates a MA-smoothed time series:</p>
+<div class="arithmatex">\[
+    \text{MA}_{t,k}
+    = \frac{y_{t} + y_{t-1} + \dots + y_{t-k+1}}{k}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The effect of smoothing is proportional to <span class="arithmatex">\(k\)</span>. However, there is no smoothing is <span class="arithmatex">\(k=1\)</span>.</p>
+</div>
+<p>Note that the process can be repeated on the smoothed time series, creating a <strong>Doubly Smoothed</strong> time series:</p>
+<div class="arithmatex">\[
+   \text{MA}^{(2)}_{t,k}
+   = \frac{\text{MA}_{t,k} + \text{MA}_{t-1,k} + \dots + \text{MA}_{t-k+1,k}}{k} 
+\]</div>
+<h3 id="exponential-smoothing"><strong>Exponential Smoothing</strong><a class="headerlink" href="#exponential-smoothing" title="Permanent link">&para;</a></h3>
+<p>Exponential Smoothing follows a similar process, using a <strong>weighted average</strong> of ALL past observations:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{ES}_{t}
+    &amp;= (1-w) \cdot (y_{t} + w \cdot y_{t-1} + w^{2} \cdot y_{t-2} + \dots + w^{t} \cdot y_{0}) \\
+    &amp;= (1-w) y_{t} + (1-w) w \cdot y_{t-1} + (1-w) w^{2} \cdot y_{t-2} + \dots + (1-w) w^{t} \cdot y_{0} 
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The effect of smoothing is proportional to <span class="arithmatex">\(w\)</span>.</p>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{ES}^{(2)}_{t}
+    &amp;= (1-w) \cdot (\text{ES}_{t} + w \cdot \text{ES}_{t-1} + \dots + w^{t} \cdot \text{ES}_{0}) \\
+    &amp;= (1-w) \text{ES}_{t} + (1-w) w \cdot \text{ES}_{t-1} + \dots + (1-w) w^{t} \cdot \text{ES}_{0} 
+\end{aligned}
+\]</div>
 <h2 id="other-models"><strong>Other Models</strong><a class="headerlink" href="#other-models" title="Permanent link">&para;</a></h2>
-<h3 id="smoothing">Smoothing?<a class="headerlink" href="#smoothing" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Violation of Independence Assumption: In linear regression, one of the key assumptions is that the observations (data points) are independent of each other. In time series data, observations are often dependent on previous observations, violating this assumption. Time series data typically exhibit autocorrelation, where the value at one time point is correlated with values at previous time points.
-Temporal Order Matters: Time series data has a natural temporal ordering, and the order of observations is crucial. Linear regression does not account for this temporal structure, which is important in understanding and modeling time-dependent patterns.
-Seasonality and Trends: Time series data often contains seasonality (repeating patterns) and trends, which linear regression may not capture well without additional modifications. Seasonal and trend components introduce non-linearity into the data.
-Non-Constant Variance: Time series data can have changing variance over time, known as heteroscedasticity. Linear regression assumes constant variance, which may not hold in many time series datasets.
-Auto-Regressive Components: Time series data can exhibit autoregressive behavior, where future values depend on past values. Linear regression does not incorporate lagged values as predictors, which are essential for modeling autoregressive behavior.
-</code></pre></div>
+<h3 id="seasonal-models"><strong>Seasonal Models</strong><a class="headerlink" href="#seasonal-models" title="Permanent link">&para;</a></h3>
+<h3 id="volatility-models"><strong>Volatility Models</strong><a class="headerlink" href="#volatility-models" title="Permanent link">&para;</a></h3>
+<p>So far, all the models discussed cannot work with non-stationary data. However, if the data exhibits <strong>non-constant variance</strong>, there are two models that can be used:</p>
+<ul>
+<li>Autoregressive Changing Heteroscedasticity (<strong>ARCH</strong>) - Based on past error terms</li>
+<li>Generalized Autoregressive Changing Heteroscedasticity (<strong>GARCH</strong>) - Based on past error terms AND past conditional variances</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{ARCH}(p)
+    &amp;= \sigma^{2}_{t} \\
+    &amp;= \theta + \gamma_{1} \cdot \varepsilon^{2}_{t-1} + \dots + \gamma_{p} \cdot \varepsilon^{2}_{t-p} \\
+    \\
+    \text{GARCH}(p,q)
+    &amp;= \sigma^{2}_{t} \\
+    &amp;= \theta + \gamma_{1} \cdot \varepsilon^{2}_{t-1} + \dots + \gamma_{p} \cdot \varepsilon^{2}_{t-p}
+    + \delta_{1} \cdot \sigma^{2}_{t-1} + \dots + \delta_{q} \cdot \sigma^{2}_{t-q} \\
+\end{aligned}
+\]</div>
+<p>Take note of the following key facts for the model:</p>
+<ul>
+<li>The regression coefficients are estimated using MLE</li>
+<li>The regression coefficients must be positive and sum to 1</li>
+<li><span class="arithmatex">\(\theta\)</span> is known as the <strong>Long Run Volatility Parameter</strong> and must also be positive</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above two models assume that conditional variance can change, but the <strong>unconditional variance is still constant</strong>; still weakly stationary.</p>
+<p>Thus, the unconditional variance for both ARCH and GARCH can be expressed as:</p>
+<div class="arithmatex">\[
+    \text{Var}(\varepsilon_{t}) = \frac{\theta}{1 - \sum \text{Coefficients}} 
+\]</div>
+</div>
 
 
 
