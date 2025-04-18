@@ -1204,15 +1204,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#naive-bayes" class="md-nav__link">
-    Naive Bayes
+  <a href="#k-nearest-neighbours" class="md-nav__link">
+    K-Nearest Neighbours
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#k-nearest-neighbours" class="md-nav__link">
-    K Nearest Neighbours
+  <a href="#naive-bayes" class="md-nav__link">
+    Naive Bayes
   </a>
   
 </li>
@@ -1356,15 +1356,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#naive-bayes" class="md-nav__link">
-    Naive Bayes
+  <a href="#k-nearest-neighbours" class="md-nav__link">
+    K-Nearest Neighbours
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#k-nearest-neighbours" class="md-nav__link">
-    K Nearest Neighbours
+  <a href="#naive-bayes" class="md-nav__link">
+    Naive Bayes
   </a>
   
 </li>
@@ -1384,9 +1384,23 @@
                   
 
 
-<h1 id="other-methods">Other Methods<a class="headerlink" href="#other-methods" title="Permanent link">&para;</a></h1>
+<h1 id="other-methods"><strong>Other Methods</strong><a class="headerlink" href="#other-methods" title="Permanent link">&para;</a></h1>
+<p>This section covers other methods that do not fit well with the theme of the other chapters.</p>
+<h2 id="k-nearest-neighbours"><strong>K-Nearest Neighbours</strong><a class="headerlink" href="#k-nearest-neighbours" title="Permanent link">&para;</a></h2>
+<p><strong>K-Nearest Neighbours</strong> (KNN) is non-parametric method that can be used in a regression or classification setting:</p>
+<ol>
+<li>Identify the observation in vector space</li>
+<li>Identify the <span class="arithmatex">\(k\)</span> <strong>nearest observations</strong> (based on Euclidean Distance)</li>
+<li>Take the average of the observations in (2) as the prediction (regression) or the most frequent category among them (classification)</li>
+</ol>
+<p><span class="arithmatex">\(k\)</span> is a measure of <strong>flexibility</strong> - it should not be too large such that observations that are not closely related are used, but it cannot be too small such that it fails to capture the signal.</p>
+<!-- Obtained from Research Gate -->
+<p><img alt="KNN" class="center" src="../Assets/11.%20Other%20Methods.md/KNN.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not confuse K-means clustering and K-Nearest Neighbours! Both contain <span class="arithmatex">\(k\)</span> but have very different functions.</p>
+</div>
 <h2 id="naive-bayes">Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permanent link">&para;</a></h2>
-<h2 id="k-nearest-neighbours">K Nearest Neighbours<a class="headerlink" href="#k-nearest-neighbours" title="Permanent link">&para;</a></h2>
 
 
 

@@ -1244,6 +1244,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#transformations" class="md-nav__link">
     Transformations
   </a>
@@ -1653,6 +1660,13 @@
           <li class="md-nav__item">
   <a href="#l1-lasso" class="md-nav__link">
     L1: LASSO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
   </a>
   
 </li>
@@ -2152,7 +2166,15 @@ Var(\hat{\beta}) =
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The penalty term is known as the <span class="arithmatex">\(\ell_{2}\)</span> norm of the vector of predictors. The <strong>intercept is untouched</strong>.</p>
+<p>The sum of the squared coefficients is known as the <strong><span class="arithmatex">\(\ell_{2}\)</span> norm</strong>. It is constrained to be smaller than some specified <strong>budget</strong>:</p>
+<div class="arithmatex">\[
+    \sum \beta^{2}_{p} \le a
+\]</div>
+<p>When there are only two predictors, the <span class="arithmatex">\(\ell_{2}\)</span> norm forms a <strong>Circle</strong>, where all points within the Circle fulfill the penalty; the points along the edge <strong>just fulfil</strong> the penalty.</p>
+<p>The Ridge coefficients are the point where the set of coefficients (Contours) that minimize the constrained RSS also fulfil the <span class="arithmatex">\(\ell_{2}\)</span> constraint; where the contours meet the Circle:</p>
+<p><!-- Obtained from Towards Data Science -->
+<img alt="RIDGE_CIRCLE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/RIDGE_CIRCLE.png" /></p>
+<p>The key is that due to the shape of the circle, the contours will never intersect the circle along the axis. Thus, it will <strong>NEVER shrink any coefficient to 0</strong>.</p>
 </div>
 <p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>hyperparameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong></p>
 <ul>
@@ -2176,13 +2198,32 @@ Var(\hat{\beta}) =
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The penalty term is known as the <span class="arithmatex">\(\ell_{1}\)</span> norm of the vector of predictors. The <strong>intercept is untouched</strong>.</p>
+<p>The sum of the absolute coefficients is known as the <strong><span class="arithmatex">\(\ell_{1}\)</span> norm</strong>. It is constrained to be smaller than some specified <strong>budget</strong>:</p>
+<div class="arithmatex">\[
+    \sum |\beta_{p}| \le a
+\]</div>
+<p>When there are only two predictors, the <span class="arithmatex">\(\ell_{1}\)</span> norm forms a <strong>Diamond</strong>, where all points within the diamond fulfill the penalty; the points along the edge <strong>just fulfil</strong> the penalty.</p>
+<p>The LASSO coefficients are the point where the set of coefficients that minimize the constrained RSS also fulfil the <span class="arithmatex">\(\ell_{1}\)</span> constraint; where the contours meet the diamond:</p>
+<p><!-- Obtained from DS100 -->
+<img alt="LASSO_DIAMOND" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND.png" /></p>
+<p>The key is that since the corners of the diamond are always on the axes, it is possible for the contours to intersect the diamond at that point (where one of the other coefficients is 0), thus allowing for LASSO to shrink coefficients to 0.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the budget is <strong>sufficiently high</strong>, the diamond will grow larger and the intersection point will no longer be at the corners. In this case, LASSO will not drop any predictors (resulting in a more complex model):</p>
+<p><!-- Obtained from DS100 -->
+<img alt="LASSO_DIAMOND_2" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND_2.png" /></p>
+<p>If the budget is too high, the diamond will grow larger such that the original OLS estimates already fulfil the constraints, resulting in the regularization method having no effect at all:</p>
+<p><!-- Obtained from DS100 -->
+<img alt="LASSO_DIAMOND_3" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND_3.png" /></p>
+<p>The second point above applies to Ridge regression as well.</p>
 </div>
 <p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the hyperparameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>This it is known as the <strong>Least Absolute Shrinktage Selection Operator</strong> (LASSO). Its ability to drop predictors allows it to be used as a <strong>model selection</strong> tool.</p>
 </div>
+<h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
 <p>There is no clear advantage between the two; the key difference lies in the <strong>ability to drop predictors</strong>:</p>
 <p><center></p>
 <table>
@@ -2211,13 +2252,9 @@ Var(\hat{\beta}) =
 </tr>
 </tbody>
 </table>
-<p><center></p>
+<p></center></p>
 <!-- Obtained from Towards Data Science -->
 <p><img alt="REGULARIZATION_VISUAL" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGULARIZATION_VISUAL.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The approach that combines both Ridge and LASSO together is known as the <strong>Elastic Net</strong>.</p>
-</div>
 <h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
 <p>Before using the two methods, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since they are now combined together in the constraint.</p>
 <div class="admonition note">
@@ -2265,6 +2302,7 @@ Var(\hat{\beta}) =
     &amp;= 50.7909 - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
 \end{aligned}
 \]</div>
+<p>The two regularizations methods are <strong>Scale Equivariant</strong> as they will provide the <strong>same estimate</strong> regardless of whether the underlying variables have been scaled or not. This is <strong>NOT true for regular OLS</strong>.</p>
 
 
 

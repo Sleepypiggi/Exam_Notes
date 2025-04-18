@@ -1148,6 +1148,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1162,8 +1169,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#information-criteria" class="md-nav__link">
-    Information Criteria
+  <a href="#training-error-approach" class="md-nav__link">
+    Training Error Approach
   </a>
   
 </li>
@@ -1465,6 +1472,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1479,8 +1493,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#information-criteria" class="md-nav__link">
-    Information Criteria
+  <a href="#training-error-approach" class="md-nav__link">
+    Training Error Approach
   </a>
   
 </li>
@@ -1548,118 +1562,169 @@
 
 <h1 id="model-selection"><strong>Model Selection</strong><a class="headerlink" href="#model-selection" title="Permanent link">&para;</a></h1>
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>As previously covered, there are goodness of fit measures that can be used to determine the best model from a given spread.</p>
-<p>However, the number of possible models tend to <strong>increase exponentially</strong> with the number of possible predictors as <strong>each combination of predictors</strong> is considered a different model.</p>
-<div class="arithmatex">\[
-    \text{Number of Possible Models} = 2^{g}
-\]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The above does NOT consider the possibility of interaction terms or polynomial predictors; the amount is <strong>understated</strong>.</p>
-<p>Similarly, the above is the number of models for a single machine learning type. In reality, <strong>multiple methods could be considered</strong> leading to an even higher number!</p>
-</div>
+<p>As previously covered, there are <strong>goodness of fit</strong> measures that can be used to determine the best model from a given spread. However, the number of possible models tend to <strong>increase exponentially</strong> with the number of possible predictors as <strong>each combination of predictors</strong> is considered a different model.</p>
 <p>Thus, it is <strong>impractical</strong> to fit every possible model. There are well-accepted algorithms that can be used to find the determine the best model in an efficient manner.</p>
 <!-- Obtained from Kaggle -->
 <p><img alt="MODEL_SELECTION" class="center" src="../Assets/5.%20Model%20Selection.md/MODEL_SELECTION.png" /></p>
-<p>In general, model selection helps to produce a <strong>simpler model</strong> that is easier to interpret with lower variance predictions.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In general, model selection helps to pyroduce a <strong>simpler model</strong> that is easier to interpret with lower variance predictions.</p>
+</div>
 <h2 id="selection-algorithm"><strong>Selection Algorithm</strong><a class="headerlink" href="#selection-algorithm" title="Permanent link">&para;</a></h2>
 <h3 id="best-subset-selection"><strong>Best Subset Selection</strong><a class="headerlink" href="#best-subset-selection" title="Permanent link">&para;</a></h3>
-<p>The <strong>Best Subset Selection</strong> algorithm is the ideal model selection algorithm, assuming there are no resource constraints.</p>
-<p>There are three key considerations:</p>
+<p>The <strong>Best Subset Selection</strong> algorithm is the ideal model selection algorithm, assuming there are no resource constraints:</p>
 <ol>
-<li><strong>How many predictors</strong> should the model use?</li>
-<li><strong>Which of the predictors</strong> should be used?</li>
-<li>What <strong>criteria</strong> should be used to determine the 'best' model?</li>
+<li>For every possible number of predictors (<span class="arithmatex">\(p\)</span>), fit every combination of available predictors (<span class="arithmatex">\(g\)</span>)</li>
+<li>Among the models with the same number of predictors, select the model with the highest <span class="arithmatex">\(R^{2}\)</span> as the best model for that number of predictors (<span class="arithmatex">\(M_{p}\)</span>)</li>
+<li>Among the <span class="arithmatex">\(M_{p}\)</span>, select the best overall model using a <strong>Selection Criteria</strong> of choice</li>
 </ol>
-<p>Thus, the algorithm tracks the following variables:</p>
-<ul>
-<li>Predictors allowed in the model <span class="arithmatex">\((p)\)</span></li>
-<li>Predictors being used in the model <span class="arithmatex">\((g)\)</span></li>
-<li>Best combination of predictors for a given number of allowed predictors <span class="arithmatex">\((M_{p})\)</span></li>
-<li>Best combination of predictors for the best number of allowed predictors; the <strong>final model</strong> <span class="arithmatex">\((M_{f})\)</span></li>
-</ul>
-<div class="highlight"><pre><span></span><code>    FOR p = 0 TO p_max THEN
-        FOR g = 1 TO g_max THEN
-
-            1. Fit all possible combinations of g into the p allowed predictors
-            2. Compute the selection criteria for the fitted model
-
-        NEXT g
-
-        1. Set M_p to be the model with the best fit among all g
-
-    NEXT p
-
-    1. Set M_f to be the model with the best selection score among all p
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The process is akin to using a double loop:</p>
+<div class="highlight"><pre><span></span><code>FOR p = 0 TO p THEN
+    FOR g = 1 TO g THEN
 </code></pre></div>
-<p>As alluded to, this method is impractical given the number of models that need to be fitted. However, it is important to understand what is the theoretically best possible method to select models as a benchmark.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The number of predictors allowed in the model starts at 0 to reflect that the null model is also a possible model.</p>
 </div>
+<p>Best Subset Selection considers EVERY possible model, which is <strong>impractical</strong> for large <span class="arithmatex">\(g\)</span>. However, it serves as a theoretical benchmark for the "best" possible model:</p>
+<div class="arithmatex">\[
+    \text{Models Considered} = 2^{g}
+\]</div>
 <h3 id="stepwise-selection"><strong>Stepwise Selection</strong><a class="headerlink" href="#stepwise-selection" title="Permanent link">&para;</a></h3>
-<p>Stepwise Selection using an iterative algorithm that 'locks' in the </p>
-<p><strong>Forward Stepwise</strong> starts with 1 predictor and iteratively adds one predictor at a time:</p>
+<p><strong>Forward Stepwise</strong> starts with 1 predictor and <strong>iteratively adds</strong> one predictor at a time:</p>
 <ol>
-<li>Fit all possible models for <span class="arithmatex">\(p = 1\)</span></li>
-<li>Determine the best model based on the selection criteria</li>
-<li>Fit a new model by <strong>ADDING ONE predictor</strong> from the remaining predictors to the previous model; consider all possibilities</li>
-<li>Repeat (2) - (3) for all until <span class="arithmatex">\(p = p_{\text{Max}}\)</span></li>
+<li>Fit all possible models for <span class="arithmatex">\(p=1\)</span></li>
+<li>Among the fitted models, select the model with the highest <span class="arithmatex">\(R^{2}\)</span> as <span class="arithmatex">\(M_{p}\)</span></li>
+<li>Fit a new model by <strong>ADDING a predictor</strong> to the previous model; consider all possibilities</li>
+<li>Repeat step (2) - (3) for all <span class="arithmatex">\(p\)</span> to determine all <span class="arithmatex">\(M_{p}\)</span></li>
+<li>Among the <span class="arithmatex">\(M_{p}\)</span>, select the best overall model using a <strong>Selection Criteria</strong> of choice</li>
 </ol>
 <!-- Obtained from Quantifying Health -->
 <p><img alt="FORWARD_STEPWISE" class="center" src="../Assets/5.%20Model%20Selection.md/FORWARD_STEPWISE.png" /></p>
-<p><strong>Backward Stepwise</strong> starts with the maximum and iteratively drops one predictor at a time:</p>
+<p><strong>Backward Stepwise</strong> starts with the maximum and <strong>iteratively drops</strong> one predictor at a time:</p>
 <ol>
-<li>Fit all possible models for <span class="arithmatex">\(p = p_{\text{Max}}\)</span></li>
-<li>Fit a new model by <strong>DROPPING ONE predictor</strong> from the current predictors from the previous model; consider all possibilities</li>
-<li>Determine the best model based on the selection criteria</li>
-<li>Repeat (2) - (3) for all until <span class="arithmatex">\(p = 1\)</span></li>
+<li>Fit all possible models for <span class="arithmatex">\(p=p\)</span></li>
+<li>Among the fitted models, select the model with the highest <span class="arithmatex">\(R^{2}\)</span> as <span class="arithmatex">\(M_{p}\)</span></li>
+<li>Fit a new model by <strong>DROPPING a predictor</strong> from the previous model; consider all possibilities</li>
+<li>Repeat step (2) - (3) for all <span class="arithmatex">\(p\)</span> to determine all <span class="arithmatex">\(M_{p}\)</span></li>
+<li>Among the <span class="arithmatex">\(M_{p}\)</span>, select the best overall model using a <strong>Selection Criteria</strong> of choice</li>
 </ol>
 <!-- Obtained from Quantifying Health -->
 <p><img alt="BACKWARD_STEPWISE" class="center" src="../Assets/5.%20Model%20Selection.md/BACKWARD_STEPWISE.png" /></p>
-<p>Using either of the approaches, the <strong>number of models fitted reduces</strong>, especially so for large <span class="arithmatex">\(g\)</span>:</p>
+<p>Using either of the approaches, the <strong>number of models fitted reduces</strong>, making it an appealing choice compared to best subset selection:</p>
 <div class="arithmatex">\[
     \text{Number of Stepwise} = 1 + \frac{g(g+1)}{2}
 \]</div>
-<p>However, stepwise selection is a <strong>greedy algorithm</strong> as it picks the best available model at that moment, which may cause it to <strong>miss the overall best model</strong>, since it does not allow retrospective changes.</p>
+<p>However, stepwise selection is a <strong>greedy algorithm</strong> as it picks the best available model at that moment, which may cause it to <strong>miss the overall best model</strong>, since it does not allow for retrospective changes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The variable to add or drop is typically determined using <strong>hypothesis testing</strong> to determine the significance of each variable. </p>
+<p>At each step, there might be multiple variables that can be added or dropped. It is important to only add or drop variables <strong>ONE at a time</strong> (most or least significant), as there might <strong>second order impact</strong> which changes its significance to the model.</p>
+<p>The above is applicable even outside of a stepwise model selection context.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>In general, whenever asked to add or drop variables, it should always be done <strong>one at a time</strong> to account for possible second order effects on the other variables, even outside of a stepwise context. </p>
+</div>
+<h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
+<p>As its name suggests the best subset approach will always pick the model with the <strong>lowest RSS</strong> (highest R^{2}) as it considers all possible models. The other two algorithms have no guarantee to pick such a model given its greedy approach.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Neither models have any guarantee to pick the model with the lowest test error, as they are not evaluated using test error.</p>
+</div>
+<p>The number of models considered for every possible <span class="arithmatex">\(p\)</span> and in totality across the three approaches are summarized below:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Number of Predictors</strong></th>
+<th align="center"><strong>Best</strong></th>
+<th align="center"><strong>Forward</strong></th>
+<th align="center"><strong>Backward</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">k</td>
+<td align="center"><span class="arithmatex">\(g \choose k\)</span></td>
+<td align="center"><span class="arithmatex">\(p-k+1\)</span></td>
+<td align="center">k+1</td>
+</tr>
+<tr>
+<td align="center">p</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">Total</td>
+<td align="center"><span class="arithmatex">\(2^{g}\)</span></td>
+<td align="center"><span class="arithmatex">\(1 + \frac{g(g+1)}{2}\)</span></td>
+<td align="center"><span class="arithmatex">\(1 + \frac{g(g+1)}{2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For <span class="arithmatex">\(p=0\)</span> and <span class="arithmatex">\(p=p\)</span>, all three algorithms will result in the <strong>SAME best model</strong> for that number of predictors <span class="arithmatex">\(M_{p}\)</span>. This is because there is only <strong>ONE possible model for each</strong> - a model with no predictors and one with all predictors, respectively.</p>
 </div>
 <h2 id="selection-criteria"><strong>Selection Criteria</strong><a class="headerlink" href="#selection-criteria" title="Permanent link">&para;</a></h2>
-<h3 id="information-criteria"><strong>Information Criteria</strong><a class="headerlink" href="#information-criteria" title="Permanent link">&para;</a></h3>
-<p>Recall how the adjusted R-squared applies a penalty for adding parameters to the model.</p>
-<p>Similarly, there are other more general metrics that achieve the same effect:</p>
+<p>Selection Criteria is the metric used to choose the final model of all the shortlisted models with different number of predictors.</p>
+<p>During the shortlisting process, the models being compared had the same number of predictors, thus <span class="arithmatex">\(R^{2}\)</span> provided a fair comparison. However, since each model now has a different number of predictors, <span class="arithmatex">\(R^{2}\)</span> is <strong>no longer appropriate</strong> as it is affected by the number of predictors. Thus, the following metrics can be used instead:</p>
+<ol>
+<li>Adjusted <span class="arithmatex">\(R^{2}\)</span></li>
+<li>Mallow's <span class="arithmatex">\(C_{p}\)</span></li>
+<li>Information Criteria</li>
+</ol>
+<p>The above metrics are essentially trying to <strong>mimic</strong> the test error, by applying an adjustment on the training error based on the number of predictors (flexibility). An alternative approach is to directly estimate the test error using <strong>Validation Set</strong> approaches.</p>
+<h3 id="training-error-approach"><strong>Training Error Approach</strong><a class="headerlink" href="#training-error-approach" title="Permanent link">&para;</a></h3>
+<p>There are three new metrics to be covered, all based off the same intuition:</p>
 <ul>
+<li>Mallow's <span class="arithmatex">\(C_p\)</span></li>
 <li>Aikake’s Information Criterion (AIC)</li>
 <li>Bayesian Information Criterion (BIC)</li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
+    C_{p} &amp;= \frac{\text{RSS}}{n} + \frac{2 \cdot \text{MSE}}{n} \cdot p \\
+    \text{AIC} &amp;= \frac{\text{RSS}}{n \cdot \text{MSE}} + \frac{2}{n} \cdot p \\
+    \text{BIC} &amp;= \frac{\text{RSS}}{n \cdot \text{MSE}} + \frac{\ln n}{n} \cdot p
 \end{aligned}
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There are <strong>slightly different formulations</strong> for AIC and BIC; the above is what is used in the source text. Regardless, they should arrive at similar conclusions.</p>
 </div>
-<p>They are not meant to be used to evaluate a <em>particular</em> model’s effectiveness. They are used to compare the <strong>relative effectiveness</strong> of models; as a model selection criteria.</p>
+<p>The metrics not meant to be used to evaluate a <em>particular</em> model’s effectiveness. They are used to compare the <strong>relative effectiveness</strong> of models; as a model selection criteria. The lower the metrics, the better the model in comparison to others.</p>
+<p>Notice that the first term is a measure of the <strong>training error</strong>, while the second term is the <strong>adjustment</strong> for the number of predictors. The lower the metric the better, thus the adjustment <strong>penalizes models with more predictors</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Mallows <span class="arithmatex">\(C_{p}\)</span> and AIC will always produce the same relative model selection as the only difference between them is that AIC is further scaled by the MSE. However, since MSE is positive, the relative strength of models is unaffected.</p>
+<p>Additionally notice that AIC and BIC are extremely similar, with the only difference being on the penalty - where AIC uses a flat 2 while BIC uses <span class="arithmatex">\(\ln n\)</span>. Both will produce the <strong>same selection</strong> for small sample sizes, however for large sample sizes (above 7), BIC penalizes the larger models more.</p>
+<div class="arithmatex">\[
+    \ln 7 \approx 2
+\]</div>
+</div>
 <h3 id="validation-approach"><strong>Validation Approach</strong><a class="headerlink" href="#validation-approach" title="Permanent link">&para;</a></h3>
-<p>As mentioned in the beginning, a model's effectiveness should NOT be evaluated using data that was used to train it. Thus, for model selection, the selection of the model should be based on data that was not used to train it; using <strong>Validation Data</strong>.</p>
-<p>The MSE determined using the Validation data is known as the <strong>Validation Error</strong>, which is an <strong>estimate of the final Test Error</strong> (since both are based on data that was not used to train the model).</p>
+<p>As mentioned in the beginning, a model's effectiveness should NOT be evaluated using data that was used to train it. Thus, for model selection, the selection of the final model should be based on data that was not used to train it; using <strong>Validation Data</strong>.</p>
+<p>The MSE determined using the Validation data is known as the <strong>Validation Error</strong>, which is an <strong>estimate of the Test Error</strong> (since both are based on data that was not used to train the model).</p>
 <p>The model with the <strong>lowest Validation Error</strong> is chosen as the final model. Once determined, <strong>re-train the final model</strong> using ALL non-test observations (Training + Validation data).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The final model must be retrained as it should be <strong>using as much as information as possible</strong>.</p>
+<p>The model that was selected was trained only using the validation data. When retrained with the all data available (training + validation), a slightly different model will be produced.</p>
 </div>
 <!-- Obtained from Galaxy Inferno -->
 <p><img alt="VALIDATION_SET" class="center" src="../Assets/5.%20Model%20Selection.md/VALIDATION_SET.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Do not confuse the two processes:</p>
-<ol>
-<li>Model Selection uses In-Sampl</li>
-</ol>
-</div>
 <h4 id="cross-validation"><strong>Cross Validation</strong><a class="headerlink" href="#cross-validation" title="Permanent link">&para;</a></h4>
 <p>A more systematic method is to use <strong>Cross Validation</strong> instead:</p>
 <ul>
