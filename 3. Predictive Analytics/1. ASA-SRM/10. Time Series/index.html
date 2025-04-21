@@ -1813,7 +1813,7 @@
 <img alt="RANDOM_WALK_VARIANCE" class="center" src="../Assets/10.%20Time%20Series.md/RANDOM_WALK_VARIANCE.png" /></p>
 <p>Mathematically, it is the variance arising from the sum of errors:</p>
 <div class="arithmatex">\[
-    \text{Var}(\sum \varepsilon_{t}) = t \cdot \sigma^{2}
+    \text{Var} \left(\sum \varepsilon_{t} \right) = t \cdot \sigma^{2}
 \]</div>
 </div>
 <h2 id="autoregression"><strong>Autoregression</strong><a class="headerlink" href="#autoregression" title="Permanent link">&para;</a></h2>
@@ -1889,6 +1889,20 @@
     \hat{\varrho}_{k} &amp;= \frac{\sum^{n}_{k+1} (y_{t-k} -\bar{y})(y_{t} -\bar{y})}{\sum^{n}_{1} (y_{t} - \bar{y})}
 \end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is helpful to use an illustration to know which pairs of observations are considered together for autocorrelation:</p>
+<p><!-- Self Made -->
+<img alt="AUTOCORRELATION_EXAMPLE" class="center" src="../Assets/10.%20Time%20Series.md/AUTOCORRELATION_EXAMPLE.png" /></p>
+<p>Using the above example, the autocorrelation is calculated as follows:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Autocorrelation}
+    &amp;=\frac
+        {(A-\bar{y})(C-\bar{y}) + (B-\bar{y})(D-\bar{y}) + (A-\bar{y})(C-\bar{y})}{\sum (y - \bar{y})^{2}}
+\end{aligned}
+\]</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If the 1-lag autocorrelation is positive, it is said to be <strong>Meandering process</strong>. This fact is stated in the text but does not have an intuitive explanation.</p>

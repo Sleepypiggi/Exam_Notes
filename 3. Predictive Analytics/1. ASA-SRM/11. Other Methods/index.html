@@ -1393,9 +1393,18 @@
 <li>Identify the <span class="arithmatex">\(k\)</span> <strong>nearest observations</strong> (based on Euclidean Distance)</li>
 <li>Take the average of the observations in (2) as the prediction (regression) or the most frequent category among them (classification)</li>
 </ol>
-<p><span class="arithmatex">\(k\)</span> is a measure of <strong>flexibility</strong> - it should not be too large such that observations that are not closely related are used, but it cannot be too small such that it fails to capture the signal.</p>
 <!-- Obtained from Research Gate -->
 <p><img alt="KNN" class="center" src="../Assets/11.%20Other%20Methods.md/KNN.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Given a table of data, it might be helpful to draw the scatterplot (to some reasonable scale) to get a sense of the distance.</p>
+<p>If the data has more than three dimensions, manually calculating the euclidean distance is the only method.</p>
+</div>
+<p><span class="arithmatex">\(k\)</span> is a measure of <strong>flexibility</strong> - it should not be too large such that observations that are not closely related are used, but it cannot be too small such that it fails to capture the signal.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If <span class="arithmatex">\(k\)</span> is so large that it encompasses the entire dataset <span class="arithmatex">\(k=n\)</span>, then the same prediction will be used for ALL observations</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Do not confuse K-means clustering and K-Nearest Neighbours! Both contain <span class="arithmatex">\(k\)</span> but have very different functions.</p>
