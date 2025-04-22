@@ -1601,6 +1601,20 @@
     &amp;= r_{x,y} \cdot \frac{s_{y}}{s_{x}}
 \end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the denominator can be expressed in a few different ways:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \sum (x_{i} - \bar{x})^{2}
+    &amp;= \sum (x^{2}_{i}) - n \bar{x}^{2} \\
+    &amp;= \sum (x^{2}_{i}) - n (\frac{\sum x_{i}}{n})^{2} \\
+    &amp;= \sum (x^{2}_{i}) - n (\frac{(\sum x_{i})^{2}}{n^{2}}) \\
+    &amp;= \sum (x^{2}_{i}) - \frac{(\sum x_{i})^{2}}{n}
+\end{aligned}
+\]</div>
+<p>It is important to know alternate formulations because questions will likely only provide certain components such as <span class="arithmatex">\(\sum (x^{2}_{i})\)</span>.</p>
+</div>
 <p>Graphically, the fitted model will be the <strong>line of best fit</strong> that passes through the sample; the line will pass through the <strong>middle of all observations</strong>, with a <strong>roughly equal residuals above and below</strong> the line:</p>
 <!-- Obtained from ISLR -->
 <p><img alt="BEST_FIT_LINE" class="center" src="../Assets/2.%20Simple%20Linear%20Regression.md/BEST_FIT_LINE.png" /></p>
@@ -1807,8 +1821,7 @@
 <p>The key is understanding that if the null is true (no relationship), then the RegSS and RSS are both noise and will have similar variances. Thus, the ratio of the two will have an F-distribution.</p>
 <h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
 <h3 id="sampling-distributions"><strong>Sampling Distributions</strong><a class="headerlink" href="#sampling-distributions" title="Permanent link">&para;</a></h3>
-<p>Following traditional statistical inference, it is important to assess the quality of the fitted parameters. Thus, it is necessary to understand their <strong>sampling distribution</strong>.</p>
-<p>Recall the expression for the SLR parameters:</p>
+<p>Following traditional statistical inference, it is important to assess the quality of the fitted parameters. Thus, it is necessary to understand their <strong>sampling distribution</strong>. Recall the expression for the SLR parameters:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \hat{\beta}_{0}

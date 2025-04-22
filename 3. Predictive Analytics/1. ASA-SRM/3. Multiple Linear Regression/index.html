@@ -1717,8 +1717,12 @@
 <p>MLR models study how the independent variables <strong>operate together</strong> to influence the dependent variable, thus the regression coefficients have a slightly different interpretation:</p>
 <ul>
 <li><strong>Intercept Parameter</strong> (<span class="arithmatex">\(\beta_{0}\)</span>): <strong>Expected value</strong> of <span class="arithmatex">\(Y\)</span> when <span class="arithmatex">\(X_{1} = X_{2} = \dots = 0\)</span></li>
-<li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{p}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X_{p}\)</span>, assuming all others are constant </li>
+<li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{p}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X_{p}\)</span>, assuming <em>all others are constant</em></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a similar light, for MLR, we consider the <strong>Partial Correlation</strong> between the dependent and independent variable, which holds the effect of all other variables constant.</p>
+</div>
 <h2 id="matrix-notation"><strong>Matrix Notation</strong><a class="headerlink" href="#matrix-notation" title="Permanent link">&para;</a></h2>
 <p>Given that the MLR model can have infinitely many independent variables, expressing the model in regular algebra format can become tedious. Thus, it is commonly expressed in <strong>Matrix Notation</strong> instead:</p>
 <div class="arithmatex">\[
@@ -1842,8 +1846,15 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The adjusted R-squared has <strong>NO INTERPRETATION</strong>. It is more of a measure to <strong>compare the goodness of fit</strong> between different MLR models.</p>
-<p>R-squared does NOT have to be between 0 and 1, thus it CANNOT be interpreted as a proportion of any sorts.</p>
+<p>The adjusted R-squared has <strong>NO INTERPRETATION</strong>. It is more of a <strong>measure to compare</strong> the goodness of fit between different MLR models.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that it is always smaller than or equal to the regular R-squared:</p>
+<div class="arithmatex">\[
+    R^{2}_{\text{Adj}} \le R^{2}
+\]</div>
+<p>Adjusted R-squared is R-squared <strong>with a penalty applied</strong> for the number of predictors. For a model with one predictor, both are the same.</p>
 </div>
 <h3 id="f-test"><strong>F-Test</strong><a class="headerlink" href="#f-test" title="Permanent link">&para;</a></h3>
 <p>Similar to SLR, we can conduct an F-test using the same components as before, adjusted for the <strong>new degrees of freedom</strong>:</p>
@@ -1896,6 +1907,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Similar to the adjusted R-squared, the F-test measures whether the reduction in RSS is "worth" the loss of the degrees of freedom to estimate the new parameters.</p>
+<p>An easy way to remember this is that the F-tests uses the <strong>mean squared</strong>, which already accounts for the degrees of freedom.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2176,7 +2188,7 @@ Var(\hat{\beta}) =
 <img alt="RIDGE_CIRCLE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/RIDGE_CIRCLE.png" /></p>
 <p>The key is that due to the shape of the circle, the contours will never intersect the circle along the axis. Thus, it will <strong>NEVER shrink any coefficient to 0</strong>.</p>
 </div>
-<p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>hyperparameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong></p>
+<p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>shrinkage parameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong>:</p>
 <ul>
 <li><span class="arithmatex">\(\lambda = 0\)</span>: No Shrinkage; same as OLS (maximum flexibiliy)</li>
 <li><span class="arithmatex">\(\lambda = \infty\)</span>: Fully shrinked; all estimates are 0 (minimum flexibility)</li>
@@ -2184,6 +2196,14 @@ Var(\hat{\beta}) =
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Ridge Regression will <strong>NEVER</strong> fully shrink the predictor to 0 for any finite <span class="arithmatex">\(\lambda\)</span>. The resulting coefficients will be <strong>close but never exactly 0</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The budget and shrinkage parameter are <strong>inversely related</strong>:</p>
+<ul>
+<li><strong>Budget</strong>: Causes more shrinkage as it decreases</li>
+<li><strong>Shrinkage</strong>: Causes more shrinkage as it increases</li>
+</ul>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2218,7 +2238,7 @@ Var(\hat{\beta}) =
 <img alt="LASSO_DIAMOND_3" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND_3.png" /></p>
 <p>The second point above applies to Ridge regression as well.</p>
 </div>
-<p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the hyperparameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
+<p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the shrinkage parameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>This it is known as the <strong>Least Absolute Shrinktage Selection Operator</strong> (LASSO). Its ability to drop predictors allows it to be used as a <strong>model selection</strong> tool.</p>

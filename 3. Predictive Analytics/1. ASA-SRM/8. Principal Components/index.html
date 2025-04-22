@@ -1485,7 +1485,10 @@
 <p><img alt="PCA_TWO_COMPONENTS" class="center" src="../Assets/8.%20Principal%20Components.md/PCA_TWO_COMPONENTS.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Recall that being Orthogonal also means that the <strong>Dot Products</strong> of the principal components are 0.</p>
+<p>Recall that being Orthogonal also means that the <strong>Dot Products</strong> of the principal component <strong>LOADINGS</strong> are 0:</p>
+<div class="arithmatex">\[
+    \sum \varphi_{i,j} \cdot \varphi_{i,k} = 0
+\]</div>
 <p>Note that only the dot product of PAIRS of principal components are 0, not for all principal components.</p>
 </div>
 <p>Due to the linear algebra required, the data must first be <strong>Centered</strong> and <strong>Scaled</strong>. Each PC then <strong>passes through the mean</strong> of the data (which is now the origin post centering):</p>
@@ -1526,7 +1529,7 @@
 <p class="admonition-title">Note</p>
 <p>If the data is scaled, then the <strong>sum of squared loadings</strong> for each PC is 1:</p>
 <div class="arithmatex">\[
-    \sum \varphi_{1, k} = 1
+    \sum \varphi^{2}_{1, k} = 1
 \]</div>
 <p>This is another constraint during the fitting process, apart from being Orthogonal.</p>
 </div>
@@ -1588,7 +1591,10 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The key is noticing that since the data was centered, the <strong>mean of the PC is always 0</strong>.</p>
+<p>The key is noticing that since the data was centered, the <strong>mean of the PC is always 0</strong>. The only way for this to occur is if the <strong>sum of scores</strong> for each principal component is 0:</p>
+<div class="arithmatex">\[
+    \sum_{i} z_{i,j} = 0
+\]</div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

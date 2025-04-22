@@ -1687,6 +1687,10 @@
 \]</div>
 <p><span class="arithmatex">\(R^{2}_{p}\)</span> is the R-squared for a model where the p-th predictor is regressed against ALL OTHER predictors. If this R-squared is high, it implies that this predictor is well explained by other predictors (high correlation, high collinearity).</p>
 <p>Naturally, the solution is to <strong>drop highly collinear variables</strong>; keep only one of the bunch.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The VIF for uncorrelated predictors is 1, reflecting that the variance remains <strong>unaffected</strong> by the other variables.</p>
+</div>
 <h2 id="assumption-3-exogenity"><strong>Assumption 3: Exogenity</strong><a class="headerlink" href="#assumption-3-exogenity" title="Permanent link">&para;</a></h2>
 <p><strong>Exogenity</strong> refers to a variable that is <strong>outside</strong> the model and thus must be <strong>independent of the other variables inside the model</strong>. In the context of linear regression, the <strong>errors should be independent of any of the predictors</strong>:</p>
 <div class="arithmatex">\[
