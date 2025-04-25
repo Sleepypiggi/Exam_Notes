@@ -2276,10 +2276,18 @@ Var(\hat{\beta}) =
 <!-- Obtained from Towards Data Science -->
 <p><img alt="REGULARIZATION_VISUAL" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGULARIZATION_VISUAL.png" /></p>
 <h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
-<p>Before using the two methods, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since they are now combined together in the constraint.</p>
+<p>Before using the two methods, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since a penalty is placed on the magnitude of the coefficient.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This was not a problem in regular OLS as the residuals were used, which were all following the scale of the dependent.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above concept is DIFFERENT from <strong>Scale Equivariance</strong> - which refers to the fact that the predicted values <strong>remain unchanged</strong> (hence "equi") despite a change in scale of the predictors. This occurs because the fitting process accounts for the change in scale and <strong>rescales the coefficients</strong> accordingly:</p>
+<ul>
+<li><strong>Regular OLS</strong>: Scale Equivariant</li>
+<li><strong>Regularization</strong>: NOT scale equivariant (Due to the penalty applied)</li>
+</ul>
 </div>
 <p>There are two main methods of transforming predictors:</p>
 <ul>

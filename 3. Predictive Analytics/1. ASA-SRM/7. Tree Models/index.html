@@ -1724,6 +1724,7 @@
 <li><strong>Regression Trees</strong>: <span class="arithmatex">\(m = \frac{p}{3}\)</span></li>
 <li><strong>Classification Trees</strong>: <span class="arithmatex">\(m = \sqrt{p}\)</span></li>
 </ul>
+<p>However, if many variables are correlated, an even smaller value of <span class="arithmatex">\(m\)</span> may be preferred to ensure more unique trees in the ensemble.</p>
 </div>
 <h3 id="boosting"><strong>Boosting</strong><a class="headerlink" href="#boosting" title="Permanent link">&para;</a></h3>
 <p>Boosting refers to the process of <strong>sequentially training</strong> a series of <strong>shallow trees</strong> on the <strong>error of the previous tree</strong>. The strength of weak trees are "boosted" by <strong>aggregating</strong> them together to form a stronger model.</p>
@@ -1764,7 +1765,7 @@
 <p>Gini Index and Cross Entropy are better measures of purity as they are <strong>sensitive to the distribution</strong> of categories within each region, thus they are the <strong>preferred purity measure</strong> when <strong>growing</strong> out a tree. However, when <strong>pruning</strong> a tree, the primary goal is improve predictive accuracy, thus the classification error rate is used instead.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The classification error rate is not sensitive to the distribution of the </p>
+<p>Needless to say, the lower the above metrics, the higher the purity of the node.</p>
 </div>
 <h3 id="purity-measures"><strong>Purity Measures</strong><a class="headerlink" href="#purity-measures" title="Permanent link">&para;</a></h3>
 <p>A key quantity that will be used is the <strong>proportion of correct classifications</strong> in a particular region (<span class="arithmatex">\(p_{c}\)</span>).</p>
@@ -1793,10 +1794,10 @@
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Gini Index and Class Entropy are the preferred purity measures when growing out a tree. This is because they are <strong>sensitive to the distribution</strong> of categories, while classification error is not. Consider the following two examples - the classification error rate is the same but the purity is much higher in the second region:</p>
+<p>Gini Index and Class Entropy are the preferred purity measures when <strong>growing</strong> out a tree. This is because they are <strong>sensitive to the distribution</strong> of categories, while classification error is not. Consider the following two examples - the classification error rate is the same but the purity is much higher in the second region:</p>
 <p><!-- Self Made -->
 <img alt="PURITY_DISTRIBUTION" class="center" src="../Assets/7.%20Tree%20Models.md/PURITY_DISTRIBUTION.png" /></p>
-<p>Classification Error is a more one-dimensional approach that tends to result in simpler trees, which is why is often used as the purity measure for pruning, along with the fact that the main goal of pruning is to improve predictive accuracy, which is directly what the classification error measures.</p>
+<p>Classification Error is a more one-dimensional approach that tends to result in simpler trees, which is why is often used as the purity measure for <strong>pruning</strong>, along with the fact that the main goal of pruning is to improve predictive accuracy, which is directly what the classification error measures.</p>
 </div>
 
 

@@ -1659,6 +1659,10 @@
 <li>Affine transformations</li>
 </ul>
 <p>If there are perfectly collinear variables, then there will be <strong>insufficient information</strong> to solve for the parameter estimates (EG. Two equations to solve for three unknowns). This results in <strong>non-unique solutions</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is NOT a necessity for the predictors to be independent; zero collinearity. It is generally assumed that collinearity is low.</p>
+</div>
 <h3 id="imperfect-collinearity"><strong>Imperfect Collinearity</strong><a class="headerlink" href="#imperfect-collinearity" title="Permanent link">&para;</a></h3>
 <p>Imperfect collinearity occurs when one variable is <strong>highly (but NOT perfectly) correlated</strong> with one or more other variables. Intuitively, this means that the variable does not add much predictive power as its effects would have <strong>already been captured via the related predictors</strong>, hence can be removed from the model with little loss.</p>
 <p>Imperfect collinearity does NOT prevent OLS from finding a solution and does NOT affect the overall predictive power of the model. It affects the inferences of the model:</p>

@@ -1785,7 +1785,7 @@
     D^{*} = \frac{D}{\varphi}
 \]</div>
 <p>Thus, the most accurate terminology would be that the difference in the two likelihoods is known as the <strong>Scaled Deviance</strong>, while the differences in the numerator only is the <strong>Deviance</strong>.</p>
-<p>However, since <span class="arithmatex">\(\varphi\)</span> is <strong>typically assumed to be 1</strong>, the two are identical.</p>
+<p>However, since <span class="arithmatex">\(\varphi\)</span> is <strong>typically assumed to be 1</strong> for most distributions used in SRM, the two are <strong>identical</strong>.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1840,7 +1840,7 @@
 <h3 id="overdispersion"><strong>Overdispersion</strong><a class="headerlink" href="#overdispersion" title="Permanent link">&para;</a></h3>
 <p>Dispersion is a measure of the <strong>variability of the data</strong> compared to the assumed variability in the chosen distribution. If the variability is larger, then it is known as <strong>Overdispersion</strong>, vice versa.</p>
 <p>Naturally, this affects the standard errors which affects typical statistical inference procedures - hypothesis testing and confidence intervals.</p>
-<p>One method to overcome this is to multiply a constant (<span class="arithmatex">\(\delta\)</span>) to the variance to <strong>re-scale</strong> the variance to an appropriate level:</p>
+<p>One method to overcome this is to multiply a the <strong>squared pearson statistic</strong> (<span class="arithmatex">\(\delta\)</span>) to the variance to <strong>re-scale</strong> the variance to an appropriate level</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \delta &amp;= \frac{\sum e^{2}_{\text{Pearson}}}{n-p-1} \\
@@ -1851,6 +1851,10 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The above method only works for distributions which have a <strong>restrictive variance</strong> (related to the mean). If the variance is unrestricted (EG. Normal), the adjustment would not solve the mismatch in dispersion.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that this means that the pearson chi-squared statistic can also be used to <strong>indicate when large over-dispersion is present</strong>, since the adjustment required is directly related to it.</p>
 </div>
 <p>The above <strong>alters the variance of the estimates</strong> to match the data (<span class="arithmatex">\(\beta\)</span> is unaffected):</p>
 <ul>
@@ -1884,7 +1888,13 @@
 \begin{aligned}
     \ln \frac{1-\mu}{\mu} &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \dots \\
     \frac{1-\mu}{\mu} &amp;= \exp (\beta_{0} + \beta_{1} \cdot X_{1} + \dots) \\
-    \text{Odds} &amp;= \exp (\beta_{0} + \beta_{1} \cdot X_{1} + \dots)
+    \text{Odds} &amp;= \exp (\beta_{0} + \beta_{1} \cdot X_{1} + \dots) \\
+    \\
+    \therefore \ln \text{Odds} &amp;= Y \\
+    \frac{1-\mu}{\mu} &amp;= e^{Y} \\
+    \mu &amp;= e^{Y} - \mu \cdot e^{Y} \\
+    \mu &amp;= \frac{e^{Y}}{1 + e^{Y}} \\
+    \text{P(A)} &amp;= \frac{e^{Y}}{1 + e^{Y}}
 \end{aligned}
 \]</div>
 <div class="admonition note">
@@ -1905,8 +1915,52 @@
 \]</div>
 <h3 id="nominal-response"><strong>Nominal Response</strong><a class="headerlink" href="#nominal-response" title="Permanent link">&para;</a></h3>
 <p>For a variable with more than two levels, a <strong>Generalized Logit Model</strong> is used. Rather than odds, it models the log of the <strong>relative probability</strong> of the target category and reference category.</p>
+<p>For a variable with <span class="arithmatex">\(k\)</span> categories, <span class="arithmatex">\(k-1\)</span> models will be fitted, for each of the non-reference categories</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ln \left(\frac{P(1)}{P(k)} \right) &amp;= \beta_{1} + \beta_{1, 1} \cdot X \\
+    \ln \left(\frac{P(2)}{P(k)} \right) &amp;= \beta_{2} + \beta_{1, 2} \cdot X \\
+    \ln \left(\frac{P(3)}{P(k)} \right) &amp;= \beta_{3} + \beta_{1, 3} \cdot X
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the model has <span class="arithmatex">\(n\)</span> variables and <span class="arithmatex">\(k\)</span> categories, then a total of <span class="arithmatex">\(n \cdot (k-1)\)</span> coefficients are needed.</p>
+</div>
+<p>The system of equations above will result in <span class="arithmatex">\(k-1\)</span> equations for <span class="arithmatex">\(k\)</span> unknowns. The final equation is the fact that the unknowns are probabilities, thus all have to <strong>sum to 1</strong>:</p>
+<div class="arithmatex">\[
+    P(1) + P(2) + P(3) + \dots = 1
+\]</div>
 <h3 id="ordinal-response"><strong>Ordinal Response</strong><a class="headerlink" href="#ordinal-response" title="Permanent link">&para;</a></h3>
-<p>For a variable with more than two levels and an order to them, a <strong>Proportional Odds Cumulative Model</strong> is used. It models the log of the <strong>cumulative odds</strong> of a category.</p>
+<p>When there is an Order to the nominal variables, they are distinguished based on their <strong>cumulative probabilities</strong>. In essence, the prediction space is split into <strong>distinct regions</strong> representing each of the categories:</p>
+<!-- Obtained from Medium -->
+<p><img alt="ORDINAL_TAU_CUTS" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/ORDINAL_TAU_CUTS.png" /></p>
+<p>There are will always be <strong><span class="arithmatex">\(k-1\)</span> cut points</strong> which are always <strong>non-decreasing</strong>. Thus, a larger prediction which will lead to a <strong>"higher" category</strong>, hence preserving the order of the prediction.</p>
+<p>In terms of modelling, a <strong>Cumulative Logit Model</strong> is used, which models the <strong>cumulative odds</strong> of each of the categories except the last. Given the system of equations, the <strong>probabilities for each category</strong> can be determined. The prediction of the model is the category with the <strong>highest probability</strong>:</p>
+<ul>
+<li><span class="arithmatex">\(\alpha\)</span>: Cut Points</li>
+<li><span class="arithmatex">\(\beta_{j}\)</span>: Regression coefficient</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ln \left(\frac{P(1)}{P(2) + P(3) + P(4) + \dots} \right) &amp;= \alpha_{1} + \beta_{1, 1} \cdot X \\
+    \ln \left(\frac{P(1) + P(2)}{P(3) + P(4) + \dots} \right) &amp;= \alpha_{2} + \beta_{1, 2} \cdot X \\
+    \ln \left(\frac{P(1) + P(2) + P(3)}{P(4) + \dots} \right) &amp;= \alpha_{3} + \beta_{1, 3} \cdot X
+\end{aligned}
+\]</div>
+<p>The system of equations above will result in <span class="arithmatex">\(k-1\)</span> equations for <span class="arithmatex">\(k\)</span> unknowns. The final equation is the fact that the unknowns are probabilities, thus all have to <strong>sum to 1</strong>:</p>
+<div class="arithmatex">\[
+    P(1) + P(2) + P(3) + \dots = 1
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Similar to before, if the model has <span class="arithmatex">\(n\)</span> variables and <span class="arithmatex">\(k\)</span> categories, then a total of <span class="arithmatex">\(n \cdot (k-1)\)</span> coefficients are needed.</p>
+<p>However, a common variation of the above is to use a <strong>Proportional Odds Cumulative Model</strong>. It assumes that the <strong>odds ratios are the same across thresholds</strong>, thus allowing each equation to use the <strong>same <span class="arithmatex">\(\beta\)</span></strong>, with only the <span class="arithmatex">\(\alpha\)</span> changing for each, reducing the number of cofficients needed.</p>
+<p>An interesting property is that the <strong>ratio of two cumulative odds are independent</strong> of the predictors and coefficients, which might have some <strong>niche use cases</strong> where the prediction under different set of X's are provided and tasked to solve for an unknown:</p>
+<div class="arithmatex">\[
+    \frac{\Pi_{1} \div (1 - \Pi_{1})}{\Pi_{2} \div (1 - \Pi_{2})} = \exp (\alpha_{1} - \alpha_{2})
+\]</div>
+</div>
 <h2 id="count-models"><strong>Count Models</strong><a class="headerlink" href="#count-models" title="Permanent link">&para;</a></h2>
 <h3 id="poisson-model"><strong>Poisson Model</strong><a class="headerlink" href="#poisson-model" title="Permanent link">&para;</a></h3>
 <p>Since counts are non-negative integers, the <strong>Poisson Distribution</strong> can be used. The canonical link is the <strong>natural log</strong>, where the resulting model is known as a <strong>Poisson Count Model</strong>. It models the <strong>log of the mean</strong>, where the exponent of the regression coefficients represent a multiplicative increase in the mean:</p>
