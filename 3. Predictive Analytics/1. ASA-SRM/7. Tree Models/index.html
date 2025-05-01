@@ -1217,6 +1217,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#two-category-model" class="md-nav__link">
+    Two Category Model
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1486,6 +1493,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#two-category-model" class="md-nav__link">
+    Two Category Model
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1516,7 +1530,14 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Only “vertical” and “horizontal” lines (lines <strong>parallel to the axes</strong> in higher dimensions) can be used to partition the observation space.</p>
-<p>Additionally, the predictor space is split using the <strong>Independent Variable</strong> as the boundaries, NOT the dependent variable.</p>
+<p>When the lines intersect, each region is considered to be unique, even if the split does not change the prediction - regions are <strong>NOT combined</strong>. Graphically, this means that the predictor space must have always lines that touch both ends of the boundaries.</p>
+<p><!-- Self Made -->
+<img alt="REGION_SPLIT" src="../Assets/7.%20Tree%20Models.md/REGION_SPLIT.png" /></p>
+<p>The above points are mainly applicable for questions which ask to identify valid predictor spaces, typically when there are only two predictors.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The predictor space is split using the <strong>Independent Variable</strong> as the boundaries, NOT the dependent variable.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1524,6 +1545,7 @@
 <ol>
 <li>Not all features will be used to build the tree</li>
 <li>The same features can be used more than once in the tree</li>
+<li>Relatively more <strong>important</strong> features will be used for splits <strong>first</strong></li>
 </ol>
 </div>
 <p>The different points along the tree are known as <strong>Nodes</strong>:</p>
@@ -1584,6 +1606,14 @@
 </ul>
 </div>
 <p>In general, the algorithm can be said to choose the <strong>split that minimizes the RSS at the time</strong>. Similar to subset selection, it is a <strong>greedy algorithm</strong> as it chooses the local best choice at each step, not the global best.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that since the <strong>prediction is the average</strong> of the observations in the node, the RSS is essentially the <strong>variance</strong> of the observations in the node. If given the observations or the relevant summed components, the RSS can be easily calculated.</p>
+<p>The total RSS is simply the sum of the RSS for each node, no weighting required.</p>
+<div class="arithmatex">\[
+    \text{Total Tree RSS} = \sum \text{Node RSS}
+\]</div>
+</div>
 <h2 id="pruning"><strong>Pruning</strong><a class="headerlink" href="#pruning" title="Permanent link">&para;</a></h2>
 <p>Recursive binary splitting tends to result in <strong>large complex trees</strong> with many internal nodes, which is prone to <strong>overfitting</strong>. In this case, certain <strong>internal nodes should be dropped</strong>, akin to <strong>Pruning the leaves</strong> of a tree.</p>
 <div class="admonition note">
@@ -1609,6 +1639,17 @@
 <div class="arithmatex">\[
     \min (\text{RSS} + \lambda \cdot T)
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Similar to Ridge/Lasso, the RSS in the above is the POST-pruning RSS. This is important to distinguish as questions can provide the values in a format like this:</p>
+<ol>
+<li>Terminal Nodes - RSS for that node</li>
+<li>Internal Nodes - RSS for that node, IF the leaves were pruned at that point</li>
+</ol>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="PRUNING_RSS" class="center" src="../Assets/7.%20Tree%20Models.md/PRUNING_RSS.png" /></p>
+<p>As stated previously, the RSS of the tree at any point is the sum of all terminal RSS. However, if given the above, it is important to sum the correct ones (while also adding the correct number of constraints).</p>
+</div>
 <p>For every possible <span class="arithmatex">\(T\)</span>, there exists a <strong>subtree that minimizes</strong> the above function. Among the above shortlisted subtrees, the one with the <strong>lowest constrained RSS</strong> is chosen as the final tree.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1634,7 +1675,11 @@
 <p>Generally speaking, <strong>Post-Pruning is preferred</strong>. Stunting the growth of the tree early might reduce a small amount of RSS early, but result in a large RSS later on. Thus, it is better to let the tree grow and then prune it back to the right size with a full view.</p>
 <h2 id="ensemble-methods"><strong>Ensemble Methods</strong><a class="headerlink" href="#ensemble-methods" title="Permanent link">&para;</a></h2>
 <p>Ensemble Methods use a collection of statistical learning  techniques in conjunction with one another to produce better results than any of the individual methods.</p>
-<p>Ensemble Methods are typically used with basic models known as Weak Learners to produce a stronger model.</p>
+<p>Ensemble Methods are typically used with basic models known as <strong>Weak Learners</strong> to produce a stronger model.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above implies that a tree on its own is <strong>NOT as good</strong> (in terms of predictive performance) as other statistical learning methods; likely due to overfitting.</p>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Although Ensemble methods are only discussed in the context of trees, they can be used for other methods as well.</p>
@@ -1752,10 +1797,6 @@
 <p>Most of the key concepts apply, but there are some notable exceptions due to having a categorical independent variable.</p>
 </div>
 <p>Since residuals are unintuitive for categorical data, classification trees focus on <strong>Node Purity</strong> instead. The algorithm divides the predictor space such that <strong>node impurity is minimized</strong>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>In light of this, it is possible for a split to produce <strong>two nodes with the same predicted category</strong>. This is because the purity might have increased with the split.</p>
-</div>
 <p>Purity is a measure of TBC, which can measured using one of the following metrics:</p>
 <ol>
 <li>Classification Error Rate</li>
@@ -1765,7 +1806,8 @@
 <p>Gini Index and Cross Entropy are better measures of purity as they are <strong>sensitive to the distribution</strong> of categories within each region, thus they are the <strong>preferred purity measure</strong> when <strong>growing</strong> out a tree. However, when <strong>pruning</strong> a tree, the primary goal is improve predictive accuracy, thus the classification error rate is used instead.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Needless to say, the lower the above metrics, the higher the purity of the node.</p>
+<p>The lower the above metrics, the higher the purity of the node; more imbalanced.</p>
+<p>This can be remembered by the fact that the Gini Index is often a measure of <strong>socio-economic inequality</strong> - it is higher when there is a large imbalance between the rich and the poor (loosely speaking). </p>
 </div>
 <h3 id="purity-measures"><strong>Purity Measures</strong><a class="headerlink" href="#purity-measures" title="Permanent link">&para;</a></h3>
 <p>A key quantity that will be used is the <strong>proportion of correct classifications</strong> in a particular region (<span class="arithmatex">\(p_{c}\)</span>).</p>
@@ -1789,15 +1831,43 @@
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Gini Index (Region)} &amp;= \sum_{c} p_{c} (1 - p_{c}) \\
-    \text{Cross Entropy (Region)} &amp;= \sum_{c} p_{c} \ln p_{c}
+    \text{Cross Entropy (Region)} &amp;= -\sum_{c} p_{c} \ln p_{c}
 \end{aligned}
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All measures must be positive, but ONLY entropy can be larger than 1.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Gini Index and Class Entropy are the preferred purity measures when <strong>growing</strong> out a tree. This is because they are <strong>sensitive to the distribution</strong> of categories, while classification error is not. Consider the following two examples - the classification error rate is the same but the purity is much higher in the second region:</p>
 <p><!-- Self Made -->
 <img alt="PURITY_DISTRIBUTION" class="center" src="../Assets/7.%20Tree%20Models.md/PURITY_DISTRIBUTION.png" /></p>
 <p>Classification Error is a more one-dimensional approach that tends to result in simpler trees, which is why is often used as the purity measure for <strong>pruning</strong>, along with the fact that the main goal of pruning is to improve predictive accuracy, which is directly what the classification error measures.</p>
+<p>In light of this, it is possible for a split to produce <strong>two nodes with the same predicted category</strong>. This is because the <strong>Gini or Entropy would have increased</strong> with the split, even though classification error remains the same.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is technically another less common purity measure known as <strong>Tree Deviance</strong> (not to be confused with GLM deviance):</p>
+<div class="arithmatex">\[
+    \text{Tree Deviance} = 2 \cdot \text{Entropy}
+\]</div>
+</div>
+<h3 id="two-category-model"><strong>Two Category Model</strong><a class="headerlink" href="#two-category-model" title="Permanent link">&para;</a></h3>
+<p>The most common scenario to appear on the exam would be a model with <strong>ONLY TWO</strong> possible categories.</p>
+<p>In such cases, there is a clearly defined order between the purity measures:</p>
+<div class="arithmatex">\[
+    \text{Entropy} \gt \text{Gini} \ge \text{Class Error}
+\]</div>
+<!--—- Obtained from Coaching Actuaries —-->
+<p><img alt="RELATIVE_PURITY" class="center" src="../Assets/7.%20Tree%20Models.md/RELATIVE_PURITY.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There is only one situation where Gini and Classification error are the same - when the two categories are <strong>equally distributed</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above relationship only holds for the measures WITHIN a single node. It CANNOT be used to compare across nodes.</p>
 </div>
 
 

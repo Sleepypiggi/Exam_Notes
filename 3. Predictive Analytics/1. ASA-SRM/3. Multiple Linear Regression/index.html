@@ -1141,6 +1141,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#partial-f-test" class="md-nav__link">
+    Partial F-test
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1562,6 +1569,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#partial-f-test" class="md-nav__link">
+    Partial F-test
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1892,7 +1906,12 @@
 <p></center></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The df for RegSS is <span class="arithmatex">\(p\)</span> reflecting that there are now <span class="arithmatex">\(p\)</span> independent variables used in the regression. Similarly, the df for RSS reflects that there are now <span class="arithmatex">\(p+1\)</span> estimated parameters.</p>
+<p>The key is to remember the following regarding the degrees of freedom:</p>
+<ul>
+<li><strong>RegSS</strong>: Number of predictors in the model; excluding intercept</li>
+<li><strong>RSS</strong>: Number of observations less number of coefficients; including intercept</li>
+</ul>
+<p>The two are NOT complementary as one considers the intercept while the other does not. This because intercept (sample mean) has been accounted for in the TSS.</p>
 </div>
 <p>However, rather than testing if an individual independent variable is useful, it tests if the <strong>entire model</strong> (all the independent variables collectively) is useful in explaining the dependent variable:</p>
 <ul>
@@ -1915,8 +1934,9 @@
 <div class="arithmatex">\[
     \text{F}_{\text{Statistic}} = \frac{R^{2}}{1 - R^{2}} \cdot \frac{n-p-1}{p}
 \]</div>
-<p>The above applies to SLR as well.</p>
+<p>It is NOT recommended to memorize the above formula, it can be derived from first principles using the ANOVA table.</p>
 </div>
+<h3 id="partial-f-test"><strong>Partial F-test</strong><a class="headerlink" href="#partial-f-test" title="Permanent link">&para;</a></h3>
 <p>In order to determine which variables are useful, a <strong>Partial F-test</strong> can be used, which compares two models:</p>
 <ul>
 <li><strong>Full Model</strong>: Model with all <span class="arithmatex">\(p\)</span> independent variables</li>
@@ -1933,6 +1953,14 @@
     \text{df}_{\text{ExtraSS}} = \text{df}_{\text{Full}} - \text{df}_{\text{Reduced}}
 \]</div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The RSS and the degrees of freedom are using different orders for the subtraction, which can be confusing:</p>
+<ul>
+<li><strong>RSS</strong>: <strong>Inversely proportional</strong> to the number of predictors; Reduced - Full</li>
+<li><strong>DF</strong>: <strong>Proportional</strong> to the number of predictors; Full - Reduced</li>
+</ul>
+</div>
 <p>Formally, the partial F-test can be expressed as the following:</p>
 <ul>
 <li><span class="arithmatex">\(H_{0}: \beta_{q+1} = ... = \beta_{p} = 0\)</span></li>
@@ -1940,8 +1968,12 @@
 </ul>
 <div class="arithmatex">\[
     \text{F}_{\text{Partial}}
-    = \frac{\sigma^{2}_{\text{ExtraSS}}}{\sigma^{2}_\text{RSS}}
+    = \frac{\sigma^{2}_{\text{ExtraSS}}}{\sigma^{2}_{\text{RSS}_\text{Full}}}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the regular F-test is a <strong>special case</strong> of the partial F-test where the reduced model is the null model.</p>
+</div>
 <h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
 <h3 id="sampling-distributions"><strong>Sampling Distributions</strong><a class="headerlink" href="#sampling-distributions" title="Permanent link">&para;</a></h3>
 <p>Similar to SLR, the regression parameters are normally distributed as well. However, since there are multiple regression parameters, they collectively follow a <strong>multivariate normal distribution</strong>:</p>
@@ -2187,6 +2219,11 @@ Var(\hat{\beta}) =
 <p><!-- Obtained from Towards Data Science -->
 <img alt="RIDGE_CIRCLE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/RIDGE_CIRCLE.png" /></p>
 <p>The key is that due to the shape of the circle, the contours will never intersect the circle along the axis. Thus, it will <strong>NEVER shrink any coefficient to 0</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A non-graphical approach to validate the Ridge (and Lasso) would be to test if the resulting model fulfils the above constraint by <strong>manually adding</strong> the resulting RSS and coefficients.</p>
+<p>This can also be used to determine the final ridge/LASSO model, which should have the lowest value of all possible combinations.</p>
 </div>
 <p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>shrinkage parameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong>:</p>
 <ul>

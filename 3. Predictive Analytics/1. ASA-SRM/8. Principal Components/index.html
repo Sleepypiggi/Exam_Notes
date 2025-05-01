@@ -1498,10 +1498,14 @@
 <p class="admonition-title">Note</p>
 <p>The purpose of scaling is to ensure that features with different units are using a <strong>common unit</strong> for comparison. However, if the features are already using the <strong>same units</strong>, there is <strong>no need to scale</strong> the data.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>The first PCs is essentially the <strong>line of best fit</strong> that passes through the data.</p>
-<p>Note that this best fit line is DIFFERENT from an otherwise equivalent linear regression line - the LR line aims to minimizes the residual with respect to the <strong>TARGET variable</strong>, while PCA is with respect to <strong>ALL variables</strong>.</p>
+<p>However, it is DIFFERENT from that of linear regression for two reasons:</p>
+<ol>
+<li>PCA finds the best fit line with respect to ALL variables (not just the target)</li>
+<li>PCA finds the best line based on perpendicular distance (not the vertical distance)</li>
+</ol>
 </div>
 <h2 id="loading-and-scores"><strong>Loading and Scores</strong><a class="headerlink" href="#loading-and-scores" title="Permanent link">&para;</a></h2>
 <p>The <strong>direction</strong> of the PC in the multi-dimensional space is known as its <strong>Loading</strong>. Mathematically, it is the <strong>contribution of each variable</strong> on the PC. Naturally, the higher the loading, the more that variable contributes to the variance explained for that PC.</p>
@@ -1527,11 +1531,13 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the data is scaled, then the <strong>sum of squared loadings</strong> for each PC is 1:</p>
+<p>If the data is scaled, then the <strong>sum of SQUARED loadings</strong> for each PC is 1:</p>
 <div class="arithmatex">\[
     \sum \varphi^{2}_{1, k} = 1
 \]</div>
 <p>This is another constraint during the fitting process, apart from being Orthogonal.</p>
+<p>Since the loadings are squared, there are technically <strong>two possible solutions</strong> to each loading. The <strong>dot product</strong> of the loadings MUST be used to verify which of the signs are correct.</p>
+<p>For the purposes of this exam, it should be noted that the loadings are NOT unique. Different softwares will produce the <strong>same absolute value</strong> of the loadings, but with <strong>different signs</strong> for each iteration (likely due to the above).</p>
 </div>
 <p>Geometrically, the PCs also form a <strong>plane</strong> in the multi-dimensional space. The Score of each observation with respect to the respective PCs is the coordinate of the observations within the coordinate space of the plane. Thus, observations with high scores are "outliers" in the PC space.</p>
 <!-- Obtained from Learnche -->
@@ -1579,7 +1585,7 @@
 <p><img alt="BI_PLOT_SECONDARY" src="../Assets/8.%20Principal%20Components.md/BI_PLOT_SECONDARY.png" /></p>
 </div>
 <h2 id="variance"><strong>Variance</strong><a class="headerlink" href="#variance" title="Permanent link">&para;</a></h2>
-<p>Recall that the PCs are created such that the total variation explained is maximized. Note that it refers to the variation in the <strong>underling features</strong>. This is in contrast to linear regression where the variation is with respect to the target variable.</p>
+<p>Recall that the PCs are created such that the total variation explained is maximized. As alluded to previously, it refers to the variation in the <strong>underling features</strong>. This is in contrast to linear regression where the variation is with respect to the target variable.</p>
 <p>The variation of features explained by each principle component is the variation of that particular principal component:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1619,10 +1625,13 @@
 <p class="admonition-title">Note</p>
 <p>Conversely, when a dataset is uncorrelated, there is <strong>no room to compress the variables</strong> together, hence rendering PCA ineffective. In fact, using PCA would actually reduce the interpretability!</p>
 </div>
-<p>An extreme case would be when the variables are <strong>Perfectly Collinear</strong> (variables can be expressed as an exact linear combination of another). In this case, PCA compresses all features into <strong>ONE MAIN principal component</strong> which is always the <strong>FIRST PC</strong> that explains <strong>ALL</strong> the variation.</p>
-<p>This manifests itself on the Biplot where all observations have a <strong>score of 0</strong> for PC2; the observations are <strong>entirely explainable by PC1</strong>: </p>
+<p>An extreme case would be when the variables are <strong>Perfectly Collinear</strong> (variables can be expressed as an exact linear combination of another). In this case, PCA compresses the perfectly collinear features into <strong>ONE MAIN principal component</strong> which is always the <strong>FIRST PC</strong> that explains <strong>MOST</strong> of the variation.</p>
+<p>For a two variable case, this manifests itself on the Biplot where all observations have a <strong>score of 0</strong> for PC2; the observations are <strong>entirely explainable by PC1</strong>: </p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="BIPLOT_COLLINEAR" class="center" src="../Assets/8.%20Principal%20Components.md/BIPLOT_COLLINEAR.png" /></p>
+<p>For three or more variables, this can be seen from the screw plot where there are PCs that explain NONE of the variation:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="COLLINEAR_SPREE" src="../Assets/8.%20Principal%20Components.md/COLLINEAR_SCREE.png" /></p>
 <h3 id="regression"><strong>Regression</strong><a class="headerlink" href="#regression" title="Permanent link">&para;</a></h3>
 <p>It is possible to perform Linear Regression using the principal component space. In this case, it is known as a <strong>Principal Component Regression</strong>:</p>
 <div class="arithmatex">\[

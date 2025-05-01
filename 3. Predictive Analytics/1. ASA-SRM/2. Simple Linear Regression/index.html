@@ -1614,6 +1614,7 @@
 \end{aligned}
 \]</div>
 <p>It is important to know alternate formulations because questions will likely only provide certain components such as <span class="arithmatex">\(\sum (x^{2}_{i})\)</span>.</p>
+<p>Naturally, the above shortcut is applicable to any “sum of squares” like quantity.</p>
 </div>
 <p>Graphically, the fitted model will be the <strong>line of best fit</strong> that passes through the sample; the line will pass through the <strong>middle of all observations</strong>, with a <strong>roughly equal residuals above and below</strong> the line:</p>
 <!-- Obtained from ISLR -->
@@ -1794,7 +1795,7 @@
 <li><strong>RSS</strong> is the deviations of the <strong>observations from the prediction</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but two degrees of freedom has been <strong>used up by the Intercept and Slope</strong>; <span class="arithmatex">\(\nu = n-2\)</span>.</li>
 <li><strong>RegSS</strong> is the deviations of the <strong>prediction from the sample mean</strong>. Since the prediction only relies on a <strong>single input</strong>, there is only one degree of freedom; <span class="arithmatex">\(\nu = 1\)</span>.</li>
 </ul>
-<p>Alternatively, since <span class="arithmatex">\(\text{v} = \text{RegSS} + \text{RSS}\)</span>, the degrees of freedom should follow the same sum. Thus, RegSS must have one degree of freedom.</p>
+<p>Alternatively, since <span class="arithmatex">\(\text{TSS} = \text{RegSS} + \text{RSS}\)</span>, the degrees of freedom should follow the same sum. Thus, RegSS must have one degree of freedom.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>

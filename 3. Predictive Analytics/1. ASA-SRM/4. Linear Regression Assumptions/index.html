@@ -1685,11 +1685,25 @@
 <!-- Obtained from ACTEX Manual -->
 <p><img alt="CORRELATION_MATRIX" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/CORRELATION_MATRIX.png" /></p>
 <p>HOWEVER, the above method can only detect collinearity between pairs of variables at a time. To check for collinearity between <strong>3 or more</strong> variables, the <strong>Variance Inflation Factor</strong> (VIF) can be used instead.</p>
-<p>Recall that in the presence of collinearity, the variance of estimates increases; the VIF is a <strong>measure of the increase in variance</strong>. Different texts have <strong>different thresholds</strong> for high collinearity. For this exam, assume the <strong>threshold to be 10</strong>.</p>
+<p>Recall that in the presence of collinearity, the variance of estimates increases; the VIF is a <strong>measure of the increase in variance</strong>. </p>
 <div class="arithmatex">\[
     \text{VIF}_{p} = \frac{1}{1 - R^{2}_{p}}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Different texts have <strong>different thresholds</strong> for high collinearity. For this exam, assume the <strong>threshold to be 10</strong>.</p>
+</div>
 <p><span class="arithmatex">\(R^{2}_{p}\)</span> is the R-squared for a model where the p-th predictor is regressed against ALL OTHER predictors. If this R-squared is high, it implies that this predictor is well explained by other predictors (high correlation, high collinearity).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The VIF needs to be calculated for EACH variable to conclude whether collinearity is present in the model:</p>
+<ul>
+<li>Variable 1 against Variable 2,3</li>
+<li>Variable 2 against Variable 1,3</li>
+<li>Variable 3 against Variable 1,2</li>
+</ul>
+<p>Collinearity is present even if just one combination of variables cross the threshold.</p>
+</div>
 <p>Naturally, the solution is to <strong>drop highly collinear variables</strong>; keep only one of the bunch.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

@@ -1537,9 +1537,13 @@
 <p>By default, the calculator will display the exact form; (EG. <span class="arithmatex">\(\sqrt{2}\)</span> instead of <span class="arithmatex">\(1.4 \dots\)</span>). This can make it hard to compare quantities, thus change the 'Mode' to 'Classic' to force all calculated values to be displayed in decimal form.</p>
 </div>
 <h3 id="cluster-variation"><strong>Cluster Variation</strong><a class="headerlink" href="#cluster-variation" title="Permanent link">&para;</a></h3>
-<p>The variation within a cluster is the sum of all <strong>squared euclidean distances</strong> for all pairs of observations within that cluster, <strong>divided by the number of observations</strong>:</p>
-<p>$$</p>
-<p>$$</p>
+<p>The variation within a cluster is the sum of all <strong>squared euclidean distances</strong> for ALL PAIRS of observations within that cluster, <strong>divided by the number of observations</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Cluster Variation} &amp;= \frac{\sum \text{Pairwise Distance}}{n_{\text{Cluster}}} \\
+    \text{Total Cluster Variation} &amp;= \sum \text{Cluster Variation}
+\end{aligned}
+\]</div>
 <p>This is best visualized through a table:</p>
 <ul>
 <li>Each cell contains the squared euclidean distance between the two observations</li>
@@ -1551,6 +1555,7 @@
 <p class="admonition-title">Warning</p>
 <p>The <strong>diagonal is always 0</strong> because the euclidean distance between a point and itself is 0.</p>
 <p>The table considers <strong>ALL pairs of observations</strong>, not just unique pairs. In other words, 1-2 and 2-1 are both considered, even though they result in the same euclidean distance. This is why the values are <strong>symmetrical about the diagonal</strong>.</p>
+<p>Cluster Variation requires ALL values in the table to be summed. However, since the table is symmetrical, it is equivalent to TWO TIMES the sum of the <strong>triangle of values</strong>.</p>
 </div>
 <h3 id="centroid"><strong>Centroid</strong><a class="headerlink" href="#centroid" title="Permanent link">&para;</a></h3>
 <p>Another related concept is the <strong>Centroid of the cluster</strong>. As its name suggests, it is the <strong>centre of the cluster</strong> in multi-dimensional space, equivalent to the average of each individual dimension.</p>
