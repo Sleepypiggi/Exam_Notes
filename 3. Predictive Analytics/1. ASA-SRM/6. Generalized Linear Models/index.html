@@ -1265,8 +1265,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#alternative-models" class="md-nav__link">
-    Alternative Models
+  <a href="#overdispersion_1" class="md-nav__link">
+    Overdispersion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excess-zeroes" class="md-nav__link">
+    Excess Zeroes
   </a>
   
 </li>
@@ -1616,8 +1623,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#alternative-models" class="md-nav__link">
-    Alternative Models
+  <a href="#overdispersion_1" class="md-nav__link">
+    Overdispersion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excess-zeroes" class="md-nav__link">
+    Excess Zeroes
   </a>
   
 </li>
@@ -1646,10 +1660,10 @@
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Linear Regression assumes that the dependent variable <strong>can change constantly and indefinitely</strong> in either direction, which is not appropriate for certain quantities that <strong>changes non-linearly</strong> or for values that can <strong>only take values of a certain range</strong> (EG. Positive only or between 0 and 1).</p>
 <p>Another assumption made is that the dependent variable is normally distributed. Despite it being one of the most common distributions in reality, not all quantities follow it.</p>
-<p>Thus, a <strong>Generalized Linear Model</strong> (GLM) overcomes the above two constraints by allowing the dependent to follow a distribution</p>
+<p>Thus, a <strong>Generalized Linear Model</strong> (GLM) overcomes the above two constraints by:</p>
 <ol>
 <li>Allowing the dependent variable to have a distribution from the <strong>Linear Exponential Family</strong> (LEF)</li>
-<li>Specifying a <strong>link function</strong> that allows the dependent variable to change <strong>non-linearly</strong></li>
+<li>Specifying a <strong>link function</strong> that relates the dependent to the linear equation, allowing it to change <strong>non-linearly</strong></li>
 </ol>
 <!-- Obtained from Daily Dose of Data Science -->
 <p><img alt="SLR_VS_GLM" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/SLR_VS_GLM.png" /></p>
@@ -1842,8 +1856,11 @@
 <p>The reason why "normal" residuals are not useful in GLMs is because each model follows a <strong>different distribution</strong>, thus there are is <strong>no uniform behaviour for raw residuals</strong>.</p>
 </div>
 <h3 id="overdispersion"><strong>Overdispersion</strong><a class="headerlink" href="#overdispersion" title="Permanent link">&para;</a></h3>
-<p>Dispersion is a measure of the <strong>variability of the data</strong> compared to the assumed variability in the chosen distribution. If the variability is larger, then it is known as <strong>Overdispersion</strong>, vice versa.</p>
-<p>Naturally, this affects the standard errors which affects typical statistical inference procedures - hypothesis testing and confidence intervals.</p>
+<p>Dispersion is a measure of the <strong>variability of the actual data</strong> compared to the assumed variability in the chosen distribution. If the variability is larger, then it is known as <strong>Overdispersion</strong>, vice versa. This affects the standard error of the estimates:</p>
+<ul>
+<li><strong>Overdispersion</strong>: Standard Errors understated; False positives</li>
+<li><strong>Underdispersion</strong>: Standard Errors overstated; False negatives</li>
+</ul>
 <p>One method to overcome this is to multiply a the <strong>squared pearson statistic</strong> (<span class="arithmatex">\(\delta\)</span>) to the variance to <strong>re-scale</strong> the variance to an appropriate level</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1976,9 +1993,113 @@
 <div class="arithmatex">\[
     \ln \mu = \beta_{0} + \beta_{1} \cdot X_{1} + \dots
 \]</div>
-<p>Exposures</p>
-<p>Also known as frequency</p>
-<h3 id="alternative-models"><strong>Alternative Models</strong><a class="headerlink" href="#alternative-models" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Count models are sometimes also known as <strong>Frequency</strong> Models.</p>
+</div>
+<p>Recall that the poisson distribution can be interpreted as the <strong>average number of occurences for a given exposure</strong> (w). The average thus be re-expressed as a combination of exposure and occurrence per exposure:</p>
+<div class="arithmatex">\[
+    \mu = w \cdot \lambda
+\]</div>
+<p>If the underlying data has <strong>different subgroups with different exposures</strong>, it will be more appropriate to model the <strong>rate per exposure</strong> rather than the actual count:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ln \mu
+    &amp;= \ln w \cdot \lambda \\
+    &amp;= \ln w + \ln \lambda \\
+    \\
+    \ln \lambda &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \dots
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To obtain the estimated count, substitute the actual exposure (w) together with the model and solve for <span class="arithmatex">\(\mu\)</span>. Due to this, the exposure is also sometimes known as an <strong>Offset</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Consider the following example for different subgroups:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Subject</strong></th>
+<th align="center"><strong>Number of A's (Count)</strong></th>
+<th align="center"><strong>Number of Students (Exposure)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Math</td>
+<td align="center">5</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">Science</td>
+<td align="center">8</td>
+<td align="center">20</td>
+</tr>
+<tr>
+<td align="center">History</td>
+<td align="center">10</td>
+<td align="center">30</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="overdispersion_1"><strong>Overdispersion</strong><a class="headerlink" href="#overdispersion_1" title="Permanent link">&para;</a></h3>
+<p>Although the poisson distribution is suited to model counts, it has a <strong>restrictive</strong> property where the mean and variance must be equal. This makes it inadequate where the underlying data exhibits <strong>overdispersion</strong>. Thus, a different distribution should be used.</p>
+<p>A generic method of dealing with overdispersion is to use the <strong>Negative Binomial Distribution</strong> which is <strong>more flexible</strong> as its variance is larger than its mean.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Note that the poisson is actually a limiting case of the negative binomial where the parameters go to infinity, thus the change in distribution is not too drastic.</p>
+</div>
+<p>Alternatively, it is possible to create a new distribution using a <strong>mixture</strong> of distributions to achieve the desired property. A <strong>heterogeneity model</strong> is a special model that allows for <strong>continuous mixtures</strong>:</p>
+<ul>
+<li>Poisson &amp; Gamma Mixture (results in Negative Binomial)</li>
+<li>Poisson &amp; Lognormal Mixture</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A mixture of two poissons is NOT poisson.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="OVERDISPERSION_MODELS" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/OVERDISPERSION_MODELS.png" /></p>
+<h3 id="excess-zeroes"><strong>Excess Zeroes</strong><a class="headerlink" href="#excess-zeroes" title="Permanent link">&para;</a></h3>
+<p>A common reason for Over-dispersion is due to an <strong>excess of zeroes</strong> in reality compared to our expectation, known as <strong>Zero Inflation</strong>. In these cases, the original distribution must be <strong>adjusted to account for probability of zeroes</strong> occuring.</p>
+<p>A <strong>Zero Inflated Model</strong> is appropriate when the underlying <strong>event occurred, but no count was made</strong>. For instance, a policyholder might choose not to make a claim despite incurring a loss due to considering premium rate increases.</p>
+<p>Thus, it is necessary to account for and distinguish between the types of zeroes. This can be done via a <strong>Logistic Regression</strong> which is set to identify <strong>False Zeroes</strong>:</p>
+<ul>
+<li>False Zeroes (EG. Policyholders who incurred a loss but did not report)</li>
+<li>True Zeroes (EG. Policyholders who did not incur a loss)</li>
+</ul>
+<p>Thus, combining the Poisson and the Logistic Regression output, an adjusted PMF can be constructed:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{PMF}
+    &amp;= \begin{cases}
+        \pi + (1 - \pi) \cdot P(Y = 0) ,&amp;Y = 0 \\
+        (1 - \pi) \cdot P(Y \gt 0) ,&amp;Y \gt 0
+    \end{cases}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key idea is that the original probabilities are adjusted to account for the possibility of being False Zeroes.</p>
+</div>
+<p>A <strong>Hurdle Model</strong> is appropriate when the zeroes occur because a certain <strong>hurdle or threshold was not crossed</strong>. For instance, when projecting the number of laps swam based on the number of people who visited the swimming pool, it should account for individuals who <strong>never entered</strong> the pool (Hurdle) (EG. Parents).</p>
+<p>In this case, there is a clear reason for the zeroes, thus the probability for the zero count should be <strong>modelled seperate</strong> for the non-zero values. This can be similar identified via Logistic Regression, by determining the <strong>probability of crossing the threshold</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{PMF}
+    &amp;= \begin{cases}
+        \pi ,&amp;Y = 0 \\
+        (1 - \pi) \cdot \frac{P(Y \gt 0)}{1 - P(Y =0)} ,&amp;Y \gt 0
+    \end{cases}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The resulting distribution should use a <strong>zero-truncated</strong> probability to reflect that the original distribution should not be used for zero counts.</p>
+</div>
 
 
 

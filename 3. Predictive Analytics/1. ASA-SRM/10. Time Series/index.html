@@ -1247,15 +1247,15 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#dickey-fuller" class="md-nav__link">
     Dickey Fuller
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1289,6 +1289,13 @@
           <li class="md-nav__item">
   <a href="#exponential-smoothing" class="md-nav__link">
     Exponential Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasonal-models" class="md-nav__link">
+    Seasonal Models
   </a>
   
 </li>
@@ -1535,15 +1542,15 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#dickey-fuller" class="md-nav__link">
     Dickey Fuller
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1577,6 +1584,13 @@
           <li class="md-nav__item">
   <a href="#exponential-smoothing" class="md-nav__link">
     Exponential Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasonal-models" class="md-nav__link">
+    Seasonal Models
   </a>
   
 </li>
@@ -1923,7 +1937,27 @@
 \]</div>
 <p>The difference between the estimation and original formula becomes negligible for a large number of observations.</p>
 </div>
-<h4 id="dickey-fuller"><strong>Dickey Fuller</strong><a class="headerlink" href="#dickey-fuller" title="Permanent link">&para;</a></h4>
+<h3 id="dickey-fuller"><strong>Dickey Fuller</strong><a class="headerlink" href="#dickey-fuller" title="Permanent link">&para;</a></h3>
+<p>Stationary models can more generally be expressed as the following, known as the <strong>Dickey Fuller Equation</strong>. It can be shown that when certain conditions are met, the general equation reduces to one of the following:</p>
+<ul>
+<li><span class="arithmatex">\(\varphi = 1\)</span>: Random Walk</li>
+<li><span class="arithmatex">\(\varphi = 0\)</span>: Linear Trend in Time</li>
+<li><span class="arithmatex">\(\mu_{1} = 0\)</span>: Autoregressive</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y_{t} &amp;= \mu_{0} (1 - \varphi) + \mu_{1} \varphi + \varphi Y_{t-1} + \mu_{1} (1 - \varphi) t + \varepsilon_{t} \\
+    \\
+    \varphi &amp;= 1 \\
+    Y_{t} &amp;= \mu_{1} + Y_{t-1} + \varepsilon_{t} \\
+    \\
+    \varphi &amp;= 0 \\
+    Y_{t} &amp;= \mu_{0} + \mu_{1} t + \varepsilon_{t} \\
+    \\
+    \mu_{1} &amp;= 0 \\
+    Y_{t} &amp;= (1 - \varphi) \mu_{0} + \varphi Y_{t-1} + \varepsilon_{t} \\
+\end{aligned}
+\]</div>
 <h2 id="smoothing-models"><strong>Smoothing Models</strong><a class="headerlink" href="#smoothing-models" title="Permanent link">&para;</a></h2>
 <p>Smoothing is a technique that involves averaging data points over a period to account for the various components in the time series (Level, Trend, Seasonality), resulting in a stationary time series with the underlying signal.</p>
 <div class="admonition tip">
@@ -2052,6 +2086,15 @@
 <p class="admonition-title">Note</p>
 <p>The effect of smoothing is proportional to <span class="arithmatex">\(w\)</span>. Note that higher weights are placed recent observations while lower weights are placed on older observations.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The smoothing parameter can be chosen by considering the <strong>one step prediction errors</strong> for each <span class="arithmatex">\(w\)</span>, then choosing the <span class="arithmatex">\(w\)</span> that results in smallest error:</p>
+<div class="arithmatex">\[
+    SS(w) = \sum (y_{t} - \hat{s}_{t-1})
+\]</div>
+<p>Note that <span class="arithmatex">\(s_{t-1}\)</span> is the prediction for <span class="arithmatex">\(y_{t}\)</span>, NOT <span class="arithmatex">\(s_{t}\)</span>. This is because <span class="arithmatex">\(s_{t}\)</span> already includes the actual observation at <span class="arithmatex">\(t\)</span>.</p>
+<p>A similar process can be done for moving average smoothing as well to determine the optimal <span class="arithmatex">\(k\)</span>.</p>
+</div>
 <p>Assuming that the data has <strong>no trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2094,6 +2137,7 @@
 <p class="admonition-title">Info</p>
 <p>It is possible to even have a <strong>triple smoothed model</strong> to account for seasonal effects, but such model are out of scope for this exam.</p>
 </div>
+<h3 id="seasonal-models"><strong>Seasonal Models</strong><a class="headerlink" href="#seasonal-models" title="Permanent link">&para;</a></h3>
 <h2 id="other-models"><strong>Other Models</strong><a class="headerlink" href="#other-models" title="Permanent link">&para;</a></h2>
 <h3 id="volatility-models"><strong>Volatility Models</strong><a class="headerlink" href="#volatility-models" title="Permanent link">&para;</a></h3>
 <p>So far, all the models discussed cannot work with non-stationary data. However, if the data exhibits <strong>non-constant variance</strong>, there are two models that can be used:</p>

@@ -1221,6 +1221,19 @@
     High Dimensionality
   </a>
   
+    <nav class="md-nav" aria-label="High Dimensionality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partial-least-squares" class="md-nav__link">
+    Partial Least Squares
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1579,6 +1592,19 @@
   <a href="#high-dimensionality" class="md-nav__link">
     High Dimensionality
   </a>
+  
+    <nav class="md-nav" aria-label="High Dimensionality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partial-least-squares" class="md-nav__link">
+    Partial Least Squares
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1960,6 +1986,13 @@
 <p>It is also a possibility that increasing the number of predictors results in choosing two or more highly correlated variables, resulting in Multicollinearity.</p>
 </div>
 <p>The natural solution would be to <strong>limit the number of predictors</strong> by choosing only truly relevant variables and/or to <strong>increase the sample size</strong>.</p>
+<h4 id="partial-least-squares"><strong>Partial Least Squares</strong><a class="headerlink" href="#partial-least-squares" title="Permanent link">&para;</a></h4>
+<p>Another method is to use <strong>Partial Least Squares</strong> (PLS). It is very similar to PCA - it seeks to create new variables that are linear combinations of existing variables (known as <strong>Directions</strong>) which are then used to perform the regression instead. Each subsequent direction uses the residuals of the previous direction.</p>
+<p>The key difference when compared to PCA is that PLS finds new variables with the goal of explaining the dependent variable. Consequently, cross validation can be used to determine the optimal number of directions.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>ALL features are used to create the directions; there is no variable selection (dropping of variables) involved, only involvement to different extents.</p>
+</div>
 
 
 
