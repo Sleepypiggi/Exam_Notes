@@ -1253,20 +1253,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11.%20Other%20Methods/" class="md-nav__link">
-        Other Methods
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1652,7 +1638,13 @@
 <img alt="FLEXIBILITY_INFERENCE" class="center" src="../Assets/1.%20Statistical%20Learning.md/FLEXIBILITY_INFERENCE.png" /></p>
 <p>A less flexible model is also said to have a <strong>smoother fit</strong> as the relationship is simpler.</p>
 </div>
-<p>Another consideration is the <strong>Robustness</strong> of the model  - the <strong>stability or sensitivity</strong> of the results. While some variation is expected from sample to sample, a good model will be able to <strong>extract the underlying signal</strong> which should be similar regardless of the sample.</p>
+<p>Another consideration is the <strong>Robustness</strong> of the model  - the <strong>stability or sensitivity</strong> of the results. While some variation is expected from sample to sample, a good model will be able to <strong>extract the underlying signal</strong> which should be similar regardless of the sample. <strong>Non-Parametric methods tend to be less robust</strong> due to having no functional form to anchor them.</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="METHOD_OVERVIEW" class="center" src="../Assets/1.%20Statistical%20Learning.md/METHOD_OVERVIEW.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that between Linear Regression and Decision Trees, the ISLR author has noted that <strong>Linear Regression is more intepretable</strong>.</p>
+</div>
 <h2 id="regression"><strong>Regression</strong><a class="headerlink" href="#regression" title="Permanent link">&para;</a></h2>
 <h3 id="specification"><strong>Specification</strong><a class="headerlink" href="#specification" title="Permanent link">&para;</a></h3>
 <p>There exists a <strong>true relationship</strong> between the Dependent and Independent Variables:</p>
@@ -1822,6 +1814,10 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some texts may refer to the above as Accuracy (Bias) &amp; Precision (Variance). Although they are used interchangeably in day to day conversations, they have a specific meaning in a statistical context.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The impact of flexibility on MSE depends heavily on the actual data generating process. If it is complicated, increasing flexibility will have a large reduction in bias.</p>
 </div>
 <h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
 <p>Recall that <strong>Confidence Intervals</strong> are a range of values that the <strong>true parameter</strong> will fall within for a given level of confidence. In a regression setting, recall that the model is estimating the <strong>mean of the conditional distribution</strong>; a parameter. Thus, the confidence interval for a model measures the <strong>range of values for <span class="arithmatex">\(E(Y \mid X)\)</span></strong>.</p>

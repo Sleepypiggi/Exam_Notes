@@ -1348,20 +1348,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11.%20Other%20Methods/" class="md-nav__link">
-        Other Methods
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1981,7 +1967,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Similar to before, if the model has <span class="arithmatex">\(n\)</span> variables and <span class="arithmatex">\(k\)</span> categories, then a total of <span class="arithmatex">\(n \cdot (k-1)\)</span> coefficients are needed.</p>
-<p>However, a common variation of the above is to use a <strong>Proportional Odds Cumulative Model</strong>. It assumes that the <strong>odds ratios are the same across thresholds</strong>, thus allowing each equation to use the <strong>same <span class="arithmatex">\(\beta\)</span></strong>, with only the <span class="arithmatex">\(\alpha\)</span> changing for each, reducing the number of cofficients needed.</p>
+<p>However, a common variation of the above is to use a <strong>Proportional Odds Cumulative Model</strong>. It assumes that the <strong>odds ratios are the same across thresholds</strong>, thus allowing each equation to use the <strong>SAME <span class="arithmatex">\(\beta\)</span></strong>, with only the <span class="arithmatex">\(\alpha\)</span> changing for each, reducing the number of cofficients needed. HOWEVER, this does NOT mean that <span class="arithmatex">\(\beta\)</span> is not needed, it is simply constant.</p>
 <p>An interesting property is that the <strong>ratio of two cumulative odds are independent</strong> of the predictors and coefficients, which might have some <strong>niche use cases</strong> where the prediction under different set of X's are provided and tasked to solve for an unknown:</p>
 <div class="arithmatex">\[
     \frac{\Pi_{1} \div (1 - \Pi_{1})}{\Pi_{2} \div (1 - \Pi_{2})} = \exp (\alpha_{1} - \alpha_{2})

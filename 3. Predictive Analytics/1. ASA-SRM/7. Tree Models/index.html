@@ -1280,20 +1280,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11.%20Other%20Methods/" class="md-nav__link">
-        Other Methods
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1635,7 +1621,11 @@
 </div>
 <!-- Obtained from Research Gate -->
 <p><img alt="PRE_PRUNING" class="center" src="../Assets/7.%20Tree%20Models.md/PRE_PRUNING.png" /></p>
-<p>The second type of pruning is known as <strong>Post-pruning</strong>. A hyperparameter <strong>constraint</strong> is added to the RSS, where T is the <strong>number of leaves</strong> in the tree:</p>
+<p>The second type of pruning is known as <strong>Post-pruning</strong>. A <strong>penalty</strong> is added to the RSS:</p>
+<ul>
+<li><span class="arithmatex">\(\lambda\)</span>: Hyperparameter</li>
+<li>T: Number of terminal nodes (Leaves)</li>
+</ul>
 <div class="arithmatex">\[
     \min (\text{RSS} + \lambda \cdot T)
 \]</div>
@@ -1648,15 +1638,15 @@
 </ol>
 <p><!-- Obtained from Coaching Actuaries -->
 <img alt="PRUNING_RSS" class="center" src="../Assets/7.%20Tree%20Models.md/PRUNING_RSS.png" /></p>
-<p>As stated previously, the RSS of the tree at any point is the sum of all terminal RSS. However, if given the above, it is important to sum the correct ones (while also adding the correct number of constraints).</p>
+<p>As stated previously, the RSS of the tree at any point is the sum of all terminal RSS. However, if given the above, it is important to sum the correct ones (while also applying the correct amount of penalty).</p>
 </div>
-<p>For every possible <span class="arithmatex">\(T\)</span>, there exists a <strong>subtree that minimizes</strong> the above function. Among the above shortlisted subtrees, the one with the <strong>lowest constrained RSS</strong> is chosen as the final tree.</p>
+<p>For every possible <span class="arithmatex">\(T\)</span>, there exists a <strong>subtree that minimizes</strong> the above function. Among the above shortlisted subtrees, the one with the <strong>lowest penalized RSS</strong> is chosen as the final tree.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is why this method is known as <strong>Cost Complexity Pruning</strong>, as it adds a cost to the minimization problem.</p>
 <p>From another perspective, this it is also known as <strong>Weakest Link Pruning</strong>, as it removes the least important ("weakest links") from the tree.</p>
 </div>
-<p>The key idea is that <span class="arithmatex">\(\lambda\)</span> and <span class="arithmatex">\(T\)</span> are <strong>inversely related</strong>. The higher the constraint, the smaller the tree must be; hence different <span class="arithmatex">\(\lambda\)</span> will result in a <strong>different final tree</strong>.</p>
+<p>The key idea is that <span class="arithmatex">\(\lambda\)</span> and <span class="arithmatex">\(T\)</span> are <strong>inversely related</strong>. The higher the penalty, the smaller the tree must be; hence different <span class="arithmatex">\(\lambda\)</span> will result in a <strong>different final tree</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Since the T is an <strong>integer</strong> and while the <span class="arithmatex">\(\lambda\)</span> is <strong>continuous</strong>, a range of <span class="arithmatex">\(\lambda\)</span> could result in the <strong>same T; same pruned tree</strong>:</p>
@@ -1665,7 +1655,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When <span class="arithmatex">\(\lambda=0\)</span>, the constrained RSS is the <strong>same as the regular RSS</strong> and hence will result in the original tree. Thus, the trees that minimizes the constrained RSS will <strong>always be a subtree</strong> of the original.</p>
+<p>When <span class="arithmatex">\(\lambda=0\)</span>, the penalized RSS is the <strong>same as the regular RSS</strong> and hence will result in the original tree. Thus, the trees that minimizes the penalized RSS will <strong>always be a subtree</strong> of the original.</p>
 <p>Intuitively, this is because the tree was fitted using a <strong>forward greedy algorithm</strong> to begin with. Thus, going backwards should result in the same tree.</p>
 </div>
 <div class="admonition warning">

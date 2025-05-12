@@ -1341,20 +1341,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11.%20Other%20Methods/" class="md-nav__link">
-        Other Methods
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1942,7 +1928,7 @@
 <ul>
 <li><span class="arithmatex">\(\varphi = 1\)</span>: Random Walk</li>
 <li><span class="arithmatex">\(\varphi = 0\)</span>: Linear Trend in Time</li>
-<li><span class="arithmatex">\(\mu_{1} = 0\)</span>: Autoregressive</li>
+<li><span class="arithmatex">\(\mu_{1} = 0, \varphi \lt 1\)</span>: Autoregressive</li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1958,6 +1944,36 @@
     Y_{t} &amp;= (1 - \varphi) \mu_{0} + \varphi Y_{t-1} + \varepsilon_{t} \\
 \end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice the following relationships:</p>
+<ul>
+<li><span class="arithmatex">\(\varphi\)</span> is equivalent to <span class="arithmatex">\(\beta_{1}\)</span> in an AR(1) model</li>
+<li><span class="arithmatex">\(\mu_{1}\)</span> is equivalent to <span class="arithmatex">\(\beta_{1}\)</span> in a Linear Trend model</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The linear trend in time is a simple model that regresses the dependent variable against time:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="LINEAR_TIME" class="center" src="../Assets/10.%20Time%20Series.md/LINEAR_TIME.png" /></p>
+<p>This model tends to perform poorly as <strong>small or large values of <span class="arithmatex">\(t\)</span> tend to have high leverage</strong>, causing them to have much greater influence on the model.</p>
+<p>The other time series model recommended tend to put <strong>more weight on recent observations</strong> rather than old ones, which is more desirable when working with time series data.</p>
+</div>
+<p>The main purpose for expressing it in this way is to perform a <strong>Dickey Fuller Test</strong>, which tests for the presence of a <strong>Unit Root</strong>. A "root" refers to the solutions of an equation. In a time series context, it is typically referring to the regression coefficients <span class="arithmatex">\(\beta_{1}\)</span> (or <span class="arithmatex">\(\varphi\)</span> in this context). A Unit Root specifically means root is <strong>equal to a unit value (equal to 1)</strong> - which is when the series <strong>follows a random walk</strong>:</p>
+<ul>
+<li><span class="arithmatex">\(\varphi = 1\)</span></li>
+<li><span class="arithmatex">\(\varphi \gt 1\)</span></li>
+</ul>
+<p>The test implicitly assumes that the white noise term is serially uncorrelated. If this is not the case, the test can be modified to account for it, known as an <strong>Augmented Dickey Fuller Test</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is NOT necessary to know the test-statistic or its sampling distribution. If needed, the question will provide them.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The exact mathematical details about why the regression coefficient is the root of an autoregressive model is beyond the scope of this exam.</p>
+</div>
 <h2 id="smoothing-models"><strong>Smoothing Models</strong><a class="headerlink" href="#smoothing-models" title="Permanent link">&para;</a></h2>
 <p>Smoothing is a technique that involves averaging data points over a period to account for the various components in the time series (Level, Trend, Seasonality), resulting in a stationary time series with the underlying signal.</p>
 <div class="admonition tip">
@@ -2093,7 +2109,7 @@
     SS(w) = \sum (y_{t} - \hat{s}_{t-1})
 \]</div>
 <p>Note that <span class="arithmatex">\(s_{t-1}\)</span> is the prediction for <span class="arithmatex">\(y_{t}\)</span>, NOT <span class="arithmatex">\(s_{t}\)</span>. This is because <span class="arithmatex">\(s_{t}\)</span> already includes the actual observation at <span class="arithmatex">\(t\)</span>.</p>
-<p>A similar process can be done for moving average smoothing as well to determine the optimal <span class="arithmatex">\(k\)</span>.</p>
+<p>Naturally, this can be used to determine the <strong>in-sample goodness of fit</strong> as well. A similar process can be done for moving average smoothing as well to determine the optimal <span class="arithmatex">\(k\)</span>.</p>
 </div>
 <p>Assuming that the data has <strong>no trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
 <div class="arithmatex">\[
@@ -2235,13 +2251,13 @@
       
       
         
-        <a href="../11.%20Other%20Methods/" class="md-footer__link md-footer__link--next" aria-label="Next: Other Methods" rel="next">
+        <a href="../../../Placeholder/" class="md-footer__link md-footer__link--next" aria-label="Next: ASA-PA" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Other Methods
+              ASA-PA
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -1376,20 +1376,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11.%20Other%20Methods/" class="md-nav__link">
-        Other Methods
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -2210,19 +2196,19 @@ Var(\hat{\beta}) =
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The sum of the squared coefficients is known as the <strong><span class="arithmatex">\(\ell_{2}\)</span> norm</strong>. It is constrained to be smaller than some specified <strong>budget</strong>:</p>
+<p>The sum of the squared coefficients is known as the <strong><span class="arithmatex">\(\ell_{2}\)</span> norm</strong>. It is <strong>constrained</strong> to be smaller than some specified <strong>budget</strong>:</p>
 <div class="arithmatex">\[
     \sum \beta^{2}_{p} \le a
 \]</div>
 <p>When there are only two predictors, the <span class="arithmatex">\(\ell_{2}\)</span> norm forms a <strong>Circle</strong>, where all points within the Circle fulfill the penalty; the points along the edge <strong>just fulfil</strong> the penalty.</p>
-<p>The Ridge coefficients are the point where the set of coefficients (Contours) that minimize the constrained RSS also fulfil the <span class="arithmatex">\(\ell_{2}\)</span> constraint; where the contours meet the Circle:</p>
+<p>The Ridge coefficients are the point where the set of coefficients (Contours) that minimize the penalized RSS also fulfil the <span class="arithmatex">\(\ell_{2}\)</span> constraint; where the contours meet the Circle:</p>
 <p><!-- Obtained from Towards Data Science -->
 <img alt="RIDGE_CIRCLE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/RIDGE_CIRCLE.png" /></p>
 <p>The key is that due to the shape of the circle, the contours will never intersect the circle along the axis. Thus, it will <strong>NEVER shrink any coefficient to 0</strong>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>A non-graphical approach to validate the Ridge (and Lasso) would be to test if the resulting model fulfils the above constraint by <strong>manually adding</strong> the resulting RSS and coefficients.</p>
+<p>A non-graphical approach to validate the Ridge (and Lasso) would be to test if the resulting model fulfils the above penalty by <strong>manually adding</strong> the resulting RSS and coefficients.</p>
 <p>This can also be used to determine the final ridge/LASSO model, which should have the lowest value of all possible combinations.</p>
 </div>
 <p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>shrinkage parameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong>:</p>
@@ -2248,6 +2234,15 @@ Var(\hat{\beta}) =
 <p><!-- Obtained from Coaching Actuaries -->
 <img alt="RIDGE_SHRINKAGE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/RIDGE_SHRINKAGE.png" /></p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is important to have a clear distinction between:</p>
+<ul>
+<li>Penalty: <span class="arithmatex">\(\lambda \cdot \sum \beta^{2}_{p}\)</span></li>
+<li>Constraint: <span class="arithmatex">\(\sum \beta^{2}_{p} \lt s\)</span></li>
+</ul>
+<p>The penalty will always be applied to the RSS, the constraint is a condition that the penalty must fulfil.</p>
+</div>
 <h3 id="l1-lasso"><strong>L1: LASSO</strong><a class="headerlink" href="#l1-lasso" title="Permanent link">&para;</a></h3>
 <p>The second method is known as <strong>LASSO regression</strong>. Similarly, it works by adding a <strong>L1 penalty</strong> to the OLS minimization problem:</p>
 <div class="arithmatex">\[
@@ -2255,12 +2250,12 @@ Var(\hat{\beta}) =
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The sum of the absolute coefficients is known as the <strong><span class="arithmatex">\(\ell_{1}\)</span> norm</strong>. It is constrained to be smaller than some specified <strong>budget</strong>:</p>
+<p>The sum of the absolute coefficients is known as the <strong><span class="arithmatex">\(\ell_{1}\)</span> norm</strong>. It is <strong>constrained</strong> to be smaller than some specified <strong>budget</strong>:</p>
 <div class="arithmatex">\[
     \sum |\beta_{p}| \le a
 \]</div>
 <p>When there are only two predictors, the <span class="arithmatex">\(\ell_{1}\)</span> norm forms a <strong>Diamond</strong>, where all points within the diamond fulfill the penalty; the points along the edge <strong>just fulfil</strong> the penalty.</p>
-<p>The LASSO coefficients are the point where the set of coefficients that minimize the constrained RSS also fulfil the <span class="arithmatex">\(\ell_{1}\)</span> constraint; where the contours meet the diamond:</p>
+<p>The LASSO coefficients are the point where the set of coefficients that minimize the penalized RSS also fulfil the <span class="arithmatex">\(\ell_{1}\)</span> constraint; where the contours meet the diamond:</p>
 <p><!-- Obtained from DS100 -->
 <img alt="LASSO_DIAMOND" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND.png" /></p>
 <p>The key is that since the corners of the diamond are always on the axes, it is possible for the contours to intersect the diamond at that point (where one of the other coefficients is 0), thus allowing for LASSO to shrink coefficients to 0.</p>
