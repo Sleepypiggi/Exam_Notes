@@ -1704,6 +1704,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Different texts have <strong>different thresholds</strong> for high collinearity. For this exam, assume the <strong>threshold to be 10</strong>.</p>
+<p>The reciprocal of the VIF is known as the Tolerance.</p>
 </div>
 <p><span class="arithmatex">\(R^{2}_{p}\)</span> is the R-squared for a model where the p-th predictor is regressed against ALL OTHER predictors. If this R-squared is high, it implies that this predictor is well explained by other predictors (high correlation, high collinearity).</p>
 <div class="admonition warning">
@@ -1958,7 +1959,14 @@
 <p>The issue with highly influential points is that the fitted model would be <strong>vastly different without them</strong>, causing <strong>instability</strong> in the estimates:  </p>
 <!-- Obtained from Quantitative Research Methods for Political Science -->
 <p><img alt="INFLUENCE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/INFLUENCE.png" /></p>
-<p>Thus, they <strong>need to be investigated</strong> to better understand them - are they miscoded observations, or are they representing unique behaviour of a sub-group of predictors? Following this, an informed decision can be made on whether or not they should be included in the model.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In general, influential points should be removed automatically <strong>ONLY IF</strong> it was due to an <strong>error in the data collection</strong> process. Otherwise, other options should be considered:</p>
+<ol>
+<li>Retain the observations but adding a note</li>
+<li>Create a Binary variable to account for the observations</li>
+</ol>
+</div>
 <h3 id="high-dimensionality"><strong>High Dimensionality</strong><a class="headerlink" href="#high-dimensionality" title="Permanent link">&para;</a></h3>
 <p>As alluded to previously, increasing the number of parameters in the model does not necessarily benefit the model. This phenomenon is known as the <strong>Curse of Dimensionality</strong>.</p>
 <p>A sample of 100 observations is a lot of information for a model with 2 predictors, but is sparse for a model with 50 predictors. Thus, <strong>increasing the number of predictors relative to the sample size</strong> tends to have detrimental effects:</p>

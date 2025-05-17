@@ -1532,6 +1532,10 @@
 <p>The intepretation uses EXPECTED to emphasise that the model is predicting <span class="arithmatex">\(E(Y \mid X)\)</span>, NOT <span class="arithmatex">\(Y\)</span> itself.</p>
 <p>The entire line is the expectation, the intercept is just a single point on that line, hence the definition.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Regression coefficients INCLUDES the intercept. If referring to just the slope parameters, the term "predictors" is usually used.</p>
+</div>
 <h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
 <p>The model is fitted using the <strong>Ordinary Least Squares</strong> (OLS) method. The parameters are estimated such that the resulting fitted model <strong>minimizes the sum of squared residuals</strong>, also known as the <strong>Residual Sum Squared</strong> (RSS):</p>
 <div class="arithmatex">\[
@@ -1543,7 +1547,7 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The SQUARED residuals are taken to avoid offsetting effects between the positive and negative residuals.</p>
+<p>The SQUARED residuals are taken to avoid offsetting effects between the positive and negative residuals as well as to emphasise larger differences.</p>
 </div>
 <p>The minimization is done through calculus by setting the <strong>partial derivatives</strong> for each parameter to 0:</p>
 <div class="arithmatex">\[
@@ -1719,7 +1723,7 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The decomposition of total variance (TSS) into explainable (RegSS) and unexplainable (RSS) components is known as an ANOVA process.</p>
+<p>The decomposition of total variance (TSS) into explainable (RegSS) and unexplainable (RSS) components is known as an Analysis of Variance (ANOVA) process.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1735,7 +1739,7 @@
 <li><span class="arithmatex">\(H_{0}\)</span>: <span class="arithmatex">\(\beta_{1} = 0\)</span></li>
 <li><span class="arithmatex">\(H_{1}\)</span>: <span class="arithmatex">\(\beta_{1} \ne 0\)</span></li>
 </ul>
-<p>However, an F-test uses <strong>Variance</strong> while the ANOVA components are <strong>sum of squared deviations</strong>. Thus, they can be coverted into "Variances" by <strong>dividing by their degrees of freedom</strong>:</p>
+<p>However, an F-test uses <strong>Variance</strong> while the ANOVA components are <strong>sum of squared deviations</strong>. Thus, they can be coverted into “Mean Squares/Variances" by <strong>dividing by their degrees of freedom</strong>:</p>
 <p><center></p>
 <table>
 <thead>
@@ -1779,7 +1783,7 @@
 <ul>
 <li><strong>TSS</strong> is the deviations of the <strong>observations from the mean</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but one degree of freedom has been <strong>used up by the mean</strong>; <span class="arithmatex">\(\nu = n - 1\)</span>.</li>
 <li><strong>RSS</strong> is the deviations of the <strong>observations from the prediction</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but two degrees of freedom has been <strong>used up by the Intercept and Slope</strong>; <span class="arithmatex">\(\nu = n-2\)</span>.</li>
-<li><strong>RegSS</strong> is the deviations of the <strong>prediction from the sample mean</strong>. Since the prediction only relies on a <strong>single input</strong>, there is only one degree of freedom; <span class="arithmatex">\(\nu = 1\)</span>.</li>
+<li><strong>RegSS</strong> is the deviations of the <strong>prediction from the sample mean</strong>. Since the prediction only relies on a <strong>single additional input</strong> (non-intercept coefficient), there is only one degree of freedom; <span class="arithmatex">\(\nu = 1\)</span>.</li>
 </ul>
 <p>Alternatively, since <span class="arithmatex">\(\text{TSS} = \text{RegSS} + \text{RSS}\)</span>, the degrees of freedom should follow the same sum. Thus, RegSS must have one degree of freedom.</p>
 </div>
@@ -1851,7 +1855,7 @@
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Note that the the Variance of the prediction, the numerator uses <span class="arithmatex">\(x\)</span> rather than <span class="arithmatex">\(x_{i}\)</span>. This is to reflect that it should be using the <strong>value of <span class="arithmatex">\(x\)</span> for that specific prediction</strong>.</p>
+<p>Note that the Variance of the prediction, the numerator uses <span class="arithmatex">\(x\)</span> rather than <span class="arithmatex">\(x_{i}\)</span>. This is to reflect that it should be using the <strong>value of <span class="arithmatex">\(x\)</span> for that specific prediction</strong>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

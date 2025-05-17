@@ -1532,8 +1532,8 @@
 <p class="admonition-title">Tip</p>
 <p>In a two-dimensional context, the Euclidean Distance is essentially the straight line distance between two points.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>By default, the calculator will display the exact form; (EG. <span class="arithmatex">\(\sqrt{2}\)</span> instead of <span class="arithmatex">\(1.4 \dots\)</span>). This can make it hard to compare quantities, thus change the 'Mode' to 'Classic' to force all calculated values to be displayed in decimal form.</p>
 </div>
 <h3 id="cluster-variation"><strong>Cluster Variation</strong><a class="headerlink" href="#cluster-variation" title="Permanent link">&para;</a></h3>
@@ -1556,6 +1556,13 @@
 <p>The <strong>diagonal is always 0</strong> because the euclidean distance between a point and itself is 0.</p>
 <p>The table considers <strong>ALL pairs of observations</strong>, not just unique pairs. In other words, 1-2 and 2-1 are both considered, even though they result in the same euclidean distance. This is why the values are <strong>symmetrical about the diagonal</strong>.</p>
 <p>Cluster Variation requires ALL values in the table to be summed. However, since the table is symmetrical, it is equivalent to TWO TIMES the sum of the <strong>triangle of values</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It can be shown that the Cluster Variation can also be calculated as <strong>TWO times</strong> the Euclidean Distance from each observation to its centroid:</p>
+<div class="arithmatex">\[
+    \text{Total Cluster Variation} = 2 \sum \text{ED from Centroid}
+\]</div>
 </div>
 <h3 id="centroid"><strong>Centroid</strong><a class="headerlink" href="#centroid" title="Permanent link">&para;</a></h3>
 <p>Another related concept is the <strong>Centroid of the cluster</strong>. As its name suggests, it is the <strong>centre of the cluster</strong> in multi-dimensional space, equivalent to the average of each individual dimension.</p>
@@ -1587,6 +1594,10 @@
 <p>Additionally, since the <strong>initial cluster assignment is random</strong>, the algorithm will produce <strong>different clusters</strong> each time it is run. This is contrast to subset selection where the starting point is always the same, thus will produce the same results.</p>
 </div>
 <p>The choice of <span class="arithmatex">\(k\)</span> is <strong>arbitrary</strong>, thus it might not yield the best results. It is thus recommended to <strong>repeat the algorithm</strong> several times for different <span class="arithmatex">\(k\)</span> to have a better understanding of the data.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Euclidean Distance does not exist for categorical data. Thus, Clustering can only be applied to quantitative variables.</p>
+</div>
 <h2 id="hierarchical-clustering"><strong>Hierarchical Clustering</strong><a class="headerlink" href="#hierarchical-clustering" title="Permanent link">&para;</a></h2>
 <p>The second type is known as <strong>Hierarchical Clustering</strong>. It works by iteratively merging or splitting data points based on their <strong>similarity</strong>, till all observations are either in one giant cluster or in individual clusters.</p>
 <!-- Obtained from Medium -->
@@ -1666,9 +1677,9 @@
 <p class="admonition-title">Tip</p>
 <p>For a cluster with <strong>only one observation</strong>; starting cluster - the choice of linkage <strong>does not matter</strong> as they will all lead to the same result.</p>
 </div>
-<p>The choice of linkage does affect how the <strong>shape</strong> of the resulting Dendrogram:</p>
+<p>The choice of linkage does affect how the <strong>shape</strong> of the resulting Dendrogram. In general, Complete and Average linkage is preferred:</p>
 <ul>
-<li><strong>Single</strong>: Tends to merge single observation clusters first, resulting in a <strong>skewed diagram</strong></li>
+<li><strong>Single</strong>: Tends to merge single observation clusters first, resulting in <strong>extended and trailing</strong> diagrams</li>
 <li><strong>Centroid</strong>: May result in <strong>Inversions</strong> where the clusters are merged at a lower level; <strong>unintuitive</strong></li>
 <li><strong>Complete &amp; Average</strong>: Tend to produce more <strong>balanced trees</strong></li>
 </ul>

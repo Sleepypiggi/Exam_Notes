@@ -1521,9 +1521,13 @@
 <div class="arithmatex">\[
     \sum \varphi^{2}_{1, k} = 1
 \]</div>
-<p>This is another constraint during the fitting process, apart from being Orthogonal.</p>
 <p>Since the loadings are squared, there are technically <strong>two possible solutions</strong> to each loading. The <strong>dot product</strong> of the loadings MUST be used to verify which of the signs are correct.</p>
+<p>Since the Dot Product must be 0, there MUST be <strong>at least one negative loading</strong> among each pair of PC loadings to ensure that it is 0.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>For the purposes of this exam, it should be noted that the loadings are NOT unique. Different softwares will produce the <strong>same absolute value</strong> of the loadings, but with <strong>different signs</strong> for each iteration (likely due to the above).</p>
+<p>The sign flip must be applied <strong>consistently</strong> across all loadings, NOT just a select few.</p>
 </div>
 <p>Geometrically, the PCs also form a <strong>plane</strong> in the multi-dimensional space. The Score of each observation with respect to the respective PCs is the coordinate of the observations within the coordinate space of the plane. Thus, observations with high scores are "outliers" in the PC space.</p>
 <!-- Obtained from Learnche -->
@@ -1623,10 +1627,6 @@
 <div class="arithmatex">\[
     E(Y \mid X) = \theta_{0} + \theta_{1} \cdot Z_{1} + \theta_{2} \cdot Z_{2} + \dots
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To check with CA if the residuals are maximized with respect to PC</p>
-</div>
 <p>Note that since PC uses <strong>ALL variables</strong>, it is akin to performing linear regression on all variables. Thus, if an equivalent MLR model uses all available predictors, the two will provide the <strong>same prediction</strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1647,6 +1647,10 @@
 <p>Since each PC is <strong>uncorrelated</strong> with the others, adding or removing PCs does NOT affect any of the coefficients.</p>
 </div>
 <p>Generally speaking, any other statistical learning method can be applied to the reduced PC dataset, not just linear regression. The resulting model should produce <strong>less noisy results</strong> as the signal would be captured in the first few PCs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In general, the PC that explains the most variance among the predictors (first PC) is not guaranteed to best explain the target variable.</p>
+</div>
 
 
 

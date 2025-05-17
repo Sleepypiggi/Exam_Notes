@@ -1611,11 +1611,8 @@
 <p>At each step, there might be multiple variables that can be added or dropped. It is important to only add or drop variables <strong>ONE at a time</strong> (most or least significant), as there might <strong>second order impact</strong> which changes its significance to the model.</p>
 <p>The above is applicable even outside of a stepwise model selection context.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-</div>
 <h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
-<p>As its name suggests the best subset approach will always pick the model with the <strong>lowest RSS</strong> (highest R^{2}) as it considers all possible models. The other two algorithms have no guarantee to pick such a model given its greedy approach.</p>
+<p>As its name suggests the best subset approach will always pick the model with the <strong>lowest RSS</strong> (highest <span class="arithmatex">\(R^{2}\)</span>) as it considers all possible models. The other two algorithms have no guarantee to pick such a model given its greedy approach.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Neither models have any guarantee to pick the model with the lowest test error, as they are not evaluated using test error.</p>
@@ -1772,15 +1769,16 @@
 <ol>
 <li>Choose a model selection method (Best, Stepwise)</li>
 <li>Perform the model selection method in conjunction with a validation method to determine the <strong>optimal number</strong> of predictors</li>
-<li>Perform the model selection method again with the **whole dataset**p (Training + Validation)</li>
+<li>Perform the model selection method again with the <strong>whole dataset</strong> (Training + Validation)</li>
 <li>Select the model with the number of predictors determined in (2) as the final model</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The reason for needing to re-run the process is because the model in step (2) did not use the entire available dataset. The algorithm could have reached a different conclusion if the entire dataset was used.</p>
 </div>
-<p>Regardless of which specific approach is taken, after the final <em>number</em> of predictors are obtained, </p>
 <h3 id="hyperparameter-tuning"><strong>Hyperparameter Tuning</strong><a class="headerlink" href="#hyperparameter-tuning" title="Permanent link">&para;</a></h3>
+<p>Hyperparameters are inputs decided by the modelled that affects <em>how</em> the model should learn.</p>
+<p>Rather than arbitrarily picking a value, cross validation can be used to test a range of values and choose the best one.</p>
 
 
 

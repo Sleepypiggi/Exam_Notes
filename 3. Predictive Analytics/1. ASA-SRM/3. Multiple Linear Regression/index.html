@@ -1791,7 +1791,13 @@
 <p><img alt="REGRESSION_PLANE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGRESSION_PLANE.png" /></p>
 <p>The actual observations can be linked to the fitted regression plane via a <strong>Hat Matrix</strong> <span class="arithmatex">\(\boldsymbol{H}\)</span>:</p>
 <div class="arithmatex">\[
-    \hat{\boldsymbol{y}} = \boldsymbol{H} \boldsymbol{y}
+\begin{aligned}
+    \hat{\boldsymbol{y}}
+    &amp;= \boldsymbol{H} \boldsymbol{y} \\
+    \\
+    \boldsymbol{H}
+    &amp;= \boldsymbol{X}_{i} \cdot (\boldsymbol{X}^{T} \cdot \boldsymbol{X})^{-1} \cdot \boldsymbol{X}^{T}
+\end{aligned}
 \]</div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1835,6 +1841,10 @@
     &amp;= 1 - (1 - R^{2}) \cdot \frac{n-1}{n-(p+1)}
 \end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is NOT recommended to memorize the above formula as it can be derived from first principles.</p>
+</div>
 <p>The key to understanding lies in the numerator. If the expression decreases, the overall adjusted R-squared will increase:</p>
 <div class="arithmatex">\[
     \frac{\text{RSS}}{n-(p+1)}
@@ -1918,9 +1928,15 @@
 <p class="admonition-title">Tip</p>
 <p>The F-statistic can also be re-expressed as a function of <span class="arithmatex">\(R^{2}\)</span>:</p>
 <div class="arithmatex">\[
-    \text{F}_{\text{Statistic}} = \frac{R^{2}}{1 - R^{2}} \cdot \frac{n-p-1}{p}
+\begin{aligned}
+   \text{F}_{\text{Statistic}}
+   &amp;= \frac{\frac{\text{RegSS}}{p}}{\frac{\text{RSS}}{n-p-1}} \\
+   &amp;= \frac{\text{RegSS}}{\text{RSS}} \cdot \frac{n-p-1}{p} \\
+   &amp;= \frac{\frac{\text{RegSS}}{\text{TSS}}}{\frac{\text{RSS}}{\text{TSS}}} \cdot \frac{n-p-1}{p} \\
+   &amp;= \frac{R^{2}}{1 - R^{2}} \cdot \frac{n-p-1}{p} 
+\end{aligned}
 \]</div>
-<p>It is NOT recommended to memorize the above formula, it can be derived from first principles using the ANOVA table.</p>
+<p>It is NOT recommended to memorize the above formula as it can be derived from first principles.</p>
 </div>
 <h3 id="partial-f-test"><strong>Partial F-test</strong><a class="headerlink" href="#partial-f-test" title="Permanent link">&para;</a></h3>
 <p>In order to determine which variables are useful, a <strong>Partial F-test</strong> can be used, which compares two models:</p>
@@ -2051,7 +2067,11 @@ Var(\hat{\beta}) =
 <p>Typically, if there is a known relationship between <span class="arithmatex">\(Y\)</span> and the k-th order of the independent variable, <strong>all orders from <span class="arithmatex">\(1\)</span> up to <span class="arithmatex">\(k\)</span></strong> are added for the variable.</p>
 <p>The reason is because we are interested in the way that <span class="arithmatex">\(Y\)</span> relates to <span class="arithmatex">\(X\)</span> as a whole. Keeping all powers allows the relationship to better expressed and hence have a better fit.</p>
 </div>
-<p>Although the relationship is better quantified, the regression coefficients become <strong>hard to intepret</strong>. Polynomials have a <strong>non-constant slope</strong>, thus they cannot be intepreted as the change in the dependent given a one unit increase anymore.</p>
+<p>Although the relationship is better quantified, the regression coefficients become <strong>hard to intepret</strong>. Polynomials have a <strong>non-constant slope</strong>, thus they CANNOT be intepreted as the change in the dependent given a one unit increase anymore.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do NOT mistakenly think that the coefficient squared (for a second-order coefficient) is the impact on the dependent. The relationship must still be linear, which naturally invalidates this train of thought.</p>
+</div>
 <!-- Obtained from Medium -->
 <p><img alt="POLYNOMIAL_REGRESSION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/POLYNOMIAL_REGRESSION.png" /></p>
 <h3 id="dummy-variables"><strong>Dummy Variables</strong><a class="headerlink" href="#dummy-variables" title="Permanent link">&para;</a></h3>
@@ -2126,8 +2146,10 @@ Var(\hat{\beta}) =
 <p><img alt="DUMMY_INTERACTION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/DUMMY_INTERACTION.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>There are questions which may ask for the impact of a variable on the response given all other variables are held constant.</p>
-<p>If the variable is part of the an interaction term, two extremes must be considered - Maximum and Minimum value for the other variable in the interaction and then determine if there is a clear one directional impact.</p>
+<p>There are questions which may ask for the impact of a variable on the response given some or all other variables are held constant.</p>
+<p>As shown above, the impact of a variable changes in the presence of an interaction term - which is the motivation of these questions.</p>
+<p>To know the definitive impact of the original variable on the response, consider the two scenarios with and without the interaction. Exclude variables that are held constant.</p>
+<p>If there are variables that are not held constant, consider the extreme scenarios - under those combinations, is the impact definitively in one direction?</p>
 </div>
 <h3 id="indicator-variables"><strong>Indicator Variables</strong><a class="headerlink" href="#indicator-variables" title="Permanent link">&para;</a></h3>
 <p>In some cases, there might be an <strong>change in the behaviour</strong> of the predictor <strong>across different values</strong> it can take. For instance, high net worth individuals have different spending patterns than regular consumers - behaviour changes past a certain Income threshold.</p>

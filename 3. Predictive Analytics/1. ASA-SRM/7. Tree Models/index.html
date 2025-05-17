@@ -1772,13 +1772,21 @@
 <ul>
 <li><strong>Number of Trees</strong> (b) - How many trees should be used</li>
 <li><strong>Depth of Trees</strong> (d) - How many splits each tree should have</li>
-<li><strong>Learning Rate</strong> (<span class="arithmatex">\(\lambda\)</span>) - How much each tree contributes to the overall prediction </li>
+<li><strong>Learning Rate</strong> (<span class="arithmatex">\(\lambda\)</span>) - How much the trees contributes to the overall prediction </li>
 </ul>
+<div class="arithmatex">\[
+    \text{Boosted Prediction}
+    = \lambda \cdot (\text{Tree 1 Prediction} + \text{Tree 2 Prediction} + \dots)
+\]</div>
 <p>Boosting as a method will result in low bias. However, if too many trees are used, the model could become <strong>overfitted</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The learning rate can also be referred to as the <strong>shrinkage parameter</strong> as it reduces the influence of each tree on the overall prediction.</p>
 <p>A <strong>small</strong> shrinkage parameter (<span class="arithmatex">\(\lambda \lt 1\)</span>) is preferred so that the learning process is slowed; requiring many trees. </p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As alluded to, shallow trees are typically used (EG. <span class="arithmatex">\(d=1\)</span>).</p>
 </div>
 <h2 id="classification-trees"><strong>Classification Trees</strong><a class="headerlink" href="#classification-trees" title="Permanent link">&para;</a></h2>
 <p>Decision Trees can also be used for <strong>categorical predictors</strong>, in which case it is known as a <strong>Classification Tree</strong>. The model assigns a category to the prediction based on the <strong>most common</strong> category within that region of the tree.</p>
@@ -1821,12 +1829,17 @@
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Gini Index (Region)} &amp;= \sum_{c} p_{c} (1 - p_{c}) \\
-    \text{Cross Entropy (Region)} &amp;= -\sum_{c} p_{c} \ln p_{c}
+    \text{Cross Entropy (Region)} &amp;= -2 \sum_{c} p_{c} \ln p_{c}
 \end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>All measures must be positive, but ONLY entropy can be larger than 1.</p>
+<p>Gini Index and Entropy are similar, but there are two key differences:</p>
+<ol>
+<li>Entropy has a multiplier of 2</li>
+<li>Entropy uses the same propbability for each set</li>
+</ol>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
