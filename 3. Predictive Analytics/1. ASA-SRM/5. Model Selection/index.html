@@ -1668,7 +1668,7 @@
 <li>Mallow's <span class="arithmatex">\(C_{p}\)</span></li>
 <li>Information Criteria</li>
 </ol>
-<p>The above metrics are essentially trying to <strong>mimic</strong> the test error, by applying an adjustment on the training error based on the number of predictors (flexibility). An alternative approach is to directly estimate the test error using <strong>Validation Set</strong> approaches.</p>
+<p>The above metrics are essentially trying to <strong>indirectly estimate the test error</strong>, by applying an adjustment on the training error based on the number of predictors (flexibility). An alternative approach is to <strong>directly estimate</strong> the test error using <strong>Validation Set</strong> approaches.</p>
 <h3 id="training-error-approach"><strong>Training Error Approach</strong><a class="headerlink" href="#training-error-approach" title="Permanent link">&para;</a></h3>
 <p>There are three new metrics to be covered, all based off the same intuition:</p>
 <ul>
@@ -1686,6 +1686,10 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There are <strong>slightly different formulations</strong> for AIC and BIC; the above is what is used in the source text. Regardless, they should arrive at similar conclusions.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the MSE is unbiased, then the resulting measures are <strong>unbiased</strong> estimates of the test error as well.</p>
 </div>
 <p>The metrics not meant to be used to evaluate a <em>particular</em> model’s effectiveness. They are used to compare the <strong>relative effectiveness</strong> of models; as a model selection criteria. The lower the metrics, the better the model in comparison to others.</p>
 <p>Notice that the first term is a measure of the <strong>training error</strong>, while the second term is the <strong>adjustment</strong> for the number of predictors. The lower the metric the better, thus the adjustment <strong>penalizes models with more predictors</strong>.</p>

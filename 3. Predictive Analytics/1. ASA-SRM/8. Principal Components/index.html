@@ -1576,7 +1576,7 @@
 </div>
 <h2 id="variance"><strong>Variance</strong><a class="headerlink" href="#variance" title="Permanent link">&para;</a></h2>
 <p>Recall that the PCs are created such that the total variation explained is maximized. As alluded to previously, it refers to the variation in the <strong>underling features</strong>. This is in contrast to linear regression where the variation is with respect to the target variable.</p>
-<p>The variation of features explained by each principle component is the variation of that particular principal component:</p>
+<p>The variation of features explained by each principle component is the variation of that particular principal component; <strong>squared Score</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     s_{z_{j}}
@@ -1594,7 +1594,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>It is possible to infer the relative variance from a Biplot, ONLY if the data was NOT scaled. If unscaled, then <strong>larger loadings would lead to larger variances</strong>, all else equal. Thus, the feature with the largest variance would be the feature with the largest PC1 loading (as PC1 explains the largest amount of variance).</p>
+<p>It is possible to infer the relative variance from a Biplot, ONLY if the data was NOT scaled. If unscaled, then <strong>larger loadings would lead to larger variances</strong>, all else equal. Thus, the feature with the <strong>largest scale</strong> would be the feature with the largest PC1 loading (as PC1 explains the <strong>largest variance</strong>).</p>
 <p>This cannot be used for scaled data as the variance for all features would be 1.</p>
 </div>
 <p>A <strong>Scree Plot</strong> summarizes the above information by plotting the proportion of variance explained by each successive PC. As alluded to previously, the plot will always be <strong>decreasing</strong> as the variance explained should decrease per PC:</p>

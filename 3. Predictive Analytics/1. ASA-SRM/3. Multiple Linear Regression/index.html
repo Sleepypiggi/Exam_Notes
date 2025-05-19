@@ -1719,9 +1719,19 @@
 <li><strong>Intercept Parameter</strong> (<span class="arithmatex">\(\beta_{0}\)</span>): <strong>Expected value</strong> of <span class="arithmatex">\(Y\)</span> when <span class="arithmatex">\(X_{1} = X_{2} = \dots = 0\)</span></li>
 <li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{p}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X_{p}\)</span>, assuming <em>all others are constant</em></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In a similar light, for MLR, we consider the <strong>Partial Correlation</strong> between the dependent and independent variable, which holds the effect of all other variables constant.</p>
+<p>To better understand the relationship between individual predictors, the <strong>Partial Correlation Coefficient</strong> can be used. It is the correlation between the predictor and response, <strong>holding all other predictors constant</strong>.</p>
+<div class="arithmatex">\[
+    \text{PCF} = \frac{t}{\sqrt{t^{2} + (n-p-1)}}
+\]</div>
+<p>An <strong>Added Variable Plot</strong> uses plots the <strong>residuals</strong> from the following two models against each other:</p>
+<ul>
+<li><strong>A</strong>: Independent variable against all OTHER variables</li>
+<li><strong>B</strong>: Independent variable against ONLY the variable of interest</li>
+</ul>
+<p>The correlation in the added variable IS the partial correlation coefficient. This is because the residuals from (A) <strong>already accounts for the effects of the other variables</strong> - it is a measure of how much of the remaining difference is explained by the new variable; measure of its predictive power.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Variables should not be added or dropped solely based on predictive power. There are many other considerations to consider - EG. theoretical or interaction effects.</p>
 </div>
 <h2 id="matrix-notation"><strong>Matrix Notation</strong><a class="headerlink" href="#matrix-notation" title="Permanent link">&para;</a></h2>
 <p>Given that the MLR model can have infinitely many independent variables, expressing the model in regular algebra format can become tedious. Thus, it is commonly expressed in <strong>Matrix Notation</strong> instead:</p>
@@ -2128,7 +2138,7 @@ Var(\hat{\beta}) =
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This could lead to scenarios where the Interaction Variable is statistically significant but the <strong>underlying variables individually are not</strong>.</p>
-<p>Through the <strong>Hierarchical Principle</strong>, it is common practice that to include the individual variables as well regardless of their significance. Note that this applies to <strong>Polynomial Regression</strong> as well, which is why all lower order terms are retained as well.</p>
+<p>Through the <strong>Hierarchical Principle</strong>, it is common practice that to <strong>include the individual variables</strong> as well regardless of their significance. Note that this applies to <strong>Polynomial Regression</strong> as well, which is why all lower order terms are retained as well.</p>
 </div>
 <p>If the interaction variable contains a dummy variable, then the interpretation changes from before. The existing coefficient of the dummy remains the same, but there is an additional <strong>coefficient from the interaction</strong> which represents the <strong>difference in slope</strong> from the two lines:</p>
 <div class="arithmatex">\[

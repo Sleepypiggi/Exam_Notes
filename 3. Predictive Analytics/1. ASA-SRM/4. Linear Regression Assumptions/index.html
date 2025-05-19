@@ -1762,8 +1762,8 @@
 <p>The ommitted correlated variable is said to Confound (mix up) the regression results. Thus, it is sometimes referred to as the <strong>Confounding Variable</strong>. This process in general is known as the <strong>Omitted Variable Bias</strong>.</p>
 </div>
 <p>Similar to before, a <strong>residual plot of the residuals against the predictors</strong> can be used to check for Exogenity; there should be no visible trend in the plots:</p>
-<!-- Obtained from ACTEX Manual -->
-<p><img alt="Residual Plot" src="Assets/4.%20Gauss%20Markov%20Theorem.md/Residual%20Plot.png" /></p>
+<!-- Obtained from Penn State University -->
+<p><img alt="SCATTER_RESIDUAL_PREDICTOR" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/SCATTER_RESIDUAL_PREDICTOR.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The above plot are the residuals against a single predictor. Plotting against the fitted values would imply plotting against all predictors at once.</p>
@@ -1868,8 +1868,8 @@
 <h2 id="other-considerations"><strong>Other Considerations</strong><a class="headerlink" href="#other-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="leverage"><strong>Leverage</strong><a class="headerlink" href="#leverage" title="Permanent link">&para;</a></h3>
 <p>Observations with unusually high values in the <strong>Independent Variable</strong> are known as <strong>High Leverage Points</strong>. The easiest way to identify high leverage points would be through a scatterplot of independent variables:</p>
-<!-- Obtained from ACTEX Manual -->
-<p><img alt="High Leverage Points" class="center" src="Assets/4.%20Gauss%20Markov%20Theorem.md/High%20Leverage.png" /></p>
+<!-- Obtained from Penn State University -->
+<p><img alt="HIGH_LEVERAGE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HIGH_LEVERAGE.png" /></p>
 <p>When there are multiple variables, another consideration is that the observation might seem normal within each variable, but <strong>unusual when taken collectively</strong>. This is hard to visualize in multiple dimensions, thus leverage can also be quantified via the following:</p>
 <div class="arithmatex">\[
     h_{i} = \boldsymbol{X}_{i} \cdot (\boldsymbol{X}^{T} \cdot \boldsymbol{X})^{-1} \cdot \boldsymbol{X}_{i}
@@ -1900,8 +1900,9 @@
 \]</div>
 </div>
 <h3 id="outliers"><strong>Outliers</strong><a class="headerlink" href="#outliers" title="Permanent link">&para;</a></h3>
-<p>Observations with unusually high values in the <strong>dependent variable</strong> are known as <strong>Outliers</strong>. Naturally, these observations have <strong>large residuals</strong>. However, residuals contain the units the of the dependent variable, which affects its scale. Thus, the residuals must be transformed into a <strong>unitless form</strong> to determine a universal benchmark.</p>
 <p>Outliers are observations with <strong>unusually large values of the dependent variable</strong>, relative to the fitted regression model. In other words, they have <strong>large residuals</strong>, relative to other observations:</p>
+<!-- Obtained from Penn State University -->
+<p><img alt="HIGH_OUTLIER" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HIGH_OUTLIER.png" /></p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="RESIDUAL_OUTLIER" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/RESIDUAL_OUTLIER.png" /></p>
 <div class="admonition tip">
@@ -1939,6 +1940,14 @@
 <div class="arithmatex">\[
     D_{i} = \frac{\sum (\hat{y}_{j} - \hat{y}_{j(i)})^{2}}{(p+1) \cdot \text{MS}_{\text{RSS}}}
 \]</div>
+<!-- Obtained from Penn State University -->
+<p><img alt="HIGH_INFLUENCE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HIGH_INFLUENCE.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>All the previous plots in the previous section in a similar format for Leverage and Outliers are plots which show an observation which is ONLY an Outlier or ONLY has high leverage. The above plot for influence is an observation with BOTH high leverage and is an outlier.</p>
+<p><!-- Obtained from rpubs -->
+<img alt="LEVERAGE_INFLUENCE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/LEVERAGE_INFLUENCE.png" /></p>
+</div>
 <p>However, this method is <strong>computationally expensive</strong> as it requires <span class="arithmatex">\(n+1\)</span> datasets and models:</p>
 <ul>
 <li>1 dataset and fitted model with all observations</li>

@@ -1765,6 +1765,10 @@
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="TRAINING_TEST_MSE" class="center" src="../Assets/1.%20Statistical%20Learning.md/TRAINING_TEST_MSE.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is no direct relationship between the training and test error; the two are independent.</p>
+</div>
 <p>Recall that the MSE can be decomposed into a combination of Bias and Variance. In a regression context, there is an <strong>additional component</strong> representing the error term as well:</p>
 <div class="arithmatex">\[
     \text{MSE}
@@ -1882,6 +1886,22 @@
 <p class="admonition-title">Note</p>
 <p>The Bayes Error Rate is the error rate that is achieved when using a <strong>Bayes Classifier</strong>, which is a conceptual model that uses all available information to make predictions.</p>
 </div>
+<p>Assume that there are two categories (A, B) and that <strong>population probabilities are known</strong> (since all available information is used). Based on this, such a model would assign categories based on the probability:</p>
+<ul>
+<li>The category with the highest probability for that observation will be assigned the prediction</li>
+<li>However, there is <strong>no guarantee</strong> that the actual observation will be that category</li>
+<li>Thus, the probability that it is <strong>NOT the highest probability category</strong> is the error rate</li>
+</ul>
+<p>The <strong>Bayes Error Rate</strong> is determined using the above for all combinations of the independent variables:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Bayes Error Rate}
+    &amp;= 1 - E \left(\max P \left(Y = j \mid X \right) \right) \\
+    &amp;= 1 - \frac{\sum \max P \left(Y = j \mid X \right)}{n}
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="BAYES_PROBABILITY" class="center" src="../Assets/1.%20Statistical%20Learning.md/BAYES_PROBABILITY.png" /></p>
 
 
 
