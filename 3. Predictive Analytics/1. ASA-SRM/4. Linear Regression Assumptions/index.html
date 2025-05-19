@@ -1162,6 +1162,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#breusch-pagan-test" class="md-nav__link">
+    Breusch Pagan Test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#weighted-least-squares" class="md-nav__link">
     Weighted Least Squares
   </a>
@@ -1520,6 +1527,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#breusch-pagan-test" class="md-nav__link">
+    Breusch Pagan Test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#weighted-least-squares" class="md-nav__link">
     Weighted Least Squares
   </a>
@@ -1691,7 +1705,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>There is a special type of Variable known as a <strong>Suppressor Variable</strong>, which by itself is not strongly correlated with the dependent, but when combined with another variable, leads to a significantly stronger model.</p>
-<p>Collinearity is likely (but not guaranteed) to be present when supressor variables are present.</p>
+<p>Collinearity is typically acceptable in the presence of a suppressor variable.</p>
 </div>
 <p>If imperfect collinearity is present, regularization methods (Ridge/LASSO) can be used to deal with them:</p>
 <ul>
@@ -1713,7 +1727,7 @@
 <p>Different texts have <strong>different thresholds</strong> for high collinearity. For this exam, assume the <strong>threshold to be 10</strong>.</p>
 <p>The reciprocal of the VIF is known as the Tolerance.</p>
 </div>
-<p><span class="arithmatex">\(R^{2}_{p}\)</span> is the R-squared for a model where the p-th predictor is regressed against ALL OTHER predictors. If this R-squared is high, it implies that this predictor is well explained by other predictors (high correlation, high collinearity).</p>
+<p><span class="arithmatex">\(R^{2}_{p}\)</span> is the R-squared for a model where the p-th predictor is regressed against ALL OTHER predictors. If this R-squared is high, it implies that this predictor is <strong>well explained</strong> by other predictors (high correlation, high collinearity).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The VIF needs to be calculated for EACH variable to conclude whether collinearity is present in the model. Collinearity is present even if just <em>one</em> combination of variables cross the threshold:</p>
@@ -1723,6 +1737,18 @@
 <li>Variable 3 against Variable 1,2</li>
 </ul>
 <p>The VIF for uncorrelated predictors is 1, reflecting that the variance remains <strong>unaffected</strong> by the other variables.</p>
+</div>
+<p>The VIF directly impacts the standard error of the regression coefficients:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{SE}'(\beta_{p})
+    &amp;= \sqrt{\text{VIF}} \cdot \text{SE}(\beta_{p}) \\
+    &amp;= \sqrt{\text{VIF}} \cdot \sigma^{2}_{\text{RSS}} \cdot \frac{1}{\sum (x - \bar{x})^{2}}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Thus, given the final standard errors, this can be used to backsolve for the VIF as well.</p>
 </div>
 <h2 id="assumption-3-exogenity"><strong>Assumption 3: Exogenity</strong><a class="headerlink" href="#assumption-3-exogenity" title="Permanent link">&para;</a></h2>
 <p><strong>Exogenity</strong> refers to a variable that is <strong>outside</strong> the model and thus must be <strong>independent of the other variables inside the model</strong>. In the context of linear regression, the <strong>errors should be independent of any of the predictors</strong>:</p>
@@ -1803,8 +1829,29 @@
 <p class="admonition-title">Warning</p>
 <p>The <strong>direction of heteroscedasticity</strong> matters. Concave transformations like log or squareroot work for datasets with <strong>increasing variance</strong>, which is usually the case. For decreasing variance or more complex patterns, other methods should be used.</p>
 </div>
+<p>The inherent problem with Heteroscedasticity is its effect on Standard Errors; the current formulation assumes a homoscedastic one. Thus, it is possible to use a standard error that can account for it - known as a <strong>Heteroscedastic Consistent Standard Error</strong> or <strong>Robust Standard Error</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mathematics for robust standard errors are beyond the scope of this course. It is sufficient to know that they can be used.</p>
+</div>
+<h3 id="breusch-pagan-test"><strong>Breusch Pagan Test</strong><a class="headerlink" href="#breusch-pagan-test" title="Permanent link">&para;</a></h3>
+<p>Heteroskedasticity implies that the size of the residuals <strong>changes with the predictors</strong>. Thus, this can be formally tested using the <strong>Breusch Pagan Test</strong> where the <strong>residuals are regressed against the predictors</strong>. If there is found to be a relationship between the two, then heteroskedasticity is likely present.</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}\)</span>: <span class="arithmatex">\(\beta^{*}_{p} \eq 0\)</span></li>
+<li>
+<ul>
+<li><span class="arithmatex">\(H_{1}\)</span>: <span class="arithmatex">\(\beta^{*}_{p} \ne 0\)</span></li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Test Statistic} &amp;= \frac{\text{RSS}^{*}}{2} \\
+    \text{Test Statistic} &amp;\sim \chi^{2}_{p}
+\end{aligned}
+\]</div>
 <h3 id="weighted-least-squares"><strong>Weighted Least Squares</strong><a class="headerlink" href="#weighted-least-squares" title="Permanent link">&para;</a></h3>
-<p>Alternatively, if the source of heteroscedasticity is known, it is possible to use a <strong>Weighted Least Squares</strong> approach to account for it. Weights are assigned to <strong>each observation</strong>, such that the weight is the amount needed to <strong>scale the the variance to a constant amount</strong>:</p>
+<p>If the source of heteroscedasticity is known, it is possible to use a <strong>Weighted Least Squares</strong> approach to account for it. Weights are assigned to <strong>each observation</strong>, such that the weight is the amount needed to <strong>scale the the variance to a constant amount</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Assumed Constant Variance} &amp;= \sigma^{2} \\

@@ -1848,22 +1848,17 @@
     R^{2}_{\text{Adj}}
     &amp;= 1 - \frac{\frac{\text{RSS}}{n-(p+1)}}{\frac{\text{TSS}}{n-1}} \\
     &amp;= 1 - \frac{\text{RSS}}{\text{TSS}} \cdot \frac{n-1}{n-(p+1)} \\
-    &amp;= 1 - (1 - R^{2}) \cdot \frac{n-1}{n-(p+1)}
+    &amp;= 1 - (1 - R^{2}) \cdot \frac{n-1}{n-(p+1)} \\
+    \\
+    R^{2}_{\text{Adj}}
+    &amp;= 1 - \frac{\frac{\text{RSS}}{n-(p+1)}}{\frac{\text{TSS}}{n-1}} \\
+    &amp;= 1 - \frac{\sigma^{2}_{\text{RSS}}}{s^{2}_{y}}
 \end{aligned}
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>It is NOT recommended to memorize the above formula as it can be derived from first principles.</p>
 </div>
-<p>The key to understanding lies in the numerator. If the expression decreases, the overall adjusted R-squared will increase:</p>
-<div class="arithmatex">\[
-    \frac{\text{RSS}}{n-(p+1)}
-\]</div>
-<ul>
-<li>If the predictor <strong>does not</strong> significantly reduce RSS, then the <strong>adjusted R-squared increases</strong></li>
-<li>If the predictor <strong>does</strong> sufficiently reduce RSS, then the <strong>adjusted R-squared decreases</strong></li>
-<li>This <strong>penalizes the addition of redundant predictors</strong>; avoiding the issue of inflated R-squared</li>
-</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The adjusted R-squared has <strong>NO INTERPRETATION</strong>. It is more of a <strong>measure to compare</strong> the goodness of fit between different MLR models.</p>
@@ -1874,7 +1869,7 @@
 <div class="arithmatex">\[
     R^{2}_{\text{Adj}} \le R^{2}
 \]</div>
-<p>Adjusted R-squared is R-squared <strong>with a penalty applied</strong> for the number of predictors. For a model with one predictor, both are the same.</p>
+<p>Adjusted R-squared is R-squared <strong>with a penalty applied</strong> for the number of predictors. For a model with <strong>no predictors</strong> (null model), both are the same.</p>
 </div>
 <h3 id="f-test"><strong>F-Test</strong><a class="headerlink" href="#f-test" title="Permanent link">&para;</a></h3>
 <p>Similar to SLR, we can conduct an F-test using the same components as before, adjusted for the <strong>new degrees of freedom</strong>:</p>
@@ -2394,7 +2389,6 @@ Var(\hat{\beta}) =
     &amp;= 50.7909 - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
 \end{aligned}
 \]</div>
-<p>The two regularizations methods are <strong>Scale Equivariant</strong> as they will provide the <strong>same estimate</strong> regardless of whether the underlying variables have been scaled or not. This is <strong>NOT true for regular OLS</strong>.</p>
 
 
 

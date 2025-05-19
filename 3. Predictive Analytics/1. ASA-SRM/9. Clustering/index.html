@@ -1508,7 +1508,7 @@
 
 <h1 id="clustering"><strong>Clustering</strong><a class="headerlink" href="#clustering" title="Permanent link">&para;</a></h1>
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Clustering is an <strong>Unsupervised</strong> statistical learning method that is used to find <strong>Clusters</strong> within the dataset. They are a <strong>subgroup of observations</strong> that are <strong>similar</strong> to one another; different clusters naturally have different characteristics.</p>
+<p>Clustering is an <strong>Unsupervised</strong> statistical learning method that is used to find <strong>Clusters</strong> within the dataset. They are a <strong>subgroup of homogenous observations</strong> that are <strong>similar</strong> to one another; different clusters naturally have different characteristics.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>An observation can only be part of ONE cluster.</p>
@@ -1592,6 +1592,10 @@
 <p class="admonition-title">Warning</p>
 <p>K-means clustering is a <strong>greedy algorithm</strong> as it finds the local best fit rather than the global best.</p>
 <p>Additionally, since the <strong>initial cluster assignment is random</strong>, the algorithm will produce <strong>different clusters</strong> each time it is run. This is contrast to subset selection where the starting point is always the same, thus will produce the same results.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Until the final cluster assignments, each step is guaranteed to reduce the squared euclidean distances.</p>
 </div>
 <p>The choice of <span class="arithmatex">\(k\)</span> is <strong>arbitrary</strong>, thus it might not yield the best results. It is thus recommended to <strong>repeat the algorithm</strong> several times for different <span class="arithmatex">\(k\)</span> to have a better understanding of the data.</p>
 <div class="admonition tip">
