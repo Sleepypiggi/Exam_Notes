@@ -1332,6 +1332,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#key-model-summary" class="md-nav__link">
+    Key Model Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1613,6 +1620,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#key-model-summary" class="md-nav__link">
+    Key Model Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1712,8 +1726,8 @@
 </div>
 <p>Stationarity can be identified via the use of <strong>Control Limit Plots</strong>. The limits are <strong>derived based on the mean and variance</strong>. If stationarity holds, the observations should almost always <strong>stay within the limits</strong> with <strong>no observable pattern</strong>:</p>
 <ul>
-<li><strong>Upper Control Limit</strong> (UCL): <span class="arithmatex">\(\bar{y} + 3 \cdot \s_{y}\)</span></li>
-<li><strong>Lower Control Limit</strong> (LCL): <span class="arithmatex">\(\bar{y} - 3 \cdot \s_{y}\)</span></li>
+<li><strong>Upper Control Limit</strong> (UCL): <span class="arithmatex">\(\bar{y} + 3 \cdot s_{y}\)</span></li>
+<li><strong>Lower Control Limit</strong> (LCL): <span class="arithmatex">\(\bar{y} - 3 \cdot s_{y}\)</span></li>
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="CONTROL_LIMIT_CHART" class="center" src="../Assets/10.%20Time%20Series.md/CONTROL_LIMIT_CHART.png" /></p>
@@ -1836,7 +1850,7 @@
 <p class="admonition-title">Tip</p>
 <p>Adding a constant to a white noise process <strong>still results in a white noise process</strong>, thus the above is valid.</p>
 </div>
-<p>AR(1) models are stationary, as they have a constant mean, variance and covariance:</p>
+<p>AR(1) models are stationary, as they have a <strong>constant</strong> mean, variance and covariance:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     E(y_{t}) &amp;= \frac{\beta_{0}}{1 - \beta_{1}} \\
@@ -1882,6 +1896,10 @@
     \end{cases}
 \end{aligned}
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above is known as the <strong>Chain Rule of Forecasting</strong>.</p>
+</div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="FORECAST_INTERVAL" class="center" src="../Assets/10.%20Time%20Series.md/FORECAST_INTERVAL.png" /></p>
 <h4 id="autocorrelation"><strong>Autocorrelation</strong><a class="headerlink" href="#autocorrelation" title="Permanent link">&para;</a></h4>
@@ -1927,7 +1945,30 @@
 <p>For the purposes of this exam, it is assumed that the standard error of the autocorrelation estimate is <strong>constant regardless of the lag</strong>. In reality, there would intuitively, be some dependency.</p>
 </div>
 <h4 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h4>
-<p>The model coefficients can be estimated using <strong>Conditional Least Squares</strong>.</p>
+<p>The model coefficients can be estimated using <strong>Conditional Least Squares</strong> (similar to OLS). The <strong>major difference</strong> lies in the <strong>number of observations</strong> used; only <span class="arithmatex">\(n-1\)</span> observations are used in total to estimate the model:</p>
+<!-- Self Made -->
+<p><img alt="AR1_FITTING_OBSERVATIONS" class="center" src="../Assets/10.%20Time%20Series.md/AR1_FITTING_OBSERVATIONS.png" /></p>
+<p>For the purposes of parameter estimation, it is necessary to distinguish between the two sets:</p>
+<ul>
+<li><strong>Set A</strong>: Observations used for training</li>
+<li><strong>Set B</strong>: Actual observatons for the predictions of set A</li>
+</ul>
+<!-- Self Made -->
+<p><img alt="AR1_FITTING_SETS" class="center" src="../Assets/10.%20Time%20Series.md/AR1_FITTING_SETS.png" /></p>
+<p>The resulting parameter coefficients are extremely similar to OLS:</p>
+<ul>
+<li>OLS <span class="arithmatex">\(x\)</span> is replaced with set A (Predictors)</li>
+<li>OLS <span class="arithmatex">\(y\)</span> is replaced with set B (Predictions)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\beta}_{1}
+    &amp;= \frac{\sum (y_{t-1} - \bar{y}_{A})(y_{t} - \bar{y}_{B})}
+            {\sum (y_{t-1} - \bar{y}_{B})} \\
+    \\
+    \hat{\beta}_{0} = \bar{y}_{A} - \hat{\beta}_{1} \cdot \bar{y}_{B}
+\end{aligned}
+\]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Alternatively, the coefficients can be estimated using the following:</p>
@@ -1938,6 +1979,28 @@
 \end{aligned}
 \]</div>
 <p>The difference between the estimation and original formula becomes negligible for a large number of observations.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The fitted values for all observations up till time <span class="arithmatex">\(t\)</span> is known as the <strong>smoothed series</strong> (not to be confused with smoothing techniques). It tends to be <strong>less erratic</strong> as it only contains the estimated signal:</p>
+<p><!-- Self Made -->
+<img alt="AR1_SMOOTHED_SERIES" class="center" src="../Assets/10.%20Time%20Series.md/AR1_SMOOTHED_SERIES.png" /></p>
+</div>
+<p>Note that since only <span class="arithmatex">\(n-1\)</span> observations are used to fit the model, the residuals have only <span class="arithmatex">\(n-3\)</span> degrees of freedom; <strong>one less than OLS</strong>, reflecting the one less observation used. This reflects itself in the <strong>estimated variance AND t-distribution</strong>, which flows into the prediction interval:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\sigma}^{2}
+    &amp;= \frac{\text{RSS}}{n-3} \\
+    \\
+    \text{SE}(\hat{y}_{t+m})
+    &amp;= \hat{\sigma} \sqrt{1 + \beta^{2}_{1} + \dots + \beta^{2(m-1)}_{1}} \\
+    \\
+    \text{PI} &amp;= \hat{y}_{t+m} \pm t_{\alpha, n-3} \cdot \text{SE}(\hat{y}_{t+m})
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, the confidence interval for time series models are ignored.</p>
 </div>
 <h3 id="dickey-fuller"><strong>Dickey Fuller</strong><a class="headerlink" href="#dickey-fuller" title="Permanent link">&para;</a></h3>
 <p>Stationary models can more generally be expressed as the following, known as the <strong>Dickey Fuller Equation</strong>. It can be shown that when certain conditions are met, the general equation reduces to one of the following:</p>
@@ -2111,12 +2174,23 @@
     s_{t}
     &amp;= (1-w) y_{t} + w \cdot s_{t-1} \\
     &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + w^{2} \cdot s_{t-2} \\
-    &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + w^{2} (1-w) \cdot y_{t-2} + \dots
+    &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + w^{2} (1-w) \cdot y_{t-2} + \dots \\
+    &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + \dots + w^{t} \cdot y_{0}
 \end{aligned}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is no actual observation for <span class="arithmatex">\(y_{0}\)</span> - it is a theoretical baseline. Thus, it is typically set as either:</p>
+<ul>
+<li>0</li>
+<li><span class="arithmatex">\(y_{1}\)</span></li>
+<li><span class="arithmatex">\(\bar{y}\)</span></li>
+</ul>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The effect of smoothing is proportional to <span class="arithmatex">\(w\)</span>. Note that higher weights are placed recent observations while lower weights are placed on older observations.</p>
+<p>A typical value for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2125,7 +2199,7 @@
     SS(w) = \sum (y_{t} - \hat{s}_{t-1})
 \]</div>
 <p>Note that <span class="arithmatex">\(s_{t-1}\)</span> is the prediction for <span class="arithmatex">\(y_{t}\)</span>, NOT <span class="arithmatex">\(s_{t}\)</span>. This is because <span class="arithmatex">\(s_{t}\)</span> already includes the actual observation at <span class="arithmatex">\(t\)</span>.</p>
-<p>Naturally, this can be used to determine the <strong>in-sample goodness of fit</strong> as well. A similar process can be done for moving average smoothing as well to determine the optimal <span class="arithmatex">\(k\)</span>.</p>
+<p>Naturally, this can be used to determine the <strong>in-sample goodness of fit</strong> as well.</p>
 </div>
 <p>Assuming that the data has <strong>no trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
 <div class="arithmatex">\[
@@ -2231,6 +2305,9 @@
 <p class="admonition-title">Note</p>
 <p>The above metrics can be used to identify trend patterns in the data. However, MSE and the absolute measures are slightly better as they do NOT allow for offsetting effects.</p>
 </div>
+<h2 id="key-model-summary"><strong>Key Model Summary</strong><a class="headerlink" href="#key-model-summary" title="Permanent link">&para;</a></h2>
+<!-- Self Made -->
+<p><img alt="TIME_SERIES_SUMMARY" class="center" src="../Assets/10.%20Time%20Series.md/TIME_SERIES_SUMMARY.png" /></p>
 
 
 

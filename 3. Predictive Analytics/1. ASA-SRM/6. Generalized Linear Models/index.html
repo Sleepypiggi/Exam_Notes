@@ -1811,8 +1811,16 @@
 \end{aligned}
 \]</div>
 <p>The above additional component would cancel out under OLS, thus was not issue. However, this does not apply to GLMs.</p>
-<p>It can also be shown that for linear regression, the Deviance is <strong>equivalent to the RSS</strong>.</p>
+<p>It can also be shown that for linear regression, the Deviance is <strong>equivalent to the RSS</strong>:</p>
+<div class="arithmatex">\[
+    D = \text{RSS}
+\]</div>
 </div>
+<p>The concept of deviance is similar to goodness of fit, thus can be used similarly to R-squared, known as <strong>Pseduo R-squared</strong>:</p>
+<div class="arithmatex">\[
+    R^{2}_{\text{Pse}}
+    = \frac{\ell_{\text{\fitted}} - \ell_{0}}{\ell_{\text{Sat}} - \ell_{0}}
+\]</div>
 <h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
 <h3 id="likelihood-ratio-test"><strong>Likelihood Ratio Test</strong><a class="headerlink" href="#likelihood-ratio-test" title="Permanent link">&para;</a></h3>
 <p>Similar to how F-tests made use of the ANOVA results to perform statistical inference, GLMs can make use of the Deviance results in a similar fashion, via a <strong>Likelihood Ratio Test (LRT)</strong>, which compares a pair of <strong>NESTED GLMs</strong>:</p>

@@ -1106,13 +1106,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#matrix-notation" class="md-nav__link">
-    Matrix Notation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#model-fitting" class="md-nav__link">
     Model Fitting
   </a>
@@ -1520,13 +1513,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#matrix-notation" class="md-nav__link">
-    Matrix Notation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#model-fitting" class="md-nav__link">
     Model Fitting
   </a>
@@ -1733,23 +1719,76 @@
 <p class="admonition-title">Warning</p>
 <p>Variables should not be added or dropped solely based on predictive power. There are many other considerations to consider - EG. theoretical or interaction effects.</p>
 </div>
-<h2 id="matrix-notation"><strong>Matrix Notation</strong><a class="headerlink" href="#matrix-notation" title="Permanent link">&para;</a></h2>
-<p>Given that the MLR model can have infinitely many independent variables, expressing the model in regular algebra format can become tedious. Thus, it is commonly expressed in <strong>Matrix Notation</strong> instead:</p>
+<h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
+<p>Similar to the SLR model, the regression parameters can be found by minimizing the sum of squared residuals:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \begin{pmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{pmatrix} &amp;=
-    \begin{pmatrix}
-        1 &amp; x_{11} &amp; x_{12} &amp; ... &amp; x_{1p} \\
-        1  &amp; x_{21} &amp; x_{22} &amp; ... &amp; x_{2p} \\
-        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-        1  &amp; x_{n1} &amp; x_{n2} &amp; ... &amp; x_{np}
-    \end{pmatrix}
-    \begin{pmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_p \end{pmatrix} +
-    \begin{pmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \vdots \\ \varepsilon_n \end{pmatrix} \\
-    \boldsymbol{y} &amp;= \boldsymbol{X\beta + \varepsilon}
+    \text{RSS} 
+    &amp;= \sum (y_{i} - \hat{y}_{i})^{2} \\
+    &amp;= \sum [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i,1}
+            + ... + \hat{\beta}_{p} \cdot x_{i, p})]^{2}   
 \end{aligned}
 \]</div>
-<p><span class="arithmatex">\(\boldsymbol{X}\)</span> is known as the <strong>Design Matrix</strong>, which contains the independent variables used for the regression. Note that the first column is all '1' to account for the intercept term.</p>
+<p>Given that there are <span class="arithmatex">\(p\)</span> independent variables, there are thus <span class="arithmatex">\(p+1\)</span> minimization problems to solve (<span class="arithmatex">\(p\)</span> slopes and 1 intercept). It is necessary to use linear algebra to solve the system of equations, resulting in the following <strong>matrix solution</strong>:</p>
+<div class="arithmatex">\[
+    \hat{\boldsymbol{\beta}}
+    = \begin{pmatrix} \hat{\beta_0} \\ \hat{\beta_1} \\ \vdots \\ \end{pmatrix}
+    = \left(\boldsymbol{X}^{T} \boldsymbol{X} \right)^{-1} \boldsymbol{X}^{T} \boldsymbol{y}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The operation <span class="arithmatex">\(X^{T}\)</span> means to <strong>Transpose</strong> the matrix - swapping the Rows and Columns of the Matrix. It has several useful properties which is why it is beneficial to leave in this form:</p>
+<p><!-- Obtained from Cuemath -->
+<img alt="TRANSPOSE_MATRIX" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/TRANSPOSE_MATRIX.png" /></p>
+</div>
+<p>The resulting fitted model is thus a <strong>regression plane of best fit</strong>, reflecting the multi-dimensional nature of the MLR:</p>
+<div class="arithmatex">\[
+    \hat{y}
+    = \hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i ,1} + ... + \hat{\beta}_{p} \cdot x_{i,p}
+\]</div>
+<!-- Obtained from ISLR -->
+<p><img alt="REGRESSION_PLANE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGRESSION_PLANE.png" /> </p>
+<p>It is common to express the entire fitted equation in <strong>Matrix Notation</strong>, especially when there are a large number of predictors:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\boldsymbol{y}}
+    &amp;= \boldsymbol{X} \left(\boldsymbol{X}^{T} \boldsymbol{X} \right)^{-1} \boldsymbol{X}^{T} \boldsymbol{y} \\
+    &amp;= \boldsymbol{X} \hat{\boldsymbol{\beta}} \\
+    &amp;= \boldsymbol{H} \boldsymbol{y}
+\end{aligned}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(\boldsymbol{X}\)</span>: Design Matrix; containing all predictor values</li>
+<li><span class="arithmatex">\(\boldsymbol{H}\)</span>: Hat Matrix; as it puts the a "hat" on <span class="arithmatex">\(y\)</span></li>
+</ul>
+<!-- Self Made -->
+<p><img alt="FITTED_MATRIX" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/FITTED_MATRIX.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the first column of the design matrix is <strong>all 1's for the intercept parameter</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \boldsymbol{X} &amp;=
+    \begin{pmatrix}
+        1 &amp; x_{11} &amp; x_{12} &amp; ... &amp; x_{1p} \\
+        1 &amp; x_{21} &amp; x_{22} &amp; ... &amp; x_{2p} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        1 &amp; x_{n1} &amp; x_{n2} &amp; ... &amp; x_{np}
+    \end{pmatrix}
+\end{aligned}
+\]</div>
+<p>If only a specific row of the design matrix is wanted (for a specific prediction), then we need to use the following notation:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \boldsymbol{X}^{T}_{i} &amp;= (1 X_{i,1} X_{i,2} \dots X_{i,p}) \\
+    \\
+    \therefore \hat{y}_{i}
+    &amp;= \boldsymbol{X}^{T}_{i}
+        \left(\boldsymbol{X}^{T} \boldsymbol{X} \right)^{-1} \boldsymbol{X}^{T} \boldsymbol{y}
+\end{aligned}
+\]</div>
+<p>The reason why the transpose is needed is because vectors are typically denoted as <strong>Column vectors by default</strong>; thus the transpose is needed to convert it into a row vector.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Recall the key properties of matrices:</p>
@@ -1765,68 +1804,7 @@
 \]</div>
 <p><!-- Obtained from Resourceaholic -->
 <img alt="MATRIX_MULTIPLICATION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/MATRIX_MULTIPLICATION.png" /></p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
 <p>For the purposes of this exam, it is not necessary to know how to evaluate or manipulate matrices. It is however, necessary to recognize and intepret them.</p>
-</div>
-<h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
-<p>Similar to the SLR model, the regression parameters can be found by minimizing the sum of squared residuals:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \text{RSS} 
-    &amp;= \sum (y_{i} - \hat{y}_{i})^{2} \\
-    &amp;= \sum [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i,1}
-            + ... + \hat{\beta}_{p} \cdot x_{i, p})]^{2}   
-\end{aligned}
-\]</div>
-<p>Given that there are <span class="arithmatex">\(p\)</span> independent variables, there are thus <span class="arithmatex">\(p+1\)</span> minimization problems to solve (<span class="arithmatex">\(p\)</span> slopes and 1 intercept). It is necessary to use linear algebra to solve the system of equations, resulting in the following <strong>matrix solution</strong>:</p>
-<div class="arithmatex">\[
-    \hat{\boldsymbol{\beta}}
-    = \begin{pmatrix} \hat{\beta_0} \\ \hat{\beta_1} \\ \vdots \\ \hat{\beta_p} \end{pmatrix}
-    = (\boldsymbol{X^{T} X})^{-1} \boldsymbol{X^{T} y}
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The operation <span class="arithmatex">\(X^{T}\)</span> means to <strong>Transpose</strong> the matrix - swapping the Rows and Columns of the Matrix. It has several useful properties which is why it is beneficial to leave in this form:</p>
-<p><!-- Obtained from Cuemath -->
-<img alt="TRANSPOSE_MATRIX" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/TRANSPOSE_MATRIX.png" /></p>
-</div>
-<p>The resulting fitted model is thus a <strong>regression plane of best fit</strong>, reflecting the multi-dimensional nature of the MLR:</p>
-<div class="arithmatex">\[
-    \hat{y}
-    = \hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i ,1} + ... + \hat{\beta}_{p} \cdot x_{i,p}
-\]</div>
-<!-- Obtained from ISLR -->
-<p><img alt="REGRESSION_PLANE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGRESSION_PLANE.png" /></p>
-<p>The actual observations can be linked to the fitted regression plane via a <strong>Hat Matrix</strong> <span class="arithmatex">\(\boldsymbol{H}\)</span>:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \hat{\boldsymbol{y}}
-    &amp;= \boldsymbol{H} \boldsymbol{y} \\
-    \\
-    \boldsymbol{H}
-    &amp;= \boldsymbol{X}_{i} \cdot (\boldsymbol{X}^{T} \cdot \boldsymbol{X})^{-1} \cdot \boldsymbol{X}^{T}
-\end{aligned}
-\]</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>It is referred to as a "Hat" matrix as it puts a "hat" onto <span class="arithmatex">\(y\)</span>, which is an easy way to remember the expression.</p>
-</div>
-<p>Consequently, this allows the residuals to be expressed using the Hat matrix, sometimes referred to as the <strong>Residual Maker Matrix</strong>:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \hat{\varepsilon}_{i}
-    &amp;= \boldsymbol{y} - \hat{\boldsymbol{y}} \\
-    &amp;= \boldsymbol{y} - \boldsymbol{H} \boldsymbol{y} \\
-    &amp;= (\boldsymbol{I} - \boldsymbol{H})\boldsymbol{y}
-\end{aligned}
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><span class="arithmatex">\(\boldsymbol{I}\)</span> is known as the <strong>Identity Matrix</strong>, which is a Square Matrix <strong>consisting of 1's in the diagonal and 0's in every other</strong> position. Again, it has several useful properties which makes it desirable to be expressed in this form.</p>
-<p><!-- Obtained from Geek for Geeks -->
-<img alt="IDENTITY_MATRIX" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/IDENTITY_MATRIX.png" /></p>
 </div>
 <h2 id="anova"><strong>ANOVA</strong><a class="headerlink" href="#anova" title="Permanent link">&para;</a></h2>
 <h3 id="goodness-of-fit"><strong>Goodness of Fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h3>

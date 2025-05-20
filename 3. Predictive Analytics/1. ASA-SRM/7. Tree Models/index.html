@@ -1851,13 +1851,6 @@
 <p>Classification Error is a more one-dimensional approach that tends to result in simpler trees, which is why is often used as the purity measure for <strong>pruning</strong>, along with the fact that the main goal of pruning is to improve predictive accuracy, which is directly what the classification error measures.</p>
 <p>In light of this, it is possible for a split to produce <strong>two nodes with the same predicted category</strong>. This is because the <strong>Gini or Entropy would have increased</strong> with the split, even though classification error remains the same.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There is technically another less common purity measure known as <strong>Tree Deviance</strong> (not to be confused with GLM deviance):</p>
-<div class="arithmatex">\[
-    \text{Tree Deviance} = 2 \cdot \text{Entropy}
-\]</div>
-</div>
 <h3 id="two-category-model"><strong>Two Category Model</strong><a class="headerlink" href="#two-category-model" title="Permanent link">&para;</a></h3>
 <p>The most common scenario to appear on the exam would be a model with <strong>ONLY TWO</strong> possible categories.</p>
 <p>In such cases, there is a clearly defined order between the purity measures:</p>

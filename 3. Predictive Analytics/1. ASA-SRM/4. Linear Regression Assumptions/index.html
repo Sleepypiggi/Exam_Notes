@@ -1203,6 +1203,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#influence" class="md-nav__link">
+    Influence
+  </a>
+  
+    <nav class="md-nav" aria-label="Influence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#leverage" class="md-nav__link">
     Leverage
   </a>
@@ -1217,9 +1225,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#influence" class="md-nav__link">
-    Influence
+  <a href="#cooks-distance" class="md-nav__link">
+    Cooks Distance
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1568,6 +1581,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#influence" class="md-nav__link">
+    Influence
+  </a>
+  
+    <nav class="md-nav" aria-label="Influence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#leverage" class="md-nav__link">
     Leverage
   </a>
@@ -1582,9 +1603,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#influence" class="md-nav__link">
-    Influence
+  <a href="#cooks-distance" class="md-nav__link">
+    Cooks Distance
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1913,118 +1939,147 @@
 <p>It can verified by using a <strong>QQ plot</strong> or other equivalent distribution tests (EG. Kolmogorov Test).</p>
 <p>Violating the normality assumption does not impact the validity of the estimates or predictive power; it only impacts the <strong>validity of statistical inference</strong>. For large samples, CLT states that the distribution of the estimators are <strong>approximately normal</strong>, thus inferences are still valid. However, this <strong>does NOT apply to prediction intervals</strong> as they directly contain the variance of the error term, which follows an unknown distribution.</p>
 <h2 id="other-considerations"><strong>Other Considerations</strong><a class="headerlink" href="#other-considerations" title="Permanent link">&para;</a></h2>
-<h3 id="leverage"><strong>Leverage</strong><a class="headerlink" href="#leverage" title="Permanent link">&para;</a></h3>
-<p>Observations with unusually high values in the <strong>Independent Variable</strong> are known as <strong>High Leverage Points</strong>. The easiest way to identify high leverage points would be through a scatterplot of independent variables:</p>
-<!-- Obtained from Penn State University -->
-<p><img alt="HIGH_LEVERAGE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HIGH_LEVERAGE.png" /></p>
-<p>When there are multiple variables, another consideration is that the observation might seem normal within each variable, but <strong>unusual when taken collectively</strong>. This is hard to visualize in multiple dimensions, thus leverage can also be quantified via the following:</p>
+<h3 id="influence"><strong>Influence</strong><a class="headerlink" href="#influence" title="Permanent link">&para;</a></h3>
+<p>An <strong>Influential Observation</strong> is an observation, that when excluding from the model, leads to a <strong>significant impact</strong> on the model's estimation and results. It is typically a result a consequence of either or both of the following effects:</p>
+<ol>
+<li>Unusual Values in X (known as <strong>High Leverage</strong> observations)</li>
+<li>Unusual Values in Y (known as <strong>Outliers</strong>)</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In other texts, outliers refer to unusual values in both X and Y; in the more general sense of the word. For the purposes of this exam, assume that they only refer to Y values.</p>
+</div>
+<!-- Obtained from Cambridge -->
+<p><img alt="INFLUENCE_EXAMPLE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/INFLUENCE_EXAMPLE.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Observations with high leverage or that is an outlier merely have the <em>potential</em> to be Influential. They are not guaranteed to be influential; it depends on other component.</p>
+</div>
+<h4 id="leverage"><strong>Leverage</strong><a class="headerlink" href="#leverage" title="Permanent link">&para;</a></h4>
+<p>The <strong>Leverage</strong> for an observation is the element for that observation on the <strong>diagonal of the Hat matrix</strong>:</p>
 <div class="arithmatex">\[
-    h_{i} = \boldsymbol{X}_{i} \cdot (\boldsymbol{X}^{T} \cdot \boldsymbol{X})^{-1} \cdot \boldsymbol{X}_{i}
-\]</div>
-<p>It can be mathematically shown that the leverage is equivalent to the <strong>element on the diagonal</strong> in the Hat matrix for that particular observation:</p>
-<div class="arithmatex">\[
-    h_{i} = \boldsymbol{H}_{ii}
+\begin{aligned}
+    h_{i}
+    &amp;= \boldsymbol{H}_{ii} \\
+    &amp;= \boldsymbol{X}^{T}_{i} (\boldsymbol{X}^{T} \cdot \boldsymbol{X})^{-1} \boldsymbol{X}_{i} \\
+    &amp;= \frac{SE(\hat{y})}{\sigma^{2}}
+\end{aligned}
 \]</div>
 <!-- Obtained from Stack Exchange -->
-<p><img alt="LEVERAGE_HAT_MATRIX" class="centee" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/LEVERAGE_HAT_MATRIX.png" /></p>
-<p>An observation is considered to have <em>high</em> leverage if its leverage is greater than three times the <strong>average leverage</strong>:</p>
+<p><img alt="LEVERAGE_HAT_MATRIX" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/LEVERAGE_HAT_MATRIX.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The diagonal of the hat matrix has two key interpretations:</p>
+<ol>
+<li>It quantifies the impact that the observed value of <span class="arithmatex">\(y\)</span> has on its predicted value <span class="arithmatex">\(\hat{y}\)</span> (Hence the name "Leverage")</li>
+<li>It quantifies the distance between the observed <span class="arithmatex">\(x\)</span> value from the mean of the <span class="arithmatex">\(x\)</span> value</li>
+</ol>
+<p>Note that despite the interpretation (1), the impact is entirely dependent on <span class="arithmatex">\(x\)</span> values, as seen in the formula. The more unusual the <span class="arithmatex">\(x\)</span> value, the higher leverage it has.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Intepretation (1) translated into mathematical terms is that it is the partial derivative of the prediction with respect to the observed value.</p>
+<p>Thus for <strong>SLR</strong> only, it can be shown that the leverage reduces to the following:</p>
 <div class="arithmatex">\[
-    h_{ii} \gt 3 \left(\frac{p+1}{n}\right)
+    h_{i} = \frac{1}{n} + \frac{(x_{i} - \bar{x})^{2}}{\sum (x - \bar{x})^{2}}
+\]</div>
+</div>
+<p>Leverage MUST be a <strong>positive value</strong> and the <strong>sum of all leverages</strong> is equivalent to the <strong>number of predictors AND the intercept</strong>. It is generally accepted that a high leverage observation must have be <strong>at least 3 times</strong> the average leverage:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    0 &amp;\lt h_{ii} \lt 1 \\
+    \\
+    \bar{h}
+    &amp;= \frac{\sum h}{n} \\
+    &amp;= \frac{p+1}{n} \\
+    \\
+    \therefore h_{ii} &amp;\gt 3 \cdot \bar{h}
+\end{aligned}
+\]</div>
+<h4 id="outliers"><strong>Outliers</strong><a class="headerlink" href="#outliers" title="Permanent link">&para;</a></h4>
+<p>The size of the residual can be used to determine the presence of Outliers. However, since the size of the residual is affected by its underlying units, we typically <strong>standardize the residuals</strong> before analyzing them. It is generally accepted that observations with a <strong>standardized residual larger than 2</strong> are considered outliers:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\varepsilon}_{\text{Sta}}
+    &amp;= \frac{\hat{\varepsilon}^{2}}{\sqrt{\sigma^{2}_{\text{RSS}} (1 - h_{i})}} \\
+    \\
+    \therefore \hat{\varepsilon}_{\text{Sta}} &amp;\gt 2
+\end{aligned}
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The leverage for each observations lies within the following range:</p>
+<p>It can be shown the distribution of the <strong>residuals</strong> are:</p>
 <div class="arithmatex">\[
-    \frac{1}{n} \lt h_{i} \lt 1
+\begin{aligned}
+    \hat{\varepsilon}_{i} &amp;\sim N(0, \sigma^{2} \cdot (1 - h_{i})) \\
+    \\
+    \text{Var}(\hat{\varepsilon})
+    &amp;= \text{Var}(\boldsymbol{y} - \hat{\boldsymbol{y}}) \\
+    &amp;= \text{Var}((\boldsymbol{I} - \boldsymbol{H}) \boldsymbol{y}) \\
+    &amp;= (\boldsymbol{I} - \boldsymbol{H})^{2} \cdot \text{Var}(\boldsymbol{y}) \\
+    &amp;= (\boldsymbol{I} - \boldsymbol{H}) \cdot \text{Var}(\boldsymbol{y}), \text{Idempotent} \\
+    &amp;= (1 - h_{i}) \cdot \sigma^{2}
+\end{aligned}
 \]</div>
-<p>It can be shown that the sum of diagonal of the Hat matrix (the leverage) is <span class="arithmatex">\(p+1\)</span>:</p>
-<div class="arithmatex">\[
-    \sum H_{ii} = p+1
-\]</div>
-<p>Thus, the average leverage per observation is:</p>
-<div class="arithmatex">\[
-    \text{Average Leverage} = \frac{p+1}{n}
-\]</div>
+<p>Note that the above is for the residuals, NOT the actual errors themselves.</p>
 </div>
-<h3 id="outliers"><strong>Outliers</strong><a class="headerlink" href="#outliers" title="Permanent link">&para;</a></h3>
-<p>Outliers are observations with <strong>unusually large values of the dependent variable</strong>, relative to the fitted regression model. In other words, they have <strong>large residuals</strong>, relative to other observations:</p>
-<!-- Obtained from Penn State University -->
-<p><img alt="HIGH_OUTLIER" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HIGH_OUTLIER.png" /></p>
-<!-- Obtained from Coaching Actuaries -->
-<p><img alt="RESIDUAL_OUTLIER" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/RESIDUAL_OUTLIER.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>One consequence of having many outliers is that the calculated MSE is <strong>inflated</strong> because the outliers artifically increase the RSS. This created a <strong>TENDENCY</strong> for statistical tests to fail to reject the null.</p>
 <p>In reality, if there are outliers and the statistical test are able to reject the null, there is no reason to doubt its validity. This is because even under "adverse" situations, the test can still reject the null, thus under normal circumstances it would continue to reject the null.</p>
 <p>However, if the test currently fails to reject the null, it could be due to the "adverse" situation; under normal circumstances it might reject the null thus there is a reason to doubt the results.</p>
 </div>
-<p>It can be shown that the variance of the residual is a function of its Leverage:</p>
-<div class="arithmatex">\[
-    \text{Var}(\hat{\varepsilon}_{i}) = \sigma^{2} \cdot (1 - h_{i})
-\]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The above the is the variance of the RESIDUAL, NOT the error term!</p>
-</div>
-<p>Following the OLS assumptions made earlier, it can be shown to have the following sampling distribution:</p>
-<div class="arithmatex">\[
-    \hat{\varepsilon}_{i} \sim N(0, \sigma^{2} \cdot (1 - h_{i}))
-\]</div>
-<p>Thus, the residual can be <strong>standardized</strong> via division of its standard error. However, the true variance is likely unknown in practice. Thus, it is replaced with the mean squared of the residual:</p>
+<p>However, one issue with the above analysis is that the fitted model has already been influenced by the observation, thus the residuals will not flag out as being large. This can be overcome by fitting a <strong>new model WITHOUT the observation</strong> and computing the residual based on it, known as a <strong>Deleted Residual</strong>. Standardizing them results in <strong>Studentized Residuals</strong>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \hat{\varepsilon}_{i, \text{Standardized}}
-    &amp;= \frac{\hat{\varepsilon}_{i}}{\sqrt{\sigma^{2} (1 - h_{ii})}} \\
-    &amp;= \frac{\hat{\varepsilon}_{i}}{\sqrt{\sigma^{2}_{\text{RSS}} (1 - h_{ii})}}
+    d_{i}
+    &amp;= y_{i} - \hat{y}_{(i)} \\
+    \\
+    \hat{\varepsilon}_{\text{Stu}}
+    &amp;= \frac{d_{i}}{\text{SE}(d_{i})} \\
+    &amp;= \frac{\hat{\varepsilon}_{t}}{\sqrt{\sigma^{2}_{(i)} (1 - h_{i})}} \\
+    &amp;= \hat{\varepsilon}_{\text{Sta}} \cdot \left(\frac{n-k-2}{n-k-1 - \hat{\varepsilon}^{2}_{\text{Sta}}} \right)^{0.5}
 \end{aligned}
 \]</div>
-<p>It is generally accepted that observations with Standardized Residuals <strong>larger than 2</strong> are considered to be Outliers:</p>
-<div class="arithmatex">\[
-    \hat{\varepsilon}_{i, \text{Standardized}} \ge 2
-\]</div>
-<h3 id="influence"><strong>Influence</strong><a class="headerlink" href="#influence" title="Permanent link">&para;</a></h3>
-<p>The effect of Leverage and Residual Size can be combined into a single measure known as <strong>Influence</strong>. The influence of an observation is quantified via <strong>Cook's Distance</strong>, which is a measure of <strong>how the fitted model changes</strong> if the observation were removed:</p>
-<div class="arithmatex">\[
-    D_{i} = \frac{\sum (\hat{y}_{j} - \hat{y}_{j(i)})^{2}}{(p+1) \cdot \text{MS}_{\text{RSS}}}
-\]</div>
-<!-- Obtained from Penn State University -->
-<p><img alt="HIGH_INFLUENCE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HIGH_INFLUENCE.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>All the previous plots in the previous section in a similar format for Leverage and Outliers are plots which show an observation which is ONLY an Outlier or ONLY has high leverage. The above plot for influence is an observation with BOTH high leverage and is an outlier.</p>
+<p><span class="arithmatex">\(\hat{y}_{(i)}\)</span> is the prediction for a model with i-th observation removed; similar for the MSE.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As its name suggests, the above residuals follow the <strong>student's t-distribution</strong>.</p>
+</div>
+<h4 id="cooks-distance"><strong>Cooks Distance</strong><a class="headerlink" href="#cooks-distance" title="Permanent link">&para;</a></h4>
+<p>The effect of Leverage and Residual Size can be combined into a single measure known as <strong>Cook's Distance</strong>, which is a measure of <strong>how the fitted model changes</strong> if the observation were removed:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    D_{i}
+    &amp;= \frac{d_{i}^{2}}{\sigma^{2} (p+1)} \\
+    &amp;= d_{i}^{2} \cdot \frac{1}{\sigma^{2} (p+1)} \\
+    &amp;= \hat{\varepsilon}^{2} \cdot \frac{h_{i}}{(1 - h_{i})^{2}} \cdot \frac{1}{\sigma^{2} (p+1)} \\
+    &amp;= \frac{\hat{\varepsilon}^{2}}{\sigma^{2} (p+1)} \cdot \frac{h_{i}}{(1 - h_{i})^{2}} \\
+    &amp;= \frac{\hat{\varepsilon}^{2}}{\sigma^{2} (1 - h_{i})} \cdot \frac{h_{i}}{(1 - h_{i})(p+1)} \\
+    &amp;= \frac{\hat{\varepsilon}^{2}}{(\sqrt{\sigma^{2} (1 - h_{i})})^{2}} \cdot \frac{h_{i}}{(1 - h_{i})(p+1)} \\
+    &amp;= \left(\frac{\hat{\varepsilon}}{\sqrt{\sigma^{2} (1 - h_{i})}} \right)^{2} \cdot \frac{h_{i}}{(1 - h_{i})(p+1)} \\
+    &amp;= (\hat{\varepsilon}_{\text{Sta}})^{2} \cdot \frac{h_{i}}{(1 - h_{i})(p+1)}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is computationally expensive to compute the Cooks Distance because a unique model has to be fit for every observation. However, since the leverage of an observation already tells us how much an observation impacts the predicted value, there is <strong>no need to run a seperate model</strong> each time; the original residuals can be scaled accordingly to determine its impact.</p>
+<p>Thus, the final result can be reduced to a combination of the <strong>Standardized Residual</strong> (Outlier) and <strong>Leverage</strong>.</p>
 <p><!-- Obtained from rpubs -->
 <img alt="LEVERAGE_INFLUENCE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/LEVERAGE_INFLUENCE.png" /></p>
 </div>
-<p>However, this method is <strong>computationally expensive</strong> as it requires <span class="arithmatex">\(n+1\)</span> datasets and models:</p>
-<ul>
-<li>1 dataset and fitted model with all observations</li>
-<li>n datasets and fitted models, each with the i-th observation removed</li>
-</ul>
-<p>Thus, it can expressed as a combination of the <strong>Leverage and Residual Size</strong>:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \sum (\hat{y}_{j} - \hat{y}_{j(i)})^{2} &amp;= \frac{e^{2}_{i} \cdot h_{i}}{(1 - h_{i})^{2}} \\
-    \\
-    \therefore D_{i}
-    &amp;= \frac{\sum (\hat{y}_{j} - \hat{y}_{j(i)})^{2}}{(p+1) \cdot \text{MS}_{\text{RSS}}} \\
-    &amp;= \frac{\frac{e^{2}_{i} \cdot h_{i}}{(1 - h_{i})^{2}}}{(p+1) \cdot \text{MS}_{\text{RSS}}} \\
-    &amp;= \frac{e^{2}_{i} \cdot h_{i}}{(p+1) \cdot \text{MS}_{\text{RSS}}(1 - h_{i})^{2}} \\
-    &amp;= \frac{e^{2}_{i}}{\text{MS}_{\text{RSS}}(1 - h_{i})} \cdot \frac{h_{i}}{(p+1)(1 - h_{i})} \\
-    &amp;= \left(\frac{e_{i}}{\sqrt{\text{MS}_{\text{RSS}}(1 - h_{i})}} \right)^{2} \cdot \frac{h_{i}}{(p+1)(1 - h_{i})} \\
-    &amp;= (\hat{\varepsilon}_{i, \text{Standardized}})^{2} \cdot \frac{h_{i}}{(p+1)(1 - h_{i})}
-\end{aligned}
-\]</div>
-<p>The issue with highly influential points is that the fitted model would be <strong>vastly different without them</strong>, causing <strong>instability</strong> in the estimates:  </p>
-<!-- Obtained from Quantitative Research Methods for Political Science -->
-<p><img alt="INFLUENCE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/INFLUENCE.png" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>In general, influential points should be removed automatically <strong>ONLY IF</strong> it was due to an <strong>error in the data collection</strong> process. Otherwise, other options should be considered:</p>
-<ol>
-<li>Retain the observations but adding a note</li>
-<li>Create a Binary variable to account for the observations</li>
-</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A typical value for Cooks Distance is <span class="arithmatex">\(\frac{1}{n}\)</span>. It can be understood as each observation having equal importance.</p>
 </div>
+<p>If the influential point is a result of a <strong>data collection</strong> error, then the observation should be removed. Otherwise, we need a good reason to delete the observation. Observations <strong>should NOT be deleted just because they do not fit our pre-conceived model</strong>; we should aim to reflect reality as closely as possible. Thus, some common methods would be to:</p>
+<ol>
+<li>Make a note about the observation</li>
+<li>Create a binary variable to account for the observation (ie have results with and without it)</li>
+</ol>
 <h3 id="high-dimensionality"><strong>High Dimensionality</strong><a class="headerlink" href="#high-dimensionality" title="Permanent link">&para;</a></h3>
 <p>As alluded to previously, increasing the number of parameters in the model does not necessarily benefit the model. This phenomenon is known as the <strong>Curse of Dimensionality</strong>.</p>
 <p>A sample of 100 observations is a lot of information for a model with 2 predictors, but is sparse for a model with 50 predictors. Thus, <strong>increasing the number of predictors relative to the sample size</strong> tends to have detrimental effects:</p>
