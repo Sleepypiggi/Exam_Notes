@@ -1513,11 +1513,14 @@
 <p class="admonition-title">Note</p>
 <p>An observation can only be part of ONE cluster.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Generally speaking there are two types of clustering - <strong>Observation vs Feature</strong> Clustering:</p>
 <ul>
-<li><strong>Observation</strong>: Grouping Customers into Income brackets</li>
-<li><strong>Feature</strong>: Grouping Features</li>
+<li><strong>Observation Clustering</strong>: Grouping Customers</li>
+<li><strong>Feature Clustering</strong>: Grouping Customer attributes (EG. Age, Income)</li>
 </ul>
+</div>
 <h2 id="euclidean-distance"><strong>Euclidean Distance</strong><a class="headerlink" href="#euclidean-distance" title="Permanent link">&para;</a></h2>
 <p>Similarity between observations is quantified via <strong>Euclidean Distance</strong>. It is essentially the <strong>shortest possible distance</strong> between two observations in a multi-dimensional space.</p>
 <div class="arithmatex">\[
@@ -1557,13 +1560,6 @@
 <p>The table considers <strong>ALL pairs of observations</strong>, not just unique pairs. In other words, 1-2 and 2-1 are both considered, even though they result in the same euclidean distance. This is why the values are <strong>symmetrical about the diagonal</strong>.</p>
 <p>Cluster Variation requires ALL values in the table to be summed. However, since the table is symmetrical, it is equivalent to TWO TIMES the sum of the <strong>triangle of values</strong>.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>It can be shown that the Cluster Variation can also be calculated as <strong>TWO times</strong> the Euclidean Distance from each observation to its centroid:</p>
-<div class="arithmatex">\[
-    \text{Total Cluster Variation} = 2 \sum \text{ED from Centroid}
-\]</div>
-</div>
 <h3 id="centroid"><strong>Centroid</strong><a class="headerlink" href="#centroid" title="Permanent link">&para;</a></h3>
 <p>Another related concept is the <strong>Centroid of the cluster</strong>. As its name suggests, it is the <strong>centre of the cluster</strong> in multi-dimensional space, equivalent to the average of each individual dimension.</p>
 <!-- Self Made -->
@@ -1583,7 +1579,7 @@
 <h2 id="k-means-clustering"><strong>K-Means Clustering</strong><a class="headerlink" href="#k-means-clustering" title="Permanent link">&para;</a></h2>
 <p>The first type of clustering is known as <strong>K-means clustering</strong>. It works by clustering the data into a <strong>pre-specified number of clusters</strong> (<span class="arithmatex">\(k\)</span>), such that the <strong>total within cluster variation is minimized</strong>:</p>
 <ol>
-<li><strong>Randomly assign each observation</strong> to one of the <span class="arithmatex">\(k\)</span> clusters</li>
+<li><strong>Randomly assign each observation</strong> to one of the <span class="arithmatex">\(k\)</span> clusters (No observations are excluded)</li>
 <li>Calculate the <strong>Centroid</strong> of the clusters</li>
 <li>Re-assign observations to the nearest cluster, based on their Euclidean Distance from the Centroids in step (2)</li>
 <li>Repeat steps (2) and step (3) until there are no more changes in clusters</li>
@@ -1591,7 +1587,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>K-means clustering is a <strong>greedy algorithm</strong> as it finds the local best fit rather than the global best.</p>
-<p>Additionally, since the <strong>initial cluster assignment is random</strong>, the algorithm will produce <strong>different clusters</strong> each time it is run. This is contrast to subset selection where the starting point is always the same, thus will produce the same results.</p>
+<p>Additionally, since the <strong>initial cluster assignment is random</strong>, the algorithm will produce <strong>different clusters each time</strong> it is run. This is contrast to subset selection where the starting point is always the same, thus will produce the same results.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

@@ -1779,24 +1779,36 @@
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="WHITE_NOISE_MODEL" class="center" src="../Assets/10.%20Time%20Series.md/WHITE_NOISE_MODEL.png" /></p>
 <h3 id="random-walk"><strong>Random Walk</strong><a class="headerlink" href="#random-walk" title="Permanent link">&para;</a></h3>
-<p>A variable that <strong>grows randomly</strong> (grows by a white noise) each time is known as a <strong>Random Walk</strong>:</p>
+<p>A variable that <strong>grows randomly</strong> (grows by a white noise) each time period is known as a <strong>Random Walk</strong>. It can be understood as a <strong>summation of white noise processes</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     y_{t+1}
     &amp;= y_{t} + \varepsilon_{1} \\
     &amp;= \dots \\
-    &amp;= y_{1} + \sum \varepsilon_{t}
+    &amp;= y_{0} + \sum \varepsilon_{t}
 \end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Thus, it is said to be a sum of partial sum of white noise processes. Partial because the entire thing is not white noise; there is an initial value.</p>
-</div>
+<p>A random walk itself is NOT stationary. However, the DIFFERENCE across 1 time period is a white noise process, which IS stationary:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(y_{t}) &amp;= y_{0} + \bar{\varepsilon} \\
+    \text{Var}(y_{t}) &amp;= t \cdot \sigma^{2} \\
+    \\
+    E(y_{t} - y_{t-1}) &amp;= \bar{\varepsilon} \\
+    \text{Var}(y_{t} - y_{t-1}) &amp;= \sigma^{2}
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="DIFFERENCED_STATIONARY" src="../Assets/10.%20Time%20Series.md/DIFFERENCED_STATIONARY.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The random walk itself is clearly not stationary. However, the <strong>DIFFERENCE</strong> in the observations is stationary:</p>
-<p><!-- Obtained from Coaching Actuaries -->
-<img alt="DIFFERENCED_STATIONARY" src="../Assets/10.%20Time%20Series.md/DIFFERENCED_STATIONARY.png" /></p>
+<p>Random walks are said to have <strong>increasing variance</strong> over time. It is difficult to see this over one random walk, but over many different random walks it becomes clear:</p>
+<p><!-- Obtained from Github -->
+<img alt="RANDOM_WALK_VARIANCE" class="center" src="../Assets/10.%20Time%20Series.md/RANDOM_WALK_VARIANCE.png" /></p>
+<p>Mathematically, it is the variance arising from the sum of errors:</p>
+<div class="arithmatex">\[
+    \text{Var} \left(\sum \varepsilon_{t} \right) = t \cdot \sigma^{2}
+\]</div>
 </div>
 <p>Thus, the modelling uses the <strong>differencing</strong> to estimate the effect of white noise:</p>
 <div class="arithmatex">\[
@@ -1810,15 +1822,27 @@
 \]</div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="RANDOM_WALK_MODEL" class="center" src="../Assets/10.%20Time%20Series.md/RANDOM_WALK_MODEL.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Random walks are said to have <strong>increasing variance</strong> over time. It is difficult to see this over one random walk, but over many different random walks it becomes clear:</p>
-<p><!-- Obtained from Github -->
-<img alt="RANDOM_WALK_VARIANCE" class="center" src="../Assets/10.%20Time%20Series.md/RANDOM_WALK_VARIANCE.png" /></p>
-<p>Mathematically, it is the variance arising from the sum of errors:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A random walk process can be expressed in the form <strong>analagous to a linear trend in time model</strong>. The key is understanding that the original white noise (<span class="arithmatex">\(\varepsilon\)</span>) can be expressed as two components:</p>
+<ul>
+<li>Mean of the original white noise</li>
+<li>A seperate white noise process</li>
+</ul>
 <div class="arithmatex">\[
-    \text{Var} \left(\sum \varepsilon_{t} \right) = t \cdot \sigma^{2}
+\begin{aligned}
+    \varepsilon_{t} &amp;= \mu_{\varepsilon} + W_{t} \\
+    \\
+    \therefore y_{t} \\
+    &amp;= y_{t-1} + \varepsilon_{t} \\
+    &amp;= y_{0} + \sum \varepsilon_{t} \\
+    &amp;= y_{0} + \sum \mu_{\varepsilon} + W_{t} \\
+    &amp;= y_{0} + \mu_{\varepsilon} + \sum W_{t} \\
+    \\
+    &amp;\approx \beta_{0} + \beta_{1} t + \varepsilon_{t}
+\end{aligned}
 \]</div>
+<p>Note that the "error term" for the random walk (<span class="arithmatex">\(\sum W_{t}\)</span>) IS a random walk itself as it is a sum of white noise process. Thus, it is <strong>not stationary</strong>, which is a key difference from the linear trend in time model.</p>
 </div>
 <h3 id="autoregressive"><strong>Autoregressive</strong><a class="headerlink" href="#autoregressive" title="Permanent link">&para;</a></h3>
 <p>Autoregression refers to using past observations to predict future observations of the same series. The number of past observations used for the prediction is known as the <strong>Order</strong> (<span class="arithmatex">\(k\)</span>) of the model:</p>
@@ -2001,6 +2025,14 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For the purposes of this exam, the confidence interval for time series models are ignored.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that the RSS is more explicitly expressed as the following:</p>
+<div class="arithmatex">\[
+    \text{RSS} = \sum (\hat{\varepsilon}_{t} - \bar{\hat{\varepsilon}}_{t})
+\]</div>
+<p>If Conditional Least Squares is used, then the second term reduces to 0 as a result of the minimization. However, if the approximation is used, the second term DOES NOT reduce to 0, thus it needs to be calculated explicitly.</p>
 </div>
 <h3 id="dickey-fuller"><strong>Dickey Fuller</strong><a class="headerlink" href="#dickey-fuller" title="Permanent link">&para;</a></h3>
 <p>Stationary models can more generally be expressed as the following, known as the <strong>Dickey Fuller Equation</strong>. It can be shown that when certain conditions are met, the general equation reduces to one of the following:</p>

@@ -1582,7 +1582,9 @@
 <p><img alt="MODEL_SELECTION" class="center" src="../Assets/5.%20Model%20Selection.md/MODEL_SELECTION.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>In general, model selection helps to pyroduce a <strong>simpler model</strong> that is easier to interpret with lower variance predictions.</p>
+<p>In general, model selection helps to pyroduce a <strong>less flexible</strong> model that should improve predictive performance:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="SUBSET_PERFORMANCE" class="center" src="../Assets/5.%20Model%20Selection.md/SUBSET_PERFORMANCE.png" /></p>
 </div>
 <h2 id="selection-algorithm"><strong>Selection Algorithm</strong><a class="headerlink" href="#selection-algorithm" title="Permanent link">&para;</a></h2>
 <h3 id="best-subset-selection"><strong>Best Subset Selection</strong><a class="headerlink" href="#best-subset-selection" title="Permanent link">&para;</a></h3>
@@ -1733,19 +1735,26 @@
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
-    C_{p} &amp;= \frac{\text{RSS}}{n} + \frac{2 \cdot \text{MSE}}{n} \cdot p \\
-    \text{AIC} &amp;= \frac{\text{RSS}}{n \cdot \text{MSE}} + \frac{2}{n} \cdot p \\
-    \text{BIC} &amp;= \frac{\text{RSS}}{n \cdot \text{MSE}} + \frac{\ln n}{n} \cdot p
+    \text{AIC}
+    &amp;= \frac{1}{n} \cdot (\text{RSS} + 2 \cdot p \cdot \text{MSE}_{\text{Full}}) \\
+    \\
+    \text{BIC}
+    &amp;= \frac{1}{n} \cdot (\text{RSS} + \ln n \cdot p \cdot \text{MSE}_{\text{Full}}) \\
+    \\
+    C_{p}
+    &amp;= \frac{\text{RSS}}{\text{MSE}_{\text{Full}}} - n + 2(p+1) \\
+    &amp;\approx \text{AIC}
 \end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The MSE in the above equations represent the MSE for a model with ALL predictors, hence "full".</p>
+<p>If this MSE used is unbiased, then the resulting measures are <strong>unbiased</strong> estimates of the test error as well.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Adjusted <span class="arithmatex">\(R^{2}\)</span> is also a valid metric, but the other three are preferred as they have <strong>stronger theoretical justifications</strong> as a measure of model quality.</p>
 <p>Regardless, all metrics are not feasible when there is <strong>high dimensions</strong>. The metrics all rely on the fitted residuals - but if the model has difficulty being fit in the first place, then the metrics cannot be calculated.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If the MSE is unbiased, then the resulting measures are <strong>unbiased</strong> estimates of the test error as well.</p>
 </div>
 <p>The metrics not meant to be used to evaluate a <em>particular</em> model’s effectiveness. They are used to compare the <strong>relative effectiveness</strong> of models; as a model selection criteria. The lower the metrics, the better the model in comparison to others (with respect to test error).</p>
 <p>Notice that the first term is a measure of the <strong>training error</strong>, while the second term is the <strong>adjustment</strong> for the number of predictors. The lower the metric the better, thus the adjustment <strong>penalizes models with more predictors</strong>.</p>
