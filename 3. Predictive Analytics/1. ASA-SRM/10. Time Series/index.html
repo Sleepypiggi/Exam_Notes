@@ -1765,7 +1765,7 @@
 <p>A variable that is naturally stationary is often referred to as <strong>White Noise</strong>, which is a term used to refer to a process that is <strong>completely random</strong>. The best forecast for such a variable is <strong>simply its mean</strong>; since it is assumed to be completely random: </p>
 <div class="arithmatex">\[
 \begin{aligned}
-    y_{t} = \varepsilon_{t} \\
+    y_{t} &amp;= \varepsilon_{t} \\
     \\
     \hat{y}_{t+m} &amp;= \bar{y} \\
     \text{SE}({\hat{y}_{t+m}}) &amp;= s_{y} \cdot \sqrt{1 + \frac{1}{n}} \\
@@ -1833,11 +1833,11 @@
 \begin{aligned}
     \varepsilon_{t} &amp;= \mu_{\varepsilon} + W_{t} \\
     \\
-    \therefore y_{t} \\
+    \therefore y_{t}
     &amp;= y_{t-1} + \varepsilon_{t} \\
     &amp;= y_{0} + \sum \varepsilon_{t} \\
     &amp;= y_{0} + \sum \mu_{\varepsilon} + W_{t} \\
-    &amp;= y_{0} + \mu_{\varepsilon} + \sum W_{t} \\
+    &amp;= y_{0} + \mu_{\varepsilon} t + \sum W_{t} \\
     \\
     &amp;\approx \beta_{0} + \beta_{1} t + \varepsilon_{t}
 \end{aligned}
@@ -1990,7 +1990,7 @@
     &amp;= \frac{\sum (y_{t-1} - \bar{y}_{A})(y_{t} - \bar{y}_{B})}
             {\sum (y_{t-1} - \bar{y}_{B})} \\
     \\
-    \hat{\beta}_{0} = \bar{y}_{A} - \hat{\beta}_{1} \cdot \bar{y}_{B}
+    \hat{\beta}_{0} &amp;= \bar{y}_{A} - \hat{\beta}_{1} \cdot \bar{y}_{B}
 \end{aligned}
 \]</div>
 <div class="admonition tip">
@@ -2009,6 +2009,7 @@
 <p>The fitted values for all observations up till time <span class="arithmatex">\(t\)</span> is known as the <strong>smoothed series</strong> (not to be confused with smoothing techniques). It tends to be <strong>less erratic</strong> as it only contains the estimated signal:</p>
 <p><!-- Self Made -->
 <img alt="AR1_SMOOTHED_SERIES" class="center" src="../Assets/10.%20Time%20Series.md/AR1_SMOOTHED_SERIES.png" /></p>
+<p>The difference between the two are the residuals of the model.</p>
 </div>
 <p>Note that since only <span class="arithmatex">\(n-1\)</span> observations are used to fit the model, the residuals have only <span class="arithmatex">\(n-3\)</span> degrees of freedom; <strong>one less than OLS</strong>, reflecting the one less observation used. This reflects itself in the <strong>estimated variance AND t-distribution</strong>, which flows into the prediction interval:</p>
 <div class="arithmatex">\[
@@ -2171,12 +2172,12 @@
 <div class="arithmatex">\[
     \min \sum w_{t} (y_{t} - \hat{y}_{t})^{2}
 \]</div>
-<p>Since only the last <span class="arithmatex">\(k\)</span> observations are used, weights are only assigned to observations within the indow:</p>
+<p>Since only the last <span class="arithmatex">\(k\)</span> observations are used, weights are only assigned to observations <strong>within the window</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     w_{t}
     \begin{cases}
-        1, t \ge n - k + 1
+        1, t \ge n - k + 1 \\
         0, t \le n - k + 1
     \end{cases}
 \end{aligned}
@@ -2212,17 +2213,12 @@
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>There is no actual observation for <span class="arithmatex">\(y_{0}\)</span> - it is a theoretical baseline. Thus, it is typically set as either:</p>
-<ul>
-<li>0</li>
-<li><span class="arithmatex">\(y_{1}\)</span></li>
-<li><span class="arithmatex">\(\bar{y}\)</span></li>
-</ul>
+<p>There is no actual observation for <span class="arithmatex">\(y_{0}\)</span>. It is a theoretical baseline that is typically set as either <span class="arithmatex">\((0, y_{1}, \bar{y})\)</span>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The effect of smoothing is proportional to <span class="arithmatex">\(w\)</span>. Note that higher weights are placed recent observations while lower weights are placed on older observations.</p>
-<p>A typical value for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span>.</p>
+<p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(w\)</span>. Note that higher weights are placed recent observations while lower weights are placed on older observations. A <strong>typical value</strong> for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span>.</p>
+<p>Note that <span class="arithmatex">\(w\)</span> is the weight placed on HISTORICAL observations.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2267,7 +2263,7 @@
     &amp;= (1-w) s_{t} + w (1-w) \cdot s_{t-1} + w^{2} (1-w) \cdot s_{t-2} + \dots \\
     \\
     \hat{y}_{t+1} &amp;= \beta_{0} + \beta_{1} \cdot t \\
-    \beta_{0} &amp;= s_{t} \\
+    \beta_{0} &amp;= 2(s_{t} - s^{(2)}_{t}) \\
     \beta_{1} &amp;= \frac{1-w}{w} \cdot \left(s_{t} - s^{(2)}_{t} \right) 
 \end{aligned}
 \]</div>
@@ -2300,7 +2296,7 @@
 <li>The regression coefficients are estimated using MLE</li>
 <li>The regression coefficients must be <strong>POSITIVE</strong> and sum to 1</li>
 <li>The intercept is known as the <strong>Long Run Volatility Parameter</strong> and must also be <strong>POSITIVE</strong></li>
-<li>The emphasis on positive above is because the coefficients MUST be there; they cannot be 0</li>
+<li>The emphasis on positive above is because the coefficients MUST be there; they <strong>CANNOT be 0</strong></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

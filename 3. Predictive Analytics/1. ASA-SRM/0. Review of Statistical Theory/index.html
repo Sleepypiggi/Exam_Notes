@@ -1941,7 +1941,7 @@
 <p>The IQR is most often used to <strong>identify outliers</strong>. It is generally accepted that fall outside of the "fences" are considered outliers:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \text{Lower Fence} &amp;= Q_{1} - 1.5 \cdot \text{IQR}
+    \text{Lower Fence} &amp;= Q_{1} - 1.5 \cdot \text{IQR} \\
     \text{Upper Fence} &amp;= Q_{3} + 1.5 \cdot \text{IQR}
 \end{aligned}
 \]</div>
@@ -2387,7 +2387,7 @@
 <h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
 <h3 id="confidence-interval"><strong>Confidence Interval</strong><a class="headerlink" href="#confidence-interval" title="Permanent link">&para;</a></h3>
 <p>Given that there is only one true value for the population parameter and a whole distribution of estimators, it is unlikely that a point estimate will be equal to the population parameter. Thus, instead of a single point estimate, a range is used, known as a <strong>Confidence Interval</strong>.</p>
-<p>The interval is made a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the <strong>same manner</strong> were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
+<p>The interval is made at a chosen <strong>Confidence Level</strong> which represents the <strong>proportion of confidence intervals that will contain the true value</strong>. In other words, if a large number of confidence intervals constructed in the <strong>same manner</strong> were to be made, <span class="arithmatex">\((1-\alpha)%\)</span> of them would contain the true value.</p>
 <div class="arithmatex">\[
     P(\text{Lower Bound} &lt; \theta &lt; \text{Upper Bound}) = 1 - \alpha
 \]</div>
@@ -2593,7 +2593,7 @@
 <h3 id="asymptotic-normality"><strong>Asymptotic Normality</strong><a class="headerlink" href="#asymptotic-normality" title="Permanent link">&para;</a></h3>
 <p>It can be shown that as <span class="arithmatex">\(n \to \infty\)</span>, maximum likelihood estimates follow a normal distribution. In other words, they are <strong>Asymptotically Normally Distributed</strong>:</p>
 <div class="arithmatex">\[
-    \hat{\theta} \sim N(\theta, \frac{1}{I(\theta)})
+    \hat{\theta} \sim N \left(\theta, \frac{1}{I(\theta)} \right)
 \]</div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -2601,7 +2601,7 @@
 </div>
 <p>The term in the variance is known as <strong>Fisher's Information</strong>. It is a measure of the amount of information that an <strong>observed data point has about an underlying parameter</strong> used in its data generation process:</p>
 <div class="arithmatex">\[
-    I(\theta) = -E[\frac{\partial^{2} \ell(\theta)}{\partial \theta}]
+    I(\theta) = -E \left[\frac{\partial^{2} \ell(\theta)}{\partial \theta} \right]
 \]</div>
 <!-- Obtained from Guassian Waves -->
 <p><img alt="INFORMATION_VARIANCE" class="center" src="../Assets/0.%20Review%20of%20Statistical%20Theory.md/INFORMATION_VARIANCE.png" /></p>

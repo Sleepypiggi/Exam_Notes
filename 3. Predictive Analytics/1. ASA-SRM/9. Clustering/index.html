@@ -1558,7 +1558,10 @@
 <p class="admonition-title">Warning</p>
 <p>The <strong>diagonal is always 0</strong> because the euclidean distance between a point and itself is 0.</p>
 <p>The table considers <strong>ALL pairs of observations</strong>, not just unique pairs. In other words, 1-2 and 2-1 are both considered, even though they result in the same euclidean distance. This is why the values are <strong>symmetrical about the diagonal</strong>.</p>
-<p>Cluster Variation requires ALL values in the table to be summed. However, since the table is symmetrical, it is equivalent to TWO TIMES the sum of the <strong>triangle of values</strong>.</p>
+<p>Cluster Variation requires ALL values in the table to be summed. However, since the table is symmetrical, it is equivalent to TWO TIMES the sum of the <strong>triangle of values</strong>:</p>
+<div class="arithmatex">\[
+    \text{Pairwise Distance} = 2 \cdot \text{Unique Pairwise Distance}
+\]</div>
 </div>
 <h3 id="centroid"><strong>Centroid</strong><a class="headerlink" href="#centroid" title="Permanent link">&para;</a></h3>
 <p>Another related concept is the <strong>Centroid of the cluster</strong>. As its name suggests, it is the <strong>centre of the cluster</strong> in multi-dimensional space, equivalent to the average of each individual dimension.</p>
@@ -1570,11 +1573,7 @@
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The two reflects the idea from before that the variation should consider all pairs of observations (symmetry).</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Unlike the previous formula, there is NO need to divide by the number of observations.</p>
+<p>The two reflects the idea from before that the variation should consider all pairs of observations (symmetry). Unlike the previous formula, there is NO need to divide by the number of observations.</p>
 </div>
 <h2 id="k-means-clustering"><strong>K-Means Clustering</strong><a class="headerlink" href="#k-means-clustering" title="Permanent link">&para;</a></h2>
 <p>The first type of clustering is known as <strong>K-means clustering</strong>. It works by clustering the data into a <strong>pre-specified number of clusters</strong> (<span class="arithmatex">\(k\)</span>), such that the <strong>total within cluster variation is minimized</strong>:</p>
@@ -1614,7 +1613,8 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The act of slicing the dendrogram is akin to choosing <span class="arithmatex">\(k\)</span> in <span class="arithmatex">\(k\)</span> means clustering. Thus, some domain knowledge is important to ensure that the number of clusters produced are reasonable.</p>
+<p>The act of slicing the dendrogram is akin to choosing <span class="arithmatex">\(k\)</span> in <span class="arithmatex">\(k\)</span> means clustering. However, unlike K-means, Hierarchical Clustering only needs to be run once (for a given measure and linkage) to obtain all possible clusters.</p>
+<p>Domain knowledge is important to ensure that the number of clusters produced are reasonable.</p>
 </div>
 <p>Generally speaking, there are two approaches to hierarchical clustering:</p>
 <p><center></p>
@@ -1686,6 +1686,8 @@
 <h3 id="dendrogram-analysis"><strong>Dendrogram Analysis</strong><a class="headerlink" href="#dendrogram-analysis" title="Permanent link">&para;</a></h3>
 <p>The vertical axis on the Dendrogram is the <strong>dissimilarity measure</strong>. Thus, we are able to tell the <strong>exact dissimilarity</strong> when two clusters merge. However, they do not provide direct insight into the relationship between sub-clusters; that <strong>must be inferred</strong>.</p>
 <p>Consider the following simple Dendrogram:</p>
+<!-- Self Made -->
+<p><img alt="DENDROGRAM_ANALYSIS" class="center" src="../Assets/9.%20Clustering.md/DENDROGRAM_ANALYSIS.png" /></p>
 <p>Firstly, the <strong>order of fusion</strong> matters - Clusters that <strong>merge earlier are more similar</strong> than clusters that merge later - <span class="arithmatex">\((B,C)\)</span> is more similar than <span class="arithmatex">\((A,B)\)</span> or <span class="arithmatex">\((A,C)\)</span>!</p>
 <p>Next, the <strong>choice of linkage matters</strong>, as it allows us to draw simple relationships about the distance:</p>
 <ul>

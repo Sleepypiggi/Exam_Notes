@@ -1510,7 +1510,7 @@
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Tree Models are the first <strong>supervised AND non-parametric</strong> statistical learning method covered. As such, the model is mainly <strong>algorithmic</strong> in nature.</p>
 <p>Broadly speaking, tree models <strong>partition the sample</strong> into several <strong>distinct regions</strong> based on the values of independent variables. For a prediction, the model determines which region the prediction falls in and sets the prediction equal to the <strong>average of the observations within that region</strong>.</p>
-<p>Using the <strong>boundaries</strong> of the partitions, a <strong>tree-like structure</strong> can be formed to visualize the model. This is highly datasets with many independent variables as the sample space itself is not easily visualized.</p>
+<p>Using the <strong>boundaries</strong> of the partitions, a <strong>tree-like structure</strong> can be formed to easily visualize the model. This is highly effective for datasets with many independent variables as the sample space itself is not easily visualized.</p>
 <!-- Obtained from Research Gate -->
 <p><img alt="TREE_PARTITION" class="center" src="../Assets/7.%20Tree%20Models.md/TREE_PARTITION.png" /></p>
 <div class="admonition warning">
@@ -1519,7 +1519,7 @@
 <p>When the lines intersect, each region is considered to be unique, even if the split does not change the prediction - regions are <strong>NOT combined</strong>. Graphically, this means that the predictor space must have always lines that touch both ends of the boundaries.</p>
 <p><!-- Self Made -->
 <img alt="REGION_SPLIT" src="../Assets/7.%20Tree%20Models.md/REGION_SPLIT.png" /></p>
-<p>The above points are mainly applicable for questions which ask to identify valid predictor spaces, typically when there are only two predictors.</p>
+<p>The above points are mainly applicable for questions which ask to identify <strong>valid predictor spaces</strong>, typically when there are only two predictors. If however, the question is asking for predictor values, then the image on the RHS is valid.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1557,9 +1557,9 @@
 <p>Mathematically, each region of the tree can also be expressed using a <strong>series of conditions</strong>. For large trees, this becomes tedious, which is why the diagram is generally preferred:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    R_{1} = {y \mid x_{1} \lt a, x_{2} \lt b, x_{3} \lt c, \dots} \\
-    R_{2} = {y \mid x_{1} \lt a, x_{2} \lt b, x_{3} \gt c, \dots} \\
-    \dots
+    R_{1} &amp;= {y \mid x_{1} \lt a, x_{2} \lt b, x_{3} \lt c, \dots} \\
+    R_{2} &amp;= {y \mid x_{1} \lt a, x_{2} \lt b, x_{3} \gt c, \dots} \\
+    &amp;\dots
 \end{aligned}
 \]</div>
 <div class="admonition note">
@@ -1594,8 +1594,8 @@
 <p>In general, the algorithm can be said to choose the <strong>split that minimizes the RSS at the time</strong>. Similar to subset selection, it is a <strong>greedy algorithm</strong> as it chooses the local best choice at each step, not the global best.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Notice that since the <strong>prediction is the average</strong> of the observations in the node, the RSS is essentially the <strong>variance</strong> of the observations in the node. If given the observations or the relevant summed components, the RSS can be easily calculated.</p>
-<p>The total RSS is simply the sum of the RSS for each node, no weighting required.</p>
+<p>Notice that since the <strong>prediction is the average</strong> of the observations in the node, the RSS is essentially the <strong>mean square variance</strong> of the observations in the node. If given the observations or the relevant summed components, the RSS can be easily calculated.</p>
+<p>The total RSS is simply the sum of the RSS for each node, <strong>no weighting</strong> required.</p>
 <div class="arithmatex">\[
     \text{Total Tree RSS} = \sum \text{Node RSS}
 \]</div>
@@ -1623,11 +1623,11 @@
 <p><img alt="PRE_PRUNING" class="center" src="../Assets/7.%20Tree%20Models.md/PRE_PRUNING.png" /></p>
 <p>The second type of pruning is known as <strong>Post-pruning</strong>. A <strong>penalty</strong> is added to the RSS:</p>
 <ul>
-<li><span class="arithmatex">\(\lambda\)</span>: Hyperparameter</li>
+<li><span class="arithmatex">\(\alpha\)</span>: Hyperparameter</li>
 <li>T: Number of terminal nodes (Leaves)</li>
 </ul>
 <div class="arithmatex">\[
-    \min (\text{RSS} + \lambda \cdot T)
+    \min (\text{RSS} + \alpha \cdot T)
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1646,16 +1646,16 @@
 <p>This is why this method is known as <strong>Cost Complexity Pruning</strong>, as it adds a cost to the minimization problem.</p>
 <p>From another perspective, this it is also known as <strong>Weakest Link Pruning</strong>, as it removes the least important ("weakest links") from the tree.</p>
 </div>
-<p>The key idea is that <span class="arithmatex">\(\lambda\)</span> and <span class="arithmatex">\(T\)</span> are <strong>inversely related</strong>. The higher the penalty, the smaller the tree must be; hence different <span class="arithmatex">\(\lambda\)</span> will result in a <strong>different final tree</strong>.</p>
+<p>The key idea is that <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(T\)</span> are <strong>inversely related</strong>. The higher the penalty, the smaller the tree must be; hence different <span class="arithmatex">\(\alpha\)</span> will result in a <strong>different final tree</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Since the T is an <strong>integer</strong> and while the <span class="arithmatex">\(\lambda\)</span> is <strong>continuous</strong>, a range of <span class="arithmatex">\(\lambda\)</span> could result in the <strong>same T; same pruned tree</strong>:</p>
+<p>Since the T is an <strong>integer</strong> and while the <span class="arithmatex">\(\alpha\)</span> is <strong>continuous</strong>, a range of <span class="arithmatex">\(\alpha\)</span> could result in the <strong>same T; same pruned tree</strong>:</p>
 <p><!-- Obtained from Coaching Actuaries -->
-<img alt="LAMBDA_RANGE" class="center" src="../Assets/7.%20Tree%20Models.md/LAMBDA_RANGE.png" /></p>
+<img alt="alpha_RANGE" class="center" src="Assets/7.%20Tree%20Models.md/alpha_RANGE.png" /></p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When <span class="arithmatex">\(\lambda=0\)</span>, the penalized RSS is the <strong>same as the regular RSS</strong> and hence will result in the original tree. Thus, the trees that minimizes the penalized RSS will <strong>always be a subtree</strong> of the original.</p>
+<p>When <span class="arithmatex">\(\alpha=0\)</span>, the penalized RSS is the <strong>same as the regular RSS</strong> and hence will result in the original tree. Thus, the trees that minimizes the penalized RSS will <strong>always be a subtree</strong> of the original.</p>
 <p>Intuitively, this is because the tree was fitted using a <strong>forward greedy algorithm</strong> to begin with. Thus, going backwards should result in the same tree.</p>
 </div>
 <div class="admonition warning">
@@ -1769,19 +1769,21 @@
 <p><img alt="BOOSTING_VS_BAGGING" class="center" src="../Assets/7.%20Tree%20Models.md/BOOSTING_VS_BAGGING.png" /></p>
 <p>There are three hyperparameters for Boosting:</p>
 <ul>
-<li><strong>Number of Trees</strong> (B) - How many trees should be used</li>
-<li><strong>Depth of Trees</strong> (d) - How many splits each tree should have</li>
-<li><strong>Learning Rate</strong> (<span class="arithmatex">\(\lambda\)</span>) - How much the trees contributes to the overall prediction </li>
+<li><strong>Number of Trees</strong> (<span class="arithmatex">\(B\)</span>) - How many trees should be used</li>
+<li><strong>Depth of Trees</strong> (<span class="arithmatex">\(d\)</span>) - How many splits each tree should have</li>
+<li><strong>Learning Rate</strong> (<span class="arithmatex">\(\alpha\)</span>) - How much the trees contributes to the overall prediction </li>
 </ul>
 <div class="arithmatex">\[
-    \text{Boosted Prediction}
-    = \lambda \cdot (\text{Tree 1 Prediction} + \text{Tree 2 Prediction} + \dots)
+\begin{aligned}
+    \text{Boosted Tree Prediction} &amp;= \alpha \cdot \text{Tree Prediction} \\
+    \text{Overall Prediction} &amp;= \sum \text{Boosted Tree Prediction}
+\end{aligned}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The number of trees (B) is typically selected via Cross Validation.</p>
 <p>Shallow trees are preferred, thus <span class="arithmatex">\(d\)</span> typically selected to be 1. In this case, it is known as an <strong>Additive Model</strong>.</p>
-<p>The learning rate is also referred to as the <strong>Shrinkage Parameter</strong> as it reduces the influence of each tree on the overall prediction. Typically, a <strong>slow learning rate</strong> is preferred (<span class="arithmatex">\(\lambda \lt 1\)</span>). Consequently, a lagre number of trees are required to achieve effective results.</p>
+<p>The learning rate is also referred to as the <strong>Shrinkage Parameter</strong> as it reduces the influence of each tree on the overall prediction. Typically, a <strong>slow learning rate</strong> is preferred (<span class="arithmatex">\(\alpha \lt 1\)</span>). Consequently, a lagre number of trees are required to achieve effective results.</p>
 </div>
 <p>Boosting as a method will naturally result in low bias. However, if an <em>extreme</em> number of trees are used, the model could become <strong>overfitted</strong>:</p>
 <!-- Self Made -->
@@ -1801,7 +1803,7 @@
 <p>Most of the key concepts apply, but there are some notable exceptions due to having a categorical independent variable.</p>
 </div>
 <p>Since residuals are unintuitive for categorical data, classification trees focus on <strong>Node Purity</strong> instead. The algorithm divides the predictor space such that <strong>node impurity is minimized</strong>.</p>
-<p>Purity is a measure of TBC, which can measured using one of the following metrics:</p>
+<p>Purity is a measure of the distribution of the categories, which can measured using one of the following metrics:</p>
 <ol>
 <li>Classification Error Rate</li>
 <li>Gini Index</li>

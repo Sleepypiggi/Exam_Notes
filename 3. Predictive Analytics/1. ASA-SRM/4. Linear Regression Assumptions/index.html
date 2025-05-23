@@ -1827,6 +1827,11 @@
 </ol>
 <!-- Obtained From Shakrim Blog -->
 <p><img alt="INSTRUMENTAL_VARIABLE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/INSTRUMENTAL_VARIABLE.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Instrumental variables are used when it is <strong>not feasible to directly study</strong> the target predictors relationship with the dependent (due to Collinearity, in this case).</p>
+<p>They are variables that are <strong>not direcly correlated with the dependent</strong>, but correlated with the target predictor. Thus, any correlation between the instrumental variable and the dependent MUST be coming through the target predictor.</p>
+</div>
 <h2 id="assumption-4-homoscedasticity"><strong>Assumption 4: Homoscedasticity</strong><a class="headerlink" href="#assumption-4-homoscedasticity" title="Permanent link">&para;</a></h2>
 <p><strong>Homoscedasticity</strong> refers to the error terms having <strong>constant variance</strong> while <strong>Heteroscedasticity</strong> refers to having non-constant variance.</p>
 <div class="arithmatex">\[
@@ -1863,12 +1868,8 @@
 <h3 id="breusch-pagan-test"><strong>Breusch Pagan Test</strong><a class="headerlink" href="#breusch-pagan-test" title="Permanent link">&para;</a></h3>
 <p>Heteroskedasticity implies that the size of the residuals <strong>changes with the predictors</strong>. Thus, this can be formally tested using the <strong>Breusch Pagan Test</strong> where the <strong>residuals are regressed against the predictors</strong>. If there is found to be a relationship between the two, then heteroskedasticity is likely present.</p>
 <ul>
-<li><span class="arithmatex">\(H_{0}\)</span>: <span class="arithmatex">\(\beta^{*}_{p} \eq 0\)</span></li>
-<li>
-<ul>
-<li><span class="arithmatex">\(H_{1}\)</span>: <span class="arithmatex">\(\beta^{*}_{p} \ne 0\)</span></li>
-</ul>
-</li>
+<li><span class="arithmatex">\(H_{0}: \beta^{*}_{p} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}: \beta^{*}_{p} \ne 0\)</span></li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2095,10 +2096,10 @@
 <p>The natural solution would be to <strong>limit the number of predictors</strong> by choosing only truly relevant variables and/or to <strong>increase the sample size</strong>.</p>
 <h4 id="partial-least-squares"><strong>Partial Least Squares</strong><a class="headerlink" href="#partial-least-squares" title="Permanent link">&para;</a></h4>
 <p>Another method is to use <strong>Partial Least Squares</strong> (PLS). It is very similar to PCA - it seeks to create new variables that are linear combinations of existing variables (known as <strong>Directions</strong>) which are then used to perform the regression instead. Each subsequent direction uses the residuals of the previous direction.</p>
-<p>The key difference when compared to PCA is that PLS finds new variables with the goal of explaining the dependent variable. Consequently, cross validation can be used to determine the optimal number of directions.</p>
+<p>The key difference when compared to PCA is that PLS finds new variables with the <strong>inherent goal of explaining the dependent variable</strong>. Consequently, cross validation can be used to determine the optimal number of directions.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>ALL features are used to create the directions; there is no variable selection (dropping of variables) involved, only involvement to different extents.</p>
+<p>ALL features are used to create the directions; there is <strong>NO variable selection</strong> (dropping of variables) involved, only involvement to different extents.</p>
 </div>
 
 

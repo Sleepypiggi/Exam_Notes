@@ -1479,14 +1479,17 @@
 <div class="arithmatex">\[
     \sum \varphi_{i,j} \cdot \varphi_{i,k} = 0
 \]</div>
+<p><!-- Obtained from Datahackers -->
+<img alt="DOT_PRODUCT" class="center" src="../Assets/8.%20Principal%20Components.md/DOT_PRODUCT.png" /></p>
 <p>Note that only the dot product of PAIRS of principal components are 0, not for all principal components.</p>
 </div>
-<p>Due to the linear algebra required, the data must first be <strong>Centered</strong> and <strong>Scaled</strong>. Each PC then <strong>passes through the mean</strong> of the data (which is now the origin post centering):</p>
+<p>Due to the linear algebra required, the data must first be <strong>Centered</strong> and <strong>Scaled</strong> (normalization). Each PC then <strong>passes through the mean</strong> of the data (which is now the origin post centering):</p>
 <!-- Obtained from Learnche -->
 <p><img alt="PCA_CENTER_SCALE" class="center" src="../Assets/8.%20Principal%20Components.md/PCA_CENTER_SCALE.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The purpose of scaling is to ensure that features with different units are using a <strong>common unit</strong> for comparison. However, if the features are already using the <strong>same units</strong>, there is <strong>no need to scale</strong> the data.</p>
+<p>The reason for scaling is that variables with larger scale will naturally have higher variance, thus skewing the results.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1499,10 +1502,6 @@
 </div>
 <h2 id="loading-and-scores"><strong>Loading and Scores</strong><a class="headerlink" href="#loading-and-scores" title="Permanent link">&para;</a></h2>
 <p>The <strong>direction</strong> of the PC in the multi-dimensional space is known as its <strong>Loading</strong>. Mathematically, it is the <strong>contribution of each variable</strong> on the PC. Naturally, the higher the loading, the more that variable contributes to the variance explained for that PC.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is typically assumed that the dataset is "Normalized"</p>
-</div>
 <p>Consider the perpendicular projection of each observation onto the PC; the straight line distance between an observation and the PC. The <strong>distance</strong> from the origin to this point on the PC is known as the <strong>Score of the observation</strong>.</p>
 <!-- Obtained from LearnChe -->
 <p><img alt="PCA_SCORE" class="center" src="../Assets/8.%20Principal%20Components.md/PCA_SCORE.png" /></p>
@@ -1623,9 +1622,9 @@
 <p>For a two variable case, this manifests itself on the Biplot where all observations have a <strong>score of 0</strong> for PC2; the observations are <strong>entirely explainable by PC1</strong>: </p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="BIPLOT_COLLINEAR" class="center" src="../Assets/8.%20Principal%20Components.md/BIPLOT_COLLINEAR.png" /></p>
-<p>For three or more variables, this can be seen from the screw plot where there are PCs that explain NONE of the variation:</p>
+<p>For three or more variables, this can be seen from the scree plot where there are PCs that explain NONE of the variation:</p>
 <!-- Obtained from Coaching Actuaries -->
-<p><img alt="COLLINEAR_SPREE" src="../Assets/8.%20Principal%20Components.md/COLLINEAR_SCREE.png" /></p>
+<p><img alt="COLLINEAR_SPREE" class="center" src="../Assets/8.%20Principal%20Components.md/COLLINEAR_SCREE.png" /></p>
 <h3 id="regression"><strong>Regression</strong><a class="headerlink" href="#regression" title="Permanent link">&para;</a></h3>
 <p>It is possible to perform Linear Regression using the principal component space. In this case, it is known as a <strong>Principal Component Regression</strong>:</p>
 <div class="arithmatex">\[

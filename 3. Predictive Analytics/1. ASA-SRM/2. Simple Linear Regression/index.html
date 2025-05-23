@@ -1575,6 +1575,12 @@
     \bar{y} = \hat{\beta}_{0} + \hat{\beta}_{1} \cdot \bar{x}
 \]</div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The interpretation of <span class="arithmatex">\(\beta_{0}\)</span> is that it is <span class="arithmatex">\(E(Y \mid X = 0)\)</span>. However, the coefficient is NOT <span class="arithmatex">\(\bar{y} \mid x = 0\)</span> for that sample. This is expected, because the fitted model is based on a sammple, some discrepancy is expected:</p>
+<p><!-- Obtained from Stack Exchange -->
+<img alt="BETA_CONFUSION" class="center" src="../Assets/2.%20Simple%20Linear%20Regression.md/BETA_CONFUSION.png" /></p>
+</div>
 <div class="arithmatex">\[
 \begin{aligned}
     \frac{\partial}{\partial \beta_{1}} \text{RSS} &amp;= 0 \\
