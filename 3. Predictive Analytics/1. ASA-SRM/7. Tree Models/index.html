@@ -1600,6 +1600,7 @@
     \text{Total Tree RSS} = \sum \text{Node RSS}
 \]</div>
 </div>
+<p>The performance of the tree is often compared against the Null Rate - performance of a tree with <strong>NO splits</strong>. The idea is similar to that of an F-test.</p>
 <h2 id="pruning"><strong>Pruning</strong><a class="headerlink" href="#pruning" title="Permanent link">&para;</a></h2>
 <p>Recursive binary splitting tends to result in <strong>large complex trees</strong> with many internal nodes, which is prone to <strong>overfitting</strong>. In this case, certain <strong>internal nodes should be dropped</strong>, akin to <strong>Pruning the leaves</strong> of a tree.</p>
 <div class="admonition note">
@@ -1706,12 +1707,13 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The intuition is similar to cross-validation where the <strong>OOB observations were not used to train that particular bagged tree</strong>, thus serves as a good estimate for the test MSE.</p>
-<p>In fact, for a sufficiently large number of trees, the OOB provides an reasonably good <strong>estimate of the LOOCV error</strong> with the added advantage of being computationally more efficient:</p>
+<p>In fact, for a sufficiently large number of trees, the OOB provides an reasonably good <strong>estimate of the LOOCV error</strong>:</p>
 <ol>
 <li>LOOCV error requires that all but one observation is used to train the model</li>
 <li>For a large number of bootstrap samples, it increases the chances that ALL observations from the original dataset are used</li>
 <li>Thus, the OOB will calculated based on ALL observations EXCEPT the observation being tested; akin to LOOCV</li>
 </ol>
+<p>The OOB error also has the added advantage of being <strong>computationally efficient</strong> compared to an actual LOOCV, as it only needs to be <strong>run once</strong> (the main run) to get the result.  </p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1720,7 +1722,7 @@
 <p>The <strong>key advantage</strong> to bagging lies in <strong>Variance</strong>. An estimate coming from multiple samples is always <strong>more stable</strong> than estimate coming from just one sample.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Since bagging helps to reduce the variance, the underlying trees are often <strong>not pruned</strong> (pre &amp; post) as the nature of bagging helps to counter the problem of high variance for unpruned trees.</p>
+<p>Since bagging helps to reduce the variance, the underlying trees are often <strong>NOT pruned</strong> (pre &amp; post) as the nature of bagging helps to counter the problem of high variance for unpruned trees.</p>
 <p>In general, having <strong>more bootstrapped samples is beneficial</strong>; having too many samples does <strong>NOT cause overfitting</strong>. However, it is <strong>computationally expensive</strong>. Thus, the number of samples should be chosen such that the increase in accuracy is higher than the cost of computing.</p>
 </div>
 <p>However, the <strong>key disadvantage</strong> is that the method is that is <strong>not easily interpreted</strong>. A single tree is easily visualized while a forest is not.</p>
@@ -1812,8 +1814,8 @@
 <p>Gini Index and Cross Entropy are better measures of purity as they are <strong>sensitive to the distribution</strong> of categories within each region, thus they are the <strong>preferred purity measure</strong> when <strong>growing</strong> out a tree. However, when <strong>pruning</strong> a tree, the primary goal is improve predictive accuracy, thus the classification error rate is used instead.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The lower the above metrics, the higher the purity of the node; more imbalanced.</p>
-<p>This can be remembered by the fact that the Gini Index is often a measure of <strong>socio-economic inequality</strong> - it is higher when there is a large imbalance between the rich and the poor (loosely speaking). </p>
+<p>The lower the above metrics, the higher the purity of the node - the node is LARGELY made up of mainly one category. Mathematically, the <strong>proportion of categories</strong> within each class are <strong>close to 0 or 1</strong>.</p>
+<p>This can be remembered by the fact that the Gini Index is often a measure of <strong>socio-economic inequality</strong> - it is higher when there is are a large number of poor and rich (loosely speaking). </p>
 </div>
 <h3 id="purity-measures"><strong>Purity Measures</strong><a class="headerlink" href="#purity-measures" title="Permanent link">&para;</a></h3>
 <p>A key quantity that will be used is the <strong>proportion of correct classifications</strong> in a particular region (<span class="arithmatex">\(p_{c}\)</span>).</p>
@@ -1843,15 +1845,19 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>All measures must be positive, but ONLY entropy can be larger than 1.</p>
-<p>Gini Index and Entropy are similar, but the key difference is that it uses the <strong>SAME PROBABILITY</strong> in the summation.</p>
+<p>Gini Index and Entropy are <strong>similar</strong>, but the key difference is that it uses the <strong>SAME PROBABILITY</strong> in the summation.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Gini Index and Class Entropy are the preferred purity measures when <strong>growing</strong> out a tree. This is because they are <strong>sensitive to the distribution</strong> of categories, while classification error is not. Consider the following two examples - the classification error rate is the same but the purity is much higher in the second region:</p>
+<p>Gini Index and Class Entropy are the preferred purity measures when <strong>growing</strong> out a tree. This is because they are <strong>sensitive to the distribution</strong> of categories, while classification error is NOT. Consider the following two examples - the classification error rate is the same but the purity is much higher in the second region:</p>
 <p><!-- Self Made -->
 <img alt="PURITY_DISTRIBUTION" class="center" src="../Assets/7.%20Tree%20Models.md/PURITY_DISTRIBUTION.png" /></p>
 <p>Classification Error is a more one-dimensional approach that tends to result in simpler trees, which is why is often used as the purity measure for <strong>pruning</strong>, along with the fact that the main goal of pruning is to improve predictive accuracy, which is directly what the classification error measures.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>In light of this, it is possible for a split to produce <strong>two nodes with the same predicted category</strong>. This is because the <strong>Gini or Entropy would have increased</strong> with the split, even though classification error remains the same.</p>
+<p>In this case, it provides even more confidence in the prediction a purer node led to the same result.</p>
 </div>
 <h3 id="two-category-model"><strong>Two Category Model</strong><a class="headerlink" href="#two-category-model" title="Permanent link">&para;</a></h3>
 <p>The most common scenario to appear on the exam would be a model with <strong>ONLY TWO</strong> possible categories.</p>

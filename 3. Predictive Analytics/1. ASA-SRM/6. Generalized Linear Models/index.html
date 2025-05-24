@@ -1810,7 +1810,10 @@
     &amp;= \text{RSS} + \text{RegSS} + 2 \sum \left([y_{i} - \hat{y}][\hat{y}-\bar{y}] \right)
 \end{aligned}
 \]</div>
-<p>The above additional component would cancel out under OLS, thus was not issue. However, this does not apply to GLMs.</p>
+<p>The above additional component would cancel out under OLS, thus was not issue. However, this does not apply to GLMs. Thus, the usual <strong>ANOVA inferences do NOT apply in a GLM context</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>It can also be shown that for linear regression, the Deviance is <strong>equivalent to the RSS</strong>:</p>
 <div class="arithmatex">\[
     D = \text{RSS}
@@ -1849,6 +1852,14 @@
 <div class="arithmatex">\[
     e_{\text{Pearson}} = \frac{y - \hat{y}}{\sqrt{\text{Var}(y)}}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The standard deviation is from the variance of the underlying distribution, NOT of the coefficients or the sort.</p>
+<ul>
+<li>Binomial: <span class="arithmatex">\(\text{Var(Y)} = np(1-p)\)</span></li>
+<li>Poisson: <span class="arithmatex">\(\text{Var(Y)} = \mu\)</span></li>
+</ul>
+</div>
 <p>If the model fits the data well, the sum of squared pearson residuals should be <strong>roughly equal to its degrees of freedom</strong> (<span class="arithmatex">\(n-p-1\)</span>):</p>
 <div class="arithmatex">\[
     \sum e^{2}_{\text{Pearson}} \sim n-p-1
@@ -1917,11 +1928,15 @@
 <li><strong>Negative IV</strong>: Complementary Log-Log &amp; Logit are similar</li>
 <li><strong>Positive IV</strong>: Complementary Log-Log &amp; Probit are similar</li>
 </ul>
-<p>Generally speaking, it is NOT EASY to distinguish between the three methods graphically.</p>
+<p>Generally speaking, it is <strong>NOT EASY</strong> to distinguish between the three methods graphically.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Logit and Probit are the most popular methods. However, logit is preferred as it can be expressed in a closed form. </p>
+<p>Logit and Probit are the most popular methods. However, logit is preferred as it can be expressed in a closed form.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Despite being called logistic <em>regression</em>, it is actually a classification method.   </p>
 </div>
 <p>Logit is the canonical link function; the resulting GLM is known as a <strong>Logistic Regression</strong>. It models the <strong>Log-Odds</strong> of an event occuring:</p>
 <div class="arithmatex">\[

@@ -2155,9 +2155,10 @@
 <p><!-- Self Made -->
 <img alt="SMA_RECUSION" class="center" src="../Assets/10.%20Time%20Series.md/SMA_RECURSION.png" /></p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(k\)</span>. However, there is <strong>no smoothing</strong> is <span class="arithmatex">\(k=1\)</span>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(k\)</span>. The larger <span class="arithmatex">\(k\)</span>, the <strong>more periods</strong> included in the average, making it <strong>less sensitive</strong> to the current observation and hence <strong>more smooth</strong>.</p>
+<p>There is <strong>no smoothing</strong> is <span class="arithmatex">\(k=1\)</span>.</p>
 </div>
 <p>Assuming that the data has <strong>no trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
 <div class="arithmatex">\[
@@ -2214,11 +2215,13 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There is no actual observation for <span class="arithmatex">\(y_{0}\)</span>. It is a theoretical baseline that is typically set as either <span class="arithmatex">\((0, y_{1}, \bar{y})\)</span>.</p>
+<p>It is ONLY applicable for exponential smoothing.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(w\)</span>. Note that higher weights are placed recent observations while lower weights are placed on older observations. A <strong>typical value</strong> for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span>.</p>
-<p>Note that <span class="arithmatex">\(w\)</span> is the weight placed on HISTORICAL observations.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><span class="arithmatex">\(w\)</span> is the weight placed on HISTORICAL observations.</p>
+<p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(w\)</span>. The larger it is, more weight placed on historical observations, making it <strong>less sensitive</strong> to the current observation and hence <strong>more smooth</strong>.</p>
+<p>A <strong>typical value</strong> for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

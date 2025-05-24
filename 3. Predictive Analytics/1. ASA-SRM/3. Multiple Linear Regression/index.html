@@ -2138,11 +2138,30 @@ Var(\hat{\beta}) =
 <p><img alt="DUMMY_INTERACTION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/DUMMY_INTERACTION.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>There are questions which may ask for the impact of a variable on the response given some or all other variables are held constant. As shown above, the impact of a variable <strong>changes in the presence of an interaction term</strong> - which is the motivation of these questions:</p>
+<p>As alluded to, the interpretation of the variables changes in the presence of an interaction. There are several scenarios to consider:</p>
 <ul>
-<li>Impact of <strong>target variable</strong></li>
-<li>Impact of <strong>interaction</strong> between target variable and other variable</li>
-<li>If the other variable is not held constant, consider <strong>extreme scenarios</strong> for the otger variable to know the definitive impact</li>
+<li>Scenario 1: Continuous Variable with Dummy Interaction</li>
+<li>Scenario 2: Dummy Variable with Continuous Interaction</li>
+<li>Applicability of Ceteris Paribus</li>
+</ul>
+<p>The key idea is that the variable on its own has an effect. The objective is to determine if the direction of the effect <strong>changes in the presence of another variable</strong>.  </p>
+<p>For scenario (1), only two equations are required, as it does NOT matter whether ceteris paribus is present for a dummy variable:</p>
+<ul>
+<li>Equation assuming Dummy Variable is 0</li>
+<li>Equation assuming Dummy Variable is 1</li>
+<li>Determine whether the impact of the continuous variable is conclusive (same for both scenarios)</li>
+</ul>
+<p>For scenario (2), two <em>sets</em> of equations are required as the Ceteris Paribus assumption matters:</p>
+<ul>
+<li>Equation assuming Continuous Variable is Min/Max</li>
+<li>Equation assuming Continuous Variable is Min/Max</li>
+<li>Determine whether the impact of the dummy variable is conclusive (Same for both scenarios)</li>
+</ul>
+<p>If Ceteris Paribus does NOT hold, then the comparison should use different values for the continuous variable to reflect the full range of variability:</p>
+<ul>
+<li>Equation assuming Continuous Variable is Min/Max</li>
+<li>Equation assuming Continuous Variable is Max/Min</li>
+<li>Determine whether the impact of the dummy variable is conclusive (Same for both scenarios)</li>
 </ul>
 </div>
 <h3 id="indicator-variables"><strong>Indicator Variables</strong><a class="headerlink" href="#indicator-variables" title="Permanent link">&para;</a></h3>
