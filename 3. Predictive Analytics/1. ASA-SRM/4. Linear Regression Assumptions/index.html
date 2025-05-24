@@ -2076,11 +2076,19 @@
 <p class="admonition-title">Note</p>
 <p>A typical value for Cooks Distance is <span class="arithmatex">\(\frac{1}{n}\)</span>. It can be understood as each observation having equal importance.</p>
 </div>
-<p>If the influential point is a result of a <strong>data collection</strong> error, then the observation should be removed. Otherwise, we need a good reason to delete the observation. Observations <strong>should NOT be deleted just because they do not fit our pre-conceived model</strong>; we should aim to reflect reality as closely as possible. Thus, some common methods would be to:</p>
+<p>There are a few methods to deal with influential observations:</p>
 <ol>
-<li>Make a note about the observation</li>
-<li>Create a binary variable to account for the observation (ie have results with and without it)</li>
+<li><strong>Delete</strong> the observation (Only if it was a result of a data collection error)</li>
+<li>Include the observation, but <strong>make a note</strong> about it</li>
+<li>Create a <strong>binary variable</strong> to indicate the presence of the observation (Outliers ONLY)</li>
+<li>Use a <strong>robust estimation</strong> method (Outliers ONLY)</li>
+<li><strong>Substitute OR transform</strong> the variable (Leverage ONLY)</li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On point (5) - assume that the current variable the floor space in an apartment. Using floorspace, it is noted that there are several high leverage points. A similar variable that captures the effect of floor space could be the number of rooms. Using number of rooms (discrete) rather than floor space (continuous), <strong>reduces the chances</strong> that an observation has high leverage.</p>
+<p>If the substitute cannot be performed due to a lack of data or other reasons, it is also possible to perform a <strong>transformation</strong> on the data to stabilize it.</p>
+</div>
 <h3 id="high-dimensionality"><strong>High Dimensionality</strong><a class="headerlink" href="#high-dimensionality" title="Permanent link">&para;</a></h3>
 <p>As alluded to previously, increasing the number of parameters in the model does not necessarily benefit the model. This phenomenon is known as the <strong>Curse of Dimensionality</strong>.</p>
 <p>A sample of 100 observations is a lot of information for a model with 2 predictors, but is sparse for a model with 50 predictors. Thus, <strong>increasing the number of predictors relative to the sample size</strong> tends to have detrimental effects:</p>

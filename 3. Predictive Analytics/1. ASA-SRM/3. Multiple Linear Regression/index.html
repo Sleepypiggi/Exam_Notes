@@ -2243,8 +2243,8 @@ Var(\hat{\beta}) =
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>A non-graphical approach to validate the Ridge (and Lasso) would be to test if the resulting model fulfils the above penalty by <strong>manually adding</strong> the resulting RSS and coefficients.</p>
-<p>This can also be used to determine the final ridge/LASSO model, which should have the lowest value of all possible combinations.</p>
+<p>If given the choice of multiple possible variables for the Ridge (and Lasso), remember that the method will choose the model with the lowest constrained RSS. Thus, calculate the constrained RSS for each model and then determine which is the regularized model.</p>
+<p>Do NOT make an assumption that the regularization coefficients should be small (especially for LASSO!)</p>
 </div>
 <p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>shrinkage parameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong>:</p>
 <ul>

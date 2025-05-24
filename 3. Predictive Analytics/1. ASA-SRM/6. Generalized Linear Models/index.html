@@ -2107,14 +2107,18 @@
 <p class="admonition-title">Info</p>
 <p>Note that the poisson is actually a limiting case of the negative binomial where the parameters go to infinity, thus the change in distribution is not too drastic.</p>
 </div>
-<p>Alternatively, it is possible to create a new distribution using a <strong>mixture</strong> of distributions to achieve the desired property. A <strong>heterogeneity model</strong> is a special model that allows for <strong>continuous mixtures</strong>:</p>
+<p>Alternatively, it is possible to create a new distribution using a <strong>mixture</strong> of distributions to achieve the desired property, where a parameter of the primary distribution follows a secondary distribution. For instance:</p>
 <ul>
 <li>Poisson &amp; Gamma Mixture (results in Negative Binomial)</li>
 <li>Poisson &amp; Lognormal Mixture</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>A mixture of two poissons is NOT poisson.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two names given to such models:</p>
+<ol>
+<li>Latent Class Models: Discrete Mixtures</li>
+<li>Hetereogeneity Models: Continuous Mixtures</li>
+</ol>
 </div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="OVERDISPERSION_MODELS" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/OVERDISPERSION_MODELS.png" /></p>

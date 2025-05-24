@@ -1483,13 +1483,13 @@
 <img alt="DOT_PRODUCT" class="center" src="../Assets/8.%20Principal%20Components.md/DOT_PRODUCT.png" /></p>
 <p>Note that only the dot product of PAIRS of principal components are 0, not for all principal components.</p>
 </div>
-<p>Due to the linear algebra required, the data must first be <strong>Centered</strong> and <strong>Scaled</strong> (normalization). Each PC then <strong>passes through the mean</strong> of the data (which is now the origin post centering):</p>
+<p>Due to the linear algebra required, the data must first be <strong>Centered</strong> and <strong>Scaled</strong> ("standardization"). Each PC then <strong>passes through the mean</strong> of the data (which is now the origin post centering):</p>
 <!-- Obtained from Learnche -->
 <p><img alt="PCA_CENTER_SCALE" class="center" src="../Assets/8.%20Principal%20Components.md/PCA_CENTER_SCALE.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The purpose of scaling is to ensure that features with different units are using a <strong>common unit</strong> for comparison. However, if the features are already using the <strong>same units</strong>, there is <strong>no need to scale</strong> the data.</p>
-<p>The reason for scaling is that variables with larger scale will naturally have higher variance, thus skewing the results.</p>
+<p>Without scaling, each variable is expressed in its own units, thus variables with <strong>naturally larger quantums will dominate the analysis</strong>. Thus, scaling converts all variables into a unitless form which allows for better comparison.</p>
+<p>Note that as a result, the underlying data has a <strong>variance of 1</strong>; similar to the standard normal.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1582,7 +1582,7 @@
 <p>The variation of features explained by each principle component is the variation of that particular principal component; <strong>squared Score</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    s_{z_{j}}
+    s^{2}_{z_{j}}
     &amp;= \frac{1}{n-1} \cdot \sum (z_{i,j} - \bar{z}_{j})^{2} \\
     &amp;= \frac{1}{n-1} \cdot \sum (z_{i,j})^{2} \\
     &amp;= \frac{1}{n-1} \cdot \sum (\sum_{k} \varphi_{j,k} \cdot x_{i,k})^{2}
@@ -1598,11 +1598,15 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>It is possible to infer the relative variance from a Biplot, ONLY if the data was NOT scaled. If unscaled, then <strong>larger loadings would lead to larger variances</strong>, all else equal. Thus, the feature with the <strong>largest scale</strong> would be the feature with the largest PC1 loading (as PC1 explains the <strong>largest variance</strong>).</p>
-<p>This cannot be used for scaled data as the variance for all features would be 1.</p>
+<p>This cannot be used for scaled data as the <strong>variance for all features would be 1</strong>.</p>
 </div>
 <p>A <strong>Scree Plot</strong> summarizes the above information by plotting the proportion of variance explained by each successive PC. As alluded to previously, the plot will always be <strong>decreasing</strong> as the variance explained should decrease per PC:</p>
 <div class="arithmatex">\[
-    \text{Prop Var Explained by PC} = \frac{\text{Var Explained by PC}}{\text{Sample Variance}}
+\begin{aligned}
+    \text{Prop Var Explained by PC}
+    &amp;= \frac{\text{Var Explained by PC}}{\text{Total Variance for all underlying variables}} \\
+    &amp;= \frac{\text{Var Explained by PC}}{n}
+\end{aligned}
 \]</div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="SCREE_PLOT" class="center" src="../Assets/8.%20Principal%20Components.md/SCREE_PLOT.png" /></p>
@@ -1630,30 +1634,24 @@
 <div class="arithmatex">\[
     E(Y \mid X) = \theta_{0} + \theta_{1} \cdot Z_{1} + \theta_{2} \cdot Z_{2} + \dots
 \]</div>
-<p>Note that since PC uses <strong>ALL variables</strong>, it is akin to performing linear regression on all variables. Thus, if an equivalent MLR model uses all available predictors, the two will provide the <strong>same prediction</strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Although they will lead to the same result, the coefficients will naturally be different since the <strong>baseline is different</strong> (actual observation vs PC).</p>
-<p>However, since the PCs are simply linear combinations of the original features, it is possible to re-calculate the <strong>original regression coefficients</strong> by <strong>decomposing</strong> the PCs back into the features and <strong>regrouping</strong> them:</p>
-<div class="arithmatex">\[
-    \beta_{j}
-    = \theta_{1} \cdot \varphi_{j, 1} + \theta_{2} \cdot \varphi_{j, 2} + \dots
-\]</div>
+<p>The PC that explains the most variance among the predictors (first PC) is NOT guaranteed to best explain the target variable. This is because PCA was done in order to account for the variability across the whole dataset; NOT with respect to a specific target variable.</p>
 </div>
-<p>The number of PCs used is a <strong>flexibility measure</strong>. Including more PCs results in a lower bias but increases the variance (of the prediction). In this sense, the number of PCs can be treated as a hyper-parameter and hence the <strong>optimal number</strong> of PCs can be found via cross-validation.</p>
+<p>Each PC is a combination of ALL underlying variables. Thus, if <strong>ALL PCs are used</strong> for the regression, it is <strong>akin to performing MLR</strong> on the data. The two will provide the same prediction albeit with different functional forms (since one is direct on the data vs on the PCs). However, since the PCs are simply linear combinations of the original features, it is possible to re-calculate the <strong>original regression coefficients</strong> by <strong>decomposing</strong> the PCs back into the features and <strong>regrouping</strong> them:</p>
+<div class="arithmatex">\[
+    \beta_{j} = \theta_{1} \cdot \varphi_{j, 1} + \theta_{2} \cdot \varphi_{j, 2} + \dots
+\]</div>
+<p>In this light, the number of PCs used is a <strong>flexibility measure</strong>. The whole point of PCA was to reduce the dimensionality of the data, thus it is likely that only a <strong>subset of the PCs</strong> will be used for the regression. The number of PCs can be treated as a sort of "hyperparameter" and thus can be tuned for via cross-validation. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>PCR is NOT a variable selection method, as PCs use ALL variables in the dataset to construct the PCs.</p>
+<p>PCR is a "sort of" variable selection method as it uses a <strong>only a portion</strong> of each of the underlying variables; it achieves similar effects by reducing flexibility when only a few key PCs are used.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Since each PC is <strong>uncorrelated</strong> with the others, adding or removing PCs does NOT affect any of the coefficients.</p>
 </div>
 <p>Generally speaking, any other statistical learning method can be applied to the reduced PC dataset, not just linear regression. The resulting model should produce <strong>less noisy results</strong> as the signal would be captured in the first few PCs.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In general, the PC that explains the most variance among the predictors (first PC) is not guaranteed to best explain the target variable.</p>
-</div>
 
 
 

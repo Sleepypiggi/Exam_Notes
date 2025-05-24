@@ -1773,28 +1773,34 @@
 <p class="admonition-title">Warning</p>
 <p>There is no direct relationship between the training and test error; the two are independent.</p>
 </div>
-<p>Recall that the MSE can be decomposed into a combination of Bias and Variance. In a regression context, there is an <strong>additional component</strong> representing the error term as well:</p>
+<p>Recall that the MSE can be decomposed into a combination of <strong>Bias and Variance</strong>. In a regression context, there is an <strong>additional component</strong> representing the error term as well:</p>
+<ul>
+<li><strong>Reducible</strong>: Error stemming from the <strong>choice</strong> of <span class="arithmatex">\(\hat{f}\)</span></li>
+<li><strong>Irreducible</strong>: Error stemming from <strong>inherent variability</strong></li>
+</ul>
 <div class="arithmatex">\[
     \text{MSE}
     = \underbrace{(\text{Bias}[f(x_{1}, x_{2}, \dots, x_{n})])^{2} + \mathrm{Var}[f(x_{1}, x_{2}, \dots, x_{n})]}_{\text{Reducible}}
     + \underbrace{\mathrm{Var}(\varepsilon)}_{\text{Irreducible}}
 \]</div>
-<ul>
-<li><strong>Reducible</strong>: Error stemming from the <strong>choice</strong> of <span class="arithmatex">\(\hat{f}\)</span></li>
-<li><strong>Irreducible</strong>: Error stemming from <strong>inherent variability</strong></li>
-</ul>
-<p>The U-shape of the test MSE can be explained due to the above decomposition. A low test MSE would imply a model with low bias and variance - but such a model is not possible because of the <strong>inverse relationship</strong> between the two:</p>
-<ul>
-<li><strong>Bias</strong>: Too little flexibility fails to capture the signals in the data (<strong>Underfitting</strong>)</li>
-<li><strong>Variance</strong>: Too much flexibility results in mistakenly capturing noise in the data as signals (<strong>Overfitting</strong>)</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some texts may refer to the above as Accuracy (Bias) &amp; Precision (Variance). Although they are used interchangeably in day to day conversations, they have a specific meaning in a statistical context.</p>
 <p>In a statistical learning context, bias arises when the actual data generation process is different from what was assumed in the model.</p>
 </div>
-<!-- Obtained from ACTEX Manual -->
-<p><img alt="UNDER_OVER_FITTING" class="center" src="../Assets/1.%20Statistical%20Learning.md/UNDER_OVER_FITTING.png" /></p>
-<p>The reduction in Bias from choosing a more complex model is greater than the increased variance, causing test MSE to fall. However at some point, the increase in variance outweighs the falling bias, causing the test MSE to rise. It is <strong>not possible to minimize both</strong>; there is a <strong>Bias-Variance Tradeoff</strong>:</p>
+<p>It is <strong>not possible to minimize both</strong>; there is an inverse relationship known as the <strong>Bias-Variance Tradeoff</strong> which results in the U-shaped curve:</p>
+<ul>
+<li>Increasing complexity <strong>decreases bias</strong> as it allows the model to <strong>capture the signal</strong></li>
+<li>However, it also <strong>increases variance</strong> as the model will <strong>mistakenly pick up noise</strong> in the data as signal</li>
+<li>Initially, the reduction in bias is higher as the model <strong>rapidly improves</strong></li>
+<li>However, once majority of the signal has been captured, <strong>more noise will be increasingly captured</strong>, causing the increase in variance to be higher</li>
+</ul>
+<!-- Obtained from Geek for Geeks -->
+<p><img alt="BIAS_VARIANCE_TRADEOFF" class="center" src="../Assets/1.%20Statistical%20Learning.md/BIAS_VARIANCE_TRADEOFF.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The inversion of test MSE depends largely on the underlying data generating process. More complicated processes will benefit more from the bias reduction, but will still eventually invert. </p>
+</div>
 <p><center></p>
 <table>
 <thead>
@@ -1812,23 +1818,15 @@
 <td align="center">High training, Low test MSE</td>
 <td align="center">Low training, High test MSE</td>
 </tr>
+<tr>
+<td align="center">Fail to capture the noise</td>
+<td align="center">Mistakenly captures noise</td>
+</tr>
 </tbody>
 </table>
 <p></center></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The conclusion can only be drawn based on relative values.</p>
-</div>
-<!-- Obtained from Geek for Geeks -->
-<p><img alt="BIAS_VARIANCE_TRADEOFF" class="center" src="../Assets/1.%20Statistical%20Learning.md/BIAS_VARIANCE_TRADEOFF.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Some texts may refer to the above as Accuracy (Bias) &amp; Precision (Variance). Although they are used interchangeably in day to day conversations, they have a specific meaning in a statistical context.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The impact of flexibility on MSE depends heavily on the actual data generating process. If it is complicated, increasing flexibility will have a large reduction in bias.</p>
-</div>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="UNDER_OVER_FITTING" class="center" src="../Assets/1.%20Statistical%20Learning.md/UNDER_OVER_FITTING.png" /></p>
 <h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
 <p>Recall that <strong>Confidence Intervals</strong> are a range of values that the <strong>true parameter</strong> will fall within for a given level of confidence. In a regression setting, recall that the model is estimating the <strong>mean of the conditional distribution</strong>; a parameter. Thus, the confidence interval for a model measures the <strong>range of values for <span class="arithmatex">\(E(Y \mid X)\)</span></strong>.</p>
 <div class="admonition note">
