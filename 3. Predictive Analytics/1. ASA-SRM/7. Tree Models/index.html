@@ -1730,12 +1730,15 @@
 <p class="admonition-title">Tip</p>
 <p>One way to add more insight to the model is through the use of <strong>Variable Importance Plots</strong>:</p>
 <ul>
-<li><strong>Sensitivity</strong> analysis, removing one variable at a time from the model</li>
-<li>Increase in MSE is recorded for each variable</li>
+<li><strong>Sensitivity</strong> analysis, <strong>removing one variable at a time</strong> from the model</li>
+<li>AVERAGE <strong>Change in MSE</strong> is recorded for each variable</li>
 <li>The variable whose absence results in the <strong>greatest increase in MSE is the most important</strong> variable</li>
 </ul>
 <p><!-- Obtained from Research Gate -->
 <img alt="VARIABLE_IMPORTANCE" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE.png" /></p>
+<p>The above is plotted based on the absolute increase or the percentage increase for that variable. It also possible to present the data as a <strong>percentage of the most important variable</strong> instead:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="VARIABLE_IMPORTANCE_2" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE_2.png" /></p>
 </div>
 <h3 id="random-forest"><strong>Random Forest</strong><a class="headerlink" href="#random-forest" title="Permanent link">&para;</a></h3>
 <p>One of the primary issues with Bagging is <strong>Correlation</strong>. Since the bootstrapped <strong>samples are all similar</strong> to the underlying sample, it is likely that each bootstrapped tree will contain the <strong>same set of predictors</strong> (especially if there especially strong predictors).</p>
@@ -1744,6 +1747,13 @@
 <p class="admonition-title">Tip</p>
 <p>It can be understood that Bagging is a <strong>special case of Random Forests</strong> where all the predictors are allowed; bagging is a <strong>non-random forest</strong>.</p>
 <p>Most of the concepts from Bagging thus carry over.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Phrased in a different way, the variable importance plot for Bagging tends to be <strong>dominated</strong> by the 1 or 2 most important variables. Random Forests naturally create a more balanced plot given that it is forced to use "less important" variables:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="VARIABLE_IMPORTANCE_COMPARISON" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE_COMPARISON.png" /></p>
+<p>Note that even though both plots show the same strongest variable as 100%, the absolute amount of change in MSE is <strong>lower for the random forest</strong>, as the variable is <strong>used less in the random forest</strong> model.</p>
 </div>
 <p>If there are <span class="arithmatex">\(p\)</span> available predictors and <span class="arithmatex">\(m\)</span> are excluded, then the probability that a <em>particular predictor</em> is not chosen at a given split is:</p>
 <div class="arithmatex">\[

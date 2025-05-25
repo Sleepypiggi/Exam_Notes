@@ -2270,10 +2270,14 @@
     &amp;= (1-w) s_{t} + w (1-w) \cdot s_{t-1} + w^{2} (1-w) \cdot s_{t-2} + \dots \\
     \\
     \hat{y}_{t+1} &amp;= \beta_{0} + \beta_{1} \cdot t \\
-    \beta_{0} &amp;= 2(s_{t} - s^{(2)}_{t}) \\
+    \beta_{0} &amp;= 2s_{t} - s^{(2)}_{t} \\
     \beta_{1} &amp;= \frac{1-w}{w} \cdot \left(s_{t} - s^{(2)}_{t} \right) 
 \end{aligned}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The ultimate functional form is the same as the moving average smoothing. However, the individual estimates for <span class="arithmatex">\(\beta\)</span> are different. This is especially true for <span class="arithmatex">\(\beta_{0}\)</span>, where the estimate <em>looks the same</em> but is <strong>actually different</strong>. </p>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>It is possible to even have a <strong>triple smoothed model</strong> to account for seasonal effects, but such model are out of scope for this exam.</p>

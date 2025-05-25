@@ -1814,9 +1814,34 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It can also be shown that for linear regression, the Deviance is <strong>equivalent to the RSS</strong>:</p>
+<p>Consider the Likelihood for the following two distributions - Binomial and Poisson. The key is understanding that whenever the predicted quantity (<span class="arithmatex">\(\pi\)</span> or <span class="arithmatex">\(\lambda\)</span>) comes up in the equation:</p>
+<ul>
+<li><strong>Saturated Likelihood</strong>: Fill in the actual observation (since perfectly predict)</li>
+<li><strong>Fitted Likelihood</strong>: Fill in the predicted value</li>
+<li>Terms with JUST the observed value will naturally cancel out during the deviance process</li>
+</ul>
 <div class="arithmatex">\[
-    D = \text{RSS}
+\begin{aligned}
+    L_{\text{Binomial}} &amp;= \sum (n \choose y) \pi^{y} (1 - \pi)^{n-y} \\
+    \ell_{\text{Binomial}} &amp;= \sum y \ln \pi + (n-y) \ln (1 - \pi) \\
+    \ell_{\text{Poisson, Saturated}} &amp;= \sum y_{i} \ln y_{i} + (n - y_{i}) \ln (1 - y_{i}) \\
+    \ell_{\text{Poisson, Fitted}} &amp;= \sum y_{i} \ln \hat{y}_{i} + (n - \hat{y}_{i}) \ln (1 - \hat{y}_{i}) \\
+    \\
+    \therefore D^{*}_{\text{Binomial}}
+    &amp;= 2 \cdot (\ell_{\text{Binomial, Saturated}} - \ell_{\text{Binomial, Fitted}}) \\
+    &amp;= 2 \cdot \sum \left[ (y_{i} \ln y_{i} - y_{i} \ln \hat{y}_{i}) + ((n - y_{i}) \ln (1 - y_{i}) - (n - \hat{y}_{i}) \ln (1 - \hat{y}_{i})) \right] \\
+    &amp;= 2 \cdot \sum \left[ y_{i} \ln \frac{y_{i}}{\hat{y}_{i}} + (n - y_{i}) \ln \frac{1 - y_{i}}{1 - \hat{y}_{i}} \right] \\
+    \\
+    L_{\text{Poisson}} &amp;= \sum \frac{\lambda^{y} e^{-\lambda}}{y!} \\
+    \ell_{\text{Poisson}} &amp;= \sum y \ln \lambda - \lambda - \ln y! \\
+    \ell_{\text{Poisson, Saturated}} &amp;= \sum y_{i} \ln y_{i} - y_{i} - \ln y_{i}! \\
+    \ell_{\text{Poisson, Fitted}} &amp;= \sum y_{i} \ln \hat{y}_{i} - \hat{y}_{i} - \ln y_{i}! \\
+    \\
+    \therefore D^{*}_{\text{Poisson}}
+    &amp;= 2 \cdot (\ell_{\text{Poisson, Saturated}} - \ell_{\text{Poisson, Fitted}}) \\
+    &amp;= 2 \cdot \sum \left[ (y_{i} \ln y_{i} - y_{i} \ln \hat{y}_{i}) - (y_{i} - \hat{y}_{i}) - (\ln y_{i}! - \ln y_{i}!) \right] \\
+    &amp;= 2 \cdot \sum \left[ y_{i} \ln \left(\frac{y_{i}}{\hat{y}_{i}} \right) - (y_{i} - \hat{y}_{i}) \right] \\
+\end{aligned}
 \]</div>
 </div>
 <p>The concept of deviance is similar to goodness of fit, thus can be used similarly to R-squared, known as <strong>Pseduo R-squared</strong>:</p>
@@ -1824,6 +1849,10 @@
     R^{2}_{\text{Pse}}
     = \frac{\ell_{\text{fitted}} - \ell_{0}}{\ell_{\text{Sat}} - \ell_{0}}
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="arithmatex">\(\ell_{0}\)</span> is assumed to the likelihood for the <strong>null model</strong>.</p>
+</div>
 <h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
 <h3 id="likelihood-ratio-test"><strong>Likelihood Ratio Test</strong><a class="headerlink" href="#likelihood-ratio-test" title="Permanent link">&para;</a></h3>
 <p>Similar to how F-tests made use of the ANOVA results to perform statistical inference, GLMs can make use of the Deviance results in a similar fashion, via a <strong>Likelihood Ratio Test (LRT)</strong>, which compares a pair of <strong>NESTED GLMs</strong>:</p>
@@ -1833,7 +1862,13 @@
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
-    \chi_{\text{Statistic}} = 2 \cdot (\ell_{\text{Full}} - \ell_{\text{Restricted}}) \\
+    \chi_{\text{Statistic}}
+    &amp;= 2 \cdot (\ell_{\text{Full}} - \ell_{\text{Restricted}}) \\
+    &amp;= 2 \cdot (\ell_{\text{Full}} - \ell_{\text{Saturated}} + \ell_{\text{Saturated}} - \ell_{\text{Restricted}}) \\
+    &amp;= 2 \cdot (\ell_{\text{Full}} - \ell_{\text{Saturated}}) + 2 \cdot (\ell_{\text{Saturated}} - \ell_{\text{Restricted}}) \\
+    &amp;= - 2 \cdot (\ell_{\text{Saturated}} - \ell_{\text{Full}}) + 2 \cdot (\ell_{\text{Saturated}} - \ell_{\text{Restricted}}) \\
+    &amp;= 2 \cdot (\ell_{\text{Saturated}} - \ell_{\text{Restricted}}) - 2 \cdot (\ell_{\text{Saturated}} - \ell_{\text{Full}}) \\
+    &amp;= D_{\text{Restricted}} - D_{\text{Full}} \\
     \\
     \chi_{\text{Statistic}} &amp;\sim \chi^{2}_{p_{\text{Full}} - p_{\text{Restricted}}}
 \end{aligned}
@@ -1970,6 +2005,15 @@
     \text{Percentage Change} &amp;= \exp (\beta_{1}) - 1
 \end{aligned}
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The primary motivation for the Logistic Regression is because a <strong>regular linear model</strong> is unable to effectively model dummy variables due to the following limitations:</p>
+<ul>
+<li><strong>Domain Mismatch</strong>: Linear models range from negative to positive infinity; Probabilities can only range from 0 to 1</li>
+<li><strong>Heteroscedasticity</strong>: Linear models require homoscedasticity; Bernouilli exhibits heteroscedasticity (variance function linked to mean)</li>
+<li><strong>Invalid Residuals</strong>: Linear models require continuous residuals; Residuals for probabilities dont make sense</li>
+</ul>
+</div>
 <h3 id="nominal-response"><strong>Nominal Response</strong><a class="headerlink" href="#nominal-response" title="Permanent link">&para;</a></h3>
 <p>For a variable with more than two levels, a <strong>Generalized Logit Model</strong> is used. Rather than odds, it models the log of the <strong>relative probability</strong> of the target category and reference category.</p>
 <p>For a variable with <span class="arithmatex">\(k\)</span> categories, <span class="arithmatex">\(k-1\)</span> models will be fitted, for each of the <strong>non-reference</strong> categories:</p>
@@ -2114,10 +2158,10 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are two names given to such models:</p>
+<p>There are two <strong>general names</strong> given to such models:</p>
 <ol>
-<li>Latent Class Models: Discrete Mixtures</li>
-<li>Hetereogeneity Models: Continuous Mixtures</li>
+<li><strong>Latent Class Models</strong>: Discrete Mixtures</li>
+<li><strong>Hetereogeneity Models</strong>: Continuous Mixtures</li>
 </ol>
 </div>
 <!-- Obtained from Coaching Actuaries -->
@@ -2125,12 +2169,12 @@
 <h3 id="excess-zeroes"><strong>Excess Zeroes</strong><a class="headerlink" href="#excess-zeroes" title="Permanent link">&para;</a></h3>
 <p>A common reason for Over-dispersion is due to an <strong>excess of zeroes</strong> in reality compared to our expectation, known as <strong>Zero Inflation</strong>. In these cases, the original distribution must be <strong>adjusted to account for probability of zeroes</strong> occuring.</p>
 <p>A <strong>Zero Inflated Model</strong> is appropriate when the underlying <strong>event occurred, but no count was made</strong>. For instance, a policyholder might choose not to make a claim despite incurring a loss due to considering premium rate increases.</p>
-<p>Thus, it is necessary to account for and distinguish between the types of zeroes. This can be done via a <strong>Logistic Regression</strong> which is set to identify <strong>False Zeroes</strong>:</p>
+<p>Thus, it is necessary to account for and <strong>distinguish between the types</strong> of zeroes. This can be done via a <strong>Logistic Regression</strong> which is set to identify <strong>False Zeroes</strong>:</p>
 <ul>
 <li>False Zeroes (EG. Policyholders who incurred a loss but did not report)</li>
 <li>True Zeroes (EG. Policyholders who did not incur a loss)</li>
 </ul>
-<p>Thus, combining the Poisson and the Logistic Regression output, the PMF of the <strong>mixture</strong> can be constructed:</p>
+<p>Thus, mixing the Poisson and the Logistic Regression output, the PMF of the <strong>mixture</strong> can be constructed:</p>
 <ul>
 <li><strong>Logistic</strong> - Identify observations with false zeroes</li>
 <li><strong>Poisson</strong> - Underlying data generating process (assuming no false)</li>
@@ -2151,8 +2195,8 @@
 <p>A <strong>Hurdle Model</strong> is appropriate when the zeroes occur because a certain <strong>hurdle or threshold was not crossed</strong>. For instance, when projecting the number of laps swam based on the number of people who visited the swimming pool, it should account for individuals who <strong>never entered</strong> the pool (Hurdle) (EG. Parents).</p>
 <p>In this case, there is a clear reason for the zeroes, thus the probability for the zero count should be <strong>modelled seperate</strong> for the non-zero values:</p>
 <ul>
-<li>Logistic - Identify observations that cross the threshold (<span class="arithmatex">\(\pi\)</span>)</li>
-<li>Poisson - Underlying data generating process (assuming all cross)</li>
+<li><strong>Logistic</strong> - Identify observations that cross the threshold (<span class="arithmatex">\(\pi\)</span>)</li>
+<li><strong>Poisson</strong> - Underlying data generating process (assuming all cross)</li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
