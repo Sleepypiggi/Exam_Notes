@@ -1454,7 +1454,11 @@
 
 <h1 id="principal-component-analysis"><strong>Principal Component Analysis</strong><a class="headerlink" href="#principal-component-analysis" title="Permanent link">&para;</a></h1>
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><strong>Principal Component Analaysis</strong> (PCA) is an unsupervised statistical learning method that transforms high dimensional data into a <strong>lower dimensional space</strong> by creating <strong>new key variables</strong> ("Principal Components") that are <strong>linear combinations</strong> of the other variables. This also allows it to be used as a form of data visualization tool.</p>
+<p><strong>Principal Component Analaysis</strong> (PCA) is an unsupervised statistical learning method that transforms high dimensional data into a <strong>lower dimensional space</strong> by creating <strong>new key variables</strong> ("Principal Components") that are <strong>linear combinations</strong> of the other variables.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This also allows it to be used as a form of data visualization tool.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There are alternative methods of covering PCA via <strong>Linear Algebra</strong> (Eigenvector, Eigenvalues). For the purposes of this exam, it is sufficient to know the below terminology.</p>
@@ -1501,7 +1505,7 @@
 </ol>
 </div>
 <h2 id="loading-and-scores"><strong>Loading and Scores</strong><a class="headerlink" href="#loading-and-scores" title="Permanent link">&para;</a></h2>
-<p>The <strong>direction</strong> of the PC in the multi-dimensional space is known as its <strong>Loading</strong>. Mathematically, it is the <strong>contribution of each variable</strong> on the PC. Naturally, the higher the loading, the more that variable contributes to the variance explained for that PC.</p>
+<p>The <strong>direction</strong> of the PC in the multi-dimensional space is known as its <strong>Loading</strong>. Mathematically, it is the <strong>contribution of each variable</strong> on the PC. Naturally, the <strong>higher the loading</strong>, the <strong>more that variable contributes</strong> to the variance explained for that PC.</p>
 <p>Consider the perpendicular projection of each observation onto the PC; the straight line distance between an observation and the PC. The <strong>distance</strong> from the origin to this point on the PC is known as the <strong>Score of the observation</strong>.</p>
 <!-- Obtained from LearnChe -->
 <p><img alt="PCA_SCORE" class="center" src="../Assets/8.%20Principal%20Components.md/PCA_SCORE.png" /></p>
@@ -1532,7 +1536,7 @@
 <p>For the purposes of this exam, it should be noted that the loadings are NOT unique. Different softwares will produce the <strong>same absolute value</strong> of the loadings, but with <strong>different signs</strong> for each iteration (likely due to the above).</p>
 <p>The sign flip must be applied <strong>consistently</strong> across all loadings, NOT just a select few.</p>
 </div>
-<p>Geometrically, the PCs also form a <strong>plane</strong> in the multi-dimensional space. The Score of each observation with respect to the respective PCs is the coordinate of the observations within the coordinate space of the plane. Thus, observations with high scores are "outliers" in the PC space.</p>
+<p>Geometrically, the PCs also form a <strong>plane</strong> in the multi-dimensional space. The Score of each observation with respect to the respective PCs is the coordinate of the observations within the <strong>coordinate space of the plane</strong>. Thus, observations with high scores are "outliers" in the PC space.</p>
 <!-- Obtained from Learnche -->
 <p><img alt="PCA_PLANE" class="center" src="../Assets/8.%20Principal%20Components.md/PCA_PLANE.png" /></p>
 <div class="admonition info">
@@ -1541,7 +1545,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>In this sense, PC is said to find the "shape" that minimizes the sum of perpendicular distances from each observation; the "shape" that is closest to the observations</p>
+<p>In this sense, PCA is said to find the "shape" that minimizes the sum of perpendicular distances from each observation; the "shape" that is closest to the observations.</p>
 </div>
 <p>Naturally, the resulting coordinates in the PC system is <strong>different from the original</strong>. This is better appreciated by changing the perspective of a plot to use the PCs as the vertical and horizontal axis respectively:</p>
 <!-- Obtained from Coaching Actuaries -->

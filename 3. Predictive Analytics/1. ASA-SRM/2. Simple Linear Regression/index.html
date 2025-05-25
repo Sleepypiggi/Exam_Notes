@@ -1530,11 +1530,11 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The intepretation uses EXPECTED to emphasise that the model is predicting <span class="arithmatex">\(E(Y \mid X)\)</span>, NOT <span class="arithmatex">\(Y\)</span> itself.</p>
-<p>The entire line is the expectation, the intercept is just a single point on that line, hence the definition.</p>
+<p>The <strong>entire line is the expectation</strong>, the intercept is just a single point on that line, hence the definition.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Regression coefficients INCLUDES the intercept. If referring to just the slope parameters, the term "predictors" is usually used.</p>
+<p>Regression coefficients <strong>INCLUDES the intercept</strong>. If referring to just the slope parameters, the term "predictors" is usually used.</p>
 </div>
 <h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
 <p>The model is fitted using the <strong>Ordinary Least Squares</strong> (OLS) method. The parameters are estimated such that the resulting fitted model <strong>minimizes the sum of squared residuals</strong>, also known as the <strong>Residual Sum Squared</strong> (RSS):</p>
@@ -1547,7 +1547,7 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The SQUARED residuals are taken to avoid offsetting effects between the positive and negative residuals as well as to emphasise larger differences.</p>
+<p>The SQUARED residuals are taken to <strong>avoid offsetting effects</strong> between the positive and negative residuals as well as to <strong>emphasise larger differences</strong>.</p>
 </div>
 <p>The minimization is done through calculus by setting the <strong>partial derivatives</strong> for each parameter to 0:</p>
 <div class="arithmatex">\[
@@ -1577,7 +1577,8 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The interpretation of <span class="arithmatex">\(\beta_{0}\)</span> is that it is <span class="arithmatex">\(E(Y \mid X = 0)\)</span>. However, the coefficient is NOT <span class="arithmatex">\(\bar{y} \mid x = 0\)</span> for that sample. This is expected, because the fitted model is based on a sammple, some discrepancy is expected:</p>
+<p>The interpretation of <span class="arithmatex">\(\beta_{0}\)</span> is that it is <span class="arithmatex">\(E(Y \mid X = 0)\)</span>.</p>
+<p>HOWEVER, the coefficient is NOT <span class="arithmatex">\(\bar{y} \mid x = 0\)</span> for that sample (red line). This is expected, because the fitted model is based on a sammple, <strong>some discrepancy is expected</strong>:</p>
 <p><!-- Obtained from Stack Exchange -->
 <img alt="BETA_CONFUSION" class="center" src="../Assets/2.%20Simple%20Linear%20Regression.md/BETA_CONFUSION.png" /></p>
 </div>
@@ -1604,12 +1605,12 @@
 \begin{aligned}
     \sum (x_{i} - \bar{x})^{2}
     &amp;= \sum (x^{2}_{i}) - n \bar{x}^{2} \\
-    &amp;= \sum (x^{2}_{i}) - n (\frac{\sum x_{i}}{n})^{2} \\
-    &amp;= \sum (x^{2}_{i}) - n (\frac{(\sum x_{i})^{2}}{n^{2}}) \\
+    &amp;= \sum (x^{2}_{i}) - n \left(\frac{\sum x_{i}}{n} \right)^{2} \\
+    &amp;= \sum (x^{2}_{i}) - n \left(\frac{(\sum x_{i})^{2}}{n^{2}} \right) \\
     &amp;= \sum (x^{2}_{i}) - \frac{(\sum x_{i})^{2}}{n}
 \end{aligned}
 \]</div>
-<p>It is important to know alternate formulations because questions will likely only provide certain components such as <span class="arithmatex">\(\sum (x^{2}_{i})\)</span>.</p>
+<p>It is important to know alternate formulations because questions will likely <strong>only provide certain components</strong> such as <span class="arithmatex">\(\sum (x^{2}_{i})\)</span>.</p>
 <p>Naturally, the above shortcut is applicable to any “sum of squares” like quantity.</p>
 </div>
 <p>Graphically, the fitted model will be the <strong>line of best fit</strong> that passes through the sample; the line will pass through the <strong>middle of all observations</strong>, with a <strong>roughly equal residuals above and below</strong> the line:</p>
@@ -1699,7 +1700,7 @@
 <p class="admonition-title">Note</p>
 <p>There are two <strong>alternate expressions</strong> for the above concepts:</p>
 <ul>
-<li>RegSS can be expressed as a function of the Slope Parameter</li>
+<li>RegSS can be expressed as a <strong>function of the Slope Parameter</strong></li>
 <li>Coefficient of determination can be expressed as a function of the sample correlation</li>
 </ul>
 <div class="arithmatex">\[
@@ -1729,7 +1730,7 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The decomposition of total variance (TSS) into explainable (RegSS) and unexplainable (RSS) components is known as an Analysis of Variance (ANOVA) process.</p>
+<p>The decomposition of total variance (TSS) into explainable (RegSS) and unexplainable (RSS) components is known as an <strong>Analysis of Variance</strong> (ANOVA) process.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1844,7 +1845,7 @@
     &amp;= \beta_{0}
     \\
     \text{Var}(\hat{\beta_{0}})
-    &amp;= \sigma^{2}_{Y} \cdot \left(\frac{1}{n} + \frac{\bar{x}^{2}}{\sum (x_{i} - \bar{x})^{2}} \right)
+    &amp;= \sigma^{2} \cdot \left(\frac{1}{n} + \frac{\bar{x}^{2}}{\sum (x_{i} - \bar{x})^{2}} \right)
     \\
     \hat{\beta_{0}} &amp;\sim N \left(E(\hat{\beta_{0}}), \text{Var}(\hat{\beta_{0}}) \right) \\
     \\
@@ -1852,7 +1853,7 @@
     &amp;= \beta_{1}
     \\
     \text{Var}(\hat{\beta_{1}})
-    &amp;= \sigma^{2}_{Y} \cdot \left(\frac{1}{\sum (x_{i} - \bar{x})^{2}} \right)
+    &amp;= \sigma^{2} \cdot \left(\frac{1}{\sum (x_{i} - \bar{x})^{2}} \right)
     \\
     \hat{\beta_{1}} &amp;\sim N \left(E(\hat{\beta_{1}}), \text{Var}(\hat{\beta_{1}}) \right) \\
     \\
@@ -1860,7 +1861,7 @@
     &amp;= E(Y \mid X)
     \\
     \text{Var}(\hat{Y})
-    &amp;= \sigma^{2}_{Y} \cdot \left(\frac{1}{n} + \frac{(x - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}} \right)
+    &amp;= \sigma^{2} \cdot \left(\frac{1}{n} + \frac{(x - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}} \right)
 \end{aligned}
 \]</div>
 <div class="admonition warning">
@@ -1906,7 +1907,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Given the relationship between the t and F distributions, the two tests covered above will always lead to the same results.</p>
+<p>Given the relationship between the t and F distributions, the two tests covered above will always lead to the <strong>same results</strong>:</p>
 <div class="arithmatex">\[
     t^{2}_{n-2} \sim F_{1, n-2}
 \]</div>

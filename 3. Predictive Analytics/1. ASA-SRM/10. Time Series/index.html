@@ -1293,13 +1293,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#seasonal-models" class="md-nav__link">
-    Seasonal Models
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1316,6 +1309,13 @@
           <li class="md-nav__item">
   <a href="#volatility-models" class="md-nav__link">
     Volatility Models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasonal-models" class="md-nav__link">
+    Seasonal Models
   </a>
   
 </li>
@@ -1581,13 +1581,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#seasonal-models" class="md-nav__link">
-    Seasonal Models
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1604,6 +1597,13 @@
           <li class="md-nav__item">
   <a href="#volatility-models" class="md-nav__link">
     Volatility Models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasonal-models" class="md-nav__link">
+    Seasonal Models
   </a>
   
 </li>
@@ -1691,10 +1691,10 @@
 <h3 id="stationarity"><strong>Stationarity</strong><a class="headerlink" href="#stationarity" title="Permanent link">&para;</a></h3>
 <p>Stationarity refers to how certain properties of the <strong>data do not change over time</strong>; stationary relative to moving time. There are two levels:</p>
 <ul>
-<li><strong>Weakly Stationary</strong>: <strong>Only</strong> Mean and Variance are unchanging</li>
-<li><strong>Strongly Stationary</strong>: Entire distribution (<strong>all properties</strong>) are unchanging</li>
+<li><strong>Weakly Stationary</strong>: <strong>ONLY</strong> Mean and Variance are unchanging</li>
+<li><strong>Strongly Stationary</strong>: Entire distribution (<strong>ALL properties</strong>) are unchanging</li>
 </ul>
-<p>The implicit assumption for all predictive models is that the <strong>underlying data-generating-process will not change</strong>. Stationarity is <strong>key to forecasting</strong> as it ensures that the underlying DGP has not changed. It represents the <strong>underlying Signal</strong> in the data.</p>
+<p>The implicit assumption for all predictive models is that the <strong>underlying data-generating-process will not change</strong> - Stationarity is <strong>key to forecasting</strong> as it helps to endure this; it represents the <strong>underlying Signal</strong> in the data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For the purposes of this exam, we are only concerned with the properties of <strong>weak stationarity</strong>. Weak stationarity is a <strong>subset</strong> of strong stationarity; thus it does not matter which of the two are present.</p>
@@ -1722,7 +1722,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>A stationary model naturally implies that there are neither Trends nor Seasonal effects in the data.</p>
+<p>A stationary model naturally implies that there are NEITHER Trends nor Seasonal effects in the data.</p>
 </div>
 <p>Stationarity can be identified via the use of <strong>Control Limit Plots</strong>. The limits are <strong>derived based on the mean and variance</strong>. If stationarity holds, the observations should almost always <strong>stay within the limits</strong> with <strong>no observable pattern</strong>:</p>
 <ul>
@@ -1733,7 +1733,7 @@
 <p><img alt="CONTROL_LIMIT_CHART" class="center" src="../Assets/10.%20Time%20Series.md/CONTROL_LIMIT_CHART.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The limits are likely based on the idea that the 99.7% of the density of a normal distribution is within 3 standard deviations of the mean.</p>
+<p>The limits are likely based on the idea that the 99.7% of the density of a normal distribution is within <em>3 standard deviations</em> of the mean.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1780,7 +1780,7 @@
 <p><img alt="WHITE_NOISE_MODEL" class="center" src="../Assets/10.%20Time%20Series.md/WHITE_NOISE_MODEL.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>ONLY White Noise data will generate the erratic pattern. If this pattern is noticed in another question, then it is likely a trick question - the data likely follows a modified version of one of the models studied that allows for the erratic pattern. </p>
+<p><strong>ONLY White Noise</strong> data will generate the erratic pattern. If this pattern is noticed in another question, then it is likely a trick question - the data likely follows a modified version of one of the models studied that allows for the erratic pattern. </p>
 </div>
 <h3 id="random-walk"><strong>Random Walk</strong><a class="headerlink" href="#random-walk" title="Permanent link">&para;</a></h3>
 <p>A variable that <strong>grows randomly</strong> (grows by a white noise) each time period is known as a <strong>Random Walk</strong>. It can be understood as a <strong>summation of white noise processes</strong>:</p>
@@ -1792,7 +1792,7 @@
     &amp;= y_{0} + \sum \varepsilon_{t}
 \end{aligned}
 \]</div>
-<p>A random walk itself is NOT stationary. However, the DIFFERENCE across 1 time period is a white noise process, which IS stationary:</p>
+<p>A random walk itself is <strong>NOT stationary</strong>. However, the <strong>DIFFERENCE</strong> across 1 time period is a white noise process, which IS stationary:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     E(y_{t}) &amp;= y_{0} + \bar{\varepsilon} \\
@@ -1846,16 +1846,16 @@
     &amp;\approx \beta_{0} + \beta_{1} t + \varepsilon_{t}
 \end{aligned}
 \]</div>
-<p>Note that the "error term" for the random walk (<span class="arithmatex">\(\sum W_{t}\)</span>) IS a random walk itself as it is a sum of white noise process. Thus, it is <strong>not stationary</strong>, which is a key difference from the linear trend in time model.</p>
+<p>Note that the "error term" for the random walk (<span class="arithmatex">\(\sum W_{t}\)</span>) <strong>IS a random walk itself</strong> as it is a sum of white noise process. Thus, it is <strong>not stationary</strong>, which is a key difference from the linear trend in time model.</p>
 </div>
 <h3 id="autoregressive"><strong>Autoregressive</strong><a class="headerlink" href="#autoregressive" title="Permanent link">&para;</a></h3>
-<p>Autoregression refers to using past observations to predict future observations of the same series. The number of past observations used for the prediction is known as the <strong>Order</strong> (<span class="arithmatex">\(k\)</span>) of the model:</p>
+<p>Autoregression refers to using <strong>past observations</strong> to predict future observations of the same series. The number of past observations used for the prediction is known as the <strong>Order</strong> (<span class="arithmatex">\(k\)</span>) of the model:</p>
 <div class="arithmatex">\[
     Y_{t} = \beta_{0} + \beta_{1} \cdot Y_{t-1} + \dots + \beta_{k} \cdot Y_{t-k} + \varepsilon_{t}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For the purposes of this exam, Autoregressive model of order 1 are considered; AR(1).</p>
+<p>For the purposes of this exam, ONLY Autoregressive model of order 1 are considered; AR(1).</p>
 </div>
 <p>An AR(1) model can be seen as a generalization of a White Noise and Random Walk:</p>
 <ul>
@@ -1877,6 +1877,10 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Adding a constant to a white noise process <strong>still results in a white noise process</strong>, thus the above is valid.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key difference between a RW and an AR(1) model is that the AR(1) model does NOT just take the previous observation wholesale; it <strong>”course corrects”</strong> itself slightly.</p>
 </div>
 <p>AR(1) models are stationary, as they have a <strong>constant</strong> mean, variance and covariance:</p>
 <div class="arithmatex">\[
@@ -1901,14 +1905,14 @@
     + (\varepsilon_{t} + \beta_{1} \cdot \varepsilon_{t} + \dots)
 \end{aligned}
 \]</div>
-<p>Thus, for the model to be stationary, the sum to infinity MUST exist. This is fulfilled if <span class="arithmatex">\(-1 \lt \beta_{1} \lt 1\)</span>.</p>
+<p>Thus, for the model to be stationary, the <strong>sum to infinity MUST exist</strong>. This is fulfilled if <span class="arithmatex">\(-1 \lt \beta_{1} \lt 1\)</span>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>We can determine if autoregression is a good choice to model the data based on the following, which can be determined using different plots:</p>
 <ol>
-<li>If the series is stationary</li>
-<li>If adjacent (in time) values follow a linear trend</li>
+<li>If the series is <strong>stationary</strong></li>
+<li>If adjacent (in time) values follow a <strong>linear trend</strong></li>
 <li>Autocorrelations follow a <strong>decreasing geometric series</strong> as <span class="arithmatex">\(k\)</span> increases</li>
 </ol>
 <p>The third point is in reference to the relationship between autocorrelation and the regression coefficient. Since <span class="arithmatex">\(|\beta_{1}| \lt 1\)</span>, the autocorrelation will be <strong>decreasing for higher powers</strong>.</p>
@@ -1931,7 +1935,7 @@
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="FORECAST_INTERVAL" class="center" src="../Assets/10.%20Time%20Series.md/FORECAST_INTERVAL.png" /></p>
 <h4 id="autocorrelation"><strong>Autocorrelation</strong><a class="headerlink" href="#autocorrelation" title="Permanent link">&para;</a></h4>
-<p>Autocorrelation refers to the correlation between an observation and a "lagged" version of itself. The k-lagged autocorrelation determines the correlation for <strong>each observation</strong> and a <span class="arithmatex">\(k\)</span> lagged version of itself:</p>
+<p>Autocorrelation refers to the correlation <strong>between an observation and a "lagged" version of itself</strong>. The k-lagged autocorrelation determines the correlation for <strong>each observation</strong> and a <span class="arithmatex">\(k\)</span> lagged version of itself:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \varrho_{k} &amp;= \text{Corr}(Y_{t}, Y_{t-k}) \\
@@ -1954,7 +1958,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the 1-lag autocorrelation is positive, it is said to be <strong>Meandering process</strong>. This fact is stated in the text but does not have an intuitive explanation.</p>
+<p>If the 1-lag autocorrelation is <strong>positive</strong>, it is said to be <strong>Meandering process</strong>. This fact is stated in the text but does not have an intuitive explanation.</p>
 </div>
 <p>In order to determine if autocorrelation is truly present, a hypothesis test can be used:</p>
 <ul>
@@ -1964,8 +1968,11 @@
 <div class="arithmatex">\[
 \begin{aligned}
     \text{SE}(\hat{\varrho}_{k}) &amp;= \frac{1}{\sqrt{n}} \\
-    Q_{\text{Statistic}} &amp;= \frac{\hat{\varrho}_{k}}{\text{SE}(\hat{\varrho}_{k})} \\
-    Q_{\text{Statistic}} &amp;\sim N(0,1)
+    \\
+    \therefore Q_{\text{Statistic}}
+    &amp;= \frac{\hat{\varrho}_{k}}{\text{SE}(\hat{\varrho}_{k})} \\
+    &amp;= \hat{\varrho} \cdot \sqrt{n} \\
+    &amp;\sim N(0,1)
 \end{aligned}
 \]</div>
 <div class="admonition warning">
@@ -2006,7 +2013,7 @@
     \beta_{1} &amp;= \varrho_{1}
 \end{aligned}
 \]</div>
-<p>The difference between the estimation and original formula becomes negligible for a large number of observations.</p>
+<p>The difference between the estimation and original formula becomes <strong>negligible for a large number</strong> of observations.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2037,7 +2044,7 @@
 <div class="arithmatex">\[
     \text{RSS} = \sum (\hat{\varepsilon}_{t} - \bar{\hat{\varepsilon}}_{t})
 \]</div>
-<p>If Conditional Least Squares is used, then the second term reduces to 0 as a result of the minimization. However, if the approximation is used, the second term DOES NOT reduce to 0, thus it needs to be calculated explicitly.</p>
+<p>If Conditional Least Squares is used, then the second term reduces to 0 as a result of the minimization. HOWEVER, if the <strong>approximation method</strong> is used, the second term <strong>DOES NOT reduce to 0</strong>, thus it needs to be calculated explicitly.</p>
 </div>
 <h3 id="dickey-fuller"><strong>Dickey Fuller</strong><a class="headerlink" href="#dickey-fuller" title="Permanent link">&para;</a></h3>
 <p>Stationary models can more generally be expressed as the following, known as the <strong>Dickey Fuller Equation</strong>. It can be shown that when certain conditions are met, the general equation reduces to one of the following:</p>
@@ -2067,6 +2074,7 @@
 <li><span class="arithmatex">\(\varphi\)</span> is equivalent to <span class="arithmatex">\(\beta_{1}\)</span> in an AR(1) model</li>
 <li><span class="arithmatex">\(\mu_{1}\)</span> is equivalent to <span class="arithmatex">\(\beta_{1}\)</span> in a Linear Trend model</li>
 </ul>
+<p>The decompositions are intuitive as an AR(1) model can be expressed as a RW; RWs can also be expressed as a linear trend model. </p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2076,7 +2084,8 @@
 <p>This model tends to perform poorly as <strong>small or large values of <span class="arithmatex">\(t\)</span> tend to have high leverage</strong>, causing them to have much greater influence on the model.</p>
 <p>The other time series model recommended tend to put <strong>more weight on recent observations</strong> rather than old ones, which is more desirable when working with time series data.</p>
 </div>
-<p>The main purpose for expressing it in this way is to perform a <strong>Dickey Fuller Test</strong>, which tests for the presence of a <strong>Unit Root</strong>. A "root" refers to the solutions of an equation. In a time series context, it is typically referring to the regression coefficients <span class="arithmatex">\(\beta_{1}\)</span> (or <span class="arithmatex">\(\varphi\)</span> in this context). A Unit Root specifically means root is <strong>equal to a unit value (equal to 1)</strong> - which is when the series <strong>follows a random walk</strong>:</p>
+<p>The main purpose for expressing it in this way is to perform a <strong>Dickey Fuller Test</strong>, which tests for the presence of a <strong>Unit Root</strong>.</p>
+<p>“Roots" refers to the solutions of an equation. In a time series context, it is typically referring to the regression coefficients <span class="arithmatex">\(\beta_{1}\)</span> (or <span class="arithmatex">\(\varphi\)</span> in this context). A Unit Root specifically means root is <strong>equal to a unit value (equal to 1)</strong> - which is when the series <strong>follows a random walk</strong>:</p>
 <ul>
 <li><span class="arithmatex">\(\varphi = 1\)</span></li>
 <li><span class="arithmatex">\(\varphi \gt 1\)</span></li>
@@ -2091,7 +2100,7 @@
 <p>The exact mathematical details about why the regression coefficient is the root of an autoregressive model is beyond the scope of this exam.</p>
 </div>
 <h2 id="smoothing-models"><strong>Smoothing Models</strong><a class="headerlink" href="#smoothing-models" title="Permanent link">&para;</a></h2>
-<p>Smoothing is a technique that involves averaging data points over a period to account for the various components in the time series (Level, Trend, Seasonality), resulting in a stationary time series with the underlying signal.</p>
+<p>Smoothing is a technique that involves <strong>averaging data points</strong> over a period to account for the various components in the time series (Level, Trend, Seasonality), resulting in a stationary time series with the underlying signal.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The key intuition is that the Trend and Seasonal components are known - by predicting the underlying signal, those components can be added back to obtain the final prediction.</p>
@@ -2162,9 +2171,9 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(k\)</span>. The larger <span class="arithmatex">\(k\)</span>, the <strong>more periods</strong> included in the average, making it <strong>less sensitive</strong> to the current observation and hence <strong>more smooth</strong>.</p>
-<p>There is <strong>no smoothing</strong> is <span class="arithmatex">\(k=1\)</span>.</p>
+<p>There is <strong>NO smoothing</strong> is <span class="arithmatex">\(k=1\)</span>.</p>
 </div>
-<p>Assuming that the data has <strong>no trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
+<p>Assuming that the data has <strong>NO trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \hat{y}_{t+1} &amp;= \beta_{0} \\
@@ -2187,7 +2196,8 @@
     \end{cases}
 \end{aligned}
 \]</div>
-<p>It can be shown that this reduces to the moving average at time <span class="arithmatex">\(t\)</span>. It is also known as a <strong>Locally Constant Mean</strong> model, as it uses the local mean of the last <span class="arithmatex">\(k\)</span> observations as the prediction.</p>
+<p>It can be shown that this reduces to the moving average at time <span class="arithmatex">\(t\)</span>. It is also known as a <strong>Locally Constant Mean</strong> model, as it uses the <strong>local mean</strong> of the last <span class="arithmatex">\(k\)</span> observations as the prediction.</p>
+<p>If <span class="arithmatex">\(k=n\)</span>, then the model uses ALL historical observations which then results in a <strong>Globally Constant Mean</strong>.</p>
 </div>
 <p>If data has an underlying trend, then a <strong>Doubly Smoothed</strong> time series can be used instead, with the following functional form:</p>
 <div class="arithmatex">\[
@@ -2198,7 +2208,7 @@
    \\
     \hat{y}_{t+1} &amp;= \beta_{0} + \beta_{1} \cdot t \\
     \beta_{0} &amp;= s_{t} \\
-    \beta_{1} &amp;= \frac{2 \cdot \left(s_{t} - s^{(2)}_{t} \right)}{k-1}
+    \beta_{1} &amp;= \frac{2}{k-1} \cdot \left(s_{t} - s^{(2)}_{t} \right)
 \end{aligned}
 \]</div>
 <div class="admonition info">
@@ -2225,7 +2235,7 @@
 <p class="admonition-title">Tip</p>
 <p><span class="arithmatex">\(w\)</span> is the weight placed on HISTORICAL observations.</p>
 <p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(w\)</span>. The larger it is, more weight placed on historical observations, making it <strong>less sensitive</strong> to the current observation and hence <strong>more smooth</strong>.</p>
-<p>A <strong>typical value</strong> for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span>.</p>
+<p>A <strong>typical value</strong> for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span>. Similarly, there is NO smoothing when <span class="arithmatex">\(w=0\)</span>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2248,15 +2258,15 @@
 <p>Similarly, the coefficient can be found via <strong>weighted least squares</strong> as well:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \min \sum w_{t} (y_{t} - \hat{y}_{t})^{2} \\
-    w_{t} = w^{n-t}    
+    \min &amp;\sum w_{t} (y_{t} - \hat{y}_{t})^{2} \\
+    w_{t} &amp;= w^{n-t}    
 \end{aligned}
 \]</div>
 <p>The resulting estimate is different from the exponential smoothing average, but is <strong>approximately equal for large n</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \beta_{0}
-    &amp;= \frac{s_{t} - (1-w)w^{t} \cdot y_{0}}{1-w^{n}}
+    &amp;= \frac{s_{t} - (1-w)w^{t} \cdot y_{0}}{1-w^{n}} \\
     &amp;\approx s_{t} 
 \end{aligned}
 \]</div>
@@ -2276,19 +2286,19 @@
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The ultimate functional form is the same as the moving average smoothing. However, the individual estimates for <span class="arithmatex">\(\beta\)</span> are different. This is especially true for <span class="arithmatex">\(\beta_{0}\)</span>, where the estimate <em>looks the same</em> but is <strong>actually different</strong>. </p>
+<p>The ultimate functional form is the same as the moving average smoothing.</p>
+<p>HOWEVER, the individual estimates for <span class="arithmatex">\(\beta\)</span> are different. This is especially true for <span class="arithmatex">\(\beta_{0}\)</span>, where the estimate <em>looks the same</em> but is <strong>actually different</strong>. </p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>It is possible to even have a <strong>triple smoothed model</strong> to account for seasonal effects, but such model are out of scope for this exam.</p>
 </div>
-<h3 id="seasonal-models"><strong>Seasonal Models</strong><a class="headerlink" href="#seasonal-models" title="Permanent link">&para;</a></h3>
 <h2 id="other-models"><strong>Other Models</strong><a class="headerlink" href="#other-models" title="Permanent link">&para;</a></h2>
 <h3 id="volatility-models"><strong>Volatility Models</strong><a class="headerlink" href="#volatility-models" title="Permanent link">&para;</a></h3>
 <p>So far, all the models discussed cannot work with non-stationary data. However, if the data exhibits <strong>non-constant variance</strong>, there are two models that can be used:</p>
 <ul>
-<li>Autoregressive Changing Heteroscedasticity (<strong>ARCH</strong>) - Based on past error terms</li>
-<li>Generalized Autoregressive Changing Heteroscedasticity (<strong>GARCH</strong>) - Based on past error terms AND past conditional variances</li>
+<li>Autoregressive Changing Heteroscedasticity (<strong>ARCH</strong>) - Based on <strong>past error</strong> terms</li>
+<li>Generalized Autoregressive Changing Heteroscedasticity (<strong>GARCH</strong>) - Based on past error terms <strong>AND past conditional variances</strong></li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2304,23 +2314,50 @@
 \]</div>
 <p>Take note of the following key facts for the model:</p>
 <ul>
-<li>The regression coefficients are estimated using MLE</li>
-<li>The regression coefficients must be <strong>POSITIVE</strong> and sum to 1</li>
+<li>The parameters are estimated using MLE</li>
+<li>The predictor coefficients must be <strong>POSITIVE</strong> and sum to <strong>LESS than 1</strong></li>
 <li>The intercept is known as the <strong>Long Run Volatility Parameter</strong> and must also be <strong>POSITIVE</strong></li>
 <li>The emphasis on positive above is because the coefficients MUST be there; they <strong>CANNOT be 0</strong></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The above two models assume that conditional variance can change, but the <strong>unconditional variance is still constant</strong>; still weakly stationary.</p>
-<p>Thus, the unconditional variance for both ARCH and GARCH can be expressed as:</p>
+<p>The above two models assume that conditional variance can change, but the <strong>UNCONDITIONAL variance is still constant</strong>; still weakly stationary. Hence are called “conditionally” heteroscedastic.</p>
+<p>Thus, the UNCONDITINAL variance for both ARCH and GARCH can be expressed as:</p>
 <div class="arithmatex">\[
-    \text{Var}(\varepsilon_{t}) = \frac{\theta}{1 - \sum \text{Coefficients}} 
+\begin{aligned}
+    \text{Var}(\varepsilon_{t})
+    &amp;= \frac{\theta}{1 - \sum \text{Predictor Coefficients}} \\
+    \\
+    \therefore \sum \text{Predictor Coefficients} \lt  1
+\end{aligned} 
 \]</div>
+<p>This is why the coefficients <strong>must sum to LESS than 1</strong>; otherwise the model would have infinite variance!</p>
 </div>
+<h3 id="seasonal-models"><strong>Seasonal Models</strong><a class="headerlink" href="#seasonal-models" title="Permanent link">&para;</a></h3>
+<p>As its name suggests, seasonal models are models that <strong>can accomodate seasonal effects</strong> that occur periodically.</p>
+<p>The most basic form is making one of the following additions to a linear trend:</p>
+<ul>
+<li><strong>Indicator Variables</strong> for the periodicity (EG. Seasons)</li>
+<li><strong>Trigonometric</strong> Variables</li>
+<li><strong>Polynomial functions of time</strong></li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="SEASONAL_MODELS" class="center" src="../Assets/10.%20Time%20Series.md/SEASONAL_MODELS.png" /></p>
+<p>The Autoregressive and Smoothing models can also be adjusted to account for seasonality by considering the <span class="arithmatex">\(g\)</span> period lagged observations, where <span class="arithmatex">\(g\)</span> is the <strong>periodicity</strong> of the seasonal effect:</p>
+<ul>
+<li><strong>Yearly Periodicity</strong>: <span class="arithmatex">\(g=12\)</span></li>
+<li><strong>Quarterly Periodicity</strong>: <span class="arithmatex">\(g=3\)</span></li>
+</ul>
 <h2 id="model-diagnostics"><strong>Model Diagnostics</strong><a class="headerlink" href="#model-diagnostics" title="Permanent link">&para;</a></h2>
-<p>Similar to other statistical learning methods, the observations are split into a training (<span class="arithmatex">\(N_{1}\)</span>)and test set (<span class="arithmatex">\(N_{2}\)</span>). However, the key difference is that <strong>ALL PRIOR observations</strong> are used to make a prediction, even if the observation belongs to the test set:</p>
+<p>Similar to other statistical learning methods, the observations are split into a training (<span class="arithmatex">\(N_{1}\)</span>) and test set (<span class="arithmatex">\(N_{2}\)</span>). However, the key difference is that <strong>ALL PRIOR observations</strong> are used to make a prediction, even if the observation belongs to the test set:</p>
 <!-- Self Made -->
 <p><img alt="TS_TEST_TRAIN_SPLIT" class="center" src="../Assets/10.%20Time%20Series.md/TS_TEST_TRAIN_SPLIT.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For the purposes of this exam, note that the model is NOT retrained at every step. Any coefficients or parameters are locked in based on time <span class="arithmatex">\(n\)</span>.</p>
+<p>The key difference is that the <strong>actual observation</strong> for <span class="arithmatex">\(n+1\)</span> is used to predict <span class="arithmatex">\(n+2\)</span>, nothing more.</p>
+<p>Note that for a random walk, the average white noise impact is considered an estimated term and is thus locked in.</p>
+</div>
 <p>Time series models uses slightly different metrics compared:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2342,7 +2379,8 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The above metrics can be used to identify trend patterns in the data. However, MSE and the absolute measures are slightly better as they do NOT allow for offsetting effects.</p>
+<p>The above metrics can be used to <strong>identify trend</strong> patterns in the data.</p>
+<p>However, the <strong>squared and the absolute variants</strong> are slightly better as they do NOT allow for offsetting effects.</p>
 </div>
 <h2 id="key-model-summary"><strong>Key Model Summary</strong><a class="headerlink" href="#key-model-summary" title="Permanent link">&para;</a></h2>
 <!-- Self Made -->

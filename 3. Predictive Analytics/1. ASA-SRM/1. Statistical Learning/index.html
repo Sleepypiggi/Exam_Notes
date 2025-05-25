@@ -1513,7 +1513,12 @@
 <p></center></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Observations typically record the two variables together (<span class="arithmatex">\(y_{i}\)</span>, <span class="arithmatex">\(x_{i}\)</span>). In the case where there are multiple independent variables (<span class="arithmatex">\(x_{i,j}\)</span>), <span class="arithmatex">\(i\)</span> represents the observation while <span class="arithmatex">\(j\)</span> represents the independent variable.</p>
+<p>The following notation is common:</p>
+<ul>
+<li><span class="arithmatex">\(i\)</span>: Observation Index</li>
+<li><span class="arithmatex">\(j\)</span>: Variable Index</li>
+<li>Most subscripts follow (Observation, Variable)</li>
+</ul>
 </div>
 <p>Within the above, they are further split by their <strong>nature</strong>:</p>
 <p><center></p>
@@ -1597,8 +1602,8 @@
 <td align="center">Algorithmic method with <strong>no parameters</strong></td>
 </tr>
 <tr>
-<td align="center">May not fit the data well (wrongly specified)</td>
-<td align="center">Fits the data well</td>
+<td align="center">More Robust (Less sensitive) to data changes</td>
+<td align="center">Less Robust (More sensitive) to data changes</td>
 </tr>
 <tr>
 <td align="center">Does not require as large a dataset</td>
@@ -1611,6 +1616,15 @@
 </tbody>
 </table>
 <p></center></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Non-Parametric models will outperform parametric ones when the assumed functional form is different from what was specified.</p>
+<p>This tends to occur when the underlying data generating process is <strong>complicated</strong>, as most specified functional forms are not that complicated (EG. <em>Linear</em> regression).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Parametric tends to be more robust likely because they have an underlying functional form to anchor them; non-parametric methods are so to speak “at the mercy of the data”.</p>
+</div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="METHOD_OVERVIEW" class="center" src="../Assets/1.%20Statistical%20Learning.md/METHOD_OVERVIEW.png" /></p>
 <p>Lastly, there are two main goals for statistical learning:</p>
@@ -1618,7 +1632,7 @@
 <li><strong>Prediction</strong> - What is the <strong>value</strong> of the dependent variable given a set of independent variables</li>
 <li><strong>Inference</strong> - What is the <strong>relationship</strong> between the dependent and independent variables</li>
 </ul>
-<p>Prediction is largely related to the <strong>Flexibility</strong> (or <strong>Complexity</strong>) of the model; how well the model tracks the sample. As will be shown later, a moderate amount of flexibility is ideal with regards to prediction.</p>
+<p>Prediction is largely related to the <strong>Flexibility</strong> (or <strong>Complexity</strong>) of the model. As will be shown later, a <strong>moderate amount of flexibility</strong> is ideal with regards to prediction.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If prediction is the only focus, then understanding <em>how</em> the model arrives at the prediction is less irrelevant; as long as the prediction is reliable.</p>
@@ -1638,7 +1652,7 @@
 </ul>
 <p><!-- Obtained from Coaching Actuaries -->
 <img alt="FLEXIBILITY_INFERENCE" class="center" src="../Assets/1.%20Statistical%20Learning.md/FLEXIBILITY_INFERENCE.png" /></p>
-<p>A less flexible model is also said to have a <strong>smoother fit</strong> as the relationship is simpler.</p>
+<p>Flexibility is about <strong>how well the model matches the data</strong>. Less flexible models are <strong>smoother</strong> because they do not try to match the idiosyncrasies of the data. </p>
 </div>
 <!-- Obtained from ISLR -->
 <p><img alt="METHOD_OVERVIEW_2" class="center" src="../Assets/1.%20Statistical%20Learning.md/METHOD_OVERVIEW_2.png" /></p>
@@ -1646,7 +1660,7 @@
 <p class="admonition-title">Warning</p>
 <p>Despite linear regression being more interpretable than trees, the ISLR author has also noted that <strong>Trees are "easier to explain" than linear regression</strong>.</p>
 <p>Although both intepretability and ease of explanation usually refer to the same thing, for the purposes of this exam treat them as <strong>seperate</strong>.</p>
-<p>The author notes that the interpretability is in the eye of the beholder - some prefer the coefficients from linear regression while others prefer to the tree visual - one or the other can be easier to explain to different parties.</p>
+<p>The author notes that the <strong>interpretability is in the eye of the beholder</strong> - some prefer the coefficients from linear regression while others prefer to the tree visual - one or the other can be easier to explain to different parties.</p>
 </div>
 <p>Another consideration is the <strong>Robustness</strong> of the model  - the <strong>stability or sensitivity</strong> of the results. While some variation is expected from sample to sample, a good model will be able to <strong>extract the underlying signal</strong> which should be similar regardless of the sample. <strong>Non-Parametric methods tend to be less robust</strong> due to having no functional form to anchor them.</p>
 <h2 id="regression"><strong>Regression</strong><a class="headerlink" href="#regression" title="Permanent link">&para;</a></h2>
@@ -1771,7 +1785,7 @@
 <p><img alt="TRAINING_TEST_MSE" class="center" src="../Assets/1.%20Statistical%20Learning.md/TRAINING_TEST_MSE.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>There is no direct relationship between the training and test error; the two are independent.</p>
+<p>There is <strong>NO direct relationship</strong> between the training and test error; the two are independent.</p>
 </div>
 <p>Recall that the MSE can be decomposed into a combination of <strong>Bias and Variance</strong>. In a regression context, there is an <strong>additional component</strong> representing the error term as well:</p>
 <ul>
@@ -1785,8 +1799,12 @@
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Some texts may refer to the above as Accuracy (Bias) &amp; Precision (Variance). Although they are used interchangeably in day to day conversations, they have a specific meaning in a statistical context.</p>
-<p>In a statistical learning context, bias arises when the actual data generation process is different from what was assumed in the model.</p>
+<p>Some texts may refer to the above as:</p>
+<ul>
+<li>Bias = Accuracy</li>
+<li>Variance = Precision</li>
+</ul>
+<p>Although they are used interchangeably in day to day conversations, they have a <strong>specific meaning</strong> in a statistical context.</p>
 </div>
 <p>It is <strong>not possible to minimize both</strong>; there is an inverse relationship known as the <strong>Bias-Variance Tradeoff</strong> which results in the U-shaped curve:</p>
 <ul>
@@ -1799,7 +1817,7 @@
 <p><img alt="BIAS_VARIANCE_TRADEOFF" class="center" src="../Assets/1.%20Statistical%20Learning.md/BIAS_VARIANCE_TRADEOFF.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The inversion of test MSE depends largely on the underlying data generating process. More complicated processes will benefit more from the bias reduction, but will still eventually invert. </p>
+<p>The inversion of test MSE depends largely on the underlying data generating process. <strong>More complicated processes will benefit more from the bias reduction</strong>, and thus may invert later along the curve, but will still eventually invert.</p>
 </div>
 <p><center></p>
 <table>
@@ -1833,7 +1851,7 @@
 <p class="admonition-title">Note</p>
 <p>In the case of Parametric learning methods, the estimate of each parameter that goes into <span class="arithmatex">\(\hat{f}\)</span> will also have an associated confidence interval.</p>
 </div>
-<p>On the other hand, <strong>Prediction Intervals</strong> are the range of values that a <strong>realization of a random variable</strong> will fall within for a given level of confidence. In a regression setting, this refers to the <strong>actual dependent variable itself</strong>, not the mean.</p>
+<p>On the other hand, <strong>Prediction Intervals</strong> are the range of values that a <strong>REALIZATION of a random variable</strong> will fall within for a given level of confidence. In a regression setting, this refers to the <strong>ACTUAL dependent variable itself</strong>, not the mean.</p>
 <p>Note that since the actual dependent variable is a combination of the mean and the error term, the resulting prediction interval will <strong>always be wider than the confidence interval</strong>, reflecting the additional variance from the error term:</p>
 <p><center></p>
 <table>
@@ -1849,8 +1867,8 @@
 <td align="center">Range of Parameters</td>
 </tr>
 <tr>
-<td align="center">Range for <span class="arithmatex">\(y \mid x\)</span></td>
-<td align="center">Range of <span class="arithmatex">\(E(y \mid x)\)</span></td>
+<td align="center">Range for <span class="arithmatex">\(Y \mid X\)</span></td>
+<td align="center">Range of <span class="arithmatex">\(E(Y \mid X)\)</span></td>
 </tr>
 <tr>
 <td align="center">Mean &amp; Error Term</td>
@@ -1859,7 +1877,7 @@
 </tbody>
 </table>
 <p></center></p>
-<p>Both Confidence and Prediction Intervals are expressed using the same formula:</p>
+<p>Both Confidence and Prediction Intervals are expressed using the <strong>same general formula</strong>:</p>
 <div class="arithmatex">\[
     \text{Interval} = \text{Estimate} \pm \text{Percentile} \cdot \text{SE of Estimate}
 \]</div>
@@ -1876,7 +1894,7 @@
 <div class="arithmatex">\[
 \begin{aligned}
     \lim_{n \to \infty} (\text{CI}) &amp;= 0 \\
-    \lim_{n \to \infty} (\text{PI}) &amp;= \varepsilon
+    \lim_{n \to \infty} (\text{PI}) &amp;= \text{Var}(\varepsilon)
 \end{aligned}
 \]</div>
 </div>
@@ -1892,7 +1910,7 @@
 </div>
 <p>Assume that there are two categories (A, B) and that <strong>population probabilities are known</strong> (since all available information is used). Based on this, such a model would assign categories based on the probability:</p>
 <ul>
-<li>The category with the highest probability for that observation will be assigned the prediction</li>
+<li>The category with the <strong>highest probability</strong> for that observation will be assigned the prediction</li>
 <li>However, there is <strong>no guarantee</strong> that the actual observation will be that category</li>
 <li>Thus, the probability that it is <strong>NOT the highest probability category</strong> is the error rate</li>
 </ul>

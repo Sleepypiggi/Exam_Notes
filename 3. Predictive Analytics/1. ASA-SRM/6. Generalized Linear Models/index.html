@@ -2195,7 +2195,7 @@
 <p>A <strong>Hurdle Model</strong> is appropriate when the zeroes occur because a certain <strong>hurdle or threshold was not crossed</strong>. For instance, when projecting the number of laps swam based on the number of people who visited the swimming pool, it should account for individuals who <strong>never entered</strong> the pool (Hurdle) (EG. Parents).</p>
 <p>In this case, there is a clear reason for the zeroes, thus the probability for the zero count should be <strong>modelled seperate</strong> for the non-zero values:</p>
 <ul>
-<li><strong>Logistic</strong> - Identify observations that cross the threshold (<span class="arithmatex">\(\pi\)</span>)</li>
+<li><strong>Logistic</strong> - Identify observations that do NOT cross the threshold (<span class="arithmatex">\(\pi\)</span>)</li>
 <li><strong>Poisson</strong> - Underlying data generating process (assuming all cross)</li>
 </ul>
 <div class="arithmatex">\[

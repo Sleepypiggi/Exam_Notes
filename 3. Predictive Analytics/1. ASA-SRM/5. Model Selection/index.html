@@ -1582,7 +1582,7 @@
 <p><img alt="MODEL_SELECTION" class="center" src="../Assets/5.%20Model%20Selection.md/MODEL_SELECTION.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The goal is to achieve a Parsimonious Model (derived from the word Parsimony), which is a model that achieves the desired fit by using the minimum number of variables.</p>
+<p>The goal is to achieve a <strong>Parsimonious Model</strong> (derived from the word Parsimony), which is a model that achieves the desired fit by using the <strong>minimum number</strong> of variables.</p>
 <p>Generally speaking, these simpler models are less flexible which allows them to <strong>perform better on new data</strong>, improving their predictive performance:</p>
 <p>&lt;!— Obtained from Coaching Actuaries —&gt;
 <img alt="SUBSET_PERFORMANCE" class="center" src="../Assets/5.%20Model%20Selection.md/SUBSET_PERFORMANCE.png" /></p>
@@ -1592,7 +1592,7 @@
 <p>The <strong>Best Subset Selection</strong> algorithm is the ideal model selection algorithm, assuming there are no resource constraints:</p>
 <ol>
 <li>For every possible number of predictors (<span class="arithmatex">\(p\)</span>), fit every combination of available predictors (<span class="arithmatex">\(g\)</span>)</li>
-<li>Among the models with the same number of predictors, select the model with the highest <span class="arithmatex">\(R^{2}\)</span> as the best model for that number of predictors (<span class="arithmatex">\(M_{p}\)</span>)</li>
+<li>Among the models with the <strong>same number of predictors</strong>, select the model with the highest <span class="arithmatex">\(R^{2}\)</span> as the best model for that number of predictors (<span class="arithmatex">\(M_{p}\)</span>)</li>
 <li>Among the <span class="arithmatex">\(M_{p}\)</span>, select the best overall model using a <strong>Selection Criteria</strong> of choice</li>
 </ol>
 <div class="admonition tip">
@@ -1604,17 +1604,17 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The number of predictors allowed in the model starts at 0 to reflect that the null model is also a possible model.</p>
+<p>The number of predictors allowed in the model starts at 0 to reflect that the <strong>null model</strong> is also a possible model.</p>
 </div>
-<p>Best Subset Selection considers EVERY possible model, which is <strong>impractical</strong> for large <span class="arithmatex">\(g\)</span>. However, it serves as a theoretical benchmark for the "best" possible model:</p>
+<p>Best Subset Selection considers EVERY possible model, which is <strong>impractical</strong> for large <span class="arithmatex">\(g\)</span>. However, it serves as a <strong>theoretical benchmark</strong> for the "best" algorithm:</p>
 <div class="arithmatex">\[
     \text{Models Considered} = 2^{g}
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Just because it considers all possible models, it does NOT mean that it is guaranteed to find the best possible model.</p>
-<p>It is able to find the best model from a training error perspective, but the <em>true</em> best model typically refers to a <strong>test error</strong> perspective.</p>
-<p>Since there is no way to perfectly estimate the test error, thus there is no guarantee to find the true best model. This is true regardless of whichever method is used.</p>
+<p>Even though it considers all possible models, it does NOT guarantee it will find best possible model.</p>
+<p>It is able to find the “best” model from a training error perspective, but the <em>true</em> best model typically refers to a <strong>test error</strong> perspective.</p>
+<p>Since there is NO way to perfectly estimate the test error, thus there is <strong>no guarantee</strong> to find the true best model. This is true <strong>regardless of whichever selection method</strong> is used.</p>
 </div>
 <h3 id="stepwise-selection"><strong>Stepwise Selection</strong><a class="headerlink" href="#stepwise-selection" title="Permanent link">&para;</a></h3>
 <p><strong>Forward Stepwise</strong> starts with 1 predictor and <strong>iteratively adds</strong> one predictor at a time:</p>
@@ -1642,6 +1642,14 @@
     \text{Number of Stepwise} = 1 + \frac{g(g+1)}{2}
 \]</div>
 <p>However, stepwise selection is a <strong>greedy algorithm</strong> as it picks the best available model at that moment, which may cause it to <strong>miss the overall best model</strong>, since it does not allow for retrospective changes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>One unique limitation to each that is NOT applicable to the other is:</p>
+<ul>
+<li><strong>Forward</strong>: Ignores joint effect of predictors, since only one added at a time</li>
+<li><strong>Backward</strong>: Cannot be used when there are high dimensions due to fitting issues</li>
+</ul>
+</div>
 <h3 id="stepwise-regression"><strong>Stepwise Regression</strong><a class="headerlink" href="#stepwise-regression" title="Permanent link">&para;</a></h3>
 <p>A hybrid approach that combines elements of the Forward and Backward method is known as the <strong>Stepwise Regression</strong> method:</p>
 <ol>
@@ -1652,25 +1660,24 @@
 </ol>
 <p>The main benefit over regular stepwise approaches is that it covers a <strong>larger number</strong> of models. However, it comes with its own unique issues:</p>
 <ul>
-<li>It only looks at p-values, not any other metric</li>
-<li>It ignores the joint effect of predictors</li>
-<li>It involves a sequence of t-tests, which affects the overall power of the test</li>
+<li>It looks <strong>only at p-values</strong>, not any other metric</li>
+<li>It involves a <strong>sequence of t-tests</strong>, which affects the overall power of the test</li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that algorithm is most similar to the forward selection. As a result, it also suffers from the similar problem of not considering the joint effect.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>At each step, there might be multiple variables that can be added or dropped. It is important to only add or drop variables <strong>ONE at a time</strong> (most or least significant), as there might <strong>second order impact</strong> which changes its significance to the model.</p>
 </div>
-<p>There are problems inherent to the selection process regardless of the method used:</p>
+<p>There are problems <strong>inherent</strong> to the selection process regardless of the method used:</p>
 <ol>
-<li>All methods fail to account for any domain knowledge that the user has</li>
+<li>All methods <strong>fail to account for domain knowledge</strong> that the user has</li>
 <li>All methods are <strong>susceptible to data snooping</strong> (repeating the analysis slightly differently to achieve a certain outcome)</li>
+<li>All methods are <strong>NOT guaranteed</strong> to find the best model</li>
 </ol>
 <h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
-<p>As its name suggests the best subset approach will always pick the model with the <strong>lowest RSS</strong> (highest <span class="arithmatex">\(R^{2}\)</span>) as it considers all possible models. The other two algorithms have no guarantee to pick such a model given its greedy approach.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Neither models have any guarantee to pick the model with the lowest test error, as they are not evaluated using test error.</p>
-</div>
 <p>The number of models considered for every possible <span class="arithmatex">\(p\)</span> and in totality across the three approaches are summarized below:</p>
 <p><center></p>
 <table>
@@ -1690,7 +1697,7 @@
 <td align="center">1</td>
 </tr>
 <tr>
-<td align="center">k</td>
+<td align="center"><span class="arithmatex">\(1 \le k \le p-1\)</span></td>
 <td align="center"><span class="arithmatex">\(g \choose k\)</span></td>
 <td align="center"><span class="arithmatex">\(p-k+1\)</span></td>
 <td align="center">k+1</td>
@@ -1714,17 +1721,39 @@
 <p class="admonition-title">Tip</p>
 <p>For <span class="arithmatex">\(p=0\)</span> and <span class="arithmatex">\(p=p\)</span>, all three algorithms will result in the <strong>SAME best model</strong> for that number of predictors <span class="arithmatex">\(M_{p}\)</span>. This is because there is only <strong>ONE possible model for each</strong> - a model with no predictors and one with all predictors, respectively.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To remember the general expression for the middle row, think intuitively about the second iteration of the algorithm.</p>
+<p>For <strong>Forward Stepwise</strong>, the second iteration of the algorithm is <span class="arithmatex">\(k=1\)</span>. The algorithm needs to select one predictor out of <span class="arithmatex">\(p\)</span> to add to the model:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Number of Models Forward}
+    &amp;= p \\
+    &amp;= p - \underbrace{1}_{k} + 1 \\
+    &amp;= p - k + 1
+\end{aligned}
+\]</div>
+<p>For Backward Stepwise, the second iteration of the algorithm is <span class="arithmatex">\(k=p-1\)</span>. The algorithm needs to select one predictor out of <span class="arithmatex">\(p\)</span> to drop from the model:</p>
+<p>$$
+\begin{aligned}
+    \text{Number of Models Forward}
+    &amp;= p \
+    &amp;= \underbrace{p - 1}_{k} + 1 \
+    &amp;= k + 1
+\end{aligned}
+$$   </p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The number of models looked at for stepwise regression is <strong>not fixed</strong> but is typically larger than Forward/Backward methods.</p>
 </div>
 <h2 id="selection-criteria"><strong>Selection Criteria</strong><a class="headerlink" href="#selection-criteria" title="Permanent link">&para;</a></h2>
-<p>Selection Criteria is the metric used to choose the final model of all the shortlisted models with different number of predictors.</p>
-<p>During the shortlisting process, the models being compared had the same number of predictors, thus <span class="arithmatex">\(R^{2}\)</span> provided a fair comparison. However, since each model now has a different number of predictors, <span class="arithmatex">\(R^{2}\)</span> is <strong>no longer appropriate</strong> as it is affected by the number of predictors. Thus, the following metrics can be used instead:</p>
+<p>Selection Criteria is the metric used to choose the <strong>final model</strong> of all the shortlisted models, each with <strong>DIFFERENT number of predictors</strong>.</p>
+<p>During the shortlisting process, the models being compared had the <strong>same number of predictors</strong>, thus <span class="arithmatex">\(R^{2}\)</span> provided a <strong>fair comparison</strong>. However, since each model now has a <strong>different number of predictors</strong>, <span class="arithmatex">\(R^{2}\)</span> is <strong>no longer appropriate</strong> as it is biased by the number of predictors. Thus, the following metrics can be used instead:</p>
 <ol>
 <li>Adjusted <span class="arithmatex">\(R^{2}\)</span></li>
 <li>Mallow's <span class="arithmatex">\(C_{p}\)</span></li>
-<li>Information Criteria</li>
+<li>Information Criteria (AIC, BIC)</li>
 </ol>
 <p>The above metrics are essentially trying to <strong>indirectly estimate the test error</strong>, by applying an adjustment on the training error based on the number of predictors (flexibility). An alternative approach is to <strong>directly estimate</strong> the test error using <strong>Validation Set</strong> approaches.</p>
 <h3 id="training-error-approach"><strong>Training Error Approach</strong><a class="headerlink" href="#training-error-approach" title="Permanent link">&para;</a></h3>
@@ -1749,7 +1778,7 @@
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The MSE in the above equations represent the MSE for a model with ALL predictors, hence "full".</p>
+<p>The MSE in the above equations represent the MSE for a <strong>model with ALL predictors</strong>, hence "full".</p>
 <p>If this MSE used is unbiased, then the resulting measures are <strong>unbiased</strong> estimates of the test error as well.</p>
 </div>
 <div class="admonition note">
@@ -1757,23 +1786,28 @@
 <p>Adjusted <span class="arithmatex">\(R^{2}\)</span> is also a valid metric, but the other three are preferred as they have <strong>stronger theoretical justifications</strong> as a measure of model quality.</p>
 <p>Regardless, all metrics are not feasible when there is <strong>high dimensions</strong>. The metrics all rely on the fitted residuals - but if the model has difficulty being fit in the first place, then the metrics cannot be calculated.</p>
 </div>
-<p>The metrics are not meant to be used to evaluate a <em>particular</em> model’s effectiveness. They are used to compare the <strong>relative effectiveness</strong> of models; as a model selection criteria. The lower the metrics, the better the model in comparison to others (with respect to test error).</p>
+<p>The metrics are meant to compare the <strong>relative effectiveness</strong> of models; as a model selection criteria. The <strong>lower the metrics</strong>, the <strong>better the model</strong> in comparison to others. On its own, it is still technically an estimate of the test error.</p>
 <p>Notice that the first term is a measure of the <strong>training error</strong>, while the second term is the <strong>adjustment</strong> for the number of predictors. The lower the metric the better, thus the adjustment <strong>penalizes models with more predictors</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Notice that AIC and BIC are extremely similar, with the only difference being on the penalty - where AIC uses a flat 2 while BIC uses <span class="arithmatex">\(\ln n\)</span>. Both will produce the <strong>same selection</strong> for small sample sizes, however for large sample sizes (above 7; 8 and above), BIC penalizes the larger models more.</p>
+<p>Notice that AIC and BIC are extremely similar, with the only <strong>difference being on the penalty</strong>:</p>
+<ul>
+<li>AIC: Flat 2</li>
+<li>BIC: <span class="arithmatex">\(\ln n\)</span></li>
+</ul>
+<p>Both will produce the <strong>same selection</strong> for small sample sizes, however for large sample sizes (8 and above), BIC <strong>penalizes the larger models more</strong>.</p>
 <div class="arithmatex">\[
     \ln 7 \approx 2
 \]</div>
 </div>
 <h3 id="validation-approach"><strong>Validation Approach</strong><a class="headerlink" href="#validation-approach" title="Permanent link">&para;</a></h3>
-<p>As mentioned in the beginning, a model's effectiveness should NOT be evaluated using data that was used to train it. Thus, for model selection, the selection of the final model should be based on data that was not used to train it; using <strong>Validation Data</strong>.</p>
+<p>As mentioned in the beginning, a model's effectiveness should NOT be evaluated using data that was used to train it. Thus, for model selection, the selection of the final model should be <strong>based on data that was not used to train it</strong>; using <strong>Validation Data</strong>.</p>
 <p>The MSE determined using the Validation data is known as the <strong>Validation Error</strong>, which is an <strong>DIRECT estimate of the Test Error</strong> (since both are based on data that was not used to train the model).</p>
 <p>The model with the <strong>lowest Validation Error</strong> is chosen as the final model. Once determined, <strong>re-train the final model</strong> using ALL non-test observations (Training + Validation data).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The final model must be retrained as it should be <strong>using as much as information as possible</strong>.</p>
-<p>The model that was selected was trained only using the validation data. When retrained with the all data available (training + validation), a slightly different model will be produced.</p>
+<p>The model that was selected was trained only using the validation data. When retrained with the all data available (Training + Validation), a <strong>slightly different model</strong> will be produced.</p>
 </div>
 <!-- Obtained from Galaxy Inferno -->
 <p><img alt="VALIDATION_SET" class="center" src="../Assets/5.%20Model%20Selection.md/VALIDATION_SET.png" /></p>
@@ -1795,8 +1829,8 @@
 <p class="admonition-title">Note</p>
 <p>The systematic approach of CV helps to alleviate the problems of regular validation:</p>
 <ol>
-<li>The average of multiple iterations are used that covers all the observations; tends to be less fickle</li>
-<li>Majority of the observations are used in each iteration; true signal should be captured which results in more accurate estimations of the test error</li>
+<li>The <strong>average of multiple iterations</strong> are used that covers all the observations; tends to be <strong>less fickle</strong></li>
+<li><strong>Majority of the observations are used</strong> in each iteration; true signal should be captured which results in <strong>more accurate estimations</strong> of the test error</li>
 </ol>
 </div>
 <h4 id="loocv"><strong>LOOCV</strong><a class="headerlink" href="#loocv" title="Permanent link">&para;</a></h4>
@@ -1812,7 +1846,7 @@
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The primary advantage of this is that ONLY ONE model needs to be fitted to obtain the LOOCV error compared to hvaing fit <span class="arithmatex">\(n\)</span> models when using other approaches.</p>
+<p>The primary advantage of this is that <strong>ONLY ONE model needs to be fitted</strong> to obtain the LOOCV error for SLR; compared to having to fit <span class="arithmatex">\(n\)</span> models when using other approaches.</p>
 </div>
 <h4 id="comparisons"><strong>Comparisons</strong><a class="headerlink" href="#comparisons" title="Permanent link">&para;</a></h4>
 <p>Recall that the purpose of the validation error is to <strong>estimate the test MSE</strong>. Thus, it can be evaluated based on the typical <strong>estimator metrics</strong>:</p>
@@ -1842,16 +1876,14 @@
 </tbody>
 </table>
 <p></center></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Note that the above comparisons are RELATIVE to one another.</p>
-</div>
-<p>The validation set approach has the <strong>highest bias</strong> as it only uses a <strong>subset</strong> of the data while <strong>LOOCV</strong> uses all but one, making its bias substantially lower.</p>
-<p>For variance, since training set in the LOOCV only differ by one observation, the training sets are highly correlated, making the results <strong>extremely correlated</strong>, resulting in a high variance. On the flipside, the validation set approach only has one training set, thus the result has limited variance.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>LOOCV having high variance maybe <strong>untuitive</strong> as the correlated results should result in <strong>clustered predictions</strong>.</p>
-<p>However, consider the possibility that consecutive predictions are close, but there is a trend in the predictions. The resulting predictions will follow the trend, resulting in <strong>high variance</strong>.</p>
+<p>An easy but theoretically wrong way to remember is based on the number of observations used in the training:</p>
+<ul>
+<li>LOOCV uses the <strong>most observations</strong>, thus overfits with low bias and high variance</li>
+<li>Validation uses the <strong>least observations</strong>, thus underfits with high bias but low variance </li>
+</ul>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1864,13 +1896,10 @@
 <li>Perform the model selection method again with the <strong>whole dataset</strong> (Training + Validation)</li>
 <li>Select the model with the number of predictors determined in (2) as the final model</li>
 </ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The reason for needing to re-run the process is because the model in step (2) did not use the entire available dataset. The algorithm could have reached a different conclusion if the entire dataset was used.</p>
-</div>
 <h3 id="hyperparameter-tuning"><strong>Hyperparameter Tuning</strong><a class="headerlink" href="#hyperparameter-tuning" title="Permanent link">&para;</a></h3>
-<p>Hyperparameters are inputs decided by the modelled that affects <em>how</em> the model should learn.</p>
-<p>It is NOT possible (difficult) to determine the optimal hyper parameter prior to the experiment. Thus, rather than arbitrarily picking a value, cross validation can be used to <strong>test a range of values</strong> and choose the best one.</p>
+<p>Hyperparameters are <strong>inputs decided by the modeller</strong> that affects <em>how</em> the model should learn.</p>
+<p>It is NOT possible to determine the optimal hyper parameter prior to the experiment. Thus, rather than arbitrarily picking a value, cross validation can be used to <strong>test a range of values</strong> and choose the best one.</p>
+<p>The intuition is that we want to choose the model that has the <strong>best predictive performance</strong>. The (cross) validation error is the <strong>most direct estimate</strong> of that, thus the hyperparameter should be chosen such that that error is minimized.</p>
 
 
 
