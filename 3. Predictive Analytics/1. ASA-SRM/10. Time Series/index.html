@@ -1762,13 +1762,16 @@
 </ul>
 </div>
 <h3 id="white-noise"><strong>White Noise</strong><a class="headerlink" href="#white-noise" title="Permanent link">&para;</a></h3>
-<p>A variable that is naturally stationary is often referred to as <strong>White Noise</strong>, which is a term used to refer to a process that is <strong>completely random</strong>. The best forecast for such a variable is <strong>simply its mean</strong>; since it is assumed to be completely random: </p>
+<p>A variable that is <strong>naturally stationary</strong> is often referred to as <strong>White Noise</strong>, which is a term used to refer to a process that is <strong>completely random</strong>. The best forecast for such a variable is <strong>simply its mean</strong>; since it is assumed to be completely random: </p>
 <div class="arithmatex">\[
 \begin{aligned}
     y_{t} &amp;= \varepsilon_{t} \\
     \\
+    E(y_{t}) &amp;= \mu \\
+    \text{Var}(y_{t}) &amp;= \sigma^{2} \\
+    \\
     \hat{y}_{t+m} &amp;= \bar{y} \\
-    \text{SE}({\hat{y}_{t+m}}) &amp;= s_{y} \cdot \sqrt{1 + \frac{1}{n}} \\
+    \text{SE}({\hat{y}_{t+m}}) &amp;= \sigma \cdot \sqrt{1 + \frac{1}{n}} \\
     \text{PI} &amp;= \bar{y} \pm t_{\alpha} \cdot s_{y} \cdot \sqrt{1 + \frac{1}{n}}
 \end{aligned}
 \]</div>
@@ -1795,13 +1798,18 @@
 <p>A random walk itself is <strong>NOT stationary</strong>. However, the <strong>DIFFERENCE</strong> across 1 time period is a white noise process, which IS stationary:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    E(y_{t}) &amp;= y_{0} + \bar{\varepsilon} \\
+    E(y_{t}) &amp;= y_{0} + t \cdot \mu \\
     \text{Var}(y_{t}) &amp;= t \cdot \sigma^{2} \\
     \\
     E(y_{t} - y_{t-1}) &amp;= \bar{\varepsilon} \\
     \text{Var}(y_{t} - y_{t-1}) &amp;= \sigma^{2}
 \end{aligned}
 \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To be precise, a random walk can be <strong>stationary in the mean</strong> if <span class="arithmatex">\(\mu=0\)</span>, which is common for white noise.</p>
+<p>It can be stationary in the variance as well for <span class="arithmatex">\(\sigma=0\)</span>, but that is highly unlikely, which is why random walk is often marked as not stationary, due to its non-stationary variance.</p>
+</div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="DIFFERENCED_STATIONARY" src="../Assets/10.%20Time%20Series.md/DIFFERENCED_STATIONARY.png" /></p>
 <div class="admonition warning">
@@ -1887,7 +1895,7 @@
 \begin{aligned}
     E(y_{t}) &amp;= \frac{\beta_{0}}{1 - \beta_{1}} \\
     \text{Var}(y_{t}) &amp;= \frac{\sigma^{2}}{1 - \beta^{2}_{1}} \\
-    \text{Cov}(Y_{t}, Y_{t-k}) &amp;= \beta^{k}_{1}
+    \text{Corr}(Y_{t}, Y_{t-k}) &amp;= \beta^{k}_{1}
 \end{aligned}
 \]</div>
 <div class="admonition warning">
