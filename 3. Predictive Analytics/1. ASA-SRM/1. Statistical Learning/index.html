@@ -1582,6 +1582,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The key focus of the majority of the exam will be on <strong>Supervised learning</strong>, unless otherwise stated. A relatively small portion on Unsupervised learning will be covered towards the end.</p>
+<p>There technically exists a special class of learning known as <strong>Semi-Supervised</strong>, which typically occurs due to a lack of complete data. It is out of scope for the purposes of this exam.</p>
 </div>
 <p>Within <strong>Supervised learning</strong> methods, it can be further broken down into two forms:</p>
 <p><center></p>
@@ -1632,17 +1633,22 @@
 <li><strong>Prediction</strong> - What is the <strong>value</strong> of the dependent variable given a set of independent variables</li>
 <li><strong>Inference</strong> - What is the <strong>relationship</strong> between the dependent and independent variables</li>
 </ul>
-<p>Prediction is largely related to the <strong>Flexibility</strong> (or <strong>Complexity</strong>) of the model. As will be shown later, a <strong>moderate amount of flexibility</strong> is ideal with regards to prediction.</p>
+<p>Prediction is largely related to the <strong>Flexibility</strong> (or <strong>Complexity</strong>) of the model. For a parametric method, it is directly related to the <strong>number of parameters</strong> in the model (more accurately, the <strong>degrees of freedom</strong> available).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Consider the following example:</p>
+<ul>
+<li><strong>Prediction</strong>: How much will a home be worth given its characteristics?</li>
+<li><strong>Inference</strong>: How much <em>more</em> will a home be worth if it has a view of the river?</li>
+</ul>
+<p>Inference is largely about determining the impact of one or more variables on the dependent.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If prediction is the only focus, then understanding <em>how</em> the model arrives at the prediction is less irrelevant; as long as the prediction is reliable.</p>
 <p>This is especially so for complex models, which are typically referred to as “Black Boxes” where the users do not have “visibility” on the inner workings of the model.</p>
 </div>
 <p>Generally speaking, there is an <strong>inverse relationship</strong> between flexibility and intepretability. Highly flexible models that tend to have <strong>complex mathematical components</strong> that allow it to match the data, at the cost of being <strong>unable to inuitively explain</strong> the relationship.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Despite the above, most analyses integrates both Prediction and Inference together, though the model is typically better at one.</p>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Consider the following two models:</p>
@@ -1652,7 +1658,7 @@
 </ul>
 <p><!-- Obtained from Coaching Actuaries -->
 <img alt="FLEXIBILITY_INFERENCE" class="center" src="../Assets/1.%20Statistical%20Learning.md/FLEXIBILITY_INFERENCE.png" /></p>
-<p>Flexibility is about <strong>how well the model matches the data</strong>. Less flexible models are <strong>smoother</strong> because they do not try to match the idiosyncrasies of the data. </p>
+<p>Flexibility is about <strong>how well the model matches the data</strong>. Less flexible models are <strong>smoother</strong> because they do NOT try to match the idiosyncrasies of the data.</p>
 </div>
 <!-- Obtained from ISLR -->
 <p><img alt="METHOD_OVERVIEW_2" class="center" src="../Assets/1.%20Statistical%20Learning.md/METHOD_OVERVIEW_2.png" /></p>
@@ -1662,13 +1668,16 @@
 <p>Although both intepretability and ease of explanation usually refer to the same thing, for the purposes of this exam treat them as <strong>seperate</strong>.</p>
 <p>The author notes that the <strong>interpretability is in the eye of the beholder</strong> - some prefer the coefficients from linear regression while others prefer to the tree visual - one or the other can be easier to explain to different parties.</p>
 </div>
-<p>Another consideration is the <strong>Robustness</strong> of the model  - the <strong>stability or sensitivity</strong> of the results. While some variation is expected from sample to sample, a good model will be able to <strong>extract the underlying signal</strong> which should be similar regardless of the sample. <strong>Non-Parametric methods tend to be less robust</strong> due to having no functional form to anchor them.</p>
 <h2 id="regression"><strong>Regression</strong><a class="headerlink" href="#regression" title="Permanent link">&para;</a></h2>
 <h3 id="specification"><strong>Specification</strong><a class="headerlink" href="#specification" title="Permanent link">&para;</a></h3>
 <p>There exists a <strong>true relationship</strong> between the Dependent and Independent Variables:</p>
 <div class="arithmatex">\[
     Y = f(X_{i}) + \varepsilon 
 \]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In essence, statistical learning refers to a set of approaches for estimating <span class="arithmatex">\(f\)</span>.</p>
+</div>
 <p>The above can be understood as the combination of:</p>
 <ul>
 <li><strong>Signal</strong>: <strong>Systematic</strong> relationship between <span class="arithmatex">\(Y\)</span> and <span class="arithmatex">\(X\)</span>'s</li>
@@ -1790,19 +1799,25 @@
 <p>Recall that the MSE can be decomposed into a combination of <strong>Bias and Variance</strong>. In a regression context, there is an <strong>additional component</strong> representing the error term as well:</p>
 <ul>
 <li><strong>Reducible</strong>: Error stemming from the <strong>choice</strong> of <span class="arithmatex">\(\hat{f}\)</span></li>
-<li><strong>Irreducible</strong>: Error stemming from <strong>inherent variability</strong></li>
+<li><strong>Irreducible</strong>: Error stemming from <strong>inherent variability</strong> (cannot be predicted by <span class="arithmatex">\(x\)</span>)</li>
 </ul>
 <div class="arithmatex">\[
+\begin{aligned}
     \text{MSE}
-    = \underbrace{(\text{Bias}[f(x_{1}, x_{2}, \dots, x_{n})])^{2} + \mathrm{Var}[f(x_{1}, x_{2}, \dots, x_{n})]}_{\text{Reducible}}
-    + \underbrace{\mathrm{Var}(\varepsilon)}_{\text{Irreducible}}
+    &amp;= \underbrace{(\text{Bias}[f(x_{i})])^{2} + \mathrm{Var}[f(x_{i})]}_{\text{Reducible}}
+    + \underbrace{\mathrm{Var}(\varepsilon)}_{\text{Irreducible}}    
+\end{aligned}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Thus, the primary goal of statistical learning is to estimate <span class="arithmatex">\(\hat{f}\)</span> that the reducible error is minimized.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some texts may refer to the above as:</p>
 <ul>
-<li>Bias = Accuracy</li>
-<li>Variance = Precision</li>
+<li><strong>Accuracy</strong> (Bias) - Error from by <strong>approximating</strong> <span class="arithmatex">\(f\)</span> (real world, complicated) with a simpler model (<span class="arithmatex">\(\hat{f}\)</span>)</li>
+<li><strong>Precision</strong> (Variance) - Error from <strong>changes</strong> in <span class="arithmatex">\(\hat{f}\)</span> across different samples  </li>
 </ul>
 <p>Although they are used interchangeably in day to day conversations, they have a <strong>specific meaning</strong> in a statistical context.</p>
 </div>
@@ -1812,12 +1827,26 @@
 <li>However, it also <strong>increases variance</strong> as the model will <strong>mistakenly pick up noise</strong> in the data as signal</li>
 <li>Initially, the reduction in bias is higher as the model <strong>rapidly improves</strong></li>
 <li>However, once majority of the signal has been captured, <strong>more noise will be increasingly captured</strong>, causing the increase in variance to be higher</li>
+<li>Thus, the goal is to choose a model with <strong>moderate amount of flexibility</strong> to minimize the MSE</li>
 </ul>
 <!-- Obtained from Geek for Geeks -->
 <p><img alt="BIAS_VARIANCE_TRADEOFF" class="center" src="../Assets/1.%20Statistical%20Learning.md/BIAS_VARIANCE_TRADEOFF.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The MSE curve is floored at the line representing the irreducible variance.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The inversion of test MSE depends largely on the underlying data generating process. <strong>More complicated processes will benefit more from the bias reduction</strong>, and thus may invert later along the curve, but will still eventually invert.</p>
+<p>The inversion of test MSE depends largely on the underlying data generating process:</p>
+<ul>
+<li><strong>LHS</strong>: Underlying process is of moderate complexity (Typical case described above) </li>
+<li><strong>Center</strong>: Underlying process is simple, thus <strong>low flexibility</strong> methods are sufficient (<strong>Benefits less</strong> from Bias reduction)</li>
+<li><strong>RHS</strong>: Underlying process is complicated, thus <strong>high flexibility</strong> methods needed (<strong>Benefits more</strong> from Bias reduction)</li>
+</ul>
+<p>The inversion of the curve thus depends on the underlying functional form - whenever the marginal benefit from Bias reduction falls off.</p>
+<p><!-- Obtained from ISLR -->
+<img alt="BIAS_MSE_CASES" class="center" src="../Assets/1.%20Statistical%20Learning.md/BIAS_MSE_CASES.png" /></p>
+<p>Thus, even simpler methods can have high predictive accuracy. There is NO universally best learning method across all datasets; it is about choosing the best method for the data.</p>
 </div>
 <p><center></p>
 <table>
@@ -1906,7 +1935,14 @@
 <p>The <strong>Bayes Error Rate</strong> is known as the <strong>lowest possible error rate</strong>, akin to the irreducible error that arises due to the noise in the data itself.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Bayes Error Rate is the error rate that is achieved when using a <strong>Bayes Classifier</strong>, which is a conceptual model that uses all available information to make predictions.</p>
+<p>The Bayes Error Rate is the error rate that is achieved when using a <strong>Bayes Classifier</strong>, which is a <strong>conceptual model</strong> that assigns observations to the category with the <strong>highest probability</strong>, given the predictor values. It is conceptual because in reality it is NOT possible to know the conditional probabilities for each class.</p>
+<p>Graphically, the above can be described using a <strong>Decision Boundary</strong>:</p>
+<ul>
+<li>LHS of boundary: Classified as Orange</li>
+<li>RHS of boundary: Classified as Blue</li>
+</ul>
+<p><!-- Obtained from ISLR -->
+<img alt="BAYES_DECISION_BOUNDARY" class="center" src="../Assets/1.%20Statistical%20Learning.md/BAYES_DECISION_BOUNDARY.png" /></p>
 </div>
 <p>Assume that there are two categories (A, B) and that <strong>population probabilities are known</strong> (since all available information is used). Based on this, such a model would assign categories based on the probability:</p>
 <ul>

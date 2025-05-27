@@ -1149,8 +1149,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stepwise-regression" class="md-nav__link">
-    Stepwise Regression
+  <a href="#mixed-stepwise" class="md-nav__link">
+    Mixed Stepwise
   </a>
   
 </li>
@@ -1473,8 +1473,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stepwise-regression" class="md-nav__link">
-    Stepwise Regression
+  <a href="#mixed-stepwise" class="md-nav__link">
+    Mixed Stepwise
   </a>
   
 </li>
@@ -1650,8 +1650,8 @@
 <li><strong>Backward</strong>: Cannot be used when there are high dimensions due to fitting issues</li>
 </ul>
 </div>
-<h3 id="stepwise-regression"><strong>Stepwise Regression</strong><a class="headerlink" href="#stepwise-regression" title="Permanent link">&para;</a></h3>
-<p>A hybrid approach that combines elements of the Forward and Backward method is known as the <strong>Stepwise Regression</strong> method:</p>
+<h3 id="mixed-stepwise"><strong>Mixed Stepwise</strong><a class="headerlink" href="#mixed-stepwise" title="Permanent link">&para;</a></h3>
+<p>A hybrid approach that combines elements of the Forward and Backward method is known as the <strong>Mixed Stepwise</strong> method:</p>
 <ol>
 <li>Start with the null model</li>
 <li>Consider each possible variable to be added - <strong>add</strong> the variable with the <strong>smallest p-value</strong> from a two-tailed t-test; do NOT add the variable if the p-value is above a <strong>specified threshold</strong></li>
@@ -1745,7 +1745,7 @@ $$   </p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The number of models looked at for stepwise regression is <strong>not fixed</strong> but is typically larger than Forward/Backward methods.</p>
+<p>The number of models looked at for mixed selection is <strong>not fixed</strong> but is typically larger than Forward/Backward methods.</p>
 </div>
 <h2 id="selection-criteria"><strong>Selection Criteria</strong><a class="headerlink" href="#selection-criteria" title="Permanent link">&para;</a></h2>
 <p>Selection Criteria is the metric used to choose the <strong>final model</strong> of all the shortlisted models, each with <strong>DIFFERENT number of predictors</strong>.</p>
@@ -1766,14 +1766,14 @@ $$   </p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{AIC}
-    &amp;= \frac{1}{n} \cdot (\text{RSS} + 2 \cdot p \cdot \text{MSE}_{\text{Full}}) \\
+    &amp;= \frac{1}{n} \cdot (\text{RSS} + 2 \cdot p \cdot \hat{\sigma}^{2}_{\text{Full}}) \\
     \\
     \text{BIC}
-    &amp;= \frac{1}{n} \cdot (\text{RSS} + \ln n \cdot p \cdot \text{MSE}_{\text{Full}}) \\
+    &amp;= \frac{1}{n} \cdot (\text{RSS} + \ln n \cdot p \cdot \hat{\sigma}^{2}_{\text{Full}}) \\
     \\
     C_{p}
-    &amp;= \frac{\text{RSS}}{\text{MSE}_{\text{Full}}} - n + 2(p+1) \\
-    &amp;\approx \text{AIC}
+    &amp;= \frac{1}{n} \cdot (\text{RSS} + 2 \cdot p \cdot \hat{\sigma}^{2}_{\text{Full}}) \\
+    &amp;= \text{AIC}
 \end{aligned}
 \]</div>
 <div class="admonition tip">
@@ -1785,6 +1785,17 @@ $$   </p>
 <p class="admonition-title">Note</p>
 <p>Adjusted <span class="arithmatex">\(R^{2}\)</span> is also a valid metric, but the other three are preferred as they have <strong>stronger theoretical justifications</strong> as a measure of model quality.</p>
 <p>Regardless, all metrics are not feasible when there is <strong>high dimensions</strong>. The metrics all rely on the fitted residuals - but if the model has difficulty being fit in the first place, then the metrics cannot be calculated.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that Mallow's C has the exact same formula as AIC. There is an <strong>alternative formulation</strong>; the original can shown to be a function of this alternate formula:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    C'_{p} &amp;= \frac{\text{RSS}}{\hat{\sigma}^{2}_{\text{Full}}} + 2p  - n \\
+    C_{p} &amp;= \frac{1}{n} \hat{\sigma}^{2}_{\text{Full}} \cdot \left(C'_{p} + n \right)
+\end{aligned}
+\]</div>
+<p>The two formulas are equivalent in the sense that the model that results in the smallest <span class="arithmatex">\(C_{p}\)</span> also results in the smallest <span class="arithmatex">\(C'_{p}\)</span>, thus it does not matter which formula is used (unless the question requires exact computation of the value).</p>
 </div>
 <p>The metrics are meant to compare the <strong>relative effectiveness</strong> of models; as a model selection criteria. The <strong>lower the metrics</strong>, the <strong>better the model</strong> in comparison to others. On its own, it is still technically an estimate of the test error.</p>
 <p>Notice that the first term is a measure of the <strong>training error</strong>, while the second term is the <strong>adjustment</strong> for the number of predictors. The lower the metric the better, thus the adjustment <strong>penalizes models with more predictors</strong>.</p>
@@ -1879,15 +1890,18 @@ $$   </p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Note that the above comparisons are RELATIVE to one another.</p>
-<p>An easy but theoretically wrong way to remember is based on the number of observations used in the training:</p>
+<p>An easy but <strong>theoretically wrong</strong> way to remember is based on the number of observations used in the training:</p>
 <ul>
-<li>LOOCV uses the <strong>most observations</strong>, thus overfits with low bias and high variance</li>
-<li>Validation uses the <strong>least observations</strong>, thus underfits with high bias but low variance </li>
+<li>LOOCV uses the <strong>most observations</strong>, thus <strong>overfits</strong> with low bias and high variance</li>
+<li>Validation uses the <strong>least observations</strong>, thus <strong>underfits</strong> with high bias but low variance </li>
 </ul>
+<p>Thus, Cross Validation with <span class="arithmatex">\(k=5\)</span> provides a <strong>good balance</strong>, which also takes into account computational efficiency.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Cross Validation with <span class="arithmatex">\(k=5\)</span> provides a good balance, which also takes into account computational efficiency.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is often difficult to understand why LOOCV has higher variance, given that the great similarity in the datasets used in each split should lead to very <strong>similar predictions</strong> each time and hence low variance.</p>
+<p>The key intuition is that the mean of <strong>highly correlated quantities</strong> (LOOCV prediction) tends to have <strong>higher variance</strong> than the mean of less correlated quantities (all else equal). This is consistent with the argument for Random Forests over Bagging as well.</p>
+<p>Note that in practice this might not hold true; there are several online discussions debating the validity of this claim. However, for the purposes of this exam, the above explanation is sufficient.</p>
 </div>
 <h3 id="complete-process"><strong>Complete Process</strong><a class="headerlink" href="#complete-process" title="Permanent link">&para;</a></h3>
 <ol>

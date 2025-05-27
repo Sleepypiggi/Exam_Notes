@@ -1760,6 +1760,17 @@
 <li><strong>Differencing</strong>: Typically creates <strong>stationarity in the Mean</strong></li>
 <li><strong>Log</strong>: Typically creates <strong>stationarity in the Variance</strong></li>
 </ul>
+<p>Note that if the log-transformed series is differenced, it can be interpreted as the <strong>proportional change</strong> across the period:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ln y_{t} - \ln y_{t-1}
+    &amp;= \ln \frac{y_{t}}{y_{t-1}} \\
+    &amp;= \ln (1 + \underbrace{\frac{y_{t}}{y_{t-1}} - 1}_{\text{Proportional Change}}) \\
+    &amp;= \ln (1 + \text{Proportional Change}) \\
+    &amp;\approx \text{Proportional Change}
+\end{aligned}
+\]</div>
+<p>The last step makes use of the taylor series expansion for small values of <span class="arithmatex">\(x\)</span>.</p>
 </div>
 <h3 id="white-noise"><strong>White Noise</strong><a class="headerlink" href="#white-noise" title="Permanent link">&para;</a></h3>
 <p>A variable that is <strong>naturally stationary</strong> is often referred to as <strong>White Noise</strong>, which is a term used to refer to a process that is <strong>completely random</strong>. The best forecast for such a variable is <strong>simply its mean</strong>; since it is assumed to be completely random: </p>
@@ -1966,7 +1977,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the 1-lag autocorrelation is <strong>positive</strong>, it is said to be <strong>Meandering process</strong>. This fact is stated in the text but does not have an intuitive explanation.</p>
+<p>If the 1-lag autocorrelation is <strong>positive</strong>, it is said to be <strong>Meandering process</strong>. It is a term used in Geography to describe Winding Rivers where adjacent points are connected to one another.</p>
 </div>
 <p>In order to determine if autocorrelation is truly present, a hypothesis test can be used:</p>
 <ul>
@@ -2127,6 +2138,10 @@
 <p class="admonition-title">Note</p>
 <p>There are also Cyclical effects that are long-term changes that occur at unknown intervals. For instance, an economic recession is a well-known Cyclical effect.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It can be said that all the models so far have been forecasting the conditional mean of the series; the level - which is why no consideration was made for the other effects.</p>
+</div>
 <p>There are two types of decomposition, depending on the nature of the data:</p>
 <p><center></p>
 <table>
@@ -2179,7 +2194,10 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(k\)</span>. The larger <span class="arithmatex">\(k\)</span>, the <strong>more periods</strong> included in the average, making it <strong>less sensitive</strong> to the current observation and hence <strong>more smooth</strong>.</p>
-<p>There is <strong>NO smoothing</strong> is <span class="arithmatex">\(k=1\)</span>.</p>
+<ul>
+<li><span class="arithmatex">\(k=1\)</span>: No smoothing</li>
+<li><span class="arithmatex">\(k=n\)</span>: Maximum smoothing</li>
+</ul>
 </div>
 <p>Assuming that the data has <strong>NO trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
 <div class="arithmatex">\[
@@ -2223,6 +2241,10 @@
 <p class="admonition-title">Info</p>
 <p>A similar proof can likely be shown using linear regression, but that it out of scope for the purposes of this exam.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One common criticism with the Moving Average Smoothing model is that time series models should give <strong>varying weights based on the recency</strong> of the observation - the current model gives equal weights to all observations within the window.</p>
+</div>
 <h3 id="exponential-smoothing"><strong>Exponential Smoothing</strong><a class="headerlink" href="#exponential-smoothing" title="Permanent link">&para;</a></h3>
 <p><strong>Exponential Smoothing</strong> follows a similar process, instead using a <strong>geometric average</strong> of ALL past observations. It can also be shown to be recursive:</p>
 <div class="arithmatex">\[
@@ -2231,7 +2253,7 @@
     &amp;= (1-w) y_{t} + w \cdot s_{t-1} \\
     &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + w^{2} \cdot s_{t-2} \\
     &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + w^{2} (1-w) \cdot y_{t-2} + \dots \\
-    &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + \dots + w^{t} \cdot y_{0}
+    &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + \dots + w^{t} (1-w) \cdot y_{0}
 \end{aligned}
 \]</div>
 <div class="admonition warning">
@@ -2241,9 +2263,19 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><span class="arithmatex">\(w\)</span> is the weight placed on HISTORICAL observations.</p>
+<p><span class="arithmatex">\(w\)</span> is the weight placed on HISTORICAL observations. T</p>
 <p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(w\)</span>. The larger it is, more weight placed on historical observations, making it <strong>less sensitive</strong> to the current observation and hence <strong>more smooth</strong>.</p>
-<p>A <strong>typical value</strong> for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span>. Similarly, there is NO smoothing when <span class="arithmatex">\(w=0\)</span>.</p>
+<ul>
+<li><span class="arithmatex">\(w=0\)</span>: No smoothing</li>
+<li><span class="arithmatex">\(w=1\)</span>: Maximum smoothing</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The weights applied to each observation will <strong>sum to 1</strong> across all observations; hence the smoothing actually produces a <strong>Weighted Average</strong> of the series:</p>
+<div class="arithmatex">\[
+    \sum w^{t} (1-w) = 1
+\]</div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2251,8 +2283,8 @@
 <div class="arithmatex">\[
     SS(w) = \sum (y_{t} - \hat{s}_{t-1})
 \]</div>
-<p>Note that <span class="arithmatex">\(s_{t-1}\)</span> is the prediction for <span class="arithmatex">\(y_{t}\)</span>, NOT <span class="arithmatex">\(s_{t}\)</span>. This is because <span class="arithmatex">\(s_{t}\)</span> already includes the actual observation at <span class="arithmatex">\(t\)</span>.</p>
-<p>Naturally, this can be used to determine the <strong>in-sample goodness of fit</strong> as well.</p>
+<p>Note that <span class="arithmatex">\(s_{t-1}\)</span> is the prediction for <span class="arithmatex">\(y_{t}\)</span>, NOT <span class="arithmatex">\(s_{t}\)</span>. This is because <span class="arithmatex">\(s_{t}\)</span> already includes the actual observation at <span class="arithmatex">\(t\)</span>. Naturally, this can be used to determine the <strong>in-sample goodness of fit</strong> as well.</p>
+<p>However, this method is computationally expensive. Thus, a <strong>Typical value</strong> for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span></p>
 </div>
 <p>Assuming that the data has <strong>no trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
 <div class="arithmatex">\[
@@ -2263,7 +2295,7 @@
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Similarly, the coefficient can be found via <strong>weighted least squares</strong> as well:</p>
+<p>Similarly, the coefficient can be found via <strong>discounted least squares</strong> as well. It is known as "Discounted" because the weighting parameter is similar to the <strong>discounting function</strong> in the time value of money:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \min &amp;\sum w_{t} (y_{t} - \hat{y}_{t})^{2} \\
@@ -2303,7 +2335,7 @@
 </div>
 <h2 id="other-models"><strong>Other Models</strong><a class="headerlink" href="#other-models" title="Permanent link">&para;</a></h2>
 <h3 id="volatility-models"><strong>Volatility Models</strong><a class="headerlink" href="#volatility-models" title="Permanent link">&para;</a></h3>
-<p>So far, all the models discussed cannot work with non-stationary data. However, if the data exhibits <strong>non-constant variance</strong>, there are two models that can be used:</p>
+<p>So far, all the models discussed cannot work with non-stationary data. However, if the data exhibits <strong>changing variance</strong>, there are two models that can be used:</p>
 <ul>
 <li>Autoregressive Changing Heteroscedasticity (<strong>ARCH</strong>) - Based on <strong>past error</strong> terms</li>
 <li>Generalized Autoregressive Changing Heteroscedasticity (<strong>GARCH</strong>) - Based on past error terms <strong>AND past conditional variances</strong></li>
@@ -2329,8 +2361,8 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The above two models assume that conditional variance can change, but the <strong>UNCONDITIONAL variance is still constant</strong>; still weakly stationary. Hence are called “conditionally” heteroscedastic.</p>
-<p>Thus, the UNCONDITINAL variance for both ARCH and GARCH can be expressed as:</p>
+<p>The above two models assume that conditional variance can change, but the <strong>UNCONDITIONAL variance is still constant</strong>; <strong>still weakly stationary</strong>. Hence are called “conditionally” heteroscedastic.</p>
+<p>Thus, the <strong>UNCONDITINAL variance</strong> for both ARCH and GARCH can be expressed as:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Var}(\varepsilon_{t})
@@ -2387,7 +2419,7 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The above metrics can be used to <strong>identify trend</strong> patterns in the data.</p>
+<p>The above metrics can be used to <strong>identify trend</strong> patterns in the data that were <strong>not anticipated</strong> by the data.</p>
 <p>However, the <strong>squared and the absolute variants</strong> are slightly better as they do NOT allow for offsetting effects.</p>
 </div>
 <h2 id="key-model-summary"><strong>Key Model Summary</strong><a class="headerlink" href="#key-model-summary" title="Permanent link">&para;</a></h2>

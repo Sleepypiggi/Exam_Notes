@@ -1828,6 +1828,10 @@
 \]</div>
 </div>
 <p>Recall that for parametric learning methods, increasing the number of parameters (all else equal) tends to <strong>increase the flexibility</strong> of the model; ability to fit the data (RegSS). Thus, in a MLR setting, R-squared can be <strong>artifically inflated</strong> by adding more parameters, even when they are nonsensical!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To elaborate, OLS is likely to assign <strong>non-zero coefficients</strong> to the irrelevant predictors because the training set may have exhibited some <strong>chance-relationship</strong> between the two. This relationship likely WONT exist in other datasets, thus estimating coefficients for these variables will definitely result in <strong>overfitting</strong>.</p>
+</div>
 <p>Thus, to account for this, the <strong>Adjusted R-squared</strong> is considered by <strong>dividing each term by their degrees of freedom</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2126,6 +2130,10 @@ Var(\hat{\beta}) =
 <p>This could lead to scenarios where the Interaction Variable is statistically significant but the <strong>underlying variables individually are not</strong>.</p>
 <p>Through the <strong>Hierarchical Principle</strong>, it is common practice that to <strong>include the individual variables</strong> as well regardless of their significance. Note that this applies to <strong>Polynomial Regression</strong> as well, which is why all lower order terms are retained as well.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Each interaction variable DOES consume a degree of freedom.</p>
+</div>
 <p>If the interaction variable <strong>contains a dummy variable</strong>, then the interpretation changes from before. The existing coefficient of the dummy remains the same, but there is an additional <strong>coefficient from the interaction</strong> which represents the <strong>difference in slope</strong> from the two lines:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2362,6 +2370,45 @@ Var(\hat{\beta}) =
 <p></center></p>
 <!-- Obtained from Towards Data Science -->
 <p><img alt="REGULARIZATION_VISUAL" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGULARIZATION_VISUAL.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>LASSO performs better when the underlying process is only a function of a few key variables, while Ridge performs better when there are multiple predictors. This is intuitive, given that the key difference is the dropping of variables.</p>
+</div>
+<p>Another explanation for the difference in behaviour is the following:</p>
+<ul>
+<li><strong>Ridge</strong>: Shrinks all coefficients by the <strong>same proportion</strong></li>
+<li><strong>LASSO</strong>: Shrinks all coefficients by a <strong>constant amount</strong>; but if <strong>smaller than the constant</strong>, then the coefficient is set to 0 (Dropped)</li>
+</ul>
+<!-- Obtained from ISLR -->
+<p><img alt="SOFT_THRESHOLD" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/SOFT_THRESHOLD.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This behaviour in the LASSO is known as <strong>Soft Thresholding</strong>, as all variables below the threshold become dropped.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>From a dimension reduction perspective, both Ridge and Lasso are highly efficient compared to best subset selection. It can be shown that fitting a model for all possible values of <span class="arithmatex">\(\lambda\)</span> is similar to OLS.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To be clear on the definition of L1 and L2 norms:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ell_{1} &amp;= |a| + |b| \\
+    \ell_{2} &amp;= \sqrt{a^{2} + b^{2}}
+\end{aligned}
+\]</div>
+<p><!-- Self Made -->
+<img alt="L1_L2_NORM" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/L1_L2_NORM.png" /></p>
+<p>Apart from expressing the shrinkage based on <span class="arithmatex">\(\lambda\)</span>, it is also common to express the shrinkage based on the <strong>proportion of the norms</strong>, which is slightly easier to interpret as it ranges from 0 to 1, which is <strong>proportional to the amount of shrinkage</strong> done:</p>
+<div class="arithmatex">\[
+    \text{Norm Proportion}
+    = \frac{\text{Norm of shrunk coefficients}}{\text{Norm of original coefficients}}
+\]</div>
+<p>The key is that the directional effects are <strong>opposite</strong> of <span class="arithmatex">\(\lambda\)</span>, which often results in mirrored graphs:</p>
+<p><!-- Obtained from ISLR -->
+<img alt="LAMBDA_VS_NORM" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LAMBDA_VS_NORM.png" /></p>
+</div>
 <h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
 <p>Before using the two methods, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since a penalty is placed on the <strong>magnitude of the coefficient</strong> (proportional to scale).</p>
 <div class="admonition note">

@@ -1962,6 +1962,10 @@
 <p class="admonition-title">Warning</p>
 <p>Observations with high leverage or that is an outlier merely have the <em>potential</em> to be Influential. They are not guaranteed to be influential; it depends on other component.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a variable with multiple predictors, it might be hard to identify high leverage points graphically of multi-dimensional aspect. The value of the predictor might be typical in each respective dimension, but <strong>unusual when taken collectively</strong>. This is why leverage <strong>must be quantified</strong> to obtain a true understanding.</p>
+</div>
 <h4 id="leverage"><strong>Leverage</strong><a class="headerlink" href="#leverage" title="Permanent link">&para;</a></h4>
 <p>The <strong>Leverage</strong> for an observation is the element for that observation on the <strong>diagonal of the Hat matrix</strong>:</p>
 <div class="arithmatex">\[
@@ -2101,30 +2105,40 @@
 <p>If the substitute cannot be performed due to a lack of data or other reasons, it is also possible to perform a <strong>transformation</strong> on the data to stabilize it.</p>
 </div>
 <h3 id="high-dimensionality"><strong>High Dimensionality</strong><a class="headerlink" href="#high-dimensionality" title="Permanent link">&para;</a></h3>
-<p>As alluded to previously, increasing the number of parameters in the model does NOT necessarily benefit the model. In fact, it can be detrimental via a Phenomenon known as the <strong>Curse of Dimensionality</strong>.</p>
-<p>A sample of 100 observations is a lot of information for a model with 2 predictors, but is sparse for a model with 50 predictors. Thus, <strong>increasing the number of predictors relative to the sample size</strong> tends to have detrimental effects:</p>
+<p>In recent years, due to the advent of <strong>big data</strong>, the amount of information collected has increased drastically, resulting in many situations where there are <strong>just as many or even more features</strong> than there are observations (<span class="arithmatex">\(n \lt p\)</span>). This is problematic for a <strong>traditional learning methods</strong> such as linear regression which does not account for such possibilities.</p>
 <ul>
-<li><span class="arithmatex">\(p \gt n\)</span>: <strong>Insufficient information</strong> to fit the model</li>
-<li><span class="arithmatex">\(p = n\)</span>: Model fits data <em>perfectly</em>, resulting in <strong>overfitting</strong></li>
-<li><span class="arithmatex">\(p \lt n\)</span>, but <strong>limited degrees of freedom</strong>: Esimates become <strong>unstable</strong>, resulting in higher standard errors and hence <strong>incorrect statistical inferences</strong></li>
+<li><strong>More Features than Observations</strong> (<span class="arithmatex">\(p \gt n\)</span>): No unique fits to the model</li>
+<li><strong>Features exactly equal Observations</strong> (<span class="arithmatex">\(p = n\)</span>): Perfect fit (Overfitting)</li>
+<li><strong>Slighly Less Features than Observations</strong> (<span class="arithmatex">\(p \approx n\)</span>): Limited degrees of freedom; largely fits the data (Overfitting)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is also a possibility that increasing the number of predictors results in choosing two or more highly correlated variables, resulting in <strong>Multicollinearity</strong>.</p>
+<p>The deteriorative performance of models due to overfitting with higher dimensions is known as the <strong>Curse of Dimensionality</strong>.</p>
+<p>Any other traditional measures also cannot be used as a result (EG. R2, P-values). Similarly, AIC and BIC cannot be used as well due to <strong>difficuly in estimating the MSE</strong>.</p>
 </div>
-<p>The natural solution would be to <strong>limit the number of predictors</strong> by choosing only truly relevant variables and/or to <strong>increase the sample size</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also a possibility that increasing the number of predictors results in choosing two or more highly correlated variables. Thus, high dimensionality has a tendency to result in <strong>Multicollinearity</strong>.</p>
+</div>
+<p>The natural solution would be to <strong>limit the number of predictors</strong> by choosing only truly relevant variables and/or to <strong>increase the sample size</strong>. This can be achieved via:</p>
+<ul>
+<li>Model Selection</li>
+<li>Dimensionality Reduction methods - PCA, PLS, LASSO</li>
+</ul>
 <h4 id="partial-least-squares"><strong>Partial Least Squares</strong><a class="headerlink" href="#partial-least-squares" title="Permanent link">&para;</a></h4>
 <p>Another method is to use <strong>Partial Least Squares</strong> (PLS). It seeks to create <strong>new variables</strong> that are <strong>linear combinations</strong> of existing variables (known as <strong>Directions</strong>) which are then used to perform the regression instead.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>To be precise, only the first PLS direction is a direct combination of the underlying predictors.</p>
-<p>Subsequent directions use a <strong>combination of the residuals</strong> of a regression using previous directions to predict the the <strong>original predictors</strong></p>
-<p>The idea sounds <em>similar</em> to Boosting but is not exactly it as well.</p>
+<ul>
+<li><strong>First</strong> PLS direction (PL1) is a <strong>direct combination</strong> of the original variables with the goal of explaining the most variation in the dependent variable</li>
+<li><strong>Second</strong> PLS direction onwards (PL2) is obtained by <strong>regressing each predictor on the previous PLS direction</strong> and using the residuals (left over information; <strong>orthogonalized data</strong>) to form the combination, similar to how the first direction was formed</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PLS can thus be thought of as a supervised version of PCA/PCR - with the <strong>express goal of explaining the dependent</strong>. The formation of the second direction onwards is similar to boosting process in decision trees.</p>
+<p>That said, in practice, it performs <strong>no better</strong> than regularization or PCR.</p>
 </div>
-<p>The key difference when compared to PCA is that PLS finds new directions with the <strong>inherent goal of explaining the dependent variable</strong>. Consequently, cross validation can be used to determine the optimal number of directions.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>ALL features are used to create the directions; there is <strong>NO variable selection</strong> (dropping of variables) involved, only involvement to different extents.</p>
+<p>Similar to PCR, ALL features are used to create the directions; there is <strong>NO variable selection</strong> (dropping of variables) involved, only involvement to different extents.</p>
 </div>
 
 

@@ -1265,16 +1265,56 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#overdispersion_1" class="md-nav__link">
-    Overdispersion
+  <a href="#dispersion" class="md-nav__link">
+    Dispersion
+  </a>
+  
+    <nav class="md-nav" aria-label="Dispersion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#negative-binomial" class="md-nav__link">
+    Negative Binomial
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#excess-zeroes" class="md-nav__link">
-    Excess Zeroes
+  <a href="#zero-inflated" class="md-nav__link">
+    Zero Inflated
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hurdle-model" class="md-nav__link">
+    Hurdle Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heterogeneity-model" class="md-nav__link">
+    Heterogeneity Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Heterogeneity Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#latent-class-models" class="md-nav__link">
+    Latent Class Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1609,16 +1649,56 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#overdispersion_1" class="md-nav__link">
-    Overdispersion
+  <a href="#dispersion" class="md-nav__link">
+    Dispersion
+  </a>
+  
+    <nav class="md-nav" aria-label="Dispersion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#negative-binomial" class="md-nav__link">
+    Negative Binomial
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#excess-zeroes" class="md-nav__link">
-    Excess Zeroes
+  <a href="#zero-inflated" class="md-nav__link">
+    Zero Inflated
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hurdle-model" class="md-nav__link">
+    Hurdle Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heterogeneity-model" class="md-nav__link">
+    Heterogeneity Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Heterogeneity Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#latent-class-models" class="md-nav__link">
+    Latent Class Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1672,12 +1752,17 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The two paraemters are referred to as the <strong>Canonical (<span class="arithmatex">\(\theta\)</span>) and the Dispersion (<span class="arithmatex">\(\phi\)</span>) Parameters</strong> respectively. They have no clear interpretation, it is sufficient to know that they affect the <strong>mean and variance</strong> respectively.</p>
+<p>The two parameters are referred to as the <strong>Canonical (<span class="arithmatex">\(\theta\)</span>) and the Dispersion (<span class="arithmatex">\(\phi\)</span>) Parameters</strong> respectively. They have no clear interpretation, it is sufficient to know that they affect the <strong>mean and variance</strong> respectively.</p>
 <p>Consequently, the first and second derivatives are known as the <strong>Mean and Variance Function</strong> respectively. The key is remembering that the Variance is <strong>not entirely determined by the variance function</strong>, unlike the mean.</p>
 <p>It is typically assumed that <span class="arithmatex">\(\phi\)</span> is a <strong>known constant</strong>.</p>
 </div>
 <!-- Obtained from Daily Dose of Data Science -->
 <p><img alt="LEF" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/LEF.png" /></p>
+<p>There exists a special distribution known as the <strong>Tweedie Distribution</strong>. It is a <strong>Poisson Sum of Gamma Variables</strong>, which can be shown to be <strong>part of LEF</strong> as well. Its properties are <strong>somewhere in between</strong> the two.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is useful because it a <strong>Discrete Continuous Mixture</strong> modelling the frequency and severity of claims, which results in the <strong>aggregate loss</strong> commonly used in actuarial science.</p>
+</div>
 <h3 id="link-functions"><strong>Link Functions</strong><a class="headerlink" href="#link-functions" title="Permanent link">&para;</a></h3>
 <p>Under linear regression, the model <strong>directly affects</strong> the dependent variable. Since the model changes linearly, the dependent variable <strong>must change linearly</strong> as well:</p>
 <div class="arithmatex">\[
@@ -1784,10 +1869,15 @@
 <li><strong>Saturated</strong>: Uses actual observations (Since a saturated model fits the data perfectly)</li>
 <li><strong>Fitted</strong>: Uses fitted observations</li>
 </ul>
-<p>Recall that since the likelihood is already a sum for each observation, the deviance for a particular observation is known as the <strong>Deviance Residuals</strong>.</p>
+<p>Recall that since the likelihood is already a sum for each observation, there exists a deviance for each observation as well. The squareroot of that amount is known as the <strong>Deviance Residual</strong>:</p>
 <div class="arithmatex">\[
-    D^{*} = \sum D^{*}_{i}
+\begin{aligned}
+    D^{*} &amp;= \sum D^{*}_{i} \\
+    \\
+    \text{Deviance Residual} &amp;= \pm \sqrt{D^{*}_{i}}
+\end{aligned}
 \]</div>
+<p>The sign of the deviance residuals follow the sign of the <strong>Raw Residual</strong>.</p>
 </div>
 <p>The fitted model should have <strong>sufficiently high likelihood</strong> to ensure that it captures the signals, but be reasonably smaller than the saturated model to prevent overfitting. Thus, models with <strong>smaller (but NOT too small) deviance</strong> are preferred.</p>
 <div class="admonition tip">
@@ -1843,6 +1933,7 @@
     &amp;= 2 \cdot \sum \left[ y_{i} \ln \left(\frac{y_{i}}{\hat{y}_{i}} \right) - (y_{i} - \hat{y}_{i}) \right] \\
 \end{aligned}
 \]</div>
+<p>For a <strong>normal link</strong>, in other words regular linear regression, the Deviance is equivalent to the <strong>RSS</strong>.</p>
 </div>
 <p>The concept of deviance is similar to goodness of fit, thus can be used similarly to R-squared, known as <strong>Pseduo R-squared</strong>:</p>
 <div class="arithmatex">\[
@@ -1883,59 +1974,61 @@
 <p>For the purposes of this exam, it is typically assumed that the restricted model is the null model; similar overall set-up to an F-test.</p>
 </div>
 <h3 id="pearson-residuals"><strong>Pearson Residuals</strong><a class="headerlink" href="#pearson-residuals" title="Permanent link">&para;</a></h3>
-<p>Pearson Residuals are the raw residuals scaled by the standard deviation:</p>
+<p>Pearson Residuals are the raw residuals <strong>scaled by the standard deviation</strong>:</p>
 <div class="arithmatex">\[
-    e_{\text{Pearson}} = \frac{y - \hat{y}}{\sqrt{\text{Var}(y)}}
+    e_{\text{Pearson}} = \frac{y - \hat{y}}{\sqrt{\hat{\text{Var}}(y)}}
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The standard deviation is from the variance of the underlying distribution, NOT of the coefficients or the sort.</p>
+<p>The standard deviation is from the variance of the underlying distribution, NOT of the coefficients or the sort:</p>
 <ul>
 <li>Binomial: <span class="arithmatex">\(\text{Var(Y)} = np(1-p)\)</span></li>
 <li>Poisson: <span class="arithmatex">\(\text{Var(Y)} = \mu\)</span></li>
 </ul>
 </div>
-<p>If the model fits the data well, the sum of squared pearson residuals should be <strong>roughly equal to its degrees of freedom</strong> (<span class="arithmatex">\(n-p-1\)</span>):</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For the poisson distribution specifically, the reason why Pearson residuals are used is because the raw residuals are expected to be <strong>Heteroscedastic</strong>. Another interesting effect is that the <strong>SUM OF SQUARED pearson residuals</strong> is equivalent to the Chi-Square goodness of fit:</p>
 <div class="arithmatex">\[
-    \sum e^{2}_{\text{Pearson}} \sim n-p-1
+\begin{aligned}
+     \text{Pearson Goodness of Fit}
+     &amp;= \sum e^{2}_{\text{Pearson}} \\
+     &amp;= \sum \left(\frac{y - \hat{y}}{\sqrt{\hat{\text{Var}}(y)}} \right)^{2} \\
+     &amp;= \sum \left(\frac{(y - \hat{y})^{2}}{\hat{\text{Var}}(y)} \right) \\
+     &amp;= \sum \left(\frac{(y - \mu)^{2}}{\mu} \right) \\
+     &amp;\approx \sum \frac{(O - E)^{2}}{E} \\
+     &amp;\approx \text{Chi Square Goodness of fit} \\
+     \\
+     \text{Pearson Goodness of Fit} &amp;\sim n - p -1
+\end{aligned}
 \]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The sum of squared pearson residuals is also known as the Pearson chi square statistic. Although the names are rightfully similar, do NOT confuse the above with the Pearson Chi-Square Goodness of fit test; they are quantifying DIFFERENT things:</p>
-<ul>
-<li><strong>Sum of Pearson Residuals</strong>: Determine if the <strong>fitted GLM</strong> is a good fit for the data</li>
-<li><strong>Chi Square Goodness of fit</strong>: Determine if a <strong>chosen distribution</strong> is a good fit for the data</li>
-</ul>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The reason why "normal" residuals are not useful in GLMs is because each model follows a <strong>different distribution</strong>, thus there are is <strong>no uniform behaviour for raw residuals</strong>.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>As they are stills residuals, they can be used in a <strong>similar way</strong> - to find outliers or identify misspecification.</p>
+<p>Generally, why "normal" residuals are not useful in GLMs is because each model follows a <strong>different distribution</strong>, thus there are is <strong>no uniform behaviour for raw residuals</strong>.</p>
+<p>However, as they are stills residuals, they can be used in a <strong>similar way</strong> - to find outliers or identify misspecification.</p>
 </div>
 <h3 id="overdispersion"><strong>Overdispersion</strong><a class="headerlink" href="#overdispersion" title="Permanent link">&para;</a></h3>
-<p>Dispersion is a measure of the <strong>variability of the actual data</strong> compared to the assumed variability in the chosen distribution. If the variability is larger, then it is known as <strong>Overdispersion</strong>, vice versa. This affects the standard error of the estimates:</p>
+<p>Dispersion is a measure of the variability of the actual data relative to the assumed variability in the chosen distribution:</p>
 <ul>
-<li><strong>Overdispersion</strong>: Standard Errors understated; False positives</li>
-<li><strong>Underdispersion</strong>: Standard Errors overstated; False negatives</li>
+<li><strong>Actual Variability Larger</strong>: Overdispersion; Standard Error <strong>understated</strong>; false positives</li>
+<li><strong>Actual Variability Smaller</strong>: Underdispersion; Standard Error <strong>overstated</strong>; false negatives</li>
 </ul>
 <p>One method to overcome this is to multiply a the <strong>squared pearson statistic</strong> (<span class="arithmatex">\(\delta\)</span>) to the variance to <strong>re-scale</strong> the variance to an appropriate level</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \delta &amp;= \frac{\sum e^{2}_{\text{Pearson}}}{n-p-1} \\
+    \text{Var(Y')} &amp;= \delta \cdot b''(\theta) \\
     \\
-    \therefore \text{Var(Y')} &amp;= \delta \cdot \text{Var}(Y)
+    \delta &amp;= \frac{1}{n-p-1} \cdot \text{Pearson Goodness of Fit} \\
 \end{aligned}
 \]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The above method only works for distributions which have a <strong>restrictive variance</strong> (related to the mean). If the variance is unrestricted (EG. Normal), the adjustment would not solve the mismatch in dispersion.</p>
+<p>The above method only works for distributions which have a <strong>restrictive variance</strong> (related to the mean - <span class="arithmatex">\(b''(\theta)\)</span> must exist). If the variance is unrestricted (EG. Normal), the adjustment would NOT solve the mismatch in dispersion.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Note that this means that the pearson chi-squared statistic can also be used to <strong>indicate when large over-dispersion is present</strong>, since the adjustment required is directly related to it.</p>
+<p>This also means that the pearson chi-squared statistic can also be used to <strong>indicate when large over-dispersion is present</strong>, since the adjustment required is <strong>proportional to the amount needed to re-scale</strong> the variance.</p>
 </div>
 <p>The above <strong>alters the variance of the estimates</strong> to match the data (<span class="arithmatex">\(\beta\)</span> is unaffected):</p>
 <ul>
@@ -1969,9 +2062,13 @@
 <p class="admonition-title">Tip</p>
 <p>Logit and Probit are the most popular methods. However, logit is preferred as it can be expressed in a closed form.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Despite being called logistic <em>regression</em>, it is actually a classification method.   </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Logistic Regression exists in a grey area:</p>
+<ul>
+<li>It is technically a <strong>regression method</strong> as it estimates a <strong>continuous value of probabilities</strong></li>
+<li>However, it is also regarded as a <strong>classification method</strong> as it ultimately predicts one of two <strong>categories</strong> </li>
+</ul>
 </div>
 <p>Logit is the canonical link function; the resulting GLM is known as a <strong>Logistic Regression</strong>. It models the <strong>Log-Odds</strong> of an event occuring:</p>
 <div class="arithmatex">\[
@@ -2144,29 +2241,20 @@
 <p>It is not fair to directly compare the number of A's for each subject and conclude which is doing best - we should consider the <strong>underlying exposure</strong> as well to consider the A-rate.</p>
 </div>
 <p>The poisson coefficients have a very similar intepretation with the logit model - it represents the <strong>multiplicative increase</strong> in the count given a one unit increase or in the presence of another variable.</p>
-<h3 id="overdispersion_1"><strong>Overdispersion</strong><a class="headerlink" href="#overdispersion_1" title="Permanent link">&para;</a></h3>
-<p>Although the poisson distribution is suited to model counts, it has a <strong>restrictive</strong> property where the mean and variance must be equal. This makes it inadequate where the underlying data exhibits <strong>overdispersion</strong>. Thus, a different distribution should be used.</p>
-<p>A generic method of dealing with overdispersion is to use the <strong>Negative Binomial Distribution</strong> which is <strong>more flexible</strong> as its variance is larger than its mean.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Note that the poisson is actually a limiting case of the negative binomial where the parameters go to infinity, thus the change in distribution is not too drastic.</p>
-</div>
-<p>Alternatively, it is possible to create a new distribution using a <strong>mixture</strong> of distributions to achieve the desired property, where a parameter of the primary distribution follows a secondary distribution. For instance:</p>
-<ul>
-<li>Poisson &amp; Gamma Mixture (results in Negative Binomial)</li>
-<li>Poisson &amp; Lognormal Mixture</li>
-</ul>
+<h3 id="dispersion"><strong>Dispersion</strong><a class="headerlink" href="#dispersion" title="Permanent link">&para;</a></h3>
+<p>Although the poisson distribution is suited to model counts, it has a <strong>restrictive</strong> property where the <strong>mean and variance MUST be equal</strong>. This makes it inadequate where the underlying data exhibits <strong>overdispersion</strong>. As mentioned previously, one method is to adjust the re-scale the variance using the pearson residuals. This section addresses more drastic approaches to deal with it.</p>
+<h4 id="negative-binomial"><strong>Negative Binomial</strong><a class="headerlink" href="#negative-binomial" title="Permanent link">&para;</a></h4>
+<p>Another method is to use a different distribution which does not have this restrictive property - such as the  <strong>Negative Binomial Distribution</strong>:</p>
+<ol>
+<li>It has <strong>two parameters</strong> to fit the data, allowing for more flexibility</li>
+<li>Poisson is a <strong>limiting case</strong> of the negative binomial (<strong>reasonable change</strong>)</li>
+<li>Negative Binomial is a <strong>mixture of Poisson and Gamma</strong> (thus is a reasonable distribution)</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are two <strong>general names</strong> given to such models:</p>
-<ol>
-<li><strong>Latent Class Models</strong>: Discrete Mixtures</li>
-<li><strong>Hetereogeneity Models</strong>: Continuous Mixtures</li>
-</ol>
+<p>If the Negative Binomial is more flexible, why isnt the negative binomial used directly in the first place? Because Poisson is much <strong>simpler to model and interpret</strong>, with only parameter.</p>
 </div>
-<!-- Obtained from Coaching Actuaries -->
-<p><img alt="OVERDISPERSION_MODELS" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/OVERDISPERSION_MODELS.png" /></p>
-<h3 id="excess-zeroes"><strong>Excess Zeroes</strong><a class="headerlink" href="#excess-zeroes" title="Permanent link">&para;</a></h3>
+<h4 id="zero-inflated"><strong>Zero Inflated</strong><a class="headerlink" href="#zero-inflated" title="Permanent link">&para;</a></h4>
 <p>A common reason for Over-dispersion is due to an <strong>excess of zeroes</strong> in reality compared to our expectation, known as <strong>Zero Inflation</strong>. In these cases, the original distribution must be <strong>adjusted to account for probability of zeroes</strong> occuring.</p>
 <p>A <strong>Zero Inflated Model</strong> is appropriate when the underlying <strong>event occurred, but no count was made</strong>. For instance, a policyholder might choose not to make a claim despite incurring a loss due to considering premium rate increases.</p>
 <p>Thus, it is necessary to account for and <strong>distinguish between the types</strong> of zeroes. This can be done via a <strong>Logistic Regression</strong> which is set to identify <strong>False Zeroes</strong>:</p>
@@ -2192,6 +2280,7 @@
 <p class="admonition-title">Tip</p>
 <p>The key idea is that the original probabilities are adjusted to account for the possibility of being False Zeroes.</p>
 </div>
+<h4 id="hurdle-model"><strong>Hurdle Model</strong><a class="headerlink" href="#hurdle-model" title="Permanent link">&para;</a></h4>
 <p>A <strong>Hurdle Model</strong> is appropriate when the zeroes occur because a certain <strong>hurdle or threshold was not crossed</strong>. For instance, when projecting the number of laps swam based on the number of people who visited the swimming pool, it should account for individuals who <strong>never entered</strong> the pool (Hurdle) (EG. Parents).</p>
 <p>In this case, there is a clear reason for the zeroes, thus the probability for the zero count should be <strong>modelled seperate</strong> for the non-zero values:</p>
 <ul>
@@ -2210,6 +2299,36 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The resulting distribution should use a <strong>zero-truncated</strong> probability to reflect that the original distribution should not be used for zero counts.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Although not shown explicitly, Hurdle models are the only <strong>one of two models</strong> discussed in this section that allows for UNDER-dispersion as well; the other is the Latent Class Model.</p>
+</div>
+<h3 id="heterogeneity-model"><strong>Heterogeneity Model</strong><a class="headerlink" href="#heterogeneity-model" title="Permanent link">&para;</a></h3>
+<p>A <strong>Heterogeneity Model</strong> is where one or more of the model parameters are <strong>modelled as a seperate distribution</strong>, known as the <strong>Heterogeneity Component</strong>. The resulting distribution is mixture as well:</p>
+<ul>
+<li>Poisson &amp; Log-Gamma</li>
+<li>Poisson &amp; Lognormal</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The word Heterogeneity means <strong>Diversity</strong>.</p>
+<p>In essence, Heterogeneity models <strong>account for the diversity</strong> in the data that is <strong>NOT observed</strong> but still significantly impact the target variable. </p>
+</div>
+<h4 id="latent-class-models"><strong>Latent Class Models</strong><a class="headerlink" href="#latent-class-models" title="Permanent link">&para;</a></h4>
+<p>A <strong>Latent Class Model</strong> is where the modeller would like to split the data into classes:</p>
+<ul>
+<li>Healthy vs Ill People</li>
+<li>Low vs High Risk individuals</li>
+</ul>
+<p>These classes are "unobserved" (<strong>Latent</strong>) in the data as they are <strong>not explicit</strong>. Thus, the classes are treated as a <strong>Discrete Random Variable</strong> and modelled via a <strong>Mixture</strong> as well.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Latent Class Models can be said to be modelling the heterogeneity described in the previous section as well.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Although not shown explicitly, Latent Class models are the only <strong>one of two models</strong> discussed in this section that allows for UNDER-dispersion as well; the other is the <strong>Hurdle Model</strong>.</p>
 </div>
 
 
