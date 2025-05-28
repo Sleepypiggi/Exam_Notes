@@ -1782,11 +1782,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some texts refer to the Mean Square of Residuals as the <strong>Mean Square Error</strong> (MSE). This is because residuals and errors are used interchangeably. However, to avoid confusion within the notes, we avoid that notation.</p>
-<p>Other terminology points:</p>
-<ul>
-<li>Squareroot of Mean Square of Residuals is sometimes known as the <strong>Standard Error of Regression</strong></li>
-<li>Mean Square of Total is the <strong>unbiased sample variance</strong></li>
-</ul>
+<p>Note that the Mean Square of Total is the <strong>unbiased sample variance</strong>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1873,6 +1869,8 @@
 <p>In practice, the actual variance of the error is unknown. Thus, we estimate it by with the <strong>Mean Square of the Residuals</strong> instead. This quantity is also known as the <strong>Standard Error the Regression</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
+    \hat{\sigma}^{2} &amp;= \sigma^{2}_{\text{RSS}} \\
+    \\
     \widehat{\text{Var}(\hat{\beta_{0}})}
     &amp;= \sigma^{2}_{\text{RSS}} \cdot \left(\frac{1}{n} + \frac{\bar{x}^{2}}{\sum (x_{i} - \bar{x})^{2}} \right) \\
     \\

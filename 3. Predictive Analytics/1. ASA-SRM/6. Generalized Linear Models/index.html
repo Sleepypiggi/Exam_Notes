@@ -1777,8 +1777,8 @@
     &amp;= g^{-1}(\boldsymbol{X}^{T} \boldsymbol{\beta}) 
 \end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>By definition, the link functions maps the dependent variable to the linear predictors. Hence, going the other way round, it is known as the <strong>Inverse Link Function</strong>.</p>
 </div>
 <p>The key consideration when choosing a link function is the <strong>domain</strong>:</p>
@@ -1988,7 +1988,8 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For the poisson distribution specifically, the reason why Pearson residuals are used is because the raw residuals are expected to be <strong>Heteroscedastic</strong>. Another interesting effect is that the <strong>SUM OF SQUARED pearson residuals</strong> is equivalent to the Chi-Square goodness of fit:</p>
+<p>For the poisson distribution specifically, the reason why Pearson residuals are used is because the raw residuals are expected to be <strong>Heteroscedastic</strong>.</p>
+<p>Another interesting effect is that the <strong>SUM OF SQUARED pearson residuals</strong> is equivalent to the Chi-Square goodness of fit:</p>
 <div class="arithmatex">\[
 \begin{aligned}
      \text{Pearson Goodness of Fit}
@@ -2014,7 +2015,7 @@
 <li><strong>Actual Variability Larger</strong>: Overdispersion; Standard Error <strong>understated</strong>; false positives</li>
 <li><strong>Actual Variability Smaller</strong>: Underdispersion; Standard Error <strong>overstated</strong>; false negatives</li>
 </ul>
-<p>One method to overcome this is to multiply a the <strong>squared pearson statistic</strong> (<span class="arithmatex">\(\delta\)</span>) to the variance to <strong>re-scale</strong> the variance to an appropriate level</p>
+<p>One method to overcome this is to multiply an <strong>adjusted Pearson Goodness of Fit statistic</strong> (<span class="arithmatex">\(\delta\)</span>) to the variance to <strong>re-scale</strong> the variance to an appropriate level:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{Var(Y')} &amp;= \delta \cdot b''(\theta) \\
@@ -2043,12 +2044,39 @@
 <h3 id="binary-response"><strong>Binary Response</strong><a class="headerlink" href="#binary-response" title="Permanent link">&para;</a></h3>
 <p>A Binary response variable has only two outcomes (0,1), thus a <strong>Bernoulli Distribution</strong> is used to model it. There are <strong>three main link functions</strong> that can map the the range into (0,1):</p>
 <ul>
-<li><strong>Logit</strong>: <span class="arithmatex">\(\ln \frac{\mu}{1-\mu}\)</span></li>
-<li><strong>Probit</strong>: <span class="arithmatex">\(\Phi^{-1}(\mu)\)</span></li>
-<li><strong>Complementary Log-Log</strong>: <span class="arithmatex">\(\ln[- \ln(1-\mu)]\)</span></li>
+<li><strong>Logit Link</strong>: <span class="arithmatex">\(\ln \frac{\mu}{1-\mu}\)</span></li>
+<li><strong>Probit Link</strong>: <span class="arithmatex">\(\Phi^{-1}(\mu)\)</span></li>
+<li><strong>Complementary Log-Log Link</strong>: <span class="arithmatex">\(\ln[- \ln(1-\mu)]\)</span></li>
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="BINARY_LINK" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/BINARY_LINK.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Recall the difference the function and the link function:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Z &amp;= \ln \left( \frac{P}{1-P} \right) \\
+    e^{Z} &amp;= \frac{P}{1-P} \\
+    e^{Z} - P \cdot e^{Z} &amp;= P \\
+    P + P \cdot e^{Z} &amp;= e^{Z} \\
+    P (1 + e^{Z}) &amp;= e^{Z} \\
+    P &amp;= \frac{e^{Z}}{1 + e^{Z}} \\
+    \therefore \text{Logit} &amp;= \frac{e^{Z}}{1 + e^{Z}} \\ 
+    \\
+    Z &amp;= \Phi^{-1}(P) \\
+    P &amp;= \phi(Z) \\
+    \therefore \text{Probit} &amp;= \phi(Z) \\
+    \\
+    Z &amp;= \ln (- \ln(1-p)) \\
+    e^{Z} &amp;= - \ln (1-p) \\
+    -e^{Z} &amp;= \ln (1-p) \\
+    e^{-e^{z}} &amp;= 1 - p \\
+    P &amp;= 1 - e^{-e^{z}}
+\end{aligned}
+\]</div>
+<p><!-- Self Made -->
+<img alt="LOGIT_VS_LOGIT_LINK" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/LOGIT_VS_LOGIT_LINK.png" /></p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Notice the similarities between the three:</p>
