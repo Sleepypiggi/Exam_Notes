@@ -1796,6 +1796,10 @@
 <p class="admonition-title">Warning</p>
 <p><strong>ONLY White Noise</strong> data will generate the erratic pattern. If this pattern is noticed in another question, then it is likely a trick question - the data likely follows a modified version of one of the models studied that allows for the erratic pattern. </p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Stochastic patterns such as White Noise are NOT limited to just time series; they can occur in cross sectional data as well.</p>
+</div>
 <h3 id="random-walk"><strong>Random Walk</strong><a class="headerlink" href="#random-walk" title="Permanent link">&para;</a></h3>
 <p>A variable that <strong>grows randomly</strong> (grows by a white noise) each time period is known as a <strong>Random Walk</strong>. It can be understood as a <strong>summation of white noise processes</strong>:</p>
 <div class="arithmatex">\[
@@ -2269,6 +2273,7 @@
 <li><span class="arithmatex">\(w=0\)</span>: No smoothing</li>
 <li><span class="arithmatex">\(w=1\)</span>: Maximum smoothing</li>
 </ul>
+<p>For both types of smoothing, the effect of smoothing is proportional to the parameter. However, the minimum value is different for each.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2383,11 +2388,15 @@
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="SEASONAL_MODELS" class="center" src="../Assets/10.%20Time%20Series.md/SEASONAL_MODELS.png" /></p>
-<p>The Autoregressive and Smoothing models can also be adjusted to account for seasonality by considering the <span class="arithmatex">\(g\)</span> period lagged observations, where <span class="arithmatex">\(g\)</span> is the <strong>periodicity</strong> of the seasonal effect:</p>
+<p>The <strong>Autoregressive and Smoothing models</strong> can also be adjusted to account for seasonality by considering the <span class="arithmatex">\(g\)</span> period lagged observations, where <span class="arithmatex">\(g\)</span> is the <strong>periodicity</strong> of the seasonal effect:</p>
 <ul>
 <li><strong>Yearly Periodicity</strong>: <span class="arithmatex">\(g=12\)</span></li>
 <li><strong>Quarterly Periodicity</strong>: <span class="arithmatex">\(g=3\)</span></li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key advantage of the AR and Smoothing models is that they allow for changing seasonal effects while the earlier 3 only allowed for <strong>Fixed</strong> models.</p>
+</div>
 <h2 id="model-diagnostics"><strong>Model Diagnostics</strong><a class="headerlink" href="#model-diagnostics" title="Permanent link">&para;</a></h2>
 <p>Similar to other statistical learning methods, the observations are split into a training (<span class="arithmatex">\(N_{1}\)</span>) and test set (<span class="arithmatex">\(N_{2}\)</span>). However, the key difference is that <strong>ALL PRIOR observations</strong> are used to make a prediction, even if the observation belongs to the test set:</p>
 <!-- Self Made -->

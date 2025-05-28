@@ -1554,7 +1554,6 @@
 <ul>
 <li><strong>Primary Axis</strong>: Score</li>
 <li><strong>Secondary Axis</strong>: Loading</li>
-<li>Horizontal Vertical split remains the same as before</li>
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="BI_PLOT" class="center" src="../Assets/8.%20Principal%20Components.md/BI_PLOT.png" /></p>
@@ -1563,6 +1562,11 @@
 <p>The relative position of the vectors indicate their relationship with one another. <strong>Closer vectors</strong> tend to be more correlated - Rape, Assualt and Murder are more correlated to each other than they are to Urban Population.</p>
 <p><!-- Obtained from ISLR -->
 <img alt="BIPLOT_CORRELATION" class="center" src="../Assets/8.%20Principal%20Components.md/BIPLOT_CORRELATION.png" /></p>
+<p>The underlying reason is that:</p>
+<ul>
+<li>Predictors with <strong>similar loading magnitude</strong> across PCs can be said to be <strong>correlated</strong> (Manifests itself as being close on the biplot)</li>
+<li>Predictors with opposite sign on loadings across PCs can signify the <strong>direction of correlation</strong></li>
+</ul>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

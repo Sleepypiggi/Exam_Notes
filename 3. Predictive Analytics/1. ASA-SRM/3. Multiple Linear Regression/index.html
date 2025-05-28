@@ -2251,7 +2251,7 @@ Var(\hat{\beta}) =
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The sum of the squared coefficients is known as the <strong><span class="arithmatex">\(\ell_{2}\)</span> norm</strong>. It is <strong>constrained</strong> to be smaller than some specified <strong>budget</strong>:</p>
+<p>The sum of the <strong>squared predictor coefficients</strong> is known as the <strong><span class="arithmatex">\(\ell_{2}\)</span> norm</strong>. It is <strong>constrained</strong> to be smaller than some specified <strong>budget</strong>:</p>
 <div class="arithmatex">\[
     \sum \beta^{2}_{p} \le a
 \]</div>
@@ -2274,14 +2274,18 @@ Var(\hat{\beta}) =
 <p>If given the choice of multiple possible variables for the Ridge (and Lasso), remember that the method will choose the model with the <strong>lowest constrained RSS</strong>. Thus, calculate the constrained RSS for each model and then determine which is the regularized model.</p>
 <p>Do NOT make an assumption that the regularization coefficients should be small (especially for LASSO!)</p>
 </div>
-<p>The penalty causes the coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>shrinkage parameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Regularization only affects the PREDICTOR coefficients; the intercept is untouched.</p>
+</div>
+<p>The penalty causes the predictor coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>shrinkage parameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong>:</p>
 <ul>
 <li><span class="arithmatex">\(\lambda = 0\)</span>: No Shrinkage; same as OLS (maximum flexibiliy)</li>
 <li><span class="arithmatex">\(\lambda = \infty\)</span>: Fully shrinked; all estimates are 0 (minimum flexibility)</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Ridge Regression will <strong>NEVER</strong> fully shrink the predictor to 0 for any finite <span class="arithmatex">\(\lambda\)</span>. The resulting coefficients will be <strong>close but never exactly 0</strong>.</p>
+<p>Ridge Regression will <strong>NEVER</strong> fully shrink a predictor coefficient to 0 for any finite <span class="arithmatex">\(\lambda\)</span>. The resulting coefficients will be <strong>close but never exactly 0</strong>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2313,7 +2317,7 @@ Var(\hat{\beta}) =
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The sum of the absolute coefficients is known as the <strong><span class="arithmatex">\(\ell_{1}\)</span> norm</strong>. It is <strong>constrained</strong> to be smaller than some specified <strong>budget</strong>:</p>
+<p>The sum of the <strong>absolute predictor coefficients</strong> is known as the <strong><span class="arithmatex">\(\ell_{1}\)</span> norm</strong>. It is <strong>constrained</strong> to be smaller than some specified <strong>budget</strong>:</p>
 <div class="arithmatex">\[
     \sum |\beta_{p}| \le a
 \]</div>
@@ -2325,15 +2329,15 @@ Var(\hat{\beta}) =
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the budget is <strong>sufficiently high</strong>, the diamond will grow larger and the intersection point will no longer be at the corners. In this case, LASSO will not drop any predictors (resulting in a more complex model):</p>
+<p>If the budget is <strong>sufficiently high</strong>, the diamond will grow larger and the intersection point will <strong>no longer be at the corners</strong>. In this case, LASSO will not drop any predictors (resulting in a more complex model):</p>
 <p><!-- Obtained from DS100 -->
 <img alt="LASSO_DIAMOND_2" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND_2.png" /></p>
 <p>If the budget is too high, the diamond will grow larger such that the <strong>original OLS estimates already fulfil</strong> the constraints, resulting in the regularization method having <strong>no effect at all</strong>:</p>
 <p><!-- Obtained from DS100 -->
 <img alt="LASSO_DIAMOND_3" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND_3.png" /></p>
-<p>The second point above applies to Ridge regression as well.</p>
+<p>The second point above applies to Ridge regression as well. Thus, the <strong>size of the constraint</strong> can also be used to determine the extent of shrinkage.</p>
 </div>
-<p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the shrinkage parameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
+<p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the shrinkage parameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the predictor coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>This it is known as the <strong>Least Absolute Shrinktage Selection Operator</strong> (LASSO). Its ability to drop predictors allows it to be used as a <strong>model selection</strong> tool.</p>
@@ -2376,8 +2380,8 @@ Var(\hat{\beta}) =
 </div>
 <p>Another explanation for the difference in behaviour is the following:</p>
 <ul>
-<li><strong>Ridge</strong>: Shrinks all coefficients by the <strong>same proportion</strong></li>
-<li><strong>LASSO</strong>: Shrinks all coefficients by a <strong>constant amount</strong>; but if <strong>smaller than the constant</strong>, then the coefficient is set to 0 (Dropped)</li>
+<li><strong>Ridge</strong>: Shrinks all predictor coefficients by the <strong>same proportion</strong></li>
+<li><strong>LASSO</strong>: Shrinks all predictor coefficients by a <strong>constant amount</strong>; but if <strong>smaller than the constant</strong>, then the coefficient is set to 0 (Dropped)</li>
 </ul>
 <!-- Obtained from ISLR -->
 <p><img alt="SOFT_THRESHOLD" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/SOFT_THRESHOLD.png" /></p>

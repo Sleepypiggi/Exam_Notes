@@ -1712,6 +1712,10 @@
 <p>Something unique about Bagging is that since <strong>only two-thirds</strong> of the original observations are used for each tree, it is possible to use the <strong>observations that were NOT drawn</strong> as the <strong>validation set</strong>. The resulting (average) error across all instances is known as the <strong>Out of Bag Error</strong> (OOB).</p>
 <!-- Obtained from ISLR -->
 <p><img alt="OOB_ERROR" class="center" src="../Assets/7.%20Tree%20Models.md/OOB_ERROR.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This would mean that there about <span class="arithmatex">\(\frac{1}{3}\)</span> OOB predictions for each observation.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The intuition is similar to cross-validation where the <strong>OOB observations were not used to train that particular bagged tree</strong>, thus serves as a good estimate for the test MSE.</p>
@@ -1773,12 +1777,11 @@
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The de-correlation effect is <strong>inversely proportional</strong> to <span class="arithmatex">\(m\)</span>. It is common to use the following values:</p>
+<p>Naturally, a smaller <span class="arithmatex">\(m\)</span> will result in a greater de-correlation effect. However, a <strong>sufficiently large <span class="arithmatex">\(m\)</span></strong> still needs to be chosen to ensure the signal is correctly captured, thus the following values are common:</p>
 <ul>
 <li><strong>Regression Trees</strong>: <span class="arithmatex">\(m = \frac{p}{3}\)</span></li>
 <li><strong>Classification Trees</strong>: <span class="arithmatex">\(m = \sqrt{p}\)</span></li>
 </ul>
-<p>However, if many variables are correlated, an even smaller value of <span class="arithmatex">\(m\)</span> may be preferred to ensure more unique trees in the ensemble.</p>
 </div>
 <h3 id="boosting"><strong>Boosting</strong><a class="headerlink" href="#boosting" title="Permanent link">&para;</a></h3>
 <p>Boosting refers to the process of <strong>sequentially training</strong> a series of <strong>shallow trees</strong> on the <strong>error of the previous tree</strong>. The strength of weak trees are "boosted" by <strong>aggregating</strong> them together to form a stronger model.</p>
@@ -1823,8 +1826,7 @@
 <p class="admonition-title">Note</p>
 <p>Most of the key concepts apply, but there are some notable exceptions due to having a categorical dependent variable.</p>
 </div>
-<p>Since residuals are unintuitive for categorical data, classification trees focus on <strong>Node Purity</strong> instead. The algorithm divides the predictor space such that <strong>node impurity is minimized</strong>.</p>
-<p>Purity is a measure of the distribution of the categories, which can measured using one of the following metrics:</p>
+<p>Since residuals are unintuitive for categorical data, classification trees focus on <strong>Node Purity</strong> instead. Purity is a measure of the <strong>distribution/variance of the categories</strong>, which can measured using one of the following metrics:</p>
 <ol>
 <li>Classification Error Rate</li>
 <li>Gini Index</li>
@@ -1832,8 +1834,12 @@
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
+<p>Thus, it can be said that the algorithm divides the predictor space such that <strong>node impurity is minimized</strong>; <strong>variability</strong> among categories is minimized.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>The lower the above metrics, the higher the purity of the node - the node is LARGELY made up of mainly one category. Mathematically, the <strong>proportion of categories</strong> within each region are <strong>close to 0 or 1</strong>.</p>
-<p>This can be remembered by the fact that the Gini Index is often a measure of <strong>socio-economic inequality</strong> - it is higher when there is are a large number of poor and rich (loosely speaking). </p>
+<p>This can be remembered by the fact that the Gini Index is often a measure of <strong>socio-economic inequality</strong> - it is higher when there is are a large number of poor and rich (loosely speaking).</p>
 </div>
 <h3 id="purity-measures"><strong>Purity Measures</strong><a class="headerlink" href="#purity-measures" title="Permanent link">&para;</a></h3>
 <p>A key quantity that will be used is the <strong>proportion</strong> of each class in a particular region (<span class="arithmatex">\(p_{c}\)</span>).</p>

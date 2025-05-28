@@ -1594,6 +1594,11 @@
 <p>Until the final cluster assignments, each step is <strong>guaranteed to reduce</strong> the squared euclidean distances.</p>
 <p>Additionally, ALL observations are assigned, regardless if they are an outlier or not.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <strong>number of clusters remain the same</strong> in each iteration.</p>
+<p>There is technically a small chance that the number of clusters decrease, because no observations are assigned to that cluster. This should be treated as a special case.</p>
+</div>
 <p>The choice of <span class="arithmatex">\(k\)</span> is <strong>arbitrary</strong>, thus it might not yield the best results. It is thus recommended to <strong>repeat the algorithm</strong> several times for different <span class="arithmatex">\(k\)</span> to have a better understanding of the data.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1702,6 +1707,10 @@
 <p class="admonition-title">Warning</p>
 <p>The horizontal axis does NOT provide any insight into the relationship between observations.</p>
 <p>The reason is because at each of the <span class="arithmatex">\(n-1\)</span> points where fusions occur, the two fused branches <strong>could be swapped without affecting the meaning</strong> of the dendrogram, leading to about <span class="arithmatex">\(2^{n-1}\)</span> <strong>possible reorderings</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If asked to compare between dendrograms, note that most of the time they are NOT drawn on the same scale. Always refer to the corresponding axis to determine the correct dissimilarity.</p>
 </div>
 <h2 id="potential-problems"><strong>Potential Problems</strong><a class="headerlink" href="#potential-problems" title="Permanent link">&para;</a></h2>
 <p>Both kinds of clustering are sensitive to actions of the modeller:</p>
