@@ -1,0 +1,1941 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/3_PREDICTIVE_ANALYTICS/0_ASA_SRM/2.%20Simple%20Linear%20Regression/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Simple Linear Regression - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simple-linear-regression" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Simple Linear Regression
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/5.%20Profit%20Testing/" class="md-nav__link">
+        Profit Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Simple Linear Regression
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Simple Linear Regression
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    Interpretation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    ANOVA
+  </a>
+  
+    <nav class="md-nav" aria-label="ANOVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goodness-of-fit" class="md-nav__link">
+    Goodness of Fit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-test" class="md-nav__link">
+    F-Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-inference" class="md-nav__link">
+    Statistical Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sampling-distributions" class="md-nav__link">
+    Sampling Distributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypothesis-testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-and-prediction-intervals" class="md-nav__link">
+    Confidence and Prediction Intervals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    Interpretation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    ANOVA
+  </a>
+  
+    <nav class="md-nav" aria-label="ANOVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goodness-of-fit" class="md-nav__link">
+    Goodness of Fit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-test" class="md-nav__link">
+    F-Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-inference" class="md-nav__link">
+    Statistical Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sampling-distributions" class="md-nav__link">
+    Sampling Distributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypothesis-testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-and-prediction-intervals" class="md-nav__link">
+    Confidence and Prediction Intervals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="simple-linear-regression"><strong>Simple Linear Regression</strong><a class="headerlink" href="#simple-linear-regression" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>One of the most basic forms of statistical learning is known as <strong>Simple Linear Regression</strong> (SLR). It is a <strong>supervised and parametric</strong> method which assumes that the Dependent and Independent variable have a <strong>linear relationship</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    f &amp;= \beta_{0} + \beta_{1} \cdot X \\
+    \\
+    \therefore E(Y \mid X = x_{i}) &amp;= \beta_{0} + \beta_{1} \cdot x_{i} \\
+    \therefore y_{i} &amp;= \beta_{0} + \beta_{1} \cdot x_{i} + \varepsilon_{i}
+\end{aligned}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The model is called “Simple” because it only contains a <em>single</em> independent variable.</p>
+</div>
+<h2 id="interpretation"><strong>Interpretation</strong><a class="headerlink" href="#interpretation" title="Permanent link">&para;</a></h2>
+<p>The parameters are collectively referred to as the <strong>Regression Coefficients</strong>:</p>
+<ul>
+<li><strong>Intercept Parameter</strong> (<span class="arithmatex">\(\beta_{0}\)</span>): <strong>Expected value</strong> of <span class="arithmatex">\(Y\)</span> when <span class="arithmatex">\(X = 0\)</span></li>
+<li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{1}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X\)</span> </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The intepretation uses EXPECTED to emphasise that the model is predicting <span class="arithmatex">\(E(Y \mid X)\)</span>, NOT <span class="arithmatex">\(Y\)</span> itself.</p>
+<p>The <strong>entire line is the expectation</strong>, the intercept is just a single point on that line, hence the definition.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Regression coefficients <strong>INCLUDES the intercept</strong>. If referring to just the slope parameters, the term "predictors" is usually used.</p>
+</div>
+<h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
+<p>The model is fitted using the <strong>Ordinary Least Squares</strong> (OLS) method. The parameters are estimated such that the resulting fitted model <strong>minimizes the sum of squared residuals</strong>, also known as the <strong>Residual Sum Squared</strong> (RSS):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{RSS}
+    &amp;= \sum (y_{i} - \hat{y})^{2} \\
+    &amp;= \sum [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i})]^{2}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The SQUARED residuals are taken to <strong>avoid offsetting effects</strong> between the positive and negative residuals as well as to <strong>emphasise larger differences</strong>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The function to be maximized is often intuitively referred to as the <strong>Objective Function</strong>.</p>
+</div>
+<p>The minimization is done through calculus by setting the <strong>partial derivatives</strong> for each parameter to 0:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{\partial}{\partial \beta_{0}} \text{RSS} &amp;= 0 \\
+    -2 \sum [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i})] &amp;= 0 \\
+    \sum y_{i} - \hat{\beta}_{0} \sum 1  - \hat{\beta}_{1} \sum  x_{i} &amp;= 0 \\
+    n \bar{y} - \hat{\beta}_{0} \cdot n - \hat{\beta}_{1} \cdot n \bar{x} &amp;= 0 \\
+    \\
+    \therefore \hat{\beta}_{0} &amp;= \bar{y} - \hat{\beta}_{1} \cdot \bar{x}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are two points to note for the above proof:</p>
+<ol>
+<li><span class="arithmatex">\(\hat{\beta}_{0}\)</span> and <span class="arithmatex">\(\hat{\beta}_{1}\)</span> are <strong>constants</strong> in the above equation</li>
+<li>The sum of all observations can be <strong>equivalently expressed</strong> as the average multiplied by the number of observations; <span class="arithmatex">\(\sum x_{i} = n \cdot \bar{x}\)</span></li>
+</ol>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>By rearranging the terms, it can be shown that the regression model <strong>passes through the mean of the two variables</strong> <span class="arithmatex">\((\bar{x}, \bar{y})\)</span>:</p>
+<div class="arithmatex">\[
+    \bar{y} = \hat{\beta}_{0} + \hat{\beta}_{1} \cdot \bar{x}
+\]</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The interpretation of <span class="arithmatex">\(\beta_{0}\)</span> is that it is <span class="arithmatex">\(E(Y \mid X = 0)\)</span>.</p>
+<p>HOWEVER, the coefficient is NOT <span class="arithmatex">\(\bar{y} \mid x = 0\)</span> for that sample (red line). This is expected, because the fitted model is based on a sammple, <strong>some discrepancy is expected</strong>:</p>
+<p><!-- Obtained from Stack Exchange -->
+<img alt="BETA_CONFUSION" class="center" src="../Assets/2.%20Simple%20Linear%20Regression.md/BETA_CONFUSION.png" /></p>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{\partial}{\partial \beta_{1}} \text{RSS} &amp;= 0 \\
+    -2 \sum x_{i} [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i})] &amp;= 0 \\
+    \sum (y_{i} x_{i}) - \hat{\beta}_{0} \sum x_{i} - \hat{\beta}_{1} \sum x^{2}_{i} &amp;= 0 \\
+    \sum (y_{i} x_{i}) - (\bar{y} - \hat{\beta}_{1} \bar{x}) \sum x_{i} - \hat{\beta}_{1} \sum x^{2}_{i} &amp;= 0 \\
+    \sum (y_{i} x_{i}) - \bar{y} \sum x_{i} + \hat{\beta}_{1} \bar{x} \sum x_{i} - \hat{\beta}_{1} \sum x^{2}_{i} &amp;= 0 \\
+    \sum (y_{i} x_{i}) - \bar{y} \cdot n\bar{x} + \hat{\beta}_{1} \bar{x} \cdot n \bar{x} - \hat{\beta}_{1} \sum x^{2}_{i} &amp;= 0 \\
+    \sum (y_{i} x_{i}) - n\bar{x}\bar{y} &amp;= \hat{\beta}_{1} \sum (x^{2}_{i}) - n\bar{x}^{2} \\
+    \\
+    \therefore \hat{\beta}_{1}
+    &amp;= \frac{\sum (x_{i} y_{i}) - n\bar{x}\bar{y}}{\sum (x_{i}^{2}) - n\bar{x}^{2}} \\
+    &amp;= \frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum (x_{i} - \bar{x})^{2}} \\
+    &amp;= r_{x,y} \cdot \frac{s_{y}}{s_{x}}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the denominator can be expressed in a few different ways:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \sum (x_{i} - \bar{x})^{2}
+    &amp;= \sum (x^{2}_{i}) - n \bar{x}^{2} \\
+    &amp;= \sum (x^{2}_{i}) - n \left(\frac{\sum x_{i}}{n} \right)^{2} \\
+    &amp;= \sum (x^{2}_{i}) - n \left(\frac{(\sum x_{i})^{2}}{n^{2}} \right) \\
+    &amp;= \sum (x^{2}_{i}) - \frac{(\sum x_{i})^{2}}{n}
+\end{aligned}
+\]</div>
+<p>It is important to know alternate formulations because questions will likely <strong>only provide certain components</strong> such as <span class="arithmatex">\(\sum (x^{2}_{i})\)</span>.</p>
+<p>Naturally, the above shortcut is applicable to any “sum of squares” like quantity.</p>
+</div>
+<p>Graphically, the fitted model will be the <strong>line of best fit</strong> that passes through the sample; the line will pass through the <strong>middle of all observations</strong>, with a <strong>roughly equal residuals above and below</strong> the line:</p>
+<!-- Obtained from ISLR -->
+<p><img alt="BEST_FIT_LINE" class="center" src="../Assets/2.%20Simple%20Linear%20Regression.md/BEST_FIT_LINE.png" /></p>
+<h2 id="anova"><strong>ANOVA</strong><a class="headerlink" href="#anova" title="Permanent link">&para;</a></h2>
+<h3 id="goodness-of-fit"><strong>Goodness of Fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h3>
+<p><strong>Goodness of Fit</strong> refers to how well the fitted the model can explain the sample data. Residuals are essentially the <strong>unexplained portion</strong> of the sample - the smaller the residuals, the <strong>better the fit</strong> of the model.</p>
+<p>The <strong>RSS</strong> from before is used to quantify the residuals. As stated before, the squared nature makes it ideal as it prevents offsetting effects from positive and negative residuals.</p>
+<p>However, the RSS on its own is not very meaningful as there is <strong>no indication on what is a "high" or "low" value</strong>. Thus, we consider a <strong>Total Sum of Squares</strong> (TSS) to use as a benchmark:</p>
+<div class="arithmatex">\[
+    \text{TSS} = \sum (y_{i} - \bar{y})^{2}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The TSS is the RSS for a special model known as the <strong>Null Model</strong>, which ONLY contains the intercept parameter (<span class="arithmatex">\(\beta_{0}\)</span>). Using OLS, the output of the null model will always be the <strong>sample mean of the dependent variable</strong> <span class="arithmatex">\(\bar{y}\)</span>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{i} &amp;= \hat{\beta_{0}} + \hat{\varepsilon} \\
+    \\
+    -2 \sum (y_{i} - \hat{\beta_{0}}) &amp;= 0 \\
+    n \bar{y} - n \hat{\beta_{0}} &amp;= 0 \\
+    \hat{\beta_{0}} &amp;= \bar{y} \\
+    \\
+    \therefore \hat{y} &amp;= \bar{y}
+\end{aligned}
+\]</div>
+<p>Due to this, the RSS will always be <strong>at least smaller than or equal to</strong> the TSS as it contains additional components to explain the variation.</p>
+</div>
+<p>Intuitively, the TSS represents the <strong>inherent variation</strong> in the sample; notice that it is essentially the numerator of the <strong>sample variance</strong>.</p>
+<p>The TSS can be then decomposed into two parts to further aid analysis:</p>
+<ul>
+<li><strong>TSS</strong>: Total Sum of Squares; <strong>inherent variation</strong> in the sample</li>
+<li><strong>RSS</strong>: Residual Sum of Squares; <strong>unexplained variation</strong> (Hence residual)</li>
+<li><strong>RegSS</strong>: Regression Sum of Squares; <strong>explained variation</strong> (Hence regression)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{TSS}
+    &amp;= \sum (y_{i} - \bar{y})^{2} \\
+    &amp;= \sum[(y_{i} - \hat{y}) + (\hat{y} - \bar{y})]^{2} \\
+    &amp;= \sum(y_{i} - \hat{y})^{2} + \sum(\hat{y} - \bar{y})^{2} + 2 \sum \left([y_{i} - \hat{y}][\hat{y}-\bar{y}] \right) \\
+    &amp;= \sum(y_{i} - \hat{y})^{2} + \sum(\hat{y} - \bar{y})^{2} + 0 \\
+    &amp;= \text{RSS} + \text{RegSS}
+\end{aligned}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The proof for why the last term is equal to 0 is beyond the scope of this exam. It is sufficient to know the result.</p>
+</div>
+<p>The Goodness of Fit can be measured by the <strong>proportion of inherent variation that is explained</strong> by the regression, known as the <strong>Coefficient of Determination</strong>:</p>
+<div class="arithmatex">\[
+    R^{2} = \frac{\text{RegSS}}{\text{TSS}} = 1 - \frac{\text{RSS}}{\text{TSS}}
+\]</div>
+<!-- Self Made -->
+<p><img alt="SUM_OF_SQUARES" class="center" src="../Assets/2.%20Simple%20Linear%20Regression.md/SUM_OF_SQUARES.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some texts may use different terminology for the above terms:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Current Terminology</strong></th>
+<th align="center"><strong>Alternate Terminology</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Total Sum of Squares (TSS)</td>
+<td align="center">Sum of Squared Total (SST)</td>
+</tr>
+<tr>
+<td align="center">Residual Sum of Squares (RSS)</td>
+<td align="center">Sum of Squared Errors (SSE)</td>
+</tr>
+<tr>
+<td align="center">Regression sum of Squares (RegSS)</td>
+<td align="center">Sum of Squared Regression (SSR)</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>There is no universally accepted terminology; both are acceptable. <strong>The key is not to confuse RSS with SSR</strong>. They are using the same letters but are completely different.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two <strong>alternate expressions</strong> for the above concepts:</p>
+<ul>
+<li>RegSS can be expressed as a <strong>function of the Slope Parameter</strong></li>
+<li>Coefficient of determination can be expressed as a function of the sample correlation</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+    \text{RegSS}
+    &amp;= \sum(\hat{y} - \bar{y})^{2} \\
+    &amp;= \sum(\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i} - \bar{y})^{2} \\
+    &amp;= \sum[(\bar{y} - \hat{\beta}_{1} \cdot \bar{x}) + \hat{\beta}_{1} \cdot x_{i} - \bar{y}]^{2} \\
+    &amp;= \sum[\hat{\beta}_{1} (x_{i} - \bar{x})]^{2} \\
+    &amp;= \hat{\beta}^{2}_{1} \sum(x_{i} - \bar{x})^{2} \\
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    R^{2}
+    &amp;= \frac{\text{RegSS}}{\text{TSS}} \\
+    &amp;= \frac{\hat{\beta}^{2}_{1} \sum(x_{i} - \bar{x})^{2}}{\sum (y_{i} - \bar{y})^{2}} \\
+    &amp;= \left(\frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum (x_{i} - \bar{x})^{2}}\right)^{2}
+        \cdot \frac{\sum(x_{i} - \bar{x})^{2}}{\sum (y_{i} - \bar{y}) ^{2}} \\
+    &amp;= \frac{\sum (x_{i} - \bar{x})^{2} (y_{i} - \bar{y})^{2}}{\sum (x_{i} - \bar{x})^4}
+        \cdot \frac{\sum(x_{i} - \bar{x})^{2}}{\sum (y_{i} - \bar{y}) ^{2}} \\
+    &amp;= \frac{\sum (x_{i} - \bar{x})^{2} (y_{i} - \bar{y})^{2}}{\sum (x_{i} - \bar{x})^{2} \sum (y_{i} - \bar{y})^{2}} \\
+    &amp;= \left(\frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum (x_{i} - \bar{x}) \sum (y_{i} - \bar{y})}\right)^{2} \\
+    &amp;= r_{x,y}^{2}
+\end{aligned}
+\]</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The decomposition of total variance (TSS) into explainable (RegSS) and unexplainable (RSS) components is known as an <strong>Analysis of Variance</strong> (ANOVA) process.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The relationship between R-squared and the sample correlation ONLY holds true for SLR.</p>
+<p>This is because R-squared is the squared correlation of <span class="arithmatex">\(y\)</span> and <span class="arithmatex">\(\hat{y}\)</span>. <strong>ONLY Under SLR</strong>, <span class="arithmatex">\(\hat{y}\)</span> and <span class="arithmatex">\(x\)</span> are <strong>perfectly correlated</strong>, thus the two are <strong>interchangeable</strong>:</p>
+<div class="arithmatex">\[
+    R^{2} = r_{y, \hat{y}}^{2} = r_{y,x}^{2}
+\]</div>
+</div>
+<h3 id="f-test"><strong>F-Test</strong><a class="headerlink" href="#f-test" title="Permanent link">&para;</a></h3>
+<p>Using the above ANOVA components, an F-test can be conducted to determine if there is a true relationship between <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}\)</span>: <span class="arithmatex">\(\beta_{1} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}\)</span>: <span class="arithmatex">\(\beta_{1} \ne 0\)</span></li>
+</ul>
+<p>However, an F-test uses <strong>Variance</strong> while the ANOVA components are <strong>sum of squared deviations</strong>. Thus, they can be coverted into “Mean Squares/Variances" by <strong>dividing by their degrees of freedom</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Source</strong></th>
+<th align="center"><strong>Sum of Squares</strong></th>
+<th align="center"><strong>df</strong></th>
+<th align="center"><strong>Variance/Mean Squared</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Regression</strong></td>
+<td align="center">RegSS</td>
+<td align="center"><span class="arithmatex">\(1\)</span></td>
+<td align="center"><span class="arithmatex">\(\sigma^{2}_{\text{RegSS}} = \frac{\text{RegSS}}{1}\)</span></td>
+</tr>
+<tr>
+<td align="center"><strong>Residuals</strong></td>
+<td align="center">RSS</td>
+<td align="center"><span class="arithmatex">\(n-2\)</span></td>
+<td align="center"><span class="arithmatex">\(\sigma^{2}_\text{RSS} = \frac{\text{RSS}}{n-1}\)</span></td>
+</tr>
+<tr>
+<td align="center"><strong>Total</strong></td>
+<td align="center">TSS</td>
+<td align="center"><span class="arithmatex">\(n-1\)</span></td>
+<td align="center"><span class="arithmatex">\(\sigma^{2}_\text{TSS} = \frac{\text{TSS}}{n-1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some texts refer to the Mean Square of Residuals as the <strong>Mean Square Error</strong> (MSE). This is because residuals and errors are used interchangeably. However, to avoid confusion within the notes, we avoid that notation.</p>
+<p>Note that the Mean Square of Total is the <strong>unbiased sample variance</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The degrees of freedom for the different components can be tricky to understand:</p>
+<ul>
+<li><strong>TSS</strong> is the deviations of the <strong>observations from the mean</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but one degree of freedom has been <strong>used up by the mean</strong>; <span class="arithmatex">\(\nu = n - 1\)</span>.</li>
+<li><strong>RSS</strong> is the deviations of the <strong>observations from the prediction</strong>. All <span class="arithmatex">\(n\)</span> observations in the sample are used, but two degrees of freedom has been <strong>used up by the Intercept and Slope</strong>; <span class="arithmatex">\(\nu = n-2\)</span>.</li>
+<li><strong>RegSS</strong> is the deviations of the <strong>prediction from the sample mean</strong>. Since the prediction only relies on a <strong>single additional input</strong> (non-intercept coefficient), there is only one degree of freedom; <span class="arithmatex">\(\nu = 1\)</span>.</li>
+</ul>
+<p>Alternatively, since <span class="arithmatex">\(\text{TSS} = \text{RegSS} + \text{RSS}\)</span>, the degrees of freedom should follow the same sum. Thus, RegSS must have one degree of freedom.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The estimation of the two parameters involves a minimization problem which sets their first derivative to 0. It can be shown the following two constraints must hold true:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \sum \hat{\varepsilon_{i}} &amp;= 0 \\
+    \sum x_{i} \hat{\varepsilon_{i}} &amp;= 0       
+\end{aligned}
+\]</div>
+<p>The first constraint is that the <strong>residuals must sum to 0</strong>. This is intuitive, as the line of best fit is sort of a "mean" of the datapoints, ensuring that the residuals are equally above and below the line.</p>
+<p>The second constraint is that the <strong>dot product of the independent and residuals sum to 0</strong>. This means that the two are <strong>uncorrelated</strong>; all information from <span class="arithmatex">\(X\)</span> has been fitted inside the model.</p>
+</div>
+<p>Thus, the F-statistic can be constructed:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{F}_{\text{Statistic}}
+    &amp;= \frac{\text{Between-Group-Variance}}{\text{Within-Group-Variance}} \\
+    &amp;= \frac{\sigma^{2}_{\text{RegSS}}}{\sigma^{2}_\text{RSS}} \\
+    \\
+    \text{F}_{\text{Statistic}} &amp;\sim F_{1, n-2}
+\end{aligned}
+\]</div>
+<p>The key is understanding that if the null is true (no relationship), then the RegSS and RSS are both noise and will have similar variances. Thus, the ratio of the two will have an F-distribution.</p>
+<h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
+<h3 id="sampling-distributions"><strong>Sampling Distributions</strong><a class="headerlink" href="#sampling-distributions" title="Permanent link">&para;</a></h3>
+<p>Following traditional statistical inference, it is important to assess the quality of the fitted parameters. Thus, it is necessary to understand their <strong>sampling distribution</strong>. Recall the expression for the SLR parameters:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\beta}_{0}
+    &amp;= \bar{y} - \hat{\beta}_{1} \cdot \bar{x} \\
+    \\
+    \hat{\beta}_{1}
+    &amp;= \frac{\sum (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum (x_{i} - \bar{x})^{2}} \\   
+\end{aligned}
+\]</div>
+<p>Notice that since <span class="arithmatex">\(X\)</span> is a constant, the two estimators are a <strong>linear combination of <span class="arithmatex">\(Y\)</span></strong>. It is typically assumed that <span class="arithmatex">\(Y\)</span> is normally distributed, thus the <strong>estimators are normally distributed</strong> as well.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recall that a linear combination of normal variables will still be normally distributed.</p>
+</div>
+<p>The proof of Expectation and Variance is mathematically intensive and beyond the scope of the exam; it is sufficient to know the results:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(\hat{\beta_{0}})
+    &amp;= \beta_{0}
+    \\
+    \text{Var}(\hat{\beta_{0}})
+    &amp;= \sigma^{2} \cdot \left(\frac{1}{n} + \frac{\bar{x}^{2}}{\sum (x_{i} - \bar{x})^{2}} \right)
+    \\
+    \hat{\beta_{0}} &amp;\sim N \left(E(\hat{\beta_{0}}), \text{Var}(\hat{\beta_{0}}) \right) \\
+    \\
+    E(\hat{\beta_{1}})
+    &amp;= \beta_{1}
+    \\
+    \text{Var}(\hat{\beta_{1}})
+    &amp;= \sigma^{2} \cdot \left(\frac{1}{\sum (x_{i} - \bar{x})^{2}} \right)
+    \\
+    \hat{\beta_{1}} &amp;\sim N \left(E(\hat{\beta_{1}}), \text{Var}(\hat{\beta_{1}}) \right) \\
+    \\
+    E(\hat{Y})
+    &amp;= E(Y \mid X)
+    \\
+    \text{Var}(\hat{Y})
+    &amp;= \sigma^{2} \cdot \left(\frac{1}{n} + \frac{(x - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}} \right)
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that the Variance of the prediction, the numerator uses <span class="arithmatex">\(x\)</span> rather than <span class="arithmatex">\(x_{i}\)</span>. This is to reflect that it should be using the <strong>value of <span class="arithmatex">\(x\)</span> for that specific prediction</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In practice, the actual variance of the error is unknown. Thus, we estimate it by with the <strong>Mean Square of the Residuals</strong> instead. This quantity is also known as the <strong>Standard Error the Regression</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\sigma}^{2} &amp;= \sigma^{2}_{\text{RSS}} \\
+    \\
+    \widehat{\text{Var}(\hat{\beta_{0}})}
+    &amp;= \sigma^{2}_{\text{RSS}} \cdot \left(\frac{1}{n} + \frac{\bar{x}^{2}}{\sum (x_{i} - \bar{x})^{2}} \right) \\
+    \\
+    \widehat{\text{Var}(\hat{\beta_{1}})}
+    &amp;= \sigma^{2}_{\text{RSS}} \cdot \left(\frac{1}{\sum (x_{i} - \bar{x})^{2}} \right) \\
+    \\
+    \widehat{\text{Var}(\hat{Y})}
+    &amp;= \sigma^{2}_{\text{RSS}} \cdot \left(\frac{1}{n} + \frac{(x - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}} \right)
+\end{aligned}
+\]</div>
+</div>
+<h3 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h3>
+<p>Similar to before, the focus is to determine if there is a <strong>true relationship</strong> between <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}\)</span>: <span class="arithmatex">\(\beta_{1} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}\)</span>: <span class="arithmatex">\(\beta_{1} \ne 0\)</span></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The focus is typically on the Slope parameter rather than the Intercept. The intercept typically does not address any relevant questions.</p>
+</div>
+<p>Since the <span class="arithmatex">\(\hat{\beta_{1}}\)</span> is normally distributed and the population variance is unknown, the a <strong>t-test</strong> is used to determine the relationship:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    t_{\text{Statistic}} &amp;= \frac{\hat{\beta}_{1} - 0}{\widehat{\text{SE}}(\hat{\beta_{1}})} \\
+    t_{\text{Statistic}} &amp;\sim t_{n-2}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall the the degrees of freedom for a t-distribution arises from the <strong>df from the approximation of the sample variance</strong>. In this case, it follows the mean square of the residuals, which has <span class="arithmatex">\(n-2\)</span> df.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Given the relationship between the t and F distributions, the two tests covered above will always lead to the <strong>same results</strong>:</p>
+<div class="arithmatex">\[
+    t^{2}_{n-2} \sim F_{1, n-2}
+\]</div>
+</div>
+<h3 id="confidence-and-prediction-intervals"><strong>Confidence and Prediction Intervals</strong><a class="headerlink" href="#confidence-and-prediction-intervals" title="Permanent link">&para;</a></h3>
+<p>Using the sampling distributions for the above estimators, the confidence interval can be constructed using the general expression:</p>
+<div class="arithmatex">\[
+    \text{CI} = \hat{\theta} + t_{\frac{1-\alpha}{2}, n-2} \cdot \text{SE}(\hat{\theta})
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Confidence Intervals can be computed for all <span class="arithmatex">\(\hat{\beta}_{0}\)</span>, <span class="arithmatex">\(\hat{\beta}_{1}\)</span> AND <span class="arithmatex">\(\hat{y}\)</span>.</p>
+<p>Recall that <span class="arithmatex">\(\hat{y}\)</span> itself is an estimator of the mean of the conditional distribution, thus has a confidence interval.</p>
+</div>
+<p>For prediction intervals, we consider the sampling distribution of the prediction error:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{i} - \hat{y}_{i} &amp;\sim N \left(0, \text{Var}(y_{i} - \hat{y}_{i}) \right) \\
+    \\
+    \text{Var}(y_{i} - \hat{y}_{i})
+    &amp;= \text{Var}(y_{i}) + \text{Var}(\hat{y}_{i}) \\
+    &amp;= \sigma^{2}_{\text{RSS}} + \sigma^{2}_{\text{RSS}} \cdot \left(\frac{1}{n}
+        + \frac{(x - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}} \right) \\
+    &amp;= \sigma^{2}_{\text{RSS}} \cdot \left(1 + \frac{1}{n} + \frac{(x - \bar{x})^{2}}{\sum (x_{i} - \bar{x})^{2}} \right)
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the variance of the prediction error is the Variance of the error PLUS the variance of the prediction.</p>
+</div>
+<p>Thus, the prediction interval can be constructed using the same general expression:</p>
+<div class="arithmatex">\[
+    \text{PI} = \hat{y}_{i} + t_{\frac{1-\alpha}{2}, n-2} \cdot \text{SE}(y_{i} - \hat{y}_{i})
+\]</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../1.%20Statistical%20Learning/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Statistical Learning" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Statistical Learning
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../3.%20Multiple%20Linear%20Regression/" class="md-footer__link md-footer__link--next" aria-label="Next: Multiple Linear Regression" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Multiple Linear Regression
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

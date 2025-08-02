@@ -1,0 +1,2500 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/3_PREDICTIVE_ANALYTICS/0_ASA_SRM/3.%20Multiple%20Linear%20Regression/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Multiple Linear Regression - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multiple-linear-regression" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multiple Linear Regression
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/5.%20Profit%20Testing/" class="md-nav__link">
+        Profit Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Multiple Linear Regression
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Multiple Linear Regression
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    Interpretation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    ANOVA
+  </a>
+  
+    <nav class="md-nav" aria-label="ANOVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goodness-of-fit" class="md-nav__link">
+    Goodness of Fit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-test" class="md-nav__link">
+    F-Test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial-f-test" class="md-nav__link">
+    Partial F-test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-inference" class="md-nav__link">
+    Statistical Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sampling-distributions" class="md-nav__link">
+    Sampling Distributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypothesis-testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-prediction-intervals" class="md-nav__link">
+    Confidence &amp; Prediction Intervals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-variations" class="md-nav__link">
+    Special Variations
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Variations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polynomial-variables" class="md-nav__link">
+    Polynomial Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dummy-variables" class="md-nav__link">
+    Dummy Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interaction-variables" class="md-nav__link">
+    Interaction Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicator-variables" class="md-nav__link">
+    Indicator Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regularization-methods" class="md-nav__link">
+    Regularization Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Regularization Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l2-ridge" class="md-nav__link">
+    L2: Ridge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l1-lasso" class="md-nav__link">
+    L1: LASSO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-net" class="md-nav__link">
+    Elastic Net
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformations" class="md-nav__link">
+    Transformations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    Interpretation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    ANOVA
+  </a>
+  
+    <nav class="md-nav" aria-label="ANOVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goodness-of-fit" class="md-nav__link">
+    Goodness of Fit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-test" class="md-nav__link">
+    F-Test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial-f-test" class="md-nav__link">
+    Partial F-test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-inference" class="md-nav__link">
+    Statistical Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sampling-distributions" class="md-nav__link">
+    Sampling Distributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypothesis-testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-prediction-intervals" class="md-nav__link">
+    Confidence &amp; Prediction Intervals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-variations" class="md-nav__link">
+    Special Variations
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Variations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polynomial-variables" class="md-nav__link">
+    Polynomial Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dummy-variables" class="md-nav__link">
+    Dummy Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interaction-variables" class="md-nav__link">
+    Interaction Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicator-variables" class="md-nav__link">
+    Indicator Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regularization-methods" class="md-nav__link">
+    Regularization Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Regularization Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l2-ridge" class="md-nav__link">
+    L2: Ridge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l1-lasso" class="md-nav__link">
+    L1: LASSO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-net" class="md-nav__link">
+    Elastic Net
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformations" class="md-nav__link">
+    Transformations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="multiple-linear-regression"><strong>Multiple Linear Regression</strong><a class="headerlink" href="#multiple-linear-regression" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The natural extension of the SLR model is to include <strong>more than one independent variable</strong>, which thus results in a <strong>Multiple Linear Regression</strong> (MLR) model.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    f &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \beta_{2} \cdot X_{2} + ... + \beta_{p} \cdot X_{p} \\
+    \\
+    \therefore E(Y \mid X_{1} = x_{i, 1}, ... X_{i, p} = x_{i,p})
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{i, 1} + \beta_{2} \cdot x_{i, 2} + \dots
+    \\ 
+    \therefore y_{i}
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{i, 1} + \beta_{2} \cdot x_{i, 2} + \dots + \varepsilon_{i}
+\end{aligned}
+\]</div>
+<p>In fact, SLR is considered a <strong>special case of MLR</strong> where the number of predictors is exactly one (<span class="arithmatex">\(p=1\)</span>). Thus. many of the concepts translate into a MLR setting; this section mainly focuses on the <strong>differences or additional considerations</strong> needed in a MLR setting.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When linear regression or OLS are used to refer to something, they are usually referring more generally to MLR.</p>
+</div>
+<h2 id="interpretation"><strong>Interpretation</strong><a class="headerlink" href="#interpretation" title="Permanent link">&para;</a></h2>
+<p>MLR models study how the independent variables <strong>operate together</strong> to influence the dependent variable, thus the regression coefficients have a slightly different interpretation:</p>
+<ul>
+<li><strong>Intercept Parameter</strong> (<span class="arithmatex">\(\beta_{0}\)</span>): <strong>Expected value</strong> of <span class="arithmatex">\(Y\)</span> when <span class="arithmatex">\(X_{1} = X_{2} = \dots = 0\)</span></li>
+<li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{p}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X_{p}\)</span>, assuming <em>all others are constant</em></li>
+</ul>
+<p>To better understand the relationship between individual predictors, the <strong>Partial Correlation Coefficient</strong> can be used. It is the correlation between the predictor and response, <strong>holding all other predictors constant</strong>.</p>
+<div class="arithmatex">\[
+    \text{PCF} = \frac{t}{\sqrt{t^{2} + (n-p-1)}}
+\]</div>
+<p>An <strong>Added Variable Plot</strong> plots the <strong>residuals</strong> from the following two regression runs against each other:</p>
+<ul>
+<li><strong>A</strong>: Independent variable against all OTHER variables</li>
+<li><strong>B</strong>: Independent variable against ONLY the variable of interest</li>
+</ul>
+<p>The correlation between the residuals in the above plot <strong>IS the partial correlation coefficient</strong>. This is because the residuals from (A) <strong>already accounts for the effects of the other variables</strong> - it is a measure of how much of the remaining difference is explained by the new variable; measure of its predictive power.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Variables should NOT be added or dropped solely based on predictive power. There are <strong>many other considerations</strong> to consider - EG. theoretical or interaction effects.</p>
+</div>
+<h2 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h2>
+<p>Similar to the SLR model, the regression parameters can be found by minimizing the sum of squared residuals:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{RSS} 
+    &amp;= \sum (y_{i} - \hat{y}_{i})^{2} \\
+    &amp;= \sum [y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i,1}
+            + ... + \hat{\beta}_{p} \cdot x_{i, p})]^{2}   
+\end{aligned}
+\]</div>
+<p>Given that there are <span class="arithmatex">\(p\)</span> independent variables, there are thus <span class="arithmatex">\(p+1\)</span> minimization problems to solve (<span class="arithmatex">\(p\)</span> slopes and 1 intercept). It is necessary to use linear algebra to solve the <strong>system of equations</strong>, resulting in the following <strong>matrix solution</strong>:</p>
+<div class="arithmatex">\[
+    \hat{\boldsymbol{\beta}}
+    = \begin{pmatrix} \hat{\beta_0} \\ \hat{\beta_1} \\ \vdots \\ \end{pmatrix}
+    = \left(\boldsymbol{X}^{T} \boldsymbol{X} \right)^{-1} \boldsymbol{X}^{T} \boldsymbol{y}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The operation <span class="arithmatex">\(X^{T}\)</span> means to <strong>Transpose</strong> the matrix - <strong>swapping the Rows and Columns</strong> of the Matrix. It has <strong>several useful properties</strong> which is why it is beneficial to leave in this form:</p>
+<p><!-- Obtained from Cuemath -->
+<img alt="TRANSPOSE_MATRIX" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/TRANSPOSE_MATRIX.png" /></p>
+</div>
+<p>The resulting fitted model is thus a <strong>regression plane of best fit</strong>, reflecting the multi-dimensional nature of the MLR:</p>
+<div class="arithmatex">\[
+    \hat{y}
+    = \hat{\beta}_{0} + \hat{\beta}_{1} \cdot x_{i ,1} + ... + \hat{\beta}_{p} \cdot x_{i,p}
+\]</div>
+<!-- Obtained from ISLR -->
+<p><img alt="REGRESSION_PLANE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGRESSION_PLANE.png" /> </p>
+<p>It is common to express the entire fitted equation in <strong>Matrix Notation</strong>, especially when there are a large number of predictors:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\boldsymbol{y}}
+    &amp;= \boldsymbol{X} \left(\boldsymbol{X}^{T} \boldsymbol{X} \right)^{-1} \boldsymbol{X}^{T} \boldsymbol{y} \\
+    &amp;= \boldsymbol{X} \hat{\boldsymbol{\beta}} \\
+    &amp;= \boldsymbol{H} \boldsymbol{y}
+\end{aligned}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(\boldsymbol{X}\)</span>: <strong>Design Matrix</strong>; containing all predictor values</li>
+<li><span class="arithmatex">\(\boldsymbol{H}\)</span>: <strong>Hat Matrix</strong>; as it puts the a "hat" on <span class="arithmatex">\(y\)</span></li>
+</ul>
+<!-- Self Made -->
+<p><img alt="FITTED_MATRIX" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/FITTED_MATRIX.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the first column of the design matrix is <strong>all 1's for the intercept parameter</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \boldsymbol{X} &amp;=
+    \begin{pmatrix}
+        1 &amp; x_{11} &amp; x_{12} &amp; ... &amp; x_{1p} \\
+        1 &amp; x_{21} &amp; x_{22} &amp; ... &amp; x_{2p} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        1 &amp; x_{n1} &amp; x_{n2} &amp; ... &amp; x_{np}
+    \end{pmatrix}
+\end{aligned}
+\]</div>
+<p>If <strong>only a specific row</strong> of the design matrix is wanted (for a specific prediction), then we need to use the following notation:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \boldsymbol{X}^{T}_{i}
+    &amp;=
+    \begin{pmatrix}
+        1 &amp; X_{i,1} &amp; X_{i,2} &amp; \dots &amp; X_{i,p}
+    \end{pmatrix} \\
+    \\
+    \therefore \hat{y}_{i}
+    &amp;= \boldsymbol{X}^{T}_{i}
+        \left(\boldsymbol{X}^{T} \boldsymbol{X} \right)^{-1} \boldsymbol{X}^{T} \boldsymbol{y}
+\end{aligned}
+\]</div>
+<p>The reason why the transpose is needed is because vectors are typically denoted as <strong>Column vectors by default</strong>; thus the transpose is needed to convert it into a row vector.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recall the key properties of matrices:</p>
+<ul>
+<li>They are defined using a <strong>"(Row x Column)"</strong> notation</li>
+<li>They are differentiated from scalar quantities with a <strong>Bolded</strong> symbol</li>
+<li><strong>Addition and subtraction</strong> of matrices simply add or subtract the corresponding elements</li>
+<li><strong>Multiplication</strong> of matrices involves an <strong>inverted 7</strong> (See image below)</li>
+</ul>
+<p>The <strong>order of multiplication</strong> is important as the resulting matrix will retain the Rows of the LHS and columns of the RHS (which is intuitive from the inverted 7):</p>
+<div class="arithmatex">\[
+    (m * n) \cdot (n * k) = (m * k)
+\]</div>
+<p><!-- Obtained from Resourceaholic -->
+<img alt="MATRIX_MULTIPLICATION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/MATRIX_MULTIPLICATION.png" /></p>
+<p>For the purposes of this exam, it is not necessary to know how to evaluate or manipulate matrices. It is however, necessary to recognize and intepret them.</p>
+</div>
+<h2 id="anova"><strong>ANOVA</strong><a class="headerlink" href="#anova" title="Permanent link">&para;</a></h2>
+<h3 id="goodness-of-fit"><strong>Goodness of Fit</strong><a class="headerlink" href="#goodness-of-fit" title="Permanent link">&para;</a></h3>
+<p>Similar to SLR, ANOVA can be used to decompose the variance into RegSS &amp; RSS, and R-squared can be computed with the <strong>same interpretation</strong>:</p>
+<div class="arithmatex">\[
+    R^{2} = \frac{\text{RegSS}}{\text{TSS}}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike SLR, the following expression does NOT hold true as there are multiple independent variables:</p>
+<div class="arithmatex">\[
+    R^{2} \ne r^{2}_{x_{p}, y}
+\]</div>
+</div>
+<p>Recall that for parametric learning methods, increasing the number of parameters (all else equal) tends to <strong>increase the flexibility</strong> of the model; ability to fit the data (RegSS). Thus, in a MLR setting, R-squared can be <strong>artifically inflated</strong> by adding more parameters, even when they are nonsensical!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To elaborate, OLS is likely to assign <strong>non-zero coefficients</strong> to the irrelevant predictors because the training set may have exhibited some <strong>chance-relationship</strong> between the two. This relationship likely WONT exist in other datasets, thus estimating coefficients for these variables will definitely result in <strong>overfitting</strong>.</p>
+</div>
+<p>Thus, to account for this, the <strong>Adjusted R-squared</strong> is considered by <strong>dividing each term by their degrees of freedom</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    R^{2}_{\text{Adj}}
+    &amp;= 1 - \frac{\frac{\text{RSS}}{n-(p+1)}}{\frac{\text{TSS}}{n-1}} \\
+    &amp;= 1 - \frac{\text{RSS}}{\text{TSS}} \cdot \frac{n-1}{n-(p+1)} \\
+    &amp;= 1 - (1 - R^{2}) \cdot \frac{n-1}{n-(p+1)} \\
+    \\
+    R^{2}_{\text{Adj}}
+    &amp;= 1 - \frac{\frac{\text{RSS}}{n-(p+1)}}{\frac{\text{TSS}}{n-1}} \\
+    &amp;= 1 - \frac{\sigma^{2}_{\text{RSS}}}{s^{2}_{y}}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is NOT recommended to memorize the above formula as it can be derived from first principles.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The adjusted R-squared has <strong>NO INTERPRETATION</strong>. It is more of a <strong>measure to compare</strong> the goodness of fit between different MLR models.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that it is <strong>always smaller than or equal</strong> to the regular R-squared:</p>
+<div class="arithmatex">\[
+    R^{2}_{\text{Adj}} \le R^{2}
+\]</div>
+<p>Adjusted R-squared is R-squared <strong>with a penalty applied</strong> for the number of predictors. For a model with <strong>no predictors</strong> (null model), both are the same.</p>
+</div>
+<h3 id="f-test"><strong>F-Test</strong><a class="headerlink" href="#f-test" title="Permanent link">&para;</a></h3>
+<p>Similar to SLR, we can conduct an F-test using the same components as before, adjusted for the <strong>new degrees of freedom</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Source</strong></th>
+<th align="center"><strong>Sum of Squares</strong></th>
+<th align="center"><strong>df</strong></th>
+<th align="center"><strong>Variance/Mean Squared</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Regression</strong></td>
+<td align="center">RegSS</td>
+<td align="center"><span class="arithmatex">\(p\)</span></td>
+<td align="center"><span class="arithmatex">\(\sigma^{2}_{\text{RegSS}} = \frac{\text{RegSS}}{p}\)</span></td>
+</tr>
+<tr>
+<td align="center"><strong>Residuals</strong></td>
+<td align="center">RSS</td>
+<td align="center"><span class="arithmatex">\(n-(p+1)\)</span></td>
+<td align="center"><span class="arithmatex">\(\sigma^{2}_\text{RSS} = \frac{\text{RSS}}{n-(p+1)}\)</span></td>
+</tr>
+<tr>
+<td align="center"><strong>Total</strong></td>
+<td align="center">TSS</td>
+<td align="center"><span class="arithmatex">\(n-1\)</span></td>
+<td align="center"><span class="arithmatex">\(\sigma^{2}_\text{TSS} = \frac{\text{TSS}}{n-1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key is to remember the following regarding the degrees of freedom:</p>
+<ul>
+<li><strong>RegSS</strong>: Number of <strong>predictors</strong> in the model; excluding intercept</li>
+<li><strong>RSS</strong>: Number of observations less number of <strong>coefficients</strong>; including intercept</li>
+</ul>
+<p>The two are <strong>NOT complementary</strong> as one considers the intercept while the other does not. This because intercept (sample mean) has been accounted for in the TSS.</p>
+</div>
+<p>However, rather than testing if an individual independent variable is useful, it tests if the <strong>ENTIRE model</strong> (ALL the independent variables collectively) is useful in explaining the dependent variable:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \beta_{1} = \beta_{2} = ... = \beta_{p} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}\)</span>: At least one <span class="arithmatex">\(\beta_{p} \ne 0\)</span></li>
+</ul>
+<div class="arithmatex">\[
+    \text{F}_{\text{Statistic}}
+    = \frac{\sigma^{2}_{\text{RegSS}}}{\sigma^{2}_\text{RSS}}
+\]</div>
+<p>Thus, rejecting the null allows us to conclude that <strong>at least one</strong> of the independent variables are useful, but does not provide insight on <em>which</em> of them are useful.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Similar to the adjusted R-squared, the F-test measures whether the reduction in RSS is "worth" the loss of the degrees of freedom to estimate the new parameters.</p>
+<p>An easy way to remember this is that the F-tests uses the <strong>mean squared</strong>, which already accounts for the degrees of freedom.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The F-statistic can also be re-expressed as a function of <span class="arithmatex">\(R^{2}\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+   \text{F}_{\text{Statistic}}
+   &amp;= \frac{\frac{\text{RegSS}}{p}}{\frac{\text{RSS}}{n-p-1}} \\
+   &amp;= \frac{\text{RegSS}}{\text{RSS}} \cdot \frac{n-p-1}{p} \\
+   &amp;= \frac{\frac{\text{RegSS}}{\text{TSS}}}{\frac{\text{RSS}}{\text{TSS}}} \cdot \frac{n-p-1}{p} \\
+   &amp;= \frac{R^{2}}{1 - R^{2}} \cdot \frac{n-p-1}{p} 
+\end{aligned}
+\]</div>
+<p>It is NOT recommended to memorize the above formula as it can be derived from first principles.</p>
+</div>
+<h3 id="partial-f-test"><strong>Partial F-test</strong><a class="headerlink" href="#partial-f-test" title="Permanent link">&para;</a></h3>
+<p>In order to determine which variables are useful, a <strong>Partial F-test</strong> can be used, which compares two models:</p>
+<ul>
+<li><strong>Full Model</strong>: Model with all <span class="arithmatex">\(p\)</span> independent variables</li>
+<li><strong>Reduced Model</strong>: Model with lesser than <span class="arithmatex">\(q\)</span> variables (where <span class="arithmatex">\(q \lt p\)</span>); <strong>subset</strong> of full model</li>
+</ul>
+<p>The partial F-test determines whether the additional variables are <strong>jointly useful</strong> in explaining the dependent. The intuition is that if the variables are useful, then there should be a <strong>decrease in RSS</strong> when moving from the reduced to full, known as the <strong>Extra Sum of Squares</strong> (ExtraSS):</p>
+<div class="arithmatex">\[
+    \text{ExtraSS} = \text{RSS}_{\text{Reduced}} - \text{RSS}_{\text{Full}} 
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The most intuitive way to quantify the degrees of freedom for the ExtraSS is to take the difference in degrees of freedom of the two models:</p>
+<div class="arithmatex">\[
+    \text{df}_{\text{ExtraSS}} = \text{df}_{\text{Full}} - \text{df}_{\text{Reduced}}
+\]</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The RSS and the degrees of freedom are using different orders for the subtraction, which can be confusing:</p>
+<ul>
+<li><strong>RSS</strong>: <strong>Inversely proportional</strong> to the number of predictors; Reduced - Full</li>
+<li><strong>DF</strong>: <strong>Proportional</strong> to the number of predictors; Full - Reduced</li>
+</ul>
+</div>
+<p>Formally, the partial F-test can be expressed as the following:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \beta_{q+1} = ... = \beta_{p} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}\)</span>: At least one <span class="arithmatex">\(\beta_{q+n} \ne 0\)</span></li>
+</ul>
+<div class="arithmatex">\[
+    \text{F}_{\text{Partial}}
+    = \frac{\sigma^{2}_{\text{ExtraSS}}}{\sigma^{2}_{\text{RSS}_\text{Full}}}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the regular F-test is a <strong>special case</strong> of the partial F-test where the reduced model is the null model.</p>
+</div>
+<h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
+<h3 id="sampling-distributions"><strong>Sampling Distributions</strong><a class="headerlink" href="#sampling-distributions" title="Permanent link">&para;</a></h3>
+<p>Similar to SLR, the regression parameters are normally distributed as well. However, since there are multiple regression parameters, they collectively follow a <strong>multivariate normal distribution</strong>:</p>
+<div class="arithmatex">\[
+    \hat{\beta} \sim N_{p+1} \left(\beta, \sigma^{2} (\boldsymbol{X^{T} X})^{-1} \right)
+\]</div>
+<p>The matrix in the variance term is known as the <strong>Variance Covariance Matrix</strong>, which provides the covariance between every possible pair of regression parameters, INCLUDING the intercept:</p>
+<div class="arithmatex">\[
+Var(\hat{\beta}) =
+\begin{pmatrix}
+    Var(\hat{\beta}_0) &amp; Cov(\hat{\beta}_0, \hat{\beta}_1) &amp; ... &amp; Cov(\hat{\beta}_0, \hat{\beta}_p) \\
+    Cov(\hat{\beta}_1, \hat{\beta}_0) &amp; Var(\hat{\beta}_1) &amp; ... &amp; Cov(\hat{\beta}_1, \hat{\beta}_p) \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    Cov(\hat{\beta}_p, \hat{\beta}_0) &amp; Cov(\hat{\beta}_1, \hat{\beta}_p) &amp; ... &amp; Var(\hat{\beta}_p)
+\end{pmatrix}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Covariance of the same independent variable is its Variance. Thus, the <strong>diagonals of the matrix</strong> represent the variances of the estimators. The matrix is also <strong>symmetrical about the diagonal</strong>, since <span class="arithmatex">\(\text{Cov}(X,Y) = \text{Cov}(Y,X)\)</span>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The matrix <strong>always starts with the intercept</strong> parameter, thus do NOT mistakenly take the wrong value.</p>
+</div>
+<h3 id="hypothesis-testing"><strong>Hypothesis Testing</strong><a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h3>
+<p>Similar to SLR, a t-test can be used to test the usefulness of a single predictor. However, the interpretation is slightly different - it tests the usefulness of the variable while <strong>holding the other variables constant</strong>.</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \beta_{p} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}: \beta_{p} \ne 0\)</span></li>
+</ul>
+<div class="arithmatex">\[
+    t = \frac{\hat{\beta_{p}} - \beta_{j}}{\text{SE}({\hat{\beta_{p}}})}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>However, this could lead to several odd situations:</p>
+<ul>
+<li>Individual variables are significant, but <strong>NOT significant</strong> when considered in totality (Pass t-test, fail F-test)</li>
+<li>Individual variables are <strong>NOT significant</strong>, but significant when considered in totality (Fail t-test, pass F-test)</li>
+</ul>
+<p>The likely reason for such situations will be covered in a later section.</p>
+</div>
+<p>There are now two possible ways to test for statistical significance:</p>
+<ul>
+<li><strong>Single F-test</strong> for the entire model</li>
+<li><strong>Multiple t-test</strong> for each variable</li>
+</ul>
+<p>Conducting multiple t-tests simultaneously could lead to the <strong>Multiple Comparisons Problem</strong>. Recall that hypothesis tests assume an <span class="arithmatex">\((1-\alpha)%\)</span> chance of correctly rejecting the null. If each test is conducted on independent samples, then the <strong>probability of correctly rejecting the null for ALL tests</strong> drops to <span class="arithmatex">\((1-\alpha)^{p}\)</span>. The resulting type I error rate is much higher than the intended <span class="arithmatex">\(\alpha\)</span>:</p>
+<div class="arithmatex">\[
+    \text{Type I Error Rate across all tests} = 1 - (1-\alpha)^{p} \gt \alpha
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are methods to manage this problem through the use of several corrections such as the <strong>Bonferroni Correction</strong> which adjusts the <span class="arithmatex">\(\alpha\)</span> for each test such that on whole, the desired type I error rate is achieved. However, it has the consequence of <strong>increasing the probability of type II errors</strong>. The details are beyond the scope of the exam.</p>
+</div>
+<p>This is why the <strong>F-test is generally preferred</strong> for MLR, as it has the advantage of naturally controlling the error rate regardless of the number of predictors along with considering the joint effect of variables.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The relationship between t and F tests only holds true in a SINGLE variable context. For multiple variables, the two can result in DIFFERENT conclusions!</p>
+<ul>
+<li>T-tests: Including a single variable is better than excluding it</li>
+<li>F-tests: Including multiple variables is better than excluding them</li>
+</ul>
+<p>The difference lies in the fact that a variable alone might be strong, but <strong>in conjunction with others</strong> is not.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If a t-test is used to determine which variables should be dropped, only <strong>ONE variable</strong> (the least significant) should be dropped at a time. This is because the t-test only measures ONE coefficient at a time; ignoring any possible joint effects.</p>
+</div>
+<h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
+<p>Similar to SLR, the confidence and prediction intervals can be constructed using the usual expression:</p>
+<div class="arithmatex">\[
+    \text{Interval} = \text{Estimate} \pm \text{Percentile} \cdot \text{SE of Estimate}
+\]</div>
+<p>It is mathematically intensive to show derive the variance of the prediction error. It is sufficient to know the result:</p>
+<div class="arithmatex">\[
+    \text{Var}(y_{i} - \hat{y}_{i})
+    = \sigma^{2} \left(1 + \boldsymbol{X}^{T}_{i} \cdot (\boldsymbol{X}^{T} \boldsymbol{X})^{-1} \cdot \boldsymbol{X}_{i} \right)
+\]</div>
+<p>The key intepretations remain the same.</p>
+<h2 id="special-variations"><strong>Special Variations</strong><a class="headerlink" href="#special-variations" title="Permanent link">&para;</a></h2>
+<h3 id="polynomial-variables"><strong>Polynomial Variables</strong><a class="headerlink" href="#polynomial-variables" title="Permanent link">&para;</a></h3>
+<p>So far, we have implicitly assumed that all independent variables are first order only. However, it is possible to to use <strong>Higher Order</strong> ones, resulting in a <strong>Polynomial Model</strong>:</p>
+<div class="arithmatex">\[
+    E(Y \mid X) = \beta_{0} + \beta_{1} \cdot x^{1}_{p} + \beta_{2} \cdot x^{2}_{p} + \beta_{3} \cdot x^{3}_{p} + \dots
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is still considered a <strong>Linear Model</strong> because the dependent variable is a <strong>Linear Combination</strong> of the independent variables; the independent variables themselves can be non-linear.</p>
+<p>The model can still include other independent variables, regardless of their powers; mix of polynomial and non-polynomials are possible.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Typically, if there is a known relationship between <span class="arithmatex">\(Y\)</span> and the k-th order of the independent variable, <strong>ALL orders from <span class="arithmatex">\(1\)</span> up to <span class="arithmatex">\(k\)</span></strong> are added for the variable.</p>
+<p>The reason is because we are interested in the way that <span class="arithmatex">\(Y\)</span> relates to <span class="arithmatex">\(X\)</span> as a whole. Keeping all powers allows the relationship to better expressed and hence have a better fit.</p>
+</div>
+<p>Although the relationship is better quantified, the regression coefficients become <strong>hard to intepret</strong>. Polynomials have a <strong>non-constant slope</strong>, thus they CANNOT be intepreted as the change in the dependent given a one unit increase anymore.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do NOT mistakenly think that the coefficient squared (for a second-order coefficient) is the impact on the dependent. The relationship must still be linear, which naturally invalidates this train of thought.</p>
+</div>
+<!-- Obtained from Medium -->
+<p><img alt="POLYNOMIAL_REGRESSION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/POLYNOMIAL_REGRESSION.png" /></p>
+<h3 id="dummy-variables"><strong>Dummy Variables</strong><a class="headerlink" href="#dummy-variables" title="Permanent link">&para;</a></h3>
+<p>So far, we have implicitly assumed that all independent variables are quantitative. However, it is possible to to use <strong>Qualitative</strong> ones as well. They are typically represented using a <strong>Dummy Variables</strong>, which are can only take on <strong>1 (Yes) or 0 (No)</strong>.</p>
+<p>If there are <span class="arithmatex">\(n\)</span> possible categories, then ONLY <span class="arithmatex">\(n-1\)</span> dummy variables are needed to fully represent all possible categories. For instance,</p>
+<div class="arithmatex">\[
+    E(Y \mid X)
+    = \beta_{0} + \beta_{\text{North}} \cdot x_{\text{North}} + \beta_{\text{West}} \cdot x_{\text{West}} + \beta_{\text{South}} \cdot x_{\text{South}}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only <span class="arithmatex">\(n-1\)</span> are needed because the final level <strong>can be deduced</strong> from the other variables. If the final level is included, then the variables will become <strong>Perfectly Collinear</strong>, causing problems which will be discussed in the next section. This is known as the <strong>Dummy Variable Trap</strong>.</p>
+</div>
+<p>The <strong>sum of all dummy variables must equal to 1</strong>. Consider the following two cases:</p>
+<ul>
+<li><strong>North Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 1, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
+<li><strong>East Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 0, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
+</ul>
+<p>The last category that does not have its own variable is known as the <strong>Baseline</strong> of the model (known as the <strong>Reference Category</strong>), which is the default category when <strong>all other variables are 0</strong>. Thus, the intepretation of the coefficients is as follows:</p>
+<ul>
+<li><span class="arithmatex">\(\beta_{0}\)</span>: Value of <span class="arithmatex">\(E(Y \mid X)\)</span> at the Baseline</li>
+<li><span class="arithmatex">\(\beta_{1}\)</span>: Change in value of <span class="arithmatex">\(Y\)</span> when <strong>moving</strong> from the reference category to the current category</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Given the above, the choice of reference category matters as it will result in a different model altogether.</p>
+</div>
+<p>Dummy variables are usually used in conjunction with quantitatve ones. This creates a <strong>seperate but parallel regression line</strong> for each of the levels:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot x_{\text{Dummy}} \\
+    &amp;=
+    \begin{cases}
+        (\beta_{0} + \beta_{2}) + \beta_{1} \cdot x_{1}, &amp; x_{\text{Dummy}} = 1 \\
+        \beta_{0} + \beta_{1} \cdot x_{1}, &amp; x_{\text{Dummy}} = 0
+    \end{cases}
+\end{aligned}
+\]</div>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="DUMMY_VARIABLE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/DUMMY_VARIABLE.png" /></p>
+<h3 id="interaction-variables"><strong>Interaction Variables</strong><a class="headerlink" href="#interaction-variables" title="Permanent link">&para;</a></h3>
+<p>So far, we have assumed the individual predictors do not affect one another. However, it is possible that variables might interact with one another to produce <strong>joint effects</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For instance, the production of a factory may depend on the number of <strong>Machines and Workers</strong>. However, the more machines there are, the <strong>greater the effect of an additional worker</strong>.</p>
+<p>Formally speaking, interactions are appropriate when the distribution of one variable depends on the value of another. It can be identified via faceted plots for different combinations.</p>
+</div>
+<p>This joint effect can be captured via an <strong>Interaction Variable</strong>, which is the product of the two predictors - allowing us to analyze a <strong>three way relationship</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot x_{2} + \beta_{3} \cdot x_{1} \cdot x_{2} \\
+    &amp;= \beta_{0} + (\beta_{1} + \beta_{3} \cdot x_{2}) \cdot x_{1} + \beta_{2} \cdot x_{2} \\
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + (\beta_{2} + \beta_{3} \cdot x_{1}) \cdot x_{2} \\
+\end{aligned}
+\]</div>
+<p>The previous intepretation about the coefficients NO longer holds true - a one unit increase in <span class="arithmatex">\(x_{1}\)</span> will increase <span class="arithmatex">\(Y\)</span> by <span class="arithmatex">\((\beta_{1} + \beta_{3} \cdot x_{2})\)</span>, which DEPENDS on the value of <span class="arithmatex">\(x_{2}\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This could lead to scenarios where the Interaction Variable is statistically significant but the <strong>underlying variables individually are not</strong>.</p>
+<p>Through the <strong>Hierarchical Principle</strong>, it is common practice that to <strong>include the individual variables</strong> as well regardless of their significance (ignore the results). This is because removing one of the underlying components <strong>might significantly change the effect and interpretation</strong> of the interaction.</p>
+<p>Note that this applies to <strong>Polynomial Regression</strong> as well, which is why all lower order terms are retained as well.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Each interaction variable DOES consume a degree of freedom.</p>
+</div>
+<p>If the interaction variable <strong>contains a dummy variable</strong>, then the interpretation changes from before. The existing coefficient of the dummy remains the same, but there is an additional <strong>coefficient from the interaction</strong> which represents the <strong>difference in slope</strong> from the two lines:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot x_{\text{Dummy}} + \beta_{3} \cdot x_{1} \cdot x_{\text{Dummy}} \\
+    &amp;=
+    \begin{cases}
+        (\beta_{0} + \beta_{2}) + (\beta_{1} + \beta_{3}) \cdot x_{1}, &amp; x_{\text{Dummy}} = 1 \\
+        \beta_{0} + \beta_{1} \cdot x_{1}, &amp; x_{\text{Dummy}} = 0
+    \end{cases}
+\end{aligned}
+\]</div>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="DUMMY_INTERACTION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/DUMMY_INTERACTION.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As alluded to, the interpretation of the variables changes in the presence of an interaction. There are several scenarios to consider:</p>
+<ul>
+<li><strong>Scenario 1</strong>: Continuous Variable with Dummy Interaction</li>
+<li><strong>Scenario 2</strong>: Dummy Variable with Continuous Interaction</li>
+<li>Applicability of Ceteris Paribus</li>
+</ul>
+<p>The key idea is that the variable on its own has an effect. The objective is to determine if the direction of the effect <strong>changes in the presence of another variable</strong>.  </p>
+<p>For scenario (1), only two equations are required, as it does NOT matter whether ceteris paribus is present for a dummy variable:</p>
+<ul>
+<li>Equation assuming Dummy Variable is 0</li>
+<li>Equation assuming Dummy Variable is 1</li>
+<li>Determine whether the impact of the continuous variable is conclusive (same for both scenarios)</li>
+</ul>
+<p>For scenario (2), two <em>sets</em> of equations are required as the Ceteris Paribus assumption matters:</p>
+<ul>
+<li>Equation assuming Continuous Variable is Min/Max</li>
+<li>Equation assuming Continuous Variable is Min/Max</li>
+<li>Determine whether the impact of the dummy variable is conclusive (Same for both scenarios)</li>
+</ul>
+<p>If Ceteris Paribus does NOT hold, then the comparison should use <strong>DIFFERENT ends</strong> for the continuous variable to reflect the <strong>full range of variability</strong>:</p>
+<ul>
+<li>Equation assuming Continuous Variable is Min/Max</li>
+<li>Equation assuming Continuous Variable is Max/Min</li>
+<li>Determine whether the impact of the dummy variable is conclusive (Same for both scenarios)</li>
+</ul>
+<p>Interaction variables are <strong>not easy to interpret</strong>.</p>
+</div>
+<h3 id="indicator-variables"><strong>Indicator Variables</strong><a class="headerlink" href="#indicator-variables" title="Permanent link">&para;</a></h3>
+<p>In some cases, there might be an <strong>change in the behaviour</strong> of the predictor <strong>across different values</strong> it can take.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For instance, high net worth individuals have different spending patterns than regular consumers - behaviour changes past a certain Income threshold.</p>
+</div>
+<p>This effect can be achieved through the use of an <strong>Indicator Function</strong>, which is a essentially a <strong>Dummy Variable</strong> that is dependent on the value of other variables:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    I_{x \gt c}
+    &amp;=
+    \begin{cases}
+        0, &amp; x_{1} \lt c \\
+        1, &amp; x_{1} \ge c
+    \end{cases} \\
+\end{aligned}
+\]</div>
+<p>The resulting regression is known as a <strong>Piecewise Model</strong>. There are two possible variations:</p>
+<ul>
+<li><strong>Continuous</strong>: <strong>Kink</strong> at the threshold; relationship is equal at the threshold</li>
+<li><strong>Non-continuous</strong>: <strong>Jump</strong> at the threshold; relationship is NOT the same at the threshold</li>
+</ul>
+<p><strong>Continuous piecewise</strong> models directly consider the relationship after the threshold as a <strong>seperate variable</strong>:</p>
+<ul>
+<li><span class="arithmatex">\(\beta_{0}\)</span>: Intercept before the threshold</li>
+<li><span class="arithmatex">\(\beta_{1}\)</span>: Slope before the threshold</li>
+<li><span class="arithmatex">\(\beta_{2}\)</span>: Change in slope AFTER the threshold</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot (x_{1}-c) \cdot I_{x \gt c} \\
+    &amp;=
+    \begin{cases}
+        \beta_{0} + \beta_{1} \cdot x_{1}, &amp; x_{1} \lt c \\
+        (\beta_{0} - \beta_{2} \cdot c) + (\beta_{1} + \beta_{2}) \cdot x_{1}, &amp; x_{1} \ge c
+    \end{cases}
+\end{aligned}
+\]</div>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="PIECEWISE_CONTINUOUS" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/PIECEWISE_CONTINUOUS.png" /></p>
+<p><strong>Non-continuous piecewise</strong> models instead use an interaction variable instead:</p>
+<ul>
+<li><span class="arithmatex">\(\beta_{0}\)</span>: Intercept before the threshold</li>
+<li><span class="arithmatex">\(\beta_{1}\)</span>: Slope before the threshold</li>
+<li><span class="arithmatex">\(\beta_{2}\)</span>: Change in intercept <strong>AT</strong> the threshold; the "Jump"</li>
+<li><span class="arithmatex">\(\beta_{3}\)</span>: Change in slope <strong>AFTER</strong> the threshold</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Y \mid X)
+    &amp;= \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot I_{x \gt c} + \beta_{3} \cdot (x_{1}-c) \cdot I_{x \gt c} \\
+    &amp;=
+    \begin{cases}
+        \beta_{0} + \beta_{1} \cdot x_{1}, &amp; x_{1} \lt c \\
+        (\beta_{0} + \beta_{2} - \beta_{3} \cdot c) + (\beta_{1} + \beta_{3}) \cdot x_{1}, &amp; x_{1} \ge c
+    \end{cases}
+\end{aligned}
+\]</div>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="PIECEWISE_NON_CONTINUOUS" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/PIECEWISE_NON_CONTINUOUS.png" /></p>
+<h2 id="regularization-methods"><strong>Regularization Methods</strong><a class="headerlink" href="#regularization-methods" title="Permanent link">&para;</a></h2>
+<p>A key problem with MLR is that the addition of more variables makes it <strong>more prone to overfitting</strong> (Low Bias, High Variance). Thus, <strong>regularization methods</strong> have been devised to <strong>reduce variance</strong> at the cost of <em>slightly</em> increasing bias.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is generally assumed that the <strong>reduction in variance is greater than the increase in Bias</strong>, resulting in an overall <strong>stronger performance</strong>. </p>
+</div>
+<p>The mathematics behind the methods is complicated, it is sufficient to understand the intuition.</p>
+<h3 id="l2-ridge"><strong>L2: Ridge</strong><a class="headerlink" href="#l2-ridge" title="Permanent link">&para;</a></h3>
+<p>The first method is known as the <strong>Ridge Regression</strong>. It works by adding a <strong>penalty</strong> to the OLS minimization problem:</p>
+<div class="arithmatex">\[
+    \min \left(\text{RSS} + \lambda \cdot \sum \beta^{2}_{p} \right)
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sum of the <strong>squared predictor coefficients</strong> is known as the <strong><span class="arithmatex">\(\ell_{2}\)</span> norm</strong>. It is <strong>constrained</strong> to be smaller than some specified <strong>budget</strong>:</p>
+<div class="arithmatex">\[
+    \sum \beta^{2}_{p} \le a
+\]</div>
+<p>When there are only two predictors, the <span class="arithmatex">\(\ell_{2}\)</span> norm forms a <strong>Circle</strong>, where all points within the Circle fulfill the penalty; the points along the edge <strong>just fulfil</strong> the penalty.</p>
+<p>The Ridge coefficients are the point where the set of coefficients (Contours) that minimize the penalized RSS <strong>also fulfil</strong> the <span class="arithmatex">\(\ell_{2}\)</span> constraint; where the <strong>contours meet the Circle</strong>:</p>
+<p><!-- Obtained from Towards Data Science -->
+<img alt="RIDGE_CIRCLE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/RIDGE_CIRCLE.png" /></p>
+<p>The key is that due to the shape of the circle, the contours will never intersect the circle along the axis. Thus, it will <strong>NEVER shrink any coefficient to 0</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>One way to remember the “norm” used for each method is based on the power of the coefficient in the penalty:</p>
+<ul>
+<li><strong>Ridge</strong>: Power 2; L2 norm</li>
+<li><strong>LASSO</strong>: Power 1; L1 norm </li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If given the choice of multiple possible variables for the Ridge (and Lasso), remember that the method will choose the model with the <strong>lowest constrained RSS</strong>. Thus, calculate the constrained RSS for each model and then determine which is the regularized model.</p>
+<p>Do NOT make an assumption that the regularization coefficients should be small (especially for LASSO!)</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Regularization only affects the PREDICTOR coefficients; the intercept is untouched.</p>
+</div>
+<p>The penalty causes the predictor coefficients to "shrink" towards zero, functionally <strong>reducing the amount of information learnt</strong> from the data and hence combatting overfitting. The <strong>shrinkage parameter</strong> <span class="arithmatex">\(\lambda\)</span> controls the <strong>strength of the shrinkage</strong>:</p>
+<ul>
+<li><span class="arithmatex">\(\lambda = 0\)</span>: No Shrinkage; same as OLS (maximum flexibiliy)</li>
+<li><span class="arithmatex">\(\lambda = \infty\)</span>: Fully shrinked; all estimates are 0 (minimum flexibility)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ridge Regression will <strong>NEVER</strong> fully shrink a predictor coefficient to 0 for any finite <span class="arithmatex">\(\lambda\)</span>. The resulting coefficients will be <strong>close but never exactly 0</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The budget and shrinkage parameter have opposing effects on the penalty:</p>
+<ul>
+<li><strong>Budget</strong>: Causes more shrinkage as it <strong>decreases</strong></li>
+<li><strong>Shrinkage</strong>: Causes more shrinkage as it <strong>increases</strong></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that the penalty is applied on the <strong>SUM</strong> of squared predictors; the sum must shrink to 0. Thus, it is <em>possible</em> for most predictors to shrink while a <strong>specific predictor increases</strong> (offsetting effects).</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="RIDGE_SHRINKAGE" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/RIDGE_SHRINKAGE.png" /></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is important to have a clear distinction between:</p>
+<ul>
+<li><strong>Penalty</strong>: <span class="arithmatex">\(\lambda \cdot \sum \beta^{2}_{p}\)</span></li>
+<li><strong>Constraint</strong>: <span class="arithmatex">\(\sum \beta^{2}_{p} \lt s\)</span></li>
+</ul>
+<p>The penalty will always be applied to the RSS, the constraint is a condition that the penalty must fulfil.</p>
+</div>
+<h3 id="l1-lasso"><strong>L1: LASSO</strong><a class="headerlink" href="#l1-lasso" title="Permanent link">&para;</a></h3>
+<p>The second method is known as <strong>LASSO regression</strong>. Similarly, it works by adding a <strong>L1 penalty</strong> to the OLS minimization problem:</p>
+<div class="arithmatex">\[
+    \min \left(\text{RSS} + \lambda \cdot \sum |\beta_{p}| \right)
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sum of the <strong>absolute predictor coefficients</strong> is known as the <strong><span class="arithmatex">\(\ell_{1}\)</span> norm</strong>. It is <strong>constrained</strong> to be smaller than some specified <strong>budget</strong>:</p>
+<div class="arithmatex">\[
+    \sum |\beta_{p}| \le a
+\]</div>
+<p>When there are only two predictors, the <span class="arithmatex">\(\ell_{1}\)</span> norm forms a <strong>Diamond</strong>, where all points within the diamond fulfill the penalty; the points along the edge <strong>just fulfil</strong> the penalty.</p>
+<p>The LASSO coefficients are the point where the set of coefficients that minimize the penalized RSS also fulfil the <span class="arithmatex">\(\ell_{1}\)</span> constraint; where the <strong>contours meet the diamond</strong>:</p>
+<p><!-- Obtained from DS100 -->
+<img alt="LASSO_DIAMOND" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND.png" /></p>
+<p>The key is that since the corners of the diamond are <strong>always on the axes</strong>, it is possible for the contours to intersect the diamond at that point (where one of the other coefficients is 0), thus allowing for LASSO to shrink coefficients to 0.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the budget is <strong>sufficiently high</strong>, the diamond will grow larger and the intersection point will <strong>no longer be at the corners</strong>. In this case, LASSO will not drop any predictors (resulting in a more complex model):</p>
+<p><!-- Obtained from DS100 -->
+<img alt="LASSO_DIAMOND_2" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND_2.png" /></p>
+<p>If the budget is too high, the diamond will grow larger such that the <strong>original OLS estimates already fulfil</strong> the constraints, resulting in the regularization method having <strong>no effect at all</strong>:</p>
+<p><!-- Obtained from DS100 -->
+<img alt="LASSO_DIAMOND_3" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND_3.png" /></p>
+<p>The second point above applies to Ridge regression as well. Thus, the <strong>size of the constraint</strong> can also be used to determine the extent of shrinkage.</p>
+</div>
+<p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the shrinkage parameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the predictor coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This it is known as the <strong>Least Absolute Shrinktage Selection Operator</strong> (LASSO). Its ability to drop predictors allows it to be used as a <strong>model selection</strong> tool.</p>
+<p>Since the dropping of variables is done via maximization, the process ignores qualitative aspects such as the hierarchical principle.</p>
+</div>
+<h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
+<p>There is no clear advantage between the two; the key difference lies in the <strong>ability to drop predictors</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Ridge</strong></th>
+<th align="center"><strong>LASSO</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Cannot Drop</td>
+<td align="center">Can Drop</td>
+</tr>
+<tr>
+<td align="center">Lower Interpretability</td>
+<td align="center">Higher Interpretability</td>
+</tr>
+<tr>
+<td align="center">Higher Flexibility</td>
+<td align="center">Lower Flexibility</td>
+</tr>
+<tr>
+<td align="center">Able to capture small effects</td>
+<td align="center">Unable to capture small effects</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<!-- Obtained from Towards Data Science -->
+<p><img alt="REGULARIZATION_VISUAL" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGULARIZATION_VISUAL.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>LASSO performs better when the underlying process is only a function of a few key variables, while Ridge performs better when there are multiple predictors. This is intuitive, given that the key difference is the dropping of variables.</p>
+</div>
+<p>Another explanation for the difference in behaviour is the following:</p>
+<ul>
+<li><strong>Ridge</strong>: Shrinks all predictor coefficients by the <strong>same proportion</strong></li>
+<li><strong>LASSO</strong>: Shrinks all predictor coefficients by a <strong>constant amount</strong>; but if <strong>smaller than the constant</strong>, then the coefficient is set to 0 (Dropped)</li>
+</ul>
+<!-- Obtained from ISLR -->
+<p><img alt="SOFT_THRESHOLD" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/SOFT_THRESHOLD.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This behaviour in the LASSO is known as <strong>Soft Thresholding</strong>, as all variables below the threshold become dropped.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>From a dimension reduction perspective, both Ridge and Lasso are <strong>highly efficient</strong> compared to best subset selection. It can be shown that fitting a model for all possible values of <span class="arithmatex">\(\lambda\)</span> is similar to OLS.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To be clear on the definition of L1 and L2 norms:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ell_{1} &amp;= |a| + |b| \\
+    \ell_{2} &amp;= \sqrt{a^{2} + b^{2}}
+\end{aligned}
+\]</div>
+<p><!-- Self Made -->
+<img alt="L1_L2_NORM" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/L1_L2_NORM.png" /></p>
+<p>Apart from expressing the shrinkage based on <span class="arithmatex">\(\lambda\)</span>, it is also common to express the shrinkage based on the <strong>proportion of the norms</strong>, which is slightly easier to interpret as it ranges from 0 to 1, which is <strong>proportional to the amount of shrinkage</strong> done:</p>
+<div class="arithmatex">\[
+    \text{Norm Proportion}
+    = \frac{\text{Norm of shrunk coefficients}}{\text{Norm of original coefficients}}
+\]</div>
+<p>The key is that the directional effects are <strong>opposite</strong> of <span class="arithmatex">\(\lambda\)</span>, which often results in mirrored graphs:</p>
+<p><!-- Obtained from ISLR -->
+<img alt="LAMBDA_VS_NORM" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LAMBDA_VS_NORM.png" /></p>
+</div>
+<p>An interesting point to note is that LASSO can sometimes be used to identify variable performance. Since there is a penalty on the absolute variable coefficients, the algorithm might set all <strong>non-important coefficients to 0</strong> to ensure that an especially important variable has a <strong>large coefficient</strong>.</p>
+<h3 id="elastic-net"><strong>Elastic Net</strong><a class="headerlink" href="#elastic-net" title="Permanent link">&para;</a></h3>
+<p>Elastic Net is an approach the combines the Ridge and LASSO. It adds a constraint that is the <strong>weighted average</strong> of the L1 and L2 norms:</p>
+<div class="arithmatex">\[
+    \min \left(\text{RSS} + \alpha \sum |\beta_{p}| + (1 - \alpha) \sum \beta^{2}_{p} \right)
+\]</div>
+<p>Note that the hyperparameter for the elastic net approach is NOT the usual <span class="arithmatex">\(\lambda\)</span> but rather <span class="arithmatex">\(\alpha\)</span> which controls the <strong>weight</strong> that is placed on the underlying approaches.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the elastic net approach is able to set coefficients to 0 as well, it can also be used as a variable selection tool.</p>
+</div>
+<!-- Obtained from Corporate Finance Institute -->
+<p><img alt="ELASTIC_NET" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/ELASTIC_NET.png" /></p>
+<h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
+<p>Before using regularization, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since a penalty is placed on the <strong>magnitude of the coefficient</strong> (proportional to scale).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This was not a problem in regular OLS as the residuals were used, which were all following the scale of the dependent.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above concept is DIFFERENT from <strong>Scale Equivariance</strong> - which refers to the fact that the predicted values <strong>remain unchanged</strong> (hence "equi") despite a change in scale of the predictors. This occurs because the fitting process accounts for the change in scale and <strong>rescales the coefficients</strong> accordingly:</p>
+<ul>
+<li><strong>Regular OLS</strong>: Scale Equivariant</li>
+<li><strong>Regularization</strong>: NOT scale equivariant (Due to the penalty applied)</li>
+</ul>
+</div>
+<p>There are two main methods of transforming predictors:</p>
+<ul>
+<li><strong>Centering</strong>: Subtracting the sample mean of each predictor</li>
+<li><strong>Scaling</strong>: Dividing each predictor by its sample standard error</li>
+</ul>
+<p>Regardless of which method is used, after expanding the relevant terms, the expression remains the same. The difference lies in the <strong>allocation between the intercept and slope</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Centering</strong></th>
+<th align="center"><strong>Scaling</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Intercept changed</td>
+<td align="center">Intercept unchanged</td>
+</tr>
+<tr>
+<td align="center">Slope unchanged</td>
+<td align="center">Slope changed</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{y}
+    &amp;= 50.7909 - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
+    \\
+    \hat{y}_{\text{Centered}}
+    &amp;= 34 - 1.6995 \cdot (x_{1} - 8) - 0.3227 \cdot (x_{2} - 10) \\
+    &amp;= 34 + 1.6995(8) + 0.3227(10) - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
+    &amp;= 50.7909 - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
+    \\
+    \hat{y}_{\text{Scaled}}
+    &amp;= 34 - 3.909 \cdot \frac{x_{1}}{2} - 1.2909 \cdot \frac{x_{2}}{4} \\
+    &amp;= 50.7909 - 1.6955 \cdot x_{1} - 0.3227 \cdot x_{2} \\
+\end{aligned}
+\]</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../2.%20Simple%20Linear%20Regression/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Simple Linear Regression" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Simple Linear Regression
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../4.%20Linear%20Regression%20Assumptions/" class="md-footer__link md-footer__link--next" aria-label="Next: Linear Regression Assumptions" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Linear Regression Assumptions
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

@@ -1,0 +1,2513 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Review of Probability Theory - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#review-of-probability-theory" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Review of Probability Theory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Review of Probability Theory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Review of Probability Theory
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-probability" class="md-nav__link">
+    Basic Probability
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Probability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#probability-axioms" class="md-nav__link">
+    Probability Axioms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-probability" class="md-nav__link">
+    Conditional Probability
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-variables" class="md-nav__link">
+    Random Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Random Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#probability-distributions" class="md-nav__link">
+    Probability Distributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piecewise-distributions" class="md-nav__link">
+    Piecewise Distributions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moments" class="md-nav__link">
+    Moments
+  </a>
+  
+    <nav class="md-nav" aria-label="Moments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-moment" class="md-nav__link">
+    First Moment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#second-moment" class="md-nav__link">
+    Second Moment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-moment" class="md-nav__link">
+    Third Moment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fourth-moment" class="md-nav__link">
+    Fourth Moment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail-weights" class="md-nav__link">
+    Tail Weights
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistical-metrics" class="md-nav__link">
+    Statistical Metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shifting-scaling-transformation" class="md-nav__link">
+    Shifting, Scaling &amp; Transformation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joint-distributions" class="md-nav__link">
+    Joint Distributions
+  </a>
+  
+    <nav class="md-nav" aria-label="Joint Distributions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#joint-domain" class="md-nav__link">
+    Joint Domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joint-moments" class="md-nav__link">
+    Joint Moments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-functions" class="md-nav__link">
+    Generating Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-distributions" class="md-nav__link">
+    Conditional Distributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixture-distributions" class="md-nav__link">
+    Mixture Distributions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/5.%20Profit%20Testing/" class="md-nav__link">
+        Profit Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-probability" class="md-nav__link">
+    Basic Probability
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Probability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#probability-axioms" class="md-nav__link">
+    Probability Axioms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-probability" class="md-nav__link">
+    Conditional Probability
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-variables" class="md-nav__link">
+    Random Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Random Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#probability-distributions" class="md-nav__link">
+    Probability Distributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piecewise-distributions" class="md-nav__link">
+    Piecewise Distributions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moments" class="md-nav__link">
+    Moments
+  </a>
+  
+    <nav class="md-nav" aria-label="Moments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-moment" class="md-nav__link">
+    First Moment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#second-moment" class="md-nav__link">
+    Second Moment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-moment" class="md-nav__link">
+    Third Moment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fourth-moment" class="md-nav__link">
+    Fourth Moment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail-weights" class="md-nav__link">
+    Tail Weights
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistical-metrics" class="md-nav__link">
+    Statistical Metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shifting-scaling-transformation" class="md-nav__link">
+    Shifting, Scaling &amp; Transformation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joint-distributions" class="md-nav__link">
+    Joint Distributions
+  </a>
+  
+    <nav class="md-nav" aria-label="Joint Distributions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#joint-domain" class="md-nav__link">
+    Joint Domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joint-moments" class="md-nav__link">
+    Joint Moments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-functions" class="md-nav__link">
+    Generating Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-distributions" class="md-nav__link">
+    Conditional Distributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixture-distributions" class="md-nav__link">
+    Mixture Distributions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="review-of-probability-theory"><strong>Review of Probability Theory</strong><a class="headerlink" href="#review-of-probability-theory" title="Permanent link">&para;</a></h1>
+<h2 id="basic-probability"><strong>Basic Probability</strong><a class="headerlink" href="#basic-probability" title="Permanent link">&para;</a></h2>
+<p>Probability is the study of <strong>Experiments</strong> whose results cannot be predicted with certainty. The result of such an experiment is known as its <strong>Outcome</strong>.</p>
+<p>The <strong>Sample Space</strong> <span class="arithmatex">\(\left(\Omega \right)\)</span> is the <em>set</em> of ALL possible outcomes from an experiment. The <strong>Event Space</strong> <span class="arithmatex">\((E)\)</span> is a <em>subset</em> of the sample space, representing only the outcomes that we are interested in studying. Conversely, its <strong>Complement</strong> <span class="arithmatex">\((E^c)\)</span> is the set of all OTHER outcomes not inside <span class="arithmatex">\(E\)</span>.</p>
+<p>The probability of the event occuring is the ratio of the <strong>number of elements</strong> in the event to the sample space. It is a measure of the <em>chance</em> that the outcome of the experiment is inside the event space.</p>
+<div class="arithmatex">\[
+    P(E) = \frac{n(E)}{n\left(\Omega \right)}
+\]</div>
+<p>Consider the probability of rolling an odd number on a standard dice:</p>
+<ul>
+<li><strong>Experiment</strong> - Rolling a dice</li>
+<li><strong>Outcome</strong> - The number showed on the dice</li>
+<li><strong>Sample Space</strong> - <span class="arithmatex">\({1, 2, 3, 4, 5, 6}\)</span></li>
+<li><strong>Event Space</strong> - <span class="arithmatex">\({1, 3, 5}\)</span></li>
+<li><strong>Complement</strong> - <span class="arithmatex">\({2, 4, 6}\)</span></li>
+<li><strong>Probability of Event</strong> - <span class="arithmatex">\(\frac{3}{6}\)</span></li>
+<li><strong>Probability of Complement</strong> - <span class="arithmatex">\(\frac{3}{6}\)</span></li>
+</ul>
+<p>Within the same experiment, there may be multiple events of interest. For any two events A and B, its <strong>Union</strong> <span class="arithmatex">\((A \cup B)\)</span> is the set with outcomes that are <strong>either in A or B</strong> while their <strong>Intersection</strong> <span class="arithmatex">\((A \cap B)\)</span> is the set with outcomes that are <strong>in BOTH A and B</strong>.</p>
+<p>If both A and B have no outcomes in common <span class="arithmatex">\((A \cap B = \emptyset)\)</span>, then they are said to be <strong>Mutually Exclusive</strong>. Naturally, an event and its complement are always mutually exclusive.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following <em>seems intuitive</em>, but is actually a common mistake:</p>
+<div class="arithmatex">\[
+    (A \cap B)^c \ne A^c \cap B^c
+\]</div>
+<p>This is properly explained through <strong>De-morgans Law</strong>:</p>
+<p><!-- Obtained from OnlineMathLearning -->
+<img alt="DeMorgan" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/DeMorgan.png" /></p>
+<p>It can be easily remembered by applying the complement to all components of the expression, <strong>including the intersection/union symbol</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \cap^c &amp;= \cup \\
+    \cup^c &amp;= \cap
+\end{aligned}
+\]</div>
+</div>
+<h3 id="probability-axioms"><strong>Probability Axioms</strong><a class="headerlink" href="#probability-axioms" title="Permanent link">&para;</a></h3>
+<p><strong>Axiom 1</strong> states that all probabilities must be <strong>non-negative</strong>:</p>
+<div class="arithmatex">\[
+    P(E) \ge 0
+\]</div>
+<p><strong>Axiom 2</strong> states that probability of the Sample Space is exactly equal to 1:</p>
+<div class="arithmatex">\[
+    P(\Omega) = 1
+\]</div>
+<p><strong>Axiom 3</strong> states the probability of a union of <strong>mutually exclusive</strong> events is equal to the sum of their probabilities, known as <strong>Countable Additivity</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    A \cap B &amp;= \emptyset \\
+    P(A \cup B) &amp;= P(A) + P(B)
+\end{aligned}
+\]</div>
+<p>Based on these axioms, several other important properties can also be deduced:</p>
+<ul>
+<li><strong>Monoticity</strong>: <span class="arithmatex">\(A \subset B \rightarrow P(A) \le P(B)\)</span></li>
+<li><strong>Empty Set</strong>: <span class="arithmatex">\(P(\emptyset) = 0\)</span></li>
+<li><strong>Complement Rule</strong>: <span class="arithmatex">\(P(E^c) = 1 - P(E)\)</span></li>
+<li><strong>Numeric Bound</strong>: <span class="arithmatex">\(0 \le P(E) \le 1\)</span></li>
+<li><strong>Sum Rule</strong>:  <span class="arithmatex">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span></li>
+</ul>
+<h3 id="conditional-probability"><strong>Conditional Probability</strong><a class="headerlink" href="#conditional-probability" title="Permanent link">&para;</a></h3>
+<p>Conditional Probabilities are denoted by <span class="arithmatex">\(P(A \mid B)\)</span>, which is the probability of event A occuring <strong>given that event B has already occurred</strong>.</p>
+<p>The intuition is best understood by considering the following - Given that event B has already occured, what is the probability that event A also occurs?</p>
+<p>The event space is <span class="arithmatex">\(A \cap B\)</span>, as we are interested in the probability that both A and B occur. However, since event B has already occured, the <strong>sample space is no longer all possible outcomes but rather only the event space for B</strong>!</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(A \mid B)
+    &amp;= \frac{n(A \cap B)}{n(B)} \\
+    &amp;= \frac{\frac{n(A \cap B)}{n(\Omega)}}{\frac{n(B)}{n(\Omega)}} \\
+    &amp;= \frac{P(A \cap B)}{P(B)}
+\end{aligned}
+\]</div>
+<p>Following this expression, the <strong>probability of an intersection</strong> of two events is given by:</p>
+<div class="arithmatex">\[
+    P(A \cap B) = P(A \mid B) \cdot P(B) = P(B \mid A) \cdot P(A)
+\]</div>
+<!-- Obtained from Probability Course -->
+<p><img alt="Conditional Probability" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Conditional%20Probability.png" /></p>
+<p>Most experiments involving conditional probabilities are multi-staged experiments, which are best visualized using <strong>Probability Trees</strong>:</p>
+<p><img alt="Probability Trees" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Probability%20Tree.png" /></p>
+<p>Instead of calculating conditional probabilities from scratch, some questions provide the conditional probability <span class="arithmatex">\(P(A \mid B)\)</span> (or the components to do so!) and ask us to <strong>find the reverse</strong> - <span class="arithmatex">\(P(B \mid A)\)</span>.</p>
+<div class="arithmatex">\[
+    P(B \mid A) = \frac{P(B \cap A)}{P(A)}
+\]</div>
+<p>The formula is the same as before, but the issue is that the unconditional probability of event A is usually not given. This problem is accounted for in <strong>Bayes Theorem</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    A &amp;= (A \cap B) + (A \cap B^c) \\
+    P(A) &amp;= P(A \cap B) + P(A \cap B^c) \\
+    P(A) &amp;= P(A \mid B) \cdot P(B) + P(A \mid B^c) \cdot P(B^c) \\
+    \\
+    \therefore P(B \mid A) &amp;= \frac{P(A \mid B) \cdot P(B)}{P(A \mid B) \cdot P(B) + P(A \mid B^c) \cdot P(B^c)}
+\end{aligned}
+\]</div>
+<p>Note that if the Conditional Probability of A given B is the same as the unconditional probability of A, then <strong>events A and B are independent</strong>; B has no effect on A.</p>
+<p>Thus, the <strong>probability of an intersection</strong> of two independent events is simply their product:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)} \\
+    P(A) &amp;= \frac{P(A \cap B)}{P(B)} \\
+    P(A \cap B) &amp;= P(A) \cdot P(B)
+\end{aligned}
+\]</div>
+<h2 id="random-variables"><strong>Random Variables</strong><a class="headerlink" href="#random-variables" title="Permanent link">&para;</a></h2>
+<p>Unlike rolling a dice, the outcome of most experiments are <strong>non-numeric</strong>, which makes them hard to work with. For instance, the outcomes of a coin toss are "Heads" and "Tails".</p>
+<p>A <strong>Random Variable</strong> is a <strong>many to one function</strong> that <em>maps</em> each outcome to a single real number. Each outcome must have only one corresponding number, but different outcomes can have the same value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the mapping is deterministic, the underlying experiment is still random which is why it is still a "random" variable.</p>
+</div>
+<!-- Obtained from Helping With Math -->
+<p><img alt="Many to one function" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Many%20to%20One%20Function.png" /></p>
+<p>The <strong>range of possible values</strong> that the random variable can take is known as its <strong>Support</strong>. They are broadly categorized based on its support:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Discrete</th>
+<th align="center">Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Countable Support</td>
+<td align="center">Uncountable Support</td>
+</tr>
+<tr>
+<td align="center">1, 2, 3, 4, ...</td>
+<td align="center">1, 1.1, 1.01, 1.001, ...</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Random variables are denoted using <strong>upper case letters</strong> (X, Y, Z) while their corresponding values are denoted using <strong>lower case letters</strong> (x, y, z) and their appropriate <strong>subscripts</strong>.</p>
+<p>The notation <span class="arithmatex">\(X(s) = x_1\)</span> denotes that the random variable <span class="arithmatex">\(X\)</span> maps the outcome <span class="arithmatex">\(s\)</span> to the value of <span class="arithmatex">\(x_1\)</span>. Thus, the <strong>corresponding probability</strong> is denoted by <span class="arithmatex">\(P(X = x_1)\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the subscript is omitted, then <span class="arithmatex">\(P(X=x)\)</span> is a general expression that describes the <strong>entire distribution</strong> of <span class="arithmatex">\(X\)</span>, not just a single probability.</p>
+</div>
+<!-- Obtained from DSA201 Notes -->
+<p><img alt="Random Variable" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Random%20Variable.png" /></p>
+<h3 id="probability-distributions"><strong>Probability Distributions</strong><a class="headerlink" href="#probability-distributions" title="Permanent link">&para;</a></h3>
+<p>Similar to how a random variable maps the outcomes to a real number, a <strong>Probability Distribution</strong> is a function that maps the outcomes to its <strong>probability of occurrence</strong>.</p>
+<p>For <strong>Discrete Random Variables</strong>, their distribution is described using a <strong>Probability Mass Function</strong> (PMF). The PMF provides the probability that the random variable is <strong>exactly equal</strong> to some value <span class="arithmatex">\((X = x_1)\)</span>.</p>
+<p>It is typically denoted in <strong>lower case</strong> and sometimes includes a <strong>subscript of the random variable</strong> when working with multiple to distinguish them from one another.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X = a) &amp;= p(a) \\
+    \\
+    P(X = a) &amp;= p_X(a) \\
+    P(Y = a) &amp;= p_Y(a)
+\end{aligned}
+\]</div>
+<p>Since it is a probability measure, the <strong>sum of the PMF</strong> over the support of the random variable <strong>must be equal to 1</strong> (Probability Axiom).</p>
+<div class="arithmatex">\[
+    \sum_{x \in \text{Support}} p(x) = 1
+\]</div>
+<p>PMFs can be represented in three main ways - Functions, Tables or Histograms.</p>
+<p>For <strong>Continuous Random Variables</strong>, their distribution is described using a <strong>Probability Density Function</strong> (PDF). The PDF is a non-negative function where the <strong>area under it</strong> provides the probability that the random variable takes on some <strong>range of values</strong> <span class="arithmatex">\((a \le X \le b)\)</span>.</p>
+<p>Similarly, it is typically denoted in lower case and includes a subscript when working with multiple random variables:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(a \le X \le b) = \int^b_a f(x) \\
+    \\
+    P(a \le X \le b) = \int^b_a f_X(x) \\
+    P(a \le Y \le b) = \int^b_a f_Y(y)
+\end{aligned}
+\]</div>
+<!-- Obtained from BYJU -->
+<p><img alt="Probability Density Function" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Probability%20Density%20Function.png" /></p>
+<p>Similarly, since the area is a probability measure, the <strong>total area</strong> under the graph <strong>must be equal to 1</strong>:</p>
+<div class="arithmatex">\[
+    P(-\infty \le X \le \infty) = \int^{\infty}_{-\infty} f(x) = 1
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="arithmatex">\(\infty\)</span> is used as a catch all for the upper and lower bound of the random variable. If the actual bounds are known, then using them instead is more appropriate.</p>
+</div>
+<p>Additionally, note that the <strong>probability of a specific value</strong> for a continuous RV is 0. This is because there is an <strong>infinite number of possible values</strong>, thus the probability of a specific value (EG. 1.45679383920) is <strong>infinitely small</strong> such that it is assumed to be 0.</p>
+<div class="arithmatex">\[
+    P(X = a) = \int^{a}_{a} f(x) = 0
+\]</div>
+<p>The <strong>Cumulative Distribution Function</strong> (CDF) is the probability that the random variable is <strong>less than or equal</strong> to some value <span class="arithmatex">\(X \le t\)</span>.</p>
+<p>It is typically denoted in <strong>upper case</strong> to distinguish it from the PDF and includes subscripts as well when working with multiple random variables.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F(t) &amp;= P(X &lt; t) \\
+    \\
+    F_X(t) &amp;= P(X &lt; t) \\
+    F_Y(t) &amp;= P(Y &lt; t)
+\end{aligned}
+\]</div>
+<p>For discrete variables, the CDF is the <strong>sum of all probabilities before the specified value</strong>. Following this, the <strong>difference of consecutive CDFs</strong> allows us to obtain the PMFs at that value:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F(t) &amp;= \sum_{x \le t} p(x) \\
+    p(x_i) &amp;= F(x_i) - F(x_{i-1})
+\end{aligned}
+\]</div>
+<p>For continuous variables, the CDF is the <strong>integral from the lower bound to the specified value</strong>. However, instead of integrating with respect to an actual value, it is better to integrate with respect to a dummy variable <span class="arithmatex">\(t\)</span> to obtain a <strong>general expression for the CDF</strong>, allowing it to be easily calculated for any value.</p>
+<p>Although the CDF is very useful, it <strong>can only be used to calculate probabilities starting from the lower bound</strong>. When probabilities starting from other ranges are needed, the <strong>PDF can be obtained from the CDF by differentiating it</strong> and then re-integrating with different limits.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F(t) &amp;= \int^{t}_{-\infty} f(x) dx \\
+    \\
+    F(t) &amp;= \int^{t}_{-\infty} f(t) dt \\
+    f(t) &amp;= F'(t)
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The integral of the PDF can lead also lead to the <strong>Survival Function</strong>, as shown in the <a href="../ASA-FAML/1. Survival Models.md">Survival Model Section</a>.</p>
+</div>
+<h3 id="piecewise-distributions"><strong>Piecewise Distributions</strong><a class="headerlink" href="#piecewise-distributions" title="Permanent link">&para;</a></h3>
+<p>The probability distribution may be defined using a <strong>Piecewise Function</strong>, which means that it is defined via multiple <strong>sub-functions</strong> where each applies to different intervals in the domain:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    f(x)
+    &amp;=
+    \begin{cases}
+        f_{1}(x),&amp; 0 \lt x \lt t_1 \\
+        f_{2}(x),&amp; t_1 \lt x \lt t_2 \\
+        \vdots
+    \end{cases}
+\end{aligned}
+\]</div>
+<p>When calculating probabilities, we must <strong>choose the appropriate PDF</strong> based on the range of the probability:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X \lt t_{0.5}) &amp;= \int^{t_{0.5}}_{0} f_{1}(x) \\
+    P(X \gt t_{1.5}) &amp;= \int^{t_{2}}_{t_{1.5}} f_{2}(x)
+\end{aligned}
+\]</div>
+<p>If the required range <strong>spans across multiple intervals</strong>, then the probability should be split according to the intervals:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(t_{0.5} \lt X \lt t_{1.5})
+    &amp;= P(t_{0.5} \lt X \lt t_{1}) + P(t_{1} \lt X \lt t_{1.5}) \\
+    &amp;= \int^{t_{1}}_{t_{0.5}} f_{1}(x) + \int^{t_{1.5}}_{t_{1}} f_{2}(x)
+\end{aligned}
+\]</div>
+<p>Thus, this means that the CDF for a piecewise distribution must <strong>fully integrate all "earlier" PDFs</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X \lt t)
+    &amp;= P(0 \lt X \lt t_{1}) + P(t_{1} \lt X \lt t) \\
+    &amp;= \int^{t_{1}}_{0} f_{1}(x) + \int^{t}_{t_{1}} f_{2}(x)
+\end{aligned}
+\]</div>
+<h2 id="moments"><strong>Moments</strong><a class="headerlink" href="#moments" title="Permanent link">&para;</a></h2>
+<p>The <strong>Moments</strong> of a distribution are quantities that describe <strong>characteristics of the distribution</strong>.</p>
+<h3 id="first-moment"><strong>First Moment</strong><a class="headerlink" href="#first-moment" title="Permanent link">&para;</a></h3>
+<p><strong>Raw Moments</strong> are calculated with respect to the <strong>origin</strong>. The <strong>n-th raw moment</strong> is calculated as the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(X^n) &amp;= \int x^n \cdot f(x) dx \\
+    \mu'_k &amp;= \sum x^n \cdot p(x)
+\end{aligned}
+\]</div>
+<p>The <strong>first raw moment</strong> is known as the <strong>Mean</strong>, which is a measure of the <strong>Centrality</strong> of the distribution. It is commonly denoted as <span class="arithmatex">\(\mu\)</span>, without any super or subscripts.</p>
+<p>Note that the <strong>mean of a constant is the constant itself</strong>:</p>
+<div class="arithmatex">\[
+    E(c) = c
+\]</div>
+<h3 id="second-moment"><strong>Second Moment</strong><a class="headerlink" href="#second-moment" title="Permanent link">&para;</a></h3>
+<p><strong>Central Moments</strong> are calculated with respect to the <strong>mean</strong>. The <strong>n-th central moment</strong> is calculated as the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E[(X - \mu)^n] &amp;= \int (x - \mu)^n \cdot f(x) dx \\
+    \mu_k&amp;= \sum (x - \mu)^n \cdot p(x)
+\end{aligned}
+\]</div>
+<p>The <strong>second central moment</strong> is known as the <strong>Variance</strong>, which is a measure of the <strong>Spread</strong> of the distribution about the mean.</p>
+<p>Since calculating central moments directly is complicated, it can be simplified to an expression involving raw moments:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Var(X)
+    &amp;= E[(X - \mu)^2] \\
+    &amp;= E(X^2 - 2\mu X + \mu^2) \\
+    &amp;= E(X^2) - 2\mu^2 + \mu^2 \\
+    &amp;= E(X^2) - \mu^2 \\
+    &amp;= E(X^2) - [E(X)]^2
+\end{aligned}
+\]</div>
+<p>Note that the <strong>variance of a constant is 0</strong> as a constant cannot change:</p>
+<div class="arithmatex">\[
+    Var(c) = 0
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Variance" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Variance.png" /></p>
+<p>However, one problem with variance is that it uses squared units, which makes it hard to intepret. Thus, the <strong>squareroot of the variance</strong> is used instead, known as the <strong>Standard Deviation</strong>.</p>
+<div class="arithmatex">\[
+    \sigma = \sqrt{Var(X)}
+\]</div>
+<p>Similarly, standard deviation cannot be used to compare data with <strong>different units</strong>. Thus, the <strong>Coefficient of Variation</strong> is used instead, which is a <strong>unitless measure</strong> of the spread of the distribution.</p>
+<div class="arithmatex">\[
+    CV(X) = \frac{\sigma}{\mu}
+\]</div>
+<h3 id="third-moment"><strong>Third Moment</strong><a class="headerlink" href="#third-moment" title="Permanent link">&para;</a></h3>
+<p>The <strong>third central moment</strong> is <strong>Skewness</strong>, which is a measure of the <strong>symmetry</strong> of distribution about the mean. Being left/right skewed means that the distribution has a "longer tail" on that side, which implies that <strong>values on the opposite side are more likely to occur</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Skewness is also sometimes referred to as being <strong>Positively or Negatively Skewed</strong>. An easy way to remember is that positive values occur to the <em>right</em> of the origin, hence is the same as being right skewed; vice-versa.</p>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Skewness}
+    &amp;= \frac{E[(X - \mu)^3]}{\sigma^3} \\
+    &amp;= \frac{E[(X - \mu)^3]}{(\sigma^2)^\frac{3}{2}} \\
+    &amp;= \frac{E(X^3) - 3 E(X^2) \cdot E(X) + 2 [E(X)]^3}{(E(X^2) - [E(X)]^2)^\frac{3}{2}}
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Skewness" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Skewness.png" /></p>
+<h3 id="fourth-moment"><strong>Fourth Moment</strong><a class="headerlink" href="#fourth-moment" title="Permanent link">&para;</a></h3>
+<p>The fourth central moment is <strong>Kurtosis</strong>, which is a measure of the <strong>flatness</strong> of the distribution, typically with respect to the normal distribution. It is indicative of the <strong>likelihood of producing extreme values</strong> (outliers).</p>
+<p>The normal distribution has a kurtosis of 3. If a distribution has a <strong>kurtosis greater than 3</strong>, then it is flatter and hence <strong>more likely to produce outliers</strong> as compared to the normal distribution.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Kurtosis}
+    &amp;= \frac{E[(X - \mu)^4]}{\sigma^4} \\
+    &amp;= \frac{E[(X - \mu)^4]}{(\sigma^2)^2} \\
+    &amp;= \frac{E(X^4) - 4 E(X^3) \cdot E(X) + 6 E(X^2) \cdot [E(X)]^2 - 3 [E(X)]^4}{(E(X^2) - [E(X)]^2)^2}
+\end{aligned}
+\]</div>
+<!-- Obtained from AnalystPrep -->
+<p><img alt="Kurtosis" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Kurtosis.png" /></p>
+<h3 id="tail-weights"><strong>Tail Weights</strong><a class="headerlink" href="#tail-weights" title="Permanent link">&para;</a></h3>
+<p>Another method of determining the likelihood of outliers to occur is through the <strong>Tail Weight</strong> of the distribution. Distributions with a <strong>heavier tails are more likely to produce outliers</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although both Tail Weight and Kurtosis are measures of the likelihood of outliers, there is <strong>no link between them</strong>, despite what some authors might suggest.</p>
+</div>
+<p>A distribution is said to have a heavier tail than another if it has <strong>STRICTLY more density</strong> at the "ends" of the distributions, past a certain threshold:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, we only consider the <strong>right tail</strong> of the distribution for large outliers.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Tail Weight" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Tail%20Weight.png" /></p>
+<p>There are a few methods to compare the tail weight of the distribution, but for the purposes of this exam, only the <strong>Existence of Moments</strong> method will be considered.</p>
+<p>A distribution is <strong>light tailed</strong> if has <strong>finite RAW moments</strong> for <em>all</em> positive values of <span class="arithmatex">\(k\)</span>:</p>
+<div class="arithmatex">\[
+    E(X^k) \lt \infty, \ k \gt 0
+\]</div>
+<p>Conversely, a distribution is <strong>heavy tailed</strong> if it DOES NOT have finite raw moments for all positive values of <span class="arithmatex">\(k\)</span>. From another perspective, it only has them up till a <strong>certain threshold</strong> <span class="arithmatex">\(k \lt a\)</span>:</p>
+<div class="arithmatex">\[
+    E(X^k) \lt \infty, \ k \lt a
+\]</div>
+<p>Consider the following two distributions:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Exponential</th>
+<th align="center">Pareto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Raw moments exists for <span class="arithmatex">\(k \gt 0\)</span></td>
+<td align="center">Raw moments exists for <span class="arithmatex">\(-1 \lt k \lt \alpha\)</span></td>
+</tr>
+<tr>
+<td align="center">Unlimited number of finite raw moments</td>
+<td align="center">Limited number of finite raw moments</td>
+</tr>
+<tr>
+<td align="center">Light tailed</td>
+<td align="center">Heavy tailed</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Consider the formula for raw moments:</p>
+<div class="arithmatex">\[
+    E(X^k) = \int x^k \cdot f(x)
+\]</div>
+<p>As <span class="arithmatex">\(k\)</span> increases, large values of <span class="arithmatex">\(x\)</span> will be raised by large values, resulting in extremely large values.</p>
+<p>If the densities (probability of occurring) at this portion of the distribution are <strong>sufficiently large</strong>, then the <strong>resulting value would be too large</strong> <span class="arithmatex">\(E \left[X^k\right] = \infty\)</span>, resulting in a <strong>limited number of finite raw moments</strong>.</p>
+<p>This means that the fewer finite raw moments, the <strong>heavier the tail</strong> and hence <strong>higher the probability of outliers</strong>.</p>
+<h3 id="statistical-metrics"><strong>Statistical Metrics</strong><a class="headerlink" href="#statistical-metrics" title="Permanent link">&para;</a></h3>
+<p>Apart from the moment of the distribution, there are some other <strong>Statistical Metrics</strong> that provide useful information.</p>
+<p>The <strong>Mode</strong> is the value of the random variable that maximises the PMF or PDF. It is the <strong>most likely outcome</strong> of the experiment (loosely speaking for continuous variables).</p>
+<p>The <strong>Median</strong> is the value of the random variable that <strong>seperates the upper and lower half</strong> of the probability distribution.</p>
+<p>For <strong>discrete variables</strong>, the median <span class="arithmatex">\(M\)</span> is the <strong>smallest value</strong> such that the following two expressions are satisfied:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X \le M) &amp;\ge 0.5 \\
+    P(X \ge M) &amp;\ge 0.5
+\end{aligned}
+\]</div>
+<p>For <strong>continuous variables</strong>, the median <span class="arithmatex">\(M\)</span> is found by <strong>solving the CDF</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F(M) &amp;= 0.5 \\
+    M &amp;= F^{-1}(0.5)
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key difference is that the continuous median is the value that <strong>exactly seperates</strong> the distribution while the discrete median <strong>approximately splits</strong> it, depending on the PMF.</p>
+</div>
+<p>The <strong>Percentile</strong> is the value of the random variable below which a <strong>certain percentage of observations fall</strong>. For instance, the 85<sup>th</sup> percentile is the value below which 85% of the observations fall.</p>
+<p>The <strong>median is the 50<sup>th</sup> percentile</strong>; in other words when <span class="arithmatex">\(p = 0.5\)</span>. Thus, the previous formulas can be generalized for any <span class="arithmatex">\(p\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X \le M^{\text{Discrete}}) &amp;\ge p \\
+    P(X \ge M^{\text{Discrete}}) &amp;\ge p \\
+    \\
+    M^{\text{Continuous}} &amp;= F^{-1}(p)
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Remember that the <strong>CDF for a piecewise distribution</strong> is calculated differently.</p>
+</div>
+<p>The 25<sup>th</sup>, 50<sup>th</sup> &amp; 75<sup>th</sup> percentile are known as the first, second &amp; third <strong>Quartiles</strong> <span class="arithmatex">\((q)\)</span> respectively. The difference between the 3<sup>rd</sup> and 1<sup>st</sup> quartile is known as the <strong>Inter Quartile Range</strong>.</p>
+<div class="arithmatex">\[
+    IQR = q_3 - q_1
+\]</div>
+<h3 id="shifting-scaling-transformation"><strong>Shifting, Scaling &amp; Transformation</strong><a class="headerlink" href="#shifting-scaling-transformation" title="Permanent link">&para;</a></h3>
+<p>An existing random variable <span class="arithmatex">\(X\)</span> can be adjusted in order to make a new random variable <span class="arithmatex">\(Y\)</span>.</p>
+<p>If a constant <span class="arithmatex">\(a\)</span> has been <strong>multiplied</strong> to the random variable, then it has been <strong>Scaled</strong> by <span class="arithmatex">\(a\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y &amp;= aX \\
+    \\
+    F_Y(y)
+    &amp;= P(Y \le y) \\
+    &amp;= P(aX \le y) \\
+    &amp;= P \left(X \le \frac{y}{a} \right) \\
+    &amp;= F_X \left(\frac{y}{a} \right) \\
+    \\
+    f_Y(y)
+    &amp;= \frac{d}{dy} F_Y(y) \\
+    &amp;= \frac{1}{a} \cdot f_X \left(\frac{y}{a} \right)
+\end{aligned}
+\]</div>
+<p>If a constant <span class="arithmatex">\(b\)</span> is <strong>added</strong> to the random variable instead, then it has been <strong>Shifted</strong> by <span class="arithmatex">\(b\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y &amp;= X + b \\
+    \\
+    F_Y(y)
+    &amp;= P(Y \le y) \\
+    &amp;= P(X + b \le y) \\
+    &amp;= P(X \le y - b) \\
+    &amp;= F_X (y - b) \\
+    \\
+    f_Y(y)
+    &amp;= \frac{d}{dy} F_Y(y) \\
+    &amp;= f_X (y - b)
+\end{aligned}
+\]</div>
+<p>For both shifting and scaling, the expectation and variance can be easily determined if that of the original is known as well:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(cX) &amp;= c \cdot E(X) \\
+    E(X+c)
+    &amp;= E(X) + E(c) \\
+    &amp;= E(X) + c
+    \\
+    Var(cX) &amp;= c^2 \cdot Var(x) \\
+    Var(X+c)
+    &amp;= Var(X) + Var(c) \\
+    &amp;= Var(X)
+\end{aligned}
+\]</div>
+<p>If the random variable has been <strong>raised by a power</strong> of <span class="arithmatex">\(\frac{1}{c}\)</span> where <span class="arithmatex">\(c \ne 1\)</span>, then it has been <strong>Power Transformed</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y &amp;= X^{\frac{1}{c}} \\
+    \\
+    F_Y(y)
+    &amp;= P(Y \le y) \\
+    &amp;= P(X^{\frac{1}{c}} \le y) \\
+    &amp;= P(X \le y^c) \\
+    &amp;= F_X (y^c) \\
+    \\
+    f_Y(y)
+    &amp;= \frac{d}{dy} F_Y(y) \\
+    &amp;= cy^{c-1}\cdot f_X (y - b)
+\end{aligned}
+\]</div>
+<p>If the random variable has been <strong>exponentiated</strong>, then it has also been <strong>Exponential Transformed</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y &amp;= e^X \\
+    \\
+    F_Y(y)
+    &amp;= P(Y \le y) \\
+    &amp;= P(e^X \le y) \\
+    &amp;= P(X \le \ln y) \\
+    &amp;= F_X (\ln y) \\
+    \\
+    f_Y(y)
+    &amp;= \frac{d}{dy} F_Y(y) \\
+    &amp;= \frac{1}{y} \cdot f_X (\ln y)
+\end{aligned}
+\]</div>
+<p>For both types of transformations, there is no simple method of determining the mean and variance. The various raw moments must be <strong>manually determined via integration</strong>.</p>
+<h2 id="joint-distributions"><strong>Joint Distributions</strong><a class="headerlink" href="#joint-distributions" title="Permanent link">&para;</a></h2>
+<p>Consider a scenario where there are <strong>two or more random variables</strong> <span class="arithmatex">\((X_1, X_2, \dots)\)</span> in the <strong>same probability space</strong> such that we are interested in some function of them <span class="arithmatex">\(Y = g(x_1, x_2, \dots)\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, only <strong>Linear Combinations</strong> (sums) of random variables will be considered.</p>
+</div>
+<p>For instance, the experiment could be studying the <strong>sum of rolling two dice</strong>. There would be <strong>two random variables</strong> <span class="arithmatex">\((X_1, X_2)\)</span>, each denoting the value of their respective dice. Thus, the sum of the two dice would be <span class="arithmatex">\(Y = X_1 + X_2\)</span>.</p>
+<p>Consider the probability of obtaining a sum of 3 - consider ALL <strong>combination of values</strong> of the two underlying variables will result in it:</p>
+<div class="arithmatex">\[
+    P(Y = 3) = P(X_1 = 1, X_2 = 2) + P(X_1 = 2, X_2 = 1)
+\]</div>
+<p>This can be more generally expressed as the <strong>Joint Distribution</strong> of the two variables:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X = x, Y = y) &amp;= P_{X,Y} (x,y) \\
+    P(a \lt X \lt b, c \lt Y \lt d) &amp;= \int^{d}_{c} \int^{b}_{a} f_{X,Y} (x,y) \ dx dy
+\end{aligned}
+\]</div>
+<p>The <strong>individual distributions</strong> within this shared probability space is known as the <strong>Marginal Distribution</strong> and is obtained by "integrating out" the other variable:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    f_{X}(x) &amp;= \int^{d}_{c} f_{X,Y} (x,y) \ dy \\
+    f_{Y}(y) &amp;= \int^{b}_{a} f_{X,Y} (x,y) \ dx
+\end{aligned}
+\]</div>
+<h3 id="joint-domain"><strong>Joint Domain</strong><a class="headerlink" href="#joint-domain" title="Permanent link">&para;</a></h3>
+<p>One of the main concerns when dealing with joint distributions is the domain of the distribution.</p>
+<p>Each random variable is defined on their own domain, but the joint distribution is only defined in the <strong>domain in which two variables coincide</strong>.</p>
+<p>For a joint distribution of <strong>discrete variables</strong>, it is simply a matter of finding <strong>all possible combinations</strong> of the two variables. For a <strong>two variable</strong> distribution, this can be easily visualized via a <strong>Contingency Table</strong>:</p>
+<!-- Obtained from Natbanting -->
+<p><img alt="Contingency Table" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Contingency%20Table.png" /></p>
+<p>The table sometimes lists the <em>frequency</em> of observations while sometimes it lists their <em>probability</em>. In either case, by finding the <strong>cells of interest</strong>, the probability can be obtained.</p>
+<p>For a joint distribution of <strong>continuous variables</strong>, it is best visualized <strong>graphically</strong>. For a two variable distribution:</p>
+<div class="arithmatex">\[
+    1 \lt X_1 \lt 5, \ 2 \lt X_2 \lt 8
+\]</div>
+<!-- Self made from Desmos -->
+<p><img alt="Domain Graph" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Domain%20Graph.png" /></p>
+<p>Let <span class="arithmatex">\(Y\)</span> be the sum of the two random variables. Consider the following probability:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y &amp;= X_1 + X_2 \\
+    P(Y \lt 5)
+    &amp;= P(X_1 + X_2 \lt 5) \\
+    &amp;= P(X_2 \lt 5 - X_1)
+\end{aligned}
+\]</div>
+<p>Thus, we need to find the domain of the above inequality <strong>WITHIN the joint domain</strong>. This can be done by <strong>plotting the graph of the upper/lower bound</strong> (simply change the inequality to an equal sign).</p>
+<p>The domain can be intepreted in one of two ways:</p>
+<ol>
+<li><span class="arithmatex">\(X_1\)</span> to line first: <span class="arithmatex">\(1 \lt X_1 \lt 3, \ 2 \lt y \lt 5-x\)</span></li>
+<li><span class="arithmatex">\(X_2\)</span> to line first: <span class="arithmatex">\(1 \lt X_1 \lt 5-y, \ 2 \lt y \lt 4\)</span></li>
+</ol>
+<p>Using these domains, the double integration can be performed to obtain the probability:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+   P(X_2 \lt 5 - X_1)
+   &amp;= \int^{1}_{3} \int^{5-x}_{2} f_{X,Y}(x,y) \ dy dx \\
+   &amp;= \int^{2}_{4} \int^{5-y}_{1} f_{X,Y}(x,y) \ dx dy
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall that when performing a double integration, the <strong>INNER integral is evaluated first</strong>.</p>
+<p>The inner and outer integral are interchangeable, thus set the inner integral such that it will <strong>ease the integration</strong>.</p>
+<p>In this case, the integral with an algebraic expression should always be evaluated first, ensuring that the <strong>final result is a probability</strong> and not an expression.</p>
+</div>
+<!-- Self made from Desmos -->
+<p><img alt="Domain Graph" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Domain%20Graph%20Shape.png" /></p>
+<p>If there is a <strong>Kink</strong> in the shape, then the area should be broken into two <strong>smaller areas without any kinks</strong> in their shape. The overall probability is the sum of the areas:</p>
+<div class="arithmatex">\[
+    P(X_2 \lt 8 - X_1) = \text{Orange Area} + \text{Purple Area}
+\]</div>
+<!-- Self made from Desmos -->
+<p><img alt="Domain Graph" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Domain%20Graph%20Kink.png" /></p>
+<h3 id="joint-moments"><strong>Joint Moments</strong><a class="headerlink" href="#joint-moments" title="Permanent link">&para;</a></h3>
+<p>Given that <span class="arithmatex">\(Y = X_1 + X_2\)</span>, its mean and variance is the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(Y) &amp;= E(X_1) + E(X_2) \\
+    \\
+    Var (Y) &amp;= Var (X_1) + Var (X_2) + 2 \cdot Cov (X,Y)
+\end{aligned}
+\]</div>
+<p>The last term is known as the <strong>Covariance</strong>, which is the <strong>first central moment</strong> about of the joint distribution. It measures the <strong>linear relationship</strong> between variables:</p>
+<ul>
+<li><strong>Positive Covariance</strong>: Both variables move in the <strong>same direction</strong></li>
+<li><strong>Negative Covariance</strong>: Both variables move in <strong>opposite directions</strong></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    Cov (X_1, X_2)
+    &amp;= E[(X_1 - E(X_1))(X_2 - E(X_2))] \\
+    &amp;= E(X_1 \cdot X_2) - E(X_1) \cdot E(X_2) \\
+    \\
+    E(X_1 \cdot X_2)
+    &amp;= \int \int (x_1 \cdot x_2) \cdot f_{X_1, X_2} (x_1, x_2) \ dx_1 dx_2
+\end{aligned}
+\]</div>
+<p>Note that it has some interesting properties:</p>
+<ol>
+<li><span class="arithmatex">\(Cov (X_1, c) = 0\)</span></li>
+<li><span class="arithmatex">\(Cov (X_1, X_2) = Var (X_1)\)</span></li>
+<li><span class="arithmatex">\(Cov (c \cdot X_1, X_2) = c \cdot Cov (X_1,X_2)\)</span></li>
+<li><span class="arithmatex">\(Cov (X_1 + c, X_2) = Cov (X_1, X_2) + Cov (c, X_2)\)</span></li>
+</ol>
+<p>However, covariance is both <strong>limitless and squared units</strong>, which makes hard to use as a metric for comparison.</p>
+<p>We can overcome these problems by scaling the covariance down by the individual standard deviations, obtaining the <strong>Correlation</strong> of the two variables:</p>
+<div class="arithmatex">\[
+    Corr (X_1, X_2) = \frac{Cov (X_1, X_2)}{SD(X_1), SD(X_2)}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Correlation" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Correlation.png" /></p>
+<p>If <span class="arithmatex">\(X_1\)</span> and <span class="arithmatex">\(X_2\)</span> are <strong>Independent</strong>, then their distributions and moments become the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X_1 = x_1, X_2 = x_2) &amp;= P(X_1 = x_1) \cdot P(X_2 = x_2) \\
+    f_{X_1,X_2} (x_1,x_2) &amp;= f_{X_1}(x_1) \cdot f_{X_2}(x_2) \\
+    \\
+    E(X_1 \cdot X_2) &amp;= E(X_1) \cdot E(X_2) \\
+    Var (X_1 + X_2) &amp;= Var (X_1) + Var (X_2)
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the domain of the random variables naturally contain other variables, then they are not independent, even if the above conditions are met.</p>
+</div>
+<p>Note that having 0 covariance is a <strong>consequence of independence</strong>, but is NOT indicative of it. Variables may also have 0 covariance when they have a <strong>non-linear relationship</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Cov (X_1, X_2)
+    &amp;= E(X_1 \cdot X_2) - E(X_1) \cdot E(X_2) \\
+    &amp;= E(X_1) \cdot E(X_2) - E(X_1) \cdot E(X_2) \\
+    &amp;= 0 \\
+    \\
+    \therefore Corr (X_1, X_2) &amp;= 0
+\end{aligned}
+\]</div>
+<h3 id="generating-functions"><strong>Generating Functions</strong><a class="headerlink" href="#generating-functions" title="Permanent link">&para;</a></h3>
+<p>A useful way to analyze the sum of <strong>independent random variables</strong> is to convert the PDF/PMF of the individual distributions into a <strong>Generating Function</strong>.</p>
+<p>The first kind is known as a <strong>Moment Generating Function</strong> (MGF):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    M_{X}(t)
+    &amp;= E(e^{tX}) \\
+    &amp;= \sum e^{tx} \cdot p_{X}(x) \\
+    &amp;= \int e^{tx} \cdot f_{X}(x)
+\end{aligned}
+\]</div>
+<p>As its name suggests, the MGF can be used to <strong>calculate the raw moments</strong> of the distribution. To obtain the <strong>n-th raw moment</strong>,</p>
+<ol>
+<li><strong>Differentiate</strong> the MGF k times</li>
+<li><strong>Evaluate</strong> the expression at <span class="arithmatex">\(t=0\)</span></li>
+</ol>
+<div class="arithmatex">\[
+    E \left(X^n \right) = \frac{d^n}{dt^n} \cdot M_{X}(0)
+\]</div>
+<p>However, the main benefit of MGFs is that they <strong>uniquely identify</strong> a distribution. If two random variables have the <strong>same MGF</strong>, then they have the <strong>same distribution</strong>.</p>
+<p>This becomes especially useful when dealing with <strong>sums of independent random variables</strong>. By determining the MGF of the combination, its <strong>exact distribution</strong> can be determined.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y &amp;= X_1 + X_2 + ... + X_n \\
+    \\
+    M_Y(t)
+    &amp;= E(e^{tY}) \\
+    &amp;= E(e^{t(X_1 + X_2 + ... + X_n)}) \\
+    &amp;= E(e^{tX_1} \cdot e^{tX_2} \cdot ... \cdot e^{tX_n}) \\
+    &amp;= \prod E(e^{tx}) \\
+    &amp;= \prod M_{X}(t)
+\end{aligned}
+\]</div>
+<p>The other kind is known as a <strong>Probability Generating Function</strong> (PGF), which only applies for sums of <strong>discrete variables</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P_{X}(t)
+    &amp;= E(t^x) \\
+    &amp;= \sum t^X \cdot p(x)
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The PGF is denoted in upper case <span class="arithmatex">\(P\)</span> while the PMF is denoted in lower case <span class="arithmatex">\(p\)</span>.</p>
+</div>
+<p>As its name suggests, the PGF can be used to calculate the <strong>individual probabilities</strong> of the distribution. To obtain the <strong>probability of the n-th value</strong>,</p>
+<ol>
+<li><strong>Differentiate</strong> the PGF k times</li>
+<li><strong>Divide</strong> the expression by n factorial</li>
+<li><strong>Evaluate</strong> the expression at <span class="arithmatex">\(t=0\)</span></li>
+</ol>
+<div class="arithmatex">\[
+    P(X = k) = \frac{d^n}{dt^n} \cdot \frac{P_{X}(0)}{n!}
+\]</div>
+<p>Similarly, the PGF uniquely identifies the distribution and can be used in all the same ways as an MGF in this regard:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y &amp;= X_1 + X_2 + ... + X_n\\
+    \\
+    P_Y(t)
+    &amp;= E(t^Y) \\
+    &amp;= E(t^{X_1 + X_2 + ... + X_n}) \\
+    &amp;= E(t^{X_1} \cdot t^{X_2} \cdot ... \cdot t^{X_n}) \\
+    &amp;= \prod E(t^{x}) \\
+    &amp;= \prod P_{X}(t)
+\end{aligned}
+\]</div>
+<p>Given how similar the two are, they can be easily converted to and from one another:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P_X(t)
+    &amp;= E(t^X) \\
+    &amp;= E(e^{\ln t^X}) \\
+    &amp;= M_X(\ln t^x) \\
+    \\
+    M_X(t)
+    &amp;= E(e^tX) \\
+    &amp;= E[(e^t)^x] \\
+    &amp;= P_X(e^t)
+\end{aligned}
+\]</div>
+<h3 id="conditional-distributions"><strong>Conditional Distributions</strong><a class="headerlink" href="#conditional-distributions" title="Permanent link">&para;</a></h3>
+<p>If a random variable <span class="arithmatex">\(X\)</span> is <strong>conditioned on a range of values of itself</strong>, then it has the <strong>Conditional Distribution</strong> <span class="arithmatex">\((X \mid X&gt;j)\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X = x \mid X &gt; j) &amp;= \frac{P(X = x)}{P(X &gt; j)} \\
+    f_{X \mid X&gt;j} (x) &amp;= \frac{f_X(x)}{P(X &gt; j)}
+\end{aligned}
+\]</div>
+<p>Similarly, a random variable can be conditional on <strong>ANOTHER random variable</strong>, resulting in the <strong>Conditional Distribution</strong> <span class="arithmatex">\((X \mid Y)\)</span>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X = x \mid Y = y) &amp;= \frac{P(X = x, Y = y)}{P(Y = y)} \\
+    f_{X \mid Y} (x,y) &amp;= \frac{f_{X,Y}(x,y)}{f_{Y}(y)} \\
+    \text{Conditional} &amp;= \frac{\text{Joint}}{\text{Marginal}}
+\end{aligned}
+\]</div>
+<p>Any calculations involving the above distributions must be solved via <strong>first principles</strong>.</p>
+<p>However, most problems require us to find the <strong>Marginal Distribution</strong> given only the conditional distributions:</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span> is the random variable denoting the test grades (A, B, C)</li>
+<li><span class="arithmatex">\(Y\)</span> is the random variable denoting the gender (M, F)</li>
+</ul>
+<p>The teacher would like to find the marginal distribution of test scores <span class="arithmatex">\((X)\)</span>, but only has the <strong>conditional distribution</strong> of the scores of the students for each gender <span class="arithmatex">\((X \mid Y)\)</span> and the proportion of the Genders <span class="arithmatex">\((Y)\)</span>.</p>
+<p>The <strong>Law of Total Probability</strong> can be used to determine the <strong>marginal probability</strong> of <span class="arithmatex">\(X\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X = a)
+    &amp;= E_Y[P(X = a \mid Y)] \\
+    &amp;= \sum_{y} P(X = a \mid y) \cdot p(Y = y)
+\end{aligned}
+\]</div>
+<p>Note that this is equivalent to adding up the final probabilities from the relevant branches from a probability tree:</p>
+<!-- Obtained from Cleanpng -->
+<p><img alt="Law of Total Probability" class="center" src="../Assets/1.%20Review%20of%20Probability%20Theory.md/Law%20of%20Total%20Probability.png" /></p>
+<p>Naturally, this also means that the <strong>marginal CDF</strong> can be obtained in similar fashion:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F_X(a)
+    &amp;= E_Y[F_{X \mid Y}(a)] \\
+    &amp;= \sum_{y} F_{X \mid Y}(a) \cdot p(Y = y)
+\end{aligned}
+\]</div>
+<p>Following the same logic, the <strong>Law of Total Expectation</strong> can be used to determine the <strong>marginal expectation</strong> of <span class="arithmatex">\(x\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(X)
+    &amp;= E_Y[E_X(X \mid Y)] \\
+    &amp;= \sum_{y} E_X(X \mid Y) \cdot p(Y = y)
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since <span class="arithmatex">\(E(X)\)</span> is a constant, a <strong>common mistake</strong> is thinking that <span class="arithmatex">\(E_X(X \mid Y)\)</span> is a constant as well since they are both expectations.</p>
+<p>The issue is that it is conditional on <span class="arithmatex">\(Y\)</span>, which is still random, which makes the conditional <strong>expectation still random</strong>.</p>
+</div>
+<p>The <strong>Law of Total Variance</strong> can be used to determine the <strong>marginal variance</strong> of <span class="arithmatex">\(x\)</span>. However, unlike the previous two, it is NOT simply the expectation of the conditional variance:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Var (X) &amp;= E_Y [Var_X(X \mid Y)] + Var_Y[E_X(X \mid Y)] \\
+    \\
+    E_Y [Var_X(X \mid Y)] &amp;= \sum_{y} Var_X(X \mid Y) \cdot p(Y = y) \\
+    \\
+    Var_Y[E_X(X \mid Y)]
+    &amp;= E_Y[E_X(X \mid Y)^2] - (E_Y[E_X(X \mid Y)])^2 \\
+    &amp;= \sum_{y} E_X(X \mid Y)^2 \cdot p(Y = y) - \sum_{y} E_X(X \mid Y) \cdot p(Y = y)
+\end{aligned}
+\]</div>
+<p>Alternatively, the Marginal Variance can be <strong>directly calculated</strong> using the typical formula of <span class="arithmatex">\(E(X^2) - [E(X)]^2\)</span>, where the <strong>two marginal expectations</strong> are calculated using the law of total expectation.</p>
+<p>Alternatively once more, if the conditional distribution <span class="arithmatex">\(Y\)</span> only has two outcomes, then the <strong>Bernoulli Shortcut</strong> (covered in a later section) can be used to quickly compute the value of <span class="arithmatex">\(Var_Y[E_X(X \mid Y)]\)</span>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The discrete case was shown in this section due to its simplicity. All the same concepts apply to the continuous variables as well - simply <strong>replace the summation &amp; PMFs with integrals and PDFs</strong>.</p>
+</div>
+<h3 id="mixture-distributions"><strong>Mixture Distributions</strong><a class="headerlink" href="#mixture-distributions" title="Permanent link">&para;</a></h3>
+<p>A mixture distribution is a distribution whose values can be intepreted as being derived from an underlying set of <strong>other random variables</strong>.</p>
+<p>In an insurance context, a Homeowners Insurance claim could be from a fire, burglary or liability accident. To model it, we could use a mixture that is made up of the basic distributions used to individually model each type of accident.</p>
+<p>If the mixture contains a countable number of other distributions, then it is known as a <strong>Discrete Mixture</strong>. Otherwise, it is known as a <strong>Continuous Mixture</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to think that a discrete mixture is only made up of discrete distributions, vice-versa.</p>
+<p>Any type of distribution can be included in a mixture; the classification is based on the number of distributions.</p>
+</div>
+<p>The random variable <span class="arithmatex">\(X\)</span> is a <strong>k-point mixture</strong> if its <strong>probability functions</strong> can be expressed as the <strong>weighted average</strong> of the probability functions of the <span class="arithmatex">\(k\)</span> distributions <span class="arithmatex">\(X_1, X_2, ... X_k\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F_X(x) &amp;= w_1 \cdot F_{X_1}(x) + w_2 \cdot F_{X_2}(x) + ... + w_k \cdot F_{X_k}(x) \\
+    f_X(x) &amp;= w_1 \cdot f_{X_1}(x) + w_2 \cdot f_{X_2}(x) + ... + w_k \cdot f_{X_k}(x)
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this exam, questions will usually only use <strong>2 or 3 point mixtures</strong>.</p>
+</div>
+<p><span class="arithmatex">\(w\)</span> represents the <strong>mixing weights</strong>, such that <span class="arithmatex">\(w_1 + w_2 + ... + w_k = 1\)</span>. It can be intepreted that <span class="arithmatex">\(Y\)</span> <strong>follows the distribution</strong> of <span class="arithmatex">\(X_1\)</span> <span class="arithmatex">\(100w_1 \%\)</span> of the time, follows the distribution of <span class="arithmatex">\(X_2\)</span> <span class="arithmatex">\(100w_2 \%\)</span> of the time etc.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Another common mistake is confusing mixtures with <strong>Linear Combinations</strong> of random variables:</p>
+<div class="arithmatex">\[
+    X \ne w_1 X_1 + w_2 X_2 + ... + w_k X_k
+\]</div>
+<p>In a linear combination, <span class="arithmatex">\(X\)</span> <strong>neither follows the distribution</strong> of any of the <span class="arithmatex">\(X_k\)</span>. Furthermore, since <span class="arithmatex">\(w_k\)</span> are not weights, they can be <strong>any real number and do not need to sum to 1</strong>.</p>
+</div>
+<p>The mixing weights can also be thought of as <strong>Discrete Probabilities</strong> that come from a random variable <span class="arithmatex">\(Y\)</span> representing the <span class="arithmatex">\(k\)</span> underlying distributions with the support <span class="arithmatex">\(\set{1, 2, ..., k}\)</span> where <span class="arithmatex">\(P(Y = k) = w_k\)</span>.</p>
+<p>Thus, we can think of the overall mixture <span class="arithmatex">\(X\)</span> as an <strong>unconditional distribution</strong> while each of the underlying distributions are conditional distributions <span class="arithmatex">\(X \mid Y\)</span>. This allows us to make use of the all the <strong>previous results</strong> from the conditional distributions:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X = a) &amp;= E_Y[P(X = a \mid Y)] \\
+    F_X(a) &amp;= E_Y[F_{X \mid Y}(a)] \\
+    E(X) &amp;= E_Y[E_X(X \mid Y)] \\
+    Var (X) &amp;= E_Y [Var_X(X \mid Y)] + Var_Y[E_X(X \mid Y)]
+\end{aligned}
+\]</div>
+<p>In terms of the weights, for a simple <strong>two point mixture</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(X = a) &amp;= P(X = a \mid Y=1) \cdot w_1 + P(X = a \mid Y=2) \cdot w_2 \\
+    F_X(a) &amp;= F_{X \mid Y=1}(a) \cdot w_1 + F_{X \mid Y=2}(a) \cdot w_2 \\
+    E(X) &amp;= E_X(X \mid Y=1) \cdot w_1 + E_X(X \mid Y=2)  \cdot w_2
+\end{aligned}
+\]</div>
+<!-- TBC
+Tail Weights
+Empirical Distribution
+ -->
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../0.%20Short%20Term%20Insurance/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Short Term Insurance" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Short Term Insurance
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2.%20Frequency%20Models/" class="md-footer__link md-footer__link--next" aria-label="Next: Frequency Models" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Frequency Models
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

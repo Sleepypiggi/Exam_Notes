@@ -1,0 +1,2431 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/3_PREDICTIVE_ANALYTICS/0_ASA_SRM/10.%20Time%20Series/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Time Series - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#time-series" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Time Series
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/5.%20Profit%20Testing/" class="md-nav__link">
+        Profit Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Time Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Time Series
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stationary-models" class="md-nav__link">
+    Stationary Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Stationary Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stationarity" class="md-nav__link">
+    Stationarity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#white-noise" class="md-nav__link">
+    White Noise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random-walk" class="md-nav__link">
+    Random Walk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoregressive" class="md-nav__link">
+    Autoregressive
+  </a>
+  
+    <nav class="md-nav" aria-label="Autoregressive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autocorrelation" class="md-nav__link">
+    Autocorrelation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dickey-fuller" class="md-nav__link">
+    Dickey Fuller
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smoothing-models" class="md-nav__link">
+    Smoothing Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Smoothing Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    Decomposition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic-smoothing" class="md-nav__link">
+    Arithmetic Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponential-smoothing" class="md-nav__link">
+    Exponential Smoothing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-models" class="md-nav__link">
+    Other Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#volatility-models" class="md-nav__link">
+    Volatility Models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasonal-models" class="md-nav__link">
+    Seasonal Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-diagnostics" class="md-nav__link">
+    Model Diagnostics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-model-summary" class="md-nav__link">
+    Key Model Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stationary-models" class="md-nav__link">
+    Stationary Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Stationary Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stationarity" class="md-nav__link">
+    Stationarity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#white-noise" class="md-nav__link">
+    White Noise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random-walk" class="md-nav__link">
+    Random Walk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoregressive" class="md-nav__link">
+    Autoregressive
+  </a>
+  
+    <nav class="md-nav" aria-label="Autoregressive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autocorrelation" class="md-nav__link">
+    Autocorrelation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-fitting" class="md-nav__link">
+    Model Fitting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dickey-fuller" class="md-nav__link">
+    Dickey Fuller
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smoothing-models" class="md-nav__link">
+    Smoothing Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Smoothing Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    Decomposition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic-smoothing" class="md-nav__link">
+    Arithmetic Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponential-smoothing" class="md-nav__link">
+    Exponential Smoothing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-models" class="md-nav__link">
+    Other Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#volatility-models" class="md-nav__link">
+    Volatility Models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasonal-models" class="md-nav__link">
+    Seasonal Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-diagnostics" class="md-nav__link">
+    Model Diagnostics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-model-summary" class="md-nav__link">
+    Key Model Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="time-series"><strong>Time Series</strong><a class="headerlink" href="#time-series" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Generally speaking, there are <strong>three main types</strong> of data:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Cross Sectional</strong></th>
+<th align="center"><strong>Time Series</strong></th>
+<th align="center"><strong>Panel</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Multiple Entities</td>
+<td align="center">Single Entity</td>
+<td align="center">Multiple Entities</td>
+</tr>
+<tr>
+<td align="center">Single Point in time</td>
+<td align="center">Multiple points in time</td>
+<td align="center">Multiple points in time</td>
+</tr>
+<tr>
+<td align="center">Predict new entity</td>
+<td align="center">Predict future value</td>
+<td align="center">Predict new entity in future</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<!-- Obtained from Vecteezy -->
+<p><img alt="DATA_TYPES" class="center" src="../Assets/10.%20Time%20Series.md/DATA_TYPES.png" /></p>
+<p>Up until this point, the focus has been on Cross Sectional data. Thus, this section will focus exclusively on <strong>Time Series data</strong>:</p>
+<ul>
+<li>Observations are made at <strong>fixed intervals</strong> in time (EG. Daily, Monthly)</li>
+<li>Observations are <strong>ordered</strong> over time</li>
+<li>Observations are visualized using a <strong>timeplot</strong>:</li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="TIME_SERIES_PLOT" class="center" src="../Assets/10.%20Time%20Series.md/TIME_SERIES_PLOT.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Predicting the <strong>future value</strong> of an variable is known as <strong>Forecasting</strong>. The terminology is used to make a clear distinction between cross-sectional and time series analysis.</p>
+</div>
+<h2 id="stationary-models"><strong>Stationary Models</strong><a class="headerlink" href="#stationary-models" title="Permanent link">&para;</a></h2>
+<h3 id="stationarity"><strong>Stationarity</strong><a class="headerlink" href="#stationarity" title="Permanent link">&para;</a></h3>
+<p>Stationarity refers to how certain properties of the <strong>data do not change over time</strong>; stationary relative to moving time. There are two levels:</p>
+<ul>
+<li><strong>Weakly Stationary</strong>: <strong>ONLY</strong> Mean and Variance are unchanging</li>
+<li><strong>Strongly Stationary</strong>: Entire distribution (<strong>ALL properties</strong>) are unchanging</li>
+</ul>
+<p>The implicit assumption for all predictive models is that the <strong>underlying data-generating-process will not change</strong> - Stationarity is <strong>key to forecasting</strong> as it helps to endure this; it represents the <strong>underlying Signal</strong> in the data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, we are only concerned with the properties of <strong>weak stationarity</strong>. Weak stationarity is a <strong>subset</strong> of strong stationarity; thus it does not matter which of the two are present.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The actual statistical definition of weak stationarity is:</p>
+<ul>
+<li>Mean is independent of <span class="arithmatex">\(t\)</span></li>
+<li>Covariance of two variables is only dependent on the <strong>difference in time</strong> between them:</li>
+</ul>
+<div class="arithmatex">\[
+    |a-b| = |c-d| \implies \text{Cov}(Y_{a}, Y_{b}) = \text{Cov}(Y_{c}, Y_{d}) 
+\]</div>
+<p>Using the above, it can be shown that the <strong>variance is the same</strong> between two time points as well:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Var}(Y_{t}) &amp;= \text{Cov}(Y_{t}, Y_{t}) \\
+    \text{Var}(Y_{s}) &amp;= \text{Cov}(Y_{s}, Y_{s}) \\
+    \\
+    |t-t| = |s-s| = 0 &amp;\implies \text{Cov}(Y_{t}, Y_{t}) = \text{Cov}(Y_{s}, Y_{s}) \\
+    \therefore \text{Var}(Y_{t}) &amp;= \text{Var}(Y_{s}) 
+\end{aligned}
+\]</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A stationary model naturally implies that there are NEITHER Trends nor Seasonal effects in the data.</p>
+</div>
+<p>Stationarity can be identified via the use of <strong>Control Limit Plots</strong>. The limits are <strong>derived based on the mean and variance</strong>. If stationarity holds, the observations should almost always <strong>stay within the limits</strong> with <strong>no observable pattern</strong>:</p>
+<ul>
+<li><strong>Upper Control Limit</strong> (UCL): <span class="arithmatex">\(\bar{y} + 3 \cdot s_{y}\)</span></li>
+<li><strong>Lower Control Limit</strong> (LCL): <span class="arithmatex">\(\bar{y} - 3 \cdot s_{y}\)</span></li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="CONTROL_LIMIT_CHART" class="center" src="../Assets/10.%20Time%20Series.md/CONTROL_LIMIT_CHART.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The limits are likely based on the idea that the 99.7% of the density of a normal distribution is within <em>3 standard deviations</em> of the mean.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are two other variations of the control chart, which <strong>directly checks the mean and variance</strong> over time, known as <strong>x-bar and R charts</strong> respectively. They plot the sample statistics of <strong>samples taken over time</strong>.</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="XBAR_CHART" class="center" src="../Assets/10.%20Time%20Series.md/XBAR_CHART.png" /></p>
+<p>To be precise, the actual variance is not plotted but rather the range of the sample. Hence it is called a <em>R</em>-chart:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="R_CHART" class="center" src="../Assets/10.%20Time%20Series.md/R_CHART.png" /></p>
+<p>The <strong>same formula applies</strong> for the limits of the x-bar and R chart. Naturally, they are the mean and variances of the mean and range respectively; all three charts will have different numerical limits.</p>
+</div>
+<p>The following chart provides an example of different aspects of stationarity:</p>
+<ul>
+<li><strong>I</strong>: Stationary in Mean and Variance</li>
+<li><strong>II</strong>: Stationary in Mean Only</li>
+<li><strong>III</strong>: Stationary in Variance only</li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="STATIONARY_MEAN_VARIANCE" class="center" src="../Assets/10.%20Time%20Series.md/STATIONARY_MEAN_VARIANCE.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Filters</strong> are transformations can be used to make a time series stationary:</p>
+<ul>
+<li><strong>Differencing</strong>: Typically creates <strong>stationarity in the Mean</strong></li>
+<li><strong>Log</strong>: Typically creates <strong>stationarity in the Variance</strong></li>
+</ul>
+<p>Note that if the log-transformed series is differenced, it can be interpreted as the <strong>proportional change</strong> across the period:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \ln y_{t} - \ln y_{t-1}
+    &amp;= \ln \frac{y_{t}}{y_{t-1}} \\
+    &amp;= \ln (1 + \underbrace{\frac{y_{t}}{y_{t-1}} - 1}_{\text{Proportional Change}}) \\
+    &amp;= \ln (1 + \text{Proportional Change}) \\
+    &amp;\approx \text{Proportional Change}
+\end{aligned}
+\]</div>
+<p>The last step makes use of the taylor series expansion for small values of <span class="arithmatex">\(x\)</span>.</p>
+</div>
+<h3 id="white-noise"><strong>White Noise</strong><a class="headerlink" href="#white-noise" title="Permanent link">&para;</a></h3>
+<p>A variable that is <strong>naturally stationary</strong> is often referred to as <strong>White Noise</strong>, which is a term used to refer to a process that is <strong>completely random</strong>. The best forecast for such a variable is <strong>simply its mean</strong>; since it is assumed to be completely random: </p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{t} &amp;= \varepsilon_{t} \\
+    \\
+    E(y_{t}) &amp;= \mu \\
+    \text{Var}(y_{t}) &amp;= \sigma^{2} \\
+    \\
+    \hat{y}_{t+m} &amp;= \bar{y} \\
+    \text{SE}({\hat{y}_{t+m}}) &amp;= \sigma \cdot \sqrt{1 + \frac{1}{n}} \\
+    \text{PI} &amp;= \bar{y} \pm t_{\alpha} \cdot s_{y} \cdot \sqrt{1 + \frac{1}{n}}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that the forecasts are <strong>independent of time</strong>; the forecast is the <strong>same for all future periods</strong>.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="WHITE_NOISE_MODEL" class="center" src="../Assets/10.%20Time%20Series.md/WHITE_NOISE_MODEL.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ONLY White Noise</strong> data will generate the erratic pattern. If this pattern is noticed in another question, then it is likely a trick question - the data likely follows a modified version of one of the models studied that allows for the erratic pattern. </p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Stochastic patterns such as White Noise are NOT limited to just time series; they can occur in cross sectional data as well.</p>
+</div>
+<h3 id="random-walk"><strong>Random Walk</strong><a class="headerlink" href="#random-walk" title="Permanent link">&para;</a></h3>
+<p>A variable that <strong>grows randomly</strong> (grows by a white noise) each time period is known as a <strong>Random Walk</strong>. It can be understood as a <strong>summation of white noise processes</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{t+1}
+    &amp;= y_{t} + \varepsilon_{1} \\
+    &amp;= \dots \\
+    &amp;= y_{0} + \sum \varepsilon_{t}
+\end{aligned}
+\]</div>
+<p>A random walk itself is <strong>NOT stationary</strong>. However, the <strong>DIFFERENCE</strong> across 1 time period is a white noise process, which IS stationary:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(y_{t}) &amp;= y_{0} + t \cdot \mu \\
+    \text{Var}(y_{t}) &amp;= t \cdot \sigma^{2} \\
+    \\
+    E(y_{t} - y_{t-1}) &amp;= \mu \\
+    \text{Var}(y_{t} - y_{t-1}) &amp;= \sigma^{2}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To be precise, a random walk can be <strong>stationary in the mean</strong> if <span class="arithmatex">\(\mu=0\)</span>, which is common for white noise.</p>
+<p>It can be stationary in the variance as well for <span class="arithmatex">\(\sigma=0\)</span>, but that is highly unlikely, which is why random walk is often marked as not stationary, due to its non-stationary variance.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="DIFFERENCED_STATIONARY" src="../Assets/10.%20Time%20Series.md/DIFFERENCED_STATIONARY.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Random walks are said to have <strong>increasing variance</strong> over time. It is difficult to see this over one random walk, but over many different random walks it becomes clear:</p>
+<p><!-- Obtained from Github -->
+<img alt="RANDOM_WALK_VARIANCE" class="center" src="../Assets/10.%20Time%20Series.md/RANDOM_WALK_VARIANCE.png" /></p>
+<p>Mathematically, it is the variance arising from the sum of errors:</p>
+<div class="arithmatex">\[
+    \text{Var} \left(\sum \varepsilon_{t} \right) = t \cdot \sigma^{2}
+\]</div>
+</div>
+<p>Thus, the modelling uses the <strong>differencing</strong> to estimate the effect of white noise:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{y}_{t+m} &amp;= y_{t} + m \cdot \bar{\varepsilon} \\
+    \text{SE}(\hat{y}_{t+m}) &amp;= \sigma \cdot \sqrt{m} \\
+    \text{PI} &amp;= y_{t} + m \cdot \bar{\varepsilon} \pm t_{\alpha} \cdot \sigma \cdot \sqrt{m} \\
+    \\
+    w_{t} &amp;= y_{t} - y_{t-1}
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="RANDOM_WALK_MODEL" class="center" src="../Assets/10.%20Time%20Series.md/RANDOM_WALK_MODEL.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A random walk process can be expressed in the form <strong>analagous to a linear trend in time model</strong>. The key is understanding that the original white noise (<span class="arithmatex">\(\varepsilon\)</span>) can be expressed as two components:</p>
+<ul>
+<li>Mean of the original white noise</li>
+<li>A seperate white noise process</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \varepsilon_{t} &amp;= \mu_{\varepsilon} + W_{t} \\
+    \\
+    \therefore y_{t}
+    &amp;= y_{t-1} + \varepsilon_{t} \\
+    &amp;= y_{0} + \sum \varepsilon_{t} \\
+    &amp;= y_{0} + \sum \mu_{\varepsilon} + W_{t} \\
+    &amp;= y_{0} + \mu_{\varepsilon} t + \sum W_{t} \\
+    \\
+    &amp;\approx \beta_{0} + \beta_{1} t + \varepsilon_{t}
+\end{aligned}
+\]</div>
+<p>Note that the "error term" for the random walk (<span class="arithmatex">\(\sum W_{t}\)</span>) <strong>IS a random walk itself</strong> as it is a sum of white noise process. Thus, it is <strong>not stationary</strong>, which is a key difference from the linear trend in time model.</p>
+</div>
+<h3 id="autoregressive"><strong>Autoregressive</strong><a class="headerlink" href="#autoregressive" title="Permanent link">&para;</a></h3>
+<p>Autoregression refers to using <strong>past observations</strong> to predict future observations of the same series. The number of past observations used for the prediction is known as the <strong>Order</strong> (<span class="arithmatex">\(k\)</span>) of the model:</p>
+<div class="arithmatex">\[
+    Y_{t} = \beta_{0} + \beta_{1} \cdot Y_{t-1} + \dots + \beta_{k} \cdot Y_{t-k} + \varepsilon_{t}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, ONLY Autoregressive model of order 1 are considered; AR(1).</p>
+</div>
+<p>An AR(1) model can be seen as a generalization of a White Noise and Random Walk:</p>
+<ul>
+<li><span class="arithmatex">\(\beta_{1} = 0\)</span>: Reduces to <strong>White Noise</strong> Model</li>
+<li><span class="arithmatex">\(\beta_{1} = 1\)</span>: Reduces to <strong>Random Walk</strong> Model</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \beta_{1} &amp;= 0 \\
+    Y_{t} &amp;= \beta_{0} + 0 \cdot Y_{t-1} + \varepsilon_{t} \\
+    Y_{t} &amp;= \beta_{0} + \varepsilon_{t} \\
+    \\
+    \beta_{1} &amp;= 1 \\
+    Y_{t} &amp;= \beta_{0} + 1 \cdot Y_{t-1} + \varepsilon_{t} \\
+    Y_{t} &amp;= \beta_{0} + Y_{t-1} + \varepsilon_{t} \\
+    Y_{t} - Y_{t-1} &amp;= \beta_{0} + \varepsilon_{t}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Adding a constant to a white noise process <strong>still results in a white noise process</strong>, thus the above is valid.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key difference between a RW and an AR(1) model is that the AR(1) model does NOT just take the previous observation wholesale; it <strong>”course corrects”</strong> itself slightly.</p>
+</div>
+<p>AR(1) models are stationary, as they have a <strong>constant</strong> mean, variance and covariance:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(y_{t}) &amp;= \frac{\beta_{0}}{1 - \beta_{1}} \\
+    \text{Var}(y_{t}) &amp;= \frac{\sigma^{2}}{1 - \beta^{2}_{1}} \\
+    \text{Corr}(Y_{t}, Y_{t-k}) &amp;= \beta^{k}_{1}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above is true because an AR(1) model can be <strong>recursively expressed</strong> as a sum of itself. Using the geometric <strong>sum to infinity</strong>, the mean and variance are derived:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{t}
+    &amp;= \beta_{0} + \beta_{1} \cdot y_{t-1} + \varepsilon_{t} \\
+    &amp;= \beta_{0} + \beta_{1} \cdot (\beta_{0} + \beta_{1} \cdot y_{t-2} + \varepsilon_{t}) + \varepsilon_{t-1} \\
+    &amp;= \beta_{0} + \beta_{0} \cdot \beta_{1} + \beta^{2}_{1} \cdot y_{t-2}
+    + \varepsilon_{t} + \beta_{1} \cdot \varepsilon_{t-1} \\
+    &amp;= \dots \\
+    &amp;= (\beta_{0} + \beta_{0} \cdot \beta_{1} + \dots)
+    + (\varepsilon_{t} + \beta_{1} \cdot \varepsilon_{t} + \dots)
+\end{aligned}
+\]</div>
+<p>Thus, for the model to be stationary, the <strong>sum to infinity MUST exist</strong>. This is fulfilled if <span class="arithmatex">\(-1 \lt \beta_{1} \lt 1\)</span>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We can determine if autoregression is a good choice to model the data based on the following, which can be determined using different plots:</p>
+<ol>
+<li>If the series is <strong>stationary</strong></li>
+<li>If adjacent (in time) values follow a <strong>linear trend</strong></li>
+<li>Autocorrelations follow a <strong>decreasing geometric series</strong> as <span class="arithmatex">\(k\)</span> increases</li>
+</ol>
+<p>The third point is in reference to the relationship between autocorrelation and the regression coefficient. Since <span class="arithmatex">\(|\beta_{1}| \lt 1\)</span>, the autocorrelation will be <strong>decreasing for higher powers</strong>.</p>
+</div>
+<p>Thus, the model predicts <strong>one period ahead</strong> based on the most recent observation. For future periods, it uses the <strong>previous prediction</strong> as a starting point:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{y}_{t+m}
+    &amp;=
+    \begin{cases}
+        \beta_{0} + \beta_{1} \cdot y_{t+m-1},&amp; m = 1 \\
+        \beta_{0} + \beta_{1} \cdot \hat{y}_{t+m-1},&amp; m \gt 1 \\    
+    \end{cases}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above is known as the <strong>Chain Rule of Forecasting</strong>.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="FORECAST_INTERVAL" class="center" src="../Assets/10.%20Time%20Series.md/FORECAST_INTERVAL.png" /></p>
+<h4 id="autocorrelation"><strong>Autocorrelation</strong><a class="headerlink" href="#autocorrelation" title="Permanent link">&para;</a></h4>
+<p>Autocorrelation refers to the correlation <strong>between an observation and a "lagged" version of itself</strong>. The k-lagged autocorrelation determines the correlation for <strong>each observation</strong> and a <span class="arithmatex">\(k\)</span> lagged version of itself:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \varrho_{k} &amp;= \text{Corr}(Y_{t}, Y_{t-k}) \\
+    \hat{\varrho}_{k} &amp;= \frac{\sum^{n}_{k+1} (y_{t-k} -\bar{y})(y_{t} -\bar{y})}{\sum^{n}_{1} (y_{t} - \bar{y})}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is helpful to use an illustration to know which pairs of observations are considered together for autocorrelation:</p>
+<p><!-- Self Made -->
+<img alt="AUTOCORRELATION_EXAMPLE" class="center" src="../Assets/10.%20Time%20Series.md/AUTOCORRELATION_EXAMPLE.png" /></p>
+<p>Using the above example, the autocorrelation is calculated as follows:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Autocorrelation}
+    &amp;=\frac
+        {(A-\bar{y})(C-\bar{y}) + (B-\bar{y})(D-\bar{y}) + (A-\bar{y})(C-\bar{y})}{\sum (y - \bar{y})^{2}}
+\end{aligned}
+\]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the 1-lag autocorrelation is <strong>positive</strong>, it is said to be <strong>Meandering process</strong>. It is a term used in Geography to describe Winding Rivers where adjacent points are connected to one another.</p>
+</div>
+<p>In order to determine if autocorrelation is truly present, a hypothesis test can be used:</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \varrho_{k} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}: \varrho_{k} \ne 0\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{SE}(\hat{\varrho}_{k}) &amp;= \frac{1}{\sqrt{n}} \\
+    \\
+    \therefore Q_{\text{Statistic}}
+    &amp;= \frac{\hat{\varrho}_{k}}{\text{SE}(\hat{\varrho}_{k})} \\
+    &amp;= \hat{\varrho} \cdot \sqrt{n} \\
+    &amp;\sim N(0,1)
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For the purposes of this exam, it is assumed that the standard error of the autocorrelation estimate is <strong>constant regardless of the lag</strong>. In reality, there would intuitively, be some dependency.</p>
+</div>
+<h4 id="model-fitting"><strong>Model Fitting</strong><a class="headerlink" href="#model-fitting" title="Permanent link">&para;</a></h4>
+<p>The model coefficients can be estimated using <strong>Conditional Least Squares</strong> (similar to OLS). The <strong>major difference</strong> lies in the <strong>number of observations</strong> used; only <span class="arithmatex">\(n-1\)</span> observations are used in total to estimate the model:</p>
+<!-- Self Made -->
+<p><img alt="AR1_FITTING_OBSERVATIONS" class="center" src="../Assets/10.%20Time%20Series.md/AR1_FITTING_OBSERVATIONS.png" /></p>
+<p>For the purposes of parameter estimation, it is necessary to distinguish between the two sets:</p>
+<ul>
+<li><strong>Set A</strong>: Observations used for training</li>
+<li><strong>Set B</strong>: Actual observatons for the predictions of set A</li>
+</ul>
+<!-- Self Made -->
+<p><img alt="AR1_FITTING_SETS" class="center" src="../Assets/10.%20Time%20Series.md/AR1_FITTING_SETS.png" /></p>
+<p>The resulting parameter coefficients are extremely similar to OLS:</p>
+<ul>
+<li>OLS <span class="arithmatex">\(x\)</span> is replaced with set A (Predictors)</li>
+<li>OLS <span class="arithmatex">\(y\)</span> is replaced with set B (Predictions)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\beta}_{1}
+    &amp;= \frac{\sum (y_{t-1} - \bar{y}_{A})(y_{t} - \bar{y}_{B})}
+            {\sum (y_{t-1} - \bar{y}_{B})} \\
+    \\
+    \hat{\beta}_{0} &amp;= \bar{y}_{A} - \hat{\beta}_{1} \cdot \bar{y}_{B}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Alternatively, the coefficients can be estimated using the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \beta_{0} &amp;= \bar{y} (1 - \varrho_{1}) \\
+    \beta_{1} &amp;= \varrho_{1}
+\end{aligned}
+\]</div>
+<p>The difference between the estimation and original formula becomes <strong>negligible for a large number</strong> of observations.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The fitted values for all observations up till time <span class="arithmatex">\(t\)</span> is known as the <strong>smoothed series</strong> (not to be confused with smoothing techniques). It tends to be <strong>less erratic</strong> as it only contains the estimated signal:</p>
+<p><!-- Self Made -->
+<img alt="AR1_SMOOTHED_SERIES" class="center" src="../Assets/10.%20Time%20Series.md/AR1_SMOOTHED_SERIES.png" /></p>
+<p>The difference between the two are the residuals of the model.</p>
+</div>
+<p>Note that since only <span class="arithmatex">\(n-1\)</span> observations are used to fit the model, the residuals have only <span class="arithmatex">\(n-3\)</span> degrees of freedom; <strong>one less than OLS</strong>, reflecting the one less observation used. This reflects itself in the <strong>estimated variance AND t-distribution</strong>, which flows into the prediction interval:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\sigma}^{2}
+    &amp;= \frac{\text{RSS}}{n-3} \\
+    \\
+    \text{SE}(\hat{y}_{t+m})
+    &amp;= \hat{\sigma} \sqrt{1 + \beta^{2}_{1} + \dots + \beta^{2(m-1)}_{1}} \\
+    \\
+    \text{PI} &amp;= \hat{y}_{t+m} \pm t_{\alpha, n-3} \cdot \text{SE}(\hat{y}_{t+m})
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, the confidence interval for time series models are ignored.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that the RSS is more explicitly expressed as the following:</p>
+<div class="arithmatex">\[
+    \text{RSS} = \sum (\hat{\varepsilon}_{t} - \bar{\hat{\varepsilon}}_{t})
+\]</div>
+<p>If Conditional Least Squares is used, then the second term reduces to 0 as a result of the minimization. HOWEVER, if the <strong>approximation method</strong> is used, the second term <strong>DOES NOT reduce to 0</strong>, thus it needs to be calculated explicitly.</p>
+</div>
+<h3 id="dickey-fuller"><strong>Dickey Fuller</strong><a class="headerlink" href="#dickey-fuller" title="Permanent link">&para;</a></h3>
+<p>Stationary models can more generally be expressed as the following, known as the <strong>Dickey Fuller Equation</strong>. It can be shown that when certain conditions are met, the general equation reduces to one of the following:</p>
+<ul>
+<li><span class="arithmatex">\(\varphi = 1\)</span>: Random Walk</li>
+<li><span class="arithmatex">\(\varphi = 0\)</span>: Linear Trend in Time</li>
+<li><span class="arithmatex">\(\mu_{1} = 0, \varphi \lt 1\)</span>: Autoregressive</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y_{t} &amp;= \mu_{0} (1 - \varphi) + \mu_{1} \varphi + \varphi Y_{t-1} + \mu_{1} (1 - \varphi) t + \varepsilon_{t} \\
+    \\
+    \varphi &amp;= 1 \\
+    Y_{t} &amp;= \mu_{1} + Y_{t-1} + \varepsilon_{t} \\
+    \\
+    \varphi &amp;= 0 \\
+    Y_{t} &amp;= \mu_{0} + \mu_{1} t + \varepsilon_{t} \\
+    \\
+    \mu_{1} &amp;= 0 \\
+    Y_{t} &amp;= (1 - \varphi) \mu_{0} + \varphi Y_{t-1} + \varepsilon_{t} \\
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice the following relationships:</p>
+<ul>
+<li><span class="arithmatex">\(\varphi\)</span> is equivalent to <span class="arithmatex">\(\beta_{1}\)</span> in an AR(1) model</li>
+<li><span class="arithmatex">\(\mu_{1}\)</span> is equivalent to <span class="arithmatex">\(\beta_{1}\)</span> in a Linear Trend model</li>
+</ul>
+<p>The decompositions are intuitive as an AR(1) model can be expressed as a RW; RWs can also be expressed as a linear trend model. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The linear trend in time is a simple model that regresses the dependent variable against time:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="LINEAR_TIME" class="center" src="../Assets/10.%20Time%20Series.md/LINEAR_TIME.png" /></p>
+<p>This model tends to perform poorly as <strong>small or large values of <span class="arithmatex">\(t\)</span> tend to have high leverage</strong>, causing them to have much greater influence on the model.</p>
+<p>The other time series model recommended tend to put <strong>more weight on recent observations</strong> rather than old ones, which is more desirable when working with time series data.</p>
+</div>
+<p>The main purpose for expressing it in this way is to perform a <strong>Dickey Fuller Test</strong>, which tests for the presence of a <strong>Unit Root</strong>.</p>
+<p>“Roots" refers to the solutions of an equation. In a time series context, it is typically referring to the regression coefficients <span class="arithmatex">\(\beta_{1}\)</span> (or <span class="arithmatex">\(\varphi\)</span> in this context). A Unit Root specifically means root is <strong>equal to a unit value (equal to 1)</strong> - which is when the series <strong>follows a random walk</strong>:</p>
+<ul>
+<li><span class="arithmatex">\(\varphi = 1\)</span></li>
+<li><span class="arithmatex">\(\varphi \gt 1\)</span></li>
+</ul>
+<p>The test implicitly assumes that the white noise term is serially uncorrelated. If this is not the case, the test can be modified to account for it, known as an <strong>Augmented Dickey Fuller Test</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is NOT necessary to know the test-statistic or its sampling distribution. If needed, the question will provide them.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The exact mathematical details about why the regression coefficient is the root of an autoregressive model is beyond the scope of this exam.</p>
+</div>
+<h2 id="smoothing-models"><strong>Smoothing Models</strong><a class="headerlink" href="#smoothing-models" title="Permanent link">&para;</a></h2>
+<p>Smoothing is a technique that involves <strong>averaging data points</strong> over a period to account for the various components in the time series (Level, Trend, Seasonality), resulting in a stationary time series with the underlying signal.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key intuition is that the Trend and Seasonal components are known - by predicting the underlying signal, those components can be added back to obtain the final prediction.</p>
+</div>
+<h3 id="decomposition"><strong>Decomposition</strong><a class="headerlink" href="#decomposition" title="Permanent link">&para;</a></h3>
+<p>Time series data can be split into four main components:</p>
+<ul>
+<li><strong>Level</strong> (L) - Average <strong>value</strong> for a specific time period (Baseline value without the other components)</li>
+<li><strong>Trends</strong> (T) - Long term and slow changes in the data</li>
+<li><strong>Season</strong> (S) - Changes with a <strong>fixed periodicity</strong></li>
+<li><strong>White Noise</strong> (<span class="arithmatex">\(\varepsilon\)</span>) - Irregular short term fluctuations</li>
+</ul>
+<!-- Obtained from Medium -->
+<p><img alt="TIME_SERIES_COMPONENTS" class="center" src="../Assets/10.%20Time%20Series.md/TIME_SERIES_COMPONENTS.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are also Cyclical effects that are long-term changes that occur at unknown intervals. For instance, an economic recession is a well-known Cyclical effect.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It can be said that all the models so far have been forecasting the conditional mean of the series; the level - which is why no consideration was made for the other effects.</p>
+</div>
+<p>There are two types of decomposition, depending on the nature of the data:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Additive</strong></th>
+<th align="center"><strong>Multiplicative</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(Y = L + T + S + \varepsilon\)</span></td>
+<td align="center"><span class="arithmatex">\(Y = L \cdot T \cdot S \cdot \varepsilon\)</span></td>
+</tr>
+<tr>
+<td align="center">Fluctuation <strong>NOT proportional to trend</strong></td>
+<td align="center">Fluctuation <strong>proportional</strong> to trend</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<!-- Obtained From Crystall Ball Services -->
+<p><img alt="TIME_SERIES_DECOMPOSITION" class="center" src="../Assets/10.%20Time%20Series.md/TIME_SERIES_DECOMPOSITION.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Using a <strong>variance stabilizing transformation</strong> such as the Log function will convert a multiplicative model to become additive:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y_{t} &amp;= L_{t} \cdot T_{t} \cdot S_{t} \cdot \varepsilon_{t} \\
+    \ln Y_{t} &amp;= \ln \left(L_{t} \cdot T_{t} \cdot S_{t} \cdot \varepsilon_{t} \right) \\
+    \ln Y_{t} &amp;= \ln L_{t} + \ln T_{t} + \ln S_{t} + \ln \varepsilon_{t}
+\end{aligned}
+\]</div>
+</div>
+<h3 id="arithmetic-smoothing"><strong>Arithmetic Smoothing</strong><a class="headerlink" href="#arithmetic-smoothing" title="Permanent link">&para;</a></h3>
+<p>The <strong>simple moving average</strong> at a given time is the <strong>arithmetic average</strong> of the <strong>LAST <span class="arithmatex">\(k\)</span></strong> observations, where <span class="arithmatex">\(k\)</span> is known as the <strong>moving average length</strong>. It can also be shown that it is recursive:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    s_{t}
+    &amp;= \frac{y_{t} + y_{t-1} + \dots + y_{t-k+1}}{k} \\
+    &amp;= s_{t-1} + \frac{y_{t} - y_{t-k}}{k} 
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The recursion is simply accounting for the <strong>averaged difference between the change in observations</strong> at the boundaries:</p>
+<p><!-- Self Made -->
+<img alt="SMA_RECUSION" class="center" src="../Assets/10.%20Time%20Series.md/SMA_RECURSION.png" /></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(k\)</span>. The larger <span class="arithmatex">\(k\)</span>, the <strong>more periods</strong> included in the average, making it <strong>less sensitive</strong> to the current observation and hence <strong>more smooth</strong>.</p>
+<ul>
+<li><span class="arithmatex">\(k=1\)</span>: No smoothing</li>
+<li><span class="arithmatex">\(k=n\)</span>: Maximum smoothing</li>
+</ul>
+</div>
+<p>Assuming that the data has <strong>NO trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{y}_{t+1} &amp;= \beta_{0} \\
+    \beta_{0} &amp;= s_{t}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the functional form above is similar to linear regression. Thus, it is possible to use <strong>Weighted Least Squares</strong> to estimate <span class="arithmatex">\(\beta_{0}\)</span>:</p>
+<div class="arithmatex">\[
+    \min \sum w_{t} (y_{t} - \hat{y}_{t})^{2}
+\]</div>
+<p>Since only the last <span class="arithmatex">\(k\)</span> observations are used, weights are only assigned to observations <strong>within the window</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    w_{t}
+    \begin{cases}
+        1, t \ge n - k + 1 \\
+        0, t \le n - k + 1
+    \end{cases}
+\end{aligned}
+\]</div>
+<p>It can be shown that this reduces to the moving average at time <span class="arithmatex">\(t\)</span>. It is also known as a <strong>Locally Constant Mean</strong> model, as it uses the <strong>local mean</strong> of the last <span class="arithmatex">\(k\)</span> observations as the prediction.</p>
+<p>If <span class="arithmatex">\(k=n\)</span>, then the model uses ALL historical observations which then results in a <strong>Globally Constant Mean</strong>.</p>
+</div>
+<p>If data has an underlying trend, then a <strong>Doubly Smoothed</strong> time series can be used instead, with the following functional form:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+   s^{(2)}_{t}
+   &amp;= \frac{s_{t} + s_{t-1} + \dots + s_{t-k+1}}{k} \\
+   &amp;= s_{t-1} + \frac{s_{t} - s_{t-k}}{k} \\
+   \\
+    \hat{y}_{t+1} &amp;= \beta_{0} + \beta_{1} \cdot t \\
+    \beta_{0} &amp;= s_{t} \\
+    \beta_{1} &amp;= \frac{2}{k-1} \cdot \left(s_{t} - s^{(2)}_{t} \right)
+\end{aligned}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A similar proof can likely be shown using linear regression, but that it out of scope for the purposes of this exam.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One common criticism with the Moving Average Smoothing model is that time series models should give <strong>varying weights based on the recency</strong> of the observation - the current model gives equal weights to all observations within the window.</p>
+</div>
+<h3 id="exponential-smoothing"><strong>Exponential Smoothing</strong><a class="headerlink" href="#exponential-smoothing" title="Permanent link">&para;</a></h3>
+<p><strong>Exponential Smoothing</strong> follows a similar process, instead using a <strong>geometric average</strong> of ALL past observations. It can also be shown to be recursive:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    s_{t}
+    &amp;= (1-w) y_{t} + w \cdot s_{t-1} \\
+    &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + w^{2} \cdot s_{t-2} \\
+    &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + w^{2} (1-w) \cdot y_{t-2} + \dots \\
+    &amp;= (1-w) y_{t} + w (1-w) \cdot y_{t-1} + \dots + w^{t} (1-w) \cdot y_{0}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is no actual observation for <span class="arithmatex">\(y_{0}\)</span>. It is a theoretical baseline that is typically set as either <span class="arithmatex">\((0, y_{1}, \bar{y})\)</span>.</p>
+<p>It is ONLY applicable for exponential smoothing.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><span class="arithmatex">\(w\)</span> is the weight placed on HISTORICAL observations. T</p>
+<p>The effect of smoothing is <strong>proportional</strong> to <span class="arithmatex">\(w\)</span>. The larger it is, more weight placed on historical observations, making it <strong>less sensitive</strong> to the current observation and hence <strong>more smooth</strong>.</p>
+<ul>
+<li><span class="arithmatex">\(w=0\)</span>: No smoothing</li>
+<li><span class="arithmatex">\(w=1\)</span>: Maximum smoothing</li>
+</ul>
+<p>For both types of smoothing, the effect of smoothing is proportional to the parameter. However, the minimum value is different for each.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The weights applied to each observation will <strong>sum to 1</strong> across all observations; hence the smoothing actually produces a <strong>Weighted Average</strong> of the series:</p>
+<div class="arithmatex">\[
+    \sum w^{t} (1-w) = 1
+\]</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The smoothing parameter can be chosen by considering the <strong>one step prediction errors</strong> for each <span class="arithmatex">\(w\)</span>, then choosing the <span class="arithmatex">\(w\)</span> that results in smallest error:</p>
+<div class="arithmatex">\[
+    SS(w) = \sum (y_{t} - \hat{s}_{t-1})
+\]</div>
+<p>Note that <span class="arithmatex">\(s_{t-1}\)</span> is the prediction for <span class="arithmatex">\(y_{t}\)</span>, NOT <span class="arithmatex">\(s_{t}\)</span>. This is because <span class="arithmatex">\(s_{t}\)</span> already includes the actual observation at <span class="arithmatex">\(t\)</span>. Naturally, this can be used to determine the <strong>in-sample goodness of fit</strong> as well.</p>
+<p>However, this method is computationally expensive. Thus, a <strong>Typical value</strong> for <span class="arithmatex">\(w\)</span> is within the range <span class="arithmatex">\((0.75, 0.95)\)</span></p>
+</div>
+<p>Assuming that the data has <strong>no trend or seasonal effects</strong>, the smoothed series accounts for the level and hence can be used for predictions:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{y}_{t+1} &amp;= \beta_{0} \\
+    \beta_{0} &amp;= s_{t}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Similarly, the coefficient can be found via <strong>discounted least squares</strong> as well. It is known as "Discounted" because the weighting parameter is similar to the <strong>discounting function</strong> in the time value of money:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \min &amp;\sum w_{t} (y_{t} - \hat{y}_{t})^{2} \\
+    w_{t} &amp;= w^{n-t}    
+\end{aligned}
+\]</div>
+<p>The resulting estimate is different from the exponential smoothing average, but is <strong>approximately equal for large n</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \beta_{0}
+    &amp;= \frac{s_{t} - (1-w)w^{t} \cdot y_{0}}{1-w^{n}} \\
+    &amp;\approx s_{t} 
+\end{aligned}
+\]</div>
+</div>
+<p>However, if data has an underlying trend, then a <strong>Doubly Smoothed</strong> time series can be used instead, with the following functional form:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    s^{(2)}_{t}
+    &amp;= (1-w) s_{t} + w \cdot s^{(2)}_{t-1} \\
+    &amp;= (1-w) s_{t} + w (1-w) \cdot s_{t-1} + w^{2} \cdot s^{(2)}_{t-2} \\
+    &amp;= (1-w) s_{t} + w (1-w) \cdot s_{t-1} + w^{2} (1-w) \cdot s_{t-2} + \dots \\
+    \\
+    \hat{y}_{t+1} &amp;= \beta_{0} + \beta_{1} \cdot t \\
+    \beta_{0} &amp;= 2s_{t} - s^{(2)}_{t} \\
+    \beta_{1} &amp;= \frac{1-w}{w} \cdot \left(s_{t} - s^{(2)}_{t} \right) 
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The ultimate functional form is the same as the moving average smoothing.</p>
+<p>HOWEVER, the individual estimates for <span class="arithmatex">\(\beta\)</span> are different. This is especially true for <span class="arithmatex">\(\beta_{0}\)</span>, where the estimate <em>looks the same</em> but is <strong>actually different</strong>. </p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is possible to even have a <strong>triple smoothed model</strong> to account for seasonal effects, but such model are out of scope for this exam.</p>
+</div>
+<h2 id="other-models"><strong>Other Models</strong><a class="headerlink" href="#other-models" title="Permanent link">&para;</a></h2>
+<h3 id="volatility-models"><strong>Volatility Models</strong><a class="headerlink" href="#volatility-models" title="Permanent link">&para;</a></h3>
+<p>So far, all the models discussed cannot work with non-stationary data. However, if the data exhibits <strong>changing variance</strong>, there are two models that can be used:</p>
+<ul>
+<li>Autoregressive Changing Heteroscedasticity (<strong>ARCH</strong>) - Based on <strong>past error</strong> terms</li>
+<li>Generalized Autoregressive Changing Heteroscedasticity (<strong>GARCH</strong>) - Based on past error terms <strong>AND past conditional variances</strong></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{ARCH}(p)
+    &amp;= \sigma^{2}_{t} \\
+    &amp;= \theta + \gamma_{1} \cdot \varepsilon^{2}_{t-1} + \dots + \gamma_{p} \cdot \varepsilon^{2}_{t-p} \\
+    \\
+    \text{GARCH}(p,q)
+    &amp;= \sigma^{2}_{t} \\
+    &amp;= \theta + \gamma_{1} \cdot \varepsilon^{2}_{t-1} + \dots + \gamma_{p} \cdot \varepsilon^{2}_{t-p}
+    + \delta_{1} \cdot \sigma^{2}_{t-1} + \dots + \delta_{q} \cdot \sigma^{2}_{t-q} \\
+\end{aligned}
+\]</div>
+<p>Take note of the following key facts for the model:</p>
+<ul>
+<li>The parameters are estimated using MLE</li>
+<li>The predictor coefficients must be <strong>POSITIVE</strong> and sum to <strong>LESS than 1</strong></li>
+<li>The intercept is known as the <strong>Long Run Volatility Parameter</strong> and must also be <strong>POSITIVE</strong></li>
+<li>The emphasis on positive above is because the coefficients MUST be there; they <strong>CANNOT be 0</strong></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above two models assume that conditional variance can change, but the <strong>UNCONDITIONAL variance is still constant</strong>; <strong>still weakly stationary</strong>. Hence are called “conditionally” heteroscedastic.</p>
+<p>Thus, the <strong>UNCONDITINAL variance</strong> for both ARCH and GARCH can be expressed as:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Var}(\varepsilon_{t})
+    &amp;= \frac{\theta}{1 - \sum \text{Predictor Coefficients}} \\
+    \\
+    \therefore \sum \text{Predictor Coefficients} &amp;\lt  1
+\end{aligned} 
+\]</div>
+<p>This is why the coefficients <strong>must sum to LESS than 1</strong>; otherwise the model would have infinite variance!</p>
+</div>
+<h3 id="seasonal-models"><strong>Seasonal Models</strong><a class="headerlink" href="#seasonal-models" title="Permanent link">&para;</a></h3>
+<p>As its name suggests, seasonal models are models that <strong>can accomodate seasonal effects</strong> that occur periodically.</p>
+<p>The most basic form is making one of the following additions to a linear trend:</p>
+<ul>
+<li><strong>Indicator Variables</strong> for the periodicity (EG. Seasons)</li>
+<li><strong>Trigonometric</strong> Variables</li>
+<li><strong>Polynomial functions of time</strong></li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="SEASONAL_MODELS" class="center" src="../Assets/10.%20Time%20Series.md/SEASONAL_MODELS.png" /></p>
+<p>The <strong>Autoregressive and Smoothing models</strong> can also be adjusted to account for seasonality by considering the <span class="arithmatex">\(g\)</span> period lagged observations, where <span class="arithmatex">\(g\)</span> is the <strong>periodicity</strong> of the seasonal effect:</p>
+<ul>
+<li><strong>Yearly Periodicity</strong>: <span class="arithmatex">\(g=12\)</span></li>
+<li><strong>Quarterly Periodicity</strong>: <span class="arithmatex">\(g=3\)</span></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key advantage of the AR and Smoothing models is that they allow for changing seasonal effects while the earlier 3 only allowed for <strong>Fixed</strong> models.</p>
+</div>
+<h2 id="model-diagnostics"><strong>Model Diagnostics</strong><a class="headerlink" href="#model-diagnostics" title="Permanent link">&para;</a></h2>
+<p>Similar to other statistical learning methods, the observations are split into a training (<span class="arithmatex">\(N_{1}\)</span>) and test set (<span class="arithmatex">\(N_{2}\)</span>). However, the key difference is that <strong>ALL PRIOR observations</strong> are used to make a prediction, even if the observation belongs to the test set:</p>
+<!-- Self Made -->
+<p><img alt="TS_TEST_TRAIN_SPLIT" class="center" src="../Assets/10.%20Time%20Series.md/TS_TEST_TRAIN_SPLIT.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For the purposes of this exam, note that the model is NOT retrained at every step. Any coefficients or parameters are locked in based on time <span class="arithmatex">\(n\)</span>.</p>
+<p>The key difference is that the <strong>actual observation</strong> for <span class="arithmatex">\(n+1\)</span> is used to predict <span class="arithmatex">\(n+2\)</span>, nothing more.</p>
+<p>Note that for a random walk, the average white noise impact is considered an estimated term and is thus locked in.</p>
+</div>
+<p>Time series models uses slightly different metrics compared:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Mean Square Error (MSE)}
+    &amp;= \frac{1}{N_{2}} \cdot \sum (y_{t} - \hat{y}_{t})^{2} \\
+    \\
+    \text{Mean Error (ME)}
+    &amp;= \frac{1}{N_{2}} \cdot (y_{t} - \hat{y}_{t}) \\
+    \\
+    \text{Mean Absolute Error (MAE)}
+    &amp;= \frac{1}{N_{2}} \cdot | y_{t} - \hat{y}_{t} | \\
+    \\
+    \text{Mean Percentage Error (MPE)}
+    &amp;= 100 \cdot \frac{1}{N_{2}} \cdot \frac{y_{t} - \hat{y}_{t}}{y_{t}} \\
+    \\
+    \text{Mean Absolute Percentage Error (MAPE)}
+    &amp;= 100 \cdot \frac{1}{N_{2}} \cdot \frac{| y_{t} - \hat{y}_{t} |}{y_{t}}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above metrics can be used to <strong>identify trend</strong> patterns in the data that were <strong>not anticipated</strong> by the data.</p>
+<p>However, the <strong>squared and the absolute variants</strong> are slightly better as they do NOT allow for offsetting effects.</p>
+</div>
+<h2 id="key-model-summary"><strong>Key Model Summary</strong><a class="headerlink" href="#key-model-summary" title="Permanent link">&para;</a></h2>
+<!-- Self Made -->
+<p><img alt="TIME_SERIES_SUMMARY" class="center" src="../Assets/10.%20Time%20Series.md/TIME_SERIES_SUMMARY.png" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../9.%20Clustering/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Clustering" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Clustering
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../Placeholder/" class="md-footer__link md-footer__link--next" aria-label="Next: ASA PA" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              ASA PA
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

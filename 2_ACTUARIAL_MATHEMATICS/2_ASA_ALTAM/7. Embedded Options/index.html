@@ -1,0 +1,2329 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/7.%20Embedded%20Options/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Embedded Options - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#embedded-options" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Embedded Options
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Profit%20Testing/" class="md-nav__link">
+        Profit Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Embedded Options
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Embedded Options
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equity-linked-insurance" class="md-nav__link">
+    Equity Linked Insurance
+  </a>
+  
+    <nav class="md-nav" aria-label="Equity Linked Insurance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-vs-non-unit-account" class="md-nav__link">
+    Unit VS Non-Unit Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premium-allocation" class="md-nav__link">
+    Premium Allocation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fund-value" class="md-nav__link">
+    Fund Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-benefits" class="md-nav__link">
+    Policy Benefits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-testing" class="md-nav__link">
+    Profit Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-with-ul" class="md-nav__link">
+    Comparison with UL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-options_1" class="md-nav__link">
+    Embedded Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Embedded Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-maturity-benefit" class="md-nav__link">
+    Guaranteed Maturity Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-death-benefit" class="md-nav__link">
+    Guaranteed Death Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funding" class="md-nav__link">
+    Funding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hedging" class="md-nav__link">
+    Hedging
+  </a>
+  
+    <nav class="md-nav" aria-label="Hedging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-hedging" class="md-nav__link">
+    External Hedging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-hedging" class="md-nav__link">
+    Internal Hedging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-annuities" class="md-nav__link">
+    Variable Annuities
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Annuities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reset-option" class="md-nav__link">
+    Reset Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookback-option" class="md-nav__link">
+    Lookback Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollover-guarantee" class="md-nav__link">
+    Rollover Guarantee
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-income-benefit" class="md-nav__link">
+    Guaranteed Income Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-withdrawal-benefit" class="md-nav__link">
+    Guaranteed Withdrawal Benefit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equity-linked-insurance" class="md-nav__link">
+    Equity Linked Insurance
+  </a>
+  
+    <nav class="md-nav" aria-label="Equity Linked Insurance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-vs-non-unit-account" class="md-nav__link">
+    Unit VS Non-Unit Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#premium-allocation" class="md-nav__link">
+    Premium Allocation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fund-value" class="md-nav__link">
+    Fund Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-benefits" class="md-nav__link">
+    Policy Benefits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-testing" class="md-nav__link">
+    Profit Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-with-ul" class="md-nav__link">
+    Comparison with UL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-options_1" class="md-nav__link">
+    Embedded Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Embedded Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-maturity-benefit" class="md-nav__link">
+    Guaranteed Maturity Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-death-benefit" class="md-nav__link">
+    Guaranteed Death Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funding" class="md-nav__link">
+    Funding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hedging" class="md-nav__link">
+    Hedging
+  </a>
+  
+    <nav class="md-nav" aria-label="Hedging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-hedging" class="md-nav__link">
+    External Hedging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-hedging" class="md-nav__link">
+    Internal Hedging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-annuities" class="md-nav__link">
+    Variable Annuities
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Annuities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reset-option" class="md-nav__link">
+    Reset Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookback-option" class="md-nav__link">
+    Lookback Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollover-guarantee" class="md-nav__link">
+    Rollover Guarantee
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-income-benefit" class="md-nav__link">
+    Guaranteed Income Benefit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guaranteed-withdrawal-benefit" class="md-nav__link">
+    Guaranteed Withdrawal Benefit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="embedded-options"><strong>Embedded Options</strong><a class="headerlink" href="#embedded-options" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Due to developments in the financial market, insurance products had to evolve to remain relevant. This led to development of <strong>Equity Linked Insurance</strong>, where policy benefits were <strong>linked</strong> to the performance of an <strong>underlying mutual fund</strong>.</p>
+<p>In order to attract investors, these products usually comes with <strong>guarantees</strong> on their benefits, providing <strong>unlimited upside and limited downsides</strong>. However, this results in insurance companies bearing <strong>huge financial risks</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>These guarantees may not be part of the product features, but offered as a rider for additional cost.</p>
+</div>
+<p>Traditional actuarial methods were not well suited to effectively deal with these risks, which led to the insolvency of many insurance companies in the 1990s when interest rates fell. This led to the creation of <strong>Market Consistent</strong> valuation basis to ensure that these risks are appropriately accounted for.</p>
+<p>As its name suggests, market consistent valuation involves valuing an asset at its <strong>observed market value</strong>. However, insurance contracts are almost never traded, thus does not have an observable market value. Instead, the insurance cashflows are <strong>translated into tradeable assets</strong>, where the value of the contract is <strong>equivalent to the price</strong> of the assets.</p>
+<p>The guarantees offered Equity Linked insurance can be translated into an <strong>Option</strong>, which is why it can be valued as an <strong>Embedded Option</strong>.</p>
+<h2 id="equity-linked-insurance"><strong>Equity Linked Insurance</strong><a class="headerlink" href="#equity-linked-insurance" title="Permanent link">&para;</a></h2>
+<p>The defining feature of Equity Linked insurance is that the policyholder's premiums are <strong>invested into units</strong> of one or more mutual funds of the policyholder's choice. The <strong>policy benefits are directly linked</strong> to the total value of the units in the policyholder's account.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to confuse universal life (UL) and Equity Linked (EL) policies as both involve an <strong>account</strong> for the policyholder:</p>
+<ul>
+<li><strong>Universal Life</strong>: Account is purely notional; known as <strong>Account Value</strong></li>
+<li><strong>Equity Linked</strong>: Account is actually invested in funds of choice; known as <strong>Fund Value</strong></li>
+</ul>
+</div>
+<h3 id="unit-vs-non-unit-account"><strong>Unit VS Non-Unit Account</strong><a class="headerlink" href="#unit-vs-non-unit-account" title="Permanent link">&para;</a></h3>
+<p>The key to understanding Equity Linked insurance is to understand the difference between:</p>
+<ul>
+<li><strong>Unit Account</strong>: Owned by Policyholders; where premiums are invested</li>
+<li><strong>Non-Unit Account</strong>: Owned by Company (Shareholders); where benefits and expenses are paid out from</li>
+</ul>
+<p>Every period, <strong>charges</strong> are posted to the unit account to cover the cost of the policy (Mortality &amp; Expense charges, similar to UL). These charges then flow into the non-unit account as <strong>fee income</strong>, which is then used to <strong>cover the actual cost</strong> of the policy.</p>
+<!-- Self Made -->
+<p><img alt="Unit_Linked" class="center" src="../Assets/7.%20Embedded%20Options.md/Unit_Linked.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are two distinct cashflows:</p>
+<ul>
+<li><strong>Charges</strong>: Posted to Unit Account, flows into Non Unit Account as Income</li>
+<li><strong>Cost</strong>: Posted to Non Unit Account, actual cost of the policy</li>
+</ul>
+<p>The amount charged to the policyholder and the actual are often different - where the charges are higher than the cost, allowing the insurer to <strong>earn the spread</strong>. For instance, the fund management charge might be $100 - but the insurer only incurs $70 of investment expenses (due to economies of scale), allowing them to earn the difference.</p>
+</div>
+<p>Another intuitive way to think about it is that for <strong>all other types of policies</strong>, there exists only a <strong>non-unit account</strong>. The premiums paid might be more/less than the cost of the policy, the excess/shortfall is managed by the <strong>insurer's investments</strong>.</p>
+<p>The key difference is that the premiums are <strong>invested by the policyholder</strong>; only what is needed is deducted each period. The <strong>investment risk is borne by the policyholder</strong> instead.</p>
+<h3 id="premium-allocation"><strong>Premium Allocation</strong><a class="headerlink" href="#premium-allocation" title="Permanent link">&para;</a></h3>
+<p>Only the <strong>Allocated Premium</strong> is used to <strong>purchase units</strong>; the remaining un allocated premium flows directly into the unit account. The <strong>proportion</strong> of premium that is allocated is controlled by the <strong>Allocation Rate</strong>:</p>
+<div class="arithmatex">\[
+    \text{Allocated Premium} = \text{Premium} \cdot \text{Allocation Rate}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is possible for the allocation rate to be <em>above</em> 100%. The insurer will fund the additional amount as an outflow.</p>
+</div>
+<p>When purchasing units, part of the value will be lost due to <strong>Transactional Costs</strong> such as the <strong>Bid Offer Spread</strong>:</p>
+<ul>
+<li><strong>Bid Price</strong>: How much the fund manager is bidding for the unit (Sell price)</li>
+<li><strong>Offer Price</strong>: How much the fund manager is asking for the unit (Buy price)</li>
+</ul>
+<p>The units are purchased based on the Offer Price but values at the Bid Price. However, Offer prices are <strong>always higher</strong> than bid prices, this leads to an immediate <strong>loss in value</strong> compared to the premium paid:</p>
+<div class="arithmatex">\[
+    \text{Unit Value Purchased} = \text{Allocated Premium} \cdot (1 - \text{Bid Offer Spread})
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some questions might not use the term BO spread but rather a <strong>Premium Charge</strong>. In either case, the key concept from this section is to understand that not the entire premium is invested in the fund.</p>
+</div>
+<h3 id="fund-value"><strong>Fund Value</strong><a class="headerlink" href="#fund-value" title="Permanent link">&para;</a></h3>
+<p>For the purposes of this exam, the fund value in each period can be calculated as:</p>
+<div class="arithmatex">\[
+    \text{FV}
+    = (\text{Allocated Premium} - \text{Management Charge}) \cdot (1 + \text{Fund Growth})
+\]</div>
+<p>For the purposes of this exam, the <strong>methods</strong> and <strong>timing</strong> of the above cashflows will be <strong>specified by the question</strong>. The key component is the management charge timing:</p>
+<ul>
+<li><strong>BOP</strong>: Based on fund value BEFORE or AFTER premium?</li>
+<li><strong>EOP</strong>: Based on fund value BEFORE or AFTER growth?</li>
+</ul>
+<p>The above can be calculated in Excel and presented as the following:</p>
+<!-- Self Made -->
+<p><img alt="Fund_Cashflows_Excel" class="center" src="../Assets/7.%20Embedded%20Options.md/Fund_Cashflows_Excel.png" /></p>
+<h3 id="policy-benefits"><strong>Policy Benefits</strong><a class="headerlink" href="#policy-benefits" title="Permanent link">&para;</a></h3>
+<p>As mentioned previously, the benefits of the policy are <strong>tied</strong> to the value of the unit account:</p>
+<div class="arithmatex">\[
+    \text{Death Benefit} = \text{Surrender Benefit} = \text{Fund Value}
+\]</div>
+<p>However, due to the <strong>volatile nature</strong> of investing, some policyholders could end up with <strong>low fund values</strong> and hence low coverage. Thus, most policies offer a <strong>guaranteed minimum benefit</strong> that will kick in <strong>if the fund value is below a certain threshold</strong>.</p>
+<p>The most common variation is to offer a <strong>guaranteed minimum benefit</strong> based on some multiple <span class="arithmatex">\(\lambda\)</span> of the <strong>premiums paid to date</strong>:</p>
+<div class="arithmatex">\[
+     \text{Minimum Benefit} = \lambda \cdot \text{Premium Paid to Date}
+\]</div>
+<p>The Guaranteed Benefit (GB) will be paid <strong>if the Fund Value (FV) is smaller</strong> than the guarantee. Thus, the benefit of the policy can be expressed as the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Policy Benefit}
+    &amp;=
+    \begin{cases}
+        \text{FV}, &amp; \text{FV} &gt; \text{GB} \\
+        \text{GB}, &amp; \text{FV} &lt;= \text{GB}
+    \end{cases} \\
+    &amp;= \max (\text{FV}, \text{GB}, 0)
+\end{aligned}
+\]</div>
+<p>Thus, the insurer does not pay the full benefit amount - they pay the <strong>shortfall</strong> of the fund value compared to the benefit.</p>
+<h3 id="profit-testing"><strong>Profit Testing</strong><a class="headerlink" href="#profit-testing" title="Permanent link">&para;</a></h3>
+<p>Profit testing is very different for Equity Linked Insurance compared to other products. There are several key differences:</p>
+<ul>
+<li>Only <strong>NON-UNIT</strong> account cashflows should be considered</li>
+<li><strong>Reserves are typically not held</strong> for Equity Linked Insurance</li>
+</ul>
+<!-- Self Made -->
+<p><img alt="Equity_Linked_Profit" class="center" src="../Assets/7.%20Embedded%20Options.md/Equity_Linked_Profit.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There are a few points to take note of:</p>
+<ul>
+<li>The insurer receives only the <strong>unallocated portion</strong> of the premium</li>
+<li>The insurer receives the <strong>management charges as fee income</strong></li>
+<li>The insurer only pays the <strong>shortfall</strong> in the benefit amounts</li>
+<li>The cost to the insurer INCLUDES any <strong>guarantees</strong></li>
+</ul>
+<p>Note that even though both UL and EL policies pay the shortfall in the benefit amount, they are <strong>treated differently</strong> during profit testing due to the account set up.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Even though only the unallocated premiums flow into the profit calculation, the profit margin is calculated <strong>based on the Paid Premium</strong>.</p>
+</div>
+<p>As mentioned previously, the expected benefit above is the <strong>expected payment from the insurer</strong> (the shortfall):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{EDB} &amp;= \max (\text{DB} - \text{FV}, 0) \cdot q_{x} \\
+    \text{ESB} &amp;= (\text{SB} - \text{FV}, 0) \cdot w_{x} \\
+    \text{EMB} &amp;= \max (\text{SB} - \text{FV}, 0) \cdot p_{x}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that for surrender benefit, the shortfall is <strong>NOT floored</strong> at 0. This is because the insurer may impose <strong>surrender charges</strong> which will show up as a "negative cost" (the doube negative will cause it to become <strong>cash inflow</strong>).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Another quantity of interest is the <strong>Cost of Guarantee</strong>. It is similar to the cost of benefit, where it measures the <strong>contribution of the guarantee</strong> to the benefit:</p>
+<div class="arithmatex">\[
+    \text{COG}_{t} = \max (\text{GB}_{t} - \text{DB}_{t}, 0) \cdot q_{x+t}
+\]</div>
+<p>For most policies where the death benefit is simply the account value, the cost of guarantee and cost of benefit are the <strong>same</strong>. However, if there is a <strong>multiplier</strong> on top of the benefit (EG. 105% times the account value), then the two would deviate:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{COG}_{t} &amp;=
+    \max (\text{GB}_{t} - 1.1 \cdot \text{FV}_{t}, 0) \cdot q_{x+t-1}
+    \\
+    \text{COB}_{t}
+    &amp;= \max (\max (\text{GB}_{t}, 1.1 \cdot \text{FV}_{t}) - \text{FV}, 0) \cdot q_{x+t-1}
+\end{aligned}
+\]</div>
+<p>The COG is typically calculated for all periods on issue:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{COG}_{0} &amp;= \sum \max (\text{GB}_{t} - \text{DB}_{t}, 0) \cdot {}_{k \mid}q_{x} \\
+    \text{COG}_{0} &amp;= \sum {}_{k-1}p_{x} \cdot \text{COG}_{t}
+\end{aligned}
+\]</div>
+</div>
+<h3 id="comparison-with-ul"><strong>Comparison with UL</strong><a class="headerlink" href="#comparison-with-ul" title="Permanent link">&para;</a></h3>
+<p>There are several key features that make UL or EL more competitive than the other:</p>
+<ul>
+<li><strong>Premiums</strong>: UL "invests" lesser premiums into the account due to the COI</li>
+<li><strong>Death Benefit</strong>: UL DB's tend to be higher due to the Corridoor &amp; ADBs</li>
+<li><strong>Downside Risk</strong>: UL's returns have a minimum guarantee; EL can be negative</li>
+<li><strong>Upside Risk</strong>: UL's returns are only a portion of the actual return; EL will get the full return</li>
+</ul>
+<h2 id="embedded-options_1"><strong>Embedded Options</strong><a class="headerlink" href="#embedded-options_1" title="Permanent link">&para;</a></h2>
+<p>With some manipulation, the above expression for policy benefit can be expressed in the form a <strong>European Put Option Payoff</strong>:</p>
+<ul>
+<li>Guaranteed Benefit is a <strong>fixed value</strong>, similar to the <strong>Strike Price</strong></li>
+<li>fund value follows a <strong>stock price process</strong> (with charges applied)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Put Option Payoff}_{t}
+    &amp;= \max (K - S_{t}, 0) \\
+    \\
+    \text{Policy Benefit}_{t}
+    &amp;= \max (\text{FV}_{t}, \text{GB}) \\
+    &amp;= \max (\text{GB} - \text{FV}_{t}, \text{FV}_{t} - \text{FV}_{t}) \\
+    &amp;= \max (\text{GB} - \text{FV}_{t}, 0)
+\end{aligned}
+\]</div>
+<p>Thus, the same framework used to evaluate european put options - <strong>Black Scholes Merton</strong> model - can be used to evaluate these guaranteed benefits as well. However, there is one <strong>key difference</strong> between the two that must be accounted for:</p>
+<ul>
+<li><strong>Regular Option</strong>: Time to expiration (when the option is exercised) is <strong>fixed</strong></li>
+<li><strong>Embedded Option</strong>: Time is <strong>contingent</strong> on the survival/death of the policyholder</li>
+</ul>
+<p>Thus, the framework must be adjusted slightly to account for the <strong>probabilities of death/survival</strong> within the given timeframe.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please refer to the <strong>Derivatives Section</strong> of the IFM notes for more information on European Options and the Black Scholes model.</p>
+</div>
+<p>Unless otherwise stated, all policies referenced in this section are assumed to be <strong>Single Premium</strong> policies with <strong>no additional top ups</strong>.</p>
+<h3 id="guaranteed-maturity-benefit"><strong>Guaranteed Maturity Benefit</strong><a class="headerlink" href="#guaranteed-maturity-benefit" title="Permanent link">&para;</a></h3>
+<p>The maturity benefit is paid at a <strong>known time</strong> (at the <strong>end of the policy term</strong>), given that the policyholder is <strong>alive at that time</strong>.</p>
+<p>For simplicity, assume that the policy has a <strong>Guaranteed Minimum Maturity Benefit</strong> (GMMB) of some <strong>multiple of premiums paid</strong>:</p>
+<div class="arithmatex">\[
+    \text{GMMB} = \lambda P
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The expression is simplified in this case since we assume a single premium policy.</p>
+</div>
+<p>The fund value projection earlier assumes that the fund grows at a <strong>specified rate</strong>. An alternative method is to assume that it grows at the same rate as an <strong>underlying stock process</strong>. Thus, the fund value <strong>at maturity</strong> of time <span class="arithmatex">\(n\)</span> can be expressed as:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{FV}_{n}
+    &amp;= \text{Opening Value} \cdot \text{Charges} \cdot \text{Growth} \\
+    &amp;= P \cdot (1 - \text{IC}) \cdot (1 - \text{RC})^{n-1} \cdot \frac{S_{n}}{S_{0}} \\
+    &amp;= P \cdot \xi \cdot \frac{S_{n}}{S_{0}} \\
+    \\
+    \xi &amp;= (1 - \text{IC}) \cdot (1 - \text{RC})^{n-1}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The charges in this scenario have have been simplified to <strong>Initial Charges</strong> (IC) and <strong>Renewal Charges</strong> (RC). Both are charged as a <strong>percentage of the fund value</strong> at the time.</p>
+<p>They are then further <strong>combined</strong> into <span class="arithmatex">\(\xi\)</span>, since they have a <strong>fixed value</strong> (dependent only on policy term, which is fixed for each policy).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some questions might provide the monthly rates instead of annual rates - do not blindly apply the formulas.</p>
+</div>
+<p>The payoff of the option <em>on maturity</em> is denoted as <span class="arithmatex">\(h(n)\)</span> and can be expressed as the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    h(n)
+    &amp;= \max (\text{GB} - \text{FV}_{t}, 0) \\
+    &amp;= \max  \left(\lambda P - P \cdot \xi \cdot \frac{S_{n}}{S_{0}}, 0 \right) \\
+    &amp;= P \xi \cdot \max \left(\frac{\lambda}{\xi} - \frac{S_{n}}{S_{0}}, 0 \right) \\
+    &amp;= P \xi \cdot \max \left(\frac{\lambda}{\xi} - S_{n}, 0 \right) \\
+    &amp;= P \xi \cdot \max \left(K^{*} - S_{n}, 0 \right) \\    
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above can be intepreted as requiring <span class="arithmatex">\(P \xi\)</span> european put options with strike price <span class="arithmatex">\(\frac{\lambda}{\xi}\)</span>.</p>
+</div>
+<p>Under the Black Scholes Merton framework, the value of <strong>ONE</strong> of the above european put options <strong>on inception</strong> is the <strong>risk neutral expected present value</strong> of the payoff:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    p(0)
+    &amp;= e^{-rn} \cdot E^{Q}_{t} \left[\max (K^{*} - S_{n}, 0) \right] \\
+    &amp;= e^{-rn} \cdot \left(K^{*} \cdot \Phi [- d_{2}(0)] - S_{n} \cdot \Phi [-d_{1}(0)] \right) \\
+    &amp;= K^{*} e^{-rn} \Phi [- d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \\
+    \\
+    d_{1}(0)
+    &amp;= \frac{\ln \frac{S_{0}}{K} + (r + \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= d_{2}(0) + \sigma \sqrt{n} \\
+    \\
+    d_{2}(0)
+    &amp;= \frac{\ln \frac{S_{0}}{K} + (r - \frac{1}{2} \sigma^{2}) n}{\sigma \sqrt{n}} \\
+    &amp;= d_{1}(0) - \sigma \sqrt{n}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><span class="arithmatex">\(\Phi(x)\)</span> represents the CDF of the standard normal distribution at <span class="arithmatex">\(x\)</span>. It can be determined via the NORM.S.DIST <strong>Excel Function</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In practice, investors take <strong>into account risk</strong> when looking for looking for returns (which affects asset prices). For instance, if the risk-free rate is <span class="arithmatex">\(r\)</span>, then investors demand a <strong>risk premium</strong> for that them to take on an <strong>investment with risk</strong>.</p>
+<p>Under a risk neutral basis, it assumes that investors do NOT take into account risk. Thus, assets will be <strong>priced based on the risk free rate</strong>, rather than on the actual return (with a risk premium).</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    S_{n} &amp;= S_{0} \cdot e^{\alpha n} = S_{0} \cdot e^{rn} \\
+    \therefore e^{-rn} \cdot S_{n} &amp;= S_{0}
+\end{aligned}
+\]</div>
+</div>
+<p>The <em>value</em> of the <strong>entire embedded option</strong> is the <strong>expected number</strong> of european put options needed on maturity. Thus, the probability of maturing must be accounted for:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \pi(0)
+    &amp;= {}_{n}p_{x} \cdot P \xi \cdot p(0) \\
+    &amp;= {}_{n}p_{x} \cdot P \xi \cdot \left(K^{*} e^{-rn} \Phi [- d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \right) \\
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since <span class="arithmatex">\(T_{x}\)</span> and <span class="arithmatex">\(S_{x}\)</span> are <strong>independent</strong> processes, the risk neutral expectation ("Q") of future lifetime is equivalent to the true ("P") probabilities.</p>
+<div class="arithmatex">\[
+    E^{Q}(T_{x} \gt n) = E^{P}(T_{x} \gt n) = {}_{10}p_{x}
+\]</div>
+</div>
+<p>The above can be adjusted to reflect <strong>valuation at any time</strong> <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \pi(t)
+    &amp;= {}_{n-t}p_{x+t} \cdot P \xi \cdot p(t) \\
+    &amp;= {}_{n-t}p_{x+t} \cdot P \xi \cdot \left(K^{*} e^{-r(n-t)} \Phi [-d_{2}(t)] - S_{t} \cdot \Phi [-d_{1}(t)] \right) \\
+    \\
+    d_{1}(t)
+    &amp;= \frac{\ln \frac{S_{t}}{K^{*}} + (r + \frac{1}{2} \sigma^{2}) (n-t)}{\sigma \sqrt{n-t}} \\
+    &amp;= d_{2}(t) + \sigma \sqrt{n-t} \\
+    \\
+    d_{2}(t)
+    &amp;= \frac{\ln \frac{S_{t}}{K^{*}} + (r - \frac{1}{2} \sigma^{2}) (n-t)}{\sigma \sqrt{n-t}} \\
+    &amp;= d_{1}(t) - \sigma \sqrt{n-t}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above is obtained going through the <strong>same process</strong>, just that the <strong>valuation date</strong> is time <span class="arithmatex">\(t\)</span> instead of time <span class="arithmatex">\(0\)</span>, which affects the following:</p>
+<ul>
+<li><strong>Time to Maturity</strong>: Changed from <span class="arithmatex">\(n\)</span> to <span class="arithmatex">\(n-t\)</span></li>
+<li><strong>Initial Stock Price</strong>: Changed from <span class="arithmatex">\(S_{0}\)</span> to <span class="arithmatex">\(S_{t}\)</span></li>
+<li><strong>CDF</strong>: Updated to reflect the above changes as well</li>
+</ul>
+<p>Note that <span class="arithmatex">\(\xi\)</span> <strong>does NOT</strong> depend on the time to maturity, thus does not need to be changed.</p>
+</div>
+<h3 id="guaranteed-death-benefit"><strong>Guaranteed Death Benefit</strong><a class="headerlink" href="#guaranteed-death-benefit" title="Permanent link">&para;</a></h3>
+<p>Unlike the Maturity Benefit which is paid out at a fixed time (end of the policy term), the death benefit is paid out at an <strong>unknown time</strong> (<span class="arithmatex">\(T\)</span>), depending on when the policyholder dies. Thus, the insurer needs <strong>an option for every possible time</strong> that the policyholder could die.</p>
+<p>The expression is the same as before, just that the <strong>constant <span class="arithmatex">\(n\)</span> is replaced with the variable <span class="arithmatex">\(T\)</span></strong> to reflect the unknown time of payout:</p>
+<ul>
+<li>Valuation Time, <span class="arithmatex">\(t\)</span></li>
+<li>Payout Time, <span class="arithmatex">\(T\)</span></li>
+</ul>
+<p>The value of the guarantee for <strong>each possible period</strong> <span class="arithmatex">\(n\)</span> can be expressed as the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(0, T) &amp;= K^{*} \cdot e^{-rT} \Phi [-d_{2}(0, T)] - S_{0} \cdot \Phi [-d_{1}(0, T)] \\
+    \\
+    d_{1}(0, T)
+    &amp;= \frac{\ln \frac{S_{0}}{K^{*}} + (r + \frac{1}{2} \sigma^{2}) T}{\sigma \sqrt{T}} \\
+    &amp;= d_{2}(0, T) + \sigma \sqrt{T} \\
+    \\
+    d_{2}(0, T)
+    &amp;= \frac{\ln \frac{S_{0}}{K^{*}} + (r - \frac{1}{2} \sigma^{2}) T}{\sigma \sqrt{T}} \\
+    &amp;= d_{1}(0, T) - \sigma \sqrt{T}
+\end{aligned}
+\]</div>
+<p>The value of the entire embedded option must reflect the expected number of options needed to hedge the risk in <strong>EACH period for ALL periods</strong>:</p>
+<div class="arithmatex">\[
+    \pi(0) = \sum^{n}_{1} P(0, T) \cdot {}_{T-1}p_{x} \cdot q_{x+T-1}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Similar to before, the above expression can be adjusted to determine the value of the guarantee at a <strong>specified period</strong> for reserving purposes. It can also be adjusted for benefits that are paid monthly as well.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are a few different notations that can be used:</p>
+<ul>
+<li><span class="arithmatex">\(P\)</span>: Price of a <strong>single</strong> put option</li>
+<li><span class="arithmatex">\(V\)</span>: Value of the <strong>number of put options</strong> needed to fully hedge the benefits</li>
+<li><span class="arithmatex">\(\pi\)</span>: Value of the <strong>expected number of put options</strong> needed to fully hedge the benefits </li>
+</ul>
+</div>
+<h3 id="funding"><strong>Funding</strong><a class="headerlink" href="#funding" title="Permanent link">&para;</a></h3>
+<p>The cost of the guarantee is passed down to the policyholder in one of two ways:</p>
+<ul>
+<li><strong>Front-End Load</strong>: Deducted <strong>once</strong> on inception (% of single premium)</li>
+<li><strong>Risk Premium</strong>: Deducted <strong>routinely</strong> from the fund as part of the management charges</li>
+</ul>
+<p>Consider the following parameters:</p>
+<ul>
+<li><span class="arithmatex">\(m\)</span>: Management Charge rate as a % of fund value</li>
+<li><span class="arithmatex">\(m^*\)</span>: Management Charge rate as a % of fund value (Excluding the Risk Premium)</li>
+<li><span class="arithmatex">\(c\)</span>: Risk Premium rate as a % of fund value</li>
+</ul>
+<div class="arithmatex">\[
+    m = m^* + c
+\]</div>
+<p>Assuming a single premium policy, recall that the fund value at any point can be expressed as:</p>
+<div class="arithmatex">\[
+    \text{FV}_{t} = P \cdot (1-m)^{t}
+\]</div>
+<p>The risk premium will only be charged if the policy is still in-force:</p>
+<div class="arithmatex">\[
+    \text{RP}_{t} = \text{FV}_{t} \cdot c \cdot {}_{t}p_{x}
+\]</div>
+<p>Assuming that they are charged at the start of the period, it can be expressed as an annuity:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{EPV Risk Premium}
+    &amp;= \sum \text{RP}_{t} \\
+    &amp;= \sum \text{FV}_{t} \cdot c \cdot {}_{t}p_{x} \\
+    &amp;= \sum P \cdot (1-m)^{t} \cdot c \cdot {}_{t}p_{x} \\
+    &amp;= cP \cdot \sum (1-m)^{t} {}_{t}p_{x} \\
+    &amp;= cP \cdot \sum v^{*} {}_{t}p_{x} \\
+    &amp;= cP \cdot \ddot{a}_{x:\enclose{actuarial}{n} \mid i^{*}} \\
+    \\
+    v^{*} &amp;= (1-m) \\
+    (1 + i^{*}) &amp;= \frac{1}{1-m} \\
+    i^{*} &amp;= \frac{m}{1-m}
+\end{aligned}
+\]</div>
+<p>Thus, the EPV of the risk premium should be equal to the cost of the options:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \pi(0) &amp;= \text{EPV Risk Premium} \\
+    \pi(0) &amp;= cP \cdot \ddot{a}_{x:\enclose{actuarial}{n} \mid i^{*}} \\
+    c &amp;= \frac{\pi(0)}{\ddot{a}_{x:\enclose{actuarial}{n} \mid i^{*}}}
+\end{aligned}
+\]</div>
+<h3 id="hedging"><strong>Hedging</strong><a class="headerlink" href="#hedging" title="Permanent link">&para;</a></h3>
+<p>Given that the guaranteed benefits follow the payoff of a european put option, the insurer can <strong>perfectly hedge the risk</strong> by either:</p>
+<ol>
+<li><strong>Purchasing a European Put Option</strong> with the specified parameters from a third party</li>
+<li><strong>Creating a replicating portfolio</strong> of Stocks and Bonds</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hedging GMMBs only require <strong>one</strong> put option while a GMDB requires <strong>multiple</strong> options, one expiring at each year.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Traditional life insurance policies bring <strong>mortality risk</strong> to the insurer. This can be diversified by selling more policies, as <strong>each policyholder has a different mortality</strong>. Given a sufficiently large pool, the mortality of the entire pool becomes stable (Law of Large Numbers).</p>
+<p>However, equity linked insurance brings <strong>investment risk</strong> to the insurer. Every policyholder experiences the <strong>same investment risk</strong> from the market, thus it <strong>cannot be diversified via selling more policies</strong>. This is why there is a need for specific hedging procedures.</p>
+</div>
+<h4 id="external-hedging"><strong>External Hedging</strong><a class="headerlink" href="#external-hedging" title="Permanent link">&para;</a></h4>
+<p>The first method involves <strong>purchasing</strong> the required options from an <strong>external third party</strong>. The cost of the option(s) are incurred as a <strong>pre-contract expense</strong>.</p>
+<p>With the option, the risk of the guarantee is effectively ceded to the option seller. Thus, the insurer should <strong>not incur any cost of guarantees</strong>.</p>
+<p>The main issue with this approach is the <em>availability*</em> of the option(s) with the specified parameters (Strike Price &amp; Duration).</p>
+<h4 id="internal-hedging"><strong>Internal Hedging</strong><a class="headerlink" href="#internal-hedging" title="Permanent link">&para;</a></h4>
+<p>Alternatively, the insurer can create a <strong>replicating portfolio</strong> of stocks and zero-coupon bonds that will match the payoff of the required option(s). If the guarantee would be exercised, the insurer will <strong>liquidate</strong> the replicating portfolio to cover the cost.</p>
+<p>Each Put Option can be decomposed into a Stock and Zero-Coupon Bond:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    p(0)
+    &amp;= K^{*} e^{-rn} \Phi [- d_{2}(0)] - S_{0} \cdot \Phi [-d_{1}(0)] \\
+    &amp;= \text{Bond Value} + S_{0} \cdot \text{Number of Stocks} \\
+    \\
+    \text{Bond Value} &amp;= K^{*} e^{-rn} \Phi [- d_{2}(0)] \\
+    \text{Number of Stocks} &amp;= - \Phi [-d_{1}(0)]
+\end{aligned}
+\]</div>
+<p>For a put option,</p>
+<ul>
+<li>Stock Component is always <strong>negative</strong>: <strong>Short</strong> that amount of stocks</li>
+<li>Bond Component is always <strong>positive</strong>: <strong>Lend</strong> that amount of money</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The derivation can be found in the <strong>Option Greeks</strong> section of exam IFM. For the purposes of this exam, it is sufficient to <strong>memorize the formulas</strong> instead.</p>
+</div>
+<p>The replicating portfolio is incurred at the start of the policy as is treated as a <strong>pre-contract expense</strong>. The replicating portfolio <strong>functionally acts as a reserve</strong> for the cost of the policy. Each period, part of the replicating portfolio will be <strong>liquidated</strong> (“released”) to cover the expected guarantee costs for that period.</p>
+<p>The release occurs due to the portfolio needing to <strong>re-balanced</strong> every period:</p>
+<ul>
+<li>The portfolios value changes every period due to <strong>market movement</strong></li>
+<li>It may become <strong>larger/smaller than what is required</strong> for future periods</li>
+<li>Thus, <strong>excesses are released</strong> while shortfalls are incurred as additional rebalancing costs</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Heding Release}_{t+1}
+    &amp;= \text{Initial Portfolio After Growth}_{t+1} \\
+    &amp;- p_{x+t} \cdot \text{Expected Portfolio Required}_{t+1} \\
+    \\
+    \text{Initial Portfolio After Growth}_{t+1}
+    &amp;= \text{Stock Value}_{t} \cdot (1+g) \\
+    &amp;+ \text{Bond Value}_{t} \cdot (1+r)
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The expected required portfolio must reflect the following changes:</p>
+<ul>
+<li>Decreased time to expiration (Since moved one period later)</li>
+<li>Updated stock price (Since the stock has grown by one month)</li>
+</ul>
+<p>The rebalancing cost computation is similar to profit testing where the required portfolio is only needed for the policies that are STILL in-force at the end of the year.</p>
+<p>The replicating portfolio functionally acts as a reserve that is released over time.</p>
+</div>
+<h4 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h4>
+<p>One key difference between the two approaches is their <strong>treatment in profit testing</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">External Hedge</th>
+<th align="center">Internal Hedge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Pre-contract cost to purchase option(s)</td>
+<td align="center">Pre-contract cost to establish portfolio</td>
+</tr>
+<tr>
+<td align="center">No other hedging costs incurred</td>
+<td align="center">Rebalancing Costs Incurred Each Period</td>
+</tr>
+<tr>
+<td align="center">No projectected cost of guarantee</td>
+<td align="center">Cost of guarantee still borne by insurer</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>One other method to mitigate the investment risk is to <strong>hold a reserve</strong>. <em>IF</em> the reserve is sufficiently large, it can withstand the shock of a poor investment and thus mitigate the risk completely. This method is usually a much <strong>cheaper</strong> compared to purchasing options, at the cost of the risk not being completely mitigated.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>More generally</strong>, there are many questions in the exam which asks for the <strong>Pros and Cons</strong> of DIY vs outsourcing via hedging or buying an annuity etc. The following logic can be applied to a wide range of situations:</p>
+<ul>
+<li>Outsourcing <strong>eliminates the risk</strong> of negative experience, but also <strong>eliminates potential upside</strong> from positive experience</li>
+<li>Outsourcing is more <strong>expensive</strong> due to <strong>profit margins</strong> from the other party while DIY might be <strong>cheaper</strong> as they only involve the <strong>raw cost</strong></li>
+<li>Outspurcing could also be <strong>cheaper</strong> as they have <strong>expertise/economies of scale</strong> while DIY might be more <strong>expensive</strong> due to inefficies</li>
+<li>Outsourcing <strong>frees up resources</strong> to handle other important matters while DIY includes the <strong>hassle</strong> of setting the system up and managing it</li>
+</ul>
+</div>
+<h2 id="variable-annuities"><strong>Variable Annuities</strong><a class="headerlink" href="#variable-annuities" title="Permanent link">&para;</a></h2>
+<p>In the US, rather than having Equity Linked Insurance, they offer <strong>Variable Annuities</strong> instead. They are a form of <strong>Deferred Annuity</strong> where the premiums paid are <strong>invested into a mutual fund</strong> of their choice. At the end of the policy term, they will receive</p>
+<ul>
+<li>Receive the fund value in <strong>cash</strong> (<strong>Maturity Benefit</strong>)</li>
+<li>Convert the amount into a <strong>life annuity</strong> (<strong>Annuitization</strong>)</li>
+<li>The policyholder CANNOT withdraw any amount from fund during the deferral period</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Despite having an Annuity in its name, it is actually a <strong>life insurance</strong> policy before it becomes annuitized. A <strong>death benefit is payable</strong> if the insured dies during the policy term. Once annuitized, the death benefit is no longer payable.</p>
+<p>The policy term above refers to the term of the <strong>variable annuity</strong>. The annuity will have a seperately specified term.</p>
+</div>
+<p>Similar to Equity Linked insurance, variable annuities also offer guaranteed maturity and death benefits. However, they also offer <strong>additional more complex guarantee features</strong> than those described previously:</p>
+<ul>
+<li>Reset Option</li>
+<li>Lookback Option</li>
+<li>Rollover Guarantee</li>
+</ul>
+<p>Additionally, since they have an annuity component, there are <strong>additional annuity related guarantees</strong>:</p>
+<ul>
+<li>Guaranteed Income Benefits</li>
+<li>Guaranteed Withdrawal Benefits</li>
+</ul>
+<h3 id="reset-option"><strong>Reset Option</strong><a class="headerlink" href="#reset-option" title="Permanent link">&para;</a></h3>
+<p><strong>Reset Options</strong> allow the policy to <strong>increase the guarantee</strong> amount to <strong>match the fund value</strong> at the time of exercising the option. It will <em>only</em> be exercised if the fund value has <strong>increased beyond</strong> the guaranteed amount:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Original Guarantee} &amp;= \lambda \cdot P \\
+    \text{Reset Guarantee} &amp;= \lambda \cdot \text{FV at time of exercise}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>same scaling factor</strong> is applied for the new guarantee. Functionally, it is <strong>changing the base of the guarantee</strong>.</p>
+</div>
+<p>Policyholders have the <strong>flexibility</strong> to choose when to exercise the option, allowing them to time the market for a good amount. However, it comes with a "cost" of a <strong>minimum policy term post exercising</strong>:</p>
+<ul>
+<li><strong>Less than <span class="arithmatex">\(k\)</span> years left</strong>: Remaining term increased to <span class="arithmatex">\(k\)</span> years</li>
+<li><strong>More than <span class="arithmatex">\(k\)</span> year left</strong>: No change to remaining term</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The minimum term might come attached with a <strong>Surrender Charge</strong> condition if any amount is withdrawn then. This is to ensure that the insurer can recoup the costs associated with increasing the gurantee.</p>
+</div>
+<p>Apart from being competitive, there is another reason why such benefits are offered. If the fund value is <strong>significantly higher</strong> than the guaranteed amount, the policyholder might surrender the policy and <strong>reinvest in a new policy</strong> with a higher guarantee - <strong>incurring costs</strong> related to cancelling and administering a new policy. Offering the option achieves the <strong>same outcome with cost savings</strong>.</p>
+<p>However, such a complex guarantee does come with significant risks as well:</p>
+<ul>
+<li>If the entire market goes up, a <strong>significant number will exercise</strong> their reset option at once, resulting in a huge <strong>increase in liability</strong> for the insurer</li>
+<li>Similarly, they would <strong>mature at similar times</strong> (due to the minimum policy term), thus resulting in large <strong>concentration risks</strong></li>
+</ul>
+<h3 id="lookback-option"><strong>Lookback Option</strong><a class="headerlink" href="#lookback-option" title="Permanent link">&para;</a></h3>
+<p><strong>Lookback Options</strong> will increase the gurantee amount to match the fund value at <strong>specific intervals</strong>. Functionally, it is a reset option that will be <strong>automatically exercised</strong> (if in the money) every few years, but with <strong>no minimum policy term</strong> after.</p>
+<div class="arithmatex">\[
+    \text{Lookback Guarantee} = \max (\text{FV}_{x}, \text{FV}_{2x}, \text{FV}_{3x}, \dots)
+\]</div>
+<p>While it provides <strong>more opportunities</strong> to reset the guarantee, it <strong>loses the flexibility</strong> to choose when it occurs. If the fund value increases during the intervals but decreases before the specified time, the <strong>peak will not be captured</strong> by the option.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This option is sometimes referred to as a <strong>Step Up Guarantee</strong>, as the guarantee has the potentially to be stepped up at regular intervals (assuming the fund value continuously increases).</p>
+</div>
+<h3 id="rollover-guarantee"><strong>Rollover Guarantee</strong><a class="headerlink" href="#rollover-guarantee" title="Permanent link">&para;</a></h3>
+<p>Rollover guarantees provide the following benefits at specified intervals:</p>
+<ul>
+<li>If the <strong>fund value is higher</strong> than the guarantee, the <strong>guarantee is increased</strong> to match the fund value</li>
+<li>If the <strong>fund value is lower</strong> than the guarantee, the <strong>fund value is increased</strong> to match the guarantee</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is a essentially a <strong>lookback option with downside protection</strong>. It is also sometimes referred to as a <strong>Guaranteed Accumulation Benefit</strong>.</p>
+</div>
+<p>One key consideration is that if the policy has a rollover guarantee, it must be <strong>projected seperately</strong>. This is because the capital injections at the specified intervals will modify the fund value, <strong>affecting subsequent growth and charges</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The capital injection by the insurer into the fund value is <strong>NOT considered part of the guaranteed benefits payout</strong>. It should be thought of as a cost to the insurer. Thus, if asked to determine the payout of the option, <strong>do NOT include any capital injections</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Generally speaking, this section is a relatively small portion of the entire exam. The key is to remember that all the features of the Variable Annuity covered essentially <strong>modify the existing guarantees in some way</strong>.</p>
+</div>
+<h3 id="guaranteed-income-benefit"><strong>Guaranteed Income Benefit</strong><a class="headerlink" href="#guaranteed-income-benefit" title="Permanent link">&para;</a></h3>
+<p>A <strong>Guaranteed Income Benefit</strong> sets a <strong>minimum payout</strong> from the resulting annuity:</p>
+<div class="arithmatex">\[
+    \text{Payout} = \max (\text{Payout}_\text{Market}, \text{Payout}_\text{GIB})
+\]</div>
+<p>The annuitization process can be broken down into two components:</p>
+<ul>
+<li><strong>Benefit Base</strong>: Amount to be annuitized</li>
+<li><strong>Annuitization Rate</strong>: Annuity EPV Factor</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{fund value} &amp;= \text{Payout} \cdot \text{Annuity Factor} \\
+    \text{Payout}
+    &amp;= \frac{\text{fund value}}{\text{Annuity Factor}} \\
+    &amp;= \underbrace{\text{fund value}}_{\text{Benefit Base}}
+        \cdot \underbrace{\frac{1}{\text{Annuity Factor}}}_{\text{Annuitization Rate}}
+\end{aligned}
+\]</div>
+<p>The guarantee can specify a change to <strong>either or both of the components</strong>, which affects the minimum payout:</p>
+<ul>
+<li><strong>Benefit Base</strong>: Accumulate at different rate from fund value (notional value; no charges)</li>
+<li><strong>Annuitization Rate</strong>: Determined using different assumptions </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Most questions provide a scenario where one of the components is better while the other is worse than their market counterparts. There is insufficient information from this to determine if the guarantee is better or not; the <strong>combined effect</strong> needs to be considered.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Other guarantees (EG. Step Up) can <strong>also apply to the Benefit Base</strong> - which <strong>may be different</strong> from the guarantees on the actual fund value.</p>
+</div>
+<p>The cost of this guarantee is the cost of actually fulfilling the payout - based on the <strong>insurer's true expectation</strong> of the future - which is based on the <strong>MARKET annuity factor</strong>:</p>
+<div class="arithmatex">\[
+    \text{Cost of Guarantee} = \text{Guaranteed Payout} \cdot \text{Market Annuity Factor}
+\]</div>
+<h3 id="guaranteed-withdrawal-benefit"><strong>Guaranteed Withdrawal Benefit</strong><a class="headerlink" href="#guaranteed-withdrawal-benefit" title="Permanent link">&para;</a></h3>
+<p>Under this arrangement, the mechanism of the product changes entirely. Rather than receive the entire fund value upon maturity or annuitizing it, the policy will become  an <strong>investment account</strong> that the policyholder can <strong>directly withdraw</strong> from after a specified <strong>waiting period</strong>.</p>
+<p>The Guaranteed Withdrawal Benefit specifies a <strong>minimum amount</strong> that can be withdrawn from the fund, <strong>even if the fund value has been depleted</strong>. The benefits are payable for life or for a fixed term, depending on the nature of the policy.</p>
+<ul>
+<li>While the fund <strong>has value</strong>, the policyholder can withdraw any <strong>addittional amount</strong> on top of the minimum, subject to the amount remaining the in the fund</li>
+<li>While the fund has <strong>no value</strong>, the policyholder can only withdraw the <strong>guaranteed amount</strong></li>
+</ul>
+<p>Any shortfall in the fund value is <strong>funded by the insurer</strong>, which is the cost of the guarantee:</p>
+<div class="arithmatex">\[
+    \text{Cost of Guarantee} = \sum \text{PV (Shortfall Funding)}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key difference between GWB and GIB is that there is <strong>NO annuitization</strong>. Thus, if there are any excess funds in the account after the death of the policyholder, they will be <strong>paid out to the estate</strong> of the policyholder.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../6.%20Universal%20Life/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Universal Life" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Universal Life
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../8.%20Pensions/" class="md-footer__link md-footer__link--next" aria-label="Next: Pensions" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Pensions
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

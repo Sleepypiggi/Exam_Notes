@@ -1,0 +1,1643 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Binomial Model - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#binomial-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Binomial Model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Binomial Model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Binomial Model
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-period-trees" class="md-nav__link">
+    Single Period Trees
+  </a>
+  
+    <nav class="md-nav" aria-label="Single Period Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sp-replicating-portfolio-method" class="md-nav__link">
+    SP Replicating Portfolio Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sp-risk-neutral-method" class="md-nav__link">
+    SP Risk Neutral Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-period-trees" class="md-nav__link">
+    Multi Period Trees
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi Period Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mp-replicating-portfolio-method" class="md-nav__link">
+    MP Replicating Portfolio Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mp-risk-neutral-method" class="md-nav__link">
+    MP Risk Neutral Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/5.%20Profit%20Testing/" class="md-nav__link">
+        Profit Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-period-trees" class="md-nav__link">
+    Single Period Trees
+  </a>
+  
+    <nav class="md-nav" aria-label="Single Period Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sp-replicating-portfolio-method" class="md-nav__link">
+    SP Replicating Portfolio Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sp-risk-neutral-method" class="md-nav__link">
+    SP Risk Neutral Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-period-trees" class="md-nav__link">
+    Multi Period Trees
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi Period Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mp-replicating-portfolio-method" class="md-nav__link">
+    MP Replicating Portfolio Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mp-risk-neutral-method" class="md-nav__link">
+    MP Risk Neutral Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="binomial-model"><strong>Binomial Model</strong><a class="headerlink" href="#binomial-model" title="Permanent link">&para;</a></h1>
+<p>This is not the original set of notes for IFM. It was recreated to fit the watered down option syllabus for exam FAM-S.</p>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The simplest option pricing model is the <strong>Binomial Model</strong>.</p>
+<p>All option pricing models attempt to <strong>predict the price of the underlying at expiration</strong> and thus work backwards to determine the price of the option.</p>
+<p>As its name suggests, the binomial model assumes that in <strong>each period</strong> <span class="arithmatex">\((h)\)</span>, the stock price can only <strong>move in two ways</strong> - Up <span class="arithmatex">\((u)\)</span> or Down <span class="arithmatex">\((d)\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    S_u &amp;= S_0 \cdot u \\
+    S_d &amp;= S_0 \cdot d
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common misconception to think that up or down is used relative to the starting stock price.</p>
+<p>It is meant to be used <strong>relative to one another</strong>, thus <strong>both can be higher or lower than the starting price</strong> but still smaller than the other.</p>
+<div class="arithmatex">\[
+    S_u &gt; S_d \equiv  u &gt; d
+\]</div>
+</div>
+<p>However, it is impossible to know which of the two ways that the stock will take. Thus, the probability of going up is denoted as <span class="arithmatex">\(p\)</span> while the probability of going down is its complement <span class="arithmatex">\(1-p\)</span>.</p>
+<p>Given that there only two outcomes, it can easily illustrated via a <strong>probability tree</strong>, which is why they are also referred to as <strong>Binomial Trees</strong>:</p>
+<p>They can have a single period (as shown below) or multiple periods. Note that the duration of a single period is <span class="arithmatex">\(h\)</span> while the <strong>duration of all periods</strong> is denoted as <span class="arithmatex">\(t\)</span>.</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Basic Tree" class="center" src="../Assets/5.%20Binomial%20Model.md/Basic%20Tree.png" /></p>
+<h2 id="single-period-trees"><strong>Single Period Trees</strong><a class="headerlink" href="#single-period-trees" title="Permanent link">&para;</a></h2>
+<p>The simplest Binomial Model assumes that there is only <strong>one period from inception to expiration</strong>. Though unrealistic, they allow us to easily understand the core concepts behind binomial trees.</p>
+<h3 id="sp-replicating-portfolio-method"><strong>SP Replicating Portfolio Method</strong><a class="headerlink" href="#sp-replicating-portfolio-method" title="Permanent link">&para;</a></h3>
+<p>The first way to use a binomial tree is through the <strong>Replicating Portfolio Method</strong>.</p>
+<p>As its name suggests, it attempts to create a replicating portfolio that will payoff of the option <strong>regardless of which way the stock moves</strong>. By the law of one price, the <strong>cost of the option is the cost of the portfolio</strong>.</p>
+<p>The replicating portfolio is assumed to consist of <strong>Stocks</strong> <span class="arithmatex">\((\delta)\)</span> and <strong>Bonds</strong> <span class="arithmatex">\((B)\)</span>. The payoff of the options are denoted using <span class="arithmatex">\(V\)</span>.</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="SP Replicating Portfolio" class="center" src="../Assets/5.%20Binomial%20Model.md/SP%20Replicating%20Portfolio.png" /></p>
+<p>The goal is to set up a <strong>simultaneous equation</strong> for each of the two ways that the price can move and thus solve for the <span class="arithmatex">\(\Delta\)</span> and <span class="arithmatex">\(B\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \Delta S_0 u + B e^{rh} &amp;= V_u \\
+    \Delta S_0 d + B e^{rh} &amp;= V_d
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Bonds are usually stated in terms of their face values, but in here <span class="arithmatex">\(B\)</span> is the <strong>price at time 0</strong>. Do not be confused!</p>
+</div>
+<p>Subtracting the down scenario from the up scenario,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \Delta S_0 u + B e^{rh} - (\Delta S_0 d + B e^{rh}) &amp;= V_u - V_d \\
+    \Delta S_0 (u - d) &amp;= V_u - V_d \\
+    \Delta &amp;= \frac{V_u - V_d}{S_0 (u - d)}
+\end{aligned}
+\]</div>
+<p>Substituting it back in,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \Delta S_0 u + B e^{rh} &amp;= V_u \\
+    \frac{V_u - V_d}{S_0 (u - d)} \cdot S_0 u + B e^{rh} &amp;= V_u \\
+    \frac{V_u - V_d}{(u - d)} \cdot u + B e^{rh} &amp;= V_u \\
+    B e^{rh} &amp;= \frac{uV_d - dV_u}{u-d} \\
+    B &amp;= e^{-rt} \cdot \frac{uV_d - dV_u}{u-d}
+\end{aligned}
+\]</div>
+<p>Thus, the price of the option is equal to the price of the portfolio:</p>
+<div class="arithmatex">\[
+    \text{Option Price} = \Delta \cdot S_0 + B
+\]</div>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Calls</th>
+<th align="center">Puts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Buy Stock <span class="arithmatex">\((\Delta \gt 0)\)</span></td>
+<td align="center">Sell Stock (<span class="arithmatex">\(\Delta \lt 0\)</span>)</td>
+</tr>
+<tr>
+<td align="center">Sell Bonds/Borrow Money <span class="arithmatex">\((B \lt 0)\)</span></td>
+<td align="center">Buy Bonds/Lend money <span class="arithmatex">\((B \gt 0)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>The intuition can be understood as follows:</p>
+<ul>
+<li><strong>Buy Stock</strong>: Stock will be <strong>sold at maturity</strong>, leading to a <strong>positive terminal cashflow</strong></li>
+<li><strong>Sell Bonds</strong>: <strong>Pay back</strong> the bondholder at maurity, leading to a <strong>negative terminal cashflow</strong></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key is remembering the signs of <span class="arithmatex">\(\delta\)</span> and <span class="arithmatex">\(B\)</span> must be opposite.</p>
+</div>
+<h3 id="sp-risk-neutral-method"><strong>SP Risk Neutral Method</strong><a class="headerlink" href="#sp-risk-neutral-method" title="Permanent link">&para;</a></h3>
+<p>Given the probabilities assigned earlier, the price of the option should be equal to the <strong>PV of the expected payoff</strong>:</p>
+<div class="arithmatex">\[
+    \text{Option Price} = e^{-rt} \cdot [p \cdot V_u + (1-p) \cdot V_d]
+\]</div>
+<p>Similarly, the initial stock price should be the <strong>PV of the expected final stock prices</strong>, which will allow us to <strong>solve for <span class="arithmatex">\(p\)</span></strong> and hence calculate the option price:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    S_0 &amp;= e^{-rt} \cdot [p \cdot S_0 u + (1 – p) \cdot S_0 d] \\
+    e^{rt} &amp;= p \cdot u + (1-p) \cdot d \\
+    e^{rt} &amp;= pu + d - pd \\
+    e^{rt} – d &amp;= p(u – d) \\
+    p &amp;= \frac{e^{rt} - d}{u - d} \\
+    p &amp;= \frac{e^{rh} - d}{u - d}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Naturally, for a single period model, <span class="arithmatex">\(h = t\)</span>.</p>
+</div>
+<p>Generally speaking, this method is preferred to the replicating portfolio one as it is much faster - simply plug in the appropriate values into the formula.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Since <span class="arithmatex">\(p\)</span> is a probability, it <strong>MUST be between 0 and 1</strong>. Any violation of this would lead to an opportunity for arbitrage:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    0 &amp;&lt; p &lt; 1 \\
+    0 &amp;&lt; \frac{e^{rh} - d}{u - d} \\
+    0 &amp;&lt; e^{rh} – d &lt; u - d \\
+    d &amp;&lt; e^{rh} &lt; u
+\end{aligned}
+\]</div>
+<p>This further drives home the point that <span class="arithmatex">\(u\)</span> and <span class="arithmatex">\(d\)</span> do not have to be above or below 1 respectively - they just need to be larger or smaller relative to one another.</p>
+</div>
+<h2 id="multi-period-trees"><strong>Multi Period Trees</strong><a class="headerlink" href="#multi-period-trees" title="Permanent link">&para;</a></h2>
+<p>A slightly more realistic binomial tree is one that has <strong>multiple periods</strong>, as the stock prices tend to change many times before expiration.</p>
+<p>For simplicity, we will only consider a <strong>two period binomial tree</strong>, but the concepts easily extend to more periods.</p>
+<p>We can think of multi-period trees as a <strong>single period tree that repeats itself</strong>. As such, all factors <span class="arithmatex">\((u, d, p)\)</span> remain <strong>constant throughout the tree</strong>.</p>
+<p>The price of the option can thus be found by <strong>recursively solving</strong> one node at a time using any of the above methods from the RHS till the starting node is found.</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="MP Tree" class="center" src="../Assets/5.%20Binomial%20Model.md/MP%20Tree.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The length of a period is now <strong>different</strong> from the length of the entire option, thus take special care when discounting.</p>
+</div>
+<h3 id="mp-replicating-portfolio-method"><strong>MP Replicating Portfolio Method</strong><a class="headerlink" href="#mp-replicating-portfolio-method" title="Permanent link">&para;</a></h3>
+<p>Unfortunately, there is <strong>no shortcut</strong> for the replicating portfolio method - the components of the portfolio can only be calculated recursively.</p>
+<p>Note that the intuition of the method changes slightly. The portfolio formed at time 0 is a <strong>self-financing portfolio</strong> that will be sold each period to <em>exactly</em> purchase a <strong>new portfolio at that time</strong>, such that the final portfolio leading up to expiration will replicate the payoff.</p>
+<!-- MP Replicating Portfolio -->
+<p><img alt="MP Replicating Portfolio" class="center" src="../Assets/5.%20Binomial%20Model.md/MP%20Replicating%20Portfolio.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If both the future nodes have a value of 0, then the earlier node must be 0 as well.</p>
+<p>This can be used to quickly recurse through layers of trees.</p>
+</div>
+<h3 id="mp-risk-neutral-method"><strong>MP Risk Neutral Method</strong><a class="headerlink" href="#mp-risk-neutral-method" title="Permanent link">&para;</a></h3>
+<p>Fortunately, there is a <strong>shortcut</strong> for the risk neutral method. For a two period model, there are <strong>three ending possibilities</strong> - Up Up, Up Down &amp; Down Down.</p>
+<p>Instead of having to recursively solve for intermediate option prices, we can use the <strong>Binomial Distribution</strong> to <strong>directly solve for the overall probability</strong> of the ending node and hence immediately solve for the option price.</p>
+<p>The binomial distribution has two parameters:</p>
+<ol>
+<li><strong>Number of trials</strong>: Number of periods</li>
+<li><strong>Probability of Success</strong>: Probability of moving Up</li>
+</ol>
+<div class="arithmatex">\[
+\begin{aligned}
+    X &amp;\sim \text{Binomial}(n, p) \\
+    \\
+    dd &amp;\rightarrow K = 0 \\
+    ud &amp;\rightarrow K = 1 \\
+    uu &amp;\rightarrow K = 2 \\
+    \\
+    P(X = K) &amp;= \binom{n}{K} \cdot p^K \cdot (1 – p)^{n-k}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The first term <strong>counts the number of ways</strong> that the ending node can be reached. The top and bottom node can only be reached in 1 way each while the <strong>middle node can be reached in 2 ways</strong>.</p>
+<p>It is a common mistake to forget to include the 2 for the middle node.</p>
+</div>
+<p>It is not uncommon for questions to create binomial trees that have <strong>WAY more than 3 periods</strong>. For such questions, there is usually <strong>ONLY 1-2 ending branches with a payoff</strong>. They can be easily found by starting from the lowest or highest possible price, depending on the option.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the off chance that ALL branches have a positive payoff, then the table function should be used to quickly calculate the expectation. </p>
+</div>
+<p>Given this shortcut, the <strong>risk neutral method is once again preferred</strong> for solving multi-period problems, unless explicitly stated otherwise.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../3.%20Options/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Options" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Options
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../6.%20Black%20Scholes%20Model/" class="md-footer__link md-footer__link--next" aria-label="Next: Black Scholes Model" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Black Scholes Model
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

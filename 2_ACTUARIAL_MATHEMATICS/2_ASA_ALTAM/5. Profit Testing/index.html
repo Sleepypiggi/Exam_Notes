@@ -1,0 +1,2301 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/5.%20Profit%20Testing/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Profit Testing - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#profit-testing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Profit Testing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_ASA_FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Profit Testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Profit Testing
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-intuition" class="md-nav__link">
+    Key Intuition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-profit" class="md-nav__link">
+    Expected Profit
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Profit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#net-cashflow" class="md-nav__link">
+    Net Cashflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emerging-profit" class="md-nav__link">
+    Emerging Profit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-basis" class="md-nav__link">
+    Profit Basis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-vector" class="md-nav__link">
+    Profit Vector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-signature" class="md-nav__link">
+    Profit Signature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-state-models" class="md-nav__link">
+    Multi State Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profitability-metrics" class="md-nav__link">
+    Profitability Metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="Profitability Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#net-present-value" class="md-nav__link">
+    Net Present Value
+  </a>
+  
+    <nav class="md-nav" aria-label="Net Present Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursion" class="md-nav__link">
+    Recursion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decrement-change" class="md-nav__link">
+    Decrement Change
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actual-experience" class="md-nav__link">
+    Actual Experience
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-rate-of-return" class="md-nav__link">
+    Internal Rate of Return
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discounted-payback-period" class="md-nav__link">
+    Discounted Payback Period
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-margin" class="md-nav__link">
+    Profit Margin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zeroization" class="md-nav__link">
+    Zeroization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actual-profits" class="md-nav__link">
+    Actual Profits
+  </a>
+  
+    <nav class="md-nav" aria-label="Actual Profits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stepwise-attribution" class="md-nav__link">
+    Stepwise Attribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portfolio-gain" class="md-nav__link">
+    Portfolio Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expense-gain" class="md-nav__link">
+    Expense Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interest-gain" class="md-nav__link">
+    Interest Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mortality-gain" class="md-nav__link">
+    Mortality Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-gain" class="md-nav__link">
+    Other Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-applications" class="md-nav__link">
+    Other Applications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-intuition" class="md-nav__link">
+    Key Intuition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-profit" class="md-nav__link">
+    Expected Profit
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Profit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#net-cashflow" class="md-nav__link">
+    Net Cashflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emerging-profit" class="md-nav__link">
+    Emerging Profit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-basis" class="md-nav__link">
+    Profit Basis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-vector" class="md-nav__link">
+    Profit Vector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-signature" class="md-nav__link">
+    Profit Signature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-state-models" class="md-nav__link">
+    Multi State Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profitability-metrics" class="md-nav__link">
+    Profitability Metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="Profitability Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#net-present-value" class="md-nav__link">
+    Net Present Value
+  </a>
+  
+    <nav class="md-nav" aria-label="Net Present Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursion" class="md-nav__link">
+    Recursion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decrement-change" class="md-nav__link">
+    Decrement Change
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actual-experience" class="md-nav__link">
+    Actual Experience
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-rate-of-return" class="md-nav__link">
+    Internal Rate of Return
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discounted-payback-period" class="md-nav__link">
+    Discounted Payback Period
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profit-margin" class="md-nav__link">
+    Profit Margin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zeroization" class="md-nav__link">
+    Zeroization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actual-profits" class="md-nav__link">
+    Actual Profits
+  </a>
+  
+    <nav class="md-nav" aria-label="Actual Profits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stepwise-attribution" class="md-nav__link">
+    Stepwise Attribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portfolio-gain" class="md-nav__link">
+    Portfolio Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expense-gain" class="md-nav__link">
+    Expense Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interest-gain" class="md-nav__link">
+    Interest Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mortality-gain" class="md-nav__link">
+    Mortality Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-gain" class="md-nav__link">
+    Other Gain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-applications" class="md-nav__link">
+    Other Applications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="profit-testing"><strong>Profit Testing</strong><a class="headerlink" href="#profit-testing" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>For regular consumer goods, the cost of the product is known beforehand, thus its profitability can be determined beforehand. For insurance, the cost is <strong>contingent on the mortality</strong> of the policyholder, thus it is impossible to determine if the premium charged was adequate or not.</p>
+<p>Thus, by making certain assumptions about the future experience of the policyholder, the insurer can project forward and determine the <strong>expected profit</strong> from the policy. The insurer can then <strong>make adjustments</strong> to assumptions or features to achieve their <strong>desired profitability</strong> - the process is known as <strong>Profit Testing</strong>.</p>
+<p>Profit testing can be used to:</p>
+<ol>
+<li>Set Premiums</li>
+<li>Set Reserves</li>
+<li>Measure Profitability</li>
+<li>Determine Distributable Surplus (For participating policies)</li>
+</ol>
+<h2 id="key-intuition"><strong>Key Intuition</strong><a class="headerlink" href="#key-intuition" title="Permanent link">&para;</a></h2>
+<p>For a traditional level regular premium life insurance product, the insurer collects <strong>more premium</strong> in the <strong>earlier years</strong> than the cost of providing insurance (expected benefit). In the <strong>later years</strong>, this reverses and the insurer collects <strong>less premiums</strong> than the cost of the expected benefit.</p>
+<!-- Obtained from -->
+<p><img alt="Level_Premiums" class="center" src="../Assets/5.%20Profit%20Testing.md/Level_Premiums.png" /></p>
+<p>From a profit perspective, this means that the insurer will recognize positive profits in the earlier years but negative profits in the later years.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is why virtually all life insurance policies are <strong>Lapse Supported</strong> - the insurer is <strong>materially better off</strong> if the policyholder lapses the policy. The insurer will only recognize the positive profits in the early years, without needing to experience negative profits in the later years.</p>
+<p>From a layman's perspective, the insurer <strong>receives the revenue without needing to pay the cost</strong>. Even if the policy has a cash value, the cash value will be <strong>less than the benefit</strong> of the policy that the insurer had priced for, still leaving them better off.</p>
+<p>Lapse Supportability is somewhat 'dangerous' as insurer's might price products assuming an assumed lapse rate. However, since Lapse Rates are very <strong>unpredictable</strong>, <strong>actual experience could turn out to be much lower</strong>, resulting in negative profits for the insurer.</p>
+<p>Thus, given the unpredictability, it is NOT advised to price products assuming a high lapse rate as it <strong>artificially inflates</strong> the financials of the product.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The alternative to making level payments is to pay for the expected cost at that age - this kind of arrangement is known as a <strong>Yearly Renewable Term</strong>.</p>
+<p>Thus, making level payments is functionally pre-paying for future cost increases. The policyholder will pay more in the early years when their actual cost is low while pay less in the later years when their actual cost is higher.</p>
+</div>
+<!-- Obtained from Valuation of Life Insurance Liabilities -->
+<p><img alt="Cashflow_Pattern" class="center" src="../Assets/5.%20Profit%20Testing.md/Cashflow_Pattern.png" /></p>
+<p>To prevent insolvency, the insurer <strong>MUST set up a reserve</strong> (funded from the profits) in the earlier years which can be used to <strong>cover the shortfall</strong> in premium income in the later years to pay for benefits. Thus, by holding a reserve, the policy effectively becomes <strong>self-funded</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Without a reserve, the insurer <strong>might not always have the free cash available</strong> to support the years of negative profit, potentially leading to insolvency. This is because the profit from the early years might be distributed to shareholders or reinvested into the company; <strong>no longer available for use</strong>.</p>
+</div>
+<p>In the earlier years, the reserve is being built up (increase in reserve) which <strong>reduces early profits</strong>. Eventually, the reserve will be released (decrease in reserve), <strong>offsetting the negative profits</strong> in the later years.</p>
+<!-- Obtained from Slides -->
+<p><img alt="Reserve_Pattern" class="center" src="../Assets/5.%20Profit%20Testing.md/Reserve_Pattern.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are two forces driving the reserve pattern:</p>
+<ul>
+<li><strong>Unwinding</strong>: <strong>Reserve increases</strong> as future cashflows are <strong>discounted less</strong> as policy moves forward in time</li>
+<li><strong>Expected Payments</strong>: <strong>Reserve decreases</strong> as part of the reserves are used for expected payments in the <strong>current period</strong> </li>
+</ul>
+<p>In the early years, there are many future cashflows (large increase) while the expected payment is low (for a young policyholder) - leading to an increase in reserves in the earlier periods.</p>
+<p>In later years, this effect reverses as there are not many future cashflows left while expected payments increase, leading to the reserve decreasing in later periods.</p>
+</div>
+<p>If both are on the <strong>same basis</strong>, then the excess in the early period will be <strong>exactly</strong> used to build the reserve while the shortfall in the later periods will be exactly covered.</p>
+<p>However, since the basis for reserves are more conservative, <strong>more than what is available is set aside</strong> in the earlier periods (resulting in <strong>negative profits early on</strong>) and <strong>more than what is needed is released later on</strong> (resulting in positive profits in later periods).</p>
+<p>The key is understanding that the reserve is functionally a savings account that the insurer sets aside to ensure future obligations can be met. The reserve does <strong>NOT change the dollar amount</strong> of profit; it only affects the <strong>timing of the profit</strong>.</p>
+<p>Due to the time value of money, recognizing profits <strong>earlier is better</strong> as they are discounted less, resulting in <strong>greater profits on an NPV basis</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Consider <strong>decrease in reserve across all periods</strong> (EG. Due to an Increase of Interest Rates):</p>
+<ul>
+<li>Negative Profits in the earlier years will decrease as there is less reserve to build up (<strong>Increase in earlier profits</strong>)</li>
+<li>Positive Profits in the later years will decrease as there is less reserve to release (<strong>Decrease in later profits</strong>)</li>
+<li>Profits are recognized earlier rather than later</li>
+</ul>
+<p>Due to the <strong>time value of money</strong>, the uplift from the earlier periods is stronger, resulting in an increase to NPV.</p>
+</div>
+<h2 id="expected-profit"><strong>Expected Profit</strong><a class="headerlink" href="#expected-profit" title="Permanent link">&para;</a></h2>
+<h3 id="net-cashflow"><strong>Net Cashflow</strong><a class="headerlink" href="#net-cashflow" title="Permanent link">&para;</a></h3>
+<p>Consider the cashflows that occur in a <strong>single period</strong> from the <strong>insurer's perspective</strong>:</p>
+<ul>
+<li><strong>Period Start</strong>: Collect <strong>Premiums</strong> (P) and incur <strong>Maintenance Expenses</strong> (e)</li>
+<li><strong>Period End</strong>: Payout <strong>Claims</strong> (B) occurring in the period, along with any associated <strong>Claim Expenses</strong> (CE)</li>
+</ul>
+<p>It is typically assumed that the insurer will invest the net cashflows at the beginning of the period in order to <strong>earn interest</strong>. Thus, the net cashflow for the period is the combination of the above:</p>
+<div class="arithmatex">\[
+    \text{Net Cashflow}_{t} = (P_{t} - E_{t})(1 + i) - q_{x} \cdot (B_{t} + \text{CE}_{t})
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even if the net cashflow in the beginning of the year is negative <span class="arithmatex">\((P - e &lt; 0)\)</span>, the insurer will still invest the amount. In this case, it can be understood as the insurer has to <strong>borrow money</strong>, which they must then <strong>pay interest</strong> on at the end of the period.</p>
+<p>Similarly, if there is cashflow that occurs in the middle of the year, then the insurer will incur <strong>interest on that amount for the remaining time</strong> till the end of the year.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above expression can be enhanced to add in other benefits by applying the appropriate risk rates:</p>
+<ul>
+<li><strong>Surrender Benefit</strong>: Lapse Rate</li>
+<li><strong>Maturity Benefit</strong>: Survival Rate (last period only)</li>
+<li><strong>Annuity Benefit</strong>: Survival Rate</li>
+</ul>
+</div>
+<p>Notice that the expenses above were listed as maintenance expenses. This is because <strong>Acquisition Expenses</strong> are assumed to be <strong>pre-contract expenses</strong>. They are the <strong>ONLY cashflow</strong> in year 0 and will <strong>NOT earn any interest</strong>:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Pre Contract Expenses" class="center" src="../Assets/5.%20Profit%20Testing.md/Pre_Contract_Expenses.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In practice, acquisition expenses are usually grouped with the other cashflows that occur in the first policy year. However, the above is assumed for the purposes of this exam.</p>
+</div>
+<h3 id="emerging-profit"><strong>Emerging Profit</strong><a class="headerlink" href="#emerging-profit" title="Permanent link">&para;</a></h3>
+<p>For policyholders who <strong>die</strong> during the period, a <strong>claim</strong> must be paid out to them. However, the insurer does not need to fund the claim entirely from cashflows during the period; they have a <strong>reserve</strong> that was previously built up.</p>
+<p>Conversely, for policyholders who <strong>do not die</strong> during the period, they must <strong>set up a reserve</strong> for them. This is because a <strong>claim will be inevitably made</strong> in some future period.</p>
+<p>Thus, the reserve can be thought of like a <strong>savings account</strong> used to fulfil the <strong>specific purpose</strong> of meeting claims:</p>
+<ul>
+<li><strong>Period Start</strong>: Insurer can access the reserve set up as at the previous period</li>
+<li><strong>Period End</strong>: Insurer must set up a new reserve for the future claims that will be made</li>
+</ul>
+<p>Similarly, the insurer is assumed to <strong>invest the reserve</strong> at the beginning of the period to maximize returns. The insurer has both the <strong>interest earned</strong> and <strong>net cashflow</strong> arising from that period available to set aside the new reserve. Any <strong>remaining amount</strong> can be <strong>recognised as profit</strong> as the insurer has <strong>fulfilled their liabilities</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Profit}
+    &amp;= {}_{t-1}V \cdot (1+i) + \text{Net Cashflow} - p_{x} \cdot {}_{t}V \\
+    &amp;= \text{Net Cashflow} - \underbrace{p_{x} \cdot {}_{t}V - {}_{t-1}V \cdot (1+i)}_\text{Change in Reserves}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do NOT attempt to calculate the change in reserve as a seperate component as the opening and ending reserves are on a different basis:</p>
+<ul>
+<li><strong>Opening Reserve</strong>: Per Policy Reserve, since profit assumes <strong>all policies in-force</strong> at start of year</li>
+<li><strong>Ending Reserve</strong>: In-force reserve</li>
+</ul>
+<p>Since the probabilities will already be accounted for the in the above equation, the chances of making an error are lower if the full equation is used.</p>
+</div>
+<p>The above expression is often referred to as the profit that <strong>emerges or arises</strong> from that period, as it occurs at the <strong>end of the period</strong> as a combination of all other cashflows that occurred in that period.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Some questions may provide the reserves while other questions may require us to compute it ourselves. Regardless, there are always two time points where the reserves are known:</p>
+<ul>
+<li><strong>Policy Start</strong>: Starting reserve is 0 (Reserve has not been set up yet)</li>
+<li><strong>Policy End</strong>: Ending reserve is 0 (No more future liabilities)</li>
+</ul>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="Special Reserves" class="center" src="../Assets/5.%20Profit%20Testing.md/Special_Reserves.png" /></p>
+<p>It is also possible that the question uses <strong>Net Premium Reserves</strong> even though the profit testing is done a <strong>Gross Premium basis</strong>. Always read the question properly.</p>
+</div>
+<p>The above can be calculated in Excel and presented as the following:</p>
+<!-- Self Made -->
+<p><img alt="Profit_Cashflows_Excel" class="center" src="../Assets/5.%20Profit%20Testing.md/Profit_Cashflows_Excel.png" /></p>
+<h3 id="profit-basis"><strong>Profit Basis</strong><a class="headerlink" href="#profit-basis" title="Permanent link">&para;</a></h3>
+<p>Note that the projection basis (the assumptions used) for reserving and profit testing might be different:</p>
+<ul>
+<li><strong>Reserving Basis</strong>: Conservative; Best-estimate with margin for adverse deviation</li>
+<li><strong>Profit Basis</strong>: Realistic; best-estimate rates only</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This includes <strong>ALL assumptions</strong>, not just risk rates. In practice, this usually comes from <strong>two sources</strong>:</p>
+<ul>
+<li><strong>Margin for Adverse Deviation</strong>: Affects risk rates plus some fixed assumptsion (EG. Expense)</li>
+<li><strong>Interest Rates</strong>: Reserves discounted as Risk Free Rate while profit projected as Best Estimate Investment Returns</li>
+</ul>
+</div>
+<p>If the reserving and profit testing <strong>basis are the same</strong>, then there will be <strong>NO profit</strong> emerging from the policy. This is because the change in reserve (due to cashflows and unwinding) will <strong>completely offset</strong> the net cashflow emerging from the policy.</p>
+<p>Thus, if actual experience exactly follows the best estimate assumptions, the insurer should earn a <strong>profit from the margin for adverse deviation</strong> that was held.</p>
+<h3 id="profit-vector"><strong>Profit Vector</strong><a class="headerlink" href="#profit-vector" title="Permanent link">&para;</a></h3>
+<p>The <strong>Profit Vector</strong> of a policy is a vector containing the emerging profits from each policy year:</p>
+<div class="arithmatex">\[
+    \text{PR} = (\text{PR}_{0}, \text{PR}_ {1}, \dots ,\text{PR}_{t})
+\]</div>
+<!-- Self Made -->
+<p><img alt="Profit Vector" class="center" src="../Assets/5.%20Profit%20Testing.md/Profit%20Vector.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The profit vector includes <strong>policy year 0</strong>, which is <strong>mainly</strong> the pre-contract expenses.</p>
+<p>HOWEVER, the question could provide a <strong>reserve at the end of time 0</strong> - which would count towards the profit from policy year 0 as well.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One typical problem for questions on this topic is the <strong>age of the policyholder to use</strong>. Using the above diagram, a relationship can be easily seen:</p>
+<ul>
+<li>Age at BOP: <span class="arithmatex">\(x+t-1\)</span>, used for <strong>Decrements</strong></li>
+<li>Age at EOP: <span class="arithmatex">\(x+t\)</span>, used for <strong>Reserves</strong></li>
+</ul>
+</div>
+<p>For a typical life insurance contract, there is a typically a <strong>negative profit</strong> in the first year (new busines strain) due to the high cost of setting up the policy (expenses and reserves). Following that, <strong>small magnitudes of positive profits</strong> will emerge over its lifetime.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most questions will <em>only</em> require computing the profit vector for a short period of time given the intensity needed to calculate the reserves at various points in time.</p>
+<p>If required to compute the profit vector for a long duration, the question will usually specify to <strong>ignore the change</strong> in reserves or simply <strong>provide them</strong>, which greatly simplifies the required calculations.</p>
+</div>
+<h3 id="profit-signature"><strong>Profit Signature</strong><a class="headerlink" href="#profit-signature" title="Permanent link">&para;</a></h3>
+<p>Consider the expression for profit - an implicit assumption it makes is that the policyholder is <strong>alive at the start of the period</strong>. However, this means that each term in the profit vector is on a different basis and thus cannot be analyzed together.</p>
+<p>To account for this, each element can be adjusted by accounting for the <strong>probabilities of survival to the start of each period</strong>. This converts each element into the <strong>profit at issue</strong> that arises from the period, which can be analyzed together.</p>
+<p>The resulting vector is known as the <strong>Profit Signature</strong> of the policy:</p>
+<ul>
+<li><strong>Profit Vector</strong>: Profit at the <strong>end</strong> of period, assuming the policy is <strong>in-force at the start of the period</strong></li>
+<li><strong>Profit Signature</strong>: Profit at the <strong>end</strong> of period, assuming that the policy is <strong>in-force at issue</strong></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \boldsymbol{\pi}
+    &amp;= (\pi_{0}, \pi_{1}, \dots, \pi_{t}) \\
+    &amp;= ({}_{0}p_{x} \cdot \text{PR}_{0}, {}_{0}p_{x} \cdot \text{PR}_{1}, {}_{t-1}p_{x} \cdot \text{PR}_{t})
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall that <span class="arithmatex">\({}_{0}p_x = 1\)</span>, as it represents the probability of surviving till <strong>this instant</strong>!</p>
+</div>
+<!-- Self Made -->
+<p><img alt="Profit Signature" class="center" src="../Assets/5.%20Profit%20Testing.md/Profit%20Signature.png" /></p>
+<h3 id="multi-state-models"><strong>Multi State Models</strong><a class="headerlink" href="#multi-state-models" title="Permanent link">&para;</a></h3>
+<p>Multi State Models add another layer of complexity to profit projection which poses the following issues:</p>
+<ul>
+<li><strong>Multiple benefits</strong> to consider</li>
+<li>Cashflows are <strong>dependent on the state</strong> that the policyholder is in</li>
+<li>Not possible to know <strong>which state</strong> the insured will be in at issue</li>
+</ul>
+<p>Thus, the following changes need to be made:</p>
+<ul>
+<li>Consider the outgo from <strong>ALL possible benefits and decrements</strong></li>
+<li><strong>Dependent Decrements</strong> should be used; survival should include ALL decrements</li>
+<li>Consider ALL possible states the policyholder could be in at the start of the year </li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{NCF}^{(i)}_{t} &amp;= (P - e)(1+i) - \sum q^{ij}_{x} \cdot (B^{ij} + E^{ij}) \\
+    \text{PR}^{(i)}_{t} &amp;= \text{NCF}_{t} -  \sum [p^{(ij)}_{x} \cdot {}_{t}V^{(j)} - {}_{t-1}V^{(i)} \cdot (1+i)] \\
+    \pi &amp;= \sum_{t, i} {}_{t-1}p^{0i} \cdot \text{PR}^{i}_{t}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For multi-state questions, note that the expression for profit may be <strong>different for each state</strong> - do not autopilot into the formulas. For instance, some states might not receive premiums or might not pay benefits.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When dealing with multiple decrements, it is important to remember that only the <strong>dependent decrements</strong> should be used. Thus, pay attention to the following details:</p>
+<ol>
+<li>"Mortality follows the Standard Ultimate Life Table": Death decrement this way is dependent</li>
+<li>"X% of the surviving policyholders surrender": Survival occurs independently at the <strong>end of the year</strong></li>
+<li>"Of the 1000 policyholders, X died and Y surrendered": Death and Survival calculated this way are <strong>dependent</strong></li>
+</ol>
+</div>
+<h2 id="profitability-metrics"><strong>Profitability Metrics</strong><a class="headerlink" href="#profitability-metrics" title="Permanent link">&para;</a></h2>
+<p>Using the profit cashflows above, insurers can gauge the <strong>profitability</strong> of the policy based on different metrics.</p>
+<h3 id="net-present-value"><strong>Net Present Value</strong><a class="headerlink" href="#net-present-value" title="Permanent link">&para;</a></h3>
+<p>Firstly, the <strong>Net Present Value</strong> (NPV). It is the <strong>EPV of the profits</strong>, discounted using a specified <strong>Risk Discount Rate</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{NPV}
+    &amp;= \text{PR}_{0} + v\text{PR}_{1}
+    + v^{2} p_{x} \text{PR}_{2} + v^{3} {2}p_{x} \text{PR}_{3} + \dots \\
+    &amp;= \text{PR}_{0} + v\text{PR}_{1}
+    + v^{2} p_{x} \text{PR}_{2} + v^{3} p_{x} p_{x+1} \text{PR}_{3} + \dots \\  
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Risk Discount Rate is also sometimes referred to as the <strong>Hurdle Rate</strong>. They represent the return that an investor <strong>expects to earn</strong> based on the risk profile of the business. It is <strong>typically different</strong> from the interest rates used for reserving or profit testing.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall the intuition regarding EPV:</p>
+<p>The complexity of life insurance is that there are two dimensions - <strong>Incidence Probability</strong> (“E”) &amp; <strong>Time Value</strong> of Money (“PV”). The key understanding is that the benefit of the policy is fixed. A policy with $100,000 sum assured will always <strong>at most pay</strong> out $100,000.</p>
+<p>The incidence probability affects the <strong>TIMING of the payment</strong>. Higher incidence probability increases expected benefit in the earlier years and decreases expected payments in the later years. On whole, the expected payment for the policy is still $100,000 - but the benefits are expected to <strong>pay earlier rather than later</strong>.</p>
+<p>The time value of money then affects how these <strong>benefits are valued</strong>. Benefits that emerge earlier are <strong>discounted less</strong>, thus have a higher EPV.</p>
+<p>For an annuity, the key focus is on expected <strong>NUMBER of payments</strong>. The incidence probability decreases the probability of staying in the state, thus lowering the expected number of payments. This is useful for determining the impact on the EPV of Premiums and Expenses.</p>
+</div>
+<h4 id="recursion"><strong>Recursion</strong><a class="headerlink" href="#recursion" title="Permanent link">&para;</a></h4>
+<p>Apart from calculating NPV, one common type of question involves <strong>estimating</strong> the NPV <strong>as at a future valuation date</strong>, given the NPV as at the current date. Consider the cashflows for the NPV on issue versus the NPV one period later:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{NPV}_{0} &amp;= \text{PR}_{0} + v \text{PR}_{1} + v^{2} p_{x} \text{PR}_{2} + v^{3} p_{x} p_{x+1} \text{PR}_{3} + \dots \\
+    \text{NPV}_{1} &amp;= \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\text{PR}_{2} + v^{2} p_{x+1} \text{PR}_{3} + \dots
+\end{aligned}
+\]</div>
+<p>There are <strong>three</strong> key differences:</p>
+<ul>
+<li>The expected profits in policy year 0 and 1 <strong>have been realized</strong> thus are no longer part of NPV</li>
+<li>The <strong>valuation date has moved back one year</strong> thus there is an <strong>unwinding of interest</strong> by one year</li>
+<li>Similarly, the <strong>policyholder has survived one year</strong> thus there is <strong>'unwinding' of mortality</strong> by one year as well</li>
+</ul>
+<p>By applying the above changes in a <strong>stepwise order</strong>, the future NPV can be obtained.</p>
+<h4 id="decrement-change"><strong>Decrement Change</strong><a class="headerlink" href="#decrement-change" title="Permanent link">&para;</a></h4>
+<p>Similarly, another type of question involves <strong>estimating</strong> the impact to NPV given a <strong>change in decrements</strong>. There are only a few adjustments that need to be made. Consider a change in the first year decrements:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{NPV} &amp;= \text{PR}_{0} + v \text{PR}_{1} + v^{2} p_{x} \text{PR}_{2} + v^{3} p_{x} p_{x+1} \text{PR}_{3} + \dots \\
+    \text{NPV}' &amp;= \text{PR}_{0} + v \text{PR}'_{1} + v^{2} p'_{x} \text{PR}_{2} + v^{3} p'_{x} p_{x+1} \text{PR}_{3} + \dots \\
+\end{aligned}
+\]</div>
+<p>There are <strong>two</strong> key differences:</p>
+<ul>
+<li>The <strong>emerging profit</strong> from the <strong>AFFECTED YEAR</strong> must be changed to reflect the <strong>new basis</strong></li>
+<li>The <strong>profit signature</strong> for all <strong>FUTURE YEARS</strong> must be changed to reflect the <strong>new in-force probability</strong></li>
+<li>Profit signatures from all <strong>prior years are unaffected</strong></li>
+</ul>
+<p>By applying the above changes in a <strong>stepwise order</strong>, the adjusted NPV can be obtained.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Even if the decrement has no impact on the benefit (EG. Change in Lapse but no surrender benefit), it will still have an impact on the profit as it <strong>affects the expected reserve</strong> for the year.</p>
+</div>
+<h4 id="actual-experience"><strong>Actual Experience</strong><a class="headerlink" href="#actual-experience" title="Permanent link">&para;</a></h4>
+<p>Another type of question could be to ask for the NPV assuming a certain event occurred - EG. The policyholder actually dies at the end of the second year.</p>
+<p>In these cases, the decrements must be adjusted. If the policyholder dies in the second year:</p>
+<ul>
+<li>Death and Lapse decrement in the <strong>first year</strong> is 0 (WILL NOT die or lapse)</li>
+<li>Death decrement in the <strong>second year</strong> is 1 (WILL die)</li>
+</ul>
+<p>The <strong>weighted average</strong> of the NPV of all scenarios in the policy will give the total NPV of the policy. This allows the insurer to better understand which scenarios are better for them.</p>
+<h3 id="internal-rate-of-return"><strong>Internal Rate of Return</strong><a class="headerlink" href="#internal-rate-of-return" title="Permanent link">&para;</a></h3>
+<p>Next, the <strong>Internal Rate of Return</strong> (IRR). It is the <strong>Risk Discount Rate</strong> that will cause the NPV to be 0:</p>
+<div class="arithmatex">\[
+    \text{NPV}_\text{IRR} = 0
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>IRR CANNOT be calcualted via an equation and must be solved using numerical methods or a financial calculator.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IRR measures the <strong>highest possible discount rate</strong> such that the project breaks even. If the actual discount rate is <strong>lower than the IRR</strong>, the resulting NPV will always be positive. Thus, <strong>higher IRRs</strong> are preferred.</p>
+</div>
+<p>One common type of question involves determining how a change in cashflows affects the IRR. Generally speaking, any change that would result in a <strong>higher NPV would also result in a higher IRR</strong>, as the discount rate would need to be higher to force the new NPV to 0.</p>
+<h3 id="discounted-payback-period"><strong>Discounted Payback Period</strong><a class="headerlink" href="#discounted-payback-period" title="Permanent link">&para;</a></h3>
+<p>Next, is the <strong>Discounted Payback Period</strong> (DPP). It is the <strong>earliest</strong> period where the <strong>partial NPV becomes positive</strong>:</p>
+<div class="arithmatex">\[
+    \text{DPP} = \min [t: \text{Partial NPV}(t) &gt; 0]
+\]</div>
+<p>Partial NPV at time <span class="arithmatex">\(t\)</span> is the NPV that is calculated using a <strong>subset of cashflows</strong> from time 0 up to and including time <span class="arithmatex">\(t\)</span>. It is a measure of the <strong>accumulated profit</strong> (on a EPV basis) up till that time. Thus, the discounted payback period is a measure of the <strong>earliest time that the accumulated profits become positive</strong>.</p>
+<div class="arithmatex">\[
+    \text{Partial NPV}(t) = \pi_{0} + v^{1} \pi_{1} + v^{2} \pi_{2} + \dots + v^{t} \pi_{t}  
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most policies have a large pre-contract expense while the profits in the initial years are small (due to building up the reserves). Thus, it takes a few years to recoup the costs - negative partial NPV for the first few years of the policy.</p>
+</div>
+<h3 id="profit-margin"><strong>Profit Margin</strong><a class="headerlink" href="#profit-margin" title="Permanent link">&para;</a></h3>
+<p>Lastly, the <strong>Profit Margin</strong>. It is the ratio of the EPV of the profits (NPV) to that of the premiums, assuming the <strong>same discount rate</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Profit Margin}
+    &amp;= \frac{\text{NPV}}{\text{EPV(Premiums)}} \\
+    &amp;= \frac{\text{NPV (Profit At Issue)}}{\text{EPV(Premiums)}}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>timing</strong> of the premium and profit cashflows are different - do NOT mistakenly apply the same discounting pattern to them:</p>
+<p><!-- Self Made -->
+<img alt="Profit_Margin_Illustration" class="center" src="../Assets/5.%20Profit%20Testing.md/Profit_Margin_Illustration.png" /></p>
+</div>
+<h2 id="zeroization"><strong>Zeroization</strong><a class="headerlink" href="#zeroization" title="Permanent link">&para;</a></h2>
+<p>Apart from hitting the specified profitability metrics, another consideration during profit testing is the <strong>pattern of profits</strong>. As mentioned in the beginning of the section, without a reserve, the typical profit pattern for a life insurance policy is positive in the earlier years while <strong>negative in the later years</strong>, which motivates the reason for holding a reserve.</p>
+<p>Thus, the reserve held should achieve the following outcomes:</p>
+<ul>
+<li>Ensure that there are <strong>no negative profits after positive profits</strong> (no negative profits in later years)</li>
+<li>Ensure that positive profits <strong>emerge as soon as possible</strong></li>
+</ul>
+<p>The above objectives can be achieved by holding the <strong>minimum reserves</strong> at each period. This can be achieved by setting the reserves through a process known as <strong>Zeroization</strong>:</p>
+<ul>
+<li>Start from the <strong>last policy year</strong></li>
+<li>Solve for the <strong>opening reserve</strong> assuming no profit emerges in the year using the <strong>recursion formula</strong></li>
+<li>If positive, set the opening reserve equal to it</li>
+<li>If negative, set it at zero</li>
+<li>Repeat for all remaining policy years</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{PR}_{t} &amp;= 0 \\
+    \text{NCF}_{t} + p_{x} \cdot {}_{t}V - {}_{t-1}V \cdot (1+i) &amp;= 0 \\
+    {}_{t-1}V &amp;= \frac{\text{NCF}_{t} + p_{x} \cdot {}_{t}V}{1+i} \\
+    \\
+    \therefore {}_{t-1}V^{z} &amp;= \max ({}_{t-1}V^{z}, 0)
+\end{aligned}
+\]</div>
+<p>There are a few points to take note of:</p>
+<ul>
+<li>The <strong>expected reserve in the final year is 0</strong> - so this process can always be used given all the underlying net cashflows</li>
+<li>Opening reserve that was solved for will be <strong>used as the ending reserve</strong> in the next policy year of the process</li>
+<li>However, ending reserve used for the next process is the <strong>EXPECTED ending reserve</strong>, thus remember to multiply by the survival probabilities before continuing</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key intuition is that if the profit arising from that period is <strong>positive</strong>, then there is <strong>no need for a reserve</strong> (recall that the motivation for the reserve is to cover negative profit). If the profit arising is <strong>negative</strong>, then a reserve <strong>exactly equal to the negative profit</strong> is held to ensure it is non-negative.</p>
+<p>What this achieves is that the <strong>absolute minimum reserve is held</strong>; no "extra" reserve that will show up as a profit later on (no negative profits later on achieved). As a result, the <strong>maximum amount of positive profits</strong> from the early years are recognized.</p>
+</div>
+<p>In practice, insurers often do not hold the zeroized reserves due to the following reasons:</p>
+<ul>
+<li>Minimum reserves required via Statutory Reporting</li>
+<li>Additional reserves to cover for Adverse Experience</li>
+<li>Additional reserves to cover for Guarantees</li>
+</ul>
+<h2 id="actual-profits"><strong>Actual Profits</strong><a class="headerlink" href="#actual-profits" title="Permanent link">&para;</a></h2>
+<p>If actual experience follows the assumptions exactly, the expected profit will materialize into <strong>Actual Profits</strong>. In reality, this is unlikely to occur, leading to deviation between the two. The difference is known as the <strong>Gain</strong> or <strong>Loss</strong> of the policy:</p>
+<div class="arithmatex">\[
+    \text{Gain/Loss} = \text{Actual Profit} - \text{Expected Profit}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, if the question asks for gains by source, the <strong>Expected Profit is assumed to be 0</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Total Gain/Loss}
+    &amp;= \text{Actual Profit} - \text{Expected Profit} \\
+    &amp;= \text{Actual Profit} - 0 \\
+    &amp;= \text{Actual Profit}
+\end{aligned}
+\]</div>
+<p>The implicit assumption here is that the profit testing basis is the <strong>same as the reserving basis</strong>. Note that this only holds true for questions that ask for <strong>Gains by Source</strong> - thus read the entire question to know if this applies.</p>
+</div>
+<p>Since gains occur as a result of assumption deviation, it can decomposed into the <strong>gain from specific assumptions</strong>. This is useful in the following areas:</p>
+<ol>
+<li>Assumption Review</li>
+<li>Resource Allocation</li>
+<li>Performance Assessment</li>
+</ol>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Total Gain}
+    &amp;= \text{Expense Gain} + \text{Interest Gain} + \text{Mortality Gain}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This can be <strong>used as a check</strong> to ensure that the attribution was done correctly - by checking to ensure that they reconcile to the total.</p>
+</div>
+<p>For this section, let the actual experience be denoted with a <strong>prime superscript</strong> <span class="arithmatex">\('\)</span>.</p>
+<h3 id="stepwise-attribution"><strong>Stepwise Attribution</strong><a class="headerlink" href="#stepwise-attribution" title="Permanent link">&para;</a></h3>
+<p>The method of attribution is known as <strong>Stepwise Attribution</strong>. It involves changing <strong>one assumption at a time</strong> (expected to actual), <strong>on top of previous changes</strong>, till the final set of assumptions are obtained (all actual).</p>
+<p>The <strong>difference between steps</strong> is the gain from the assumption that was changed in the step:</p>
+<!-- Self Made -->
+<p><img alt="Stepwise Attribution" class="center" src="../Assets/5.%20Profit%20Testing.md/Stepwise_Attribution.png" /></p>
+<p>The <strong>order of attribution</strong> is important. Although the total gain will remain the same, the amount allocated to each component will be different if a different order is used. This is due to the allocation of the <strong>correlation impact</strong>:</p>
+<div class="arithmatex">\[
+    \text{Gain from Assumption} = \text{Absolute Gain} + \text{Correlation Impact}
+\]</div>
+<!-- Self Made -->
+<p><img alt="Correlation_Impact" class="center" src="../Assets/5.%20Profit%20Testing.md/Correlation_Impact.png" /></p>
+<p>Thus, different orders of attributions will result in <strong>similar but ultimately different values</strong>. Questions will usually  <strong>specify the order</strong> of attribution to use.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An interesting relationship is that <strong>not all assumptions are correlated</strong> with one another. In other words, the correlation impact between them is 0. Thus, <strong>different orders</strong> of attribution COULD lead to the <strong>same impact</strong>:</p>
+<p><img alt="Assumption_Correlation" class="center" src="../Assets/5.%20Profit%20Testing.md/Assumption_Correlation.png" /></p>
+<p>Assuming that there are claims expenses, the following three combinations would result in the <strong>same Investment Gain</strong>:</p>
+<ul>
+<li>Expense, Interest &amp; Mortality</li>
+<li>Expense, Mortality, Interest</li>
+<li>Mortality, Expense Interest</li>
+</ul>
+<p>The key is understanding that since Mortality and Interest are not correlated, the only requirement to produce the same attribution is to have <strong>Expense be attributed before Intetest</strong>.</p>
+</div>
+<h3 id="portfolio-gain"><strong>Portfolio Gain</strong><a class="headerlink" href="#portfolio-gain" title="Permanent link">&para;</a></h3>
+<p>Most questions involve calculating the gain from a portfolio of <strong>identical policies</strong>:</p>
+<div class="arithmatex">\[
+    \text{Portfolio Gain} = \text{Gain Per Policy} \cdot \text{Number of Policies at the Start}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a common mistake to use the ending number of policies (after actual decrements) because the "intuition" is that the gain/loss is made on the remaining policies.</p>
+</div>
+<h3 id="expense-gain"><strong>Expense Gain</strong><a class="headerlink" href="#expense-gain" title="Permanent link">&para;</a></h3>
+<p>Since expense is a cash <em>outflow</em>, gains are recognised when the <strong>actual outflow is smaller</strong> than the actual outflow:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Expense Gain Per Policy}
+    &amp;= \text{Expected Expense Profit} - \text{Actual Expense Profit} \\
+    &amp;= E(1+i) - q_{x} \cdot \text{CE} - [E'(1+i) - q_{x} \cdot \text{CE}'] \\
+    &amp;= (E-E')(1+i) - q_{x} (\text{CE}-\text{CE}')
+\end{aligned}
+\]</div>
+<p>Additionally, since this is the <strong>first attribution step</strong>, ONLY the difference in expense needs to be accounted for. This is because the other assumptions are still assumed to be at their expected value, thus it will <strong>offset</strong> one another.</p>
+<h3 id="interest-gain"><strong>Interest Gain</strong><a class="headerlink" href="#interest-gain" title="Permanent link">&para;</a></h3>
+<p>On the flipside, since interest is a cash <em>inflow</em>, gain is recognised when the <strong>actual inflow is larger</strong> than the actual outflow:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Interest Gain Per Policy}
+    &amp;= \text{Actual Interest Profit} - \text{Expected Interest Profit} \\
+    &amp;= ({}_{t-1}V + P - E') \cdot i' - ({}_{t-1}V + P - E') \cdot i \\
+    &amp;= (i' - i)({}_{t-1}V + P - E')
+\end{aligned}
+\]</div>
+<p>Similarly, since this is <strong>NOT the first</strong> attribution step, all assumptions that have been attributed before must be included - <strong>ALL instances</strong> of the assumption should be using its <strong>actual value</strong>. This is to account for the <strong>correlation impact</strong> between the two.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Even though is says "Expected Profit", it is not truly the expected profit. This is because of the <strong>stepwise attribution</strong>, the expense assumption should be <strong>using the actual value</strong> instead.</p>
+</div>
+<h3 id="mortality-gain"><strong>Mortality Gain</strong><a class="headerlink" href="#mortality-gain" title="Permanent link">&para;</a></h3>
+<p>Similarly, mortality is a cash <em>outflow</em>, gain is recognised when the <strong>actual outflow is smaller</strong> than the actual outflow.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Mortality Gain Per Policy}
+    &amp;= \text{Expected Mortality Profit} - \text{Actual Mortality Profit} \\
+    &amp;= q_{x} \cdot (B+\text{CE}') + (1-q_{x}) \cdot {}_{t}V - [q'_{x} \cdot (B + \text{CE}') + (1-q'_{x}) {}_{t}V] \\
+    &amp;= q_{x} \cdot (B+\text{CE}') + {}_{t}V - q_{x} \cdot {}_{t}V - [q'_{x} \cdot (B+\text{CE}') + {}_{t}V - q'_{x} {}_{t}V] \\
+    &amp;= q_{x} \cdot (B+\text{CE}') + {}_{t}V - q_{x} \cdot {}_{t}V - q'_{x} \cdot (B+\text{CE}') - {}_{t}V + q'_{x} {}_{t}V \\
+    &amp;= (q_{x} - q'_{x})(B+\text{CE}') - (q_{x} - q'_{x}){}_{t}V \\
+    &amp;= (q_{x} - q'_{x})(B+\text{CE}'- {}_{t}V) \\
+\end{aligned}
+\]</div>
+<p>Questions may alternatively provide the actual <strong>number of policyholders</strong> (NOP) instead of the probabilities. Thus, we need to solve for the actual probabilities using:</p>
+<div class="arithmatex">\[
+    q'_{x} = \frac{\text{NOP}_\text{Beginning} - \text{NOP}_\text{Ending}}{\text{NOP}_\text{Beginning}}
+\]</div>
+<h3 id="other-gain"><strong>Other Gain</strong><a class="headerlink" href="#other-gain" title="Permanent link">&para;</a></h3>
+<p>Gains for other cashflows (EG. Surrender or Maturity) can be calculated by applying the same principles as above:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Lapse Gain Per Policy}
+    &amp;= (w_{x} - w'_{x})(B^{w} + \text{CE}^{w'} - {}_{t}V) \\
+\end{aligned}
+\]</div>
+<p>The expression is analagous to the mortality gain. Note that even though the expected reserve appears in both the mortality and lapse gain, there is <strong>NO double counting</strong> - they each quantify the <strong>impact of its respective decrement</strong> on the expected reserve.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the feature was not <strong>expected but eventually paid</strong> (EG. Expected profit does contain Surrender but actual profit do), then the <strong>expected profit from that component is 0</strong> - the gain or loss is the <strong>entire outflow</strong> for that benefit.</p>
+</div>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Source</th>
+<th align="center">Cashflow</th>
+<th align="center">Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Expense</td>
+<td align="center">Outflow</td>
+<td align="center">Expected - Actual</td>
+</tr>
+<tr>
+<td align="center">Mortality</td>
+<td align="center">Outflow</td>
+<td align="center">Expected - Actual</td>
+</tr>
+<tr>
+<td align="center">Surrender</td>
+<td align="center">Outflow</td>
+<td align="center">Expected - Actual</td>
+</tr>
+<tr>
+<td align="center">Interest</td>
+<td align="center">Inflow</td>
+<td align="center">Actual - Expected</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<h3 id="other-applications"><strong>Other Applications</strong><a class="headerlink" href="#other-applications" title="Permanent link">&para;</a></h3>
+<p>This method essentially attributes the impact of each assumption difference (Actual vs Profit Testing Basis) on Actual Profit. However, it <strong>can be used to determine Expected Profit</strong> as well.</p>
+<p>Recall that expected profit arises due to the difference in basis between Reserving and Profit Testing. Thus, by using the methods above, the expected profit from Investment, Mortality or Expense can be quantified.</p>
+<p>Generally speaking, this is not very useful as we are usually interested in the whole expected profit, <strong>not the expected profit from a specific assumption</strong>. However, if there are only 1-2 differences in basis, this method can be used to quickly determine the overall profit.</p>
+<p>For instance, if the only difference between profit testing and reserving is <strong>only</strong> the investment return assumption:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Expected Profit}
+    &amp;= \text{Expected Profit from Investment} \\
+    &amp;= ({}_{t-1}V + P - E)(i’ - i)
+\end{aligned}
+\]</div>
+<p>This is useful as the entire profit calculation <strong>does not need to be performed</strong>, as well as for situations where <strong>insufficient information</strong> is given.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../4.%20Multi%20State%20Applications/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multi State Applications" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Multi State Applications
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../6.%20Universal%20Life/" class="md-footer__link md-footer__link--next" aria-label="Next: Universal Life" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Universal Life
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

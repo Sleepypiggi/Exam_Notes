@@ -1,0 +1,2574 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/1.%20Survival%20Models/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Survival Models - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#survival-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Survival Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0_ASA_FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Survival Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Survival Models
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-lifetime" class="md-nav__link">
+    Continuous Lifetime
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Lifetime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newborn-lifetime" class="md-nav__link">
+    Newborn Lifetime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actuarial-notation" class="md-nav__link">
+    Actuarial Notation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percentiles" class="md-nav__link">
+    Percentiles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrete-lifetime" class="md-nav__link">
+    Discrete Lifetime
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-of-mortality" class="md-nav__link">
+    Force of Mortality
+  </a>
+  
+    <nav class="md-nav" aria-label="Force of Mortality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generalization" class="md-nav__link">
+    Generalization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-adjustments" class="md-nav__link">
+    Risk Adjustments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#survival-summary" class="md-nav__link">
+    Survival Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moments" class="md-nav__link">
+    Moments
+  </a>
+  
+    <nav class="md-nav" aria-label="Moments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#continuous-moments" class="md-nav__link">
+    Continuous Moments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-moments" class="md-nav__link">
+    Discrete Moments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporary-expectation" class="md-nav__link">
+    Temporary Expectation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    Decomposition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-continuous-link" class="md-nav__link">
+    Discrete Continuous Link
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#euler-maclaurin-formula" class="md-nav__link">
+    Euler Maclaurin Formula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moment-summary" class="md-nav__link">
+    Moment Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametric-survival-models" class="md-nav__link">
+    Parametric Survival Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Parametric Survival Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exponential-distribution" class="md-nav__link">
+    Exponential Distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#de-moivres-model" class="md-nav__link">
+    De Moivre's Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gompertz-model" class="md-nav__link">
+    Gompertz Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makeham-gompertz-model" class="md-nav__link">
+    Makeham Gompertz Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#population-mortality" class="md-nav__link">
+    Population Mortality
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/5.%20Profit%20Testing/" class="md-nav__link">
+        Profit Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_ASA_ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_PREDICTIVE_ANALYTICS/0_ASA_SRM/10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-lifetime" class="md-nav__link">
+    Continuous Lifetime
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Lifetime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newborn-lifetime" class="md-nav__link">
+    Newborn Lifetime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actuarial-notation" class="md-nav__link">
+    Actuarial Notation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percentiles" class="md-nav__link">
+    Percentiles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrete-lifetime" class="md-nav__link">
+    Discrete Lifetime
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-of-mortality" class="md-nav__link">
+    Force of Mortality
+  </a>
+  
+    <nav class="md-nav" aria-label="Force of Mortality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generalization" class="md-nav__link">
+    Generalization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-adjustments" class="md-nav__link">
+    Risk Adjustments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#survival-summary" class="md-nav__link">
+    Survival Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moments" class="md-nav__link">
+    Moments
+  </a>
+  
+    <nav class="md-nav" aria-label="Moments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#continuous-moments" class="md-nav__link">
+    Continuous Moments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-moments" class="md-nav__link">
+    Discrete Moments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporary-expectation" class="md-nav__link">
+    Temporary Expectation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    Decomposition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-continuous-link" class="md-nav__link">
+    Discrete Continuous Link
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#euler-maclaurin-formula" class="md-nav__link">
+    Euler Maclaurin Formula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moment-summary" class="md-nav__link">
+    Moment Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametric-survival-models" class="md-nav__link">
+    Parametric Survival Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Parametric Survival Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exponential-distribution" class="md-nav__link">
+    Exponential Distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#de-moivres-model" class="md-nav__link">
+    De Moivre's Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gompertz-model" class="md-nav__link">
+    Gompertz Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makeham-gompertz-model" class="md-nav__link">
+    Makeham Gompertz Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#population-mortality" class="md-nav__link">
+    Population Mortality
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="survival-models"><strong>Survival Models</strong><a class="headerlink" href="#survival-models" title="Permanent link">&para;</a></h1>
+<p>This section assumes some basic knowledge on <strong>Probability Theory</strong>, which can be found under another set of notes covering a <a href="../ASA-FAMS/1. Review of Probability Theory.md">Review of Probability Theory</a>.</p>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Survival Models are probability distributions that measure the <strong>time to failure</strong> of an entity.</p>
+<p>In an actuarial context, it measures the <strong>time to death</strong> of a person. From another perspective, it also measures the <strong>future lifetime</strong> of that person.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If someone is going to die in 5 years, then the person only has 5 years left to live (future lifetime).</p>
+</div>
+<p>Intuitively, the distribution depends heavily on the age of the person, which is denoted using <span class="arithmatex">\((x)\)</span>, which denotes a <strong>life aged <span class="arithmatex">\(x\)</span></strong>.</p>
+<h2 id="continuous-lifetime"><strong>Continuous Lifetime</strong><a class="headerlink" href="#continuous-lifetime" title="Permanent link">&para;</a></h2>
+<p>The distribution of the time to death (<strong>in years</strong>) is represented using the <strong>Continuous Random Variable</strong> <span class="arithmatex">\(T_{x}\)</span>, where <span class="arithmatex">\(x\)</span> represents the age of the person.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although we often use integer values for time, it can be expressed in continuous form as well:</p>
+<ul>
+<li><strong>1 Year</strong> = 12 Months</li>
+<li><strong>0.5 Years</strong> =  6 Months</li>
+<li><strong>0.541 Years</strong> = 6 Months &amp; 15 Days</li>
+</ul>
+</div>
+<p>Since <span class="arithmatex">\(T_{x}\)</span> represents the time to death, a person aged <span class="arithmatex">\(x\)</span> will live for another <span class="arithmatex">\(T_{x}\)</span> years and then die before age <span class="arithmatex">\(x + T_{x}\)</span>:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Continuous RV" class="center" src="../Assets/1.%20Survival%20Models.md/Continuous%20RV.png" /></p>
+<p>The probability that the person <strong>dies DURING the next <span class="arithmatex">\(t\)</span> years before age <span class="arithmatex">\(x+t\)</span></strong> is given by the <strong>CDF</strong> of the distribution:</p>
+<div class="arithmatex">\[
+    F_{x}(t) = P(T_{x} \le t)
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The implicit assumption is that the person aged <span class="arithmatex">\(x\)</span> <strong>just turned age <span class="arithmatex">\(x\)</span></strong> (on their birthday).</p>
+<p>Thus, dying within the next <span class="arithmatex">\(t\)</span> years means that they will not live to turn age <span class="arithmatex">\(x+t\)</span>.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="CDF Timeline" class="center" src="../Assets/1.%20Survival%20Models.md/CDF%20Timeline.png" /></p>
+<p>The complement of the CDF is the probability that the person <strong>dies AFTER the next <span class="arithmatex">\(t\)</span> years</strong>. From another perspective, this also means that the person <strong>survives the next <span class="arithmatex">\(t\)</span> years to age <span class="arithmatex">\(x+t\)</span></strong>, which is why it is known as the <strong>Survival Function</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    S_{x}(t)
+    &amp;= P(T_{x} \gt t) \\
+    &amp;= 1 - P(T_{x} \lt t) \\
+    &amp;= 1 - F_{x}(t) \\
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Survival Timeline" class="center" src="../Assets/1.%20Survival%20Models.md/Survival%20Timeline.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The red squiggly lines in the above diagrams represent the <strong>range of times where the individual can die</strong>. For survival probabilities, it is the entire time AFTER the specified survival period.</p>
+</div>
+<p>Since they are complements of one another, they share similar properties:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">CDF</th>
+<th align="center">Survival Function</th>
+<th align="center">Intuition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(F_{x}(0) = 0\)</span></td>
+<td align="center"><span class="arithmatex">\(S_{x}(0) = 1\)</span></td>
+<td align="center">Humans are currently alive</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(F_{x}(\infty) = 1\)</span></td>
+<td align="center"><span class="arithmatex">\(S_{x}(\infty) = 0\)</span></td>
+<td align="center">Humans will inevitably die</td>
+</tr>
+<tr>
+<td align="center">Non-decreasing function</td>
+<td align="center">Non-increasing function</td>
+<td align="center">Probability of death increases with age</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The first property is hard to intepret. The probability that a life aged <span class="arithmatex">\(x\)</span> dies within 0 years before age <span class="arithmatex">\(x+0\)</span> must be 0, since the person is <em>already</em> aged <span class="arithmatex">\(x\)</span>.</p>
+</div>
+<p>The above two can also be <em>combined</em> into the probability of <strong>surviving <span class="arithmatex">\(u\)</span> years</strong> till age <span class="arithmatex">\(x+u\)</span> and then <strong>dying within the following <span class="arithmatex">\(t\)</span> years</strong> before age <span class="arithmatex">\(x+u+t\)</span>, known as the <strong>Probability of Deferred Death</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(u \lt T_x \lt t+u)
+    &amp;= P(T_x \lt t+u) - P(T_x \lt u) \\
+    &amp;= [1 - P(T_x \gt t+u)] - [1 - P(T_x \gt u)] \\
+    &amp;= P(T_x \gt u) - P(T_x \gt t+u) \\
+    &amp;= P(T_x \gt u) - P(T_x \gt u) \cdot P(T_{x+u} \gt t) \\
+    &amp;= P(T_x \gt u) [1 - P(T_{x+u} \gt t)] \\
+    &amp;= P(T_x \gt u) \cdot P(T_{x+u} \lt t) \\
+    &amp;= S_{x}(u) \cdot F_{x+t}(t)
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember that the second term reflects the <strong>"new" age</strong> of the person after surviving <span class="arithmatex">\(u\)</span> years till age <span class="arithmatex">\(x+u\)</span>. </p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Deferred Death Timeline" class="center" src="../Assets/1.%20Survival%20Models.md/Deferred%20Death%20Timeline.png" /></p>
+<p>Using <strong>Only Survival Functions</strong>, it is represented as the probability that the person <strong>survives <span class="arithmatex">\(u\)</span> years but does not survive past <span class="arithmatex">\(u+t\)</span> years</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(u \lt T_x \lt t+u)
+    &amp;= P(T_x \lt t+u) - P(T_x \lt u) \\
+    &amp;= [1 - P(T_x \gt t+u)] - [1 - P(T_x \gt u)] \\
+    &amp;= P(T_x \gt u) - P(T_x \gt t+u) \\
+    &amp;= S_{x}(u) - S_{x}(t+u)
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Deferred Death only CDF" class="center" src="../Assets/1.%20Survival%20Models.md/Deferred%20Death%20only%20Survival.png" /></p>
+<p>Using <strong>Only Death Functions</strong>, it is represented as the probability of dying within <span class="arithmatex">\(u+t\)</span> years but NOT <span class="arithmatex">\(u\)</span> years:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(u \lt T_{x} \lt u+t)
+    &amp;= P(T_x \lt u+t) - P(T_x \lt u) \\
+    &amp;= F_{x} (u+t) - F_{x}(u)
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Deferred Death only CDF" class="center" src="../Assets/1.%20Survival%20Models.md/Deferred%20Death%20only%20CDF.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>An easy way to remember the different formulations (especially the ones involving only death or survival) is to <strong>visualize</strong> them. The goal is to find the <strong>combination of probabilities</strong> that result in the individual dying in the specified time.</p>
+</div>
+<h3 id="newborn-lifetime"><strong>Newborn Lifetime</strong><a class="headerlink" href="#newborn-lifetime" title="Permanent link">&para;</a></h3>
+<p>Note that one implicit assumption made so far is that the person has <strong>already survived till age <span class="arithmatex">\(x\)</span></strong>.</p>
+<p>In order to further analyze this, we must consider a special case of the distribution for a <strong>newborn aged 0</strong>, represented by <span class="arithmatex">\(T_{0}\)</span>.</p>
+<p>The future lifetime variable is essentially <strong>conditioned</strong> on the newborn having survived <span class="arithmatex">\(x\)</span> years, then dying within the following <span class="arithmatex">\(t\)</span> years before age <span class="arithmatex">\(x+t\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    T_{x} &amp;= T_{0} - x \mid T_{0} \gt x \\
+    \\
+    P(T_x \le t)
+    &amp;= P(T_0 \le x + t \mid T_0 \gt x) \\
+    &amp;= \frac{P(x \lt T_0 \lt x +t)}{P(T_0 \gt x)} \\
+    &amp;= \frac{P(T_0 \lt x +t)-P(T_0 \lt x)}{P(T_0 \gt x)}
+\end{aligned}
+\]</div>
+<!-- Self Made -->
+<p><img alt="CDF Illustration" class="center" src="../Assets/1.%20Survival%20Models.md/CDF%20Illustration.png" /></p>
+<p>When written in terms of the survival function, it can be simplified even further:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(T_x \ge t)
+    &amp;= P(T_0 \ge x + t | T_0 \gt x) \\
+    &amp;= \frac{P(T_0 \gt x + t)}{P(T_0 \gt x)} \\
+    &amp;= \frac{S_0(x+t)}{S_0(x)}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the surviving till age <span class="arithmatex">\(x\)</span> is a <strong>subset</strong> of surviving till age <span class="arithmatex">\(x+t\)</span>, the numerator can be simplified to just the probability of surviving till age <span class="arithmatex">\(x+t\)</span>.</p>
+</div>
+<p>This leads to the <strong>Multiplication Rule</strong> of survival probabilities:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    S_x(t) &amp;= \frac{S_0(x+t)}{S_0(x)} \\
+    S_0(x+t) &amp;= S_0(x)S_x(t) \\
+    \\
+    \therefore S_x(t+u) &amp;= S_x(u) S_{x+u}(t)
+\end{aligned}
+\]</div>
+<p>The survival probability can be decomposed into two components:</p>
+<ol>
+<li>The probability of a person surviving <span class="arithmatex">\(u\)</span> years</li>
+<li>The <strong>conditional probability</strong> of person who has survived <span class="arithmatex">\(u\)</span> years (new age) surviving <em>another</em> <span class="arithmatex">\(t\)</span> years</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This result <strong>ONLY applies to the survival probabilities</strong>!</p>
+</div>
+<h3 id="actuarial-notation"><strong>Actuarial Notation</strong><a class="headerlink" href="#actuarial-notation" title="Permanent link">&para;</a></h3>
+<p>Given how often the survival function is used, they are often abbreviated using the <strong>International Actuarial Notation</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(T_{x} \lt t) &amp;= {}_{t}q_{x} \\
+    P(T_{x} \gt u) &amp;= {}_{t}p_{x}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <span class="arithmatex">\(t=1\)</span>, it is omitted - EG. <span class="arithmatex">\({}_{1}q_{x} = q_{x}\)</span>.</p>
+</div>
+<p>Deferred Deaths are expressed using the <strong>pipe symbol</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(u \lt T_{x} \lt t+u)
+    &amp;= {}_{u \mid t}q_{x} \\
+    &amp;= {}_{u}p_{x} \cdot {}_{t}q_{x+t} \\
+    &amp;= {}_{u}p_{x} - {}_{u+t}p_{x} \\
+    &amp;= {}_{t+u}q_{x} - {}_{u}q_{x}
+\end{aligned}
+\]</div>
+<p>Other key results:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t+u}p_{x} &amp;= {}_{u}p_{x} \cdot {}_{t}p_{x+u} \\
+    {}_{t}p_{x} &amp;= \sum^{t}_{u = t} {}_{u|}q_{x}
+\end{aligned}
+\]</div>
+<h3 id="percentiles"><strong>Percentiles</strong><a class="headerlink" href="#percentiles" title="Permanent link">&para;</a></h3>
+<p>Recall that the definition of a percentile is the value of the random variable at which <span class="arithmatex">\(100p\)</span> of the values fall below.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(T_{x} \le t) &amp;\le p \\
+    P(T_{x} \ge t) &amp;\le 1 - p \\
+    {}_{t}P_{x} &amp;\le 1 - p \\
+    \frac{\ell_{x+t}}{\ell_{x}} &amp;\le 1 - p \\
+    \ell_{x+t} &amp;\le \ell_{x} \cdot (1-p) \\ 
+\end{aligned}
+\]</div>
+<p>By comparing values in the life table, we can find the <strong>smallest age</strong> that fulfils the above inequality, <span class="arithmatex">\(y\)</span>.</p>
+<p>Since it is unlikely that <span class="arithmatex">\(\ell_{x} \cdot (1-p)\)</span> exactly matches a value, the true percentile is at a <strong>fractional age</strong>.</p>
+<div class="arithmatex">\[
+    y - 1 \lt x + t \lt y
+\]</div>
+<p>Thus, one of the <strong>typical assumptions</strong> must be used to determine the exact median of the distribution.</p>
+<div class="arithmatex">\[
+    \text{Continuous Percentile} = y - 1 + t
+\]</div>
+<p>However, if only interested in the curtate lifetime, then we can simply take the <strong>floor</strong> of <span class="arithmatex">\(x+t\)</span>, which is always <span class="arithmatex">\(y-1\)</span>.</p>
+<div class="arithmatex">\[
+    \text{Curtate Percentile} = y - 1
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We traditionall learn percentiles using <strong>increasing random variables</strong>. We usually think of percentiles as values from the <strong>beginning to the percentile</strong>.</p>
+<p>However, future lifetime is a <strong>decreasing variable</strong>. This means that all values that are smaller than the percentile come AFTER it. This means that the values are from the percentile to its upper limit:</p>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="Percentile" class="center" src="../Assets/3.%20Life%20Assurances.md/Percentile.png" /></p>
+</div>
+<h2 id="discrete-lifetime"><strong>Discrete Lifetime</strong><a class="headerlink" href="#discrete-lifetime" title="Permanent link">&para;</a></h2>
+<p>Similarly, the distribution of the time to death (<strong>in years</strong>) can also be represented using a <strong>Discrete Random Variable</strong> <span class="arithmatex">\(K_{x}\)</span>, where <span class="arithmatex">\(x\)</span> represents the age of the person.</p>
+<p>It is also known as the <strong>Curtate Future Lifetime</strong> as it only contains the <strong>integer components</strong> of the continuous future lifetime.</p>
+<p>Mathematically, it is represented as a continuous lifetime variable that has been <strong>floored</strong>. Thus, given the continuous distribution, the curtate one can be determined:</p>
+<div class="arithmatex">\[
+    K_x = \lfloor T_x \rfloor
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The definition of Curtate is "shortened"; it represents how the continuous distribution has been reduced to just its integer components.</p>
+<p>Another way to remember is that <span class="arithmatex">\(K\)</span> stands for <strong>Kurtate</strong>.</p>
+</div>
+<p>The intepretation of <span class="arithmatex">\(K_{x}\)</span> has changed slightly - A person aged <span class="arithmatex">\(x\)</span> will live for another <span class="arithmatex">\(K_x\)</span> <strong>FULL years</strong> and then die before age <span class="arithmatex">\(x + K_{x} + 1\)</span>:</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Curate Timeline" class="center" src="../Assets/1.%20Survival%20Models.md/Curtate%20Timeline.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is a very common mistake to misintepret <span class="arithmatex">\(K_x\)</span>, thus consider the following examples:</p>
+<p>A person aged <span class="arithmatex">\(x\)</span> <strong>dies within the same year</strong>. They have <strong>lived for 0 full years</strong> since turning <span class="arithmatex">\(x\)</span>, thus <span class="arithmatex">\(K_x = 0\)</span>.</p>
+<p>A person aged <span class="arithmatex">\(x\)</span> lives till their <span class="arithmatex">\(x+1\)</span> birthday but dies in that year. They have <strong>lived for 1 full year</strong> since turning <span class="arithmatex">\(x\)</span>, thus <span class="arithmatex">\(K_x = 1\)</span>.</p>
+</div>
+<p><span class="arithmatex">\(K_x = k\)</span> can also be intepreted more intuitively as the <strong>deferred probability of living <span class="arithmatex">\(k\)</span> years and then dying the following year</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(K_x = k)
+    &amp;= P(k \le T_x \lt k+1) \\
+    &amp;= P(T_x \lt k+1) - P(T_x \le k) \\
+    &amp;= {}_{k+1}q_{x} - {}_{k}q_{x} \\
+    &amp;= {}_{k}p_{x} - {}_{k+1}p_{x} \\
+    &amp;= {}_{k}p_{x} - {}_{k}p_{x} \cdot {}_{1}p_{x+k} \\
+    &amp;= {}_{k}p_{x} \cdot (1 - {}_{1}p_{x+k}) \\
+    &amp;= {}_{k}p_{x} \cdot {}_{1}q_{x+k} \\
+    &amp;= {}_{k \mid 1}q_{x}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall that the probability of deferred death can be represented in three different ways, thus the PDF may take on different formulations:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{u \mid 1}q_{x}
+    &amp;= {}_{u}p_{x} \cdot {}_{}q_{x+t} \\
+    &amp;= {}_{u}p_{x} - {}_{u+1}p_{x} \\
+    &amp;= {}_{u+1}q_{x} - {}_{u}q_{x}
+\end{aligned}
+\]</div>
+</div>
+<h2 id="force-of-mortality"><strong>Force of Mortality</strong><a class="headerlink" href="#force-of-mortality" title="Permanent link">&para;</a></h2>
+<p><span class="arithmatex">\({}_{h}q_{x}\)</span> is the probability of dying within <span class="arithmatex">\(h\)</span> years:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{h}q_{x}
+    &amp;= 1 - {}_{h}q_{x} \\
+    &amp;= 1 - \frac{S_0(x+h)}{S_0(x)} \\
+    &amp;= \frac{S_0(x) - S_0(x+h)}{S_0(x)}
+\end{aligned}
+\]</div>
+<p>The <strong>Force of Mortality</strong> <span class="arithmatex">\((\mu_{x})\)</span> is the probability that (x) dies within an <strong>infinitely small <span class="arithmatex">\(h\)</span></strong>; in other words, the <strong>probability of dying instantly</strong>.</p>
+<p>We consider the rate of death per unit time (this is NOT a probability!):</p>
+<div class="arithmatex">\[
+    \frac{{}_{h}q_{x}}{h} = \frac{S_0(x) - S_0(x+h)}{h \cdot S_0(x)}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The proof uses the first principles of differentiation, which measures the rate of change of <span class="arithmatex">\(y\)</span> over an infinitely small unit of <span class="arithmatex">\(x\)</span>, which is why the rate of death had to be considered.</p>
+<p>This also implies that the following is true, ONLY for <strong>SMALL values</strong> of <span class="arithmatex">\(h\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mu_{x} &amp;= \frac{{}_{h}q_{x}}{h} \\
+    {}_{h}q_{x} &amp;= h \cdot \mu_{x}
+\end{aligned}
+\]</div>
+</div>
+<p>As the period of time becomes infinitely small,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mu_{x}
+    &amp;= \lim_{h \to 0} \frac{S_0(x) - S_0(x+h)}{S_0(x)h} \\
+    &amp;= \frac{1}{S_0(x)} \lim_{h \to 0} \frac{S_0(x) - S_0(x+h)}{h} \\
+    &amp;= - \frac{1}{S_0(x)} \lim_{h \to 0} \frac{S_0(x+h) - S_0(x)}{h} \\
+    &amp;= - \frac{1}{S_0(x)} \cdot \left(\frac{d}{dx} S_0(x) \right) \\
+    &amp;= - \frac{S'_0(x)}{S_0(x)} \\
+    &amp;= - \frac{d}{dx} \ln S_0(x)
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is an extremely <strong>common mistake to forget the minus sign</strong> in front of the expression.</p>
+<p>Another common mistake is forgetting how to differentiate a fraction within a logarithm:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \frac{d}{dx} \ln \frac{4}{4+x^2}
+    &amp;= \frac{4+x^2}{4} \cdot - 4(4+x)^{-2} \cdot 2x \\
+    &amp;= - \frac{2x}{4+x^2}
+\end{aligned}
+\]</div>
+</div>
+<p>Using the PDF of the newborn distribution, the force of mortality can be rewritten accordingly:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    f_0(x)
+    &amp;= \frac{d}{dx} F_0(x) \\
+    &amp;= \frac{d}{dx} (1 - S_0(x)) \\
+    &amp;= -S'_0(x) \\
+    \\
+    \therefore \mu_{x} &amp;= \frac{f_0(x)}{S_0(x)}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The force of mortality can also be expressed as the following:</p>
+<div class="arithmatex">\[
+    \mu_{x}(t) = \frac{\frac{d}{dt} {}_{t}q_{x}}{{}_{t}p_{x}}
+\]</div>
+<p>We can think of this as a <strong>conditional probability</strong>:</p>
+<div class="arithmatex">\[
+    P(\text{A} \mid \text{B}) = \frac{P(\text{A} \cap \text{B})}{P(\text{B})}
+\]</div>
+<p>Thus, the force of mortality can be understood as the "probability" that <span class="arithmatex">\(x\)</span> <strong>dies instantly</strong> after <span class="arithmatex">\(t\)</span> years, <strong>given that they survive <span class="arithmatex">\(t\)</span> years</strong>.</p>
+</div>
+<h3 id="generalization"><strong>Generalization</strong><a class="headerlink" href="#generalization" title="Permanent link">&para;</a></h3>
+<p>The force of mortality is currently defined using the newborn distribution:</p>
+<div class="arithmatex">\[
+    \mu_{y} = - \frac{\frac{d}{dy} S_0(y)}{S_0(y)}
+\]</div>
+<p>For (x), <span class="arithmatex">\(y = x + t\)</span>, where t is a random:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    dy
+    &amp;= dx + dt \\
+    &amp;= 0 + dt \\
+    &amp;= dt \\
+    \\
+    \therefore \mu_{x+t}
+    &amp;= - \frac{\frac{d}{dt} S_0(x+t)}{S_0(x+t)} \\
+    &amp;= - \frac{d}{dt} \ln S_0(x+t)
+\end{aligned}
+\]</div>
+<p>Since integration is the reverse of differentiation,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \int^{n}_{0} \frac{d}{dt} \ln S_0(x+t) &amp;= - \int^{n}_{0} \mu_{x+t} \\
+    [\ln S_0(x+t)]^{n}_{0} &amp;= - \int^{n}_{0} \mu_{x+t} \\
+    \ln S_0(x+n) - \ln S_0(x) &amp;= - \int^{n}_{0} \mu_{x+t} \\
+    \ln \frac{S_0(x+n)}{\ln S_0(x)} &amp;= - \int^{n}_{0} \mu_{x+t} \\
+    \ln S_{x}(n) &amp;= - \int^{n}_{0} \mu_{x+t} \\
+    S_{x}(n) &amp;= e^{- \int^{n}_{0} \mu_{x+t}} \\
+    {}_{n}p_{x} &amp;= e^{- \int^{n}_{0} \mu_{x+t}}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The exponent is also known as the <strong>Cumulative Force of Mortality</strong>.</p>
+<p>Outside of human survival, the force of mortality is more generally known as the <strong>Hazard Function</strong>, denoted by <span class="arithmatex">\(h(x)\)</span>. Its integral is known as the <strong>Cumulative Hazard Function</strong>, denoted by <span class="arithmatex">\(H(x)\)</span>.</p>
+<div class="arithmatex">\[
+    H(x) = \int^{n}_{0} h(x)
+\]</div>
+<p>Although rare, a question could <em>directly</em> provide the cumulative hazard function and ask to compute the survival probability. In such cases, DO NOT integrate it once more!</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This expression can be intuitively understood as the following:</p>
+<ol>
+<li>Consider the forces trying to kill the individual.</li>
+<li>Negate these forces; only consider the scenario that the person lives.</li>
+<li>Take the exponent to compute the probability.</li>
+</ol>
+</div>
+<p>Following a similar generalization (proof not shown), the PDF can also be expressed using the force of mortality:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mu_{x} &amp;= \frac{f_0(x)}{S_0(x)} \\
+    f_0(x) &amp;= S_0(x) \cdot \mu_{x} \\
+    f_x(t) &amp;= S_x(t) \cdot \mu_{x+t} \\
+    f_x(t) &amp;= {}_{t}p_{x} \cdot \mu_{x+t}
+\end{aligned}
+\]</div>
+<p>This can be intepreted as the <strong>probability of dying instantly</strong> at age <span class="arithmatex">\(x+t\)</span>.</p>
+<h3 id="risk-adjustments"><strong>Risk Adjustments</strong><a class="headerlink" href="#risk-adjustments" title="Permanent link">&para;</a></h3>
+<p>There are people who have a <strong>higher risk of dying</strong> than the average person - EG. Smokers.</p>
+<p>The <strong>first method</strong> to account for their increased risk is to <strong>treat them as an older person</strong> (higher risk), known as an <strong>Age Rating</strong>.</p>
+<p>An <span class="arithmatex">\(n\)</span> year age rating means that a person aged <span class="arithmatex">\(x\)</span> should be treated as if they had the mortality of a person aged <span class="arithmatex">\(x+n\)</span>.</p>
+<p><strong>Another method</strong> would be to simply <strong>scale the mortality rates</strong> by a factor to increase it:</p>
+<div class="arithmatex">\[
+    {}_{}q'_{x} = c \cdot {}_{}q'_{x}
+\]</div>
+<p>The <strong>last method</strong> would be to <strong>adjust the force of mortality</strong> instead, by either adding or multiplying a constant to it:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{}p'_{x}
+    &amp;= e^{- (\int^{n}_{0} \mu_{x+t} + k)} \\
+    &amp;= e^{- \int^{n}_{0} \mu_{x+t} - kn} \\
+    &amp;= e^{- \int^{n}_{0} \mu_{x+t}} \cdot e^{-kn} \\
+    &amp;= {}_{}p'_{x} \cdot e^{-kn} \\
+    \\
+    {}_{}p'_{x}
+    &amp;= e^{- k\int^{n}_{0} \mu_{x+t}} \\
+    &amp;= (e^{- \int^{n}_{0} \mu_{x+t}})^k \\
+    &amp;= ({}_{}p_{x})^k
+\end{aligned}
+\]</div>
+<h2 id="survival-summary"><strong>Survival Summary</strong><a class="headerlink" href="#survival-summary" title="Permanent link">&para;</a></h2>
+<!-- Self Made -->
+<p><img alt="Survival Summary" class="center" src="../Assets/1.%20Survival%20Models.md/Survival%20Summary.png" /></p>
+<h2 id="moments"><strong>Moments</strong><a class="headerlink" href="#moments" title="Permanent link">&para;</a></h2>
+<h3 id="continuous-moments"><strong>Continuous Moments</strong><a class="headerlink" href="#continuous-moments" title="Permanent link">&para;</a></h3>
+<p>The first raw moment of the distribution is known as the <strong>Complete Expectation of Life</strong>, which can be calculated via first principles:</p>
+<div class="arithmatex">\[
+    E(T_{x}) = \int_{0}^{\infty} t \cdot f_x(t) \\
+\]</div>
+<p>Note that integrating this expression directly requires <strong>integration by parts</strong>, which can be time consuming, this it can be simplified using the <strong>Survival Function Method</strong>.</p>
+<p>Recall that in the previous section we found that the PDF and the survival function are related:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    f_{x}(t) &amp;= - \frac{d}{dt} S_{x}(t) \\
+    \therefore \int f_{x}(t) &amp;= -S_{x}(t)
+\end{aligned}
+\]</div>
+<p>This result can be used to simplify the integration by parts:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(T_{x})
+    &amp;=  \Bigl[t \cdot \int f_x(t) \Bigr]_0^\infty - \int_{0}^{\infty} \int f_x(t) \cdot 1 \\
+    &amp;=  \Bigl[t \cdot (-S_X(t)) \Bigr]_0^\infty - \int_{0}^{\infty} (-S_X(x)) \\
+    &amp;= tS_X(\infty) - tS_X(0) + \int_{0}^{\infty} S_X(x) \\
+    &amp;= \infty \cdot (0) - 0 \cdot 1 + \int_{0}^{\infty} S_X(x) \\
+    &amp;= \int_{0}^{\infty} S_X(x) \\
+    &amp;= \int_0^\infty {}_{t}p_x
+\end{aligned}
+\]</div>
+<p>The same logic can be applied to the second raw moment as well:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(T^2_x)
+    &amp;= \int_{0}^{\infty} t^2 \cdot f_x(t) \\
+    &amp;= \Bigl[t^2 \cdot \int f_x(t) \Bigr]_0^\infty - \int_{0}^{\infty} \int f_x(t) \cdot 2t \\
+    &amp;= \Bigl[t^2 \cdot S_x(t)\Bigr]_0^\infty - \int_{0}^{\infty} 2t \cdot S_x(t) \\
+    &amp;= t^2 \cdot S_x(\infty) - t^2 \cdot S_x(0) - \int_{0}^{\infty} 2t \cdot S_x(t) \\
+    &amp;= (\infty)^2 \cdot 0 - 0^2 \cdot 1 - \int_{0}^{\infty} 2t \cdot S_x(t) \\
+    &amp;= \int_{0}^{\infty} 2t \cdot {}_{t}p_x
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>More generally, the survival function method can be expressed as the following:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \int_{0}^{\infty} g(x) \cdot f_x(t)
+    &amp;= \int_{0}^{\infty} g'(x) \cdot S_x(t)
+\end{aligned}
+\]</div>
+</div>
+<p>The Variance is simply the difference of the first two raw moments with <strong>no special simplification</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Var(T_x)
+    &amp;= E(T^2_x) - [E(T_x)]^2 \\
+    &amp;= 2 \int_{0}^{\infty} t \cdot {}_{t}p_x - \left(\int_0^\infty {}_{t}p_x \right)^2
+\end{aligned}
+\]</div>
+<h3 id="discrete-moments"><strong>Discrete Moments</strong><a class="headerlink" href="#discrete-moments" title="Permanent link">&para;</a></h3>
+<p>Similarly, the expectation of the discrete distribution is known as the <strong>Expectation of Curtate Lifetime</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(K_x)
+    &amp;= \sum_{k=0}^{\infty} k \cdot {}_{k \mid 1}q_{x} \\
+    &amp;= \sum_{k=0}^{\infty} k ({}_{k}p_{x} - {}_{k+1}p_{x}) \\
+    &amp;= 1 ({}_{1}p_{x} - {}_{2}p_{x}) + 2 ({}_{2}p_{x} - {}_{3}p_{x}) + 3 ({}_{3}p_{x} - {}_{4}p_{x}) + ... \\
+    &amp;= {}_{1}p_{x} - {}_{2}p_{x} + 2 {}_{2}p_{x} - 2{}_{3}p_{x} + 3 {}_{3}p_{x} - 3 {}_{4}p_{x} \\
+    &amp;= {}_{1}p_{x} + {}_{2}p_{x} + {}_{3}p_{x} + ... \\
+    &amp;= \sum_{k=1}^{\infty} {}_{k}p_{x}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Summation starts from 1 as the first term is cancelled
+Probability tree perspective</p>
+</div>
+<p>The second moment can be calculated in a similar fashion:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(K^2_x)
+    &amp;= \sum_{k=0}^{\infty} k^2 ({}_{k}p_{x} - {}_{k+1}p_{x}) \\
+    &amp;= 1 ({}_{1}p_{x} - {}_{2}p_{x}) + 4 ({}_{2}p_{x} - {}_{3}p_{x}) + 9 ({}_{3}p_{x} - {}_{4}p_{x}) + ... \\
+    &amp;= {}_{1}p_{x} - {}_{2}p_{x} + 4{}_{2}p_{x} - 4{}_{3}p_{x} + 9 {}_{3}p_{x} - 9 {}_{4}p_{x} \\
+    &amp;= {}_{1}p_{x} + 3{}_{2}p_{x} + 5 {}_{3}p_{x} + ... \\
+    &amp;= \sum_{k=1}^{\infty} (2k-1) {}_{k}p_{x}
+\end{aligned}
+\]</div>
+<p>Similarly, the variance has <strong>no special simplifications</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Var(K_x)
+    &amp;= E(K_x^2) - [E(K_x)]^2 \\
+    &amp;= \sum_{k=1}^{\infty} (2k-1) {}_{k}p_{x} - \sum_{k=1}^{\infty} {}_{k}p_{x}
+\end{aligned}
+\]</div>
+<h3 id="temporary-expectation"><strong>Temporary Expectation</strong><a class="headerlink" href="#temporary-expectation" title="Permanent link">&para;</a></h3>
+<p>If the future lifetime variable is artifically limited to <span class="arithmatex">\(n\)</span> years, then the expectation is known as the <strong>n-year temporary complete/curtate expectation of life</strong>.</p>
+<p>It is intepreted as the number of years that the person is expected to live <strong>out of the next <span class="arithmatex">\(n\)</span> years</strong> ONLY.</p>
+<p>If the person lives past <span class="arithmatex">\(n\)</span> years, then only <span class="arithmatex">\(n\)</span> years are recorded. Thus, it can be represented using a <strong>minimum function</strong>:</p>
+<div class="arithmatex">\[
+    \min (T_x, n)
+    =
+    \begin{cases}
+        T_x,&amp; T_x \lt n \\
+        n,&amp; T_x \gt n
+    \end{cases}
+\]</div>
+<p>In order to easily represent and distinguish it from the full counterpart, the following <strong>actuarial notation</strong> is used:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Complete</th>
+<th align="center">Curtate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Full</strong></td>
+<td align="center"><span class="arithmatex">\(\mathring{e}_{x}\)</span></td>
+<td align="center"><span class="arithmatex">\(e_{x}\)</span></td>
+</tr>
+<tr>
+<td align="center"><strong>Temporary</strong></td>
+<td align="center"><span class="arithmatex">\(\mathring{e}_{x:\enclose{actuarial}{n}}\)</span></td>
+<td align="center"><span class="arithmatex">\(e_{x:\enclose{actuarial}{n}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mathring{e}_{x} &amp;= \int^{\infty}_0 {}_{t}p_x \\
+    \mathring{e}_{x:\enclose{actuarial}{n}} &amp;= \int^{n}_0 {}_{t}p_x \\
+    \\
+    e_{x} &amp;= \sum^{\infty}_0 {}_{k}p_x \\
+    e_{x:\enclose{actuarial}{n}} &amp;= \sum^{n}_0 {}_{k}p_x
+\end{aligned}
+\]</div>
+<h3 id="decomposition"><strong>Decomposition</strong><a class="headerlink" href="#decomposition" title="Permanent link">&para;</a></h3>
+<p>The <em>complete</em> expectation can be <strong>decomposed</strong> into two components:</p>
+<ol>
+<li><strong>Term Expectation</strong> at the <em>current age</em> representing the "early" years</li>
+<li><strong>Complete Expectation</strong> at a <em>future age</em> represenging the "later" years</li>
+</ol>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mathring{e}_x &amp;\approx \mathring{e}_{x:\enclose{actuarial}{n}} + \mathring{e}_{x+n} \\
+    e_x &amp;\approx e_{x:\enclose{actuarial}{n}} + e_{x+n}
+\end{aligned}
+\]</div>
+<p>However, the above makes an implicit assumption that the person <strong>will survive the first n years</strong>. Thus, the second term needs to <strong>account for the probability of surviving</strong> those n years:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mathring{e}_x &amp;= \mathring{e}_{x:\enclose{actuarial}{n}} + {}_{n}p_{x} \cdot \mathring{e}_{x+n} \\
+    e_x &amp;= e_{x:\enclose{actuarial}{n}} + {}_{n}p_{x} \cdot e_{x+n}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Many questions require us to use this equation, but <strong>may not directly provide the values at <span class="arithmatex">\(x+n\)</span></strong>, requiring us to go through other steps to calculate it.</p>
+<p>This can sometimes <strong>confuse us</strong> into thinking that the decomposition is different. For instance, if <span class="arithmatex">\(x+n\)</span> is 60, but the questions provide 61, we may inadvertently think that <span class="arithmatex">\(x+n\)</span> is 61 under stress.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Expectation Decomposition" class="center" src="../Assets/1.%20Survival%20Models.md/Expectation%20Decomposition.png" /></p>
+<p>Similarly, a temporary expectation can be further decomposed into more temporary expectations:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mathring{e}_{x:\enclose{actuarial}{m+n}}
+    &amp;= \mathring{e}_{x:\enclose{actuarial}{m}} + {}_{m}p_{x} \cdot \mathring{e}_{x+m:\enclose{actuarial}{n}} \\
+    e_{x:\enclose{actuarial}{m+n}}
+    &amp;= e_{x:\enclose{actuarial}{m}} + {}_{m}p_{x} \cdot e_{x+m:\enclose{actuarial}{n}}
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="Temporary Expectation Decomposition" class="center" src="../Assets/1.%20Survival%20Models.md/Temporary%20Expectation%20Decomposition.png" /></p>
+<p>For the <strong>curtate expectation only</strong>, if <span class="arithmatex">\(n=1\)</span>, it leads to a <strong>recursion</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    e_x
+    &amp;= e_{x:\enclose{actuarial}{1}} + {}_{}p_{x} \cdot e_{x+1} \\
+    &amp;= {}_{}p_{x} + {}_{}p_x \cdot e_{x+1} \\
+    &amp;= {}_{}p_{x} (1 + e_{x+1})
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Consider the future lifetime variable for just the coming year:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    e_{x:\enclose{actuarial}{1}}
+    &amp;=
+    \begin{cases}
+        1, {}_{}p_{x} \\
+        0, {}_{}q_{x}
+    \end{cases} \\
+    \\
+    \therefore
+    e_{x:\enclose{actuarial}{1}}
+    &amp;= 1 \cdot {}_{}p_{x} + 0 \cdot {}_{}q_{x} \\
+    &amp;= {}_{}p_{x}
+\end{aligned}
+\]</div>
+</div>
+<h3 id="discrete-continuous-link"><strong>Discrete Continuous Link</strong><a class="headerlink" href="#discrete-continuous-link" title="Permanent link">&para;</a></h3>
+<p>Note that the two expectations are similar to one another:</p>
+<ul>
+<li><strong>Continuous Expectation</strong> - Area under survival function</li>
+<li><strong>Discrete Expectation</strong> - Right <strong>Riemann Sum</strong> of the area under the survival function</li>
+</ul>
+<!-- Obtained from Story of Mathematics -->
+<p><img alt="Riemann Sum" class="center" src="../Assets/1.%20Survival%20Models.md/Right%20Riemann%20Sum.png" /></p>
+<p>Recall from Calculus that the area under a curve can be estimated through the <strong>Trapezium Rule</strong>, which states that the area is <em>approximately equal</em> to the sum of the area of discrete trapeziums formed under the curve.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \int^b_a f(x)
+    &amp; \approx \sum \text{Area of Trapezium} \\
+    &amp; \approx \sum \frac{1}{2} h \left[f(a+kh) + f(a+(k+1)h) \right] \\
+    &amp; \approx \frac{h}{2}[f(a) + f(a+h)] + \frac{h}{2}[f(a+h) + f(a+2h)] + \dots + \frac{h}{2}[f(b-h) + f(b)] \\
+    &amp; \approx \frac{h}{2} f(a) + h[f(a+h) + f(a+2h) + \dots + f(b-h)] + \frac{h}{2} f(b) \\
+    &amp; \approx h[f(a+h) + f(a+2h) + \dots + f(b-h)] + \frac{h}{2} [f(a)+f(b)] \\
+    &amp; \approx h[f(a) + f(a+h) + \dots + f(b)] - \frac{h}{2} [f(a)+f(b)] \\
+    &amp; \approx h[f(a) + f(a+h) + \dots + f(b-h)] - \frac{h}{2} [f(a)-f(b)] \\
+    &amp; \approx h[f(a+h) + f(a+2h) + \dots + f(b)] + \frac{h}{2} [f(a)-f(b)]
+\end{aligned}
+\]</div>
+<p>The proof relies on the fact that <em>other</em> than <span class="arithmatex">\(f(a)\)</span> and <span class="arithmatex">\(f(b)\)</span>, <strong>all other terms are repeated twice</strong>. The last four lines are just different variations that showcase this property:</p>
+<ol>
+<li>Both <span class="arithmatex">\(f(a)\)</span> and <span class="arithmatex">\(f(b)\)</span> excluded from main expression</li>
+<li>Both <span class="arithmatex">\(f(a)\)</span> and <span class="arithmatex">\(f(b)\)</span> included in main expression but subtracted</li>
+<li>Only <span class="arithmatex">\(f(a)\)</span> included in main expression; Main expression is a <strong>Left Riemman Sum</strong></li>
+<li>Only <span class="arithmatex">\(f(b)\)</span> included in main expression; Main expression is a <strong>Right Riemman Sum</strong></li>
+</ol>
+<!-- Trapezium Rule -->
+<p><img alt="Trapezium Rule" class="center" src="../Assets/1.%20Survival%20Models.md/Trapezium%20Rule.png" /></p>
+<p>Since the discrete expectation is a right riemann sum, the last expression of the trapezoidal rule should be used. This allows the continuous expectation to be expressed using the discrete expectation, assuming <span class="arithmatex">\(h=1\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mathring{e}_x
+    &amp;= \int^{\infty}_{0} S_x(t) \\
+    &amp; \approx h[f(a+h) + f(a+2h) + \dots + f(b)] + \frac{h}{2} [f(a)-f(b)] \\
+    &amp; \approx (1) [S_x(1) + S_x(2) + \dots + S_x(\infty)] + \frac{1}{2} [S_x(0)-S_x(\infty)] \\
+    &amp; \approx [S_x(1) + S_x(2) + \dots + S_x(\infty)] + \frac{1}{2} [1-0] \\
+    &amp; \approx e_x + \frac{1}{2}
+\end{aligned}
+\]</div>
+<p>An alternative way to view the above is that the area of the trapezoid is the <strong>sum of the riemann rectangles and a triangle</strong>.</p>
+<h3 id="euler-maclaurin-formula"><strong>Euler Maclaurin Formula</strong><a class="headerlink" href="#euler-maclaurin-formula" title="Permanent link">&para;</a></h3>
+<p>Note that the Trapezoidal Rule is <em>not perfect</em> - there is an <strong>inherent error</strong> in trying to approximate a curve using a line.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \int^b_a f(x) &amp; \approx \sum (\text{Area of Trapezium} + \text{Error})\\
+\end{aligned}
+\]</div>
+<p>The error can be positive or negative, depending on the shape of the curve in that interval:</p>
+<!-- Obtained from Wikipedia -->
+<p><img alt="Trapezoidal Error" class="center" src="../Assets/1.%20Survival%20Models.md/Trapezoidal%20Error.png" /></p>
+<p>The error term is calculated by taking the difference between the integral and the trapezium, and is generalized using the taylor series. The final result is known as the <strong>Euler Maclaurin Formula</strong>:</p>
+<div class="arithmatex">\[
+    \sum \text{Error} = \frac{h^2}{12} [f'(a)-f'(b)]
+\]</div>
+<p>\gt Given that a taylor series was used, the error can be expressed as the sum of many different terms, but <strong>higher powers are ignored</strong>.</p>
+<p>Thus, the trapezoidal approximation for the expectation can be made more precise:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mathring{e}_x
+    &amp; \approx e_x + \frac{1}{2} + \frac{1^2}{12} [S'(0)-S'(\infty)] \\
+    &amp; \approx e_x + \frac{1}{2} + \frac{1}{12} [S'(0)]
+\end{aligned}
+\]</div>
+<p>The above will rarely be used in this manner - it is more than sufficient to know the relationship between the two expectations of life. However, it sets as a strong foundation to understand the <strong>Woolhouse Approximation</strong> in the life annuities section.</p>
+<h3 id="moment-summary"><strong>Moment Summary</strong><a class="headerlink" href="#moment-summary" title="Permanent link">&para;</a></h3>
+<!-- Self Made -->
+<p><img alt="Moment Summary" class="center" src="../Assets/1.%20Survival%20Models.md/Moment%20Summary.png" /></p>
+<h2 id="parametric-survival-models"><strong>Parametric Survival Models</strong><a class="headerlink" href="#parametric-survival-models" title="Permanent link">&para;</a></h2>
+<p>Given the importance of <span class="arithmatex">\(\mu_x\)</span>, several mathematical functions have been made to describe the force of mortality, known as a <strong>Parametric Survival Model</strong>.</p>
+<h3 id="exponential-distribution"><strong>Exponential Distribution</strong><a class="headerlink" href="#exponential-distribution" title="Permanent link">&para;</a></h3>
+<p>When the <strong>force of mortality is constant</strong> <span class="arithmatex">\(\mu_{x} = \mu\)</span>, the PDF can be shown to be exponential:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p_x
+    &amp;= e^{- \int^{t}_{0} \mu} \\
+    &amp;= e^{- \mu t}\\
+    \\
+    f(x)
+    &amp;= {}_{}p_x \cdot \mu \\
+    &amp;= \mu \cdot e^{- \mu t} \\
+    \\
+    \therefore T_{x} &amp;\sim \text{Exponential}(\mu) \\
+    E(T_x) &amp;= \frac{1}{\mu} \\
+    Var (T_x) &amp;= \frac{1}{\mu^2}
+\end{aligned}
+\]</div>
+<p>The key is to remember that distribution is <strong>Memoryless</strong>, which means that the <strong>age of the person</strong> does not matter:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{n}p_{x} &amp;= {}_{n}p_{x+m} \\
+    \\
+    \therefore {}_{n}p_{x}
+    &amp;= {}_{}p_{x} \cdot {}_{}p_{x+1} \cdot {}_{}p_{x+2} \cdot \dots \\
+    &amp;= {}_{}p_{x} \cdot {}_{}p_{x} \cdot {}_{}p_{x} \cdot \dots \\
+    &amp;= ({}_{}p_{x})^n
+\end{aligned}
+\]</div>
+<p>This leads to an interesting relationship between the full and temporary expectation:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mathring{e}_{x} &amp;= \mathring{e}_{x+m} \\
+    \\
+    \therefore \mathring{e}_x &amp;= \mathring{e}_{x:\enclose{actuarial}{n}} + {}_{n}p_{x} \cdot \mathring{e}_{x+n} \\
+    \mathring{e}_x &amp;= \mathring{e}_{x:\enclose{actuarial}{n}} + {}_{n}p_{x} \cdot \mathring{e}_{x} \\
+    \mathring{e}_{x:\enclose{actuarial}{n}} &amp;= \mathring{e}_x - {}_{n}p_{x} \cdot \mathring{e}_{x} \\
+    \mathring{e}_{x:\enclose{actuarial}{n}} &amp;= \mathring{e}_x \cdot (1 - {}_{n}p_{x})
+\end{aligned}
+\]</div>
+<h3 id="de-moivres-model"><strong>De Moivre's Model</strong><a class="headerlink" href="#de-moivres-model" title="Permanent link">&para;</a></h3>
+<p><strong>De Moivre's Law</strong> assumes that the <strong>distribution of a NEWBORN</strong> is <strong>uniformly distributed</strong> between 0 and <span class="arithmatex">\(\omega\)</span>, where <span class="arithmatex">\(\omega\)</span> is known as the <strong>Limiting Age</strong>.</p>
+<p>It can be intepreted as starting with <span class="arithmatex">\(k\omega\)</span> people at age 0, where <strong><span class="arithmatex">\(k\)</span> people die every year</strong> till everybody dies by age <span class="arithmatex">\(w\)</span>.</p>
+<div class="arithmatex">\[
+    \ell_{x} = k(\omega - x)
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="De Moivre" class="center" src="../Assets/1.%20Survival%20Models.md/De%20Moivre.png" /></p>
+<p>The PDF can be determined using the survival model or the uniform distribution:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p_x
+    &amp;= \frac{\ell_{x+t}}{\ell_{x}} \\
+    &amp;= \frac{w-(x+t)}{w-x} \\
+    \\
+    \mu_{x+t}
+    &amp;= \frac{1}{w-(x+t)} \\
+    \\
+    \therefore f(x)
+    &amp;= \frac{w-(x+t)}{w-x} \cdot \frac{1}{w-(x+t)} \\
+    &amp;= \frac{1}{\omega-x}
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+    T_{0} &amp;\sim \text{Uniform}(0, \omega) \\
+    T_{x} &amp;= T_{0} - x \mid T_{0} \gt x \\
+    \therefore T_{x} &amp;\sim \text{Uniform}(0, \omega-x) \\
+    \\
+    E(T_{x}) &amp;= \frac{\omega-x}{2} \\
+    Var(T_{x}) &amp;= \frac{(\omega-x)^2}{12}
+\end{aligned}
+\]</div>
+<h3 id="gompertz-model"><strong>Gompertz Model</strong><a class="headerlink" href="#gompertz-model" title="Permanent link">&para;</a></h3>
+<p>Both the above distributions make unrealistic assumptions:</p>
+<ol>
+<li><strong>Exponential Distribution</strong>: Assume age does not matter</li>
+<li><strong>Uniform Distribution</strong>: Assume equal number of people die eacg tear</li>
+</ol>
+<p>A more realistic model is the <strong>Gompertz Model</strong>, which suggests that <strong>mortality increases with age</strong>:</p>
+<div class="arithmatex">\[
+    \mu_{x} = Bc^{x} \\
+\]</div>
+<p>Thus, the corresponding survival function can be calculated:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    {}_{t}p_{x}
+    &amp;= e^{-\int^{n}_{0} Bc^{x+s}} \\
+    &amp;= e^{-Bc^{x} \int^{n}_{0} c^{s}} \\
+    &amp;= e^{-Bc^{x} [\frac{c^s}{\ln c}]^t_0} \\
+    &amp;= e^{-Bc^{x} [\frac{c^t}{\ln c} - \frac{c^0}{\ln c}]} \\
+    &amp;= e^{\frac{-Bc^{x}}{\ln c} (c^t - 1)}
+\end{aligned}
+\]</div>
+<h3 id="makeham-gompertz-model"><strong>Makeham Gompertz Model</strong><a class="headerlink" href="#makeham-gompertz-model" title="Permanent link">&para;</a></h3>
+<p>Makeham added a <strong>constant</strong> <span class="arithmatex">\(A\)</span> into the Gompertz model, resulting in the <strong>Makeham Gompertz Model</strong>:</p>
+<div class="arithmatex">\[
+    \mu_{x} = A + B \cdot c^{x}
+\]</div>
+<p><span class="arithmatex">\(A\)</span> represents the <strong>age independent mortality</strong> - dying from reasons unrelated to age, such as from accidents or natural catastrophes.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    S_x(t)
+    &amp;= e^{- \int^{t}_{0} A + Bc^{x+t}} \\
+    &amp;= e^{\int^{t}_{0} -A - Bc^{x+t}} \\
+    &amp;= e^{\left[-At - \frac{B}{\ln c} c^{x+t} \right]^{t}_{0}} \\
+    &amp;= e^{\left[-At - \frac{B}{\ln c} c^{x+t} \right] - \left[-\frac{B}{\ln c} c^{x} \right]} \\
+    &amp;= e^{-At - \frac{B}{\ln c} c^{x+t} + \frac{B}{\ln c} c^{x}} \\
+    &amp;= e^{-At - \frac{B}{\ln c} c^{x} [c^t - 1]} \\
+    &amp;= e^{-At} \cdot e^{- \frac{B}{\ln c} c^{x} [c^{t} - 1]}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the force of mortality provided follow a <em>similar</em> expression as above, <strong>immediately recognize</strong> that this is the makeham gompertz model.</p>
+<p><strong>Do NOT waste time</strong> attempting to integrate the force; simply use the formula provided in the formula sheet to calculate the probabilities.</p>
+</div>
+<p>Any modification made to the force should be expressed as a change in the Makeham parameters:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \mu_{x} &amp;= A + B \cdot c^{x} \\
+    \\
+    \mu_{y} &amp;= \mu_{x} + Z \\
+    \therefore \mu_{y} &amp;= (A+Z) + B \cdot c^{x} \\
+    \\
+    \mu_{Z} &amp;= \mu_{x} + Z \cdot B \cdot c^{x} \\
+\end{aligned}
+\]</div>
+<h3 id="population-mortality"><strong>Population Mortality</strong><a class="headerlink" href="#population-mortality" title="Permanent link">&para;</a></h3>
+<p>The Makeham Gompertz Model is ideal because it depicts human mortality fairly accurately:</p>
+<!-- Population Mortality -->
+<p><img alt="Population Mortality" class="center" src="../Assets/1.%20Survival%20Models.md/Population%20Mortality.png" /></p>
+<p>There are a few key aspects to take note of:</p>
+<ul>
+<li><strong>Gender Difference</strong>: Males have higher mortality</li>
+<li><strong>Perinatal Mortality</strong>: Infants with birth issues likely to die, mortality decreases after</li>
+<li><strong>Accident Hump</strong>: Mortality increases past age 10, more sharply in males due to accidents </li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../0.%20Long%20Term%20Insurance/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Long Term Insurance" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Long Term Insurance
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2.%20Life%20Tables/" class="md-footer__link md-footer__link--next" aria-label="Next: Life Tables" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Life Tables
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

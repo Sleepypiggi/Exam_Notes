@@ -1,0 +1,2143 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/3_PREDICTIVE_ANALYTICS/0_ASA_SRM/4.%20Linear%20Regression%20Assumptions/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Linear Regression Assumptions - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linear-regression-asssumptions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linear Regression Assumptions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/5.%20Profit%20Testing/" class="md-nav__link">
+        Profit Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Statistical%20Learning/" class="md-nav__link">
+        Statistical Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Linear Regression Assumptions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Linear Regression Assumptions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-1-linearity" class="md-nav__link">
+    Assumption 1: Linearity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-2-perfect-collinearity" class="md-nav__link">
+    Assumption 2: Perfect Collinearity
+  </a>
+  
+    <nav class="md-nav" aria-label="Assumption 2: Perfect Collinearity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imperfect-collinearity" class="md-nav__link">
+    Imperfect Collinearity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detecting-collinearity" class="md-nav__link">
+    Detecting Collinearity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-3-exogenity" class="md-nav__link">
+    Assumption 3: Exogenity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-4-homoscedasticity" class="md-nav__link">
+    Assumption 4: Homoscedasticity
+  </a>
+  
+    <nav class="md-nav" aria-label="Assumption 4: Homoscedasticity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breusch-pagan-test" class="md-nav__link">
+    Breusch Pagan Test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weighted-least-squares" class="md-nav__link">
+    Weighted Least Squares
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-5-no-serial-correlation" class="md-nav__link">
+    Assumption 5: No Serial Correlation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-6-normality" class="md-nav__link">
+    Assumption 6: Normality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-considerations" class="md-nav__link">
+    Other Considerations
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#influence" class="md-nav__link">
+    Influence
+  </a>
+  
+    <nav class="md-nav" aria-label="Influence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leverage" class="md-nav__link">
+    Leverage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outliers" class="md-nav__link">
+    Outliers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cooks-distance" class="md-nav__link">
+    Cooks Distance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-dimensionality" class="md-nav__link">
+    High Dimensionality
+  </a>
+  
+    <nav class="md-nav" aria-label="High Dimensionality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partial-least-squares" class="md-nav__link">
+    Partial Least Squares
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-1-linearity" class="md-nav__link">
+    Assumption 1: Linearity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-2-perfect-collinearity" class="md-nav__link">
+    Assumption 2: Perfect Collinearity
+  </a>
+  
+    <nav class="md-nav" aria-label="Assumption 2: Perfect Collinearity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imperfect-collinearity" class="md-nav__link">
+    Imperfect Collinearity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detecting-collinearity" class="md-nav__link">
+    Detecting Collinearity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-3-exogenity" class="md-nav__link">
+    Assumption 3: Exogenity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-4-homoscedasticity" class="md-nav__link">
+    Assumption 4: Homoscedasticity
+  </a>
+  
+    <nav class="md-nav" aria-label="Assumption 4: Homoscedasticity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breusch-pagan-test" class="md-nav__link">
+    Breusch Pagan Test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weighted-least-squares" class="md-nav__link">
+    Weighted Least Squares
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-5-no-serial-correlation" class="md-nav__link">
+    Assumption 5: No Serial Correlation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumption-6-normality" class="md-nav__link">
+    Assumption 6: Normality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-considerations" class="md-nav__link">
+    Other Considerations
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#influence" class="md-nav__link">
+    Influence
+  </a>
+  
+    <nav class="md-nav" aria-label="Influence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leverage" class="md-nav__link">
+    Leverage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outliers" class="md-nav__link">
+    Outliers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cooks-distance" class="md-nav__link">
+    Cooks Distance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-dimensionality" class="md-nav__link">
+    High Dimensionality
+  </a>
+  
+    <nav class="md-nav" aria-label="High Dimensionality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partial-least-squares" class="md-nav__link">
+    Partial Least Squares
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="linear-regression-asssumptions"><strong>Linear Regression Asssumptions</strong><a class="headerlink" href="#linear-regression-asssumptions" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>There are <strong>5 key assumptions</strong> that have been implicitly made thus far for Linear Regression, each allowing us to make key conclusions about the model:</p>
+<!-- Obtained from Stack Exchange User DVL -->
+<p><img alt="REGRESSION_ASSUMPTIONS" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/REGRESSION_ASSUMPTIONS.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The colours of the arrows indicate which assumptions are cumulatively needed:</p>
+<ul>
+<li>Red + Blue = Purple</li>
+<li>Green + Purple = Black</li>
+</ul>
+</div>
+<p>The purpose of this section is to examine:</p>
+<ol>
+<li><strong>WHAT</strong> assumptions are made</li>
+<li><strong>WHY</strong> they are needed</li>
+<li>How to <strong>validate</strong> if they fulfilled</li>
+<li><strong>Mitigation</strong> if they breached</li>
+</ol>
+<p>If the first two blocks of assumptions are fulfilled, then the resulting regression esimate is known as the <strong>Best Linear Unbiased Estimator</strong> (BLUE), which has the <strong>lowest variance</strong> (most efficient) among all other linear unbiased estimates. This is known as the <strong>Guass Markov Theorem</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The last block of assumptions on the distribution of the errors being normal and iid are NOT needed for the estimates to be BLUE. They are however needed for <strong>statistical inference</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember that being unbiased means that the <strong>EXPECTED VALUE</strong> of the estimates are equal to the true value. Thus, for a particular sample, the estimated coefficients <strong>might be different</strong>.</p>
+</div>
+<h2 id="assumption-1-linearity"><strong>Assumption 1: Linearity</strong><a class="headerlink" href="#assumption-1-linearity" title="Permanent link">&para;</a></h2>
+<p>This assumes that the <strong>true relationship</strong> between the dependent and independent variables are Linear, but not the dependent or independent variables themselves. This allows for <strong>transformations</strong> of the respective variables:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \beta_{2} \cdot X_{2} \\
+    Y &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \beta_{2} \cdot X^{2}_{1} \\
+    \ln Y &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \beta_{2} \cdot X_{2}
+\end{aligned}
+\]</div>
+<p>If the relationship between the two is not linear, a linear regression model will not be able to accurately capture the relationship between the two, resulting in <strong>Bias estimates</strong>, which consequently impacts the validity of BLUE and the statistical inferences.</p>
+<p>Linearity can be verified using either of the following:</p>
+<ul>
+<li><strong>Scatterplot of the dependent and independent</strong>: Plot should show a linear relationship (intuitive)</li>
+<li><strong>Scatterplot of the residuals and the fitted model</strong> (Residual Plot): Plot should be centered around 0</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In reality, Errors are unobservable, thus the <strong>best estimate</strong> of them are the residuals.</p>
+<p>IF the fitted model has <strong>fully captured the relationship</strong> between the dependent and independent, then the resulting residuals should be <strong>random</strong> - with an average of 0.</p>
+<p>Thus, if we observe the residuals to be centered around 0, it implied the fitted linear model has <strong>fully captured</strong> the relationship, implying that the <strong>true relationship is indeed linear</strong>.</p>
+</div>
+<!-- Obtained from Lumen Learning -->
+<p><img alt="SCATTER_RESIDUAL_PLOT" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/SCATTER_RESIDUAL_PLOT.png" /></p>
+<p>If it is found that the relationship is non-linear, <strong>transformations</strong> could be done on the dependent and/or independent variable to make the resulting relationship linear.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Failing which, another statistical learning method should be used.</p>
+</div>
+<h2 id="assumption-2-perfect-collinearity"><strong>Assumption 2: Perfect Collinearity</strong><a class="headerlink" href="#assumption-2-perfect-collinearity" title="Permanent link">&para;</a></h2>
+<p>Collinearity (or Multi-collinearity) refers to when an independent variable can be expressed as a <strong>linear combination of one or more other independent variables</strong>.</p>
+<p>Perfect collinearity refers to when it can be <strong>perfectly expressed</strong> as another variable:</p>
+<ul>
+<li>Multiple of another variable: <span class="arithmatex">\(x_{1} = c \cdot x_{2}\)</span></li>
+<li>Differs by a constant: <span class="arithmatex">\(x_{1} = x_{2} \pm c\)</span></li>
+<li>Dummy variable trap</li>
+<li>Affine transformations</li>
+</ul>
+<p>If there are perfectly collinear variables, then there will be <strong>insufficient information</strong> to solve for the parameter estimates (EG. Two equations to solve for three unknowns). This results in <strong>non-unique solutions</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is NOT a necessity for the predictors to be independent; zero collinearity. It is generally <strong>assumed that collinearity is low</strong>.</p>
+</div>
+<p>If variables are perfectly collinear, the only solution is to <strong>drop those variables</strong> and keep only one of the bunch to represent them.</p>
+<h3 id="imperfect-collinearity"><strong>Imperfect Collinearity</strong><a class="headerlink" href="#imperfect-collinearity" title="Permanent link">&para;</a></h3>
+<p>Imperfect collinearity occurs when one variable is <strong>highly (but NOT perfectly) correlated</strong> with one or more other variables. Intuitively, this means that the variable does not add much predictive power as its effects would have <strong>already been captured via the related predictors</strong>, hence can be removed from the model with little loss.</p>
+<p>Imperfect collinearity does NOT prevent OLS from finding a solution and <strong>does NOT affect the overall predictive power</strong> of the model. It ONLY affects the inferences of the model:</p>
+<ul>
+<li>Usual intepretation of "holding other variables constant" no longer holds true as the variables move together; <strong>hard to seperate the effects of individual variables</strong></li>
+<li>Consequently, OLS has difficulty estimating the estimates as it cannot clearly distinguish them; resulting in <strong>unstable estimates</strong> which can change drastically over different samples</li>
+<li>Consequently, this <strong>increases the variance of the estimates</strong>, which increases p-values, potentially leading to <strong>more false negatives</strong> and hence important variables being omitted from the regression</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Collinearity ONLY affects t-test results, overall predictive power (measured by F-tests), are unaffected.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There is a special type of Variable known as a <strong>Suppressor Variable</strong>, which by itself is not strongly correlated with the dependent, but when combined with another variable, leads to a significantly stronger model.</p>
+<p>Collinearity is typically acceptable in the presence of a suppressor variable.</p>
+</div>
+<p>If imperfect collinearity is present, regularization methods (Ridge/LASSO) can be used to deal with them:</p>
+<ul>
+<li>Coefficient estimates are <strong>unstable</strong> as there are <strong>many different ways to distribute</strong> the coefficients to achieve the same overall impact</li>
+<li>Regularization imposes a <strong>size constraint that biases them towards 0</strong>, forcing the estimates to hover around that range, reducing variance</li>
+<li>EG. Without regularization, there could be a large positive and large negative coefficient offsetting each other. Regularization eliminates such a case from occuring as they are not allowed to vary so much</li>
+</ul>
+<h3 id="detecting-collinearity"><strong>Detecting Collinearity</strong><a class="headerlink" href="#detecting-collinearity" title="Permanent link">&para;</a></h3>
+<p>The simplest way to detect collinearity is through a <strong>Scatterplot or Correlation Matrix</strong>, which shows the correlations between <strong>pairs of variables</strong>. A <strong>correlation of 0.8 and higher</strong> is typically considered high enough where the collinearity becomes problematic.</p>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="CORRELATION_MATRIX" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/CORRELATION_MATRIX.png" /></p>
+<p>HOWEVER, the above method can only detect collinearity between pairs of variables at a time. To check for collinearity between <strong>3 or more</strong> variables, the <strong>Variance Inflation Factor</strong> (VIF) can be used instead.</p>
+<p>Recall that in the presence of collinearity, the variance of estimates increases; the VIF is a <strong>measure of the increase in variance</strong>. </p>
+<div class="arithmatex">\[
+    \text{VIF}_{p} = \frac{1}{1 - R^{2}_{p}}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Different texts have <strong>different thresholds</strong> for high collinearity. For this exam, assume the <strong>threshold to be 10</strong>.</p>
+<p>The reciprocal of the VIF is known as the <strong>Tolerance</strong>.</p>
+</div>
+<p><span class="arithmatex">\(R^{2}_{p}\)</span> is the R-squared for a model where the p-th predictor is regressed against ALL OTHER predictors. If this R-squared is high, it implies that this predictor is <strong>well explained</strong> by other predictors (high correlation, high collinearity).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The VIF needs to be calculated for EACH variable to conclude whether collinearity is present in the model. Collinearity is present <strong>EVEN IF JUST ONE</strong> combination of variables cross the threshold:</p>
+<ul>
+<li>Variable 1 against Variable 2,3</li>
+<li>Variable 2 against Variable 1,3</li>
+<li>Variable 3 against Variable 1,2</li>
+</ul>
+<p>The VIF for uncorrelated predictors is 1, reflecting that the variance remains <strong>unaffected</strong> by the other variables.</p>
+</div>
+<p>The VIF directly impacts the standard error of the regression coefficients:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{SE}'(\beta_{p})
+    &amp;= \sqrt{\text{VIF}} \cdot \text{SE}(\beta_{p}) \\
+    &amp;= \sqrt{\text{VIF}} \cdot \sigma^{2}_{\text{RSS}} \cdot \frac{1}{\sum (x - \bar{x})^{2}}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Thus, given the final standard errors, this can be used to backsolve for the VIF as well.</p>
+</div>
+<h2 id="assumption-3-exogenity"><strong>Assumption 3: Exogenity</strong><a class="headerlink" href="#assumption-3-exogenity" title="Permanent link">&para;</a></h2>
+<p><strong>Exogenity</strong> refers to a variable that is <strong>outside</strong> the model and thus must be <strong>independent of the other variables inside the model</strong>. In the context of linear regression, the <strong>errors should be independent of any of the predictors</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E(\varepsilon \mid X) &amp;= 0 \\
+    \\
+    E(\varepsilon)
+    &amp;= E[E(\varepsilon \mid X)] \\
+    &amp;= E[0] \\
+    &amp;= 0 \\
+    \\
+    E(X \cdot \varepsilon)
+    &amp;= E[X \cdot E(\varepsilon \mid X)] \\
+    &amp;= E(X \cdot 0) \\
+    &amp;= 0 \\
+    \\
+    \therefore \text{Cov}(\varepsilon, X)
+    &amp;= E(\varepsilon, X) - E(X) \cdot E(\varepsilon) \\
+    &amp;= 0 - E(X) \cdot 0 \\
+    &amp;= 0
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Recall that Zero Covariance is a result of independence, NOT the other way around.</p>
+</div>
+<p>If Exogenity is violated, there is a relationship between the predictors and the error (<strong>reflecting unmodelled variables</strong>). This means that the estimated coefficients would reflect the <strong>effect of BOTH the predictor and the unmodelled variable</strong>, resulting in a <strong>biased estimate</strong>, which consequently impacts the validity of BLUE and the statistical inferences.</p>
+<!-- Obtained from Statology -->
+<p><img alt="OMITTED_VARIABLE_BIAS" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/OMITTED_VARIABLE_BIAS.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The ommitted correlated variable is said to Confound (mix up) the regression results. Thus, it is sometimes referred to as the <strong>Confounding Variable</strong>. This process in general is known as the <strong>Omitted Variable Bias</strong>.</p>
+</div>
+<p>Similar to before, a <strong>residual plot of the residuals against the predictors</strong> can be used to check for Exogenity; there should be no visible trend in the plots:</p>
+<!-- Obtained from Penn State University -->
+<p><img alt="SCATTER_RESIDUAL_PREDICTOR" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/SCATTER_RESIDUAL_PREDICTOR.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above plot are the residuals against a single predictor. Plotting against the fitted values would imply plotting against all predictors at once.</p>
+</div>
+<p>There are two possible solutions if Exogenity is violated:</p>
+<ol>
+<li>Include the Confounding Variable</li>
+<li>Introduce an Instrumental Variable</li>
+</ol>
+<!-- Obtained From Shakrim Blog -->
+<p><img alt="INSTRUMENTAL_VARIABLE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/INSTRUMENTAL_VARIABLE.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Instrumental variables are used when it is <strong>not feasible to directly study</strong> the target predictors relationship with the dependent (due to Collinearity, in this case).</p>
+<p>They are variables that are <strong>not direcly correlated with the dependent</strong>, but correlated with the target predictor. Thus, any correlation between the instrumental variable and the dependent MUST be coming through the target predictor.</p>
+</div>
+<h2 id="assumption-4-homoscedasticity"><strong>Assumption 4: Homoscedasticity</strong><a class="headerlink" href="#assumption-4-homoscedasticity" title="Permanent link">&para;</a></h2>
+<p><strong>Homoscedasticity</strong> refers to the error terms having <strong>constant variance</strong> while <strong>Heteroscedasticity</strong> refers to having non-constant variance.</p>
+<div class="arithmatex">\[
+    \text{Var}(\varepsilon \mid X) = \sigma^{2}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>They come from the terms "Homo" and "Hetero" which means "Same" and "Different".</p>
+</div>
+<p>If Homoscedastacity is not present, the <strong>sampling distribution of the estimates are not easily derived</strong> and hence cannot be proven that they are the most efficient estimators. Consequently, statistical inference results might not be reliable as well.</p>
+<p>Similar to before, a residual plot can be used to identify patterns. If the <strong>spread of the plots are changing</strong> (typically in the shape of a funnel for increasing variance), then Heteroscedasticity is present:</p>
+<!-- Obtained from Corporate Finance Institute -->
+<p><img alt="HOMOSCEDASTICITY" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HOMOSCEDASTICITY.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A model can be both Unbiased and Heteroscedastic, they have no influence on one another:</p>
+<p><!-- Obtained from Condor -->
+<img alt="HETEROSCEDASTIC_SCENARIOS" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/HETEROSCEDASTIC_SCENARIOS.png" /></p>
+</div>
+<p>The most direct method to deal with Heteroscedasticity is to perform a <strong>transformation</strong> on the variables that will stabilize its variance, such the <strong>Logarithm or Squareroot</strong>. These transformations typically <strong>compress larger values while expanding smaller values</strong>, helping to shrink the variance.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The transformations listed above <strong>require positive-only</strong> data, thus a <strong>positive constant</strong> can be added to all variables to ensure that they are positive - EG. <span class="arithmatex">\(\ln(1+Y)\)</span></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>direction of heteroscedasticity</strong> matters. Concave transformations like log or squareroot work for datasets with <strong>increasing variance</strong>, which is usually the case. For decreasing variance or more complex patterns, other methods should be used.</p>
+</div>
+<p>The inherent problem with Heteroscedasticity is its effect on Standard Errors; the current formulation assumes a homoscedastic one. Thus, it is possible to use a standard error that can account for it - known as a <strong>Heteroscedastic Consistent Standard Error</strong> or <strong>Robust Standard Error</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mathematics for robust standard errors are beyond the scope of this course. It is sufficient to know that they can be used.</p>
+</div>
+<h3 id="breusch-pagan-test"><strong>Breusch Pagan Test</strong><a class="headerlink" href="#breusch-pagan-test" title="Permanent link">&para;</a></h3>
+<p>Heteroskedasticity implies that the size of the residuals <strong>changes with the predictors</strong>. Thus, this can be formally tested using the <strong>Breusch Pagan Test</strong> where the <strong>residuals are regressed against the predictors</strong>. If there is found to be a relationship between the two, then heteroskedasticity is likely present.</p>
+<ul>
+<li><span class="arithmatex">\(H_{0}: \beta^{*}_{p} = 0\)</span></li>
+<li><span class="arithmatex">\(H_{1}: \beta^{*}_{p} \ne 0\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Test Statistic} &amp;= \frac{\text{RSS}^{*}}{2} \\
+    \text{Test Statistic} &amp;\sim \chi^{2}_{p}
+\end{aligned}
+\]</div>
+<h3 id="weighted-least-squares"><strong>Weighted Least Squares</strong><a class="headerlink" href="#weighted-least-squares" title="Permanent link">&para;</a></h3>
+<p>If the source of heteroscedasticity is known, it is possible to use a <strong>Weighted Least Squares</strong> approach to account for it. Weights are assigned to <strong>each observation</strong>, such that the weight is the amount needed to <strong>scale the the variance to a constant amount</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Assumed Constant Variance} &amp;= \sigma^{2} \\
+    \text{Current Variance} &amp;= \text{Var}(\varepsilon_{i}) \\
+    \text{Var}(\varepsilon_{i}) &amp;= \frac{\sigma^{2}}{w_{i}}
+\end{aligned}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In practice, the weights are completely arbitrary and up to the modeller. They must be positive and do not need to sum to 1.</p>
+</div>
+<p>A new funcitonal form is assumed, where the <strong>resulting variance is constant</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{i} &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \varepsilon \\
+    \sqrt{w_{i}} \cdot y_{i} &amp;= \sqrt{w_{i}} \cdot \left(\beta_{0} + \beta_{1} \cdot x_{1} + \varepsilon_{i} \right) \\
+    \\
+    \text{Var}(\sqrt{w_{i}} \cdot \varepsilon_{i})
+    &amp;= \left(\sqrt{w_{i}} \right)^{2} \cdot \text{Var}(\varepsilon_{i}) \\
+    &amp;= w_{i} \cdot \frac{\sigma^{2}}{w_{i}} \\
+    &amp;= \sigma^{2}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The above doesnt "fix" the heteroscedasticity, it simply <em>accounts</em> for it by using an alternative method.</p>
+<p>In another way, heteroscedasticity is <strong>NOT inherently problematic</strong>; the problem is applying a method that assumes Homoscedastacity (linear regression) to a dataset with heteroscedasticity.</p>
+</div>
+<h2 id="assumption-5-no-serial-correlation"><strong>Assumption 5: No Serial Correlation</strong><a class="headerlink" href="#assumption-5-no-serial-correlation" title="Permanent link">&para;</a></h2>
+<p>This assumption states that the error terms should <strong>NOT be correlated</strong> with one another:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Cov}(\varepsilon_{i}, \varepsilon_{j})
+    &amp;= E(\varepsilon_{i}, \varepsilon_{j}) - E(\varepsilon_{i}) \cdot E(\varepsilon_{j}) \\
+    &amp;= E(\varepsilon_{i}, \varepsilon_{j}) - 0 \\
+    \\
+    E(\varepsilon_{i}) &amp;= E(\varepsilon_{j}) = 0, \text{(Assumption 3)} \\
+    \\
+    \therefore \text{Cov}(\varepsilon_{i}, \varepsilon_{j}) &amp;= 0 \rightarrow E(\varepsilon_{i}, \varepsilon_{j}) = 0
+\end{aligned}
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This is also sometimes referred to as the <strong>No Autocorrelation</strong> assumption.</p>
+</div>
+<p>Similarly, this can be validated using a residual plot against other residuals <strong>over different predictions</strong>. The resulting plot should not have any exhibit any clear trend or pattern:</p>
+<!-- Obtained from Stack Exchange -->
+<p><img alt="AUTOCORRELATION" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/AUTOCORRELATION_PLOT.png" /></p>
+<p>If violated, it implies that knowing one error can <strong>systematically provide information about another</strong>; meaning that there are additional <strong>unmodelled factors</strong> to consider. The residuals are no longer accurate, which consequently impacts the validity of BLUE and the statistical inferences.</p>
+<h2 id="assumption-6-normality"><strong>Assumption 6: Normality</strong><a class="headerlink" href="#assumption-6-normality" title="Permanent link">&para;</a></h2>
+<p>The last assumption is assuming that the error terms follow a <strong>Normal Distribution</strong>:</p>
+<div class="arithmatex">\[
+    \varepsilon \sim N(0, \sigma^{2})
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This assumption also implies that the dependent is normally distributed, as a linear function involving a normal variable is also normally distributed.</p>
+</div>
+<p>It can verified by using a <strong>QQ plot</strong> of the <strong>STANDARDIZED residuals</strong>. The residuals are expected to follow a standard normal distribution:</p>
+<ul>
+<li>95% should fall within two standard deviations (-2 to 2)</li>
+<li>99.7% should fall within three standard deviations (-3 to 3)</li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="QQ_PLOT" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/QQ_PLOT.png" /></p>
+<p>Violating the normality assumption does not impact the validity of the estimates or predictive power; it only impacts the <strong>validity of statistical inference</strong>. For large samples, CLT states that the distribution of the estimators are <strong>approximately normal</strong>, thus inferences are still valid. However, this <strong>does NOT apply to prediction intervals</strong> as they directly contain the variance of the error term, which follows an unknown distribution if normality does not hold.</p>
+<h2 id="other-considerations"><strong>Other Considerations</strong><a class="headerlink" href="#other-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="influence"><strong>Influence</strong><a class="headerlink" href="#influence" title="Permanent link">&para;</a></h3>
+<p>An <strong>Influential Observation</strong> is an observation, that when excluding from the model, leads to a <strong>significant impact</strong> on the model's estimation and results. It is typically a result a consequence of a <strong>combination</strong> of the following effects:</p>
+<ol>
+<li>Unusual Values in X (known as <strong>High Leverage</strong> observations)</li>
+<li>Unusual Values in Y (known as <strong>Outliers</strong>)</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In other texts, outliers refer to unusual values in both X and Y; in the more general sense of the word. For the purposes of this exam, assume that they <strong>only refer to Y values</strong>.</p>
+</div>
+<!-- Obtained from Cambridge -->
+<p><img alt="INFLUENCE_EXAMPLE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/INFLUENCE_EXAMPLE.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Observations with high leverage or that is an outlier merely have the <em>potential</em> to be Influential. They are not guaranteed to be influential; it depends on other component.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a variable with multiple predictors, it might be hard to identify high leverage points graphically of multi-dimensional aspect. The value of the predictor might be typical in each respective dimension, but <strong>unusual when taken collectively</strong>. This is why leverage <strong>must be quantified</strong> to obtain a true understanding.</p>
+</div>
+<h4 id="leverage"><strong>Leverage</strong><a class="headerlink" href="#leverage" title="Permanent link">&para;</a></h4>
+<p>The <strong>Leverage</strong> for an observation is the element for that observation on the <strong>diagonal of the Hat matrix</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    h_{i}
+    &amp;= \boldsymbol{H}_{ii} \\
+    &amp;= \boldsymbol{X}^{T}_{i} (\boldsymbol{X}^{T} \cdot \boldsymbol{X})^{-1} \boldsymbol{X}_{i} \\
+    &amp;= \frac{SE(\hat{y})}{\sigma^{2}}
+\end{aligned}
+\]</div>
+<!-- Obtained from Stack Exchange -->
+<p><img alt="LEVERAGE_HAT_MATRIX" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/LEVERAGE_HAT_MATRIX.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The diagonal of the hat matrix has two key interpretations:</p>
+<ol>
+<li>It quantifies the <strong>impact that the observed</strong> value of <span class="arithmatex">\(y\)</span> has on its predicted value <span class="arithmatex">\(\hat{y}\)</span> (Hence the name "Leverage")</li>
+<li>It quantifies the distance between the observed <span class="arithmatex">\(x\)</span> value from the mean of the <span class="arithmatex">\(x\)</span> value</li>
+</ol>
+<p>Note that despite the interpretation (1), the impact is <strong>entirely dependent on <span class="arithmatex">\(x\)</span> values</strong>, as seen in the formula. The more unusual the <span class="arithmatex">\(x\)</span> value, the higher leverage it has.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Intepretation (1) translated into mathematical terms is that it is the <strong>partial derivative</strong> of the prediction with respect to the observed value.</p>
+<p>Thus for <strong>SLR ONLY</strong>, it can be shown that the leverage reduces to the following:</p>
+<div class="arithmatex">\[
+    h_{i} = \frac{1}{n} + \frac{(x_{i} - \bar{x})^{2}}{\sum (x - \bar{x})^{2}}
+\]</div>
+</div>
+<p>Leverage MUST be a <strong>positive value</strong> and the <strong>sum of all leverages</strong> is equivalent to the <strong>number of predictors AND the intercept</strong>. It is generally accepted that a high leverage observation must have be <strong>at least 3 times</strong> the average leverage:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    0 &amp;\lt h_{ii} \lt 1 \\
+    \\
+    \bar{h}
+    &amp;= \frac{\sum h}{n} \\
+    &amp;= \frac{p+1}{n} \\
+    \\
+    \therefore h_{ii} &amp;\gt 3 \cdot \bar{h}
+\end{aligned}
+\]</div>
+<h4 id="outliers"><strong>Outliers</strong><a class="headerlink" href="#outliers" title="Permanent link">&para;</a></h4>
+<p>The <strong>size of the residual</strong> can be used to determine the presence of Outliers. However, since the size of the residual is affected by its underlying units, we typically <strong>standardize the residuals</strong> before analyzing them. It is generally accepted that observations with a <strong>standardized residual larger than 2</strong> are considered outliers:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\varepsilon}_{\text{Sta}}
+    &amp;= \frac{\hat{\varepsilon}^{2}}{\sqrt{\sigma^{2}_{\text{RSS}} (1 - h_{i})}} \\
+    \\
+    \therefore \hat{\varepsilon}_{\text{Sta}} &amp;\gt 2
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It can be shown the distribution of the <strong>residuals</strong> are:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \hat{\varepsilon}_{i} &amp;\sim N(0, \sigma^{2} \cdot (1 - h_{i})) \\
+    \\
+    \text{Var}(\hat{\varepsilon})
+    &amp;= \text{Var}(\boldsymbol{y} - \hat{\boldsymbol{y}}) \\
+    &amp;= \text{Var}((\boldsymbol{I} - \boldsymbol{H}) \boldsymbol{y}) \\
+    &amp;= (\boldsymbol{I} - \boldsymbol{H})^{2} \cdot \text{Var}(\boldsymbol{y}) \\
+    &amp;= (\boldsymbol{I} - \boldsymbol{H}) \cdot \text{Var}(\boldsymbol{y}), \text{Idempotent} \\
+    &amp;= (1 - h_{i}) \cdot \sigma^{2}
+\end{aligned}
+\]</div>
+<p>Note that the above is for the residuals, NOT the actual errors themselves.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>One consequence of having many outliers is that the calculated MSE is <strong>inflated</strong> because the outliers artifically increase the RSS. This created a <strong>TENDENCY</strong> for statistical tests to fail to reject the null.</p>
+<p>In reality, if there are outliers and the statistical test are able to reject the null, there is no reason to doubt its validity. This is because even under "adverse" situations, the test can still reject the null, thus under normal circumstances it would continue to reject the null.</p>
+<p>However, if the test currently fails to reject the null, it could be due to the outliers that weakens the test when it would have otherwise passed it.</p>
+</div>
+<p>However, one issue with the above analysis is that the <strong>fitted model has already been influenced</strong> by the observation, thus the residuals <strong>may NOT flag out</strong> as being large. This can be overcome by fitting a <strong>new model WITHOUT the observation</strong> and computing the residual based on it, known as a <strong>Deleted Residual</strong>. Standardizing them results in <strong>Studentized Residuals</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    d_{i}
+    &amp;= y_{i} - \hat{y}_{(i)} \\
+    \\
+    \hat{\varepsilon}_{\text{Stu}}
+    &amp;= \frac{d_{i}}{\text{SE}(d_{i})} \\
+    &amp;= \frac{\hat{\varepsilon}_{t}}{\sqrt{\sigma^{2}_{(i)} (1 - h_{i})}} \\
+    &amp;= \hat{\varepsilon}_{\text{Sta}} \cdot \left(\frac{n-k-2}{n-k-1 - \hat{\varepsilon}^{2}_{\text{Sta}}} \right)^{0.5}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><span class="arithmatex">\(\hat{y}_{(i)}\)</span> is the prediction for a model with i-th observation removed; similar for the MSE.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As its name suggests, the above residuals follow the <strong>student's t-distribution</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do NOT be confused - the standardized deleted residual can be expressed as a function of the standardised regular residual.</p>
+</div>
+<h4 id="cooks-distance"><strong>Cooks Distance</strong><a class="headerlink" href="#cooks-distance" title="Permanent link">&para;</a></h4>
+<p>The effect of Leverage and Residual Size can be combined into a single measure known as <strong>Cook's Distance</strong>, which is a measure of <strong>how the fitted model changes</strong> if the observation were removed:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    D_{i}
+    &amp;= \frac{d_{i}^{2}}{\sigma^{2} (p+1)} \\
+    &amp;= d_{i}^{2} \cdot \frac{1}{\sigma^{2} (p+1)} \\
+    &amp;= \hat{\varepsilon}^{2} \cdot \frac{h_{i}}{(1 - h_{i})^{2}} \cdot \frac{1}{\sigma^{2} (p+1)} \\
+    &amp;= \frac{\hat{\varepsilon}^{2}}{\sigma^{2} (p+1)} \cdot \frac{h_{i}}{(1 - h_{i})^{2}} \\
+    &amp;= \frac{\hat{\varepsilon}^{2}}{\sigma^{2} (1 - h_{i})} \cdot \frac{h_{i}}{(1 - h_{i})(p+1)} \\
+    &amp;= \frac{\hat{\varepsilon}^{2}}{(\sqrt{\sigma^{2} (1 - h_{i})})^{2}} \cdot \frac{h_{i}}{(1 - h_{i})(p+1)} \\
+    &amp;= \left(\frac{\hat{\varepsilon}}{\sqrt{\sigma^{2} (1 - h_{i})}} \right)^{2} \cdot \frac{h_{i}}{(1 - h_{i})(p+1)} \\
+    &amp;= (\hat{\varepsilon}_{\text{Sta}})^{2} \cdot \frac{h_{i}}{(1 - h_{i})(p+1)}
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is computationally expensive to compute the Cooks Distance because a <strong>separate model has to be fit for every observation</strong>.</p>
+<p>However, since the leverage of an observation already tells us how much an observation impacts the predicted value, there is <strong>no need to run a seperate model</strong> each time; the <strong>original results can be scaled accordingly</strong> to determine its impact.</p>
+<p>Thus, the final result can be reduced to a combination of the <strong>Standardized Residual</strong> (Outlier) and <strong>Leverage</strong>.</p>
+<p><!-- Obtained from rpubs -->
+<img alt="LEVERAGE_INFLUENCE" class="center" src="../Assets/4.%20Linear%20Regression%20Assumptions.md/LEVERAGE_INFLUENCE.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A typical value for Cooks Distance is <span class="arithmatex">\(\frac{1}{n}\)</span>. It can be understood as each observation having equal importance.</p>
+</div>
+<p>There are a few methods to deal with influential observations:</p>
+<ol>
+<li><strong>Delete</strong> the observation (Only if it was a result of a data collection error)</li>
+<li>Include the observation, but <strong>make a note</strong> about it</li>
+<li>Create a <strong>binary variable</strong> to indicate the presence of the observation (Outliers ONLY)</li>
+<li>Use a <strong>robust estimation</strong> method (Outliers ONLY)</li>
+<li><strong>Substitute OR transform</strong> the variable (Leverage ONLY)</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On point (5) - assume that the current variable the floor space in an apartment. Using floorspace, it is noted that there are several high leverage points. A similar variable that captures the effect of floor space could be the number of rooms. Using number of rooms (discrete) rather than floor space (continuous), <strong>reduces the chances</strong> that an observation has high leverage.</p>
+<p>If the substitute cannot be performed due to a lack of data or other reasons, it is also possible to perform a <strong>transformation</strong> on the data to stabilize it.</p>
+</div>
+<h3 id="high-dimensionality"><strong>High Dimensionality</strong><a class="headerlink" href="#high-dimensionality" title="Permanent link">&para;</a></h3>
+<p>In recent years, due to the advent of <strong>big data</strong>, the amount of information collected has increased drastically, resulting in many situations where there are <strong>just as many or even more features</strong> than there are observations (<span class="arithmatex">\(n \lt p\)</span>). This is problematic for a <strong>traditional learning methods</strong> such as linear regression which does not account for such possibilities.</p>
+<ul>
+<li><strong>More Features than Observations</strong> (<span class="arithmatex">\(p \gt n\)</span>): No unique fits to the model</li>
+<li><strong>Features exactly equal Observations</strong> (<span class="arithmatex">\(p = n\)</span>): Perfect fit (Overfitting)</li>
+<li><strong>Slighly Less Features than Observations</strong> (<span class="arithmatex">\(p \approx n\)</span>): Limited degrees of freedom; largely fits the data (Overfitting)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The deteriorative performance of models due to overfitting with higher dimensions is known as the <strong>Curse of Dimensionality</strong>.</p>
+<p>Any other traditional measures also cannot be used as a result (EG. R2, P-values). Similarly, AIC and BIC cannot be used as well due to <strong>difficuly in estimating the MSE</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also a possibility that increasing the number of predictors results in choosing two or more highly correlated variables. Thus, high dimensionality has a tendency to result in <strong>Multicollinearity</strong>.</p>
+</div>
+<p>The natural solution would be to <strong>limit the number of predictors</strong> by choosing only truly relevant variables and/or to <strong>increase the sample size</strong>. This can be achieved via:</p>
+<ul>
+<li>Model Selection</li>
+<li>Dimensionality Reduction methods - PCA, PLS, LASSO</li>
+</ul>
+<h4 id="partial-least-squares"><strong>Partial Least Squares</strong><a class="headerlink" href="#partial-least-squares" title="Permanent link">&para;</a></h4>
+<p>Another method is to use <strong>Partial Least Squares</strong> (PLS). It seeks to create <strong>new variables</strong> that are <strong>linear combinations</strong> of existing variables (known as <strong>Directions</strong>) which are then used to perform the regression instead.</p>
+<ul>
+<li><strong>First</strong> PLS direction (PL1) is a <strong>direct combination</strong> of the original variables with the goal of explaining the most variation in the dependent variable</li>
+<li><strong>Second</strong> PLS direction onwards (PL2) is obtained by <strong>regressing each predictor on the previous PLS direction</strong> and using the residuals (left over information; <strong>orthogonalized data</strong>) to form the combination, similar to how the first direction was formed</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PLS can thus be thought of as a supervised version of PCA/PCR - with the <strong>express goal of explaining the dependent</strong>. The formation of the second direction onwards is similar to boosting process in decision trees.</p>
+<p>That said, in practice, it performs <strong>no better</strong> than regularization or PCR.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Similar to PCR, ALL features are used to create the directions; there is <strong>NO variable selection</strong> (dropping of variables) involved, only involvement to different extents.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../3.%20Multiple%20Linear%20Regression/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multiple Linear Regression" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Multiple Linear Regression
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../5.%20Model%20Selection/" class="md-footer__link md-footer__link--next" aria-label="Next: Model Selection" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Model Selection
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

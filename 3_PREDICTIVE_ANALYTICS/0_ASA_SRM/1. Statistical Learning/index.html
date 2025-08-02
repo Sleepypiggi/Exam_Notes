@@ -1,0 +1,2056 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/3_PREDICTIVE_ANALYTICS/0_ASA_SRM/1.%20Statistical%20Learning/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Statistical Learning - Exam Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../config/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-statistical-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Exam Notes" class="md-header__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exam Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Statistical Learning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Exam Notes" class="md-nav__button md-logo" aria-label="Exam Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Exam Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introductory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introductory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introductory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/0.%20Review%20of%20Mathematics/" class="md-nav__link">
+        Review of Mathematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA P
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA FM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          ASA IFM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA IFM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          ASA IFM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Derivatives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Derivatives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/1.%20Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/3.%20Options/" class="md-nav__link">
+        Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/5.%20Binomial%20Model/" class="md-nav__link">
+        Binomial Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/1.%20Derivatives/6.%20Black%20Scholes%20Model/" class="md-nav__link">
+        Black Scholes Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Corporate Finance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Corporate Finance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Corporate Finance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_INTRODUCTORY/2_ASA_IFM/3.%20Corporate%20Finance/3.%20Risk%20Measures/" class="md-nav__link">
+        Risk Measures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Actuarial Mathematics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Actuarial Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actuarial Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ASA FAMS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAMS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/0.%20Short%20Term%20Insurance/" class="md-nav__link">
+        Short Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/1.%20Review%20of%20Probability%20Theory/" class="md-nav__link">
+        Review of Probability Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/2.%20Frequency%20Models/" class="md-nav__link">
+        Frequency Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/3.%20Severity%20Models/" class="md-nav__link">
+        Severity Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/4.%20Policy%20Modifications/" class="md-nav__link">
+        Policy Modifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/5.%20Aggregate%20Models/" class="md-nav__link">
+        Aggregate Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/6.%20Loss%20Reserving/" class="md-nav__link">
+        Loss Reserving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/7.%20Ratemaking/" class="md-nav__link">
+        Ratemaking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/0_ASA_FAMS/9.%20Credibility%20Theory/" class="md-nav__link">
+        Credibility Theory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ASA FAML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA FAML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA FAML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/0.%20Long%20Term%20Insurance/" class="md-nav__link">
+        Long Term Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/1.%20Survival%20Models/" class="md-nav__link">
+        Survival Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/2.%20Life%20Tables/" class="md-nav__link">
+        Life Tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/3.%20Life%20Assurances/" class="md-nav__link">
+        Life Assurances
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/4.%20Life%20Annuities/" class="md-nav__link">
+        Life Annuities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/5.%20Variable%20Benefits/" class="md-nav__link">
+        Variable Benefits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/6.%20Premiums/" class="md-nav__link">
+        Premiums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/7.%20Reserves/" class="md-nav__link">
+        Reserves
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/1_ASA_FAML/8.%20Model%20Estimation/" class="md-nav__link">
+        Model Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ASA ALTAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA ALTAM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ASA ALTAM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/1.%20Multi%20Life%20Models/" class="md-nav__link">
+        Multi Life Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/2.%20Multi%20Decrement%20Models/" class="md-nav__link">
+        Multi Decrement Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/3.%20Multi%20State%20Models/" class="md-nav__link">
+        Multi State Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/4.%20Multi%20State%20Applications/" class="md-nav__link">
+        Multi State Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/5.%20Profit%20Testing/" class="md-nav__link">
+        Profit Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/6.%20Universal%20Life/" class="md-nav__link">
+        Universal Life
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/7.%20Embedded%20Options/" class="md-nav__link">
+        Embedded Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_ACTUARIAL_MATHEMATICS/2_ASA_ALTAM/8.%20Pensions/" class="md-nav__link">
+        Pensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Predictive Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Predictive Analytics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Predictive Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          ASA SRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA SRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          ASA SRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.%20Review%20of%20Statistical%20Theory/" class="md-nav__link">
+        Review of Statistical Theory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Statistical Learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Statistical Learning
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#estimation-vs-prediction" class="md-nav__link">
+    Estimation VS Prediction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-key-elements" class="md-nav__link">
+    Overview of Key Elements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression" class="md-nav__link">
+    Regression
+  </a>
+  
+    <nav class="md-nav" aria-label="Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specification" class="md-nav__link">
+    Specification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    Evaluation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-prediction-intervals" class="md-nav__link">
+    Confidence &amp; Prediction Intervals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classification-problems" class="md-nav__link">
+    Classification Problems
+  </a>
+  
+    <nav class="md-nav" aria-label="Classification Problems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#confusion-matrix" class="md-nav__link">
+    Confusion Matrix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auc" class="md-nav__link">
+    AUC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Simple%20Linear%20Regression/" class="md-nav__link">
+        Simple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Multiple%20Linear%20Regression/" class="md-nav__link">
+        Multiple Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Linear%20Regression%20Assumptions/" class="md-nav__link">
+        Linear Regression Assumptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Model%20Selection/" class="md-nav__link">
+        Model Selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Generalized%20Linear%20Models/" class="md-nav__link">
+        Generalized Linear Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Tree%20Models/" class="md-nav__link">
+        Tree Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Principal%20Components/" class="md-nav__link">
+        Principal Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Clustering/" class="md-nav__link">
+        Clustering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Time%20Series/" class="md-nav__link">
+        Time Series
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Placeholder/" class="md-nav__link">
+        ASA PA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#estimation-vs-prediction" class="md-nav__link">
+    Estimation VS Prediction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-key-elements" class="md-nav__link">
+    Overview of Key Elements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression" class="md-nav__link">
+    Regression
+  </a>
+  
+    <nav class="md-nav" aria-label="Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specification" class="md-nav__link">
+    Specification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    Evaluation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-prediction-intervals" class="md-nav__link">
+    Confidence &amp; Prediction Intervals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classification-problems" class="md-nav__link">
+    Classification Problems
+  </a>
+  
+    <nav class="md-nav" aria-label="Classification Problems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#confusion-matrix" class="md-nav__link">
+    Confusion Matrix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auc" class="md-nav__link">
+    AUC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="introduction-to-statistical-learning"><strong>Introduction to Statistical Learning</strong><a class="headerlink" href="#introduction-to-statistical-learning" title="Permanent link">&para;</a></h1>
+<h2 id="estimation-vs-prediction"><strong>Estimation VS Prediction</strong><a class="headerlink" href="#estimation-vs-prediction" title="Permanent link">&para;</a></h2>
+<p>The primary focus of traditional statistics lies in <strong>Estimation</strong>. However, the focus of statistical learning is <strong>Prediction</strong>. Both are <strong>approximation methods</strong> and although they are used interhchangeably in layman terms, there is a <strong>technical difference</strong> between the two:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Estimation</strong></th>
+<th align="center"><strong>Prediction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Approximating a <strong>parameter</strong> of a distribution</td>
+<td align="center">Approximating a <strong>realization</strong> of a distribution</td>
+</tr>
+<tr>
+<td align="center">Non-stochastic</td>
+<td align="center">Stochastic</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>For instance, given that <span class="arithmatex">\(X \sim \text{Dist}(\theta)\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span> is the distribution</li>
+<li><span class="arithmatex">\(\theta\)</span> is a parameter of the distribution (to be estimated)</li>
+<li><span class="arithmatex">\(x_{i}\)</span> is a realization of the distribution (to be predicted)</li>
+</ul>
+<h2 id="overview-of-key-elements"><strong>Overview of Key Elements</strong><a class="headerlink" href="#overview-of-key-elements" title="Permanent link">&para;</a></h2>
+<p>There are two main components to statistical learning:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Dependent Variable</strong></th>
+<th align="center"><strong>Independent Variable</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Variable to be predicted</td>
+<td align="center">Variable used to predict</td>
+</tr>
+<tr>
+<td align="center">Only 1</td>
+<td align="center">May have multiple</td>
+</tr>
+<tr>
+<td align="center">Output Variable</td>
+<td align="center">Input Variable</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(y_{i}\)</span></td>
+<td align="center"><span class="arithmatex">\(x_{i}, x_{i,j}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following notation is common:</p>
+<ul>
+<li><span class="arithmatex">\(i\)</span>: Observation Index</li>
+<li><span class="arithmatex">\(j\)</span>: Variable Index</li>
+<li>Most subscripts follow (Observation, Variable)</li>
+</ul>
+</div>
+<p>Within the above, they are further split by their <strong>nature</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Quantitative Variable</strong></th>
+<th align="center"><strong>Qualitative Variable</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Continuous Values</td>
+<td align="center">Discrete Categories</td>
+</tr>
+<tr>
+<td align="center">EG. 3.14, 1.849</td>
+<td align="center">EG. North, South, East &amp; West</td>
+</tr>
+<tr>
+<td align="center"><strong>Regression</strong> Problem</td>
+<td align="center"><strong>Classification</strong> Problem</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Categorical variables are more generally represented by a <strong>discrete number</strong>. For instance:</p>
+<ul>
+<li>True (1), False (0)</li>
+<li>North (0), East (1), South (2), West (4)</li>
+</ul>
+<p>If there the <strong>order of the categories</strong> are important, then they are known as <strong>Ordinal variables</strong>. If not, they are known as <strong>Nominal Variables</strong>.</p>
+</div>
+<p>There are two broad categories of <strong>how the "learning" occurs</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Supervised</strong></th>
+<th align="center"><strong>Unsupervised</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Has a specified Indpendent Variable</td>
+<td align="center">No Independent Variable</td>
+</tr>
+<tr>
+<td align="center">To identify what influences <span class="arithmatex">\(y\)</span></td>
+<td align="center">To identify patterns in the data</td>
+</tr>
+<tr>
+<td align="center">EG. Linear Regression</td>
+<td align="center">EG. Principal Component Analysis</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key focus of the majority of the exam will be on <strong>Supervised learning</strong>, unless otherwise stated. A relatively small portion on Unsupervised learning will be covered towards the end.</p>
+<p>There technically exists a special class of learning known as <strong>Semi-Supervised</strong>, which typically occurs due to a lack of complete data. It is out of scope for the purposes of this exam.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Unsupervised learning can also be used to <strong>create new features</strong> to be used in the data, via principal component analysis.</p>
+</div>
+<p>Within <strong>Supervised learning</strong> methods, it can be further broken down into two forms:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Parametric</strong></th>
+<th align="center"><strong>Non-parametric</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Assumes a <strong>functional form</strong> for the relationship</td>
+<td align="center"><strong>No assumption</strong> made about relationship</td>
+</tr>
+<tr>
+<td align="center"><strong>Equation with parameters</strong> to be estimated</td>
+<td align="center">Algorithmic method with <strong>no parameters</strong></td>
+</tr>
+<tr>
+<td align="center">More Robust (Less sensitive) to data changes</td>
+<td align="center">Less Robust (More sensitive) to data changes</td>
+</tr>
+<tr>
+<td align="center">Does not require as large a dataset</td>
+<td align="center">Requires <strong>large dataset</strong> to work well</td>
+</tr>
+<tr>
+<td align="center">EG. Linear Regression</td>
+<td align="center">EG. Decision Trees</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Non-Parametric models will outperform parametric ones when the assumed functional form is different from what was specified.</p>
+<p>This tends to occur when the underlying data generating process is <strong>complicated</strong>, as most specified functional forms are not that complicated (EG. <em>Linear</em> regression).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Parametric tends to be more robust likely because they have an underlying functional form to anchor them; non-parametric methods are so to speak “at the mercy of the data”.</p>
+</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="METHOD_OVERVIEW" class="center" src="../Assets/1.%20Statistical%20Learning.md/METHOD_OVERVIEW.png" /></p>
+<p>Lastly, there are two main aspects to evaluate a model:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Flexibility</strong></th>
+<th align="center"><strong>Interpretability</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">How closely the model <strong>follows</strong> the data</td>
+<td align="center">How easy it is to <strong>understand</strong> the model</td>
+</tr>
+<tr>
+<td align="center">Used for <strong>Prediction</strong>; determining values</td>
+<td align="center">Used for <strong>Inference</strong>; understanding relationships</td>
+</tr>
+<tr>
+<td align="center"><strong>Directly proportional</strong> to the number of parameters</td>
+<td align="center"><strong>Inversely proportional</strong> to the number of parameters</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Prediction</strong>: How much will a home be worth given its <strong>overall characteristics</strong>?</li>
+<li><strong>Inference</strong>: How much <em>more</em> will a home be worth if it has a <strong>specific characteristic</strong>?</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If prediction is the only focus, then understanding <em>how</em> the model arrives at the prediction is less irrelevant; as long as the prediction is reliable.</p>
+<p>This is especially so for complex models, which are typically referred to as “Black Boxes” where the users do not have “visibility” on the inner workings of the model.</p>
+</div>
+<p>The key is understanding that both are at odds with one another. Highly flexible models that tend to have <strong>complex mathematical components</strong> that allow it to match the data, at the cost of being <strong>unable to inuitively explain</strong> the relationship.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Less flexible models are <strong>smoother</strong> because they do NOT try to match the idiosyncrasies of the data:</p>
+<ul>
+<li><strong>LHS</strong>: Less Flexible but easier to intepret (Linear relationship)</li>
+<li><strong>RHS</strong>: More flexible but harder to intepret (Complex relationship)</li>
+</ul>
+<p><!-- Obtained from Coaching Actuaries -->
+<img alt="FLEXIBILITY_INFERENCE" class="center" src="../Assets/1.%20Statistical%20Learning.md/FLEXIBILITY_INFERENCE.png" /></p>
+</div>
+<!-- Obtained from ISLR -->
+<p><img alt="METHOD_OVERVIEW_2" class="center" src="../Assets/1.%20Statistical%20Learning.md/METHOD_OVERVIEW_2.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Despite linear regression being more interpretable than trees, the ISLR author has also noted that <strong>Trees are "easier to explain" than linear regression</strong>.</p>
+<p>Although both intepretability and ease of explanation usually refer to the same thing, for the purposes of this exam treat them as <strong>seperate</strong>.</p>
+<p>The author notes that the <strong>interpretability is in the eye of the beholder</strong> - some prefer the coefficients from linear regression while others prefer to the tree visual - one or the other can be easier to explain to different parties.</p>
+</div>
+<h2 id="regression"><strong>Regression</strong><a class="headerlink" href="#regression" title="Permanent link">&para;</a></h2>
+<h3 id="specification"><strong>Specification</strong><a class="headerlink" href="#specification" title="Permanent link">&para;</a></h3>
+<p>There exists a <strong>true relationship</strong> between the Dependent and Independent Variables:</p>
+<div class="arithmatex">\[
+    Y = f(X_{i}) + \varepsilon 
+\]</div>
+<p>The above can be understood as the combination of:</p>
+<ul>
+<li><strong>Signal</strong>: <strong>Systematic</strong> relationship between <span class="arithmatex">\(Y\)</span> and <span class="arithmatex">\(X\)</span>'s</li>
+<li><strong>Noise</strong>: <strong>Unpredictable</strong> random variations (also known as the <strong>Error</strong>)</li>
+</ul>
+<p>In the above, both <span class="arithmatex">\(Y\)</span> and <span class="arithmatex">\(X\)</span> are random variables. However, for statistical learning, we are interested in knowing what the value of <span class="arithmatex">\(Y\)</span> is <strong>GIVEN a set of realized <span class="arithmatex">\(X\)</span>'s</strong>. Thus, we are focused on the <strong>Conditional Distribution</strong> of <span class="arithmatex">\(Y \mid X\)</span>. The prediction is the <strong>expected value</strong> of this conditional distribution:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    Y \mid X = x_{i} &amp;\sim f(x_{i}) \\
+    E(Y \mid X = x_{i}) &amp;= E \left[f(x_{i}) \right] + E(\varepsilon \mid X = x_{i}) \\
+    E(Y \mid X = x_{i}) &amp;= f(x_{i})
+\end{aligned}
+\]</div>
+<p>The signal function is known what is commonly referred to as the <strong>Regression Model</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is a <strong>need to differentiate</strong> the Conditional and Unconditional expectations. Recall the law of total expectation:</p>
+<div class="arithmatex">\[
+    E(Y) = \sum E(Y \mid X = x_{i}) \cdot P(X = x_{i}) 
+\]</div>
+<p>There is no need for the unconditional expectation in a regression setting as we already have a realized value of <span class="arithmatex">\(X\)</span> that we are interested in using; there is no probability involved.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two points to take note of:</p>
+<ol>
+<li>The systematic relationship results in constant, thus the expectation is itself</li>
+<li>The mean of the error is 0, reflecting that random events are typically symmetrical</li>
+</ol>
+</div>
+<p>It is important to understand that the regression model is the <strong>MEAN, not the actual observations</strong> of <span class="arithmatex">\(Y\)</span>:</p>
+<!-- Obtained from Colorado Uni -->
+<p><img alt="CONDITIONAL_EXPECTATION" class="center" src="../Assets/1.%20Statistical%20Learning.md/CONDITIONAL_EXPECTATION.png" /></p>
+<!-- Obtained from Cloudera -->
+<p><img alt="ERROR_TERM" class="center" src="../Assets/1.%20Statistical%20Learning.md/ERROR_TERM.png" /></p>
+<p>The true specification for the <strong>Population Regression Model</strong> (<span class="arithmatex">\(f\)</span>) is unknown. Different statistical learning methods assume a <strong>different form for <span class="arithmatex">\(f\)</span></strong>, which is then estimated based on the sample to obtain a <strong>Sample Regression Model</strong> <span class="arithmatex">\(\hat{f}\)</span>.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The process of estimating <span class="arithmatex">\(\hat{f}\)</span> is also known as "Training" the model. It also sometimes referred to as "Fitting" the model to the data.</p>
+</div>
+<p>The fitted <span class="arithmatex">\(\hat{f}\)</span> is the <strong>estimator of the mean of the conditional distribution</strong>. Consequently, the difference between the observation and the fitted model is known as the <strong>Residual</strong>, which is the <strong>estimator of the error</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    y_{i}
+    &amp;= \hat{f} + \hat{\varepsilon} \\
+    &amp;= \widehat{E(Y \mid X)} + \hat{\varepsilon} \\
+    &amp;= \hat{y} + \hat{\varepsilon}
+\end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For simplicity, the estimate of the mean of the conditional distribution is denoted as <span class="arithmatex">\(\hat{y}\)</span>. <strong>DO NOT</strong> confuse this as the estimate of the actual observation!</p>
+<p>The residuals are also sometimes noted as <span class="arithmatex">\(e_{i}\)</span> for convenience.</p>
+</div>
+<!-- Self Made -->
+<p><img alt="ERROR_VS_RESIDUALS" class="center" src="../Assets/1.%20Statistical%20Learning.md/ERROR_VS_RESIDUALS.png" /></p>
+<p>If <span class="arithmatex">\(\hat{f}\)</span> was correctly specified and fitted, the resulting residuals should exhibit the <strong>same characteristics</strong> as the underlying errors. This is important, as many statistical learning methods make <strong>assumptions about the nature of the Errors</strong>. Thus, the residuals can be used to <strong>check the validity of the assumptions</strong> or make other inferences.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For simplicity, the above diagrams were illustrated using Simple Linear Regression. However, the concepts apply more generally to all statistical learning methods.</p>
+</div>
+<h3 id="evaluation"><strong>Evaluation</strong><a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h3>
+<p>The main goal of the model is to be <strong>used for prediction</strong>. Thus, the strength of the model should be evaluated based on its ability to make <strong>accurate predictions</strong>.</p>
+<p>The key consideration lies in <strong>Overfitting</strong>. If the model matches the underlying sample too closely, it will <strong>mistakenly capture the noise present as a signal</strong>. This impedes its ability to make accurate predictions. Thus, the model must be tested on data that was not used to train it:</p>
+<ul>
+<li><strong>Training Data</strong>: Observations that were used to train model</li>
+<li><strong>Test Data</strong>: Obervations that were NOT used to train the model</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Operationally, this implies that the sample should be partitioned at the start of the process.</p>
+</div>
+<p>The above concerns can be quantified using the <strong>Mean Squared Error</strong> (MSE):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{MSE}_{\text{Training}}
+    &amp;= \frac{\sum (y_{i, \text{Training}} - \hat{y}_{i})^{2}}{n_{\text{Training}}} \\
+    \\
+    \text{MSE}_{\text{Test}}
+    &amp;= \frac{\sum (y_{i, \text{Test}} - \hat{y}_{i})^{2}}{n_{\text{Test}}}    
+\end{aligned}
+\]</div>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Training MSE</strong></th>
+<th align="center"><strong>Test MSE</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Based on Training Set</td>
+<td align="center">Based on Test Set</td>
+</tr>
+<tr>
+<td align="center">Measure of <strong>Flexibility</strong></td>
+<td align="center">Measure of <strong>Accuracy</strong></td>
+</tr>
+<tr>
+<td align="center">Moderate is better</td>
+<td align="center">Lower is better</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>The two share the following relationships:</p>
+<ul>
+<li><strong>Training MSE is always lower</strong> than test MSE since the model was fit based on the training data</li>
+<li><strong>Training MSE decreases with flexibility</strong> since more flexible models are <strong>better able to match</strong> the data</li>
+<li><strong>Test MSE has a U-Shape</strong> reflecting that models which are too inflexible <strong>may not capture the signal</strong> while those that are too flexible may <strong>capture the wrong signal</strong></li>
+<li>Thus, the <strong>large difference</strong> in the two MSEs is a result of high flexibility (overfitting)</li>
+</ul>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="TRAINING_TEST_MSE" class="center" src="../Assets/1.%20Statistical%20Learning.md/TRAINING_TEST_MSE.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A quick way to view how accurate the predictions are would be to plot the original value (<span class="arithmatex">\(y\)</span>) against the predicted value (<span class="arithmatex">\(\hat{y}\)</span>), with an identity line:</p>
+<p><!-- Obtained from coaching actuaries -->
+<img alt="IDENTITY_PLOT" class="center" src="../Assets/1.%20Statistical%20Learning.md/IDENTITY_PLOT.png" /></p>
+<p>Predictions that are accurate will be <strong>along the line</strong>; the further away a observation is from the line, the more far off the prediction. </p>
+</div>
+<p>Recall that the MSE can be decomposed into a combination of <strong>Bias and Variance</strong>. In a regression context, there is an <strong>additional component</strong> representing the error term as well:</p>
+<ul>
+<li><strong>Reducible</strong>: Error stemming from the <strong>choice</strong> of <span class="arithmatex">\(\hat{f}\)</span></li>
+<li><strong>Irreducible</strong>: Error stemming from <strong>inherent variability</strong> (cannot be predicted by <span class="arithmatex">\(x\)</span>)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{MSE}
+    &amp;= \underbrace{(\text{Bias}[f(x_{i})])^{2} + \mathrm{Var}[f(x_{i})]}_{\text{Reducible}}
+    + \underbrace{\mathrm{Var}(\varepsilon)}_{\text{Irreducible}}    
+\end{aligned}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Thus, the primary goal of statistical learning is to estimate <span class="arithmatex">\(\hat{f}\)</span> that the reducible error is minimized.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some texts may refer to the above as:</p>
+<ul>
+<li><strong>Accuracy</strong> (Bias) - Error from by <strong>approximating</strong> <span class="arithmatex">\(f\)</span> (real world, complicated) with a simpler model (<span class="arithmatex">\(\hat{f}\)</span>)</li>
+<li><strong>Precision</strong> (Variance) - Error from <strong>changes</strong> in <span class="arithmatex">\(\hat{f}\)</span> across different samples  </li>
+</ul>
+<p>Although they are used interchangeably in day to day conversations, they have a <strong>specific meaning</strong> in a statistical context.</p>
+</div>
+<p>It is <strong>not possible to minimize both</strong>; there is an inverse relationship known as the <strong>Bias-Variance Tradeoff</strong> which results in the U-shaped curve:</p>
+<ul>
+<li>Increasing complexity <strong>decreases bias</strong> as it allows the model to <strong>capture the signal</strong></li>
+<li>However, it also <strong>increases variance</strong> as the model will <strong>mistakenly pick up noise</strong> in the data as signal</li>
+<li>Initially, the reduction in bias is higher as the model <strong>rapidly improves</strong></li>
+<li>However, once majority of the signal has been captured, <strong>more noise will be increasingly captured</strong>, causing the increase in variance to be higher</li>
+<li>Thus, the goal is to choose a model with <strong>moderate amount of flexibility</strong> to minimize the MSE</li>
+</ul>
+<!-- Obtained from Geek for Geeks -->
+<p><img alt="BIAS_VARIANCE_TRADEOFF" class="center" src="../Assets/1.%20Statistical%20Learning.md/BIAS_VARIANCE_TRADEOFF.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The MSE curve is floored at the line representing the irreducible variance.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The inversion of test MSE depends largely on the underlying data generating process:</p>
+<ul>
+<li><strong>LHS</strong>: Underlying process is of moderate complexity (Typical case described above) </li>
+<li><strong>Center</strong>: Underlying process is simple, thus <strong>low flexibility</strong> methods are sufficient (<strong>Benefits less</strong> from Bias reduction)</li>
+<li><strong>RHS</strong>: Underlying process is complicated, thus <strong>high flexibility</strong> methods needed (<strong>Benefits more</strong> from Bias reduction)</li>
+</ul>
+<p>The inversion of the curve thus depends on the underlying functional form - whenever the marginal benefit from Bias reduction falls off.</p>
+<p><!-- Obtained from ISLR -->
+<img alt="BIAS_MSE_CASES" class="center" src="../Assets/1.%20Statistical%20Learning.md/BIAS_MSE_CASES.png" /></p>
+<p>Thus, even simpler methods can have high predictive accuracy. There is <strong>NO universal best</strong> learning method across all datasets; it is about choosing the best method for the data.</p>
+</div>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Under-fitting</strong></th>
+<th align="center"><strong>Over-fitting</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">High Bias, Low Variance</td>
+<td align="center">Low Bias, High Variance</td>
+</tr>
+<tr>
+<td align="center">High training, Low test MSE</td>
+<td align="center">Low training, High test MSE</td>
+</tr>
+<tr>
+<td align="center">Fail to capture the noise</td>
+<td align="center">Mistakenly captures noise</td>
+</tr>
+<tr>
+<td align="center">Not flexible enough</td>
+<td align="center">Too flexible</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<!-- Obtained from ACTEX Manual -->
+<p><img alt="UNDER_OVER_FITTING" class="center" src="../Assets/1.%20Statistical%20Learning.md/UNDER_OVER_FITTING.png" /></p>
+<h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
+<p>Recall that <strong>Confidence Intervals</strong> are a range of values that the <strong>true parameter</strong> will fall within for a given level of confidence. In a regression setting, recall that the model is estimating the <strong>mean of the conditional distribution</strong>; a parameter. Thus, the confidence interval for a model measures the <strong>range of values for <span class="arithmatex">\(E(Y \mid X)\)</span></strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the case of Parametric learning methods, the estimate of each parameter that goes into <span class="arithmatex">\(\hat{f}\)</span> will also have an associated confidence interval.</p>
+</div>
+<p>On the other hand, <strong>Prediction Intervals</strong> are the range of values that a <strong>REALIZATION of a random variable</strong> will fall within for a given level of confidence. In a regression setting, this refers to the <strong>ACTUAL dependent variable itself</strong>, not the mean.</p>
+<p>Note that since the actual dependent variable is a combination of the mean and the error term, the resulting prediction interval will <strong>always be wider than the confidence interval</strong>, reflecting the additional variance from the error term:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Prediction Interval</strong></th>
+<th align="center"><strong>Confidence Interval</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Range of Random Variable</td>
+<td align="center">Range of Parameters</td>
+</tr>
+<tr>
+<td align="center">Range for <span class="arithmatex">\(Y \mid X\)</span></td>
+<td align="center">Range of <span class="arithmatex">\(E(Y \mid X)\)</span></td>
+</tr>
+<tr>
+<td align="center">Mean &amp; Error Term</td>
+<td align="center">Mean only</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Both Confidence and Prediction Intervals are expressed using the <strong>same general formula</strong>:</p>
+<div class="arithmatex">\[
+    \text{Interval} = \text{Estimate} \pm \text{Percentile} \cdot \text{SE of Estimate}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For a prediction interval, the prediction is technically not an estimate; the term above is used for simplicity.</p>
+</div>
+<!-- Obtained from Datacamp -->
+<p><img alt="PREDICTION_CONFIDENCE" class="center" src="../Assets/1.%20Statistical%20Learning.md/PREDICTION_CONFIDENCE.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Intuitively, the confidence interval represents the uncertainty arising from the <strong>reducible variance</strong> while the prediction interval additionally includes the <strong>irreducible variance</strong> from inherent randomness.</p>
+<p>In an extreme example, the confidence interval will <strong>shrink to 0</strong> as the sample size increases to the population, but the prediction interval will always <strong>at least be equal to the variance of the error</strong>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \lim_{n \to \infty} (\text{CI}) &amp;= 0 \\
+    \lim_{n \to \infty} (\text{PI}) &amp;= \text{Var}(\varepsilon)
+\end{aligned}
+\]</div>
+</div>
+<h2 id="classification-problems"><strong>Classification Problems</strong><a class="headerlink" href="#classification-problems" title="Permanent link">&para;</a></h2>
+<p>Almost all of the key concepts from a Regression context applies in a classification context as well. The key difference being instead of measuring the absolute error, the <strong>error rate</strong> is used instead:</p>
+<div class="arithmatex">\[
+    \text{Error Rate} = \frac{\text{Number of Correct Classifications}}{n}
+\]</div>
+<p>The <strong>Bayes Error Rate</strong> is known as the <strong>lowest possible error rate</strong>, akin to the <strong>irreducible error</strong> that arises due to the noise in the data itself.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Bayes Error Rate is the error rate that is achieved when using a <strong>Bayes Classifier</strong>, which is a <strong>conceptual model</strong> that assigns observations to the category with the <strong>highest probability</strong>, given the predictor values. It is conceptual because in reality it is NOT possible to know the conditional probabilities for each class.</p>
+<p>Graphically, the above can be described using a <strong>Decision Boundary</strong>:</p>
+<ul>
+<li>LHS of boundary: Classified as Orange</li>
+<li>RHS of boundary: Classified as Blue</li>
+</ul>
+<p><!-- Obtained from ISLR -->
+<img alt="BAYES_DECISION_BOUNDARY" class="center" src="../Assets/1.%20Statistical%20Learning.md/BAYES_DECISION_BOUNDARY.png" /></p>
+</div>
+<p>Assume that there are two categories (A, B) and that <strong>population probabilities are known</strong> (since all available information is used). Based on this, such a model would assign categories based on the probability:</p>
+<ul>
+<li>The category with the <strong>highest probability</strong> for that observation will be assigned the prediction</li>
+<li>However, there is <strong>no guarantee</strong> that the actual observation will be that category</li>
+<li>Thus, the probability that it is <strong>NOT the highest probability category</strong> is the error rate</li>
+</ul>
+<p>The <strong>Bayes Error Rate</strong> is determined using the above for all combinations of the independent variables:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Bayes Error Rate}
+    &amp;= 1 - E \left(\max P \left(Y = j \mid X \right) \right) \\
+    &amp;= 1 - \frac{\sum \max P \left(Y = j \mid X \right)}{n}
+\end{aligned}
+\]</div>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="BAYES_PROBABILITY" class="center" src="../Assets/1.%20Statistical%20Learning.md/BAYES_PROBABILITY.png" /></p>
+<h3 id="confusion-matrix"><strong>Confusion Matrix</strong><a class="headerlink" href="#confusion-matrix" title="Permanent link">&para;</a></h3>
+<p>One problem with the classification error rate is that it does not consider the distribution of the true and false predictions. Thus, the results can be expressed in the form of a <strong>Confusion Matrix</strong> to gain a better understanding:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{Sensitivity}
+    &amp;= \text{True Positive Rate} \\
+    &amp;= \frac{\text{Number of true positives}}{\text{Number of actually positives}} \\
+    &amp;= 1 - \text{False Negative Rate} \\
+    \\
+    \text{Specificity}
+    &amp;= \text{True Negative Rate} \\
+    &amp;= \frac{\text{Number of true negatives}}{\text{Number of actually negative}} \\
+    &amp;= 1 - \text{False Positive Rate} \\
+\end{aligned}
+\]</div>
+<!-- Obtained from Glassboxmedicine -->
+<p><img alt="CONFUSION_MATRIX" class="center" src="../Assets/1.%20Statistical%20Learning.md/CONFUSION_MATRIX.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The order of the confusion matrix is dependent on the person constructing it - always check to ensure that the correct quantity is used.</p>
+</div>
+<h3 id="auc"><strong>AUC</strong><a class="headerlink" href="#auc" title="Permanent link">&para;</a></h3>
+<p>Classification problems are <strong>sensitive to the choice of cutoff</strong>, resulting in vastly different results. For every set of predictions, there exists a <strong>set of cutoffs</strong> that will result in different classifications.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Depending on the number of predictions and the predictions themselves, the classifications will only change if the cutoff is changed past a certain threshold.</p>
+</div>
+<p>Thus, plot the sensitivity and specificity for all possible cutoff values, known as the <strong>Receiver Operating Characteristic</strong> (ROC) Curve. The theoretical best possible point is the top left corner, which represents the <strong>highest possible sensitivity AND specificity</strong>. Thus, the optimal cutoff is the one that corresponds to a the <strong>top-leftmost point on the curve</strong>, which often represents the <strong>best possible combination</strong> of the two metrics:</p>
+<!-- Obtained from Research Gate -->
+<p><img alt="ROC_CURVE" class="center" src="../Assets/1.%20Statistical%20Learning.md/ROC_CURVE.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The x-axis is showing the <strong>COMPLEMENT of the specificity</strong>. Different softwares might instead plot the specificity <strong>starting from 1 and decreasing</strong> - both are equivalent.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There is often a trade-off between the two metrics as prioritizing one will result in a deterioration of the other. For instance, if a model prioritizes Sensitivity, it wants to decrease false negatives, which is done by being <strong>less strict</strong> with a lower cutoff. Consequently, this will <strong>increase the false positive rate</strong>, which lowers specificity.</p>
+<p>Contextual information is required to make a decision on which should be prioritized.</p>
+</div>
+<p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). The higher the AUC, the more cutoff points there are that provide higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models. However, it does not provide a method of choosing a specific cutoff value.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../0.%20Review%20of%20Statistical%20Theory/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Review of Statistical Theory" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Review of Statistical Theory
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2.%20Simple%20Linear%20Regression/" class="md-footer__link md-footer__link--next" aria-label="Next: Simple Linear Regression" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Simple Linear Regression
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../../../config/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>
