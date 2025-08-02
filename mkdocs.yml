@@ -7,68 +7,63 @@ theme:
     scheme: slate
 
 nav:
-  - Practical Exam Tips: 0. Practical Exam Tips.md
   - Introductory:  
-    - Review of Mathematics: 1. Introductory\0. Review of Mathematics.md
-    - ASA-P: Placeholder.md
-    - ASA-FM: Placeholder.md
-    - ASA-IFM:
+    - Review of Mathematics: 1_INTRODUCTORY\0. Review of Mathematics.md
+    - ASA P: Placeholder.md
+    - ASA FM: Placeholder.md
+    - ASA IFM:
       - Derivatives:
-        - Introduction: 1. Introductory\3. ASA-IFM\1. Derivatives\1. Introduction.md
-        - Options: 1. Introductory\3. ASA-IFM\1. Derivatives\3. Options.md
-        - Binomial Model: 1. Introductory\3. ASA-IFM\1. Derivatives\5. Binomial Model.md
-        - Black Scholes Model: 1. Introductory\3. ASA-IFM\1. Derivatives\6. Black Scholes Model.md
+        - Introduction: 1_INTRODUCTORY\2_ASA_IFM\1. Derivatives\1. Introduction.md
+        - Options: 1_INTRODUCTORY\2_ASA_IFM\1. Derivatives\3. Options.md
+        - Binomial Model: 1_INTRODUCTORY\2_ASA_IFM\1. Derivatives\5. Binomial Model.md
+        - Black Scholes Model: 1_INTRODUCTORY\2_ASA_IFM\1. Derivatives\6. Black Scholes Model.md
       - Corporate Finance:
-        - Risk Measures: 1. Introductory\3. ASA-IFM\3. Corporate Finance\3. Risk Measures.md
+        - Risk Measures: 1_INTRODUCTORY\2_ASA_IFM\3. Corporate Finance\3. Risk Measures.md
   - Actuarial Mathematics:
-    - ASA-FAMS:
-      - Short Term Insurance: 2. Actuarial Mathematics\1. ASA-FAMS\0. Short Term Insurance.md
-      - Review of Probability Theory: 2. Actuarial Mathematics\1. ASA-FAMS\1. Review of Probability Theory.md
-      - Frequency Models: 2. Actuarial Mathematics\1. ASA-FAMS\2. Frequency Models.md
-      - Severity Models: 2. Actuarial Mathematics\1. ASA-FAMS\3. Severity Models.md
-      - Policy Modifications: 2. Actuarial Mathematics\1. ASA-FAMS\4. Policy Modifications.md
-      - Aggregate Models: 2. Actuarial Mathematics\1. ASA-FAMS\5. Aggregate Models.md
-      - Loss Reserving: 2. Actuarial Mathematics\1. ASA-FAMS\6. Loss Reserving.md
-      - Ratemaking: 2. Actuarial Mathematics\1. ASA-FAMS\7. Ratemaking.md
-      - Model Estimation: 2. Actuarial Mathematics\1. ASA-FAMS\8. Model Estimation.md
-      - Credibility Theory: 2. Actuarial Mathematics\1. ASA-FAMS\9. Credibility Theory.md
-    - ASA-FAML:
-      - Long Term Insurance: 2. Actuarial Mathematics\2. ASA-FAML\0. Long Term Insurance.md
-      - Survival Models: 2. Actuarial Mathematics\2. ASA-FAML\1. Survival Models.md
-      - Life Tables: 2. Actuarial Mathematics\2. ASA-FAML\2. Life Tables.md
-      - Life Assurances: 2. Actuarial Mathematics\2. ASA-FAML\3. Life Assurances.md
-      - Life Annuities: 2. Actuarial Mathematics\2. ASA-FAML\4. Life Annuities.md
-      - Variable Benefits: 2. Actuarial Mathematics\2. ASA-FAML\5. Variable Benefits.md
-      - Premiums: 2. Actuarial Mathematics\2. ASA-FAML\6. Premiums.md
-      - Reserves: 2. Actuarial Mathematics\2. ASA-FAML\7. Reserves.md
-      - Model Estimation: 2. Actuarial Mathematics\2. ASA-FAML\8. Model Estimation.md
-    - ASA-ALTAM:
-      - Multi Life Models: 2. Actuarial Mathematics\3. ASA-ALTAM\1. Multi Life Models.md
-      - Multi Decrement Models: 2. Actuarial Mathematics\3. ASA-ALTAM\2. Multi Decrement Models.md
-      - Multi State Models: 2. Actuarial Mathematics\3. ASA-ALTAM\3. Multi State Models.md
-      - Multi State Applications: 2. Actuarial Mathematics\3. ASA-ALTAM\4. Multi State Applications.md
-      - Profit Testing: 2. Actuarial Mathematics\3. ASA-ALTAM\5. Profit Testing.md
-      - Universal Life: 2. Actuarial Mathematics\3. ASA-ALTAM\6. Universal Life.md
-      - Embedded Options: 2. Actuarial Mathematics\3. ASA-ALTAM\7. Embedded Options.md
-      - Pensions: 2. Actuarial Mathematics\3. ASA-ALTAM\8. Pensions.md
+    - ASA FAMS:
+      - Short Term Insurance: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\0. Short Term Insurance.md
+      - Review of Probability Theory: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\1. Review of Probability Theory.md
+      - Frequency Models: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\2. Frequency Models.md
+      - Severity Models: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\3. Severity Models.md
+      - Policy Modifications: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\4. Policy Modifications.md
+      - Aggregate Models: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\5. Aggregate Models.md
+      - Loss Reserving: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\6. Loss Reserving.md
+      - Ratemaking: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\7. Ratemaking.md
+      - Model Estimation: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\8. Model Estimation.md
+      - Credibility Theory: 2_ACTUARIAL_MATHEMATICS\0_ASA_FAMS\9. Credibility Theory.md
+    - ASA FAML:
+      - Long Term Insurance: 2_ACTUARIAL_MATHEMATICS\1_ASA_FAML\0. Long Term Insurance.md
+      - Survival Models: 2_ACTUARIAL_MATHEMATICS\1_ASA_FAML\1. Survival Models.md
+      - Life Tables: 2_ACTUARIAL_MATHEMATICS\1_ASA_FAML\2. Life Tables.md
+      - Life Assurances: 2_ACTUARIAL_MATHEMATICS\1_ASA_FAML\3. Life Assurances.md
+      - Life Annuities: 2_ACTUARIAL_MATHEMATICS\1_ASA_FAML\4. Life Annuities.md
+      - Variable Benefits: 2_ACTUARIAL_MATHEMATICS\1_ASA_FAML\5. Variable Benefits.md
+      - Premiums: 2_ACTUARIAL_MATHEMATICS\1_ASA_FAML\6. Premiums.md
+      - Reserves: 2_ACTUARIAL_MATHEMATICS\1_ASA_FAML\7. Reserves.md
+      - Model Estimation: 2_ACTUARIAL_MATHEMATICS\1_ASA_FAML\8. Model Estimation.md
+    - ASA ALTAM:
+      - Multi Life Models: 2_ACTUARIAL_MATHEMATICS\2_ASA_ALTAM\1. Multi Life Models.md
+      - Multi Decrement Models: 2_ACTUARIAL_MATHEMATICS\2_ASA_ALTAM\2. Multi Decrement Models.md
+      - Multi State Models: 2_ACTUARIAL_MATHEMATICS\2_ASA_ALTAM\3. Multi State Models.md
+      - Multi State Applications: 2_ACTUARIAL_MATHEMATICS\2_ASA_ALTAM\4. Multi State Applications.md
+      - Profit Testing: 2_ACTUARIAL_MATHEMATICS\2_ASA_ALTAM\5. Profit Testing.md
+      - Universal Life: 2_ACTUARIAL_MATHEMATICS\2_ASA_ALTAM\6. Universal Life.md
+      - Embedded Options: 2_ACTUARIAL_MATHEMATICS\2_ASA_ALTAM\7. Embedded Options.md
+      - Pensions: 2_ACTUARIAL_MATHEMATICS\2_ASA_ALTAM\8. Pensions.md
   - Predictive Analytics: 
-    - ASA-SRM:
-      - Review of Statistical Theory: 3. Predictive Analytics/1. ASA-SRM/0. Review of Statistical Theory.md
-      - Statistical Learning: 3. Predictive Analytics/1. ASA-SRM/1. Statistical Learning.md
-      - Simple Linear Regression: 3. Predictive Analytics/1. ASA-SRM/2. Simple Linear Regression.md
-      - Multiple Linear Regression: 3. Predictive Analytics/1. ASA-SRM/3. Multiple Linear Regression.md
-      - Linear Regression Assumptions: 3. Predictive Analytics/1. ASA-SRM/4. Linear Regression Assumptions.md
-      - Model Selection: 3. Predictive Analytics/1. ASA-SRM/5. Model Selection.md
-      - Generalized Linear Models: 3. Predictive Analytics/1. ASA-SRM/6. Generalized Linear Models.md
-      - Tree Models: 3. Predictive Analytics/1. ASA-SRM/7. Tree Models.md
-      - Principal Components: 3. Predictive Analytics/1. ASA-SRM/8. Principal Components.md
-      - Clustering: 3. Predictive Analytics/1. ASA-SRM/9. Clustering.md
-      - Time Series: 3. Predictive Analytics/1. ASA-SRM/10. Time Series.md
-    - ASA-PA: Placeholder.md
-  - ILA Track:
-    - FSA-LPM: Placeholder.md
-    - FSA-LFM: Placeholder.md
-    - FSA-ALM: Placeholder.md
+    - ASA SRM:
+      - Review of Statistical Theory: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/0. Review of Statistical Theory.md
+      - Statistical Learning: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/1. Statistical Learning.md
+      - Simple Linear Regression: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/2. Simple Linear Regression.md
+      - Multiple Linear Regression: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/3. Multiple Linear Regression.md
+      - Linear Regression Assumptions: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/4. Linear Regression Assumptions.md
+      - Model Selection: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/5. Model Selection.md
+      - Generalized Linear Models: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/6. Generalized Linear Models.md
+      - Tree Models: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/7. Tree Models.md
+      - Principal Components: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/8. Principal Components.md
+      - Clustering: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/9. Clustering.md
+      - Time Series: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/10. Time Series.md
+    - ASA PA: Placeholder.md
 
 markdown_extensions:
 
