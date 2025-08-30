@@ -63,7 +63,8 @@ nav:
       - Principal Components: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/8. Principal Components.md
       - Clustering: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/9. Clustering.md
       - Time Series: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/10. Time Series.md
-    - ASA PA: Placeholder.md
+    - ASA PA:
+      - Overview: 3_PREDICTIVE_ANALYTICS/1_ASA_PA/0_OVERVIEW.md
 
 markdown_extensions:
 
