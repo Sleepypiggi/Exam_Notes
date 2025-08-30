@@ -1,65 +1,76 @@
 # **Data Exploration**
 
+## Data Types
 
+For the purposes of this exam, there are only three types of data:
 
+1. Continuous (Running numbers)
+2. Counts (Whole numbers)
+3. Factors (Fixed set of values - Numeric or text)
 
-Types
-Continuous (Decimals)
-Count (Whole Numbers)
-Factors (Fixed set of values - numeric or text)
+!!! Warning
 
-From a data analysis purpose, assumed that there are no free texts - Any text related data is a factor
+    Notice that there are NO free text variables. Any text related field is assumed to be part of a factor.  
 
-Possible values are known as levels
-Factors can also be represented using numbers but should not be treated as counts
-Counts are free ranging, factors have a limit
-Two levels then often called binary
+The possible values of a factor are known as its **Levels**. For simplicity, they can also be expressed as integers - but the difference between them and counts are that factors have an **upper limit**.
 
-Continuous and Count data can be transformed into count data by grouping them
+Both Continuous and Count data can be transformed into Factors by **grouping** them into **Bins**:
 
+* Factor Level 1: 0-10
+* Factor Level 2: 11-20
+* Factor Level 3: 20 and above
+
+<—- Insert Image —>
 
 Cont and count are factual, just numbers so nothing much to say but factors can change depending on the analyst
 Dimensionality (Quantity) - How many levels are there in the factor
 Granularity (Quality) - How distinct are the levels?
 Dimensionality can always be used to compare but granularity must be the same rning
 
-## **Exploratory Data Analysis**
+## **Data Exploration**
 
-Summary of the dataset
+### **Univariate Analysis**
 
-Univariate Analysis
-Analyzing only one variable
+The following summary metrics can be used when analyzing one variable at a time:
 
+<center>
 
-Summary metrics | Continuous | Count | Factors
-Mean
-Variance
-Quantile
-Frequency
+| Metrics | Continuous | Count | Factors
+| Mean | Y | Y | N |
+| Variance | Y | Y | N |
+| Quantile | Y | Y | N |
+| Frequency | N | Y | Y
 
-Not meaningful to have frequency for continuous data because there are simply too many possibilities
+</center>
 
-Conversely, Frequency is the only thing that can be summarized for factors
+Most of the above is intuitive. The reason why frequency is not applicable for continuous data is that there are infinitely many possibilities, thus calculating the frequency for each is impractical and not meaningful.
 
-Don’t agree that count can use frequency unless it’s converted to a factor due to the smaller but still endless possibilities
+!!! Warning
 
-Histogram - Bins (Grouped into equal length)
-Bar chart - No Bins 
-Both show frequwncy
-Each bin one bar
-If continuous, too many bars and each bar is small >> not meaningful
+    The same argument can be made for Count data, though there tends to be a smaller range of Counts which makes it more realistic.
+
+Single variables can also be visualized using any of the following:
+
+* Bar Charts - Frequency (Count, Factor)
+* Histograms - Binned Frequency (Continuous)
+* Boxplots - Quantile (Continuous, Count)
+
+Similar to before, bar charts are not suited for continuous data given the infinitely many possibilities - Histograms are a much better fit.
+
+    
 Weird >> Multiple peaks, multimodal
 
-Boxplot
 Skewness as a metric
 
-Bivariate
-Count - Count
-Continuous - Continuius
-Count - Continuous
-Correlation
-Measure of linear relationship
-Indication of the strength of predictive pwoer
+### **Bivariate Analysis**
+
+The appropriateness of bivariate summary metrics depend on the combination of the type of variables:
+
+Correlation is commonly used for the following for pairs:
+
+* Continuous & Continuous
+* Count & Count
+* Continuous & Count
 
 Factor factor 
 Contingency table - frequency
