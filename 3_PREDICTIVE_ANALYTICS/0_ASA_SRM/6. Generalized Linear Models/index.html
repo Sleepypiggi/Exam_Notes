@@ -1385,10 +1385,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA PA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA PA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA PA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Placeholder/" class="md-nav__link">
-        ASA PA
+      <a href="../../1_ASA_PA/0_OVERVIEW/" class="md-nav__link">
+        Overview
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -2172,16 +2205,14 @@
 <p>If the underlying data has <strong>different subgroups with different exposures</strong>, it will be more appropriate to model the <strong>rate per exposure</strong> rather than the actual count:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \ln \mu
-    &amp;= \ln w \cdot \lambda \\
-    &amp;= \ln w + \ln \lambda \\
-    \\
-    \ln \lambda &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \dots
+    \ln \lambda &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \dots \\
+    \ln \frac{\mu}{w} &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \dots \\
+    \ln \mu &amp;= \ln w + \beta_{0} + \beta_{1} \cdot X_{1} + \dots \\
 \end{aligned}
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>To obtain the estimated count, substitute the actual exposure (w) together with the model and solve for <span class="arithmatex">\(\mu\)</span>. Due to this, the exposure is also sometimes known as an <strong>Offset</strong>.</p>
+<p>The exposure term is known as an <strong>Offset</strong>, as it is added to the original equation.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

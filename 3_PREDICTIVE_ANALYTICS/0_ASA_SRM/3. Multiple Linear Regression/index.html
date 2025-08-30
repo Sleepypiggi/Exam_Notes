@@ -1373,10 +1373,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA PA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA PA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA PA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Placeholder/" class="md-nav__link">
-        ASA PA
+      <a href="../../1_ASA_PA/0_OVERVIEW/" class="md-nav__link">
+        Overview
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -2008,6 +2041,10 @@ Var(\hat{\beta}) =
 <p class="admonition-title">Warning</p>
 <p>Only <span class="arithmatex">\(n-1\)</span> are needed because the final level <strong>can be deduced</strong> from the other variables. If the final level is included, then the variables will become <strong>Perfectly Collinear</strong>, causing problems which will be discussed in the next section. This is known as the <strong>Dummy Variable Trap</strong>.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The process of converting of a categorical variable (EG. Direction) into several dummy variables is known as Binarization.</p>
+</div>
 <p>The <strong>sum of all dummy variables must equal to 1</strong>. Consider the following two cases:</p>
 <ul>
 <li><strong>North Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 1, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
@@ -2020,7 +2057,7 @@ Var(\hat{\beta}) =
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Given the above, the choice of reference category matters as it will result in a different model altogether.</p>
+<p>Given the above, the <strong>choice of reference category matters</strong> as it will result in a different model altogether.</p>
 </div>
 <p>Dummy variables are usually used in conjunction with quantitatve ones. This creates a <strong>seperate but parallel regression line</strong> for each of the levels:</p>
 <div class="arithmatex">\[
@@ -2041,7 +2078,7 @@ Var(\hat{\beta}) =
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For instance, the production of a factory may depend on the number of <strong>Machines and Workers</strong>. However, the more machines there are, the <strong>greater the effect of an additional worker</strong>.</p>
-<p>Formally speaking, interactions are appropriate when the distribution of one variable depends on the value of another. It can be identified via faceted plots for different combinations.</p>
+<p>Formally speaking, interactions are used when the relationship between the dependent and indepenent variable <strong>depends on the value of another independent variable</strong>. Thus, it captures the relationship <strong>between 3 variables</strong>.</p>
 </div>
 <p>This joint effect can be captured via an <strong>Interaction Variable</strong>, which is the product of the two predictors - allowing us to analyze a <strong>three way relationship</strong>:</p>
 <div class="arithmatex">\[
@@ -2356,7 +2393,11 @@ Var(\hat{\beta}) =
 <p>Since the elastic net approach is able to set coefficients to 0 as well, it can also be used as a variable selection tool.</p>
 </div>
 <!-- Obtained from Corporate Finance Institute -->
-<p><img alt="ELASTIC_NET" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/ELASTIC_NET.png" /></p>
+<p><img alt="ELASTIC_NET" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/ELASTIC_NET.png" />p</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is called elastic net because the shape of the method can change to fit either the ridge or LASSO.</p>
+</div>
 <h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
 <p>Before using regularization, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since a penalty is placed on the <strong>magnitude of the coefficient</strong> (proportional to scale).</p>
 <div class="admonition note">

@@ -1118,6 +1118,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#class-imbalance" class="md-nav__link">
+    Class Imbalance
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1270,10 +1277,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA PA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA PA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA PA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Placeholder/" class="md-nav__link">
-        ASA PA
+      <a href="../../1_ASA_PA/0_OVERVIEW/" class="md-nav__link">
+        Overview
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1381,6 +1421,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#class-imbalance" class="md-nav__link">
+    Class Imbalance
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1480,8 +1527,12 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">Continuous Values</td>
-<td align="center">Discrete Categories</td>
+<td align="center">Discrete or Continuous</td>
+<td align="center">Nominal or Ordinal</td>
+</tr>
+<tr>
+<td align="center">Numerical Variable</td>
+<td align="center">Categorical Variable</td>
 </tr>
 <tr>
 <td align="center">EG. 3.14, 1.849</td>
@@ -1496,12 +1547,12 @@
 <p></center></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Categorical variables are more generally represented by a <strong>discrete number</strong>. For instance:</p>
+<p>The possible values of a Quatlitative variable are known as its <strong>Levels</strong>. For simplicity, they can also be expressed as integers - they should NOT be confused with discrete numeric variables (Counts):</p>
 <ul>
 <li>True (1), False (0)</li>
 <li>North (0), East (1), South (2), West (4)</li>
 </ul>
-<p>If there the <strong>order of the categories</strong> are important, then they are known as <strong>Ordinal variables</strong>. If not, they are known as <strong>Nominal Variables</strong>.</p>
+<p>If the <strong>order</strong> of the categories are important, then they are known as <strong>Ordinal variables</strong>. If not, they are known as <strong>Nominal Variables</strong>.</p>
 </div>
 <p>There are two broad categories of <strong>how the "learning" occurs</strong>:</p>
 <p><center></p>
@@ -1704,7 +1755,7 @@
 <p>The key consideration lies in <strong>Overfitting</strong>. If the model matches the underlying sample too closely, it will <strong>mistakenly capture the noise present as a signal</strong>. This impedes its ability to make accurate predictions. Thus, the model must be tested on data that was not used to train it:</p>
 <ul>
 <li><strong>Training Data</strong>: Observations that were used to train model</li>
-<li><strong>Test Data</strong>: Obervations that were NOT used to train the model</li>
+<li><strong>Test Data</strong>: Obervations that were NOT used to train the model; UNSEEN data</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1759,6 +1810,10 @@
 <p><!-- Obtained from coaching actuaries -->
 <img alt="IDENTITY_PLOT" class="center" src="../Assets/1.%20Statistical%20Learning.md/IDENTITY_PLOT.png" /></p>
 <p>Predictions that are accurate will be <strong>along the line</strong>; the further away a observation is from the line, the more far off the prediction. </p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For two methods with the roughly the same test error, it is better to choose the one that is NOT overfitted; relatively smaller difference between training and test MSE.</p>
 </div>
 <p>Recall that the MSE can be decomposed into a combination of <strong>Bias and Variance</strong>. In a regression context, there is an <strong>additional component</strong> representing the error term as well:</p>
 <ul>
@@ -1968,6 +2023,44 @@
 <p>Contextual information is required to make a decision on which should be prioritized.</p>
 </div>
 <p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). The higher the AUC, the more cutoff points there are that provide higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models. However, it does not provide a method of choosing a specific cutoff value.</p>
+<h3 id="class-imbalance"><strong>Class Imbalance</strong><a class="headerlink" href="#class-imbalance" title="Permanent link">&para;</a></h3>
+<p>One common problem is that there is Class Imbalance in the underlying dataset such that one of the classes is <strong>under-represented</strong>. For instance, when studying about gender inequality, there might be significantly fewer observations that are female.</p>
+<p>The under-representation makes it <strong>difficult to make predictions</strong> for the minority class, which will likely result in high specificity or sensitivity.</p>
+<p>Thus, it is common to employ one of the following:</p>
+<ul>
+<li><strong>Oversampling</strong>: Randomly generating additional observations of the minority class from the existing pool</li>
+<li><strong>Undersampling</strong>: Randomly deleting observations of the majority class from the existing pool</li>
+</ul>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Oversample</th>
+<th align="center">Undersample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Randomly duplicate observations</td>
+<td align="center">Randomly delete observations</td>
+</tr>
+<tr>
+<td align="center">Potential Overfitting</td>
+<td align="center">Potential Underfitting</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Both methods are typically employed till the proportion between the two classes are <strong>roughly equal</strong>, which should reduce the specificity or sensitivity issue.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Oversampling should only be done on the training set.</p>
+<p>This is because if it was done on the complete data, when splitting between training and test, there is a chance that the same duplicated observation appears in BOTH the training and test set, which violates the principle of having an unseen test set in the first place. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Oversampling is much more common as it is usually the case that we are missing data, rather than having an over abundance.</p>
+</div>
 
 
 

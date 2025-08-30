@@ -1277,10 +1277,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA PA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA PA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA PA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../Placeholder/" class="md-nav__link">
-        ASA PA
+      <a href="../../1_ASA_PA/0_OVERVIEW/" class="md-nav__link">
+        Overview
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1442,7 +1475,8 @@
 <li>The same features can be used more than once in the tree</li>
 <li>Relatively <strong>more important</strong> features will be used for splits <strong>first</strong></li>
 </ol>
-<p>On point (3), the first predictor used in the split is the MOST important because it has the largest reduction in RSS.</p>
+<p>On point (3), the first predictor used in the split is the <strong>MOST important</strong> because it has the largest reduction in RSS.</p>
+<p>In a similar vein, any <strong>possible interactions</strong> between variables are automatically accounted for in the tree; no need special adjustments are needed.</p>
 </div>
 <p>The different points along the tree are known as <strong>Nodes</strong>:</p>
 <ul>
@@ -1504,6 +1538,20 @@
 <li>Split <span class="arithmatex">\(X_{2}\)</span> at the following: <span class="arithmatex">\({6.5, 7.5, \dots}\)</span></li>
 </ul>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If a categorical variable is being used for the split, the tree can split <strong>ANY combination</strong> of the categories:</p>
+<ul>
+<li>Group 1: Category 1 &amp; 2</li>
+<li>Group 2: Category 3, 4 &amp; 5</li>
+</ul>
+<p>However, if the categorical variable has been converted into dummy variables, then the split can only be for one category at a time:</p>
+<ul>
+<li>Group 1: Category 1</li>
+<li>Group 2: Category 2, 3, 4 &amp; 5</li>
+</ul>
+<p>Thus, it is generally <strong>NOT necessary to binarize</strong> variables beforehand when working with decision trees, which makes decision trees preferred when working with categorical variables.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Only useful variables will be used in the tree - it is possible that a variable is NOT used at all.</p>
@@ -1519,6 +1567,16 @@
 \]</div>
 </div>
 <p>The performance of the tree is often compared against the Null Rate - performance of a tree with <strong>NO splits</strong>. The idea is similar to that of an F-test.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Competitor Splits</strong> are the next best alternative split(s) among the variables that were NOT chosen.</p>
+<p><strong>Surrogate Splits</strong> are alternative splits that results in a similar division as the chosen split. It is best used when there are missing values in the chosen split, thus the surrogate split can be used to achieve the same effect.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above methodology only works for regression trees; continuous data. For count data, the RSS should not be used.</p>
+<p>Instead, the split decision should be based on <strong>Log-Likelihood</strong> instead; Poisson Deviance. The resulting tree is thus known as a <strong>Poisson Tree</strong>.</p>
+</div>
 <h2 id="pruning"><strong>Pruning</strong><a class="headerlink" href="#pruning" title="Permanent link">&para;</a></h2>
 <p>Recursive binary splitting tends to result in <strong>large complex trees</strong> with many internal nodes, which is prone to <strong>overfitting</strong>. In this case, certain <strong>internal nodes should be dropped</strong>, akin to <strong>Pruning the leaves</strong> of a tree.</p>
 <div class="admonition note">

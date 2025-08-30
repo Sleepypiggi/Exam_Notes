@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://example.com/3_PREDICTIVE_ANALYTICS/1_ASA_PA/PA_DUMP/">
+        <link rel="canonical" href="https://example.com/3_PREDICTIVE_ANALYTICS/1_ASA_PA/0_OVERVIEW/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>PA DUMP - Exam Notes</title>
+        <title>Overview - Exam Notes</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exploratory-data-analysis" class="md-skip">
+        <a href="#predictive-analytics" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PA DUMP
+              Overview
             
           </span>
         </div>
@@ -943,12 +943,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -1156,11 +1158,115 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../Placeholder/" class="md-nav__link">
-        ASA PA
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ASA PA
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ASA PA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ASA PA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Overview
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-definition" class="md-nav__link">
+    Problem Definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-collection-and-validation" class="md-nav__link">
+    Data Collection and Validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-exploration" class="md-nav__link">
+    Data Exploration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1189,6 +1295,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1197,8 +1305,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exploratory-data-analysis" class="md-nav__link">
-    Exploratory Data Analysis
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-definition" class="md-nav__link">
+    Problem Definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-collection-and-validation" class="md-nav__link">
+    Data Collection and Validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-exploration" class="md-nav__link">
+    Data Exploration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
   
 </li>
@@ -1218,84 +1354,113 @@
                   
 
 
-  <h1>PA DUMP</h1>
-
-<p>Data</p>
-<p>Types
-Continuous (Decimals)
-Count (Whole Numbers)
-Factors (Fixed set of values - numeric or text)</p>
-<p>From a data analysis purpose, assumed that there are no free texts - Any text related data is a factor</p>
-<p>Possible values are known as levels
-Factors can also be represented using numbers but should not be treated as counts
-Counts are free ranging, factors have a limit
-Two levels then often called binary</p>
-<p>Continuous and Count data can be transformed into count data by grouping them</p>
-<p>Cont and count are factual, just numbers so nothing much to say but factors can change depending on the analyst
-Dimensionality (Quantity) - How many levels are there in the factor
-Granularity (Quality) - How distinct are the levels?
-Dimensionality can always be used to compare but granularity must be the same rning</p>
-<h2 id="exploratory-data-analysis"><strong>Exploratory Data Analysis</strong><a class="headerlink" href="#exploratory-data-analysis" title="Permanent link">&para;</a></h2>
-<p>Summary of the dataset</p>
-<p>Univariate Analysis
-Analyzing only one variable</p>
-<p>Summary metrics | Continuous | Count | Factors
-Mean
-Variance
-Quantile
-Frequency</p>
-<p>Not meaningful to have frequency for continuous data because there are simply too many possibilities</p>
-<p>Conversely, Frequency is the only thing that can be summarized for factors</p>
-<p>Don’t agree that count can use frequency unless it’s converted to a factor due to the smaller but still endless possibilities</p>
-<p>Histogram - Bins (Grouped into equal length)
-Bar chart - No Bins 
-Both show frequwncy
-Each bin one bar
-If continuous, too many bars and each bar is small &gt;&gt; not meaningful
-Weird &gt;&gt; Multiple peaks, multimodal</p>
-<p>Boxplot
-Skewness as a metric</p>
-<p>Bivariate
-Count - Count
-Continuous - Continuius
-Count - Continuous
-Correlation
-Measure of linear relationship
-Indication of the strength of predictive pwoer</p>
-<p>Factor factor 
-Contingency table - frequency</p>
-<p>Factor - Numeric
-Summary by level
-Split the Univariate factors into
-Can analyse multiple at a time, not limited to just two</p>
-<p>Order of results between two
-Does the order make sense, if not something may be up &gt;&gt; could be missing variable for analysis diamond example
-Or just data issues</p>
-<p>More outliers than usual
-Smaller dataset &gt; Don’t have as many smaller values (use phrasing from diamond)</p>
-<p>Scatterplot &gt;&gt; Slope relationship
-Steep is good, but too steep is bad</p>
-<p>binarization</p>
-<p>Side by side plots</p>
-<p>Compare relative distribution 
-Overall got more X than Y
-But for L3, got more Y than X</p>
-<p>Data transformation
-Missing data
-A few entries missing &gt;&gt; Remove those entry
-Many entries missing &gt;&gt; Remove those cokumns</p>
-<p>Errenous values
-Sense check &gt;&gt; Minimum, maximum values
-Outliers &gt;&gt; Even among outliers, there can be outliers
-Likely but not conclusive
-Reasonablesness of outliers &gt;&gt; Plot against another variable to see if there is an explanation or another round of sense check</p>
-<p>Log transform
-For right skew</p>
-<p>Resulting histogram more ovfious, not evident in the past
-Multiple peaks &gt;&gt; indication of multiple laters</p>
-<p>seed
-stratified sampling
-similar value suggests that the stratification was successful</p>
+<h1 id="predictive-analytics"><strong>Predictive Analytics</strong><a class="headerlink" href="#predictive-analytics" title="Permanent link">&para;</a></h1>
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The focus on this exam is on the <strong>application of the theory</strong> covered in exam SRM to solve a real-world business problem. The exam is fully written, thus <strong>communication</strong> is also a big part of the exam.</p>
+<p>Thus, this set of notes will only cover content <strong>new to PA</strong>, mainly covering problem solving and data handling. Kindly refer to the exam SRM section for all theory related content.</p>
+<p>For the purposes of this exam, there are 6 parts to solving a business problem:</p>
+<ol>
+<li>Identifying the problem</li>
+<li>Collecting data to analyze the problem</li>
+<li>Exploring the data to better understand it</li>
+<li>Choosing and building a statistical model to solve the problem</li>
+<li>Validating that the model is appropriate</li>
+<li>Providing a recommendation for the problem</li>
+</ol>
+<p>Parts (4) and (5) mainly rely on SRM content thus are not covered in this section. </p>
+<h2 id="problem-definition"><strong>Problem Definition</strong><a class="headerlink" href="#problem-definition" title="Permanent link">&para;</a></h2>
+<p>There are three main types of problems:</p>
+<ul>
+<li><strong>Descriptive</strong>: What happened in the <strong>past</strong>; explaining <strong>trends and relationships</strong> between variables</li>
+<li><strong>Predictive</strong>: What will happn in the <strong>future</strong>; making accurate <strong>predictions</strong></li>
+<li><strong>Prescriptive</strong>: Impact of <strong>prescribed actions</strong>; identifying the <strong>best course of action</strong></li>
+</ul>
+<p>In practice, a given problem will involve a <strong>combination</strong> of the above types of problems. As its name suggests, this exam focuses on <strong>Predictive Problems</strong>. There are two ways to create a meaningful predictive problem definitions:</p>
+<ul>
+<li><strong>Hypotheses</strong>: Use prior knowledge to develop a <strong>testable hypotheses</strong> that addresses the concern</li>
+<li><strong>Metrics</strong>: Create <strong>objective and measurable KPIs</strong> that are <strong>aligned</strong> with the business strategy</li>
+</ul>
+<h2 id="data-collection-and-validation"><strong>Data Collection and Validation</strong><a class="headerlink" href="#data-collection-and-validation" title="Permanent link">&para;</a></h2>
+<p>As with all statistical analyses, it is important to have a data that is <strong>representative</strong> of the target population of interest. There are two methods that can be used to collect such data:</p>
+<ul>
+<li><strong>Random Sampling</strong>: Randomly draw observations from the population without replacement</li>
+<li><strong>Stratified Sampling</strong>: Systematically divide the population into <strong>non-overlapping strata</strong> (groups) then <strong>randomly sample</strong> a pre-determined number of observations from each strata</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The key advantage of random sampling is that each observation has an <strong>equal chance</strong> of getting drawn, thus tends to result in an <strong>unbiased sample</strong>.</p>
+<p>This is in contrast to another common method known as <strong>Systematic Sampling</strong>, which draws observations based on a <strong>set pattern</strong> (EG. Every n-th observation). While it ensures that the sample is <strong>evenly spread throughout the population</strong>, it is still <strong>prone to bias</strong> as the underlying data might have a <strong>periodic pattern</strong> that is not known.</p>
+<p>Nonetheless, it still remains a valid sampling method. It can also be combined with Stratified Sampling, where systematic sampling is used to sample within each strata.</p>
+</div>
+<p>For the purposes of this exam, it is assumed that only <strong>structured</strong> data will be used; data that can be fit into a tabular arrangement and hence easily manipulated.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The opposite would be <strong>Unstructured</strong> data that CANNOT be placed into a table. For instance, Image or Audio data. These types of data are more flexible but much harder to process, hence they are not the focus of this exam.</p>
+<p>For the purposes of this exam, it is also assumed that <strong>free text</strong> is a form of unstructured data.</p>
+</div>
+<p>There are some general considerations when collecting data:</p>
+<ul>
+<li><strong>Granularity</strong>: Collected values should follow a <strong>specified level of detail</strong> (EG. Decimal places, date vs quarter)</li>
+<li><strong>Reasonableness</strong>: Collected values must <strong>make sense</strong> (EG. Age should be non-negative, not larger than 120)</li>
+<li><strong>Consistency</strong>: Collected values should follow the <strong>same basis</strong> (EG. Same units, same encoding)</li>
+<li><strong>Documentation</strong>: <strong>Accompanying notes</strong> that describes the data in detail, the collection process and any irregularities observed</li>
+<li><strong>Personally Identifiable Information</strong> (PII): Should only be collected <strong>within terms and conditions</strong>; should be <strong>anonymized</strong> and sufficiently <strong>secured</strong></li>
+<li><strong>Sensitive Information</strong>: Should not collect variables (or proxies of them) that may lead to <strong>unfair discrimination</strong> (EG. Race, Disability status etc)</li>
+</ul>
+<p>For predictive analytics specifically, possible <strong>Target Leakages</strong> are of a key concern. They are variables that are <strong>NOT available during actual deployment</strong> of the model that contains <strong>information about the target variable</strong> ("leaks"). If included, these variables would <strong>artifically boost model performance</strong> as they would not be present in practice. Thus, it is best NOT to collect such variables at all.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Target leakage typically occurs for variables that are <em>generated</em> at the <strong>same time or after</strong> the target variable. Note that this refers to the GENERATION of the data, NOT the collection.</p>
+<p>For instance, if the model is aiming to predict whether a patient would be re-admitted, then using a variable such as "blood sugar level during next visit" would be a case of target leakage because the variable would only have values for patients who ARE re-admitted.</p>
+</div>
+<h2 id="data-exploration"><strong>Data Exploration</strong><a class="headerlink" href="#data-exploration" title="Permanent link">&para;</a></h2>
+<p>Recall that there are two broad data categories - Numeric &amp; Categorical. The method of exploration depends on the number of and type of variables:</p>
+<!-- Obtained from ACTEX PA Cheat Sheet -->
+<p><img alt="DATA_EXPLORATION" class="center" src="../Assets/0_OVERVIEW.md/DATA_EXPLORATION.png" /></p>
+<!-- Obtained from ACTEX PA Cheat Sheet -->
+<p><img alt="EXPLORATION_TOOLS" class="center" src="../Assets/0_OVERVIEW.md/EXPLORATION_TOOLS.png" /></p>
+<!-- Obtained from ACTEX PA Cheat Sheet -->
+<p><img alt="INTERACTION_TOOLS" class="center" src="../Assets/0_OVERVIEW.md/INTERACTION_TOOLS.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The reason why frequency is not applicable for numeric data is that there are infinitely many possibilities, thus calculating the frequency for each is impractical and not meaningful.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For Bivariate analysis, when there are categorical variables involved, there are three variations that can be applied:</p>
+<ul>
+<li><strong>Stacked</strong>: Stacked column</li>
+<li><strong>Filled</strong>: 100% stacked column (Compare <strong>across</strong>)</li>
+<li><strong>Dodged</strong>: Clustered column (Compare <strong>within</strong>)</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To split is to <strong>add another visual</strong> to the current chart, each representing a different category:</p>
+<p><!-- Obtained from Stackoverflow -->  <br />
+<img alt="SPLITTING" class="center" src="../Assets/0_OVERVIEW.md/SPLITTING.png" /></p>
+<p>To facet is to <strong>create multiples</strong> of the current chart, each filtered by a different category:</p>
+<p><!-- Obtained from Stackoverflow -->
+<img alt="FACETING" class="center" src="../Assets/0_OVERVIEW.md/FACETING.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Numeric data should be <strong>treated</strong> as categorical when:</p>
+<ul>
+<li>There are only a small number of distinct values</li>
+<li>They are merely numeric labels with no order (EG. Group number)</li>
+<li>They have a <strong>complex relationship</strong> with the target (Models have more flexibility to capture the relationship when it is categorical)</li>
+</ul>
+<p>Numeric data can also be <strong>transformed</strong> into Categorical ones by <strong>grouping</strong> them into <strong>Bins</strong>:</p>
+<ul>
+<li>Factor Level 1: 0-10</li>
+<li>Factor Level 2: 11-20</li>
+<li>Factor Level 3: 20 and above</li>
+</ul>
+</div>
+<p>The main issue for numeric variables is <strong>Skewness</strong>, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the <strong>concave transformations</strong> (Log &amp; Squareroot) to reduce the skewness.</p>
+<p>The main issue for categorical variables is <strong>high dimensionality</strong> (too many levels) and <strong>sparseness</strong> (too few observations in certain levels). Both of this can be solved by <strong>combining similar levels</strong> together while ensuring that the resulting new levels properly split the data. This often requires <strong>contextual knowledge</strong> of the data.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 
 
 
@@ -1311,6 +1476,27 @@ similar value suggests that the stratification was successful</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../0_ASA_SRM/10.%20Time%20Series/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Time Series" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Time Series
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
