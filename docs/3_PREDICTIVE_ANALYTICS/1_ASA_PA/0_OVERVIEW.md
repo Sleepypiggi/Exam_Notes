@@ -125,4 +125,6 @@ The main issue for numeric variables is **Skewness**, often due to outliers. If 
 
 The main issue for categorical variables is **high dimensionality** (too many levels) and **sparseness** (too few observations in certain levels). Both of this can be solved by **combining similar levels** together while ensuring that the resulting new levels properly split the data. This often requires **contextual knowledge** of the data.
 
+This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
+
 ## Next Steps
