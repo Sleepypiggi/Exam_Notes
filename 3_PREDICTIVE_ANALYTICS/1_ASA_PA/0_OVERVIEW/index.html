@@ -1381,7 +1381,12 @@
 <li><strong>Metrics</strong>: Create <strong>objective and measurable KPIs</strong> that are <strong>aligned</strong> with the business strategy</li>
 </ul>
 <h2 id="data-collection-and-validation"><strong>Data Collection and Validation</strong><a class="headerlink" href="#data-collection-and-validation" title="Permanent link">&para;</a></h2>
-<p>As with all statistical analyses, it is important to have a data that is <strong>representative</strong> of the target population of interest. There are two methods that can be used to collect such data:</p>
+<p>For predictive analytics, it is important that the data collected is:</p>
+<ol>
+<li><strong>Representative</strong> of the underlying population</li>
+<li><strong>Indicative</strong> of future behaviour</li>
+</ol>
+<p>(1) is a standard throughout all statistical analyses. For (2), it is typical to use data that has been <strong>collected more recently</strong> while excluding data that was impacted by one-off events (EG. COVID19) that does not represent long-term trends.</p>
 <ul>
 <li><strong>Random Sampling</strong>: Randomly draw observations from the population without replacement</li>
 <li><strong>Stratified Sampling</strong>: Systematically divide the population into <strong>non-overlapping strata</strong> (groups) then <strong>randomly sample</strong> a pre-determined number of observations from each strata</li>
@@ -1460,6 +1465,7 @@
 </div>
 <p>The main issue for numeric variables is <strong>Skewness</strong>, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the <strong>concave transformations</strong> (Log &amp; Squareroot) to reduce the skewness.</p>
 <p>The main issue for categorical variables is <strong>high dimensionality</strong> (too many levels) and <strong>sparseness</strong> (too few observations in certain levels). Both of this can be solved by <strong>combining similar levels</strong> together while ensuring that the resulting new levels properly split the data. This often requires <strong>contextual knowledge</strong> of the data.</p>
+<p>This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. </p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 
 

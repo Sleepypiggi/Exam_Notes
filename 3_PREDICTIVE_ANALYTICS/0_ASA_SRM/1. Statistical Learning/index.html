@@ -1569,8 +1569,8 @@
 <td align="center">No Independent Variable</td>
 </tr>
 <tr>
-<td align="center">To identify what influences <span class="arithmatex">\(y\)</span></td>
-<td align="center">To identify patterns in the data</td>
+<td align="center">To make predictions for <span class="arithmatex">\(y\)</span></td>
+<td align="center">To identify relationships between variables</td>
 </tr>
 <tr>
 <td align="center">EG. Linear Regression</td>
@@ -1583,6 +1583,14 @@
 <p class="admonition-title">Note</p>
 <p>The key focus of the majority of the exam will be on <strong>Supervised learning</strong>, unless otherwise stated. A relatively small portion on Unsupervised learning will be covered towards the end.</p>
 <p>There technically exists a special class of learning known as <strong>Semi-Supervised</strong>, which typically occurs due to a lack of complete data. It is out of scope for the purposes of this exam.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unsupervised learning tends to be more challenging than supervised because:</p>
+<ol>
+<li>There is <strong>no clear goal</strong>; no simple goal like prediction</li>
+<li>There are no methods to <strong>assess model quality</strong>; no validation error to be used</li>
+</ol>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1757,9 +1765,11 @@
 <li><strong>Training Data</strong>: Observations that were used to train model</li>
 <li><strong>Test Data</strong>: Obervations that were NOT used to train the model; UNSEEN data</li>
 </ul>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Operationally, this implies that the sample should be partitioned at the start of the process.</p>
+<p>The size of the split between training and test is tricky - larger training sets result in more robust models but less reliable test evaluations.</p>
+<p>It is generally accepted that 80-20 or 70-30 between training and test sets are a good balance.</p>
 </div>
 <p>The above concerns can be quantified using the <strong>Mean Squared Error</strong> (MSE):</p>
 <div class="arithmatex">\[
@@ -1804,6 +1814,10 @@
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="TRAINING_TEST_MSE" class="center" src="../Assets/1.%20Statistical%20Learning.md/TRAINING_TEST_MSE.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is another reason why test sets are important - because using only training data will result in overly optimistic results.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>A quick way to view how accurate the predictions are would be to plot the original value (<span class="arithmatex">\(y\)</span>) against the predicted value (<span class="arithmatex">\(\hat{y}\)</span>), with an identity line:</p>
@@ -1838,8 +1852,12 @@
 <li><strong>Accuracy</strong> (Bias) - Error from by <strong>approximating</strong> <span class="arithmatex">\(f\)</span> (real world, complicated) with a simpler model (<span class="arithmatex">\(\hat{f}\)</span>)</li>
 <li><strong>Precision</strong> (Variance) - Error from <strong>changes</strong> in <span class="arithmatex">\(\hat{f}\)</span> across different samples  </li>
 </ul>
-<p>Although they are used interchangeably in day to day conversations, they have a <strong>specific meaning</strong> in a statistical context.</p>
 </div>
+<p>Bias decreases with complexity
+   Variance increases with complexity
+   Convert to table</p>
+<div class="highlight"><pre><span></span><code>Although they are used interchangeably in day to day conversations, they have a **specific meaning** in a statistical context.
+</code></pre></div>
 <p>It is <strong>not possible to minimize both</strong>; there is an inverse relationship known as the <strong>Bias-Variance Tradeoff</strong> which results in the U-shaped curve:</p>
 <ul>
 <li>Increasing complexity <strong>decreases bias</strong> as it allows the model to <strong>capture the signal</strong></li>
@@ -1897,6 +1915,15 @@
 <p></center></p>
 <!-- Obtained from ACTEX Manual -->
 <p><img alt="UNDER_OVER_FITTING" class="center" src="../Assets/1.%20Statistical%20Learning.md/UNDER_OVER_FITTING.png" /></p>
+<p>Ultimately, the above metrics are just for a single model, they need to be <strong>compared to a benchmark</strong> to determine if the model provides any improvement. Generally speaking, these benchmark models are the <strong>most simple models</strong>:</p>
+<ul>
+<li>Regression: Intercept-only model</li>
+<li>Classifier: Purely random classifier</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The intuition is that these should be the worst performing models. If a given model cannot even surpass it, then it should not be considered.</p>
+</div>
 <h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
 <p>Recall that <strong>Confidence Intervals</strong> are a range of values that the <strong>true parameter</strong> will fall within for a given level of confidence. In a regression setting, recall that the model is estimating the <strong>mean of the conditional distribution</strong>; a parameter. Thus, the confidence interval for a model measures the <strong>range of values for <span class="arithmatex">\(E(Y \mid X)\)</span></strong>.</p>
 <div class="admonition note">
@@ -2019,10 +2046,20 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>There is often a trade-off between the two metrics as prioritizing one will result in a deterioration of the other. For instance, if a model prioritizes Sensitivity, it wants to decrease false negatives, which is done by being <strong>less strict</strong> with a lower cutoff. Consequently, this will <strong>increase the false positive rate</strong>, which lowers specificity.</p>
+<p>There is often a trade-off between the two metrics as prioritizing one will result in a deterioration of the other.</p>
+<p>For instance, if a model prioritizes Sensitivity, it wants to decrease false negatives, which is done by being <strong>less strict</strong> with a lower cutoff. Consequently, this will <strong>increase the false positive rate</strong>, which lowers specificity.</p>
+<p><insert diagram></p>
 <p>Contextual information is required to make a decision on which should be prioritized.</p>
 </div>
-<p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). The higher the AUC, the more cutoff points there are that provide higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models. However, it does not provide a method of choosing a specific cutoff value.</p>
+<p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). The higher the AUC, the more cutoff points there are that provide higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Despite the above, it does NOT provide a method of choosing a specific cutoff value.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>An AUC of 1 represents a perfect classifier.</p>
+</div>
 <h3 id="class-imbalance"><strong>Class Imbalance</strong><a class="headerlink" href="#class-imbalance" title="Permanent link">&para;</a></h3>
 <p>One common problem is that there is Class Imbalance in the underlying dataset such that one of the classes is <strong>under-represented</strong>. For instance, when studying about gender inequality, there might be significantly fewer observations that are female.</p>
 <p>The under-representation makes it <strong>difficult to make predictions</strong> for the minority class, which will likely result in high specificity or sensitivity.</p>
@@ -2054,12 +2091,13 @@
 <p>Both methods are typically employed till the proportion between the two classes are <strong>roughly equal</strong>, which should reduce the specificity or sensitivity issue.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Oversampling should only be done on the training set.</p>
-<p>This is because if it was done on the complete data, when splitting between training and test, there is a chance that the same duplicated observation appears in BOTH the training and test set, which violates the principle of having an unseen test set in the first place. </p>
+<p>Oversampling should ONLY be done on the <strong>training set</strong>.</p>
+<p>This is because if it was done on the complete data, when splitting between training and test, there is a chance that the same duplicated observation appears in BOTH the training and test set, which <strong>violates the principle</strong> of having an unseen test set in the first place. </p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Oversampling is much more common as it is usually the case that we are missing data, rather than having an over abundance.</p>
+<p>However, it may lead to computational or operational issues with the increased amount of data.</p>
 </div>
 
 

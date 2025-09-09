@@ -1464,7 +1464,7 @@
 
 <h1 id="clustering"><strong>Clustering</strong><a class="headerlink" href="#clustering" title="Permanent link">&para;</a></h1>
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Clustering is an <strong>Unsupervised</strong> statistical learning method that is used to find <strong>Clusters</strong> within the dataset. They are a <strong>subgroup of homogenous observations</strong> that are <strong>similar</strong> to one another; different clusters naturally have different characteristics.</p>
+<p>Clustering is an <strong>Unsupervised</strong> statistical learning method that is used to find <strong>Clusters</strong> within the dataset. They are a <strong>subgroup of homogenous observations</strong> that have <strong>similar characteristics</strong> to one another; it is important that different clusters are distinct from one another.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>An observation can only be part of ONE cluster.</p>
@@ -1555,11 +1555,12 @@
 <p>The <strong>number of clusters remain the same</strong> in each iteration.</p>
 <p>There is technically a small chance that the number of clusters decrease, because no observations are assigned to that cluster. This should be treated as a special case.</p>
 </div>
-<p>The choice of <span class="arithmatex">\(k\)</span> is <strong>arbitrary</strong>, thus it might not yield the best results. It is thus recommended to <strong>repeat the algorithm</strong> several times for different <span class="arithmatex">\(k\)</span> to have a better understanding of the data.</p>
+<p>The choice of <span class="arithmatex">\(k\)</span> is <strong>arbitrary</strong>, thus it might not yield the best results. It is thus recommended to <strong>start with a large <span class="arithmatex">\(k\)</span> (~20)</strong> then <strong>repeat the algorithm</strong> several times for different <span class="arithmatex">\(k\)</span> based on the results to have a better understanding of the data.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Similar to PCA, it is possible to plot a "Scree Plot" for K-means and use the <strong>Elbow method</strong> as well - choosing <span class="arithmatex">\(k\)</span> such that there is a reasonable amount of variance explained.</p>
 <p>The total variance is the cluster variation when there is only ONE cluster (<span class="arithmatex">\(k=1\)</span>). The proportion of variance is explained is thus the <strong>reduction in variance</strong> when increasing to that specific <span class="arithmatex">\(k\)</span>.</p>
+<p><add plot></p>
 </div>
 <h2 id="hierarchical-clustering"><strong>Hierarchical Clustering</strong><a class="headerlink" href="#hierarchical-clustering" title="Permanent link">&para;</a></h2>
 <p>The second type is known as <strong>Hierarchical Clustering</strong>. It works by <strong>iteratively merging or splitting</strong> observations based on their <strong>similarity</strong>, till all observations are either in one giant cluster or in individual clusters.</p>
@@ -1578,7 +1579,9 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The act of slicing the dendrogram is akin to choosing <span class="arithmatex">\(k\)</span> in <span class="arithmatex">\(k\)</span> means clustering. However, unlike K-means, Hierarchical Clustering <strong>only needs to be run ONCE</strong> (for a given measure and linkage) to obtain all possible clusters.</p>
-<p><strong>Domain knowledge</strong> is important to ensure that the number of clusters produced are reasonable.</p>
+<p>Generally speaking, it is recommended to slice the dendrogram such that there only a <strong>small number of clusters</strong> (ease of interpretation) with a roughly <strong>even number of observations</strong> in each (balanced).</p>
+<p>Similar to the “elbow” principle, it is recommended NOT to slice at a point that has a dissimilarity significantly higher than the next threshold - because it means that slicing lower might produce better results.</p>
+<p>Ultimately, <strong>Domain knowledge</strong> is important to ensure that the number of clusters produced are reasonable.</p>
 </div>
 <p>Generally speaking, there are two approaches to hierarchical clustering:</p>
 <p><center></p>
@@ -1667,6 +1670,10 @@
 <!-- Self Made -->
 <p><img alt="DENDROGRAM_ANALYSIS" class="center" src="../Assets/9.%20Clustering.md/DENDROGRAM_ANALYSIS.png" /></p>
 <p>Firstly, the <strong>order of fusion</strong> matters - Clusters that <strong>merge earlier are more similar</strong> than clusters that merge later - <span class="arithmatex">\((B,C)\)</span> is more similar than <span class="arithmatex">\((A,B)\)</span> or <span class="arithmatex">\((A,C)\)</span>!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Phrased another way, clusters that merge lower on the dendrogram are more similar to each other than those that merge on top.</p>
+</div>
 <p>Next, the <strong>choice of linkage matters</strong>, as it allows us to draw simple relationships about the distance:</p>
 <ul>
 <li><strong>Complete</strong>: <span class="arithmatex">\(\max [(A,B), (A,C)] = 10\)</span>; pairs cant be larger than 10</li>
@@ -1693,7 +1700,11 @@
 <p>Another issue is that it is hard to <strong>validate</strong> the clustering results - how do we know if the clusters obtained is not clustering the noise? There exists methods that involve hypothesis testing to do this, but that is beyond the scope of this exam.</p>
 <p>Lastly, clustering is very non-robust. An <strong>inclusion of an outlier</strong> or <strong>removing a subset of observations</strong> will heavily change the clusters formed.</p>
 <h2 id="feature-creation"><strong>Feature Creation</strong><a class="headerlink" href="#feature-creation" title="Permanent link">&para;</a></h2>
-<p>It is possible to use the resulting clusters <strong>as a feature</strong> in a supervised learning method. However, it might lead to similar results an existing method as the clusters might be accounting for a <strong>similar of set of features</strong> as the existing model.</p>
+<p>It is possible to use the resulting clusters <strong>as a feature</strong> in a supervised learning method. However, it might lead to similar results an existing method as the clusters might be accounting for a <strong>similar of set of features</strong> as the existing model:</p>
+<ul>
+<li><strong>Cluster Groups</strong> as a categorical variable</li>
+<li><strong>Cluster Means</strong> as a numerical variable</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This method should only be used when there are a sizeable number of observations in each cluster; otherwise the model could result in overfitting.</p>

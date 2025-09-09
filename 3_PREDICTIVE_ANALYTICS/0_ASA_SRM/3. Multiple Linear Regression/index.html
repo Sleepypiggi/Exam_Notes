@@ -2022,11 +2022,13 @@ Var(\hat{\beta}) =
 <p class="admonition-title">Note</p>
 <p>Typically, if there is a known relationship between <span class="arithmatex">\(Y\)</span> and the k-th order of the independent variable, <strong>ALL orders from <span class="arithmatex">\(1\)</span> up to <span class="arithmatex">\(k\)</span></strong> are added for the variable.</p>
 <p>The reason is because we are interested in the way that <span class="arithmatex">\(Y\)</span> relates to <span class="arithmatex">\(X\)</span> as a whole. Keeping all powers allows the relationship to better expressed and hence have a better fit.</p>
+<p>However, the choice of <span class="arithmatex">\(k\)</span> <strong>may not be clear</strong>, especially for higher powers where the relationship is not easily visualized.</p>
 </div>
-<p>Although the relationship is better quantified, the regression coefficients become <strong>hard to intepret</strong>. Polynomials have a <strong>non-constant slope</strong>, thus they CANNOT be intepreted as the change in the dependent given a one unit increase anymore.</p>
+<p>Although the relationship is better quantified, the regression coefficients become <strong>hard to intepret</strong> because the terms all <strong>move simultaneously</strong>. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Do NOT mistakenly think that the coefficient squared (for a second-order coefficient) is the impact on the dependent. The relationship must still be linear, which naturally invalidates this train of thought.</p>
+<p>Polynomials have a <strong>non-constant slope</strong>, thus they also CANNOT be intepreted as the change in the dependent given a one unit increase anymore.</p>
 </div>
 <!-- Obtained from Medium -->
 <p><img alt="POLYNOMIAL_REGRESSION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/POLYNOMIAL_REGRESSION.png" /></p>
@@ -2050,7 +2052,7 @@ Var(\hat{\beta}) =
 <li><strong>North Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 1, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
 <li><strong>East Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 0, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
 </ul>
-<p>The last category that does not have its own variable is known as the <strong>Baseline</strong> of the model (known as the <strong>Reference Category</strong>), which is the default category when <strong>all other variables are 0</strong>. Thus, the intepretation of the coefficients is as follows:</p>
+<p>The last category that does not have its own variable is known as the <strong>Baseline</strong> of the model (known as the <strong>Reference Category</strong>, typically the most common factor), which is the default category when <strong>all other variables are 0</strong>. Thus, the intepretation of the coefficients is as follows:</p>
 <ul>
 <li><span class="arithmatex">\(\beta_{0}\)</span>: Value of <span class="arithmatex">\(E(Y \mid X)\)</span> at the Baseline</li>
 <li><span class="arithmatex">\(\beta_{1}\)</span>: Change in value of <span class="arithmatex">\(Y\)</span> when <strong>moving</strong> from the reference category to the current category</li>
@@ -2204,6 +2206,10 @@ Var(\hat{\beta}) =
 \]</div>
 <!-- Obtained from ACTEX Manual -->
 <p><img alt="PIECEWISE_NON_CONTINUOUS" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/PIECEWISE_NON_CONTINUOUS.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In practice, it is hard to determine the exact breakpoints where such changes occur.</p>
+</div>
 <h2 id="regularization-methods"><strong>Regularization Methods</strong><a class="headerlink" href="#regularization-methods" title="Permanent link">&para;</a></h2>
 <p>A key problem with MLR is that the addition of more variables makes it <strong>more prone to overfitting</strong> (Low Bias, High Variance). Thus, <strong>regularization methods</strong> have been devised to <strong>reduce variance</strong> at the cost of <em>slightly</em> increasing bias.</p>
 <div class="admonition tip">
@@ -2304,7 +2310,7 @@ Var(\hat{\beta}) =
 <img alt="LASSO_DIAMOND_3" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LASSO_DIAMOND_3.png" /></p>
 <p>The second point above applies to Ridge regression as well. Thus, the <strong>size of the constraint</strong> can also be used to determine the extent of shrinkage.</p>
 </div>
-<p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the shrinkage parameter of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the predictor coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
+<p>Similarly, <span class="arithmatex">\(\lambda\)</span> is the <strong>Shrinkage Parameter</strong> of the model and <strong>functions identically</strong> to the ridge model. The key difference is that the predictor coefficients <strong>can be shrunk to 0 for large finite lambda</strong>; the LASSO model <strong>can drop variables</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>This it is known as the <strong>Least Absolute Shrinktage Selection Operator</strong> (LASSO). Its ability to drop predictors allows it to be used as a <strong>model selection</strong> tool.</p>
@@ -2387,17 +2393,21 @@ Var(\hat{\beta}) =
 <div class="arithmatex">\[
     \min \left(\text{RSS} + \alpha \sum |\beta_{p}| + (1 - \alpha) \sum \beta^{2}_{p} \right)
 \]</div>
-<p>Note that the hyperparameter for the elastic net approach is NOT the usual <span class="arithmatex">\(\lambda\)</span> but rather <span class="arithmatex">\(\alpha\)</span> which controls the <strong>weight</strong> that is placed on the underlying approaches.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Since the elastic net approach is able to set coefficients to 0 as well, it can also be used as a variable selection tool.</p>
-</div>
-<!-- Obtained from Corporate Finance Institute -->
-<p><img alt="ELASTIC_NET" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/ELASTIC_NET.png" />p</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is called elastic net because the shape of the method can change to fit either the ridge or LASSO.</p>
 </div>
+<p>Note that the hyperparameter for the elastic net approach is NOT the usual <span class="arithmatex">\(\lambda\)</span> but rather <span class="arithmatex">\(\alpha\)</span> (<strong>Mixing Parameter</strong>) which controls the <strong>weight</strong> that is placed on the underlying approaches:</p>
+<ul>
+<li><span class="arithmatex">\(\alpha = 0\)</span>: Ridge</li>
+<li><span class="arithmatex">\(\alpha = 1\)</span>: LASSO</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The elastic net is a weighted combination of the two approaches. Thus, only if the underlying LASSO can drop variables (sufficiently large <span class="arithmatex">\(\lambda\)</span>), then only the resulting elastic net can drop variables.</p>
+</div>
+<!-- Obtained from Corporate Finance Institute -->
+<p><img alt="ELASTIC_NET" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/ELASTIC_NET.png" /></p>
 <h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
 <p>Before using regularization, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since a penalty is placed on the <strong>magnitude of the coefficient</strong> (proportional to scale).</p>
 <div class="admonition note">

@@ -1397,10 +1397,11 @@
 <h1 id="principal-component-analysis"><strong>Principal Component Analysis</strong><a class="headerlink" href="#principal-component-analysis" title="Permanent link">&para;</a></h1>
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p><strong>Principal Component Analaysis</strong> (PCA) is an unsupervised statistical learning method that transforms high dimensional data into a <strong>lower dimensional space</strong> by creating <strong>new key variables</strong> ("Principal Components") that are <strong>linear combinations</strong> of the other variables.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This also allows it to be used as a form of data visualization tool.</p>
-</div>
+<p>Thus, the two key uses of PCA are:</p>
+<ol>
+<li><strong>Data Visualization tool</strong> for high dimensional datasets</li>
+<li><em>^Feature Generation tool*</em> for overfitted/highly correlated datasets</li>
+</ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There are alternative methods of covering PCA via <strong>Linear Algebra</strong> (Eigenvector, Eigenvalues). For the purposes of this exam, it is sufficient to know the below terminology.</p>
@@ -1506,8 +1507,8 @@
 </div>
 <p>A <strong>bi-plot</strong> combines the Loadings and Scores into a <strong>single plot</strong> (hence "bi") and uses the principal components as the main coordinate space:</p>
 <ul>
-<li><strong>Primary Axis</strong>: Score</li>
-<li><strong>Secondary Axis</strong>: Loading</li>
+<li><strong>Primary Axis</strong>: Score; characteristic of observations </li>
+<li><strong>Secondary Axis</strong>: Loading; characteristic of PCs</li>
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="BI_PLOT" class="center" src="../Assets/8.%20Principal%20Components.md/BI_PLOT.png" /></p>
@@ -1573,6 +1574,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Conversely, when a dataset is uncorrelated, there is <strong>no room to compress the variables</strong> together, hence rendering PCA ineffective. In fact, using PCA would actually reduce the interpretability!</p>
+<p>In a similar vein, PCA is useless when the underlying variables are not <em>linearly</em> related.</p>
 </div>
 <p>An extreme case would be when the variables are <strong>Perfectly Collinear</strong> (variables can be expressed as an exact linear combination of another). In this case, PCA compresses the perfectly collinear features into <strong>ONE MAIN principal component</strong> which is always the <strong>FIRST PC</strong> that explains <strong>MOST</strong> of the variation.</p>
 <p>For a two variable case, this manifests itself on the Biplot where all observations have a <strong>score of 0</strong> for PC2; the observations are <strong>entirely explainable by PC1</strong>: </p>

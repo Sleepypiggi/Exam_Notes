@@ -1559,9 +1559,9 @@
 <p>Since there is NO way to perfectly estimate the test error, thus there is <strong>no guarantee</strong> to find the true best model. This is true <strong>regardless of whichever selection method</strong> is used.</p>
 </div>
 <h3 id="stepwise-selection"><strong>Stepwise Selection</strong><a class="headerlink" href="#stepwise-selection" title="Permanent link">&para;</a></h3>
-<p><strong>Forward Stepwise</strong> starts with 1 predictor and <strong>iteratively adds</strong> one predictor at a time:</p>
+<p><strong>Forward Stepwise</strong> starts with NO predictors and <strong>iteratively adds</strong> one predictor at a time:</p>
 <ol>
-<li>Fit all possible models for <span class="arithmatex">\(p=1\)</span></li>
+<li>Fit all possible models for <span class="arithmatex">\(p=0\)</span></li>
 <li>Among the fitted models, select the model with the highest <span class="arithmatex">\(R^{2}\)</span> as <span class="arithmatex">\(M_{p}\)</span></li>
 <li>Fit a new model by <strong>ADDING a predictor</strong> to the previous model; consider all possibilities</li>
 <li>Repeat step (2) - (3) for all <span class="arithmatex">\(p\)</span> to determine all <span class="arithmatex">\(M_{p}\)</span></li>
@@ -1569,6 +1569,10 @@
 </ol>
 <!-- Obtained from Quantifying Health -->
 <p><img alt="FORWARD_STEPWISE" class="center" src="../Assets/5.%20Model%20Selection.md/FORWARD_STEPWISE.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The starting point for the forward selection algorithm is the INTERCEPT-ONLY model.</p>
+</div>
 <p><strong>Backward Stepwise</strong> starts with the maximum and <strong>iteratively drops</strong> one predictor at a time:</p>
 <ol>
 <li>Fit all possible models for <span class="arithmatex">\(p=p\)</span></li>
