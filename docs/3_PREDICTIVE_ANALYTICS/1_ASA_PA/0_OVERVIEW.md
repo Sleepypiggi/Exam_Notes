@@ -32,7 +32,12 @@ In practice, a given problem will involve a **combination** of the above types o
 
 ## **Data Collection and Validation**
 
-As with all statistical analyses, it is important to have a data that is **representative** of the target population of interest. There are two methods that can be used to collect such data:
+For predictive analytics, it is important that the data collected is:
+
+1. **Representative** of the underlying population
+2. **Indicative** of future behaviour
+
+(1) is a standard throughout all statistical analyses. For (2), it is typical to use data that has been **collected more recently** while excluding data that was impacted by one-off events (EG. COVID19) that does not represent long-term trends.
 
 * **Random Sampling**: Randomly draw observations from the population without replacement
 * **Stratified Sampling**: Systematically divide the population into **non-overlapping strata** (groups) then **randomly sample** a pre-determined number of observations from each strata
@@ -69,6 +74,7 @@ For predictive analytics specifically, possible **Target Leakages** are of a key
     Target leakage typically occurs for variables that are *generated* at the **same time or after** the target variable. Note that this refers to the GENERATION of the data, NOT the collection.
 
     For instance, if the model is aiming to predict whether a patient would be re-admitted, then using a variable such as "blood sugar level during next visit" would be a case of target leakage because the variable would only have values for patients who ARE re-admitted.
+
 
 ## **Data Exploration**
 
