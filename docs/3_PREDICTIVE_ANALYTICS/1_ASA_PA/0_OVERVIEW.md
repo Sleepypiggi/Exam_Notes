@@ -22,7 +22,7 @@ Parts (4) and (5) mainly rely on SRM content thus are not covered in this sectio
 There are three main types of problems:
 
 * **Descriptive**: What happened in the **past**; explaining **trends and relationships** between variables
-* **Predictive**: What will happn in the **future**; making accurate **predictions**
+* **Predictive**: What will happen in the **future**; making accurate **predictions**
 * **Prescriptive**: Impact of **prescribed actions**; identifying the **best course of action**
 
 In practice, a given problem will involve a **combination** of the above types of problems. As its name suggests, this exam focuses on **Predictive Problems**. There are two ways to create a meaningful predictive problem definitions:
@@ -34,13 +34,16 @@ In practice, a given problem will involve a **combination** of the above types o
 
 For predictive analytics, it is important that the data collected is:
 
-1. **Representative** of the underlying population
-2. **Indicative** of future behaviour
+1. **Representative** of the underlying population - Use proper **sampling methods**
+2. **Indicative** of future behaviour - Use data that has been collected **recently**; exclude observations that were impacted by **one-off events** (EG. COVID19)
 
-(1) is a standard throughout all statistical analyses. For (2), it is typical to use data that has been **collected more recently** while excluding data that was impacted by one-off events (EG. COVID19) that does not represent long-term trends.
+There are two main sampling methods that should be used:
 
 * **Random Sampling**: Randomly draw observations from the population without replacement
-* **Stratified Sampling**: Systematically divide the population into **non-overlapping strata** (groups) then **randomly sample** a pre-determined number of observations from each strata
+* **Stratified Sampling**:
+  * Systematically divide the population into **non-overlapping strata** (groups)
+  * **Randomly sample** a **proportionate number** of observations from each strata based on size
+  * **Combine** all of them to form the stratified samples
 
 !!! Tip
 
@@ -50,11 +53,13 @@ For predictive analytics, it is important that the data collected is:
 
     Nonetheless, it still remains a valid sampling method. It can also be combined with Stratified Sampling, where systematic sampling is used to sample within each strata.
 
-For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a tabular arrangement and hence easily manipulated.
+!!! Tip
+
+    In order to divide the population into groups, **stratification variable(s)** must be identified; the variables to split the population by. For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then **40 levels** are needed to capture **all possible combinations** of the two (10*4).
+
+For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a tabular arrangement and hence easily manipulated. The opposite would be **Unstructured** data that CANNOT be placed into a table (EG. Image or Audio) data. Although these data types provide **more insight**, they are much more **resource intensive** to process and require more **complicated models** to use.
 
 !!! Warning
-
-    The opposite would be **Unstructured** data that CANNOT be placed into a table. For instance, Image or Audio data. These types of data are more flexible but much harder to process, hence they are not the focus of this exam.
 
     For the purposes of this exam, it is also assumed that **free text** is a form of unstructured data.
 
@@ -126,6 +131,8 @@ Recall that there are two broad data categories - Numeric & Categorical. The met
     * Factor Level 1: 0-10
     * Factor Level 2: 11-20
     * Factor Level 3: 20 and above
+
+### **Data Transformation**
 
 The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness.
 
