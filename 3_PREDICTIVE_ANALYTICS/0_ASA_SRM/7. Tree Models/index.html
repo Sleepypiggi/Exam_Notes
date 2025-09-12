@@ -1452,6 +1452,10 @@
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Tree Models are the first <strong>supervised AND non-parametric</strong> statistical learning method covered. As such, the model is mainly <strong>algorithmic</strong> in nature.</p>
 <p>Broadly speaking, tree models <strong>partition the sample</strong> into several <strong>distinct regions</strong> based on the values of independent variables. For a prediction, the model determines which region the prediction falls in and sets the prediction equal to the <strong>average of the observations within that region</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This allows tree models to be more resilient to outliers as they can simply partition the outliers away, leaving the main bulk of the distribution unaffected.</p>
+</div>
 <p>Using the <strong>boundaries</strong> of the partitions, a <strong>tree-like structure</strong> can be formed to easily visualize the model. This is highly effective for datasets with many independent variables as the sample space itself is not easily visualized.</p>
 <!-- Obtained from Research Gate -->
 <p><img alt="TREE_PARTITION" class="center" src="../Assets/7.%20Tree%20Models.md/TREE_PARTITION.png" /></p>
@@ -1566,6 +1570,10 @@
     \text{Total Tree RSS} = \sum \text{Node RSS}
 \]</div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Trees tend to prefer variables that have many possible splits (EG. Numeric variables or Categorical variables with many levels). This is because the higher possibilities increases the chance of finding a split that will decrease the RSS, even if the split is spurious.</p>
+</div>
 <p>The performance of the tree is often compared against the Null Rate - performance of a tree with <strong>NO splits</strong>. The idea is similar to that of an F-test.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1586,10 +1594,11 @@
 <p>The first type of pruning is known as <strong>Pre-pruning</strong>. The algorithm includes a <strong>stopping condition</strong> which <strong>prevents the tree from becoming too complex</strong> in the first place.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The conditions are typically chosen such that they avoid overfitting:</p>
+<p>The conditions are typically chosen such that they avoid overfitting (smaller tree):</p>
 <ul>
-<li>Requires some <strong>minimum number of observations</strong> within each region</li>
-<li>Requires some <strong>minimum reduction of RSS</strong> for each split</li>
+<li>Minimum number of observations in a node (internal vs terminal node; can be different)</li>
+<li>Maximum number of terminal nodes</li>
+<li>Minimum reduction in RSS per split</li>
 </ul>
 </div>
 <div class="admonition warning">
@@ -1647,6 +1656,11 @@
 <p class="admonition-title">Tip</p>
 <p>The main point of using a decision tree is that it can be illustrated with a <strong>simple visual</strong>. If the tree is too large, the visual becomes too complicated, undercutting the appeal of the tree.</p>
 <p>For this reason, pruning is important. However, if cross validation suggests that the best <span class="arithmatex">\(\alpha\)</span> is 0; ie that the full tree is best, then decision trees might not work well with the data.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Another scenario is the consideration of pruning a tree versus building a new tree with the same complexity parameter.</p>
+<p>The reason is similar to above - it is better to allow the tree to fully grow first as it will allow for valuable splits to appear, that might have otherwise not happened if a new tree was grown under stricter conditions.</p>
 </div>
 <p>After pruning, it is recommended to analyze the following aspects for reasonableness:</p>
 <ol>
@@ -1727,7 +1741,7 @@
 <div class="arithmatex">\[
     \text{Entropy} \gt \text{Gini} \ge \text{Class Error}
 \]</div>
-<!--—- Obtained from Coaching Actuaries —-->
+<!-- Obtained from Coaching Actuaries -->
 <p><img alt="RELATIVE_PURITY" class="center" src="../Assets/7.%20Tree%20Models.md/RELATIVE_PURITY.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1786,7 +1800,7 @@
 \]</div>
 </div>
 <p>Something unique about Bagging is that since <strong>only two-thirds</strong> of the original observations are used for each tree, it is possible to use the <strong>observations that were NOT drawn</strong> as the <strong>validation set</strong>. The resulting (average) error across all instances is known as the <strong>Out of Bag Error</strong> (OOB).</p>
-<!--— Obtained from ISLR —-->
+<!-- Obtained from ISLR -->
 <p><img alt="OOB_ERROR" class="center" src="../Assets/7.%20Tree%20Models.md/OOB_ERROR.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1818,20 +1832,27 @@
 <p class="admonition-title">Info</p>
 <p>These type of methods are known as a <strong>Black Box</strong>, because it is not clear to the user <em>how</em> the model arrives at the output.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>One way to add more insight to the model is through the use of <strong>Variable Importance Plots</strong>:</p>
+<p>One way to add more insight to the model is through the use of <strong>Variable Importance Plots</strong> - which ranks the most important variables to the model:</p>
 <ul>
 <li><strong>Sensitivity</strong> analysis, <strong>removing one variable at a time</strong> from the model</li>
 <li>AVERAGE <strong>Change in MSE</strong> is recorded for each variable</li>
 <li>The variable whose absence results in the <strong>greatest increase in MSE is the most important</strong> variable</li>
 </ul>
-<p>&lt;!— Obtained from Research Gate —&gt;
-<img alt="VARIABLE_IMPORTANCE" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE.png" /></p>
+<!-- Obtained from Research Gate -->
+<p><img alt="VARIABLE_IMPORTANCE" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE.png" /></p>
 <p>The above is plotted based on the absolute increase or the percentage increase for that variable. It also possible to present the data as a <strong>percentage of the most important variable</strong> instead:</p>
-<p>&lt;!— Obtained from Coaching Actuaries —&gt;
-<img alt="VARIABLE_IMPORTANCE_2" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE_2.png" /></p>
-<p>However, despite the above, the plots do not ultimately describe how the variables impact the target.</p>
+<!-- Obtained from Coaching Actuaries -->
+<p><img alt="VARIABLE_IMPORTANCE_2" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE_2.png" /></p>
+<p>However, despite the above, the plots do NOT ultimately describe <strong>HOW</strong> the variables impact the target. For this, a <strong>Partial Dependence Plot</strong> is considered instead - which describes the <strong>marginal</strong> impact that a variable has on the model output:</p>
+<ol>
+<li>Select an independent variable to be studied - consider all possible values for this variable</li>
+<li>Modify the dataset such that all values for that variable is the first possible value</li>
+<li>Re-run the model and record the predicted value</li>
+<li>Repeat step (2) and (3) for all possible values and plot the results</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The implicit assumption made is that the independent variable chosen is <strong>independent from OTHER independent variables</strong>, such that the PDP captures the true relationship between the two. However, in reality, is likely that the chosen variable is <strong>correlated or has an interaction effect</strong> with some other variable.</p>
 </div>
 <h3 id="random-forest"><strong>Random Forest</strong><a class="headerlink" href="#random-forest" title="Permanent link">&para;</a></h3>
 <p>One of the primary issues with Bagging is <strong>Correlation</strong>. Since the bootstrapped <strong>samples are all similar</strong> to the underlying sample, it is likely that each bootstrapped tree will contain the <strong>same set of predictors</strong> (especially if there especially strong predictors).</p>
@@ -1844,7 +1865,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Phrased in a different way, the variable importance plot for Bagging tends to be <strong>dominated</strong> by the 1 or 2 most important variables. Random Forests naturally create a more balanced plot given that it is forced to use “less important” variables:</p>
-<p>&lt;!— Obtained from Coaching Actuaries —&gt;
+<p><!--- Obtained from Coaching Actuaries --->
 <img alt="VARIABLE_IMPORTANCE_COMPARISON" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE_COMPARISON.png" /></p>
 <p>Note that even though both plots show the same strongest variable as 100%, the absolute amount of change in MSE is <strong>lower for the random forest</strong>, as the variable is <strong>used less in the random forest</strong> model.</p>
 </div>
@@ -1867,15 +1888,15 @@
 <h3 id="boosting"><strong>Boosting</strong><a class="headerlink" href="#boosting" title="Permanent link">&para;</a></h3>
 <p>Boosting refers to the process of <strong>sequentially training</strong> a series of <strong>shallow trees</strong> on the <strong>error of the previous tree</strong>. The strength of weak trees are “boosted” by <strong>aggregating</strong> them together to form a stronger model.</p>
 <p>The key idea is that the errors of the trees contain the effects of the <strong>predictors not included in the model</strong>. Thus, training each successive model on the errors of the prior ones forces the model to <strong>explained the unexplained</strong>.</p>
-<!--— Obtained from Research Gate —-->
+<!-- Obtained from Research Gate -->
 <p><img alt="BOOSTING" class="center" src="../Assets/7.%20Tree%20Models.md/BOOSTING.png" /></p>
-<!--— Obtained from Affine —-->
+<!-- Obtained from Affine -->
 <p><img alt="BOOSTING_VS_BAGGING" class="center" src="../Assets/7.%20Tree%20Models.md/BOOSTING_VS_BAGGING.png" /></p>
 <p>There are three hyperparameters for Boosting:</p>
 <ul>
 <li><strong>Number of Trees</strong> (<span class="arithmatex">\(B\)</span>) - How many trees should be used</li>
 <li><strong>Depth of Trees</strong> (<span class="arithmatex">\(d\)</span>) - How many splits each tree should have</li>
-<li><strong>Learning Rate</strong> (<span class="arithmatex">\(\alpha\)</span>) - How much the trees contributes to the overall prediction </li>
+<li><strong>Learning Rate</strong> (<span class="arithmatex">\(\alpha\)</span>) - How much the trees contributes to the overall prediction</li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1887,20 +1908,25 @@
 <p class="admonition-title">Note</p>
 <p>The number of trees (B) is typically selected via Cross Validation.</p>
 <p>Shallow trees are preferred, thus <span class="arithmatex">\(d\)</span> typically selected to be 1. In this case, it is known as an <strong>Additive Model</strong>.</p>
-<p>The learning rate is also referred to as the <strong>Shrinkage Parameter</strong> as it reduces the influence of each tree on the overall prediction. Typically, a <strong>slow learning rate</strong> is preferred (<span class="arithmatex">\(\alpha \lt 1\)</span>). Consequently, a <strong>large number of trees</strong> are required to achieve effective results.</p>
+<p>The learning rate is also referred to as the <strong>Shrinkage Parameter</strong> as it reduces the influence of each tree on the overall prediction. Typically, a <strong>slow learning rate</strong> is preferred (<span class="arithmatex">\(\alpha \lt 1\)</span>). Consequently, a <strong>large number of trees</strong> are required to achieve effective results. Conversely, if only a small number of trees are fit, then a large shrinkage is preferred.</p>
 </div>
 <p>Boosting as a method will naturally result in <strong>low bias</strong>. However, if an <em>extreme</em> number of trees are used, the model could become <strong>overfitted</strong>:</p>
-<!--— Self Made —-->
+<!-- Self Made -->
 <p><img alt="BOOSTING_ERROR" class="center" src="../Assets/7.%20Tree%20Models.md/BOOSTING_ERROR.png" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Random Forests typically outperform Bagging due to de-correlation.</p>
-<p>Boosting typically outperforms the other two as it <strong>aggressively reduces bias</strong>, making up for any potential increase in Variance.</p>
-</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some questions might cut off the graph at a certain point, omitting the potential increase in Test Error for Boosting. </p>
 </div>
+<p>It is important to understand why Random Forests will not overfit with the number of trees but Boosting does:</p>
+<ul>
+<li>Adding a tree to a random forest simply means taking the average of more observations, which does NOT force the overall model closer to the target. However, for boosting, each added tree explains more and more of the target, thus each additional tree brings it <strong>closer to the target</strong>, making it possible to overfit</li>
+<li>Boosting uses the <strong>SAME underlying data</strong> for each step, while Random Forests only allow a random subset of the data to be used</li>
+</ul>
+<p>However, that is not to say that one is better than the other:</p>
+<ul>
+<li><strong>Random Forest</strong>: Preferred when variance is the key concern</li>
+<li><strong>Boosting</strong>: Preferred when bias is the key concern</li>
+</ul>
 
 
 
