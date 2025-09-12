@@ -1573,6 +1573,10 @@
 <td align="center">To identify relationships between variables</td>
 </tr>
 <tr>
+<td align="center">Clear objective around target; able to validate</td>
+<td align="center">No clear objective; unable to validate</td>
+</tr>
+<tr>
 <td align="center">EG. Linear Regression</td>
 <td align="center">EG. Principal Component Analysis</td>
 </tr>
@@ -1583,14 +1587,6 @@
 <p class="admonition-title">Note</p>
 <p>The key focus of the majority of the exam will be on <strong>Supervised learning</strong>, unless otherwise stated. A relatively small portion on Unsupervised learning will be covered towards the end.</p>
 <p>There technically exists a special class of learning known as <strong>Semi-Supervised</strong>, which typically occurs due to a lack of complete data. It is out of scope for the purposes of this exam.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Unsupervised learning tends to be more challenging than supervised because:</p>
-<ol>
-<li>There is <strong>no clear goal</strong>; no simple goal like prediction</li>
-<li>There are no methods to <strong>assess model quality</strong>; no validation error to be used</li>
-</ol>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2016,17 +2012,28 @@
 \begin{aligned}
     \text{Sensitivity}
     &amp;= \text{True Positive Rate} \\
-    &amp;= \frac{\text{Number of true positives}}{\text{Number of actually positives}} \\
+    &amp;= \frac{\text{Number of correctly predicted positives}}{\text{Number of actually positives}} \\
+    &amp;= \frac{\text{TP}}{\text{TP} + \text{FN}} \\
     &amp;= 1 - \text{False Negative Rate} \\
     \\
     \text{Specificity}
     &amp;= \text{True Negative Rate} \\
-    &amp;= \frac{\text{Number of true negatives}}{\text{Number of actually negative}} \\
+    &amp;= \frac{\text{Number of correctly predicted negatives}}{\text{Number of actually negative}} \\
+    &amp;= \frac{\text{TN}}{\text{TN} + \text{FP}} \\
     &amp;= 1 - \text{False Positive Rate} \\
 \end{aligned}
 \]</div>
 <!-- Obtained from Glassboxmedicine -->
 <p><img alt="CONFUSION_MATRIX" class="center" src="../Assets/1.%20Statistical%20Learning.md/CONFUSION_MATRIX.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The terminology can be confusing:</p>
+<ul>
+<li><strong>False Negative Prediction</strong>: Actually positive observations that were incorrectly tagged as Negative</li>
+<li><strong>False Positive Prediction</strong>: Actually Negative observations that were incorrectly tagged as Positive</li>
+</ul>
+<p>It might look like it, but Sensitivity and Specificity are <strong>NOT complements</strong> of one another. It is desirable that BOTH are as high as possible.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The order of the confusion matrix is dependent on the person constructing it - always check to ensure that the correct quantity is used.</p>
@@ -2046,19 +2053,18 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>There is often a trade-off between the two metrics as prioritizing one will result in a deterioration of the other.</p>
-<p>For instance, if a model prioritizes Sensitivity, it wants to decrease false negatives, which is done by being <strong>less strict</strong> with a lower cutoff. Consequently, this will <strong>increase the false positive rate</strong>, which lowers specificity.</p>
-<p><insert diagram></p>
-<p>Contextual information is required to make a decision on which should be prioritized.</p>
+<p>There is often a trade-off between the two metrics as prioritizing one will result in a deterioration of the other. For instance, if a model prioritizes Sensitivity, it wants to decrease false negatives, which is done by being <strong>less strict via a lower cutoff</strong>. Consequently, this will <strong>increase the false positive rate</strong>, which lowers specificity.</p>
+<p>Contextual information is required to make a decision on which should be prioritized:</p>
+<ul>
+<li>Medical Diagnosis: Better to ensure no positives are missed; high sensitivty</li>
+<li>Fraud Detection: Better to ensure dont falsely accuse people; high specificity</li>
+</ul>
 </div>
-<p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). The higher the AUC, the more cutoff points there are that provide higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Despite the above, it does NOT provide a method of choosing a specific cutoff value.</p>
-</div>
+<p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). The higher the AUC, the more cutoff points there are that provide higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models. Thus, an <strong>AUC of 1 represents a perfect classifier</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>An AUC of 1 represents a perfect classifier.</p>
+<p>The key advantage is that this allows analysis over a <strong>range of cutoff thresholds</strong>, while classification error is only an evaluation at one particular threshold.</p>
+<p>That said, it still does NOT provide a method of choosing a specific cutoff value.</p>
 </div>
 <h3 id="class-imbalance"><strong>Class Imbalance</strong><a class="headerlink" href="#class-imbalance" title="Permanent link">&para;</a></h3>
 <p>One common problem is that there is Class Imbalance in the underlying dataset such that one of the classes is <strong>under-represented</strong>. For instance, when studying about gender inequality, there might be significantly fewer observations that are female.</p>

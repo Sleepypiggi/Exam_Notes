@@ -2052,14 +2052,14 @@ Var(\hat{\beta}) =
 <li><strong>North Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 1, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
 <li><strong>East Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 0, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
 </ul>
-<p>The last category that does not have its own variable is known as the <strong>Baseline</strong> of the model (known as the <strong>Reference Category</strong>, typically the most common factor), which is the default category when <strong>all other variables are 0</strong>. Thus, the intepretation of the coefficients is as follows:</p>
+<p>The last category that does not have its own variable is known as the <strong>Baseline</strong> of the model (known as the <strong>Reference Category</strong>), which is the default category when <strong>all other variables are 0</strong>. Thus, the intepretation of the coefficients is as follows:</p>
 <ul>
 <li><span class="arithmatex">\(\beta_{0}\)</span>: Value of <span class="arithmatex">\(E(Y \mid X)\)</span> at the Baseline</li>
 <li><span class="arithmatex">\(\beta_{1}\)</span>: Change in value of <span class="arithmatex">\(Y\)</span> when <strong>moving</strong> from the reference category to the current category</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Given the above, the <strong>choice of reference category matters</strong> as it will result in a different model altogether.</p>
+<p>Given the above, the <strong>choice of reference category matters</strong> as it will result in a different model altogether. It is typically chosen to be <strong>most common level</strong>. However, it is possible to set the reference level such that it is a the <strong>highest or lowest level</strong> of the factor, which will make for more intuitive interpretation.</p>
 </div>
 <p>Dummy variables are usually used in conjunction with quantitatve ones. This creates a <strong>seperate but parallel regression line</strong> for each of the levels:</p>
 <div class="arithmatex">\[
@@ -2080,7 +2080,7 @@ Var(\hat{\beta}) =
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For instance, the production of a factory may depend on the number of <strong>Machines and Workers</strong>. However, the more machines there are, the <strong>greater the effect of an additional worker</strong>.</p>
-<p>Formally speaking, interactions are used when the relationship between the dependent and indepenent variable <strong>depends on the value of another independent variable</strong>. Thus, it captures the relationship <strong>between 3 variables</strong>.</p>
+<p>Formally speaking, interactions help to account for <strong>more complex relationships</strong> between the dependent independent variable, where the <strong>relationship depends</strong> on the value of another independent variable. It captures this <strong>three-way relationship</strong>, which leads to a more accurate modelling of the data.</p>
 </div>
 <p>This joint effect can be captured via an <strong>Interaction Variable</strong>, which is the product of the two predictors - allowing us to analyze a <strong>three way relationship</strong>:</p>
 <div class="arithmatex">\[
@@ -2095,7 +2095,7 @@ Var(\hat{\beta}) =
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This could lead to scenarios where the Interaction Variable is statistically significant but the <strong>underlying variables individually are not</strong>.</p>
-<p>Through the <strong>Hierarchical Principle</strong>, it is common practice that to <strong>include the individual variables</strong> as well regardless of their significance (ignore the results). This is because removing one of the underlying components <strong>might significantly change the effect and interpretation</strong> of the interaction.</p>
+<p>Through the <strong>Hierarchical Principle</strong>, it is common practice to <strong>include the individual variables</strong> as well regardless of their significance (ignore the results). This is to ensure that the model is properly specified and that the estimates remain unbiased and interpretable.</p>
 <p>Note that this applies to <strong>Polynomial Regression</strong> as well, which is why all lower order terms are retained as well.</p>
 </div>
 <div class="admonition tip">

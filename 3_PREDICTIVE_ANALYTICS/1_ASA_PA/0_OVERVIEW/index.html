@@ -1247,6 +1247,19 @@
     Data Exploration
   </a>
   
+    <nav class="md-nav" aria-label="Data Exploration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-transformation" class="md-nav__link">
+    Data Transformation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1330,6 +1343,19 @@
     Data Exploration
   </a>
   
+    <nav class="md-nav" aria-label="Data Exploration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-transformation" class="md-nav__link">
+    Data Transformation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1372,7 +1398,7 @@
 <p>There are three main types of problems:</p>
 <ul>
 <li><strong>Descriptive</strong>: What happened in the <strong>past</strong>; explaining <strong>trends and relationships</strong> between variables</li>
-<li><strong>Predictive</strong>: What will happn in the <strong>future</strong>; making accurate <strong>predictions</strong></li>
+<li><strong>Predictive</strong>: What will happen in the <strong>future</strong>; making accurate <strong>predictions</strong></li>
 <li><strong>Prescriptive</strong>: Impact of <strong>prescribed actions</strong>; identifying the <strong>best course of action</strong></li>
 </ul>
 <p>In practice, a given problem will involve a <strong>combination</strong> of the above types of problems. As its name suggests, this exam focuses on <strong>Predictive Problems</strong>. There are two ways to create a meaningful predictive problem definitions:</p>
@@ -1383,13 +1409,16 @@
 <h2 id="data-collection-and-validation"><strong>Data Collection and Validation</strong><a class="headerlink" href="#data-collection-and-validation" title="Permanent link">&para;</a></h2>
 <p>For predictive analytics, it is important that the data collected is:</p>
 <ol>
-<li><strong>Representative</strong> of the underlying population</li>
-<li><strong>Indicative</strong> of future behaviour</li>
+<li><strong>Representative</strong> of the underlying population - Use proper <strong>sampling methods</strong></li>
+<li><strong>Indicative</strong> of future behaviour - Use data that has been collected <strong>recently</strong>; exclude observations that were impacted by <strong>one-off events</strong> (EG. COVID19)</li>
 </ol>
-<p>(1) is a standard throughout all statistical analyses. For (2), it is typical to use data that has been <strong>collected more recently</strong> while excluding data that was impacted by one-off events (EG. COVID19) that does not represent long-term trends.</p>
+<p>There are two main sampling methods that should be used:</p>
 <ul>
 <li><strong>Random Sampling</strong>: Randomly draw observations from the population without replacement</li>
-<li><strong>Stratified Sampling</strong>: Systematically divide the population into <strong>non-overlapping strata</strong> (groups) then <strong>randomly sample</strong> a pre-determined number of observations from each strata</li>
+<li><strong>Stratified Sampling</strong>:</li>
+<li>Systematically divide the population into <strong>non-overlapping strata</strong> (groups)</li>
+<li><strong>Randomly sample</strong> a <strong>proportionate number</strong> of observations from each strata based on size</li>
+<li><strong>Combine</strong> all of them to form the stratified samples</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1397,10 +1426,13 @@
 <p>This is in contrast to another common method known as <strong>Systematic Sampling</strong>, which draws observations based on a <strong>set pattern</strong> (EG. Every n-th observation). While it ensures that the sample is <strong>evenly spread throughout the population</strong>, it is still <strong>prone to bias</strong> as the underlying data might have a <strong>periodic pattern</strong> that is not known.</p>
 <p>Nonetheless, it still remains a valid sampling method. It can also be combined with Stratified Sampling, where systematic sampling is used to sample within each strata.</p>
 </div>
-<p>For the purposes of this exam, it is assumed that only <strong>structured</strong> data will be used; data that can be fit into a tabular arrangement and hence easily manipulated.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In order to divide the population into groups, <strong>stratification variable(s)</strong> must be identified; the variables to split the population by. For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then <strong>40 levels</strong> are needed to capture <strong>all possible combinations</strong> of the two (10*4).</p>
+</div>
+<p>For the purposes of this exam, it is assumed that only <strong>structured</strong> data will be used; data that can be fit into a tabular arrangement and hence easily manipulated. The opposite would be <strong>Unstructured</strong> data that CANNOT be placed into a table (EG. Image or Audio) data. Although these data types provide <strong>more insight</strong>, they are much more <strong>resource intensive</strong> to process and require more <strong>complicated models</strong> to use.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The opposite would be <strong>Unstructured</strong> data that CANNOT be placed into a table. For instance, Image or Audio data. These types of data are more flexible but much harder to process, hence they are not the focus of this exam.</p>
 <p>For the purposes of this exam, it is also assumed that <strong>free text</strong> is a form of unstructured data.</p>
 </div>
 <p>There are some general considerations when collecting data:</p>
@@ -1463,6 +1495,7 @@
 <li>Factor Level 3: 20 and above</li>
 </ul>
 </div>
+<h3 id="data-transformation"><strong>Data Transformation</strong><a class="headerlink" href="#data-transformation" title="Permanent link">&para;</a></h3>
 <p>The main issue for numeric variables is <strong>Skewness</strong>, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the <strong>concave transformations</strong> (Log &amp; Squareroot) to reduce the skewness.</p>
 <p>The main issue for categorical variables is <strong>high dimensionality</strong> (too many levels) and <strong>sparseness</strong> (too few observations in certain levels). Both of this can be solved by <strong>combining similar levels</strong> together while ensuring that the resulting new levels properly split the data. This often requires <strong>contextual knowledge</strong> of the data.</p>
 <p>This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. </p>
