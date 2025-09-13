@@ -57,6 +57,15 @@ There are two main sampling methods that should be used:
 
     In order to divide the population into groups, **stratification variable(s)** must be identified; the variables to split the population by. For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then **40 levels** are needed to capture **all possible combinations** of the two (10*4).
 
+!!! Warning
+
+    A potential problem during the data collection process is **Sampling Bias**, which is unintentionally introducing bias via the means of collecting the sample:
+    
+    * Convenience Sampling - People who are easy to sample may follow a certain trend (EG. Friends & Family)
+    * Voluntary Response - People are voluntarily respond tend to feel strongly about issues (EG. Customer Reviews)
+    * Under Coverage - May unintentionally exclude certain groups (EG. Phone survey exclude those without phones)
+    * Survivorship Bias - Sampling only people who “survived” a process excludes those who didn’t
+
 For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a tabular arrangement and hence easily manipulated. The opposite would be **Unstructured** data that CANNOT be placed into a table (EG. Image or Audio) data. Although these data types provide **more insight**, they are much more **resource intensive** to process and require more **complicated models** to use.
 
 !!! Warning
