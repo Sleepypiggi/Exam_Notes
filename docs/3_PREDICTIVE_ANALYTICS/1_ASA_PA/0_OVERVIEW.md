@@ -37,13 +37,21 @@ For predictive analytics, it is important that the data collected is:
 1. **Representative** of the underlying population - Use proper **sampling methods**
 2. **Indicative** of future behaviour - Use data that has been collected **recently**; exclude observations that were impacted by **one-off events** (EG. COVID19)
 
+!!! Note
+
+    It is important that both the training and test set are made up of similar compositions. If the training set's composition is significantly different from the test set's, then it will produce an effect **similar to overfitting** where the model would be fit to the mix of the training data, which does not generalize well to the test data.
+
+    Thus, it is important to ensure that the **composition between the two sets are similar** (especially for key variables), which will ensure that the resulting training and test estimates are more reliable. 
+
 There are two main sampling methods that should be used:
 
 * **Random Sampling**: Randomly draw observations from the population without replacement
 * **Stratified Sampling**:
-  * Systematically divide the population into **non-overlapping strata** (groups)
-  * **Randomly sample** a **proportionate number** of observations from each strata based on size
-  * **Combine** all of them to form the stratified samples
+    * Systematically divide the population into **non-overlapping strata** (groups)
+    * **Randomly sample** a **proportionate number** of observations from each strata based on size
+    * **Combine** all of them to form the stratified samples
+
+In order to divide the population into groups, **stratification variable(s)** must be identified; the variables to split the population by. For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then **40 levels** are needed to capture **all possible combinations** of the two (10*4).
 
 !!! Tip
 
@@ -53,18 +61,13 @@ There are two main sampling methods that should be used:
 
     Nonetheless, it still remains a valid sampling method. It can also be combined with Stratified Sampling, where systematic sampling is used to sample within each strata.
 
-!!! Tip
-
-    In order to divide the population into groups, **stratification variable(s)** must be identified; the variables to split the population by. For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then **40 levels** are needed to capture **all possible combinations** of the two (10*4).
-
-!!! Warning
-
-    A potential problem during the data collection process is **Sampling Bias**, which is unintentionally introducing bias via the means of collecting the sample:
+A potential problem during the data collection process is **Sampling Bias**, which is unintentionally introducing bias via the means of collecting the sample:
     
-    * Convenience Sampling - People who are easy to sample may follow a certain trend (EG. Friends & Family)
-    * Voluntary Response - People are voluntarily respond tend to feel strongly about issues (EG. Customer Reviews)
-    * Under Coverage - May unintentionally exclude certain groups (EG. Phone survey exclude those without phones)
-    * Survivorship Bias - Sampling only people who “survived” a process excludes those who didn’t
+* **Convenience Sampling** - People who are easy to sample may follow a certain trend (EG. Friends & Family)
+* **Voluntary Response** - People are voluntarily respond tend to feel strongly about issues (EG. Customer Reviews)
+* **Under Representation** - May unintentionally exclude certain groups (EG. Phone survey exclude those without phones)
+* **Survivorship Bias** - Sampling only people who “survived” a process excludes those who didn’t
+* The above is a non-exhaustive list
 
 For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a tabular arrangement and hence easily manipulated. The opposite would be **Unstructured** data that CANNOT be placed into a table (EG. Image or Audio) data. Although these data types provide **more insight**, they are much more **resource intensive** to process and require more **complicated models** to use.
 
@@ -88,7 +91,6 @@ For predictive analytics specifically, possible **Target Leakages** are of a key
     Target leakage typically occurs for variables that are *generated* at the **same time or after** the target variable. Note that this refers to the GENERATION of the data, NOT the collection.
 
     For instance, if the model is aiming to predict whether a patient would be re-admitted, then using a variable such as "blood sugar level during next visit" would be a case of target leakage because the variable would only have values for patients who ARE re-admitted.
-
 
 ## **Data Exploration**
 
