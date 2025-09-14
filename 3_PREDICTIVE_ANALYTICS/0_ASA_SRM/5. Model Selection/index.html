@@ -1596,6 +1596,10 @@
 <li><strong>Backward</strong>: Cannot be used when there are <strong>high dimensions</strong> due to fitting issues as the algorithm starts with the full problematic model</li>
 </ul>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Backward selection tends to result in <strong>larger models</strong> than forward selection. This is because it starts with all predictors, thus is able to find <strong>complementing predictors</strong> that work well together, that otherwise <strong>may not have been found individually</strong>.</p>
+</div>
 <h3 id="mixed-stepwise"><strong>Mixed Stepwise</strong><a class="headerlink" href="#mixed-stepwise" title="Permanent link">&para;</a></h3>
 <p>A hybrid approach that combines elements of the Forward and Backward method is known as the <strong>Mixed Stepwise</strong> method:</p>
 <ol>
@@ -1621,8 +1625,12 @@
 <ol>
 <li>All methods <strong>fail to account for domain knowledge</strong> that the user has</li>
 <li>All methods are <strong>susceptible to data snooping</strong> (repeating the analysis slightly differently to achieve a certain outcome)</li>
-<li>All methods are <strong>NOT guaranteed</strong> to find the best model</li>
+<li>All methods are <strong>NOT guaranteed</strong> to find the best model - which may result in <strong>Biased coefficient estimates</strong> as well as the "true model" is not used</li>
 </ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>(3) is much more likely to occur in Forward stepwise algorithms because variables are added based on their individual merit, rather than as a whole.</p>
+</div>
 <h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
 <p>The number of models considered for every possible <span class="arithmatex">\(p\)</span> and in totality across the three approaches are summarized below:</p>
 <p><center></p>
@@ -1722,11 +1730,7 @@
     &amp;= \text{AIC}
 \end{aligned}
 \]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The MSE in the above equations represent the MSE for a <strong>model with ALL predictors</strong>, hence "full".</p>
-<p>If this MSE used is unbiased, then the resulting measures are <strong>unbiased</strong> estimates of the test error as well.</p>
-</div>
+<p>The MSE in the above equations represent the MSE for a <strong>model with ALL predictors</strong>, hence "full". If this MSE used is unbiased, then the resulting measures are <strong>unbiased</strong> estimates of the test error as well.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Adjusted <span class="arithmatex">\(R^{2}\)</span> is also a valid metric, but the other three are preferred as they have <strong>stronger theoretical justifications</strong> as a measure of model quality.</p>
@@ -1743,6 +1747,10 @@
 \]</div>
 <p>The two formulas are equivalent in the sense that the model that results in the smallest <span class="arithmatex">\(C_{p}\)</span> also results in the smallest <span class="arithmatex">\(C'_{p}\)</span>, thus it does not matter which formula is used (unless the question requires exact computation of the value).</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a GLM context, the AIC and BIC would be based on the Deviance of the model plus the penalty.</p>
+</div>
 <p>The metrics are meant to compare the <strong>relative effectiveness</strong> of models; as a model selection criteria. The <strong>lower the metrics</strong>, the <strong>better the model</strong> in comparison to others. On its own, it is still technically an estimate of the test error.</p>
 <p>Notice that the first term is a measure of the <strong>training error</strong>, while the second term is the <strong>adjustment</strong> for the number of predictors. The lower the metric the better, thus the adjustment <strong>penalizes models with more predictors</strong>.</p>
 <div class="admonition tip">
@@ -1756,10 +1764,11 @@
 <div class="arithmatex">\[
     \ln 7 \approx 2
 \]</div>
+<p>Thus, <strong>AIC</strong> is preferred when focusing on <strong>prediction accuracy</strong> (results in more predictors) while <strong>BIC</strong> is preferred when focusing on <strong>interpretability</strong> (results in fewer predictors). </p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To be explicit, the above measures can also be said to be Goodness of fit measures.</p>
+<p>To be explicit, the above measures can also be said to be <strong>Goodness of fit</strong> measures.</p>
 </div>
 <h3 id="validation-approach"><strong>Validation Approach</strong><a class="headerlink" href="#validation-approach" title="Permanent link">&para;</a></h3>
 <p>As mentioned in the beginning, a model's effectiveness should NOT be evaluated using data that was used to train it. Thus, for model selection, the selection of the final model should be <strong>based on data that was not used to train it</strong>; using <strong>Validation Data</strong>.</p>

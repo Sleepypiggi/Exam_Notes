@@ -1838,7 +1838,12 @@
 <p class="admonition-title">Info</p>
 <p>In practice, the weights are completely arbitrary and up to the modeller. They must be positive and do not need to sum to 1.</p>
 </div>
-<p>A new funcitonal form is assumed, where the <strong>resulting variance is constant</strong>:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Weights can be applied more generally even in a GLM setting. Ultimately, there are scaling the influence that each datapoint has; how much each observation contributes to the model.</p>
+<p>The intuitive reason why weights are inversely related to variance is because they can also represent information - more information available means less noise overall, resulting in lower variance.</p>
+</div>
+<p>A new functional form is assumed, where the <strong>resulting variance is constant</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     y_{i} &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \varepsilon \\

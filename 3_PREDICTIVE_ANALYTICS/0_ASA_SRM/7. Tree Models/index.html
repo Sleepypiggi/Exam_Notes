@@ -1451,7 +1451,7 @@
 <h1 id="tree-models"><strong>Tree Models</strong><a class="headerlink" href="#tree-models" title="Permanent link">&para;</a></h1>
 <h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Tree Models are the first <strong>supervised AND non-parametric</strong> statistical learning method covered. As such, the model is mainly <strong>algorithmic</strong> in nature.</p>
-<p>Broadly speaking, tree models <strong>partition the sample</strong> into several <strong>distinct regions</strong> based on the values of independent variables. For a prediction, the model determines which region the prediction falls in and sets the prediction equal to the <strong>average of the observations within that region</strong>.</p>
+<p>Broadly speaking, tree models <strong>sequentially partition the sample</strong> into several <strong>distinct regions</strong> based on the values of independent variables. For a prediction, the model determines which region the prediction falls in and sets the prediction equal to the <strong>average of the observations within that region</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>This allows tree models to be more resilient to outliers as they can simply partition the outliers away, leaving the main bulk of the distribution unaffected.</p>
@@ -1721,7 +1721,8 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Gini Index and Class Entropy are the preferred purity measures when <strong>growing</strong> out a tree. This is because they are <strong>sensitive to the distribution</strong> of categories, while classification error is NOT. Consider the following two examples - the <strong>classification error rate is the same but the purity is higher</strong> in the second region:</p>
+<p>Gini Index and Class Entropy are the preferred purity measures when <strong>growing</strong> out a tree. This is because they are <strong>sensitive to the distribution</strong> of categories, while classification error is NOT. This can be seen in their formulas, where they depend on the <strong>individual class proportions</strong> while the error rate just uses the highest one.</p>
+<p>Consider the following two examples - the <strong>classification error rate is the same but the purity is higher</strong> in the second region:</p>
 <p><!-- Self Made -->
 <img alt="PURITY_DISTRIBUTION" class="center" src="../Assets/7.%20Tree%20Models.md/PURITY_DISTRIBUTION.png" /></p>
 <p>Classification Error is a <strong>one-dimensional and less sensitive</strong> approach that tends to result in simpler trees, which is why is often used as the purity measure for <strong>pruning</strong>. This is coupled with the fact that the main goal of pruning is to improve predictive accuracy, which is directly what the classification error measures.</p>
@@ -1835,7 +1836,7 @@
 <p>One way to add more insight to the model is through the use of <strong>Variable Importance Plots</strong> - which ranks the most important variables to the model:</p>
 <ul>
 <li><strong>Sensitivity</strong> analysis, <strong>removing one variable at a time</strong> from the model</li>
-<li>AVERAGE <strong>Change in MSE</strong> is recorded for each variable</li>
+<li>AVERAGE <strong>Change in MSE</strong> is recorded for each variable over all trees</li>
 <li>The variable whose absence results in the <strong>greatest increase in MSE is the most important</strong> variable</li>
 </ul>
 <!-- Obtained from Research Gate -->
@@ -1852,7 +1853,8 @@
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The implicit assumption made is that the independent variable chosen is <strong>independent from OTHER independent variables</strong>, such that the PDP captures the true relationship between the two. However, in reality, is likely that the chosen variable is <strong>correlated or has an interaction effect</strong> with some other variable.</p>
+<p>The implicit assumption made is that the independent variable chosen is <strong>independent from OTHER independent variables</strong>, such that the PDP captures the true relationship between the two.</p>
+<p>However, in reality, is likely that the chosen variable is <strong>correlated or has an interaction effect</strong> with some other variable - which makes the relationship captured in the PDP incomplete. Alternatively, there might be an <strong>impossible combination</strong> of values, making the results unintuitive.</p>
 </div>
 <h3 id="random-forest"><strong>Random Forest</strong><a class="headerlink" href="#random-forest" title="Permanent link">&para;</a></h3>
 <p>One of the primary issues with Bagging is <strong>Correlation</strong>. Since the bootstrapped <strong>samples are all similar</strong> to the underlying sample, it is likely that each bootstrapped tree will contain the <strong>same set of predictors</strong> (especially if there especially strong predictors).</p>

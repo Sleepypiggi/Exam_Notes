@@ -1189,8 +1189,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#overdispersion" class="md-nav__link">
-    Overdispersion
+  <a href="#dispersion" class="md-nav__link">
+    Dispersion
   </a>
   
 </li>
@@ -1250,7 +1250,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dispersion" class="md-nav__link">
+  <a href="#dispersion_1" class="md-nav__link">
     Dispersion
   </a>
   
@@ -1530,8 +1530,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#overdispersion" class="md-nav__link">
-    Overdispersion
+  <a href="#dispersion" class="md-nav__link">
+    Dispersion
   </a>
   
 </li>
@@ -1591,7 +1591,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dispersion" class="md-nav__link">
+  <a href="#dispersion_1" class="md-nav__link">
     Dispersion
   </a>
   
@@ -1719,17 +1719,16 @@
 </div>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="LEF" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/LEF.png" /></p>
-<!-- Self Made -->
-<p><img alt="LEF_MEAN_VAR" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/LEF_MEAN_VAR.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Recall from earlier exams that the <strong>Exponential Distribution</strong> is a special case of the Gamma distribution. Thus, it is also part of the LEF and hence their canonical link functions are the same.</p>
+<p>There is also a special distribution known as the <strong>Tweedie Distribution</strong> which is also part of the LEF. It is a <strong>Poisson Sum of Gamma Variables</strong>, which has properties <strong>somewhere between the two</strong> underlying distributions. It is a <strong>Discrete Continuous Mixture</strong> which allows for a large mass exactly at 0, making it particularly useful for modelling claims (aggregate losses).</p>
 </div>
-<p>There exists a special distribution known as the <strong>Tweedie Distribution</strong>. It is a <strong>Poisson Sum of Gamma Variables</strong>, which can be shown to be <strong>part of LEF</strong> as well. Its properties are <strong>somewhere in between</strong> the two.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is useful because it a <strong>Discrete Continuous Mixture</strong> modelling the frequency and severity of claims, which results in the <strong>aggregate loss</strong> commonly used in actuarial science.</p>
-<p>Tweedie is suitable for a target with many counts of 0 but is otherwise continuous on positive values.</p>
+<!-- Self Made -->
+<p><img alt="COMMON_GLM" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/COMMON_GLM.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is possible to transform the underlying data to fit the requirements - EG. Adding a small positive constant to ensure all values are positive or non-negative.</p>
 </div>
 <h3 id="link-functions"><strong>Link Functions</strong><a class="headerlink" href="#link-functions" title="Permanent link">&para;</a></h3>
 <p>Under linear regression, the model <strong>directly affects</strong> the dependent variable. Since the model changes linearly, the dependent variable <strong>must change linearly</strong> as well:</p>
@@ -1737,7 +1736,7 @@
     E(Y \mid X)
     = \beta_{0} + \beta_{1} \cdot x_{1} + \beta_{2} \cdot x_{2} + \dots
 \]</div>
-<p>Thus, this can be overcome by introducing an intermediate <strong>Link Function</strong> between the dependent variable and the model output. Thus, even if the model changes linearly, the link function can cause a <strong>non-linear impact on the dependent variable</strong>:</p>
+<p>Thus, this can be overcome by introducing an <em>intermediate</em> <strong>Link Function</strong> between the dependent variable and the model output. Thus, even if the <strong>model changes linearly</strong>, the link function can cause a <strong>non-linear impact on the dependent variable</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
     E(Y \mid X)
@@ -1758,6 +1757,12 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Another consideration is <strong>interpretability</strong>. Since link functions directly impact the dependent variable, it is desirable to use a <strong>simpler function</strong> (all else equal) to ease understanding.</p>
+<p>Ultimately, the link function should describe the relationship between the mean of the target variable and the linear predictors. For instance, if the relationship is linear, then the identity link can be used; no further transformation needed. But if the relationship IS non-linear, then another link can be used.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The link function is applied on the MEAN of the target variable, not the target variable itself. Thus, as long as the mean itself satisfies the domain of the link function, it can be used.</p>
+<p>This is why Log link can be used for the Poisson distribution, even though values of 0 are allowed - because the mean is unlikely to be 0.</p>
 </div>
 <!-- Self Made -->
 <p><img alt="LINK_FUNCTION" class="center" src="../Assets/6.%20Generalized%20Linear%20Models.md/LINK_FUNCTION.png" /></p>
@@ -1799,6 +1804,15 @@
 <li><strong>Distribution</strong>: Directly consider characteristics of the target variable (Domain, Spread etc)</li>
 <li><strong>Link Function</strong>: Consider whether resulting predictions are valid realizations of the distribution</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important to know the difference between the following:</p>
+<ul>
+<li>MLR model on a Log-transformed variable: <span class="arithmatex">\(E[\ln (Y \mid X)] = \beta_{0} + \beta_{1} \cdot X_{1}\)</span></li>
+<li>GLM model using a log-link variable: <span class="arithmatex">\(\ln[E(Y \mid X)] = \beta_{0} + \beta_{1} \cdot X_{1}\)</span></li>
+</ul>
+<p>Apart from modelling different variables, the underlying distribution is also different - MLR is locked with normal while GLM can use any of the LEF. This also has other downstream differences, such as assumptions on the variance etc.</p>
+</div>
 <h3 id="maximum-likelihood"><strong>Maximum Likelihood</strong><a class="headerlink" href="#maximum-likelihood" title="Permanent link">&para;</a></h3>
 <p>The parameters are estimated using <strong>Maximum Likelihood Estimation</strong> (MLE), where the likelihood function can be expressed as the following:</p>
 <div class="arithmatex">\[
@@ -1984,38 +1998,28 @@
 <p>Generally, why "normal" residuals are not useful in GLMs is because each model follows a <strong>different distribution</strong>, thus there are is <strong>no uniform behaviour for raw residuals</strong>.</p>
 <p>However, as they are stills residuals, they can be used in a <strong>similar way</strong> - to find outliers or identify misspecification.</p>
 </div>
-<h3 id="overdispersion"><strong>Overdispersion</strong><a class="headerlink" href="#overdispersion" title="Permanent link">&para;</a></h3>
-<p>Dispersion is a measure of the variability of the actual data relative to the assumed variability in the chosen distribution:</p>
+<h3 id="dispersion"><strong>Dispersion</strong><a class="headerlink" href="#dispersion" title="Permanent link">&para;</a></h3>
+<p>Recall that for MLR, Homoscedasticity (constant variance) was an assumption made about the data. More generally for GLMs, there is also an <strong>assumption made about the variance</strong> of the target, which is based on the <strong>choice of distribution</strong>. If the actual distribution has a variance different from what was assumed:</p>
 <ul>
-<li><strong>Actual Variability Larger</strong>: Overdispersion; Standard Error <strong>understated</strong>; false positives</li>
-<li><strong>Actual Variability Smaller</strong>: Underdispersion; Standard Error <strong>overstated</strong>; false negatives</li>
+<li><strong>Overdispersion</strong>: Actual variability is larger than expected; <strong>standard errors understated</strong>; false positives</li>
+<li><strong>Underdispersion</strong>: Actual variability is smaller than expected; <strong>standard errors overstated</strong>; false negative</li>
 </ul>
-<p>One method to overcome this is to multiply a <strong>Scale Parameter</strong> (<span class="arithmatex">\(\delta\)</span>) to the variance to <strong>re-scale</strong> the variance to an appropriate level. The scale parameter is often equivalent to a <strong>Pearson Goodness of Fit Statistic scaled by its degrees of freedom</strong>:</p>
+<p>Apart from changing the distribution of choice to better match the data (EG. Negative Binomial rather than Poisson due to flexibility), another is to use the <strong>Quasi Likelihood Method</strong>. This works by estimating a <strong>new dispersion parameter</strong> (<span class="arithmatex">\(\delta\)</span>) such that it is a <strong>Pearson Goodness of Fit Statistic scaled by its degrees of freedom</strong>: </p>
 <div class="arithmatex">\[
-\begin{aligned}
-    \text{Var(Y')} &amp;= \delta \cdot b''(\theta) \\
-    \\
-    \delta &amp;= \frac{1}{n-p-1} \cdot \text{Pearson Goodness of Fit} \\
-\end{aligned}
+    \delta = \frac{1}{n-p-1} \cdot \text{Pearson Goodness of Fit} \\
 \]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The above method only works for distributions which have a <strong>restrictive variance</strong> (related to the mean - <span class="arithmatex">\(b''(\theta)\)</span> must exist). If the variance is unrestricted (EG. Normal), the adjustment would NOT solve the mismatch in dispersion.</p>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This also means that the pearson chi-squared statistic can also be used to <strong>indicate when large over-dispersion is present</strong>, since the adjustment required is <strong>proportional to the amount needed to re-scale</strong> the variance.</p>
+<p>This also means that the pearson chi-squared statistic can also be used to <strong>indicate when large over-dispersion is present</strong>, since the adjustment required is <strong>proportional to the amount needed to re-scale</strong> the variance. Thus, another definition for dispersion is the <strong>relative size of the Deviance compared to its degrees of freedom</strong>.</p>
 </div>
-<p>Note that applying this correction changes the variance of the distribution, thus the following becomes impacted:</p>
+<p>The above method only works for distributions which have a <strong>restrictive variance</strong>; the existing dispersion parameter is fixed (<span class="arithmatex">\(\phi = 1\)</span>). However, applying this method fixes the dispersion but also fundamentally "changes" the distribution to become fake ("Quasi"):</p>
 <ul>
-<li><strong>Interpretation</strong> of the result (as the model no longer follows the original distribution)</li>
-<li><strong>Standard errors</strong> of the coefficients should increase (affecting statistical inference)</li>
-<li><strong>Asymptotic normality</strong> NO longer holds due to uncertainty (t-distribution should be used)</li>
+<li>Coefficients remain unchanged</li>
+<li>Standard errors should increase</li>
+<li>Aymptotic normality no longer holds; t-distribution should be used instead</li>
+<li>Interpretation should change</li>
+<li>Log-likelihood doesnt make sense</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Coefficient estimates remain unchanged.</p>
-</div>
 <h2 id="categorical-models"><strong>Categorical Models</strong><a class="headerlink" href="#categorical-models" title="Permanent link">&para;</a></h2>
 <h3 id="binary-response"><strong>Binary Response</strong><a class="headerlink" href="#binary-response" title="Permanent link">&para;</a></h3>
 <p>A Binary response variable has only two outcomes (0,1), thus a <strong>Bernoulli Distribution</strong> is used to model it. There are <strong>three main link functions</strong> that can map the the range into (0,1):</p>
@@ -2248,7 +2252,7 @@
 <p>It is not fair to directly compare the number of A's for each subject and conclude which is doing best - we should consider the <strong>underlying exposure</strong> as well to consider the A-rate.</p>
 </div>
 <p>The poisson coefficients have a very similar intepretation with the logit model - it represents the <strong>multiplicative increase</strong> in the count given a one unit increase or in the presence of another variable.</p>
-<h3 id="dispersion"><strong>Dispersion</strong><a class="headerlink" href="#dispersion" title="Permanent link">&para;</a></h3>
+<h3 id="dispersion_1"><strong>Dispersion</strong><a class="headerlink" href="#dispersion_1" title="Permanent link">&para;</a></h3>
 <p>Although the poisson distribution is suited to model counts, it has a <strong>restrictive</strong> property where the <strong>mean and variance MUST be equal</strong>. This makes it inadequate where the underlying data exhibits <strong>overdispersion</strong>. As mentioned previously, one method is to adjust the re-scale the variance using the pearson residuals. This section addresses more drastic approaches to deal with it.</p>
 <h4 id="negative-binomial"><strong>Negative Binomial</strong><a class="headerlink" href="#negative-binomial" title="Permanent link">&para;</a></h4>
 <p>Another method is to use a different distribution which does not have this restrictive property - such as the  <strong>Negative Binomial Distribution</strong>:</p>

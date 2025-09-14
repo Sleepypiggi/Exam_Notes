@@ -1689,6 +1689,11 @@
 <p class="admonition-title">Warning</p>
 <p>If asked to compare between dendrograms, note that most of the time they are NOT drawn on the same scale. Always refer to the corresponding axis to determine the correct dissimilarity.</p>
 </div>
+<p>Thus, the vertical distance between two clusters when they merge is the <strong>extent of the dissimilarity</strong>. Large distances indicates that the two clusters are not very similar at all - merging them would result in a loss of information.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This information could be used to decide where to slice a dendrogram - if there is a point where the distance between merging clusters becomes large, then it should be sliced before that to ensure that they remain as distinct clusters.</p>
+</div>
 <h2 id="potential-problems"><strong>Potential Problems</strong><a class="headerlink" href="#potential-problems" title="Permanent link">&para;</a></h2>
 <p>Both kinds of clustering are sensitive to actions of the modeller:</p>
 <ul>
