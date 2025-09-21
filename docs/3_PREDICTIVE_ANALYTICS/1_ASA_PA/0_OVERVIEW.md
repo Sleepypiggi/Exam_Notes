@@ -105,23 +105,47 @@ After identifying the problems, the following actions can be taken:
 * **Affects few observations**: Remove the affected observations
 * **Affects many observations**: Remove the entire variable
 
-### **Data Transformation**
-
-The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness.
-
-The main issue for categorical variables is **high dimensionality** (too many levels) and **sparseness** (too few observations in certain levels). Both of this can be solved by **combining similar levels** together while ensuring that the resulting new levels properly split the data. This often requires **contextual knowledge** of the data.
-
-This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
+Trimming >> Remove top X
+Null is missing object
+NA is missing observation
 
 ### **Data Exploration**
 
-Recall that there are two broad data categories - Numeric & Categorical. The method of exploration depends on the number of and type of variables:
+The data should be explored to gain a better understanding of it. There are two primary methods to do so:
 
-<!-- Obtained from ACTEX PA Cheat Sheet -->
-![DATA_EXPLORATION](Assets/0_OVERVIEW.md/DATA_EXPLORATION.png){.center}
+<!-- Self made -->
+![DATA_EXPLORATION_METHODS](Assets/0_OVERVIEW.md/DATA_EXPLORATION_METHODS.png){.center}
 
-<!-- Obtained from ACTEX PA Cheat Sheet -->
-![EXPLORATION_TOOLS](Assets/0_OVERVIEW.md/EXPLORATION_TOOLS.png){.center}
+For summary statistics, the following statistics are usually provided as they are the output of the `summary` function in `R`:
+
+* **Numeric**: Various statistics (not limited to the ones shown below)
+* **Factor**: Count for each level
+
+<!-- Obtained from Coaching Actuaries -->
+![SUMMARY_R](Assets/0_OVERVIEW.md/SUMMARY_R.png){.center}
+
+Graph dependent on human eye
+* Easier compare length than angle, thus bar chart better than pie chart
+* Easier compare length than area, thus bar chart better than pie chart
+* Snapshot vs Over time
+* Missing what its missing; no perfect visual
+
++ve/-ve
+Skewness
+Number of modes
+
+Plots
+add Count
+
+Correlation must exist across all levels (not just up till certain point)
+
+Interaction >> Faceting
+Target vs A split by B
+Target B1 // A123 // B2 // A123
+A123 vs target has effect but effect changes between B1 and B2
+
+Target vs Predictor >> To find potential variables (Vary across all levels or values - but must be intuitive, cannot l3 have effect but l4 dont have)
+Predictor vs Predictor >> To identify potential collinearity
 
 <!-- Obtained from ACTEX PA Cheat Sheet -->
 ![INTERACTION_TOOLS](Assets/0_OVERVIEW.md/INTERACTION_TOOLS.png){.center}
@@ -163,6 +187,28 @@ Recall that there are two broad data categories - Numeric & Categorical. The met
     * Factor Level 1: 0-10
     * Factor Level 2: 11-20
     * Factor Level 3: 20 and above
+
+### **Data Transformation**
+
+The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness.
+
+The main issue for categorical variables is **high dimensionality** (too many levels) and **sparseness** (too few observations in certain levels). Both of this can be solved by **combining similar levels** together while ensuring that the resulting new levels properly split the data. This often requires **contextual knowledge** of the data.
+
+This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
+
+Combine levels with few counts. Not reliable to use them anyway
+Drop factor levels that are overwhelmingly dominated by one count -> No point, not going to get much predictive information (No constant)
+If transforming factors or combining, the resulting factor should have fewer counts (simplification, otherwise more complicated)
+
+Numeric vs Factor
+Factor > Can only be used to predict those years
+Numeric > Can extrapolate
+
+Relevelling factors to highest etc >> Make more meaningful
+Binarizaton > Can drop independent; remaining automatically combined (Not intuitive)
+
+Scaling numeric variable >> Doesnt solve skewness
+Log or squareroot transform >> To remove outliers, fix hetero, or linearize
 
 ## **Model Selection & Evaluation**
 
