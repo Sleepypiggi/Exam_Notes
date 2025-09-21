@@ -1,38 +1,42 @@
 # **Predictive Analytics**
 
-## **Overview**
+The focus on this exam is on the **application of the theory** covered in exam SRM to solve a real-world business problem. The exam is fully written, thus **communication** is also a big part of the exam. Thus, this set of notes will only cover content **new to PA**, mainly covering problem solving and data handling. Kindly refer to the exam SRM section for all theory related content.
 
-The focus on this exam is on the **application of the theory** covered in exam SRM to solve a real-world business problem. The exam is fully written, thus **communication** is also a big part of the exam.
+## **Business Context**
 
-Thus, this set of notes will only cover content **new to PA**, mainly covering problem solving and data handling. Kindly refer to the exam SRM section for all theory related content.
+The exam will involve a short write-up to **explain the business problem**. Generally speaking, the core problem can be categorized as one of the following:
 
-For the purposes of this exam, there are 6 parts to solving a business problem:
+* **Descriptive Analytics**: What happened in the **past**; explaining **trends and relationships** between variables
+* **Predictive Analytics**: What will happen in the **future**; making accurate **predictions**
+* **Prescriptive Analytics**: **Impact** of certain actions; identifying the **best course of action**
 
-1. Identifying the problem
-2. Collecting data to analyze the problem
-3. Exploring the data to better understand it
-4. Choosing and building a statistical model to solve the problem
-5. Validating that the model is appropriate
-6. Providing a recommendation for the problem
+!!! Tip
 
-Parts (4) and (5) mainly rely on SRM content thus are not covered in this section. 
+    The questions in the exam WILL make reference to the business context to some extent, thus constantly make reference back to the preamble to ensure key information is not missed.
 
-## **Problem Definition**
+!!! Warning
 
-There are three main types of problems:
+    Although the name of the exam is "Predictive Analytics", the exam can focus on **any type of anlytics**. It is common for different parts of the question to focus on different types of analytics, thus do NOT make any assumptions.
 
-* **Descriptive**: What happened in the **past**; explaining **trends and relationships** between variables
-* **Predictive**: What will happen in the **future**; making accurate **predictions**
-* **Prescriptive**: Impact of **prescribed actions**; identifying the **best course of action**
+Every exam will also come with a **dataset** that accompanies the business problem. For recent exams, the actual dataset is no longer given, only a **Data Dictionary** that summarizes the following for each variable:
 
-In practice, a given problem will involve a **combination** of the above types of problems. As its name suggests, this exam focuses on **Predictive Problems**. There are two ways to create a meaningful predictive problem definitions:
+1. Name
+2. Description - business specific context is provided here
+3. Type
+4. Numeric Range or Factor Levels
 
-* **Hypotheses**: Use prior knowledge to develop a **testable hypotheses** that addresses the concern
-* **Metrics**: Create **objective and measurable KPIs** that are **aligned** with the business strategy
+<!-- Obtained from SOA 202504 PA Exam -->
+![DATA_DICTIONARY](Assets/0_OVERVIEW.md/DATA_DICTIONARY.png){.center}
 
-## **Data Collection and Validation**
+!!! Note
 
-For predictive analytics, it is important that the data collected is:
+    For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a **tabular arrangement** and hence easily manipulated. The opposite would be **Unstructured** data that CANNOT be placed into a table (EG. Image, Audio of Free Text) data. Although these data types provide **more insight**, they are much more **resource intensive** to process and require more **complicated models** to use.
+
+## **Data Adequacy**
+
+### **Data Collection**
+
+For all statistical analyses, it is important that the data collected is:
 
 1. **Representative** of the underlying population - Use proper **sampling methods**
 2. **Indicative** of future behaviour - Use data that has been collected **recently**; exclude observations that were impacted by **one-off events** (EG. COVID19)
@@ -63,36 +67,53 @@ In order to divide the population into groups, **stratification variable(s)** mu
 
 A potential problem during the data collection process is **Sampling Bias**, which is unintentionally introducing bias via the means of collecting the sample:
     
-* **Convenience Sampling** - People who are easy to sample may follow a certain trend (EG. Friends & Family)
-* **Voluntary Response** - People are voluntarily respond tend to feel strongly about issues (EG. Customer Reviews)
-* **Under Representation** - May unintentionally exclude certain groups (EG. Phone survey exclude those without phones)
-* **Survivorship Bias** - Sampling only people who “survived” a process excludes those who didn’t
-* The above is a non-exhaustive list
+<!-- Obtained from Scribbr -->
+![SAMPLING_BIAS](Assets/0_OVERVIEW.md/SAMPLING_BIAS.png){.center}
 
-For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a tabular arrangement and hence easily manipulated. The opposite would be **Unstructured** data that CANNOT be placed into a table (EG. Image or Audio) data. Although these data types provide **more insight**, they are much more **resource intensive** to process and require more **complicated models** to use.
+!!! Note
 
-!!! Warning
+    Other considerations when collecting data:
 
-    For the purposes of this exam, it is also assumed that **free text** is a form of unstructured data.
+    * **Personally Identifiable Information** (PII): Should only be collected **within terms and conditions**; should be **anonymized** and sufficiently **secured**
+    * **Sensitive Information**: Should not collect variables (or proxies of them) that may lead to **unfair discrimination** (EG. Race, Disability status etc)
 
-There are some general considerations when collecting data:
+### **Data Adequacy**
 
-* **Granularity**: Collected values should follow a **specified level of detail** (EG. Decimal places, date vs quarter)
-* **Reasonableness**: Collected values must **make sense** (EG. Age should be non-negative, not larger than 120)
-* **Consistency**: Collected values should follow the **same basis** (EG. Same units, same encoding)
-* **Documentation**: **Accompanying notes** that describes the data in detail, the collection process and any irregularities observed
-* **Personally Identifiable Information** (PII): Should only be collected **within terms and conditions**; should be **anonymized** and sufficiently **secured**
-* **Sensitive Information**: Should not collect variables (or proxies of them) that may lead to **unfair discrimination** (EG. Race, Disability status etc)
+The first aspect to consider is the **Scope** of the entire suite of variables provided:
 
-For predictive analytics specifically, possible **Target Leakages** are of a key concern. They are variables that are **NOT available during actual deployment** of the model that contains **information about the target variable** ("leaks"). If included, these variables would **artifically boost model performance** as they would not be present in practice. Thus, it is best NOT to collect such variables at all.
+* **Amount** - Ideally a large amount provided
+* **Type** - Ideally both Numeric & Factor variables are provided
+* **Granularity** - Ideally should have sufficient granularity (EG. Numeric - Decimal places, Factor - Number of levels)
+* Must have variables **key to the business problem**; call out potentially missing ones
+* Any possible **Target Leakages** - variables that provide information about the target that would **otherwise not be available** during actual deployment of the model
 
 !!! Note
 
     Target leakage typically occurs for variables that are *generated* at the **same time or after** the target variable. Note that this refers to the GENERATION of the data, NOT the collection.
 
+    If included, these variables would **artifically boost model performance** as they would not be present in practice. Thus, it is best NOT to collect such variables at all.
+
     For instance, if the model is aiming to predict whether a patient would be re-admitted, then using a variable such as "blood sugar level during next visit" would be a case of target leakage because the variable would only have values for patients who ARE re-admitted.
 
-## **Data Exploration**
+Another aspect to consider the **reasonableness** of each individual variable:
+
+* Are they any outliers? Compare the mean relative to the minimum or maximum values
+* Are there any missing values? Observe the count of missing values
+
+After identifying the problems, the following actions can be taken:
+
+* **Affects few observations**: Remove the affected observations
+* **Affects many observations**: Remove the entire variable
+
+### **Data Transformation**
+
+The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness.
+
+The main issue for categorical variables is **high dimensionality** (too many levels) and **sparseness** (too few observations in certain levels). Both of this can be solved by **combining similar levels** together while ensuring that the resulting new levels properly split the data. This often requires **contextual knowledge** of the data.
+
+This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
+
+### **Data Exploration**
 
 Recall that there are two broad data categories - Numeric & Categorical. The method of exploration depends on the number of and type of variables:
 
@@ -143,12 +164,9 @@ Recall that there are two broad data categories - Numeric & Categorical. The met
     * Factor Level 2: 11-20
     * Factor Level 3: 20 and above
 
-### **Data Transformation**
-
-The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness.
-
-The main issue for categorical variables is **high dimensionality** (too many levels) and **sparseness** (too few observations in certain levels). Both of this can be solved by **combining similar levels** together while ensuring that the resulting new levels properly split the data. This often requires **contextual knowledge** of the data.
-
-This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
+## **Model Selection & Evaluation**
 
 ## Next Steps
+
+* **Hypotheses**: Use prior knowledge to develop a **testable hypotheses** that addresses the concern
+* **Metrics**: Create **objective and measurable KPIs** that are **aligned** with the business strategy
