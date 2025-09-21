@@ -1875,7 +1875,7 @@
 <p>The intuition is that we want to choose the model that has the <strong>best predictive performance</strong>. The (cross) validation error is the <strong>most direct estimate</strong> of that, thus the hyperparameter should be chosen such that that error is minimized.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Rather than choosing the model with the absolute lowest cross validation error, an alternative rule of thumb is to choose the <strong>simplest model</strong> out of all the models within <strong>one standard error</strong> of the lowest:</p>
+<p>Rather than choosing the model with the absolute lowest cross validation error, an alternative rule of thumb is to choose the <strong>simplest model</strong> out of all the models <strong>one standard error</strong> above the lowest:</p>
 <p><!-- Obtained from CMU -->
 <img alt="ONE_STANDARD_ERROR" src="../Assets/5.%20Model%20Selection.md/ONE_STANDARD_ERROR.png" /></p>
 <p>The intuition is that the difference in cross validation errors is <strong>not material</strong> within the one standard error. Since <strong>simplicity</strong> is usually the goal, the simplest model is chosen. Naturally, the model chosen this way will be <strong>less flexible</strong>, but that is intentional.</p>

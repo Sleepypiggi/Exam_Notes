@@ -1181,6 +1181,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#single-tree-analysis" class="md-nav__link">
+    Single Tree Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ensemble-methods" class="md-nav__link">
     Ensemble Methods
   </a>
@@ -1205,6 +1212,13 @@
           <li class="md-nav__item">
   <a href="#boosting" class="md-nav__link">
     Boosting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
   </a>
   
 </li>
@@ -1400,6 +1414,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#single-tree-analysis" class="md-nav__link">
+    Single Tree Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ensemble-methods" class="md-nav__link">
     Ensemble Methods
   </a>
@@ -1424,6 +1445,13 @@
           <li class="md-nav__item">
   <a href="#boosting" class="md-nav__link">
     Boosting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
   </a>
   
 </li>
@@ -1598,7 +1626,6 @@
 <ul>
 <li>Minimum number of observations in a node (internal vs terminal node; can be different)</li>
 <li>Maximum number of terminal nodes</li>
-<li>Minimum reduction in RSS per split</li>
 </ul>
 </div>
 <div class="admonition warning">
@@ -1640,7 +1667,7 @@
 <img alt="ALPHA_INDEX" class="center" src="../Assets/7.%20Tree%20Models.md/ALPHA_INDEX.png" /></p>
 <p>As seen above, since <span class="arithmatex">\(T\)</span> is an integer while <span class="arithmatex">\(\alpha\)</span>  is continuous, it leads to a <strong>step like function</strong> where a range of <span class="arithmatex">\(\alpha\)</span> results in the same subtree:</p>
 <p><!-- Obtained from Coaching Actuaries -->
-<img alt="alpha_RANGE" class="center" src="../Assets/7.%20Tree%20Models.md/ALPHA_RANGE.png" /></p>
+<img alt="ALPHA_RANGE" class="center" src="../Assets/7.%20Tree%20Models.md/ALPHA_RANGE.png" /></p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1651,23 +1678,13 @@
 <p class="admonition-title">Warning</p>
 <p>Note that converting a subtree into a leaf is NOT simply taking the average of the two original leaves, be it for the predicted value or its RSS.</p>
 </div>
-<p>Generally speaking, <strong>Post-Pruning is preferred</strong>. Stunting the growth of the tree early <strong>might reduce a small amount of RSS early, but might also result in an even large RSS later on</strong>. Thus, it is better to let the tree grow and then prune it back to the right size with a full view.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The main point of using a decision tree is that it can be illustrated with a <strong>simple visual</strong>. If the tree is too large, the visual becomes too complicated, undercutting the appeal of the tree.</p>
-<p>For this reason, pruning is important. However, if cross validation suggests that the best <span class="arithmatex">\(\alpha\)</span> is 0; ie that the full tree is best, then decision trees might not work well with the data.</p>
+<p>One common consideration is pruning a tree versus growing a new tree with the same complexity parameter from the get go. Generally speaking, it is better to allow the tree to <strong>grow fully first to allow valuable splits to occur</strong>, that might not have otherwise occurred. In the worse scenario, stunting the growth of the tree early might <strong>reduce a small amount of RSS early but result in an even larger RSS later on</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The complexity parameter (<span class="arithmatex">\(\alpha\)</span>) and the other pre-pruning conditions are all the <strong>Hyperparameters</strong> of a decision tree. Given that there are multiple, they need to be <strong>tuned together</strong> to achieve the best results.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Another scenario is the consideration of pruning a tree versus building a new tree with the same complexity parameter.</p>
-<p>The reason is similar to above - it is better to allow the tree to fully grow first as it will allow for valuable splits to appear, that might have otherwise not happened if a new tree was grown under stricter conditions.</p>
-</div>
-<p>After pruning, it is recommended to analyze the following aspects for reasonableness:</p>
-<ol>
-<li><strong>Number of splits</strong>: Is it manageable?</li>
-<li><strong>Sequence of splits</strong>: Does it make sense? Any interactions?</li>
-<li><strong>Size of terminal nodes</strong>: Any imbalances?</li>
-</ol>
+<p>Recall that the main point of using a decision tree is that it can be illustrated with a <strong>simple visual</strong>. If the tree is too large, the visual becomes <strong>too complicated</strong>, undercutting the appeal of the tree. For this reason, pruning is important. However, if cross validation suggests that the full <strong>unpruned tree is best</strong>, then <strong>decision trees might not work well</strong> with the data.</p>
+<p>An example of the above would be when working with a dataset where a <strong>continuous numeric variable</strong> is a strong predictor. The tree would need to make <strong>many splits each with marginal improvements</strong> to represent the continuous relationship, resulting in a large tree. In such cases, it would be much <strong>better to use linear regression</strong> which can inherently better capture the relationship.</p>
 <h2 id="classification-trees"><strong>Classification Trees</strong><a class="headerlink" href="#classification-trees" title="Permanent link">&para;</a></h2>
 <p>Decision Trees can also be used for <strong>categorical predictors</strong>, in which case it is known as a <strong>Classification Tree</strong>. The model assigns a category to the prediction based on the <strong>most common</strong> category within that region of the tree.</p>
 <div class="admonition note">
@@ -1752,6 +1769,14 @@
 <p class="admonition-title">Warning</p>
 <p>The above relationship only holds for the measures WITHIN a single node. It CANNOT be used to compare across nodes.</p>
 </div>
+<h2 id="single-tree-analysis"><strong>Single Tree Analysis</strong><a class="headerlink" href="#single-tree-analysis" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Number of splits</strong> - Tree depth; should not be too big</li>
+<li><strong>Size of terminal nodes</strong> - Proportion of data in the terminal node; should be sufficiently large </li>
+<li><strong>Sequence of splits</strong> - Most important variables at the top; does it make sense?</li>
+<li><strong>Location of splits</strong> - Where the splits occur; is it only for a particular region?</li>
+<li><strong>Split conditions</strong> - Which variables are used? What range of the variables are used?</li>
+</ol>
 <h2 id="ensemble-methods"><strong>Ensemble Methods</strong><a class="headerlink" href="#ensemble-methods" title="Permanent link">&para;</a></h2>
 <p>Ensemble Methods use a <strong>collection</strong> of statistical learning  techniques in conjunction with one another to produce better results than any of the individual methods.</p>
 <p>Ensemble Methods are typically used with basic models known as <strong>Weak Learners</strong> to produce a stronger model.</p>
@@ -1835,7 +1860,7 @@
 </div>
 <p>One way to add more insight to the model is through the use of <strong>Variable Importance Plots</strong> - which ranks the most important variables to the model:</p>
 <ul>
-<li><strong>Sensitivity</strong> analysis, <strong>removing one variable at a time</strong> from the model</li>
+<li>Type of <strong>Sensitivity</strong> analysis, <strong>removing one variable at a time</strong> from the model</li>
 <li>AVERAGE <strong>Change in MSE</strong> is recorded for each variable over all trees</li>
 <li>The variable whose absence results in the <strong>greatest increase in MSE is the most important</strong> variable</li>
 </ul>
@@ -1844,6 +1869,10 @@
 <p>The above is plotted based on the absolute increase or the percentage increase for that variable. It also possible to present the data as a <strong>percentage of the most important variable</strong> instead:</p>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="VARIABLE_IMPORTANCE_2" class="center" src="../Assets/7.%20Tree%20Models.md/VARIABLE_IMPORTANCE_2.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is typical to call out the <strong>few most important/least important</strong> variables - and within those groups, their <strong>relative importance</strong>. For instance, A and B are the top two variables by a large margin, but B is only half as important as A.</p>
+</div>
 <p>However, despite the above, the plots do NOT ultimately describe <strong>HOW</strong> the variables impact the target. For this, a <strong>Partial Dependence Plot</strong> is considered instead - which describes the <strong>marginal</strong> impact that a variable has on the model output:</p>
 <ol>
 <li>Select an independent variable to be studied - consider all possible values for this variable</li>
@@ -1919,16 +1948,39 @@
 <p class="admonition-title">Warning</p>
 <p>Some questions might cut off the graph at a certain point, omitting the potential increase in Test Error for Boosting. </p>
 </div>
-<p>It is important to understand why Random Forests will not overfit with the number of trees but Boosting does:</p>
-<ul>
-<li>Adding a tree to a random forest simply means taking the average of more observations, which does NOT force the overall model closer to the target. However, for boosting, each added tree explains more and more of the target, thus each additional tree brings it <strong>closer to the target</strong>, making it possible to overfit</li>
-<li>Boosting uses the <strong>SAME underlying data</strong> for each step, while Random Forests only allow a random subset of the data to be used</li>
-</ul>
-<p>However, that is not to say that one is better than the other:</p>
-<ul>
-<li><strong>Random Forest</strong>: Preferred when variance is the key concern</li>
-<li><strong>Boosting</strong>: Preferred when bias is the key concern</li>
-</ul>
+<h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Random Forest</strong></th>
+<th align="center"><strong>Boosting</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Trees built independently</td>
+<td align="center">Trees built sequentially</td>
+</tr>
+<tr>
+<td align="center">From different bootstraps</td>
+<td align="center">From previous residuals</td>
+</tr>
+<tr>
+<td align="center">Random subset used each time</td>
+<td align="center">Same underlying data each time</td>
+</tr>
+<tr>
+<td align="center">Average of underlying; does not overfit</td>
+<td align="center">Missed signals of underlying; can overfit</td>
+</tr>
+<tr>
+<td align="center">Preferred for low variance</td>
+<td align="center">Preferred for low bias</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
 
 
 

@@ -1112,8 +1112,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#auc" class="md-nav__link">
-    AUC
+  <a href="#roc-auc" class="md-nav__link">
+    ROC &amp; AUC
   </a>
   
 </li>
@@ -1415,8 +1415,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#auc" class="md-nav__link">
-    AUC
+  <a href="#roc-auc" class="md-nav__link">
+    ROC &amp; AUC
   </a>
   
 </li>
@@ -2034,17 +2034,25 @@
 </ul>
 <p>It might look like it, but Sensitivity and Specificity are <strong>NOT complements</strong> of one another. It is desirable that BOTH are as high as possible.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is helpful to think of the two as the <strong>proportion of correctly predicted</strong> observations among the positive and negative observations respectively.</p>
+<p>An easy way to remember the two would be - "Sensitive to positive and specify the negative".</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The order of the confusion matrix is dependent on the person constructing it - always check to ensure that the correct quantity is used.</p>
 </div>
-<h3 id="auc"><strong>AUC</strong><a class="headerlink" href="#auc" title="Permanent link">&para;</a></h3>
-<p>Classification problems are <strong>sensitive to the choice of cutoff</strong>, resulting in vastly different results. For every set of predictions, there exists a <strong>set of cutoffs</strong> that will result in different classifications.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Depending on the number of predictions and the predictions themselves, the classifications will only change if the cutoff is changed past a certain threshold.</p>
-</div>
-<p>Thus, plot the sensitivity and specificity for all possible cutoff values, known as the <strong>Receiver Operating Characteristic</strong> (ROC) Curve. The theoretical best possible point is the top left corner, which represents the <strong>highest possible sensitivity AND specificity</strong>. Thus, the optimal cutoff is the one that corresponds to a the <strong>top-leftmost point on the curve</strong>, which often represents the <strong>best possible combination</strong> of the two metrics:</p>
+<h3 id="roc-auc"><strong>ROC &amp; AUC</strong><a class="headerlink" href="#roc-auc" title="Permanent link">&para;</a></h3>
+<p>Classification problems are <strong>sensitive to the choice of cutoff</strong>, which may result in vastly different results. Classifications tend to only change if the cutoff is changed past a certain threshold.</p>
+<p>However, calculating the sensitivity and specificity is only based on a <em>particular</em> cutoff. Thus, a <strong>set of cutoffs</strong> and their corresponding classification metrics can be considered at once by plotting them on <strong>Receiver Operating Characteristic</strong> (ROC):</p>
+<ul>
+<li><strong>X-axis</strong> is "flipped", where it starts from a <strong>specificity of 1</strong> rather than 0</li>
+<li><strong>Bottom left</strong> point has a sensitivty of 0 and specificity of 1 - ALL observations are predicted as <strong>negative</strong></li>
+<li><strong>Bottom right</strong> has a sensitivity of 1 and specificity of 1 - ALL observations predicted as <strong>positive</strong></li>
+<li><strong>Top left</strong> represents the <strong>theoretically best point</strong> with BOTH sensitivity and specificity of 1</li>
+<li>The combination of the two extreme ends and the model prediction forms the ROC</li>
+</ul>
 <!-- Obtained from Research Gate -->
 <p><img alt="ROC_CURVE" class="center" src="../Assets/1.%20Statistical%20Learning.md/ROC_CURVE.png" /></p>
 <div class="admonition warning">
@@ -2060,11 +2068,14 @@
 <li>Fraud Detection: Better to ensure dont falsely accuse people; high specificity</li>
 </ul>
 </div>
-<p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). The higher the AUC, the more cutoff points there are that provide higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models. Thus, an <strong>AUC of 1 represents a perfect classifier</strong>.</p>
+<p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). The higher the AUC, the more cutoff points there are that provide BOTH higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models. However, it does NOT provide a <strong>method of choosing</strong> a specified cutoff value.</p>
+<ul>
+<li>Theoretically, the <strong>highest AUC is 1</strong> where the entire curve is an upside down "L" - the area under the curve is the entire plot</li>
+<li>Realistically, the AUC is often a combination of <strong>common geometric shapes</strong> over 3 points</li>
+</ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The key advantage is that this allows analysis over a <strong>range of cutoff thresholds</strong>, while classification error is only an evaluation at one particular threshold.</p>
-<p>That said, it still does NOT provide a method of choosing a specific cutoff value.</p>
+<p>The line in the middle linearly connecting the two endpoints only represents has an AUC of 0.5. This occurs when the model makes positive and negative predictions almost equally. This is considered to be a poor classifier as any increase in sensitivity results in a same decrease in specificity.</p>
 </div>
 <h3 id="class-imbalance"><strong>Class Imbalance</strong><a class="headerlink" href="#class-imbalance" title="Permanent link">&para;</a></h3>
 <p>One common problem is that there is Class Imbalance in the underlying dataset such that one of the classes is <strong>under-represented</strong>. For instance, when studying about gender inequality, there might be significantly fewer observations that are female.</p>

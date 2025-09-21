@@ -1665,6 +1665,10 @@
 <li><strong>Intercept Parameter</strong> (<span class="arithmatex">\(\beta_{0}\)</span>): <strong>Expected value</strong> of <span class="arithmatex">\(Y\)</span> when <span class="arithmatex">\(X_{1} = X_{2} = \dots = 0\)</span></li>
 <li><strong>Slope Parameter</strong> (<span class="arithmatex">\(\beta_{p}\)</span>): <strong>Change</strong> in <strong>Expected Value</strong> of <span class="arithmatex">\(Y\)</span> given a <strong>one unit increase</strong> in <span class="arithmatex">\(X_{p}\)</span>, assuming <em>all others are constant</em></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The MLR coefficient interpretation is DIFFERENT from SLR. Thus, the same variable can have <strong>different coefficients under each context</strong>. This does NOT mean that either is wrong - they are simply on a different basis. </p>
+</div>
 <p>To better understand the relationship between individual predictors, the <strong>Partial Correlation Coefficient</strong> can be used. It is the correlation between the predictor and response, <strong>holding all other predictors constant</strong>.</p>
 <div class="arithmatex">\[
     \text{PCF} = \frac{t}{\sqrt{t^{2} + (n-p-1)}}
@@ -2043,11 +2047,6 @@ Var(\hat{\beta}) =
 <p class="admonition-title">Warning</p>
 <p>Only <span class="arithmatex">\(n-1\)</span> are needed because the final level <strong>can be deduced</strong> from the other variables. If the final level is included, then the variables will become <strong>Perfectly Collinear</strong>, causing problems which will be discussed in the next section. This is known as the <strong>Dummy Variable Trap</strong>.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The process of converting of a categorical variable (EG. Direction) into several dummy variables is known as Binarization.</p>
-<p>In practice, NOT ALL levels of the factor will be kept in the model - only those that are statistically significant.</p>
-</div>
 <p>The <strong>sum of all dummy variables must equal to 1</strong>. Consider the following two cases:</p>
 <ul>
 <li><strong>North Chosen</strong>: <span class="arithmatex">\(x_{\text{North}} = 1, x_{\text{West}} = 0, x_{\text{South}} = 0\)</span></li>
@@ -2144,7 +2143,10 @@ Var(\hat{\beta}) =
 <li>Equation assuming Continuous Variable is Max/Min</li>
 <li>Determine whether the impact of the dummy variable is conclusive (Same for both scenarios)</li>
 </ul>
-<p>Interaction variables are <strong>not easy to interpret</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Interaction variables add predictive power but are <strong>not easy to interpret</strong>.</p>
 </div>
 <h3 id="indicator-variables"><strong>Indicator Variables</strong><a class="headerlink" href="#indicator-variables" title="Permanent link">&para;</a></h3>
 <p>In some cases, there might be an <strong>change in the behaviour</strong> of the predictor <strong>across different values</strong> it can take.</p>

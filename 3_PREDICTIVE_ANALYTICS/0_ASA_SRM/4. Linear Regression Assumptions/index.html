@@ -1691,6 +1691,11 @@
 <li>Regularization imposes a <strong>size constraint that biases them towards 0</strong>, forcing the estimates to hover around that range, reducing variance</li>
 <li>EG. Without regularization, there could be a large positive and large negative coefficient offsetting each other. Regularization eliminates such a case from occuring as they are not allowed to vary so much</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Collinearity is a problem that occurs among predictors only.</p>
+<p>It is preferred for the target and predictors to be "collinear" as they <strong>should have a linear relationship</strong> to be used for linear regression. However, if they are "perfecly collinear", then it is a sign of <strong>target leakage</strong> in the model.</p>
+</div>
 <h3 id="detecting-collinearity"><strong>Detecting Collinearity</strong><a class="headerlink" href="#detecting-collinearity" title="Permanent link">&para;</a></h3>
 <p>The simplest way to detect collinearity is through a <strong>Scatterplot or Correlation Matrix</strong>, which shows the correlations between <strong>pairs of variables</strong>. A <strong>correlation of 0.8 and higher</strong> is typically considered high enough where the collinearity becomes problematic.</p>
 <!-- Obtained from ACTEX Manual -->
