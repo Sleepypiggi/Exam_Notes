@@ -124,11 +124,20 @@ For summary statistics, the following statistics are usually provided as they ar
 <!-- Obtained from Coaching Actuaries -->
 ![SUMMARY_R](Assets/0_OVERVIEW.md/SUMMARY_R.png){.center}
 
-Graph dependent on human eye
-* Easier compare length than angle, thus bar chart better than pie chart
-* Easier compare length than area, thus bar chart better than pie chart
-* Snapshot vs Over time
-* Missing what its missing; no perfect visual
+For graphical plots, one or more of the following plots are typically used:
+
+There is no universally best plot. Each plot has a limitation, which typically stems from one of the following reasons:
+
+* **Ease of visual interpretation** - certain shapes are typically more palatable than others for comparisons across levels or time
+* **Flexibility** - certain plots have the option to include other variables in its plot (Split by levels, colour, shape, size)
+
+Another method of adding an **additional factor variable** to the plot is via **Faceting**. Instead of just one plot, it creates small multiples of the plot, each for a different level of the additional factor variable:
+
+This has two primary uses:
+
+1. For plots with **only one variable**, this allows us to observe the **relationship between** two variables
+2. For plots with **two or more variables**, this allows us to observe **how the relationship changes** in the presence of another variable (Interaction effects)
+
 
 +ve/-ve
 Skewness
@@ -152,7 +161,7 @@ Predictor vs Predictor >> To identify potential collinearity
 
 !!! Warning
 
-    The reason why frequency is not applicable for numeric data is that there are infinitely many possibilities, thus calculating the frequency for each is impractical and not meaningful.
+    The reason why frequency is not applicable for numeric data is that there are infinitely many opossibilities, thus calculating the frequency for each is impractical and not meaningful.
 
 !!! Tip
 
