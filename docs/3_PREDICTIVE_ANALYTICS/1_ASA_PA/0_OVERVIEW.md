@@ -124,78 +124,47 @@ For summary statistics, the following statistics are usually provided as they ar
 <!-- Obtained from Coaching Actuaries -->
 ![SUMMARY_R](Assets/0_OVERVIEW.md/SUMMARY_R.png){.center}
 
-For graphical plots, one or more of the following plots are typically used:
+!!! Warning
 
-There is no universally best plot. Each plot has a limitation, which typically stems from one of the following reasons:
+    Naturally, counts are not available for numerical data given that there are infinitely many possibilities. This argument also applies to why histograms are not available for numeric data without binning.
 
-* **Ease of visual interpretation** - certain shapes are typically more palatable than others for comparisons across levels or time
-* **Flexibility** - certain plots have the option to include other variables in its plot (Split by levels, colour, shape, size)
+For graphical plots, one or more of the following plots are typically used. It is important to note that there is **no universally best plot**. Each plot has a limitation, which typically stems from one of the following reasons:
 
-Another method of adding an **additional factor variable** to the plot is via **Faceting**. Instead of just one plot, it creates small multiples of the plot, each for a different level of the additional factor variable:
+* **Ease of visual interpretation** - certain shapes are **more palatable** than others for comparisons across levels or time
+* **Flexibility** - certain plots have the option to include **other variables** in its plot (Split by levels, colour, shape, size)
 
-This has two primary uses:
+<!-- Insert image of Graphical plots-->
 
-1. For plots with **only one variable**, this allows us to observe the **relationship between** two variables
-2. For plots with **two or more variables**, this allows us to observe **how the relationship changes** in the presence of another variable (Interaction effects)
+!!! Note
 
+    One other inherent limitation of plots is their **inherent function**. Each type of plot is mainly used for one thing - it cannot illustrate what it cannot.
+
+!!! Tip
+
+    For plots with two main variables, there are generally two variations:
+
+    * **Target vs Predictor**: To find potential predictors 
+    * **Predictor vs Predictor**: To identify potential collinearity
+
+    When finding potential predictors, the key consideration is that the exhibited relationship (if any) should hold **across the entire range** of the predictor (numeric or ordinal categorical).
+
+Another method of adding an **additional factor variable** to the plot is via **Faceting**. Instead of just one plot, it creates **small multiples** of the plot, each for a different level of the additional factor variable:
+
+* For plots with **only one main variable**, this allows us to observe the **relationship between** two variables
+* For plots with **two main variables**, this allows us to observe **how the relationship changes** in the presence of another variable (Interaction effects)
+
+<!-- Obtained from Stackoverflow -->
+![FACETING](Assets/0_OVERVIEW.md/FACETING.png){.center}
+
+!!! Tip
+
+    Faceting is NOT the only way to view interaction effects. If there is a non-traditional element of the graph that can be used to represent another variable, then a two variable plot may be able to inherently illustrate interaction effects:
+
+    <!-- Insert Image of scatterplot with colour -->
 
 +ve/-ve
 Skewness
 Number of modes
-
-Plots
-add Count
-
-Correlation must exist across all levels (not just up till certain point)
-
-Interaction >> Faceting
-Target vs A split by B
-Target B1 // A123 // B2 // A123
-A123 vs target has effect but effect changes between B1 and B2
-
-Target vs Predictor >> To find potential variables (Vary across all levels or values - but must be intuitive, cannot l3 have effect but l4 dont have)
-Predictor vs Predictor >> To identify potential collinearity
-
-<!-- Obtained from ACTEX PA Cheat Sheet -->
-![INTERACTION_TOOLS](Assets/0_OVERVIEW.md/INTERACTION_TOOLS.png){.center}
-
-!!! Warning
-
-    The reason why frequency is not applicable for numeric data is that there are infinitely many opossibilities, thus calculating the frequency for each is impractical and not meaningful.
-
-!!! Tip
-
-    For Bivariate analysis, when there are categorical variables involved, there are three variations that can be applied:
-
-    * **Stacked**: Stacked column
-    * **Filled**: 100% stacked column (Compare **across**)
-    * **Dodged**: Clustered column (Compare **within**)
-
-!!! Tip
-
-    To split is to **add another visual** to the current chart, each representing a different category:
-
-    <!-- Obtained from Stackoverflow -->    
-    ![SPLITTING](Assets/0_OVERVIEW.md/SPLITTING.png){.center}
-
-    To facet is to **create multiples** of the current chart, each filtered by a different category:
-
-    <!-- Obtained from Stackoverflow -->
-    ![FACETING](Assets/0_OVERVIEW.md/FACETING.png){.center}
-
-!!! Note
-
-    Numeric data should be **treated** as categorical when:
-
-    * There are only a small number of distinct values
-    * They are merely numeric labels with no order (EG. Group number)
-    * They have a **complex relationship** with the target (Models have more flexibility to capture the relationship when it is categorical)
-
-    Numeric data can also be **transformed** into Categorical ones by **grouping** them into **Bins**:
-
-    * Factor Level 1: 0-10
-    * Factor Level 2: 11-20
-    * Factor Level 3: 20 and above
 
 ### **Data Transformation**
 
@@ -218,6 +187,23 @@ Binarizaton > Can drop independent; remaining automatically combined (Not intuit
 
 Scaling numeric variable >> Doesnt solve skewness
 Log or squareroot transform >> To remove outliers, fix hetero, or linearize
+
+
+
+!!! Note
+
+    Numeric data should be **treated** as categorical when:
+
+    * There are only a small number of distinct values
+    * They are merely numeric labels with no order (EG. Group number)
+    * They have a **complex relationship** with the target (Models have more flexibility to capture the relationship when it is categorical)
+
+    Numeric data can also be **transformed** into Categorical ones by **grouping** them into **Bins**:
+
+    * Factor Level 1: 0-10
+    * Factor Level 2: 11-20
+    * Factor Level 3: 20 and above
+
 
 ## **Model Selection & Evaluation**
 
