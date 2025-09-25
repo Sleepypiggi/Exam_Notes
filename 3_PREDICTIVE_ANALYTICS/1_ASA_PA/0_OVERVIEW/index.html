@@ -1276,13 +1276,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    Next Steps
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1382,13 +1375,6 @@
         <li class="md-nav__item">
   <a href="#model-selection-evaluation" class="md-nav__link">
     Model Selection &amp; Evaluation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    Next Steps
   </a>
   
 </li>
@@ -1503,9 +1489,6 @@
 <li><strong>Affects few observations</strong>: Remove the affected observations</li>
 <li><strong>Affects many observations</strong>: Remove the entire variable</li>
 </ul>
-<p>Trimming &gt;&gt; Remove top X
-Null is missing object
-NA is missing observation</p>
 <h3 id="data-exploration"><strong>Data Exploration</strong><a class="headerlink" href="#data-exploration" title="Permanent link">&para;</a></h3>
 <p>The data should be explored to gain a better understanding of it. There are two primary methods to do so:</p>
 <!-- Self made -->
@@ -1517,82 +1500,94 @@ NA is missing observation</p>
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="SUMMARY_R" class="center" src="../Assets/0_OVERVIEW.md/SUMMARY_R.png" /></p>
-<p>Graph dependent on human eye
-* Easier compare length than angle, thus bar chart better than pie chart
-* Easier compare length than area, thus bar chart better than pie chart
-* Snapshot vs Over time
-* Missing what its missing; no perfect visual</p>
-<p>+ve/-ve
-Skewness
-Number of modes</p>
-<p>Plots
-add Count</p>
-<p>Correlation must exist across all levels (not just up till certain point)</p>
-<p>Interaction &gt;&gt; Faceting
-Target vs A split by B
-Target B1 // A123 // B2 // A123
-A123 vs target has effect but effect changes between B1 and B2</p>
-<p>Target vs Predictor &gt;&gt; To find potential variables (Vary across all levels or values - but must be intuitive, cannot l3 have effect but l4 dont have)
-Predictor vs Predictor &gt;&gt; To identify potential collinearity</p>
-<!-- Obtained from ACTEX PA Cheat Sheet -->
-<p><img alt="INTERACTION_TOOLS" class="center" src="../Assets/0_OVERVIEW.md/INTERACTION_TOOLS.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The reason why frequency is not applicable for numeric data is that there are infinitely many possibilities, thus calculating the frequency for each is impractical and not meaningful.</p>
+<p>Naturally, counts are not available for numerical data given that there are infinitely many possibilities. This argument also applies to why histograms are not available for numeric data without binning.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For Bivariate analysis, when there are categorical variables involved, there are three variations that can be applied:</p>
+<p>For graphical plots, one or more of the following plots are typically used. It is important to note that there is <strong>no universally best plot</strong>. Each plot has a limitation, which typically stems from one of the following reasons:</p>
 <ul>
-<li><strong>Stacked</strong>: Stacked column</li>
-<li><strong>Filled</strong>: 100% stacked column (Compare <strong>across</strong>)</li>
-<li><strong>Dodged</strong>: Clustered column (Compare <strong>within</strong>)</li>
+<li><strong>Ease of visual interpretation</strong> - certain shapes are <strong>more palatable</strong> than others for comparisons across levels or time</li>
+<li><strong>Flexibility</strong> - certain plots have the option to include <strong>other variables</strong> in its plot (Split by levels, colour, shape, size)</li>
 </ul>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>To split is to <strong>add another visual</strong> to the current chart, each representing a different category:</p>
-<p><!-- Obtained from Stackoverflow -->  <br />
-<img alt="SPLITTING" class="center" src="../Assets/0_OVERVIEW.md/SPLITTING.png" /></p>
-<p>To facet is to <strong>create multiples</strong> of the current chart, each filtered by a different category:</p>
-<p><!-- Obtained from Stackoverflow -->
-<img alt="FACETING" class="center" src="../Assets/0_OVERVIEW.md/FACETING.png" /></p>
-</div>
+<!-- Self Made-->
+<p><img alt="GRAPHICAL_PLOTS" class="center" src="../Assets/0_OVERVIEW.md/GRAPHICAL_PLOTS.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Numeric data should be <strong>treated</strong> as categorical when:</p>
+<p>One other inherent limitation of plots is their <strong>inherent function</strong>. Each type of plot is mainly used for one thing - it cannot illustrate what it cannot.</p>
+</div>
+<p>For plots illustrating <strong>one main variable</strong> (typically distribution plots), it is typical to take note of the following items:</p>
 <ul>
-<li>There are only a small number of distinct values</li>
-<li>They are merely numeric labels with no order (EG. Group number)</li>
-<li>They have a <strong>complex relationship</strong> with the target (Models have more flexibility to capture the relationship when it is categorical)</li>
+<li>Range - Is the variable positive only?</li>
+<li>Outliers - Are there many outliers?</li>
+<li>Mode - Where is the data concentrated?</li>
+<li>Skewness - How symmetric is the distribution?</li>
 </ul>
-<p>Numeric data can also be <strong>transformed</strong> into Categorical ones by <strong>grouping</strong> them into <strong>Bins</strong>:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Distribution plots provide similar information to the Summary statistics, but can provide more insight on aspects that are better visualized (EG. Skewness and Mode).</p>
+</div>
+<p>For plots with <strong>two main variables</strong>, there are generally two variations:</p>
 <ul>
-<li>Factor Level 1: 0-10</li>
-<li>Factor Level 2: 11-20</li>
-<li>Factor Level 3: 20 and above</li>
+<li><strong>Target vs Predictor</strong>: To find potential predictors </li>
+<li><strong>Predictor vs Predictor</strong>: To identify potential collinearity</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When finding potential predictors, the key consideration is that the exhibited relationship (if any) should hold <strong>across the entire range</strong> of the predictor (numeric or ordinal categorical).</p>
+</div>
+<p>Another method of adding an <strong>additional factor variable</strong> to the plot is via <strong>Faceting</strong>. Instead of just one plot, it creates <strong>small multiples</strong> of the plot, each for a different level of the additional factor variable:</p>
+<ul>
+<li>For plots with <strong>only one main variable</strong>, this allows us to observe the <strong>relationship between</strong> two variables</li>
+<li>For plots with <strong>two main variables</strong>, this allows us to observe <strong>how the relationship changes</strong> in the presence of another variable (Interaction effects)</li>
+</ul>
+<!-- Obtained from Stackoverflow -->
+<p><img alt="FACETING" class="center" src="../Assets/0_OVERVIEW.md/FACETING.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Faceting is NOT the only way to view interaction effects. If there is a non-traditional element of the graph that can be used to represent another variable, then a two variable plot may be able to inherently illustrate interaction effects:</p>
+<!-- Insert Image of scatterplot with colour -->
 </div>
 <h3 id="data-transformation"><strong>Data Transformation</strong><a class="headerlink" href="#data-transformation" title="Permanent link">&para;</a></h3>
-<p>The main issue for numeric variables is <strong>Skewness</strong>, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the <strong>concave transformations</strong> (Log &amp; Squareroot) to reduce the skewness.</p>
-<p>The main issue for categorical variables is <strong>high dimensionality</strong> (too many levels) and <strong>sparseness</strong> (too few observations in certain levels). Both of this can be solved by <strong>combining similar levels</strong> together while ensuring that the resulting new levels properly split the data. This often requires <strong>contextual knowledge</strong> of the data.</p>
-<p>This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. </p>
-<p>Combine levels with few counts. Not reliable to use them anyway
-Drop factor levels that are overwhelmingly dominated by one count -&gt; No point, not going to get much predictive information (No constant)
-If transforming factors or combining, the resulting factor should have fewer counts (simplification, otherwise more complicated)</p>
-<p>Numeric vs Factor
-Factor &gt; Can only be used to predict those years
-Numeric &gt; Can extrapolate</p>
-<p>Relevelling factors to highest etc &gt;&gt; Make more meaningful
-Binarizaton &gt; Can drop independent; remaining automatically combined (Not intuitive)</p>
-<p>Scaling numeric variable &gt;&gt; Doesnt solve skewness
-Log or squareroot transform &gt;&gt; To remove outliers, fix hetero, or linearize</p>
-<h2 id="model-selection-evaluation"><strong>Model Selection &amp; Evaluation</strong><a class="headerlink" href="#model-selection-evaluation" title="Permanent link">&para;</a></h2>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
+If there are any aspects of the data that are not suitable for modelling, they will need to be transformed to fix the issue.</p>
+<p>For numeric variables, there are relatively straightforward considerations:</p>
 <ul>
-<li><strong>Hypotheses</strong>: Use prior knowledge to develop a <strong>testable hypotheses</strong> that addresses the concern</li>
-<li><strong>Metrics</strong>: Create <strong>objective and measurable KPIs</strong> that are <strong>aligned</strong> with the business strategy</li>
+<li><strong>Outliers</strong> can be removed by trimming a proportion of the largest or smallest values</li>
+<li><strong>Concave transformations</strong> can be used to compress values together to solve Skewness, Heteroscedasticity and also Linearize exponential relationships</li>
+<li><strong>Centering and Scaling</strong> may also be needed for unsupervised methods, but note that it <strong>does NOT solve Skewness</strong></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Recall that concave transformations compress large values more than smaller values; thus can be used to solve ONLY right skewness:</p>
+<p><!-- Obtained from Quanitfying Health -->
+<img alt="FIXING_SKEWNESS" class="center" src="../Assets/0_OVERVIEW.md/FIXING_SKEWNESS.png" /></p>
+</div>
+<p>The main issue for numeric variables is <strong>Skewness</strong>, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the <strong>concave transformations</strong> (Log &amp; Squareroot) to reduce the skewness.</p>
+<p>For Factor variables, there are a whole host of considerations:</p>
+<ul>
+<li>Levels with relatively relatively small mix should be <strong>combined</strong>, since there is no credible data to begin with. However, this is difficult if the levels are <strong>very distinct</strong>. Moreover, if the factor is already overwhelmingly dominated by a specific level, then <strong>combining the levels has no use</strong>; in fact <strong>keeping the variable has no use</strong> since there it has no predictive power</li>
+<li><strong>Re-levelling</strong> the reference level to the <strong>most common level</strong> is usually recommended, but it is also useful to relevel to the <strong>lowest or highest level</strong> in an ordinal variable for better interpretation</li>
+<li><strong>Binarization</strong> converts each level into its own variable, which allows each level to be <strong>included based on its own merit</strong></li>
+<li>Combining factor variables together <strong>reduces interpretability</strong> of the variable itself but may allow the model to become simpler ONLY if the total number of levels have decreased as a result</li>
+</ul>
+<p>Another common issue is deciding whether or not to express discrete numeric variable (with few levels) as <strong>numeric or a factor</strong>. There are two key considerations:</p>
+<ul>
+<li>Are the values of the variable <strong>fixed</strong>? If during the production, the values of the variable will <strong>always be within the existing range</strong>, then it can modelled as a factor. However, if the values can be <strong>varied beyond the existing range</strong> (EG. Year - 2026 to 2020 in the data, but want to use 2020+ in production), then it should be used as a Numeric variable to allow the model to <strong>extrapolate</strong> the effects</li>
+<li>Does the variable need to have <strong>numeric operations</strong> performed? If so, it should be naturally kept as a numeric variable</li>
+<li>Is the relationship with the target <strong>monotonic</strong>? If not, then converting it to a Factor would allow the model to have more complex relationships</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Non-discrete Numeric variables can be converted into Factors using:</p>
+<ul>
+<li><strong>Binning</strong>: Grouped into groups of equal width over the range</li>
+<li><strong>Clustering</strong>: Grouped into Cluster groups</li>
+</ul>
+</div>
+<h2 id="model-selection-evaluation"><strong>Model Selection &amp; Evaluation</strong><a class="headerlink" href="#model-selection-evaluation" title="Permanent link">&para;</a></h2>
+<p>The specific details of each model can be found in the SRM section. This section will briefly summarize the <strong>differences</strong> across the different learning methods to better understand which model is best for a given situation:</p>
+<!-- Self Made -->
+<p><img alt="MODEL_COMPARISON" class="center" src="../Assets/0_OVERVIEW.md/MODEL_COMPARISON.png" /></p>
 
 
 
