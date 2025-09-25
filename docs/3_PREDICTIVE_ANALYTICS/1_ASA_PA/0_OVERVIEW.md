@@ -105,10 +105,6 @@ After identifying the problems, the following actions can be taken:
 * **Affects few observations**: Remove the affected observations
 * **Affects many observations**: Remove the entire variable
 
-Trimming >> Remove top X
-Null is missing object
-NA is missing observation
-
 ### **Data Exploration**
 
 The data should be explored to gain a better understanding of it. There are two primary methods to do so:
@@ -133,18 +129,31 @@ For graphical plots, one or more of the following plots are typically used. It i
 * **Ease of visual interpretation** - certain shapes are **more palatable** than others for comparisons across levels or time
 * **Flexibility** - certain plots have the option to include **other variables** in its plot (Split by levels, colour, shape, size)
 
-<!-- Insert image of Graphical plots-->
+<!-- Self Made-->
+![GRAPHICAL_PLOTS](Assets/0_OVERVIEW.md/GRAPHICAL_PLOTS.png){.center}
+
 
 !!! Note
 
     One other inherent limitation of plots is their **inherent function**. Each type of plot is mainly used for one thing - it cannot illustrate what it cannot.
 
-!!! Tip
+For plots illustrating **one main variable** (typically distribution plots), it is typical to take note of the following items:
 
-    For plots with two main variables, there are generally two variations:
+* Range - Is the variable positive only?
+* Outliers - Are there many outliers?
+* Mode - Where is the data concentrated?
+* Skewness - How symmetric is the distribution?
 
-    * **Target vs Predictor**: To find potential predictors 
-    * **Predictor vs Predictor**: To identify potential collinearity
+!!! Note
+
+    Distribution plots provide similar information to the Summary statistics, but can provide more insight on aspects that are better visualized (EG. Skewness and Mode).
+
+For plots with **two main variables**, there are generally two variations:
+
+* **Target vs Predictor**: To find potential predictors 
+* **Predictor vs Predictor**: To identify potential collinearity
+
+!!! Warning
 
     When finding potential predictors, the key consideration is that the exhibited relationship (if any) should hold **across the entire range** of the predictor (numeric or ordinal categorical).
 
@@ -162,52 +171,49 @@ Another method of adding an **additional factor variable** to the plot is via **
 
     <!-- Insert Image of scatterplot with colour -->
 
-+ve/-ve
-Skewness
-Number of modes
-
 ### **Data Transformation**
+
+This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
+If there are any aspects of the data that are not suitable for modelling, they will need to be transformed to fix the issue.
+
+For numeric variables, there are relatively straightforward considerations:
+
+* **Outliers** can be removed by trimming a proportion of the largest or smallest values
+* **Concave transformations** can be used to compress values together to solve Skewness, Heteroscedasticity and also Linearize exponential relationships
+* **Centering and Scaling** may also be needed for unsupervised methods, but note that it **does NOT solve Skewness**
+
+!!! Warning
+
+    Recall that concave transformations compress large values more than smaller values; thus can be used to solve ONLY right skewness:
+
+    <!-- Obtained from Quanitfying Health -->
+    ![FIXING_SKEWNESS](Assets/0_OVERVIEW.md/FIXING_SKEWNESS.png){.center}
 
 The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness.
 
-The main issue for categorical variables is **high dimensionality** (too many levels) and **sparseness** (too few observations in certain levels). Both of this can be solved by **combining similar levels** together while ensuring that the resulting new levels properly split the data. This often requires **contextual knowledge** of the data.
+For Factor variables, there are a whole host of considerations:
 
-This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
+* Levels with relatively relatively small mix should be **combined**, since there is no credible data to begin with. However, this is difficult if the levels are **very distinct**. Moreover, if the factor is already overwhelmingly dominated by a specific level, then **combining the levels has no use**; in fact **keeping the variable has no use** since there it has no predictive power
+* **Re-levelling** the reference level to the **most common level** is usually recommended, but it is also useful to relevel to the **lowest or highest level** in an ordinal variable for better interpretation
+* **Binarization** converts each level into its own variable, which allows each level to be **included based on its own merit**
+* Combining factor variables together **reduces interpretability** of the variable itself but may allow the model to become simpler ONLY if the total number of levels have decreased as a result
 
-Combine levels with few counts. Not reliable to use them anyway
-Drop factor levels that are overwhelmingly dominated by one count -> No point, not going to get much predictive information (No constant)
-If transforming factors or combining, the resulting factor should have fewer counts (simplification, otherwise more complicated)
+Another common issue is deciding whether or not to express discrete numeric variable (with few levels) as **numeric or a factor**. There are two key considerations:
 
-Numeric vs Factor
-Factor > Can only be used to predict those years
-Numeric > Can extrapolate
-
-Relevelling factors to highest etc >> Make more meaningful
-Binarizaton > Can drop independent; remaining automatically combined (Not intuitive)
-
-Scaling numeric variable >> Doesnt solve skewness
-Log or squareroot transform >> To remove outliers, fix hetero, or linearize
-
-
+* Are the values of the variable **fixed**? If during the production, the values of the variable will **always be within the existing range**, then it can modelled as a factor. However, if the values can be **varied beyond the existing range** (EG. Year - 2026 to 2020 in the data, but want to use 2020+ in production), then it should be used as a Numeric variable to allow the model to **extrapolate** the effects
+* Does the variable need to have **numeric operations** performed? If so, it should be naturally kept as a numeric variable
+* Is the relationship with the target **monotonic**? If not, then converting it to a Factor would allow the model to have more complex relationships
 
 !!! Note
 
-    Numeric data should be **treated** as categorical when:
+    Non-discrete Numeric variables can be converted into Factors using:
 
-    * There are only a small number of distinct values
-    * They are merely numeric labels with no order (EG. Group number)
-    * They have a **complex relationship** with the target (Models have more flexibility to capture the relationship when it is categorical)
-
-    Numeric data can also be **transformed** into Categorical ones by **grouping** them into **Bins**:
-
-    * Factor Level 1: 0-10
-    * Factor Level 2: 11-20
-    * Factor Level 3: 20 and above
-
+    * **Binning**: Grouped into groups of equal width over the range
+    * **Clustering**: Grouped into Cluster groups
 
 ## **Model Selection & Evaluation**
 
-## Next Steps
+The specific details of each model can be found in the SRM section. This section will briefly summarize the **differences** across the different learning methods to better understand which model is best for a given situation:
 
-* **Hypotheses**: Use prior knowledge to develop a **testable hypotheses** that addresses the concern
-* **Metrics**: Create **objective and measurable KPIs** that are **aligned** with the business strategy
+<!-- Self Made -->
+![MODEL_COMPARISON](Assets/0_OVERVIEW.md/MODEL_COMPARISON.png){.center}
