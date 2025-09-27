@@ -1925,9 +1925,9 @@
 <p><img alt="BOOSTING_VS_BAGGING" class="center" src="../Assets/7.%20Tree%20Models.md/BOOSTING_VS_BAGGING.png" /></p>
 <p>There are three hyperparameters for Boosting:</p>
 <ul>
-<li><strong>Number of Trees</strong> (<span class="arithmatex">\(B\)</span>) - How many trees should be used</li>
-<li><strong>Depth of Trees</strong> (<span class="arithmatex">\(d\)</span>) - How many splits each tree should have</li>
-<li><strong>Learning Rate</strong> (<span class="arithmatex">\(\alpha\)</span>) - How much the trees contributes to the overall prediction</li>
+<li><strong>Number of Trees</strong> (<span class="arithmatex">\(B\)</span>) - How many trees should be used; typically <strong>large</strong></li>
+<li><strong>Depth of Trees</strong> (<span class="arithmatex">\(d\)</span>) - How many splits each tree should have; typically <strong>small</strong> (shallow trees)</li>
+<li><strong>Learning Rate</strong> (<span class="arithmatex">\(\alpha\)</span>) - How much the trees contributes to the overall prediction; typically <strong>small</strong></li>
 </ul>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1935,12 +1935,7 @@
     \text{Overall Prediction} &amp;= \sum \text{Boosted Tree Prediction}
 \end{aligned}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The number of trees (B) is typically selected via Cross Validation.</p>
-<p>Shallow trees are preferred, thus <span class="arithmatex">\(d\)</span> typically selected to be 1. In this case, it is known as an <strong>Additive Model</strong>.</p>
-<p>The learning rate is also referred to as the <strong>Shrinkage Parameter</strong> as it reduces the influence of each tree on the overall prediction. Typically, a <strong>slow learning rate</strong> is preferred (<span class="arithmatex">\(\alpha \lt 1\)</span>). Consequently, a <strong>large number of trees</strong> are required to achieve effective results. Conversely, if only a small number of trees are fit, then a large shrinkage is preferred.</p>
-</div>
+<p>The learning rate is also referred to as the <strong>Shrinkage Parameter</strong> as it controls the <strong>influence of each tree</strong> on the overall prediction. Since trees are typically trained to be shallow, it is preferable to have a large number of trees, taking <strong>only a fraction of each tree</strong> (slow learning rate) to form the final prediction. However, if only a small number of trees are used, then a large learning rate is required.</p>
 <p>Boosting as a method will naturally result in <strong>low bias</strong>. However, if an <em>extreme</em> number of trees are used, the model could become <strong>overfitted</strong>:</p>
 <!-- Self Made -->
 <p><img alt="BOOSTING_ERROR" class="center" src="../Assets/7.%20Tree%20Models.md/BOOSTING_ERROR.png" /></p>

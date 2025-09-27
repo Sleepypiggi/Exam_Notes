@@ -1424,6 +1424,10 @@
 <p class="admonition-title">Note</p>
 <p>For the purposes of this exam, it is assumed that only <strong>structured</strong> data will be used; data that can be fit into a <strong>tabular arrangement</strong> and hence easily manipulated. The opposite would be <strong>Unstructured</strong> data that CANNOT be placed into a table (EG. Image, Audio of Free Text) data. Although these data types provide <strong>more insight</strong>, they are much more <strong>resource intensive</strong> to process and require more <strong>complicated models</strong> to use.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One problem that might arise is the business context is that the mapping of the data is <strong>not consistent over time</strong>. There might have been a <strong>change in business needs over time</strong> to store information differently, which is why certain variables for the same population might change over time.</p>
+</div>
 <h2 id="data-adequacy"><strong>Data Adequacy</strong><a class="headerlink" href="#data-adequacy" title="Permanent link">&para;</a></h2>
 <h3 id="data-collection"><strong>Data Collection</strong><a class="headerlink" href="#data-collection" title="Permanent link">&para;</a></h3>
 <p>For all statistical analyses, it is important that the data collected is:</p>
@@ -1433,8 +1437,11 @@
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is important that both the training and test set are made up of similar compositions. If the training set's composition is significantly different from the test set's, then it will produce an effect <strong>similar to overfitting</strong> where the model would be fit to the mix of the training data, which does not generalize well to the test data.</p>
-<p>Thus, it is important to ensure that the <strong>composition between the two sets are similar</strong> (especially for key variables), which will ensure that the resulting training and test estimates are more reliable. </p>
+<p>Naturally, the actual population of interest should be sampled. However, if there is an insufficient data, a relatively larger <strong>proxy dataset</strong> can be used instead, provided that it shares <strong>similar key traits</strong> with the population. However, there are some inherent limitations:</p>
+<ul>
+<li>There might be <strong>conditions unique to each population</strong> which makes them slightly different from one another</li>
+<li>The data might have a <strong>different scope or granularity</strong> than the target population</li>
+</ul>
 </div>
 <p>There are two main sampling methods that should be used:</p>
 <ul>

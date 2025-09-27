@@ -1837,23 +1837,16 @@
     + \underbrace{\mathrm{Var}(\varepsilon)}_{\text{Irreducible}}    
 \end{aligned}
 \]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Thus, the primary goal of statistical learning is to estimate <span class="arithmatex">\(\hat{f}\)</span> that the reducible error is minimized.</p>
-</div>
+<p>The primary goal of statistical learning is to estimate <span class="arithmatex">\(\hat{f}\)</span> that the reducible error is minimized.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Some texts may refer to the above as:</p>
+<p>Another terminology often used is:</p>
 <ul>
-<li><strong>Accuracy</strong> (Bias) - Error from by <strong>approximating</strong> <span class="arithmatex">\(f\)</span> (real world, complicated) with a simpler model (<span class="arithmatex">\(\hat{f}\)</span>)</li>
-<li><strong>Precision</strong> (Variance) - Error from <strong>changes</strong> in <span class="arithmatex">\(\hat{f}\)</span> across different samples</li>
+<li>Accuracy (Bias)</li>
+<li>Precision (Variance)</li>
 </ul>
+<p>Although they are used interchangeably in day to day conversations, they have a <strong>specific meaning</strong> in a statistical context.</p>
 </div>
-<p>Bias decreases with complexity
-   Variance increases with complexity
-   Convert to table</p>
-<div class="highlight"><pre><span></span><code>Although they are used interchangeably in day to day conversations, they have a **specific meaning** in a statistical context.
-</code></pre></div>
 <p>It is <strong>not possible to minimize both</strong>; there is an inverse relationship known as the <strong>Bias-Variance Tradeoff</strong> which results in the U-shaped curve:</p>
 <ul>
 <li>Increasing complexity <strong>decreases bias</strong> as it allows the model to <strong>capture the signal</strong></li>
@@ -1881,6 +1874,16 @@
 <img alt="BIAS_MSE_CASES" class="center" src="../Assets/1.%20Statistical%20Learning.md/BIAS_MSE_CASES.png" /></p>
 <p>Thus, even simpler methods can have high predictive accuracy. There is <strong>NO universal best</strong> learning method across all datasets; it is about choosing the best method for the data.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There are unique circumstances where Bias/Variance does not move with Complexity as expected:</p>
+<ul>
+<li>Adding variables with <strong>little predictive power</strong> (Not significant or collinear)</li>
+<li><strong>Non-Random splits</strong> between Training and Test set</li>
+</ul>
+<p>For the second point, if the training set is <strong>not representative</strong> of the sample, then the model trained will NOT pick up the correct signals and thus <strong>perform poorly on the test set</strong>. Conversely, if the test set is not representative, then even with the correct signals, the trained model would perform poorly.</p>
+<p>Another exception is for GLMs - the model is fit based on Likelihood (not Bias), thus it does not follow the same relationship.</p>
+</div>
 <p><center></p>
 <table>
 <thead>
@@ -1899,8 +1902,8 @@
 <td align="center">Low training, High test MSE</td>
 </tr>
 <tr>
-<td align="center">Fail to capture the noise</td>
-<td align="center">Mistakenly captures noise</td>
+<td align="center">Fail to capture the signal</td>
+<td align="center">Mistakenly captures signal</td>
 </tr>
 <tr>
 <td align="center">Not flexible enough</td>
@@ -2068,14 +2071,14 @@
 <li>Fraud Detection: Better to ensure dont falsely accuse people; high specificity</li>
 </ul>
 </div>
-<p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). The higher the AUC, the more cutoff points there are that provide BOTH higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models. However, it does NOT provide a <strong>method of choosing</strong> a specified cutoff value.</p>
+<p>The area under the ROC curve is known as the <strong>Area Under Curve</strong> (AUC). It <strong>summarizes</strong> the models classification strength over the range of possible cutoffs. The higher the AUC, the <strong>more cutoff points</strong> there are that provide BOTH higher sensitivity and specificity. Thus, AUC can be used as a <strong>basis to compare</strong> across different models. However, it does NOT provide a <strong>method of choosing</strong> a specified cutoff value.</p>
 <ul>
 <li>Theoretically, the <strong>highest AUC is 1</strong> where the entire curve is an upside down "L" - the area under the curve is the entire plot</li>
 <li>Realistically, the AUC is often a combination of <strong>common geometric shapes</strong> over 3 points</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The line in the middle linearly connecting the two endpoints only represents has an AUC of 0.5. This occurs when the model makes positive and negative predictions almost equally. This is considered to be a poor classifier as any increase in sensitivity results in a same decrease in specificity.</p>
+<p>The <strong>line in the middle</strong> linearly connecting the two endpoints only represents has an AUC of 0.5. This represents a model that assigns classifications <strong>randomly</strong>. It is deemed as a poor classifier as any increase in sensitivity or specificity is met by an equal decrease in the other. Thus, this is used as a baseline - only models with <strong>AUC above 0.5 should be considered</strong>.</p>
 </div>
 <h3 id="class-imbalance"><strong>Class Imbalance</strong><a class="headerlink" href="#class-imbalance" title="Permanent link">&para;</a></h3>
 <p>One common problem is that there is Class Imbalance in the underlying dataset such that one of the classes is <strong>under-represented</strong>. For instance, when studying about gender inequality, there might be significantly fewer observations that are female.</p>

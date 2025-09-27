@@ -1870,9 +1870,12 @@
 <li>Select the model with the number of predictors determined in (2) as the final model</li>
 </ol>
 <h3 id="hyperparameter-tuning"><strong>Hyperparameter Tuning</strong><a class="headerlink" href="#hyperparameter-tuning" title="Permanent link">&para;</a></h3>
-<p>Hyperparameters are <strong>inputs decided by the modeller</strong> that affects <em>how</em> the model should learn.</p>
-<p>It is NOT possible to determine the optimal hyper parameter prior to the experiment. Thus, rather than arbitrarily picking a value, cross validation can be used to <strong>test a range of values</strong> and choose the best one.</p>
+<p>Hyperparameters are <strong>inputs decided by the modeller</strong> that affects <em>how</em> the model should learn. It is NOT possible to determine the optimal hyper parameter prior to the experiment. Thus, rather than arbitrarily picking a value, cross validation can be used to <strong>test a range of plausible values</strong> then choose the best one. It is not possible to test every possible parameter given resource constraints.</p>
 <p>The intuition is that we want to choose the model that has the <strong>best predictive performance</strong>. The (cross) validation error is the <strong>most direct estimate</strong> of that, thus the hyperparameter should be chosen such that that error is minimized.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Tuning is done on the <strong>TRAINING data</strong>, NOT the test data. If done using the test data, then there will be some <strong>leakage</strong> of information as we artificially choosing the best model to give the best results. This violates the principle that entire principle of training and test data.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Rather than choosing the model with the absolute lowest cross validation error, an alternative rule of thumb is to choose the <strong>simplest model</strong> out of all the models <strong>one standard error</strong> above the lowest:</p>
