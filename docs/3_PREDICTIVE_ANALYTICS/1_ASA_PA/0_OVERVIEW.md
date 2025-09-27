@@ -32,6 +32,10 @@ Every exam will also come with a **dataset** that accompanies the business probl
 
     For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a **tabular arrangement** and hence easily manipulated. The opposite would be **Unstructured** data that CANNOT be placed into a table (EG. Image, Audio of Free Text) data. Although these data types provide **more insight**, they are much more **resource intensive** to process and require more **complicated models** to use.
 
+!!! Warning
+
+    One problem that might arise is the business context is that the mapping of the data is **not consistent over time**. There might have been a **change in business needs over time** to store information differently, which is why certain variables for the same population might change over time.
+
 ## **Data Adequacy**
 
 ### **Data Collection**
@@ -43,9 +47,10 @@ For all statistical analyses, it is important that the data collected is:
 
 !!! Note
 
-    It is important that both the training and test set are made up of similar compositions. If the training set's composition is significantly different from the test set's, then it will produce an effect **similar to overfitting** where the model would be fit to the mix of the training data, which does not generalize well to the test data.
-
-    Thus, it is important to ensure that the **composition between the two sets are similar** (especially for key variables), which will ensure that the resulting training and test estimates are more reliable. 
+    Naturally, the actual population of interest should be sampled. However, if there is an insufficient data, a relatively larger **proxy dataset** can be used instead, provided that it shares **similar key traits** with the population. However, there are some inherent limitations:
+    
+    * There might be **conditions unique to each population** which makes them slightly different from one another
+    * The data might have a **different scope or granularity** than the target population
 
 There are two main sampling methods that should be used:
 
