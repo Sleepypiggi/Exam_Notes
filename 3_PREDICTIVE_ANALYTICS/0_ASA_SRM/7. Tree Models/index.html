@@ -1482,7 +1482,7 @@
 <p>Broadly speaking, tree models <strong>sequentially partition the sample</strong> into several <strong>distinct regions</strong> based on the values of independent variables. For a prediction, the model determines which region the prediction falls in and sets the prediction equal to the <strong>average of the observations within that region</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This allows tree models to be more resilient to outliers as they can simply partition the outliers away, leaving the main bulk of the distribution unaffected.</p>
+<p>This allows tree models to be more resilient to outliers as they can simply <strong>partition the outliers away</strong>, leaving the main bulk of the distribution unaffected.</p>
 </div>
 <p>Using the <strong>boundaries</strong> of the partitions, a <strong>tree-like structure</strong> can be formed to easily visualize the model. This is highly effective for datasets with many independent variables as the sample space itself is not easily visualized.</p>
 <!-- Obtained from Research Gate -->
@@ -1636,7 +1636,7 @@
 <p><img alt="PRE_PRUNING" class="center" src="../Assets/7.%20Tree%20Models.md/PRE_PRUNING.png" /></p>
 <p>The second type of pruning is known as <strong>Post-pruning</strong>. A <strong>penalty</strong> is added to the RSS:</p>
 <ul>
-<li><span class="arithmatex">\(\alpha\)</span>: Hyperparameter</li>
+<li><span class="arithmatex">\(\alpha\)</span>: Complexity Parameter (Hyperparameter)</li>
 <li>T: Number of terminal nodes (Leaves)</li>
 </ul>
 <div class="arithmatex">\[
@@ -1653,11 +1653,10 @@
 <img alt="PRUNING_RSS" class="center" src="../Assets/7.%20Tree%20Models.md/PRUNING_RSS.png" /></p>
 <p>As stated previously, the RSS of the tree at any point is the sum of all terminal RSS. However, if given the above, it is important to sum the correct ones (while also applying the correct amount of penalty).</p>
 </div>
-<p>For every possible <span class="arithmatex">\(T\)</span>, there exists a <strong>subtree that minimizes</strong> the above function. Among the above shortlisted subtrees, the one with the <strong>lowest penalized RSS</strong> is chosen as the final tree.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is why this method is known as <strong>Cost Complexity Pruning</strong>, as it adds a cost per terminal node (cost per complexity) to the minimization problem.</p>
-<p>As part of this process, splits that do not significantly reduce RSS (weak splits) will be pruned. As a result, it is known as <strong>Weakest Link</strong> pruning.</p>
+<p>For every possible <span class="arithmatex">\(T\)</span>, there exists a <strong>subtree that minimizes</strong> the above function. Among the above shortlisted subtrees, the one with the <strong>lowest penalized RSS</strong> is chosen as the final tree. This is why this method is known as <strong>Cost Complexity Pruning</strong>, as it adds a cost per terminal node (cost per complexity) to the minimization problem. As part of this process, splits that <strong>do not provide enough information gain</strong> (weak splits) will be pruned, which is why it is also known as <strong>Weakest Link Pruning</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Following the second definition, the complexity parameter is thus also described as the minimum threshold of improvement for additional splits in the tree.</p>
 </div>
 <p>The key idea is that <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(T\)</span> are <strong>inversely related</strong>. The higher the penalty, the smaller the tree must be; hence different <span class="arithmatex">\(\alpha\)</span> will result in a <strong>different final tree</strong>.</p>
 <div class="admonition warning">

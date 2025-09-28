@@ -1085,6 +1085,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    Metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#confidence-prediction-intervals" class="md-nav__link">
     Confidence &amp; Prediction Intervals
   </a>
@@ -1383,6 +1390,13 @@
           <li class="md-nav__item">
   <a href="#evaluation" class="md-nav__link">
     Evaluation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    Metrics
   </a>
   
 </li>
@@ -1760,12 +1774,12 @@
 <ul>
 <li><strong>Training Data</strong>: Observations that were used to train model</li>
 <li><strong>Test Data</strong>: Obervations that were NOT used to train the model; UNSEEN data</li>
+<li>Test data penalizes both under and overfitted models</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Operationally, this implies that the sample should be partitioned at the start of the process.</p>
-<p>The size of the split between training and test is tricky - larger training sets result in more robust models but less reliable test evaluations.</p>
-<p>It is generally accepted that 80-20 or 70-30 between training and test sets are a good balance.</p>
+<p>Operationally, this implies that the sample should be <strong>partitioned at the start of the process</strong>.</p>
+<p>The size of the split between training and test is tricky - larger training sets result in more <strong>robust models but less reliable test evaluations</strong>. It is generally accepted that 80-20 or 70-30 between training and test sets are a good balance.</p>
 </div>
 <p>The above concerns can be quantified using the <strong>Mean Squared Error</strong> (MSE):</p>
 <div class="arithmatex">\[
@@ -1923,6 +1937,9 @@
 <p class="admonition-title">Tip</p>
 <p>The intuition is that these should be the worst performing models. If a given model cannot even surpass it, then it should not be considered.</p>
 </div>
+<h3 id="metrics"><strong>Metrics</strong><a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h3>
+<p>RMSE
+MAE -&gt; Less sensitive to outliers because all differences emphasised equally</p>
 <h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
 <p>Recall that <strong>Confidence Intervals</strong> are a range of values that the <strong>true parameter</strong> will fall within for a given level of confidence. In a regression setting, recall that the model is estimating the <strong>mean of the conditional distribution</strong>; a parameter. Thus, the confidence interval for a model measures the <strong>range of values for <span class="arithmatex">\(E(Y \mid X)\)</span></strong>.</p>
 <div class="admonition note">

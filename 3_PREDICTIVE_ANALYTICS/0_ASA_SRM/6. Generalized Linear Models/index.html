@@ -1161,6 +1161,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#deviance-residual" class="md-nav__link">
+    Deviance Residual
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1498,6 +1505,13 @@
           <li class="md-nav__item">
   <a href="#deviance" class="md-nav__link">
     Deviance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deviance-residual" class="md-nav__link">
+    Deviance Residual
   </a>
   
 </li>
@@ -1881,23 +1895,11 @@
 <div class="arithmatex">\[
     D^{*} = 2 \cdot (\ell_{\text{Saturated}} - \ell_{\text{Fitted}})
 \]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
 <p>The above are the <strong>MAXIMIZED log-likelihoods</strong>, which uses the likelihoods with the <strong>MLE estimate</strong>:</p>
 <ul>
 <li><strong>Saturated</strong>: Uses actual observations (Since a saturated model fits the data perfectly)</li>
 <li><strong>Fitted</strong>: Uses fitted observations</li>
 </ul>
-<p>Recall that since the likelihood is already a sum for each observation, there exists a deviance for each observation as well. The squareroot of that amount is known as the <strong>Deviance Residual</strong>:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    D^{*} &amp;= \sum D^{*}_{i} \\
-    \\
-    \text{Deviance Residual} &amp;= \pm \sqrt{D^{*}_{i}}
-\end{aligned}
-\]</div>
-<p>The sign of the deviance residuals follow the sign of the <strong>Raw Residual</strong>.</p>
-</div>
 <p>The fitted model should have <strong>sufficiently high likelihood</strong> to ensure that it captures the signals, but be reasonably smaller than the saturated model to prevent overfitting. Thus, models with <strong>smaller (but NOT too small) deviance</strong> are preferred.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1905,11 +1907,7 @@
 <div class="arithmatex">\[
     D^{*} = \frac{D}{\varphi}
 \]</div>
-<p>Thus, the most accurate terminology would be that the difference in the two likelihoods is known as the <strong>Scaled Deviance</strong>, while the differences in the numerator only is the <strong>Deviance</strong>.</p>
-<p>However, since <span class="arithmatex">\(\varphi\)</span> is <strong>typically assumed to be 1</strong> for most distributions used in SRM, the two are <strong>identical</strong>.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<p>Thus, the most accurate terminology would be that the difference in the two likelihoods is known as the <strong>Scaled Deviance</strong>, while the differences in the numerator only is the <strong>Deviance</strong>. However, since <span class="arithmatex">\(\varphi\)</span> is <strong>typically assumed to be 1</strong> for most distributions used in SRM, the two are <strong>identical</strong>.</p>
 <p>Another reason is that under GLM, the total variance <strong>CANNOT be decomposed</strong> into Explained and Unexplained components; there is an addittional component:</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1919,7 +1917,7 @@
     &amp;= \text{RSS} + \text{RegSS} + 2 \sum \left([y_{i} - \hat{y}][\hat{y}-\bar{y}] \right)
 \end{aligned}
 \]</div>
-<p>The above additional component would cancel out under OLS, thus was not issue. However, this does not apply to GLMs. Thus, the usual <strong>ANOVA inferences do NOT apply in a GLM context</strong>.</p>
+<p>The above additional component would cancel out under OLS, thus was not issue. However, this <strong>does NOT apply to GLMs</strong>. Thus, the usual <strong>ANOVA inferences do NOT apply in a GLM context</strong>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1952,16 +1950,31 @@
     &amp;= 2 \cdot \sum \left[ y_{i} \ln \left(\frac{y_{i}}{\hat{y}_{i}} \right) - (y_{i} - \hat{y}_{i}) \right] \\
 \end{aligned}
 \]</div>
-<p>For a <strong>normal link</strong>, in other words regular linear regression, the Deviance is equivalent to the <strong>RSS</strong>.</p>
+<p>For a <strong>normal distribution</strong>, in other words regular linear regression, the Deviance is equivalent to the <strong>RSS</strong>.</p>
 </div>
 <p>The concept of deviance is similar to goodness of fit, thus can be used similarly to R-squared, known as <strong>Pseduo R-squared</strong>:</p>
 <div class="arithmatex">\[
     R^{2}_{\text{Pse}}
-    = \frac{\ell_{\text{fitted}} - \ell_{0}}{\ell_{\text{Sat}} - \ell_{0}}
+    = \frac{\ell_{\text{fitted}} - \ell_{\text{Null}}}{\ell_{\text{Sat}} - \ell_{\text{Null}}}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><span class="arithmatex">\(\ell_{0}\)</span> is assumed to the likelihood for the <strong>null model</strong>.</p>
+<p>The key idea remains the same. It is the proportion of Deviance explained by the model over the total possible deviance that could be explained. The key difference is that the values are <strong>relative to the likelihoods of the null model</strong> - representing the change in likelihood from the model parameters.</p>
+</div>
+<h3 id="deviance-residual"><strong>Deviance Residual</strong><a class="headerlink" href="#deviance-residual" title="Permanent link">&para;</a></h3>
+<p>Recall that since the likelihood is already a sum of each observation, there exists a deviance for each observation as well. The squareroot of that amount is known as the <strong>Deviance Residual</strong>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    D^{*}
+    &amp;= \sum D^{*}_{i} \\
+    \\
+    \text{Deviance Residual}
+    &amp;= \text{sign}(y_{i} - \hat{y}_{i}) \sqrt{D^{*}_{i}} \end{aligned}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only the SIGN of the deviance residuals follow the raw residual. Thus, a positive residual represents under-prediction and vice-versa.</p>
+<p>Otherwise, the two are completely <strong>different concepts</strong> - do NOT confuse them!</p>
 </div>
 <h2 id="statistical-inference"><strong>Statistical Inference</strong><a class="headerlink" href="#statistical-inference" title="Permanent link">&para;</a></h2>
 <h3 id="likelihood-ratio-test"><strong>Likelihood Ratio Test</strong><a class="headerlink" href="#likelihood-ratio-test" title="Permanent link">&para;</a></h3>
@@ -2229,7 +2242,7 @@
 </div>
 <h2 id="count-models"><strong>Count Models</strong><a class="headerlink" href="#count-models" title="Permanent link">&para;</a></h2>
 <h3 id="poisson-model"><strong>Poisson Model</strong><a class="headerlink" href="#poisson-model" title="Permanent link">&para;</a></h3>
-<p>Since counts are non-negative integers, the <strong>Poisson Distribution</strong> can be used. The canonical link is the <strong>natural log</strong>, where the resulting model is known as a <strong>Poisson Count Model</strong>. It models the <strong>log of the mean</strong>, where the exponent of the regression coefficients represent a multiplicative increase in the mean:</p>
+<p>Since counts are non-negative integers, the <strong>Poisson Distribution</strong> can be used. The canonical link is the <strong>natural log</strong>, where the resulting model is known as a <strong>Poisson Count Model</strong>. It models the <strong>log of the mean</strong>, where the exponent of the regression coefficients represent a <strong>multiplicative increase</strong> in the mean:</p>
 <div class="arithmatex">\[
     \ln \mu = \beta_{0} + \beta_{1} \cdot X_{1} + \dots
 \]</div>
@@ -2237,7 +2250,7 @@
 <p class="admonition-title">Note</p>
 <p>Count models are sometimes also known as <strong>Frequency</strong> Models.</p>
 </div>
-<p>Recall that the poisson distribution can be interpreted as the <strong>average number of occurences for a given exposure</strong> (w). The average thus be re-expressed as a combination of exposure and occurrence per exposure:</p>
+<p>Recall that the poisson distribution can be interpreted as the <strong>average number of occurences for a given exposure</strong> (w). The average thus be re-expressed as a combination of exposure and occurrence per exposure (rate, <span class="arithmatex">\(\lambda\)</span>):</p>
 <div class="arithmatex">\[
     \mu = w \cdot \lambda
 \]</div>
@@ -2249,10 +2262,7 @@
     \ln \mu &amp;= \ln w + \beta_{0} + \beta_{1} \cdot X_{1} + \dots \\
 \end{aligned}
 \]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The exposure term is known as an <strong>Offset</strong>, as it is added to the original equation.</p>
-</div>
+<p>The exposure term is known as an <strong>Offset</strong>. It is a variable that is added to the model with a <strong>fixed coefficient of 1</strong>, representing a known relationship with the target variable.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Consider the following example for different exposures:</p>
