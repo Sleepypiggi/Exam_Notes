@@ -208,6 +208,7 @@ Another common issue is deciding whether or not to express discrete numeric vari
 * Are the values of the variable **fixed**? If during the production, the values of the variable will **always be within the existing range**, then it can modelled as a factor. However, if the values can be **varied beyond the existing range** (EG. Year - 2026 to 2020 in the data, but want to use 2020+ in production), then it should be used as a Numeric variable to allow the model to **extrapolate** the effects
 * Does the variable need to have **numeric operations** performed? If so, it should be naturally kept as a numeric variable
 * Is the relationship with the target **monotonic**? If not, then converting it to a Factor would allow the model to have more complex relationships
+* Is the model prone to **overfitting**? If so, then converting it to a factor will increase the total number of variables, worsening the problem
 
 !!! Note
 
@@ -215,6 +216,8 @@ Another common issue is deciding whether or not to express discrete numeric vari
 
     * **Binning**: Grouped into groups of equal width over the range
     * **Clustering**: Grouped into Cluster groups
+
+    These methods will inevitably result in a loss of information going from a precise variable to a broader group.
 
 ## **Model Selection & Evaluation**
 
