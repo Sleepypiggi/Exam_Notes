@@ -1582,6 +1582,7 @@ If there are any aspects of the data that are not suitable for modelling, they w
 <li>Are the values of the variable <strong>fixed</strong>? If during the production, the values of the variable will <strong>always be within the existing range</strong>, then it can modelled as a factor. However, if the values can be <strong>varied beyond the existing range</strong> (EG. Year - 2026 to 2020 in the data, but want to use 2020+ in production), then it should be used as a Numeric variable to allow the model to <strong>extrapolate</strong> the effects</li>
 <li>Does the variable need to have <strong>numeric operations</strong> performed? If so, it should be naturally kept as a numeric variable</li>
 <li>Is the relationship with the target <strong>monotonic</strong>? If not, then converting it to a Factor would allow the model to have more complex relationships</li>
+<li>Is the model prone to <strong>overfitting</strong>? If so, then converting it to a factor will increase the total number of variables, worsening the problem</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1590,6 +1591,7 @@ If there are any aspects of the data that are not suitable for modelling, they w
 <li><strong>Binning</strong>: Grouped into groups of equal width over the range</li>
 <li><strong>Clustering</strong>: Grouped into Cluster groups</li>
 </ul>
+<p>These methods will inevitably result in a loss of information going from a precise variable to a broader group.</p>
 </div>
 <h2 id="model-selection-evaluation"><strong>Model Selection &amp; Evaluation</strong><a class="headerlink" href="#model-selection-evaluation" title="Permanent link">&para;</a></h2>
 <p>The specific details of each model can be found in the SRM section. This section will briefly summarize the <strong>differences</strong> across the different learning methods to better understand which model is best for a given situation:</p>

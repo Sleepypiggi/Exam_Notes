@@ -1771,7 +1771,7 @@
 <p>To be explicit, the above measures can also be said to be <strong>Goodness of fit</strong> measures.</p>
 </div>
 <h3 id="validation-approach"><strong>Validation Approach</strong><a class="headerlink" href="#validation-approach" title="Permanent link">&para;</a></h3>
-<p>As mentioned in the beginning, a model's effectiveness should NOT be evaluated using data that was used to train it. Thus, for model selection, the selection of the final model should be <strong>based on data that was not used to train it</strong>; using <strong>Validation Data</strong>. The MSE determined using the Validation data is known as the <strong>Validation Error</strong>, which is an <strong>DIRECT estimate of the Test Error</strong> (since both are based on data that was not used to train the model).</p>
+<p>Ultimately, the model will be used on unseen data. Thus, the selection of the final model should be <strong>based on data that was not used to train it</strong>; using <strong>Validation Data</strong>, as it will be <strong>better able to capture overfitting</strong>. The MSE determined using the Validation data is known as the <strong>Validation Error</strong>, which is an <strong>DIRECT estimate of the Test Error</strong> (since both are based on data that was not used to train the model).</p>
 <p>The model with the <strong>lowest Validation Error</strong> is chosen as the final model. Once determined, <strong>re-train the final model</strong> using ALL non-test observations (Training + Validation data).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1794,14 +1794,12 @@
 </ul>
 <!-- Obtained from Statology -->
 <p><img alt="CROSS_VALIDATION" class="center" src="../Assets/5.%20Model%20Selection.md/CROSS_VALIDATION.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>The systematic approach of CV helps to alleviate the problems of regular validation:</p>
 <ol>
 <li>The <strong>average of multiple iterations</strong> are used that covers all the observations; tends to be <strong>less fickle</strong></li>
 <li><strong>Majority of the observations are used</strong> in each iteration; true signal should be captured which results in <strong>more accurate estimations</strong> of the test error</li>
+<li>Limited to only large datasets (Need to have minimum number of observations to train model)</li>
 </ol>
-</div>
 <h4 id="loocv"><strong>LOOCV</strong><a class="headerlink" href="#loocv" title="Permanent link">&para;</a></h4>
 <p>An extreme version of Cross Validation is known as the <strong>Leave One Out Cross Validation</strong> (LOOCV), where the number of folds is equal to the number of observations; <strong>each fold contains only one observation</strong>.</p>
 <p>If there are <span class="arithmatex">\(k\)</span> folds, then <span class="arithmatex">\(k\)</span> models will be fitted. Thus, for LOOCV, as many models will be fitted <strong>as there are observations</strong>, making it extremely <strong>computationally intensive</strong>. However, one upside is that the LOOCV error is <strong>constant</strong>; it only needs to be run once.</p>

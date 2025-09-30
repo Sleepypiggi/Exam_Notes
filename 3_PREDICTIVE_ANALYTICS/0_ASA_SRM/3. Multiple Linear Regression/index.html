@@ -2017,16 +2017,11 @@ Var(\hat{\beta}) =
 <div class="arithmatex">\[
     E(Y \mid X) = \beta_{0} + \beta_{1} \cdot x^{1}_{p} + \beta_{2} \cdot x^{2}_{p} + \beta_{3} \cdot x^{3}_{p} + \dots
 \]</div>
+<p>This is still considered a <strong>Linear Model</strong> because the dependent variable is a <strong>Linear Combination</strong> of the independent variables; the independent variables themselves can be non-linear. The model can still include other independent variables, regardless of their powers; mix of polynomial and non-polynomials are possible.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is still considered a <strong>Linear Model</strong> because the dependent variable is a <strong>Linear Combination</strong> of the independent variables; the independent variables themselves can be non-linear.</p>
-<p>The model can still include other independent variables, regardless of their powers; mix of polynomial and non-polynomials are possible.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Typically, if there is a known relationship between <span class="arithmatex">\(Y\)</span> and the k-th order of the independent variable, <strong>ALL orders from <span class="arithmatex">\(1\)</span> up to <span class="arithmatex">\(k\)</span></strong> are added for the variable.</p>
-<p>The reason is because we are interested in the way that <span class="arithmatex">\(Y\)</span> relates to <span class="arithmatex">\(X\)</span> as a whole. Keeping all powers allows the relationship to better expressed and hence have a better fit.</p>
-<p>However, the choice of <span class="arithmatex">\(k\)</span> <strong>may not be clear</strong>, especially for higher powers where the relationship is not easily visualized.</p>
+<p>Typically, if there is a known relationship between <span class="arithmatex">\(Y\)</span> and the k-th order of the independent variable, <strong>ALL orders from <span class="arithmatex">\(1\)</span> up to <span class="arithmatex">\(k\)</span></strong> are added for the variable. The reason is because we are interested in the way that <span class="arithmatex">\(Y\)</span> relates to <span class="arithmatex">\(X\)</span> as a whole. Keeping <strong>all powers</strong> allows the relationship to better expressed and hence have a better fit.</p>
+<p>However, the choice of <span class="arithmatex">\(k\)</span> <strong>may not be clear</strong>, especially for higher powers where the relationship is not easily visualized. As with most other model components, an optimal order can be found via <strong>cross validation</strong>.</p>
 </div>
 <p>Although the relationship is better quantified, the regression coefficients become <strong>hard to intepret</strong> because the terms all <strong>move simultaneously</strong>. </p>
 <div class="admonition warning">
@@ -2320,7 +2315,7 @@ Var(\hat{\beta}) =
 <p>Since the dropping of variables is done via maximization, the process ignores qualitative aspects such as the hierarchical principle.</p>
 </div>
 <h3 id="comparison"><strong>Comparison</strong><a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
-<p>There is no clear advantage between the two; the key difference lies in the <strong>ability to drop predictors</strong>:</p>
+<p>Both methods work by applying a penalty proportional to the mangitude of the coefficients. There is <strong>no clear advantage</strong> between the two; the key difference lies in the <strong>ability to drop predictors</strong>:</p>
 <p><center></p>
 <table>
 <thead>
@@ -2341,6 +2336,10 @@ Var(\hat{\beta}) =
 <tr>
 <td align="center">Higher Flexibility</td>
 <td align="center">Lower Flexibility</td>
+</tr>
+<tr>
+<td align="center">Squared Penalty</td>
+<td align="center">Absolute Penalty</td>
 </tr>
 <tr>
 <td align="center">Able to capture small effects</td>
