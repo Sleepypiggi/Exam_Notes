@@ -44,35 +44,44 @@ Every exam will also come with a **dataset** that accompanies the business probl
 
 ### **Data Collection**
 
-For all statistical analyses, it is important that the data collected is:
+For all statistical analyses, it is important that there is **sufficient data** that is:
 
 1. **Representative** of the underlying population - Use proper **sampling methods**
 2. **Indicative** of future behaviour - Use data that has been collected **recently**; exclude observations that were impacted by **one-off events** (EG. COVID19)
 
 !!! Note
 
-    Naturally, the actual population of interest should be sampled. However, if there is an insufficient data, a relatively larger **proxy dataset** can be used instead, provided that it shares **similar key traits** with the population. However, there are some inherent limitations:
+    Naturally, the actual population of interest should be sampled. However, if there is an **insufficient or difficult to obtain** data, a relatively larger **proxy dataset** can be used instead, provided that it shares **similar key traits** with the population. However, there are some inherent limitations:
     
     * There might be **conditions unique to each population** which makes them slightly different from one another
     * The data might have a **different scope or granularity** than the target population
 
 There are two main sampling methods that should be used:
 
-* **Random Sampling**: Randomly draw observations from the population without replacement
-* **Stratified Sampling**:
-    * Systematically divide the population into **non-overlapping strata** (groups)
-    * **Randomly sample** a **proportionate number** of observations from each strata based on size
-    * **Combine** all of them to form the stratified samples
+* **Random Sampling**: Randomly draw observations from the **entire population**; best when population is **homogenous**
+* **Stratified Sampling**: Randomly draw observations from **systematically divided groups**; best when population has **subgroups**
 
-In order to divide the population into groups, **stratification variable(s)** must be identified; the variables to split the population by. For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then **40 levels** are needed to capture **all possible combinations** of the two (10*4).
+<center>
+
+|         **Random Sampling**          |       **Stratified Sampling**        |
+| :----------------------------------: | :----------------------------------: |
+|        From entire population        |  From systematically divided groups  |
+| Better when population is homogenous | Better when population has subgroups |
+|         Easier to implement          |       More costly to implement       |
+
+<center>
+
+Detailed steps for stratified sampling:
+
+* Systematically divide the population into **non-overlapping strata** (groups)
+* **Randomly sample** a **proportionate number** of observations from each strata based on size
+* **Combine** all of them to form the stratified samples
+* **Stratification variable(s)** must be identified; the variables to split the population by
+* For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then **40 levels** are needed to capture **all possible combinations** of the two (10*4)
 
 !!! Tip
 
-    The key advantage of random sampling is that each observation has an **equal chance** of getting drawn, thus tends to result in an **unbiased sample**.
-
-    This is in contrast to another common method known as **Systematic Sampling**, which draws observations based on a **set pattern** (EG. Every n-th observation). While it ensures that the sample is **evenly spread throughout the population**, it is still **prone to bias** as the underlying data might have a **periodic pattern** that is not known.
-
-    Nonetheless, it still remains a valid sampling method. It can also be combined with Stratified Sampling, where systematic sampling is used to sample within each strata.
+    Sampling methods can also be used to split the overall data into the train and test data. Stratified sampling tends to be better as it will ensure that the mix of observations is the same within the train and test data, leading to more precise test estimates. vc
 
 A potential problem during the data collection process is **Sampling Bias**, which is unintentionally introducing bias via the means of collecting the sample:
     
@@ -106,13 +115,23 @@ The first aspect to consider is the **Scope** of the entire suite of variables p
 
 Another aspect to consider the **reasonableness** of each individual variable:
 
-* Are they any outliers? Compare the mean relative to the minimum or maximum values
-* Are there any missing values? Observe the count of missing values
+* Are they any **outliers**? Compare the mean relative to the minimum or maximum values
+* Are there any **missing values**? Observe the count of missing values
+* Are there any **impossible values**? Consider the business context
+
+On impossible values, it is important to consider if there are any unlikely (but still possible) scenarios where the values **could be correct**; exceptional business cases.
 
 After identifying the problems, the following actions can be taken:
 
-* **Affects few observations**: Remove the affected observations
-* **Affects many observations**: Remove the entire variable
+* **Remove the affected observations** (Error across few observations - data can still be reasonably used)
+* **Remove the entire variable** (Error across many observations - data cannot be reasonably used)
+* **Impute the observation** (Error is systematic - allows for good approximation)
+
+Alternatively, if the measurement of the variable is out of the business' control or its contextual significance to the data is small, then the problem can simply be **ignored**; place **focus on more important aspects**.
+
+!!! Warning
+
+    Note that any dropping of observations or variables will result in a loss of data.
 
 ### **Data Exploration**
 
@@ -147,10 +166,10 @@ For graphical plots, one or more of the following plots are typically used. It i
 
 For plots illustrating **one main variable** (typically distribution plots), it is typical to take note of the following items:
 
-* Range - Is the variable positive only?
-* Outliers - Are there many outliers?
-* Mode - Where is the data concentrated?
-* Skewness - How symmetric is the distribution?
+* **Range** - Is the variable positive only?
+* **Outliers** - Are there many outliers?
+* **Mode** - Where is the data concentrated?
+* **Skewness** - How symmetric is the distribution?
 
 !!! Note
 
@@ -175,9 +194,26 @@ Another method of adding an **additional factor variable** to the plot is via **
 
 !!! Tip
 
-    Faceting is NOT the only way to view interaction effects. If there is a non-traditional element of the graph that can be used to represent another variable, then a two variable plot may be able to inherently illustrate interaction effects:
+    Faceting is NOT the only way to view interaction effects. If there is a non-traditional element of the graph that can be used to represent another variable, then a two variable plot may be able to **inherently illustrate** interaction effects:
 
-    <!-- Insert Image of scatterplot with colour -->
+    <!-- Obtained from Penn State Uni -->
+    ![SCATTERPLOT_COLOUR](Assets/0_OVERVIEW.md/SCATTERPLOT_COLOUR.png){.center}
+
+    For most most graphical features, it is typically limited to Categorical Variables - but so is faceting, so no major disadvantage. However, it **might be easier to compare** across levels when faceting since the entire plot will be side by side.
+
+The following aspects are key considerations:
+
+* **Axis Labels**: Should be clearly labelled
+* **Chart Title**: Should be clearly labelled
+* **Distinction of features**: Should be chosen such that they are easily distinguishable (EG. Different colours rather than shades of the same colour)
+* **Axis Scale**: Should be chosen to best represent the data
+
+!!! Warning
+
+    If the data contains **outliers**, then the resulting **scale of the graph might be distorted**, resulting in an unfamiliar looking graph. For instance, the following is a boxplot that has been distorted:
+
+    <!-- Obtained from Past SOA Exam Papers -->
+    ![BOXPLOT_UNSCALED](Assets/0_OVERVIEW.md/BOXPLOT_UNSCALED.png){.center}
 
 ### **Data Transformation**
 
@@ -197,27 +233,35 @@ For numeric variables, there are relatively straightforward considerations:
     <!-- Obtained from Quanitfying Health -->
     ![FIXING_SKEWNESS](Assets/0_OVERVIEW.md/FIXING_SKEWNESS.png){.center}
 
-The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be **removed**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness.
+The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be **removed**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness. Note that these are **positive only transformations (no zeroes)**, thus a small constant should be added to the data in the event it has 0s. 
 
 !!! Note
 
-    Generally speaking, predictions on the untransformed variables should be **better as it follows the original distribution**.
-    
-    Predictions on transformed data (in the context of Skewness) results in smaller predictions, reflecting that the skewness has been transformed away.
+    Generally speaking, predictions on the untransformed variables should be **better as it follows the original distribution**. Predictions on transformed data (in the context of Skewness) results in smaller predictions, reflecting that the skewness has been transformed away.
+
+!!! Note
+
+    Combining variables
 
 For Factor variables, there are a whole host of considerations:
 
-* Levels with relatively relatively small mix should be **combined**, since there is no credible data to begin with. However, this is difficult if the levels are **very distinct**. Moreover, if the factor is already overwhelmingly dominated by a specific level, then **combining the levels has no use**; in fact **keeping the variable has no use** since there it has no predictive power
+* Levels with relatively relatively **small mix** should be **combined**, since there is no credible data to begin with. However, if the factor is already overwhelmingly dominated by a specific level, then **combining the levels has no use**; in fact **keeping the variable has no use** since there it has no predictive power
+* Levels that clearly have **no relationship** to the target variable should also be **combined**, since they will only result in overfitting
+* **Similar levels** should also be **combined** to increase the **interpretability** of the model 
 * **Re-levelling** the reference level to the **most common level** is usually recommended, but it is also useful to relevel to the **lowest or highest level** in an ordinal variable for better interpretation
-* **Binarization** converts each level into its own variable, which allows each level to be **included based on its own merit**
-* Combining factor variables together **reduces interpretability** of the variable itself but may allow the model to become simpler ONLY if the total number of levels have decreased as a result
+* **Binarization** converts each level into its own variable, which allows each level to be **included based on its own merit** (not bound by hierarchical)
+* Combining factor variables together **reduces interpretability** of the *variable itself* but may allow the model to become more intepretable ONLY if the total number of levels have decreased as a result
 
-Another common issue is deciding whether or not to express discrete numeric variable (with few levels) as **numeric or a factor**. There are two key considerations:
+!!! Warning
+
+    Recall that the learning methods are assume to automatically binarize during the fitting process. The difference is that **manual binarization** might use a different reference level, which may result in a **completely different model** altogether - they are NOT simply interchangeable.
+
+Another common issue is deciding whether or not to express discrete numeric variable (with few levels) as **numeric or a factor**. There are several key considerations:
 
 * Are the values of the variable **fixed**? If during the production, the values of the variable will **always be within the existing range**, then it can modelled as a factor. However, if the values can be **varied beyond the existing range** (EG. Year - 2026 to 2020 in the data, but want to use 2020+ in production), then it should be used as a Numeric variable to allow the model to **extrapolate** the effects
 * Does the variable need to have **numeric operations** performed? If so, it should be naturally kept as a numeric variable
-* Is the relationship with the target **monotonic**? If not, then converting it to a Factor would allow the model to have more complex relationships
-* Is the model prone to **overfitting**? If so, then converting it to a factor will increase the total number of variables, worsening the problem
+* Is the relationship with the target **monotonic**? If not, then converting it to a Factor would allow the model to have more **complex relationships**. Similarly, it allows for each level to be **examined seperately** for their significance
+* Is the model prone to **overfitting**? If so, then converting it to a factor will **increase the total number of variables**, worsening the problem
 
 !!! Note
 
@@ -226,11 +270,20 @@ Another common issue is deciding whether or not to express discrete numeric vari
     * **Binning**: Grouped into groups of equal width over the range
     * **Clustering**: Grouped into Cluster groups
 
-    These methods will inevitably result in a loss of information going from a precise variable to a broader group.
+    These methods will inevitably result in a **loss of information** going from a precise variable to a broader group. However, this could lead to greater interpretability as it might be easier to explain the effect of a group rather than a continuous variable.
 
 ## **Model Selection & Evaluation**
 
 The specific details of each model can be found in the SRM section. This section will briefly summarize the **differences** across the different learning methods to better understand which model is best for a given situation:
 
 <!-- Self Made -->
-![MODEL_COMPARISON](Assets/0_OVERVIEW.md/MODEL_COMPARISON.png){.center}
+![GLM_VS_TREE](Assets/0_OVERVIEW.md/GLM_VS_TREE.png){.center}
+
+<!-- Self Made -->
+![STEPWISE_VS_REGULARIZATION](Assets/0_OVERVIEW.md/STEPWISE_VS_REGULARIZATION.png){.center}
+
+<!-- Self Made -->
+![TREE_VS_ENSEMBLE](Assets/0_OVERVIEW.md/TREE_VS_ENSEMBLE.png){.center}
+
+<!-- Self Made -->
+![KMEANS_VS_HIERARCHICAL](Assets/0_OVERVIEW.md/KMEANS_VS_HIERARCHICAL.png){.center}
