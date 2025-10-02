@@ -6,9 +6,9 @@ The focus on this exam is on the **application of the theory** covered in exam S
 
 The exam will involve a short write-up to **explain the business problem**. Generally speaking, the core problem can be categorized as one of the following:
 
-* **Descriptive Analytics**: What happened in the **past**; explaining **trends and relationships** between variables
-* **Predictive Analytics**: What will happen in the **future**; making accurate **predictions**
-* **Prescriptive Analytics**: **Impact** of certain actions; identifying the **best course of action**
+* **Descriptive Analytics**: What happened in the **past**; focus on explaining **trends and relationships** between variables
+* **Predictive Analytics**: What will happen in the **future**; focus on making accurate **predictions**
+* **Prescriptive Analytics**: **Impact** of certain actions; focus on identifying the **best course of action**
 
 !!! Tip
 
@@ -30,7 +30,11 @@ Every exam will also come with a **dataset** that accompanies the business probl
 
 !!! Note
 
-    For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a **tabular arrangement** and hence easily manipulated. The opposite would be **Unstructured** data that CANNOT be placed into a table (EG. Image, Audio of Free Text) data. Although these data types provide **more insight**, they are much more **resource intensive** to process and require more **complicated models** to use.
+    For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a **tabular arrangement** and hence easily manipulated.
+    
+    The opposite would be **Unstructured** data that CANNOT be placed into a table (EG. Image, Audio of Free Text) data. Although these data types provide **more insight**, they are much more **resource intensive** to process and require more **complicated models** to use.
+    
+    Another reason is that using free text as a factor variable will lead to a large number of levels (due to each one likely being distinct), which will definitely overfit the model.
 
 !!! Warning
 
@@ -137,7 +141,6 @@ For graphical plots, one or more of the following plots are typically used. It i
 <!-- Self Made-->
 ![GRAPHICAL_PLOTS](Assets/0_OVERVIEW.md/GRAPHICAL_PLOTS.png){.center}
 
-
 !!! Note
 
     One other inherent limitation of plots is their **inherent function**. Each type of plot is mainly used for one thing - it cannot illustrate what it cannot.
@@ -194,7 +197,13 @@ For numeric variables, there are relatively straightforward considerations:
     <!-- Obtained from Quanitfying Health -->
     ![FIXING_SKEWNESS](Assets/0_OVERVIEW.md/FIXING_SKEWNESS.png){.center}
 
-The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness.
+The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be **removed**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness.
+
+!!! Note
+
+    Generally speaking, predictions on the untransformed variables should be **better as it follows the original distribution**.
+    
+    Predictions on transformed data (in the context of Skewness) results in smaller predictions, reflecting that the skewness has been transformed away.
 
 For Factor variables, there are a whole host of considerations:
 
