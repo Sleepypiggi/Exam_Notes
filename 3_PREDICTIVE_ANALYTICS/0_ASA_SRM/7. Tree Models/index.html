@@ -1228,6 +1228,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    Evaluation
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1461,6 +1468,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    Evaluation
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1508,8 +1522,8 @@
 <li>Relatively <strong>more important</strong> features will be used for splits <strong>first</strong></li>
 </ol>
 <p>On point (3), the first predictor used in the split is the <strong>MOST important</strong> because it has the largest reduction in RSS.</p>
-<p>In a similar vein, any <strong>possible interactions</strong> between variables are automatically accounted for in the tree; no need special adjustments are needed.</p>
 </div>
+<p>Given the iterative nature of the tree, it <strong>automatically accounts for any possible interaction</strong> between variables. There is no need to create an interaction variable - in fact, it could lead to worse results as manually creating an interaction “locks” in the interaction, while a tree can <strong>find the best possible interaction</strong>.</p>
 <p>The different points along the tree are known as <strong>Nodes</strong>:</p>
 <ul>
 <li><strong>Internal Nodes</strong> (Parent Nodes): Nodes where the tree <strong>splits further</strong></li>
@@ -1598,10 +1612,6 @@
     \text{Total Tree RSS} = \sum \text{Node RSS}
 \]</div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Trees tend to prefer variables that have many possible splits (EG. Numeric variables or Categorical variables with many levels). This is because the higher possibilities increases the chance of finding a split that will decrease the RSS, even if the split is spurious.</p>
-</div>
 <p>The performance of the tree is often compared against the Null Rate - performance of a tree with <strong>NO splits</strong>. The idea is similar to that of an F-test.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1610,8 +1620,7 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The above methodology only works for regression trees; continuous data. For count data, the RSS should not be used.</p>
-<p>Instead, the split decision should be based on <strong>Log-Likelihood</strong> instead; Poisson Deviance. The resulting tree is thus known as a <strong>Poisson Tree</strong>.</p>
+<p>The above methodology only works for regression trees; continuous data. For count data, the RSS should not be used. Instead, the split decision should be based on <strong>Log-Likelihood</strong> instead; Poisson Deviance. The resulting tree is thus known as a <strong>Poisson Tree</strong>.</p>
 </div>
 <h2 id="pruning"><strong>Pruning</strong><a class="headerlink" href="#pruning" title="Permanent link">&para;</a></h2>
 <p>Recursive binary splitting tends to result in <strong>large complex trees</strong> with many internal nodes, which is prone to <strong>overfitting</strong>. In this case, certain <strong>internal nodes should be dropped</strong>, akin to <strong>Pruning the leaves</strong> of a tree.</p>
@@ -1622,11 +1631,12 @@
 <p>The first type of pruning is known as <strong>Pre-pruning</strong>. The algorithm includes a <strong>stopping condition</strong> which <strong>prevents the tree from becoming too complex</strong> in the first place.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The conditions are typically chosen such that they avoid overfitting (smaller tree):</p>
+<p>The conditions are typically chosen such that they <strong>avoid overfitting</strong> (smaller tree):</p>
 <ul>
 <li>Minimum number of observations in a node (internal vs terminal node; can be different)</li>
 <li>Maximum number of terminal nodes</li>
 </ul>
+<p>Note that if set too harsh, it could result in a tree with <strong>no split</strong> (one node only). This could also occur if none of the features have any predictive power for the target (though this is unlikely).</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1653,7 +1663,7 @@
 <img alt="PRUNING_RSS" class="center" src="../Assets/7.%20Tree%20Models.md/PRUNING_RSS.png" /></p>
 <p>As stated previously, the RSS of the tree at any point is the sum of all terminal RSS. However, if given the above, it is important to sum the correct ones (while also applying the correct amount of penalty).</p>
 </div>
-<p>For every possible <span class="arithmatex">\(T\)</span>, there exists a <strong>subtree that minimizes</strong> the above function. Among the above shortlisted subtrees, the one with the <strong>lowest penalized RSS</strong> is chosen as the final tree. This is why this method is known as <strong>Cost Complexity Pruning</strong>, as it adds a cost per terminal node (cost per complexity) to the minimization problem. As part of this process, splits that <strong>do not provide enough information gain</strong> (weak splits) will be pruned, which is why it is also known as <strong>Weakest Link Pruning</strong>.</p>
+<p>For every possible <span class="arithmatex">\(T\)</span>, there exists a <strong>subtree that minimizes</strong> the above function. Among the above shortlisted subtrees, the one with the <strong>lowest penalized RSS</strong> is chosen as the final tree. This is why this method is known as <strong>Cost Complexity Pruning</strong>, as it adds a cost per terminal node (cost per complexity) to the minimization problem. As part of this process, splits that <strong>do not provide enough reduction in RSS</strong> (weak splits) will be pruned, which is why it is also known as <strong>Weakest Link Pruning</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Following the second definition, the complexity parameter is thus also described as the minimum threshold of improvement for additional splits in the tree.</p>
@@ -1696,10 +1706,12 @@
 <li>Gini Index</li>
 <li>Cross Entropy</li>
 </ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Thus, it can be said that the algorithm divides the predictor space such that <strong>node impurity is minimized</strong>; <strong>variability</strong> among categories is minimized.</p>
-</div>
+<p>Thus, it can be said that the algorithm divides the predictor space such that <strong>node impurity is minimized</strong>; <strong>variability</strong> among categories is minimized. Phrased another way, the tree chooses the split that maximizes the <strong>information gain</strong>:</p>
+<ul>
+<li><strong>Classification Trees</strong>: Defined as reduction in Impurity Measure</li>
+<li><strong>Regression Trees</strong>: Defined as reduction in RSS</li>
+<li>Note that this is a <strong>double negative</strong>; the underlying metrics are already negative</li>
+</ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The lower the above metrics, the higher the purity of the node - the node is LARGELY made up of mainly one category. Mathematically, the <strong>proportion of categories</strong> within each region are <strong>close to 0 or 1</strong>.</p>
@@ -1776,6 +1788,12 @@
 <li><strong>Location of splits</strong> - Where the splits occur; is it only for a particular region?</li>
 <li><strong>Split conditions</strong> - Which variables are used? What range of the variables are used?</li>
 </ol>
+<p>Decision trees tend to "prefer" variables that have many possible splits (EG. Numeric variables or Categorical variables with many levels). This is because the higher possibilities increases the chance of finding a <strong>spurious split</strong> that happens to lead to information gain (due to inherent variance in the training data), resulting in overfitting. Thus, it is not recommended to include these variables in a decision tree.</p>
+<p>There is a <strong>common misonception</strong> regarding variable importance for trees. In particular, that if a variable does not appear in a given tree, that it can be concluded that the other variables are not important - this is <strong>WRONG</strong>:</p>
+<ul>
+<li>A given tree is produced based on the training data and selected pruning parameters; a <strong>different set of conditions</strong> might produce <strong>vastly different trees</strong></li>
+<li>Thus, it is <strong>not conclusive</strong> to say that omitted variables from a particular tree are not important</li>
+</ul>
 <h2 id="ensemble-methods"><strong>Ensemble Methods</strong><a class="headerlink" href="#ensemble-methods" title="Permanent link">&para;</a></h2>
 <p>Ensemble Methods use a <strong>collection</strong> of statistical learning  techniques in conjunction with one another to produce better results than any of the individual methods.</p>
 <p>Ensemble Methods are typically used with basic models known as <strong>Weak Learners</strong> to produce a stronger model.</p>
@@ -1846,11 +1864,11 @@
 <p class="admonition-title">Warning</p>
 <p>OOB does NOT use every single tree in the Ensemble; it only uses those for which the specific observation was NOT used to train the tree.</p>
 </div>
-<p>The <strong>key advantage</strong> to bagging lies in <strong>Variance</strong>. An estimate coming from multiple samples is always <strong>more stable</strong> than estimate coming from just one sample.</p>
+<p>The <strong>key advantage</strong> to bagging lies in <strong>Variance</strong>. An estimate coming from multiple samples is always <strong>more stable</strong> than estimate coming from just one sample. However, it is <strong>computationally expensive</strong>. Thus, the number of samples should be chosen such that the increase in accuracy is higher than the cost of computing.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Since bagging helps to reduce the variance, the underlying trees are often <strong>NOT pruned</strong> (pre &amp; post) as the nature of bagging helps to counter the problem of high variance for unpruned trees.</p>
-<p>In general, having <strong>more bootstrapped samples is beneficial</strong>; having too many samples does <strong>NOT cause overfitting</strong>. However, it is <strong>computationally expensive</strong>. Thus, the number of samples should be chosen such that the increase in accuracy is higher than the cost of computing.</p>
+<p>Since bagging helps to reduce the variance, the underlying trees are often <strong>NOT pruned</strong> as the nature of bagging helps to counter the problem of high variance for unpruned trees.</p>
+<p>This also means that ensemble methods tend to produce a wider range of predictions than a single decision tree, due to the greater number of terminal nodes.</p>
 </div>
 <p>However, the <strong>key disadvantage</strong> is that the method is that is <strong>not easily interpreted</strong>. A single tree is easily visualized while a “forest” is not. If interpretation is required, it is not recommended to use an ensemble method.</p>
 <div class="admonition info">
@@ -1917,7 +1935,7 @@
 </div>
 <h3 id="boosting"><strong>Boosting</strong><a class="headerlink" href="#boosting" title="Permanent link">&para;</a></h3>
 <p>Boosting refers to the process of <strong>sequentially training</strong> a series of <strong>shallow trees</strong> on the <strong>error of the previous tree</strong>. The strength of weak trees are “boosted” by <strong>aggregating</strong> them together to form a stronger model.</p>
-<p>The key idea is that the errors of the trees contain the effects of the <strong>predictors not included in the model</strong>. Thus, training each successive model on the errors of the prior ones forces the model to <strong>explained the unexplained</strong>.</p>
+<p>The key idea is that the errors of the trees contain the effects of the <strong>predictors not included in the model</strong>. Thus, training each successive model on the <strong>errors of the prior ones</strong> forces the model to <strong>explained the unexplained</strong>.</p>
 <!-- Obtained from Research Gate -->
 <p><img alt="BOOSTING" class="center" src="../Assets/7.%20Tree%20Models.md/BOOSTING.png" /></p>
 <!-- Obtained from Affine -->
@@ -1975,6 +1993,13 @@
 </tbody>
 </table>
 <p></center></p>
+<h2 id="evaluation"><strong>Evaluation</strong><a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<p>Similar to all other statistical learning methods, the effectiveness of tree can also be determined visually by using a <strong>Predicted vs Actual Plot</strong>. The key difference is that for a single tree, it is possible to tell <strong>how many terminal nodes</strong> there are based on <strong>how many distinct predictions</strong> there are:</p>
+<!-- Obtained from SOA Past Year Exams -->
+<p><img alt="SINGLE_TREE_PRED_ACT_PLOT" class="center" src="../Assets/7.%20Tree%20Models.md/SINGLE_TREE_PRED_ACT_PLOT.png" /></p>
+<p>It is NOT possible to do the same with Ensemble methods there would be a huge range of predictions from all the underlying trees; it is unlikely that two predictions from an ensemble method would be the same:</p>
+<!-- Obtained from SOA Past Year Exams -->
+<p><img alt="ENSEMBLE_TREE_PRED_ACT_PLOT" class="center" src="../Assets/7.%20Tree%20Models.md/ENSEMBLE_TREE_PRED_ACT_PLOT.png" /></p>
 
 
 

@@ -1781,7 +1781,7 @@
 <p>Operationally, this implies that the sample should be <strong>partitioned at the start of the process</strong>.</p>
 <p>The size of the split between training and test is tricky - larger training sets result in more <strong>robust models but less reliable test evaluations</strong>. It is generally accepted that 80-20 or 70-30 between training and test sets are a good balance.</p>
 </div>
-<p>The above concerns can be quantified using the <strong>Mean Squared Error</strong> (MSE):</p>
+<p>The above concerns can be quantified using the <strong>Mean Squared Error</strong> (MSE). More generally, this is known as a <strong>Loss Function</strong>, which models typically use as a metric to fit their model - they fit the model such that the <strong>loss is minimized</strong>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
     \text{MSE}_{\text{Training}}
@@ -1791,6 +1791,10 @@
     &amp;= \frac{\sum (y_{i, \text{Test}} - \hat{y}_{i})^{2}}{n_{\text{Test}}}    
 \end{aligned}
 \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are alternative metrics such as <strong>Mean Absolute Error</strong> (MAE). Since the errors are not squared, absolute differences are NOT emphasised; outliers have less of an impact on the resulting model.</p>
+</div>
 <p><center></p>
 <table>
 <thead>
@@ -1996,7 +2000,7 @@ MAE -&gt; Less sensitive to outliers because all differences emphasised equally<
 <h2 id="classification-problems"><strong>Classification Problems</strong><a class="headerlink" href="#classification-problems" title="Permanent link">&para;</a></h2>
 <p>Almost all of the key concepts from a Regression context applies in a classification context as well. The key difference being instead of measuring the absolute error, the <strong>error rate</strong> is used instead:</p>
 <div class="arithmatex">\[
-    \text{Error Rate} = \frac{\text{Number of Correct Classifications}}{n}
+    \text{Error Rate} = 1- \frac{\text{Number of Correct Classifications}}{n}
 \]</div>
 <p>The <strong>Bayes Error Rate</strong> is known as the <strong>lowest possible error rate</strong>, akin to the <strong>irreducible error</strong> that arises due to the noise in the data itself.</p>
 <div class="admonition note">
@@ -2041,6 +2045,17 @@ MAE -&gt; Less sensitive to outliers because all differences emphasised equally<
     &amp;= \frac{\text{Number of correctly predicted negatives}}{\text{Number of actually negative}} \\
     &amp;= \frac{\text{TN}}{\text{TN} + \text{FP}} \\
     &amp;= 1 - \text{False Positive Rate} \\
+    \\
+    \text{Precision}
+    &amp;= \text{Predicred Positive Rate} \\
+    &amp;= \frac{\text{Number of correctly predicted positives}}{\text{Number of predicted positives}} \\
+    &amp;= \frac{\text{TP}}{\text{TP} + \text{FN}} \\
+    \\
+    \text{Accuracy}
+    &amp;= \text{Correct Prediction Rate} \\
+    &amp;= \frac{\text{Number of Correct Predictions}}{\text{All observations}} \\
+    &amp;= \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}} \\
+    &amp;= 1 - \text{Classification Error Rate}
 \end{aligned}
 \]</div>
 <!-- Obtained from Glassboxmedicine -->
@@ -2097,10 +2112,13 @@ MAE -&gt; Less sensitive to outliers because all differences emphasised equally<
 <p class="admonition-title">Tip</p>
 <p>The <strong>line in the middle</strong> linearly connecting the two endpoints only represents has an AUC of 0.5. This represents a model that assigns classifications <strong>randomly</strong>. It is deemed as a poor classifier as any increase in sensitivity or specificity is met by an equal decrease in the other. Thus, this is used as a baseline - only models with <strong>AUC above 0.5 should be considered</strong>.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>AUC can essentially be understood as the "MSE" for classification models.</p>
+</div>
 <h3 id="class-imbalance"><strong>Class Imbalance</strong><a class="headerlink" href="#class-imbalance" title="Permanent link">&para;</a></h3>
 <p>One common problem is that there is Class Imbalance in the underlying dataset such that one of the classes is <strong>under-represented</strong>. For instance, when studying about gender inequality, there might be significantly fewer observations that are female.</p>
-<p>The under-representation makes it <strong>difficult to make predictions</strong> for the minority class, which will likely result in high specificity or sensitivity.</p>
-<p>Thus, it is common to employ one of the following:</p>
+<p>The under-representation makes it <strong>difficult to make predictions</strong> for the minority class, which will likely result in high specificity or sensitivity. Thus, it is common to employ one of the following which will allow for more balanced predictions:</p>
 <ul>
 <li><strong>Oversampling</strong>: Randomly generating additional observations of the minority class from the existing pool</li>
 <li><strong>Undersampling</strong>: Randomly deleting observations of the majority class from the existing pool</li>
@@ -2133,8 +2151,7 @@ MAE -&gt; Less sensitive to outliers because all differences emphasised equally<
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Oversampling is much more common as it is usually the case that we are missing data, rather than having an over abundance.</p>
-<p>However, it may lead to computational or operational issues with the increased amount of data.</p>
+<p>Oversampling is much more common as it is usually the case that we are missing data, rather than having an over abundance. However, it may lead to computational or operational issues with the increased amount of data.</p>
 </div>
 
 

@@ -1202,6 +1202,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fitting-metrics" class="md-nav__link">
+    Fitting Metrics
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1566,6 +1573,13 @@
           <li class="md-nav__item">
   <a href="#dispersion" class="md-nav__link">
     Dispersion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fitting-metrics" class="md-nav__link">
+    Fitting Metrics
   </a>
   
 </li>
@@ -2070,8 +2084,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For the poisson distribution specifically, the reason why Pearson residuals are used is because the raw residuals are expected to be <strong>Heteroscedastic</strong>.</p>
-<p>Another interesting effect is that the <strong>SUM OF SQUARED pearson residuals</strong> is equivalent to the Chi-Square goodness of fit:</p>
+<p>For the poisson distribution specifically, the reason why Pearson residuals are used is because the raw residuals are expected to be <strong>Heteroscedastic</strong>. Another interesting effect is that the <strong>SUM OF SQUARED pearson residuals</strong> is equivalent to the Chi-Square goodness of fit:</p>
 <div class="arithmatex">\[
 \begin{aligned}
      \text{Pearson Goodness of Fit}
@@ -2103,16 +2116,29 @@
 \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This also means that the pearson chi-squared statistic can also be used to <strong>indicate when large over-dispersion is present</strong>, since the adjustment required is <strong>proportional to the amount needed to re-scale</strong> the variance. Thus, another definition for dispersion is the <strong>relative size of the Deviance compared to its degrees of freedom</strong>.</p>
+<p>This also means that the pearson chi-squared statistic can also be used to <strong>indicate when large over-dispersion is present</strong>, since the adjustment required is <strong>proportional to the amount needed to re-scale</strong> the variance. Thus, another definition for dispersion is the <strong>relative size of the Deviance compared to its degrees of freedom</strong>:</p>
+<ul>
+<li><strong>Higher than one</strong>: Overdispersion</li>
+<li><strong>Lower than one</strong>: Underdisperion</li>
+</ul>
+<p>Poisson is mentioned because it is usually goes <strong>hand in hand with dispersion</strong>. Poisson assumes that the distribution has equal and mean and variance, which means any deviation will result in violation of dispersion.</p>
 </div>
 <p>The above method only works for distributions which have a <strong>restrictive variance</strong>; the existing dispersion parameter is fixed (<span class="arithmatex">\(\phi = 1\)</span>). However, applying this method fixes the dispersion but also fundamentally "changes" the distribution to become fake ("Quasi"):</p>
 <ul>
-<li>Coefficients remain unchanged</li>
-<li>Standard errors should increase</li>
-<li>Aymptotic normality no longer holds; t-distribution should be used instead</li>
-<li>Interpretation should change</li>
+<li>Coefficients <strong>remain unchanged</strong> - predictions are unchanged</li>
+<li>Standard errors should increase - Affecting variable significance</li>
+<li>Aymptotic normality no longer holds; t-distribution should be used instead - Affecting variable significance</li>
+<li>No longer poisson distribution - Interpretation should change</li>
 <li>Log-likelihood doesnt make sense</li>
 </ul>
+<h3 id="fitting-metrics"><strong>Fitting Metrics</strong><a class="headerlink" href="#fitting-metrics" title="Permanent link">&para;</a></h3>
+<p>Although traditional metrics such as <span class="arithmatex">\(R^{2}\)</span> does not apply, fitting metrics such as AIC and BIC are still applicable. However, they have a slightly different formulation:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \text{AIC} &amp;= \text{Deviance} + 2 \cdot \text{Degrees of Freedom} \\
+    \text{BIC} &amp;= \text{Deviance} + 2 \cdot \text{Degrees of Freedom} \\
+\end{aligned}
+\]</div>
 <h2 id="categorical-models"><strong>Categorical Models</strong><a class="headerlink" href="#categorical-models" title="Permanent link">&para;</a></h2>
 <h3 id="binary-response"><strong>Binary Response</strong><a class="headerlink" href="#binary-response" title="Permanent link">&para;</a></h3>
 <p>A Binary response variable has only two outcomes (0,1), thus a <strong>Bernoulli Distribution</strong> is used to model it. There are <strong>three main link functions</strong> that can map the the range into (0,1):</p>
@@ -2299,6 +2325,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Count models are sometimes also known as <strong>Frequency</strong> Models.</p>
+<p>Poisson CANNOT be used to non-count integer variables, although they seemingly look the same.</p>
 </div>
 <p>The poisson coefficients have a very similar intepretation with the logit model - it represents the <strong>multiplicative increase</strong> in the count given a one unit increase or in the presence of another variable.</p>
 <h4 id="offsets"><strong>Offsets</strong><a class="headerlink" href="#offsets" title="Permanent link">&para;</a></h4>

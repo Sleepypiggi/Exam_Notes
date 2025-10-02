@@ -1199,6 +1199,26 @@
     K-Means Clustering
   </a>
   
+    <nav class="md-nav" aria-label="K-Means Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elbow-plots" class="md-nav__link">
+    Elbow Plots
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling" class="md-nav__link">
+    Scaling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1219,6 +1239,13 @@
           <li class="md-nav__item">
   <a href="#dendrogram-analysis" class="md-nav__link">
     Dendrogram Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correlation-distance" class="md-nav__link">
+    Correlation Distance
   </a>
   
 </li>
@@ -1397,6 +1424,26 @@
     K-Means Clustering
   </a>
   
+    <nav class="md-nav" aria-label="K-Means Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elbow-plots" class="md-nav__link">
+    Elbow Plots
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling" class="md-nav__link">
+    Scaling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1417,6 +1464,13 @@
           <li class="md-nav__item">
   <a href="#dendrogram-analysis" class="md-nav__link">
     Dendrogram Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correlation-distance" class="md-nav__link">
+    Correlation Distance
   </a>
   
 </li>
@@ -1558,12 +1612,22 @@
 <p>There is technically a small chance that the number of clusters decrease, because no observations are assigned to that cluster. This should be treated as a special case.</p>
 </div>
 <p>The choice of <span class="arithmatex">\(k\)</span> is <strong>arbitrary</strong>, thus it might not yield the best results. It is thus recommended to <strong>start with a large <span class="arithmatex">\(k\)</span> (~20)</strong> then <strong>repeat the algorithm</strong> several times for different <span class="arithmatex">\(k\)</span> based on the results to have a better understanding of the data.</p>
+<h3 id="elbow-plots"><strong>Elbow Plots</strong><a class="headerlink" href="#elbow-plots" title="Permanent link">&para;</a></h3>
+<p>There are systematic ways to determine the optimal number of clusters for a given starting point. Similar to PCA, k-means clustering can use an <strong>Elbow Plot</strong> that tracks the <strong>cumulative proportion of variance explained by all clusters</strong>. Similarly, we select the clusters at the "Elbow" of the plot, where there is a sharp drop off between additional variance explained and the number of clusters.</p>
+<!-- Obtained from SOA Past Year Exams -->
+<p><img alt="ELBOW_PLOT" class="center" src="../Assets/9.%20Clustering.md/ELBOW_PLOT.png" /></p>
+<p>A drop off in the gradient of the elbow plot indicates that adding the additional cluster may result in different clusters containing observations which have some similarities.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is NOT the same as a scree plot - this version is cumulative and hence moves upwards while scree plots focus on the added variance and hence are downward sloping (given the nature of PCA).</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Similar to PCA, it is possible to plot a "Scree Plot" for K-means and use the <strong>Elbow method</strong> as well - choosing <span class="arithmatex">\(k\)</span> such that there is a reasonable amount of variance explained.</p>
 <p>The total variance is the cluster variation when there is only ONE cluster (<span class="arithmatex">\(k=1\)</span>). The proportion of variance is explained is thus the <strong>reduction in variance</strong> when increasing to that specific <span class="arithmatex">\(k\)</span>.</p>
 <p><add plot></p>
 </div>
+<h3 id="scaling">Scaling<a class="headerlink" href="#scaling" title="Permanent link">&para;</a></h3>
 <h2 id="hierarchical-clustering"><strong>Hierarchical Clustering</strong><a class="headerlink" href="#hierarchical-clustering" title="Permanent link">&para;</a></h2>
 <p>The second type is known as <strong>Hierarchical Clustering</strong>. It works by <strong>iteratively merging or splitting</strong> observations based on their <strong>similarity</strong>, till all observations are either in one giant cluster or in individual clusters.</p>
 <!-- Obtained from Medium -->
@@ -1630,11 +1694,6 @@
 </div>
 <h3 id="similarity-measure"><strong>Similarity Measure</strong><a class="headerlink" href="#similarity-measure" title="Permanent link">&para;</a></h3>
 <p>The basis for merging a cluster is based on how similar the two clusters are, known as <strong>Dissimilarity Measure</strong>. For the purposes of this exam, assume that <strong>Euclidean Distance</strong> is used unless explicitly stated otherwise.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Another type of measure is known as the <strong>Peason Correlation Distance</strong>. It measures similarity in the “shape” of the observation rather than its magnitude (Euclidean).</p>
-<p>However, one caveat is that it requires the dataset to have <strong>at least three features</strong> for it to be used.</p>
-</div>
 <p>The key difference is that dissimilarity is measuring the Euclidean Distance <strong>between two clusters</strong> rather than two observations. There are four main ways to perform this, known as the choice of <strong>Linkage</strong>:</p>
 <ul>
 <li><strong>Complete</strong>: Compute all pairwise distances, use the <strong>highest</strong></li>
@@ -1696,6 +1755,17 @@
 <p class="admonition-title">Tip</p>
 <p>This information could be used to decide where to slice a dendrogram - if there is a point where the distance between merging clusters becomes large, then it should be sliced before that to ensure that they remain as distinct clusters.</p>
 </div>
+<h3 id="correlation-distance"><strong>Correlation Distance</strong><a class="headerlink" href="#correlation-distance" title="Permanent link">&para;</a></h3>
+<p>Another way to perform hierarchical clustering would be to use <strong>Peason Correlation Distance</strong> instead. Loosely speaking, it measures similarity in the “shape” of the observation rather than its magnitude (Euclidean).</p>
+<p>For instance, consider the following example:</p>
+<ul>
+<li>Observation C is always 10 times larger than Observation A</li>
+<li>The same is not true for A-B or B-C; the relationship varies across variables</li>
+<li>Thus, Observation C and A will be clustered togethered</li>
+</ul>
+<!-- Obtained from SOA Past Year Paper -->
+<p><img alt="CORRELATION_CLUSTERING" class="center" src="../Assets/9.%20Clustering.md/CORRELATION_CLUSTERING.png" /></p>
+<p>However, one caveat is that it requires the dataset to have <strong>at least three features</strong> for it to be used.</p>
 <h2 id="potential-problems"><strong>Potential Problems</strong><a class="headerlink" href="#potential-problems" title="Permanent link">&para;</a></h2>
 <p>Both kinds of clustering are sensitive to actions of the modeller:</p>
 <ul>

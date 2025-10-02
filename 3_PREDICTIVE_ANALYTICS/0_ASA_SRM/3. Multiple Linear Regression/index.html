@@ -1181,8 +1181,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dummy-variables" class="md-nav__link">
-    Dummy Variables
+  <a href="#categorical-variables" class="md-nav__link">
+    Categorical Variables
   </a>
   
 </li>
@@ -1236,8 +1236,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#elastic-net" class="md-nav__link">
-    Elastic Net
+  <a href="#elastic-net-pa-only" class="md-nav__link">
+    Elastic Net (PA Only)
   </a>
   
 </li>
@@ -1552,8 +1552,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dummy-variables" class="md-nav__link">
-    Dummy Variables
+  <a href="#categorical-variables" class="md-nav__link">
+    Categorical Variables
   </a>
   
 </li>
@@ -1607,8 +1607,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#elastic-net" class="md-nav__link">
-    Elastic Net
+  <a href="#elastic-net-pa-only" class="md-nav__link">
+    Elastic Net (PA Only)
   </a>
   
 </li>
@@ -2031,8 +2031,8 @@ Var(\hat{\beta}) =
 </div>
 <!-- Obtained from Medium -->
 <p><img alt="POLYNOMIAL_REGRESSION" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/POLYNOMIAL_REGRESSION.png" /></p>
-<h3 id="dummy-variables"><strong>Dummy Variables</strong><a class="headerlink" href="#dummy-variables" title="Permanent link">&para;</a></h3>
-<p>So far, we have implicitly assumed that all independent variables are quantitative. However, it is possible to to use <strong>Qualitative</strong> ones as well. They are typically represented using a <strong>Dummy Variables</strong>, which are can only take on <strong>1 (Yes) or 0 (No)</strong>.</p>
+<h3 id="categorical-variables"><strong>Categorical Variables</strong><a class="headerlink" href="#categorical-variables" title="Permanent link">&para;</a></h3>
+<p>So far, we have implicitly assumed that all independent variables are quantitative. However, it is possible to to use <strong>Categorical</strong> ones as well. They are typically represented using a <strong>Dummy Variables</strong>, which are can only take on <strong>1 (Yes) or 0 (No)</strong>.</p>
 <p>If there are <span class="arithmatex">\(n\)</span> possible categories, then ONLY <span class="arithmatex">\(n-1\)</span> dummy variables are needed to fully represent all possible categories. For instance,</p>
 <div class="arithmatex">\[
     E(Y \mid X)
@@ -2054,7 +2054,8 @@ Var(\hat{\beta}) =
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Given the above, the <strong>choice of reference category matters</strong> as it will result in a different model altogether. It is typically chosen to be <strong>most common level</strong>. However, it is possible to set the reference level such that it is a the <strong>highest or lowest level</strong> of the factor, which will make for more intuitive interpretation.</p>
+<p>Given the above, the <strong>choice of reference category matters</strong> as it will result in a different model altogether due to the different baseline. For the purposes of this exam, it is assumed that the method will <strong>automatically binarize</strong> any categorical variables prior to running.</p>
+<p>Due to the hierarchical principle, even if one of the levels does not have a statistically significant, the method will still retain all the levels in the model.</p>
 </div>
 <p>Dummy variables are usually used in conjunction with quantitatve ones. This creates a <strong>seperate but parallel regression line</strong> for each of the levels:</p>
 <div class="arithmatex">\[
@@ -2209,7 +2210,7 @@ Var(\hat{\beta}) =
 <p>In practice, it is hard to determine the exact breakpoints where such changes occur.</p>
 </div>
 <h2 id="regularization-methods"><strong>Regularization Methods</strong><a class="headerlink" href="#regularization-methods" title="Permanent link">&para;</a></h2>
-<p>A key problem with MLR is that the addition of more variables makes it <strong>more prone to overfitting</strong> (Low Bias, High Variance). Thus, <strong>regularization methods</strong> help to restrict coefficient estimates closer to 0, which <strong>reduces variance</strong> at the cost of <em>slightly</em> increasing bias.</p>
+<p>A key problem with MLR is that the addition of more variables makes it <strong>more prone to overfitting</strong> (Low Bias, High Variance). Thus, <strong>regularization methods</strong> help to restrict coefficient estimates closer to 0, by placing a <strong>penalty on the size of coefficients</strong>. This helps to reduce variance at the cost of <em>slightly</em> increasing bias.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>It is generally assumed that the <strong>reduction in variance is greater than the increase in Bias</strong>, resulting in an overall <strong>stronger performance</strong>. </p>
@@ -2326,8 +2327,20 @@ Var(\hat{\beta}) =
 </thead>
 <tbody>
 <tr>
-<td align="center">Cannot Drop</td>
-<td align="center">Can Drop</td>
+<td align="center">Squared Penalty</td>
+<td align="center">Absolute Penalty</td>
+</tr>
+<tr>
+<td align="center">Cannot shrink coefficients to 0</td>
+<td align="center">Can shrink coefficients to 0</td>
+</tr>
+<tr>
+<td align="center">Able to capture small effects</td>
+<td align="center">Unable to capture small effects (bc shrunk to 0)</td>
+</tr>
+<tr>
+<td align="center">Effective for large coefficients</td>
+<td align="center">Less effective for large coefficients</td>
 </tr>
 <tr>
 <td align="center">Lower Interpretability</td>
@@ -2337,14 +2350,6 @@ Var(\hat{\beta}) =
 <td align="center">Higher Flexibility</td>
 <td align="center">Lower Flexibility</td>
 </tr>
-<tr>
-<td align="center">Squared Penalty</td>
-<td align="center">Absolute Penalty</td>
-</tr>
-<tr>
-<td align="center">Able to capture small effects</td>
-<td align="center">Unable to capture small effects</td>
-</tr>
 </tbody>
 </table>
 <p></center></p>
@@ -2352,12 +2357,13 @@ Var(\hat{\beta}) =
 <p><img alt="REGULARIZATION_VISUAL" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/REGULARIZATION_VISUAL.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>LASSO performs better when the underlying process is only a function of a few key variables, while Ridge performs better when there are multiple predictors. This is intuitive, given that the key difference is the dropping of variables.</p>
+<p>LASSO performs better when the underlying process is only a function of a few key variables, while Ridge performs better when there are multiple predictors. This is intuitive, given that Ridge cannot drop variables, because simpler models tend to be preferred.</p>
 </div>
 <p>Another explanation for the difference in behaviour is the following:</p>
 <ul>
 <li><strong>Ridge</strong>: Shrinks all predictor coefficients by the <strong>same proportion</strong></li>
 <li><strong>LASSO</strong>: Shrinks all predictor coefficients by a <strong>constant amount</strong>; but if <strong>smaller than the constant</strong>, then the coefficient is set to 0 (Dropped)</li>
+<li>Thus, Ridge tends to have more effective shrinkage with <strong>larger coefficients</strong></li>
 </ul>
 <!-- Obtained from ISLR -->
 <p><img alt="SOFT_THRESHOLD" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/SOFT_THRESHOLD.png" /></p>
@@ -2389,9 +2395,9 @@ Var(\hat{\beta}) =
 <p><!-- Obtained from ISLR -->
 <img alt="LAMBDA_VS_NORM" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/LAMBDA_VS_NORM.png" /></p>
 </div>
-<p>An interesting point to note is that LASSO can sometimes be used to identify variable performance. Since there is a penalty on the absolute variable coefficients, the algorithm might set all <strong>non-important coefficients to 0</strong> to ensure that an especially important variable has a <strong>large coefficient</strong>.</p>
-<h3 id="elastic-net"><strong>Elastic Net</strong><a class="headerlink" href="#elastic-net" title="Permanent link">&para;</a></h3>
-<p>Elastic Net is an approach the combines the Ridge and LASSO. It adds a constraint that is the <strong>weighted average</strong> of the L1 and L2 norms:</p>
+<p>An interesting point to note is that LASSO can sometimes be used to identify <strong>variable importance</strong>. Since there is a penalty on the absolute variable coefficients, the algorithm might set all <strong>non-important coefficients to 0</strong> to ensure that an especially important variable has a <strong>large coefficient</strong>.</p>
+<h3 id="elastic-net-pa-only"><strong>Elastic Net (PA Only)</strong><a class="headerlink" href="#elastic-net-pa-only" title="Permanent link">&para;</a></h3>
+<p>Elastic Net is an approach the combines the Ridge and LASSO. It adds a constraint that is the <strong>weighted average</strong> of the Ridge and LASSO penalty:</p>
 <div class="arithmatex">\[
     \min \left(\text{RSS} + \alpha \sum |\beta_{p}| + (1 - \alpha) \sum \beta^{2}_{p} \right)
 \]</div>
@@ -2404,12 +2410,23 @@ Var(\hat{\beta}) =
 <li><span class="arithmatex">\(\alpha = 0\)</span>: Ridge</li>
 <li><span class="arithmatex">\(\alpha = 1\)</span>: LASSO</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The elastic net is a weighted combination of the two approaches. Thus, only if the underlying LASSO can drop variables (sufficiently large <span class="arithmatex">\(\lambda\)</span>), then only the resulting elastic net can drop variables.</p>
-</div>
+<p>The shrinkage parameter is STILL present! It is assumed that the same <span class="arithmatex">\(\lambda\)</span> is used for both the underlying Ridge and LASSO model. Thus, the elastic net can only drop variables if:</p>
+<ul>
+<li>Sufficiently high underlying <span class="arithmatex">\(\lambda\)</span></li>
+<li>Sufficiently high <span class="arithmatex">\(\alpha\)</span></li>
+</ul>
 <!-- Obtained from Corporate Finance Institute -->
 <p><img alt="ELASTIC_NET" class="center" src="../Assets/3.%20Multiple%20Linear%20Regression.md/ELASTIC_NET.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This means that from looking at just the <strong>coefficients before and after</strong>, it becomes difficult to distinguish if Ridge/Lasso/Elastic Net was used. Although Ridge is the only one that cant drop variables, it could still be an elastic net with small <span class="arithmatex">\(\alpha\)</span> and/or small <span class="arithmatex">\(\lambda\)</span>.</p>
+<p>Thus, it may be better to change the mindset to think of Elastic Net as the general case and that LASSO/Ridge are extreme cases.</p>
+</div>
+<p>Elastic Net allows the key strengths of the underlying method, allowing for a highly versatile regularization method:</p>
+<ul>
+<li>Effectiveness of shrinkage large coefficients  (from Ridge)</li>
+<li>Ability to shrink coefficients to 0 (from LASSO)</li>
+</ul>
 <h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
 <p>Before using regularization, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since a penalty is placed on the <strong>magnitude of the coefficient</strong> (proportional to scale).</p>
 <div class="admonition note">

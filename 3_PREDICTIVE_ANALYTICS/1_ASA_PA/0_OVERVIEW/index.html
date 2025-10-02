@@ -1399,9 +1399,9 @@
 <h2 id="business-context"><strong>Business Context</strong><a class="headerlink" href="#business-context" title="Permanent link">&para;</a></h2>
 <p>The exam will involve a short write-up to <strong>explain the business problem</strong>. Generally speaking, the core problem can be categorized as one of the following:</p>
 <ul>
-<li><strong>Descriptive Analytics</strong>: What happened in the <strong>past</strong>; explaining <strong>trends and relationships</strong> between variables</li>
-<li><strong>Predictive Analytics</strong>: What will happen in the <strong>future</strong>; making accurate <strong>predictions</strong></li>
-<li><strong>Prescriptive Analytics</strong>: <strong>Impact</strong> of certain actions; identifying the <strong>best course of action</strong></li>
+<li><strong>Descriptive Analytics</strong>: What happened in the <strong>past</strong>; focus on explaining <strong>trends and relationships</strong> between variables</li>
+<li><strong>Predictive Analytics</strong>: What will happen in the <strong>future</strong>; focus on making accurate <strong>predictions</strong></li>
+<li><strong>Prescriptive Analytics</strong>: <strong>Impact</strong> of certain actions; focus on identifying the <strong>best course of action</strong></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1422,7 +1422,9 @@
 <p><img alt="DATA_DICTIONARY" class="center" src="../Assets/0_OVERVIEW.md/DATA_DICTIONARY.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For the purposes of this exam, it is assumed that only <strong>structured</strong> data will be used; data that can be fit into a <strong>tabular arrangement</strong> and hence easily manipulated. The opposite would be <strong>Unstructured</strong> data that CANNOT be placed into a table (EG. Image, Audio of Free Text) data. Although these data types provide <strong>more insight</strong>, they are much more <strong>resource intensive</strong> to process and require more <strong>complicated models</strong> to use.</p>
+<p>For the purposes of this exam, it is assumed that only <strong>structured</strong> data will be used; data that can be fit into a <strong>tabular arrangement</strong> and hence easily manipulated.</p>
+<p>The opposite would be <strong>Unstructured</strong> data that CANNOT be placed into a table (EG. Image, Audio of Free Text) data. Although these data types provide <strong>more insight</strong>, they are much more <strong>resource intensive</strong> to process and require more <strong>complicated models</strong> to use.</p>
+<p>Another reason is that using free text as a factor variable will lead to a large number of levels (due to each one likely being distinct), which will definitely overfit the model.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1430,14 +1432,14 @@
 </div>
 <h2 id="data-adequacy"><strong>Data Adequacy</strong><a class="headerlink" href="#data-adequacy" title="Permanent link">&para;</a></h2>
 <h3 id="data-collection"><strong>Data Collection</strong><a class="headerlink" href="#data-collection" title="Permanent link">&para;</a></h3>
-<p>For all statistical analyses, it is important that the data collected is:</p>
+<p>For all statistical analyses, it is important that there is <strong>sufficient data</strong> that is:</p>
 <ol>
 <li><strong>Representative</strong> of the underlying population - Use proper <strong>sampling methods</strong></li>
 <li><strong>Indicative</strong> of future behaviour - Use data that has been collected <strong>recently</strong>; exclude observations that were impacted by <strong>one-off events</strong> (EG. COVID19)</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Naturally, the actual population of interest should be sampled. However, if there is an insufficient data, a relatively larger <strong>proxy dataset</strong> can be used instead, provided that it shares <strong>similar key traits</strong> with the population. However, there are some inherent limitations:</p>
+<p>Naturally, the actual population of interest should be sampled. However, if there is an <strong>insufficient or difficult to obtain</strong> data, a relatively larger <strong>proxy dataset</strong> can be used instead, provided that it shares <strong>similar key traits</strong> with the population. However, there are some inherent limitations:</p>
 <ul>
 <li>There might be <strong>conditions unique to each population</strong> which makes them slightly different from one another</li>
 <li>The data might have a <strong>different scope or granularity</strong> than the target population</li>
@@ -1445,20 +1447,44 @@
 </div>
 <p>There are two main sampling methods that should be used:</p>
 <ul>
-<li><strong>Random Sampling</strong>: Randomly draw observations from the population without replacement</li>
-<li><strong>Stratified Sampling</strong>:<ul>
+<li><strong>Random Sampling</strong>: Randomly draw observations from the <strong>entire population</strong>; best when population is <strong>homogenous</strong></li>
+<li><strong>Stratified Sampling</strong>: Randomly draw observations from <strong>systematically divided groups</strong>; best when population has <strong>subgroups</strong></li>
+</ul>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Random Sampling</strong></th>
+<th align="center"><strong>Stratified Sampling</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">From entire population</td>
+<td align="center">From systematically divided groups</td>
+</tr>
+<tr>
+<td align="center">Better when population is homogenous</td>
+<td align="center">Better when population has subgroups</td>
+</tr>
+<tr>
+<td align="center">Easier to implement</td>
+<td align="center">More costly to implement</td>
+</tr>
+</tbody>
+</table>
+<p><center></p>
+<p>Detailed steps for stratified sampling:</p>
+<ul>
 <li>Systematically divide the population into <strong>non-overlapping strata</strong> (groups)</li>
 <li><strong>Randomly sample</strong> a <strong>proportionate number</strong> of observations from each strata based on size</li>
 <li><strong>Combine</strong> all of them to form the stratified samples</li>
+<li><strong>Stratification variable(s)</strong> must be identified; the variables to split the population by</li>
+<li>For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then <strong>40 levels</strong> are needed to capture <strong>all possible combinations</strong> of the two (10*4)</li>
 </ul>
-</li>
-</ul>
-<p>In order to divide the population into groups, <strong>stratification variable(s)</strong> must be identified; the variables to split the population by. For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then <strong>40 levels</strong> are needed to capture <strong>all possible combinations</strong> of the two (10*4).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The key advantage of random sampling is that each observation has an <strong>equal chance</strong> of getting drawn, thus tends to result in an <strong>unbiased sample</strong>.</p>
-<p>This is in contrast to another common method known as <strong>Systematic Sampling</strong>, which draws observations based on a <strong>set pattern</strong> (EG. Every n-th observation). While it ensures that the sample is <strong>evenly spread throughout the population</strong>, it is still <strong>prone to bias</strong> as the underlying data might have a <strong>periodic pattern</strong> that is not known.</p>
-<p>Nonetheless, it still remains a valid sampling method. It can also be combined with Stratified Sampling, where systematic sampling is used to sample within each strata.</p>
+<p>Sampling methods can also be used to split the overall data into the train and test data. Stratified sampling tends to be better as it will ensure that the mix of observations is the same within the train and test data, leading to more precise test estimates. vc</p>
 </div>
 <p>A potential problem during the data collection process is <strong>Sampling Bias</strong>, which is unintentionally introducing bias via the means of collecting the sample:</p>
 <!-- Obtained from Scribbr -->
@@ -1488,14 +1514,22 @@
 </div>
 <p>Another aspect to consider the <strong>reasonableness</strong> of each individual variable:</p>
 <ul>
-<li>Are they any outliers? Compare the mean relative to the minimum or maximum values</li>
-<li>Are there any missing values? Observe the count of missing values</li>
+<li>Are they any <strong>outliers</strong>? Compare the mean relative to the minimum or maximum values</li>
+<li>Are there any <strong>missing values</strong>? Observe the count of missing values</li>
+<li>Are there any <strong>impossible values</strong>? Consider the business context</li>
 </ul>
+<p>On impossible values, it is important to consider if there are any unlikely (but still possible) scenarios where the values <strong>could be correct</strong>; exceptional business cases.</p>
 <p>After identifying the problems, the following actions can be taken:</p>
 <ul>
-<li><strong>Affects few observations</strong>: Remove the affected observations</li>
-<li><strong>Affects many observations</strong>: Remove the entire variable</li>
+<li><strong>Remove the affected observations</strong> (Error across few observations - data can still be reasonably used)</li>
+<li><strong>Remove the entire variable</strong> (Error across many observations - data cannot be reasonably used)</li>
+<li><strong>Impute the observation</strong> (Error is systematic - allows for good approximation)</li>
 </ul>
+<p>Alternatively, if the measurement of the variable is out of the business' control or its contextual significance to the data is small, then the problem can simply be <strong>ignored</strong>; place <strong>focus on more important aspects</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that any dropping of observations or variables will result in a loss of data.</p>
+</div>
 <h3 id="data-exploration"><strong>Data Exploration</strong><a class="headerlink" href="#data-exploration" title="Permanent link">&para;</a></h3>
 <p>The data should be explored to gain a better understanding of it. There are two primary methods to do so:</p>
 <!-- Self made -->
@@ -1524,10 +1558,10 @@
 </div>
 <p>For plots illustrating <strong>one main variable</strong> (typically distribution plots), it is typical to take note of the following items:</p>
 <ul>
-<li>Range - Is the variable positive only?</li>
-<li>Outliers - Are there many outliers?</li>
-<li>Mode - Where is the data concentrated?</li>
-<li>Skewness - How symmetric is the distribution?</li>
+<li><strong>Range</strong> - Is the variable positive only?</li>
+<li><strong>Outliers</strong> - Are there many outliers?</li>
+<li><strong>Mode</strong> - Where is the data concentrated?</li>
+<li><strong>Skewness</strong> - How symmetric is the distribution?</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1551,8 +1585,23 @@
 <p><img alt="FACETING" class="center" src="../Assets/0_OVERVIEW.md/FACETING.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Faceting is NOT the only way to view interaction effects. If there is a non-traditional element of the graph that can be used to represent another variable, then a two variable plot may be able to inherently illustrate interaction effects:</p>
-<!-- Insert Image of scatterplot with colour -->
+<p>Faceting is NOT the only way to view interaction effects. If there is a non-traditional element of the graph that can be used to represent another variable, then a two variable plot may be able to <strong>inherently illustrate</strong> interaction effects:</p>
+<p><!-- Obtained from Penn State Uni -->
+<img alt="SCATTERPLOT_COLOUR" class="center" src="../Assets/0_OVERVIEW.md/SCATTERPLOT_COLOUR.png" /></p>
+<p>For most most graphical features, it is typically limited to Categorical Variables - but so is faceting, so no major disadvantage. However, it <strong>might be easier to compare</strong> across levels when faceting since the entire plot will be side by side.</p>
+</div>
+<p>The following aspects are key considerations:</p>
+<ul>
+<li><strong>Axis Labels</strong>: Should be clearly labelled</li>
+<li><strong>Chart Title</strong>: Should be clearly labelled</li>
+<li><strong>Distinction of features</strong>: Should be chosen such that they are easily distinguishable (EG. Different colours rather than shades of the same colour)</li>
+<li><strong>Axis Scale</strong>: Should be chosen to best represent the data</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the data contains <strong>outliers</strong>, then the resulting <strong>scale of the graph might be distorted</strong>, resulting in an unfamiliar looking graph. For instance, the following is a boxplot that has been distorted:</p>
+<p><!-- Obtained from Past SOA Exam Papers -->
+<img alt="BOXPLOT_UNSCALED" class="center" src="../Assets/0_OVERVIEW.md/BOXPLOT_UNSCALED.png" /></p>
 </div>
 <h3 id="data-transformation"><strong>Data Transformation</strong><a class="headerlink" href="#data-transformation" title="Permanent link">&para;</a></h3>
 <p>This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
@@ -1569,20 +1618,34 @@ If there are any aspects of the data that are not suitable for modelling, they w
 <p><!-- Obtained from Quanitfying Health -->
 <img alt="FIXING_SKEWNESS" class="center" src="../Assets/0_OVERVIEW.md/FIXING_SKEWNESS.png" /></p>
 </div>
-<p>The main issue for numeric variables is <strong>Skewness</strong>, often due to outliers. If the outliers are due to a legitimate error, then they should be r**emoved**. Otherwise, it is possible to use the <strong>concave transformations</strong> (Log &amp; Squareroot) to reduce the skewness.</p>
+<p>The main issue for numeric variables is <strong>Skewness</strong>, often due to outliers. If the outliers are due to a legitimate error, then they should be <strong>removed</strong>. Otherwise, it is possible to use the <strong>concave transformations</strong> (Log &amp; Squareroot) to reduce the skewness. Note that these are <strong>positive only transformations (no zeroes)</strong>, thus a small constant should be added to the data in the event it has 0s. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Generally speaking, predictions on the untransformed variables should be <strong>better as it follows the original distribution</strong>. Predictions on transformed data (in the context of Skewness) results in smaller predictions, reflecting that the skewness has been transformed away.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Combining variables</p>
+</div>
 <p>For Factor variables, there are a whole host of considerations:</p>
 <ul>
-<li>Levels with relatively relatively small mix should be <strong>combined</strong>, since there is no credible data to begin with. However, this is difficult if the levels are <strong>very distinct</strong>. Moreover, if the factor is already overwhelmingly dominated by a specific level, then <strong>combining the levels has no use</strong>; in fact <strong>keeping the variable has no use</strong> since there it has no predictive power</li>
+<li>Levels with relatively relatively <strong>small mix</strong> should be <strong>combined</strong>, since there is no credible data to begin with. However, if the factor is already overwhelmingly dominated by a specific level, then <strong>combining the levels has no use</strong>; in fact <strong>keeping the variable has no use</strong> since there it has no predictive power</li>
+<li>Levels that clearly have <strong>no relationship</strong> to the target variable should also be <strong>combined</strong>, since they will only result in overfitting</li>
+<li><strong>Similar levels</strong> should also be <strong>combined</strong> to increase the <strong>interpretability</strong> of the model </li>
 <li><strong>Re-levelling</strong> the reference level to the <strong>most common level</strong> is usually recommended, but it is also useful to relevel to the <strong>lowest or highest level</strong> in an ordinal variable for better interpretation</li>
-<li><strong>Binarization</strong> converts each level into its own variable, which allows each level to be <strong>included based on its own merit</strong></li>
-<li>Combining factor variables together <strong>reduces interpretability</strong> of the variable itself but may allow the model to become simpler ONLY if the total number of levels have decreased as a result</li>
+<li><strong>Binarization</strong> converts each level into its own variable, which allows each level to be <strong>included based on its own merit</strong> (not bound by hierarchical)</li>
+<li>Combining factor variables together <strong>reduces interpretability</strong> of the <em>variable itself</em> but may allow the model to become more intepretable ONLY if the total number of levels have decreased as a result</li>
 </ul>
-<p>Another common issue is deciding whether or not to express discrete numeric variable (with few levels) as <strong>numeric or a factor</strong>. There are two key considerations:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Recall that the learning methods are assume to automatically binarize during the fitting process. The difference is that <strong>manual binarization</strong> might use a different reference level, which may result in a <strong>completely different model</strong> altogether - they are NOT simply interchangeable.</p>
+</div>
+<p>Another common issue is deciding whether or not to express discrete numeric variable (with few levels) as <strong>numeric or a factor</strong>. There are several key considerations:</p>
 <ul>
 <li>Are the values of the variable <strong>fixed</strong>? If during the production, the values of the variable will <strong>always be within the existing range</strong>, then it can modelled as a factor. However, if the values can be <strong>varied beyond the existing range</strong> (EG. Year - 2026 to 2020 in the data, but want to use 2020+ in production), then it should be used as a Numeric variable to allow the model to <strong>extrapolate</strong> the effects</li>
 <li>Does the variable need to have <strong>numeric operations</strong> performed? If so, it should be naturally kept as a numeric variable</li>
-<li>Is the relationship with the target <strong>monotonic</strong>? If not, then converting it to a Factor would allow the model to have more complex relationships</li>
-<li>Is the model prone to <strong>overfitting</strong>? If so, then converting it to a factor will increase the total number of variables, worsening the problem</li>
+<li>Is the relationship with the target <strong>monotonic</strong>? If not, then converting it to a Factor would allow the model to have more <strong>complex relationships</strong>. Similarly, it allows for each level to be <strong>examined seperately</strong> for their significance</li>
+<li>Is the model prone to <strong>overfitting</strong>? If so, then converting it to a factor will <strong>increase the total number of variables</strong>, worsening the problem</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1591,12 +1654,18 @@ If there are any aspects of the data that are not suitable for modelling, they w
 <li><strong>Binning</strong>: Grouped into groups of equal width over the range</li>
 <li><strong>Clustering</strong>: Grouped into Cluster groups</li>
 </ul>
-<p>These methods will inevitably result in a loss of information going from a precise variable to a broader group.</p>
+<p>These methods will inevitably result in a <strong>loss of information</strong> going from a precise variable to a broader group. However, this could lead to greater interpretability as it might be easier to explain the effect of a group rather than a continuous variable.</p>
 </div>
 <h2 id="model-selection-evaluation"><strong>Model Selection &amp; Evaluation</strong><a class="headerlink" href="#model-selection-evaluation" title="Permanent link">&para;</a></h2>
 <p>The specific details of each model can be found in the SRM section. This section will briefly summarize the <strong>differences</strong> across the different learning methods to better understand which model is best for a given situation:</p>
 <!-- Self Made -->
-<p><img alt="MODEL_COMPARISON" class="center" src="../Assets/0_OVERVIEW.md/MODEL_COMPARISON.png" /></p>
+<p><img alt="GLM_VS_TREE" class="center" src="../Assets/0_OVERVIEW.md/GLM_VS_TREE.png" /></p>
+<!-- Self Made -->
+<p><img alt="STEPWISE_VS_REGULARIZATION" class="center" src="../Assets/0_OVERVIEW.md/STEPWISE_VS_REGULARIZATION.png" /></p>
+<!-- Self Made -->
+<p><img alt="TREE_VS_ENSEMBLE" class="center" src="../Assets/0_OVERVIEW.md/TREE_VS_ENSEMBLE.png" /></p>
+<!-- Self Made -->
+<p><img alt="KMEANS_VS_HIERARCHICAL" class="center" src="../Assets/0_OVERVIEW.md/KMEANS_VS_HIERARCHICAL.png" /></p>
 
 
 

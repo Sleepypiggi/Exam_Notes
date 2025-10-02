@@ -1691,6 +1691,7 @@
 <li>Regularization imposes a <strong>size constraint that biases them towards 0</strong>, forcing the estimates to hover around that range, reducing variance</li>
 <li>EG. Without regularization, there could be a large positive and large negative coefficient offsetting each other. Regularization eliminates such a case from occuring as they are not allowed to vary so much</li>
 </ul>
+<p>Methods such as Partial Least Squares or PCA can be used as well.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Collinearity is a problem that occurs among predictors only.</p>
@@ -1833,40 +1834,17 @@
 \end{aligned}
 \]</div>
 <h3 id="weighted-least-squares"><strong>Weighted Least Squares</strong><a class="headerlink" href="#weighted-least-squares" title="Permanent link">&para;</a></h3>
-<p>If the source of heteroscedasticity is known, it is possible to use a <strong>Weighted Least Squares</strong> approach to account for it. Weights are assigned to <strong>each observation</strong>, such that the weight is the amount needed to <strong>scale the the variance to a constant amount</strong>:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \text{Assumed Constant Variance} &amp;= \sigma^{2} \\
-    \text{Current Variance} &amp;= \text{Var}(\varepsilon_{i}) \\
-    \text{Var}(\varepsilon_{i}) &amp;= \frac{\sigma^{2}}{w_{i}}
-\end{aligned}
-\]</div>
-<p>The weights can be determined arbitrarily or based on an existing variable. For instance, observations with larger <span class="arithmatex">\(X_{2}\)</span> should be given more weight and thus more</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>In practice, the weights are completely arbitrary and up to the modeller. They must be positive and do not need to sum to 1.</p>
-</div>
+<p>If the source of heteroscedasticity is known, it is possible to use a <strong>Weighted Least Squares</strong> approach to account for it. Weights are assigned to <strong>each observation</strong>, such that the weight is the amount needed to <strong>scale the the variance to a constant amount</strong> for each observation.</p>
+<p>The weights influence the extent to which each observation is used to fit the model. It is NOT an additional variable - the coefficients for all existing variables remain the same, but their statistical significance may change due to the change in variance.</p>
+<p>The weights are typically set such that it is inversely proportional to the variance. It may also be derived based on another variable or on context specific information. </p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Weights can be applied more generally even in a GLM setting. Ultimately, there are scaling the influence that each datapoint has; how much each observation contributes to the model.</p>
 <p>The intuitive reason why weights are inversely related to variance is because they can also represent information - more information available means less noise overall, resulting in lower variance.</p>
 </div>
-<p>A new functional form is assumed, where the <strong>resulting variance is constant</strong>:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    y_{i} &amp;= \beta_{0} + \beta_{1} \cdot X_{1} + \varepsilon \\
-    \sqrt{w_{i}} \cdot y_{i} &amp;= \sqrt{w_{i}} \cdot \left(\beta_{0} + \beta_{1} \cdot x_{1} + \varepsilon_{i} \right) \\
-    \\
-    \text{Var}(\sqrt{w_{i}} \cdot \varepsilon_{i})
-    &amp;= \left(\sqrt{w_{i}} \right)^{2} \cdot \text{Var}(\varepsilon_{i}) \\
-    &amp;= w_{i} \cdot \frac{\sigma^{2}}{w_{i}} \\
-    &amp;= \sigma^{2}
-\end{aligned}
-\]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The above doesnt "fix" the heteroscedasticity, it simply <em>accounts</em> for it by using an alternative method.</p>
-<p>In another way, heteroscedasticity is <strong>NOT inherently problematic</strong>; the problem is applying a method that assumes Homoscedastacity (linear regression) to a dataset with heteroscedasticity.</p>
+<p>The above doesnt "fix" the heteroscedasticity, it simply <em>accounts</em> for it by using an alternative method. In another way, heteroscedasticity is <strong>NOT inherently problematic</strong>; the problem is applying a method that assumes Homoscedastacity (linear regression) to a dataset with heteroscedasticity.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This concepts of weights also apply to GLMs.</p>
 </div>
 <h2 id="assumption-5-no-serial-correlation"><strong>Assumption 5: No Serial Correlation</strong><a class="headerlink" href="#assumption-5-no-serial-correlation" title="Permanent link">&para;</a></h2>
 <p>This assumption states that the error terms should <strong>NOT be correlated</strong> with one another:</p>
@@ -2066,17 +2044,14 @@
 <p>If the substitute cannot be performed due to a lack of data or other reasons, it is also possible to perform a <strong>transformation</strong> on the data to stabilize it.</p>
 </div>
 <h3 id="high-dimensionality"><strong>High Dimensionality</strong><a class="headerlink" href="#high-dimensionality" title="Permanent link">&para;</a></h3>
-<p>In recent years, due to the advent of <strong>big data</strong>, the amount of information collected has increased drastically, resulting in many situations where there are <strong>just as many or even more features</strong> than there are observations (<span class="arithmatex">\(n \lt p\)</span>). This is problematic for a <strong>traditional learning methods</strong> such as linear regression which does not account for such possibilities.</p>
+<p>High dimensionality occurs when the model has <strong>too many variables</strong>. Each variable has its own coefficient, allowing the model to <strong>fit to complex patterns</strong> in the training data, fitting to <strong>BOTH the signal and the noise</strong>, resulting in a high variance model.</p>
+<p>Another aspect to consider is the number of variables relative to the underlying variables:</p>
 <ul>
-<li><strong>More Features than Observations</strong> (<span class="arithmatex">\(p \gt n\)</span>): No unique fits to the model</li>
-<li><strong>Features exactly equal Observations</strong> (<span class="arithmatex">\(p = n\)</span>): Perfect fit (Overfitting)</li>
-<li><strong>Slighly Less Features than Observations</strong> (<span class="arithmatex">\(p \approx n\)</span>): Limited degrees of freedom; largely fits the data (Overfitting)</li>
+<li><strong>More features than observations</strong>: No fit to the model</li>
+<li><strong>Exactly as many as observations</strong>: Perfectly fit to the training data</li>
+<li><strong>Slightly less features than observations</strong>: Highly overfit</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This problem of the number of features being large relative to the volume of data is known as the <strong>Curse of Dimensionality</strong>.</p>
-<p>Any other traditional measures also cannot be used as a result (EG. R2, P-values). Similarly, AIC and BIC cannot be used as well due to <strong>difficuly in estimating the MSE</strong>.</p>
-</div>
+<p>Having more features allows the model to use more information, <strong>seemingly</strong> improving it. However, it comes at the cost of overfitting, which is why this is sometimes referred to as the <strong>Curse of Dimensionality</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is also a possibility that increasing the number of predictors results in choosing two or more highly correlated variables. Thus, high dimensionality has a tendency to result in <strong>Multicollinearity</strong>.</p>
