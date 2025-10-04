@@ -1916,16 +1916,12 @@
 <td align="center">Low Bias, High Variance</td>
 </tr>
 <tr>
-<td align="center">High training, Low test MSE</td>
-<td align="center">Low training, High test MSE</td>
-</tr>
-<tr>
-<td align="center">Fail to capture the signal</td>
-<td align="center">Mistakenly captures signal</td>
-</tr>
-<tr>
 <td align="center">Not flexible enough</td>
 <td align="center">Too flexible</td>
+</tr>
+<tr>
+<td align="center">Unable to capture the signal</td>
+<td align="center">Mistakenly captures the noise</td>
 </tr>
 </tbody>
 </table>
@@ -2140,18 +2136,23 @@ MAE -&gt; Less sensitive to outliers because all differences emphasised equally<
 <td align="center">Potential Overfitting</td>
 <td align="center">Potential Underfitting</td>
 </tr>
+<tr>
+<td align="center">Insufficient Data</td>
+<td align="center">Abundance of data</td>
+</tr>
 </tbody>
 </table>
 <p></center></p>
 <p>Both methods are typically employed till the proportion between the two classes are <strong>roughly equal</strong>, which should reduce the specificity or sensitivity issue.</p>
+<!-- Obtained from SOA PA Modules -->
+<p><img alt="OVER_UNDER_SAMPLE" class="center" src="../Assets/1.%20Statistical%20Learning.md/OVER_UNDER_SAMPLE.png" /></p>
+<p><strong>Oversampling is much more common</strong> as it is usually the case that we are missing data, rather than having an over abundance. However, it may lead to computational or operational issues with the increased amount of data.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Oversampling should ONLY be done on the <strong>training set</strong>.</p>
-<p>This is because if it was done on the complete data, when splitting between training and test, there is a chance that the same duplicated observation appears in BOTH the training and test set, which <strong>violates the principle</strong> of having an unseen test set in the first place. </p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Oversampling is much more common as it is usually the case that we are missing data, rather than having an over abundance. However, it may lead to computational or operational issues with the increased amount of data.</p>
+<p>This is because if it was done on the complete data, when splitting between training and test, there is a chance that the same duplicated observation appears in BOTH the training and test set, which <strong>violates the principle</strong> of having an unseen test set in the first place.</p>
+<p><!-- Obtained from SOA PA Modules -->
+<img alt="TRAIN_TARGET_LEAKAGE" class="center" src="../Assets/1.%20Statistical%20Learning.md/TRAIN_TARGET_LEAKAGE.png" /></p>
 </div>
 
 
