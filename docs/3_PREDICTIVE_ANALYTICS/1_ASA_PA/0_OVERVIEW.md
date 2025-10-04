@@ -1,22 +1,8 @@
 # **Predictive Analytics**
 
-The focus on this exam is on the **application of the theory** covered in exam SRM to solve a real-world business problem. The exam is fully written, thus **communication** is also a big part of the exam. Thus, this set of notes will only cover content **new to PA**, mainly covering problem solving and data handling. Kindly refer to the exam SRM section for all theory related content.
+The focus on this exam is on the **application of the theory** covered in exam SRM to solve a **real-world business problem**. The exam is fully written, thus **communication** is also a big part of the exam. Thus, this set of notes will only cover content **new to PA**, mainly covering problem solving and data handling. Kindly refer to the exam SRM section for all theory related content.
 
-## **Business Context**
-
-The exam will involve a short write-up to **explain the business problem**. Generally speaking, the core problem can be categorized as one of the following:
-
-* **Descriptive Analytics**: What happened in the **past**; focus on explaining **trends and relationships** between variables
-* **Predictive Analytics**: What will happen in the **future**; focus on making accurate **predictions**
-* **Prescriptive Analytics**: **Impact** of certain actions; focus on identifying the **best course of action**
-
-!!! Tip
-
-    The questions in the exam WILL make reference to the business context to some extent, thus constantly make reference back to the preamble to ensure key information is not missed.
-
-!!! Warning
-
-    Although the name of the exam is "Predictive Analytics", the exam can focus on **any type of anlytics**. It is common for different parts of the question to focus on different types of analytics, thus do NOT make any assumptions.
+The questions in the exam WILL make reference to the business context, thus constantly make reference back to the preamble to ensure key information is not missed.
 
 Every exam will also come with a **dataset** that accompanies the business problem. For recent exams, the actual dataset is no longer given, only a **Data Dictionary** that summarizes the following for each variable:
 
@@ -28,38 +14,114 @@ Every exam will also come with a **dataset** that accompanies the business probl
 <!-- Obtained from SOA 202504 PA Exam -->
 ![DATA_DICTIONARY](Assets/0_OVERVIEW.md/DATA_DICTIONARY.png){.center}
 
-!!! Note
-
-    For the purposes of this exam, it is assumed that only **structured** data will be used; data that can be fit into a **tabular arrangement** and hence easily manipulated.
-    
-    The opposite would be **Unstructured** data that CANNOT be placed into a table (EG. Image, Audio of Free Text) data. Although these data types provide **more insight**, they are much more **resource intensive** to process and require more **complicated models** to use.
-    
-    Another reason is that using free text as a factor variable will lead to a large number of levels (due to each one likely being distinct), which will definitely overfit the model.
-
 !!! Warning
 
     One problem that might arise is the business context is that the mapping of the data is **not consistent over time**. There might have been a **change in business needs over time** to store information differently, which is why certain variables for the same population might change over time.
 
-## **Data Adequacy**
+## **Problem Solving**
 
-### **Data Collection**
+Firstly, we must understand the different **types of problems** out there:
 
-For all statistical analyses, it is important that there is **sufficient data** that is:
+* **Descriptive**: What happened in the **past**; focus on explaining **trends and relationships** between variables
+* **Predictive**: What will happen in the **future**; focus on making accurate **predictions**
+* **Prescriptive**: What is the **best course of action**; focus on **making decisions**
 
-1. **Representative** of the underlying population - Use proper **sampling methods**
-2. **Indicative** of future behaviour - Use data that has been collected **recently**; exclude observations that were impacted by **one-off events** (EG. COVID19)
+!!! Warning
+
+    SOA mentions that all three can also be referred to collectively as "Predictive Analytics" (which is why the exam is named this way). Thus, the exam will likely feature all of the above analytic types in some form.
+
+There are 6 general characteristics of predictive modelling problems:
+
+1. Business issue can be **clearly defined**
+2. The issue can be further broken down into a **few well-defined questions**
+3. **High quality data** to address the questions are **readily available**
+4. The predictions will likely **aide understanding or result in actions taken**
+5. The solution is likely **better than other existing problems**
+6. It will be possible to **maintain, monitor and update the model** over time
+
+The essence of the above characteristics is that predictive analytics (as a whole) is a specialized approach that **requires significant effort**. If it **cannot be used to its full potential** (lack of data, lack of action, unable to update) or if there are **equally effective alternatives** that are simpler, then predictive analystics should not be used.
+
+Next, we must **define the problem**:
+
+* Identify the **root cause** of the problem
+* Develop **testable hypotheses**
+* Develop **Key Performance Indicators** (KPI) that are:
+    * Aligned with the clients business strategy
+    * Objective & easily measurable from the data
+
+We must also consider the **feasibility** of the a predictive approach:
+
+* **Data issues** (Implemenation) - Availability, quality, longevity or other related issues
+* **Other solution** (Post-Implementation) - Regulatory risk, public backlash, gaming risk
+
+Lastly, it is important to know what should come after the developing the model:
+
+* Fine tune business problem accordingly
+* **Consult subject matter experts** for insights or validation
+* **Gather more data** to enhance the analysis
+* **Refine** existing models or **apply new types of models**
+* **Field test the model** in a real-world scenario
+* **Terminate the model** (cut loss) if there are no insights to be brought
+
+!!! Tip
+
+    Naturally, some of the above could be applied DURING model development itself, it does not need to be done strictly after.
+
+## **Data Definition**
+
+For the purposes of this exam, there are two broad groups of data, determined by whether or not that they can be stored in a table. Tables have clearly defined rows and columns which makes them easy to work with it.
+
+<center>
+
+|     **Structured**     |  **Unstructured**   |
+| :--------------------: | :-----------------: |
+|     Tabular format     | Non-tabular format  |
+| EG. Numbers or Factors | EG. Image or Audio  |
+|   Easily accessible    | Difficult to access |
+|     Less flexible      |    More flexible    |
+
+</center>
 
 !!! Note
-
-    Naturally, the actual population of interest should be sampled. However, if there is an **insufficient or difficult to obtain** data, a relatively larger **proxy dataset** can be used instead, provided that it shares **similar key traits** with the population. However, there are some inherent limitations:
     
-    * There might be **conditions unique to each population** which makes them slightly different from one another
-    * The data might have a **different scope or granularity** than the target population
+    For the purposes of this exam, free text is considered a form of unstructured data. Only factors are considered structured.
 
-There are two main sampling methods that should be used:
+Rows of the tables are known as **Observations** while Columns are known as **Variables**. There are two groups of variables we are interested in:
+
+* **Target Variable**: What the model is trying to predict
+* **Predictor Variable**: What the model uses to predict
+
+!!! Tip
+
+    It is possible that the problem requires more than one target variable. In such cases, it is possible to combine them such that only a **single model** is required. However, it is recommended to **seperately model each** to better understand how each component is affected.
+
+There are generally two types of variables:
+
+* **Numeric** - Continuous or Discrete 
+* **Factors** - **Fixed enumeration** of values known as Levels (Discrete Numeric or Text)
+
+!!! Tip
+
+    There are a special category of each kind of variable:
+
+    * **Numeric** - Time, Date or Geospatial data
+    * **Factors** - Boolean (True or False only) or Ordinal (Ordered levels)
+
+## **Data Design**
+
+A model is only is as good as the data put into it. Thus, it is important to have **strong data design** to ensure that the data best reflects that environment that we are trying to predict.
+
+Firstly, we generally assume that historical data will predict the future. However, there are **several considerations** on how far back to go, balancing the need for a reasonably large dataset:
+
+* Recent history is more representative of the future
+* One-off events may not be indicative events
+* Key developments in the past that changed the environment
+
+Next is **Sampling**, which is the process of obtaining the data:
 
 * **Random Sampling**: Randomly draw observations from the **entire population**; best when population is **homogenous**
 * **Stratified Sampling**: Randomly draw observations from **systematically divided groups**; best when population has **subgroups**
+* **Systematic Sampling**: Draw observations from the entire population in a **periodic pattern**
 
 <center>
 
@@ -79,14 +141,25 @@ Detailed steps for stratified sampling:
 * **Stratification variable(s)** must be identified; the variables to split the population by
 * For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then **40 levels** are needed to capture **all possible combinations** of the two (10*4)
 
-!!! Tip
+Although we usually refer to drawing from the population, sampling methods can be used to draw from an existing dataset to form another smaller one. For instance, to form the training and test sets. This can help to ensure that the mix of observations inside the training and test set are reasonably similar.
 
-    Sampling methods can also be used to split the overall data into the train and test data. Stratified sampling tends to be better as it will ensure that the mix of observations is the same within the train and test data, leading to more precise test estimates. vc
+!!! Warning
 
-A potential problem during the data collection process is **Sampling Bias**, which is unintentionally introducing bias via the means of collecting the sample:
+    A potential problem during the data collection process is **Sampling Bias**, which is unintentionally introducing bias via the means of collecting the sample:
     
-<!-- Obtained from Scribbr -->
-![SAMPLING_BIAS](Assets/0_OVERVIEW.md/SAMPLING_BIAS.png){.center}
+    <!-- Obtained from Scribbr -->
+    ![SAMPLING_BIAS](Assets/0_OVERVIEW.md/SAMPLING_BIAS.png){.center}
+
+!!! Note
+
+    Naturally, the actual population of interest should be sampled. However, if there is an **insufficient or difficult to obtain** data, a relatively larger **proxy dataset** can be used instead, provided that it shares **similar key traits** with the population. However, there are some inherent limitations:
+    
+    * There might be **conditions unique to each population** which makes them slightly different from one another
+    * The data might have a **different scope or granularity** than the target population
+
+Next is **Granularity**. It is the **precision** at which variables are measured (EG. Country vs City level). Different levels of granularity could result in different performances. Generally, as long as the data **has the highest level of granularity**, it can be combined to form lower levels of granularity as needed.
+
+Last is the possibility of a **Target Leakage**. Variables that provide information about the target that would **otherwise not be available** during actual deployment of the model. It typically occurs for variables that are *generated* at the **same time or after** the target variable. If included, these variables would **artifically boost model performance** as they would not be present in practice. Thus, it is best **NOT to collect such variables at all**.
 
 !!! Note
 
@@ -94,63 +167,27 @@ A potential problem during the data collection process is **Sampling Bias**, whi
 
     * **Personally Identifiable Information** (PII): Should only be collected **within terms and conditions**; should be **anonymized** and sufficiently **secured**
     * **Sensitive Information**: Should not collect variables (or proxies of them) that may lead to **unfair discrimination** (EG. Race, Disability status etc)
+    * **Relevance**: Should only collect variables that are potentially related to the business problem
 
-### **Data Adequacy**
+## **Data Exploration**
 
-The first aspect to consider is the **Scope** of the entire suite of variables provided:
+### **Univariate**
 
-* **Amount** - Ideally a large amount provided
-* **Type** - Ideally both Numeric & Factor variables are provided
-* **Granularity** - Ideally should have sufficient granularity (EG. Numeric - Decimal places, Factor - Number of levels)
-* Must have variables **key to the business problem**; call out potentially missing ones
-* Any possible **Target Leakages** - variables that provide information about the target that would **otherwise not be available** during actual deployment of the model
+Data is represented by its values. Thus, we need to understand its values and how they spread out; its **distribution**. Unfortunately, it is impossible to understand the distributions by just merely looking at the raw values. Thus, we need to make use of either:
 
-!!! Note
-
-    Target leakage typically occurs for variables that are *generated* at the **same time or after** the target variable. Note that this refers to the GENERATION of the data, NOT the collection.
-
-    If included, these variables would **artifically boost model performance** as they would not be present in practice. Thus, it is best NOT to collect such variables at all.
-
-    For instance, if the model is aiming to predict whether a patient would be re-admitted, then using a variable such as "blood sugar level during next visit" would be a case of target leakage because the variable would only have values for patients who ARE re-admitted.
-
-Another aspect to consider the **reasonableness** of each individual variable:
-
-* Are they any **outliers**? Compare the mean relative to the minimum or maximum values
-* Are there any **missing values**? Observe the count of missing values
-* Are there any **impossible values**? Consider the business context
-
-On impossible values, it is important to consider if there are any unlikely (but still possible) scenarios where the values **could be correct**; exceptional business cases.
-
-After identifying the problems, the following actions can be taken:
-
-* **Remove the affected observations** (Error across few observations - data can still be reasonably used)
-* **Remove the entire variable** (Error across many observations - data cannot be reasonably used)
-* **Impute the observation** (Error is systematic - allows for good approximation)
-
-Alternatively, if the measurement of the variable is out of the business' control or its contextual significance to the data is small, then the problem can simply be **ignored**; place **focus on more important aspects**.
+* Summary Statistics - EG. Mean & Variance (Numeric), Frequency (Factor)
+* Graphical Visualizations - EG. Histogram & Boxplot (Numeric), Bar Chart (Factor)
 
 !!! Warning
 
-    Note that any dropping of observations or variables will result in a loss of data.
+    Naturally, counts are not available for numerical data given the infinitely many possibilities. This argument also applies to why histograms are not available for numeric data without binning.
 
-### **Data Exploration**
+!!! Warning
 
-The data should be explored to gain a better understanding of it. There are two primary methods to do so:
+    Boxplots dont technically show the distribution of the values, but rather a visual summary of certain key statistics. It is good at identifying outliers.
 
 <!-- Self made -->
 ![DATA_EXPLORATION_METHODS](Assets/0_OVERVIEW.md/DATA_EXPLORATION_METHODS.png){.center}
-
-For summary statistics, the following statistics are usually provided as they are the output of the `summary` function in `R`:
-
-* **Numeric**: Various statistics (not limited to the ones shown below)
-* **Factor**: Count for each level
-
-<!-- Obtained from Coaching Actuaries -->
-![SUMMARY_R](Assets/0_OVERVIEW.md/SUMMARY_R.png){.center}
-
-!!! Warning
-
-    Naturally, counts are not available for numerical data given that there are infinitely many possibilities. This argument also applies to why histograms are not available for numeric data without binning.
 
 For graphical plots, one or more of the following plots are typically used. It is important to note that there is **no universally best plot**. Each plot has a limitation, which typically stems from one of the following reasons:
 
@@ -159,6 +196,9 @@ For graphical plots, one or more of the following plots are typically used. It i
 
 <!-- Self Made-->
 ![GRAPHICAL_PLOTS](Assets/0_OVERVIEW.md/GRAPHICAL_PLOTS.png){.center}
+
+<!-- Obtained from SOA Modules -->
+![GRAPHICAL_SPLIT](Assets/0_OVERVIEW.md/GRAPHICAL_SPLIT.png){.center}
 
 !!! Note
 
@@ -175,7 +215,9 @@ For plots illustrating **one main variable** (typically distribution plots), it 
 
     Distribution plots provide similar information to the Summary statistics, but can provide more insight on aspects that are better visualized (EG. Skewness and Mode).
 
-For plots with **two main variables**, there are generally two variations:
+### **Bivariate**
+
+Next is to understand the relationships between variables. However, it is not possible to examine every possible pairwise relationship. Thus, only well-known or potentially interesting relationships should be examined.
 
 * **Target vs Predictor**: To find potential predictors 
 * **Predictor vs Predictor**: To identify potential collinearity
@@ -201,7 +243,7 @@ Another method of adding an **additional factor variable** to the plot is via **
 
     For most most graphical features, it is typically limited to Categorical Variables - but so is faceting, so no major disadvantage. However, it **might be easier to compare** across levels when faceting since the entire plot will be side by side.
 
-The following aspects are key considerations:
+Some other key considerations on chart design:
 
 * **Axis Labels**: Should be clearly labelled
 * **Chart Title**: Should be clearly labelled
@@ -215,16 +257,67 @@ The following aspects are key considerations:
     <!-- Obtained from Past SOA Exam Papers -->
     ![BOXPLOT_UNSCALED](Assets/0_OVERVIEW.md/BOXPLOT_UNSCALED.png){.center}
 
-### **Data Transformation**
+## **Data Transformation**
 
-This process of transforming the original variables into a more useful format is a form of feature generation which helps to improve interpretability. 
-If there are any aspects of the data that are not suitable for modelling, they will need to be transformed to fix the issue.
+For the purposes of this exam, there is a distinction between:
 
-For numeric variables, there are relatively straightforward considerations:
+* **Variables** - Referring to raw data
+* **Features** - Referring to **derivations** from the raw data or **cleaned versions** of raw data
+
+### **Feature Generation**
+
+Feature generation & selection is important is because it is not realistic to use ALL the variables available to make the prediction. Following the principle of parsimony, if there exists an otherwise equally capable model, the **simpler model** (with fewer inputs) should be used (Occam's Razor).
+
+**Numeric Variables**:
+
+* **Binning**: Grouping numeric values over equal ranges
+* **Non-supervised learning** methods (PCA, Clustering)
+
+!!! Note
+
+    They will inevitably result in a **loss of information** going from a precise variable to a broader summary. However, this could lead to greater interpretability as it might be easier to explain the effect of a group rather than specific values of a continuous variable.
+
+**Discrete Numeric Variables** - Convert to Factor?
+
+* **Fixed Range**: Convert only if the current spread contains all possible values and will not change (EG. Numeric labels)
+* **Numeric Operations**: Convert only if no numeric operations need to be performed on the variable
+* **Non-Monotonic Relationship**: Convert to allow the non-monotonic relationship to be expressed
+* **Overfitting**: Convert only if the model is not already overfitting as Factors increases the total number of variables
+
+!!! Note
+
+    On the point on fixed range, consider the Year Variable. If the training data only has years from 2015 to 2020, then the model can only accept 2015 to 2020 as the input for year if it was treated as a Factor - it cannot be used to predict future years.
+
+**Factor Variables**:
+
+* **Binarization**: Converts each level into its own variable, which allows each level to be **included based on its own merit** (not bound by hierarchical principle)
+* **Re-levelling**: Changing the reference level to the **most common level** or the **lowest or highest level** for better interpretation
+* **Combining Levels**: Grouping levels that are similar, small or have no relationship with the target
+* **Compound Factors**: Combining two or more factor when it leads to overall reduction in levels (not all combinations of levels exist)
+
+!!! Warning
+
+    If a factor is already overwhelmingly dominated by a specific level, then **combining the levels has no use**; in fact **keeping the variable has no use** since there it has no predictive power, thus it should be removed.
+
+!!! Warning
+
+    Recall that MLR IS assumed to automatically binarize during the fitting process. The difference is that **manual binarization** might use a different reference level, which may result in a **completely different model** altogether - they are NOT simply interchangeable.
+
+### **Cleaning**
+
+Consider the **reasonableness** of each individual variable:
+
+* Are they any **outliers**? Compare the mean relative to the minimum or maximum values
+* Are there any **missing values**? Observe the count of missing values
+* Are there any **impossible values**? Consider the business context
+
+On impossible values, it is important to consider if there are any unlikely (but still possible) scenarios where the values **could be correct**; exceptional business cases.
+
+For variables with Outliers/Skewness:
 
 * **Outliers** can be removed by trimming a proportion of the largest or smallest values
 * **Concave transformations** can be used to compress values together to solve Skewness, Heteroscedasticity and also Linearize exponential relationships
-* **Centering and Scaling** may also be needed for unsupervised methods, but note that it **does NOT solve Skewness**
+    * Note that these are **positive only transformations (no zeroes)**, thus a small constant should be added to the data in the event it has 0s to prevent errors
 
 !!! Warning
 
@@ -233,44 +326,20 @@ For numeric variables, there are relatively straightforward considerations:
     <!-- Obtained from Quanitfying Health -->
     ![FIXING_SKEWNESS](Assets/0_OVERVIEW.md/FIXING_SKEWNESS.png){.center}
 
-The main issue for numeric variables is **Skewness**, often due to outliers. If the outliers are due to a legitimate error, then they should be **removed**. Otherwise, it is possible to use the **concave transformations** (Log & Squareroot) to reduce the skewness. Note that these are **positive only transformations (no zeroes)**, thus a small constant should be added to the data in the event it has 0s. 
-
 !!! Note
 
     Generally speaking, predictions on the untransformed variables should be **better as it follows the original distribution**. Predictions on transformed data (in the context of Skewness) results in smaller predictions, reflecting that the skewness has been transformed away.
 
-!!! Note
+For observation with missing or incorrect values:
 
-    Combining variables
-
-For Factor variables, there are a whole host of considerations:
-
-* Levels with relatively relatively **small mix** should be **combined**, since there is no credible data to begin with. However, if the factor is already overwhelmingly dominated by a specific level, then **combining the levels has no use**; in fact **keeping the variable has no use** since there it has no predictive power
-* Levels that clearly have **no relationship** to the target variable should also be **combined**, since they will only result in overfitting
-* **Similar levels** should also be **combined** to increase the **interpretability** of the model 
-* **Re-levelling** the reference level to the **most common level** is usually recommended, but it is also useful to relevel to the **lowest or highest level** in an ordinal variable for better interpretation
-* **Binarization** converts each level into its own variable, which allows each level to be **included based on its own merit** (not bound by hierarchical)
-* Combining factor variables together **reduces interpretability** of the *variable itself* but may allow the model to become more intepretable ONLY if the total number of levels have decreased as a result
+* **Remove the affected observations** (Error across few observations - data can still be reasonably used)
+* **Remove the entire variable** (Error across many observations - data cannot be reasonably used)
+* **Impute the observation** (Error is systematic - allows for good approximation)
+* Alternatively, if the measurement of the variable is out of the business' control or its contextual significance to the data is small, then the problem can simply be **ignored**; place **focus on more important aspects**
 
 !!! Warning
 
-    Recall that the learning methods are assume to automatically binarize during the fitting process. The difference is that **manual binarization** might use a different reference level, which may result in a **completely different model** altogether - they are NOT simply interchangeable.
-
-Another common issue is deciding whether or not to express discrete numeric variable (with few levels) as **numeric or a factor**. There are several key considerations:
-
-* Are the values of the variable **fixed**? If during the production, the values of the variable will **always be within the existing range**, then it can modelled as a factor. However, if the values can be **varied beyond the existing range** (EG. Year - 2026 to 2020 in the data, but want to use 2020+ in production), then it should be used as a Numeric variable to allow the model to **extrapolate** the effects
-* Does the variable need to have **numeric operations** performed? If so, it should be naturally kept as a numeric variable
-* Is the relationship with the target **monotonic**? If not, then converting it to a Factor would allow the model to have more **complex relationships**. Similarly, it allows for each level to be **examined seperately** for their significance
-* Is the model prone to **overfitting**? If so, then converting it to a factor will **increase the total number of variables**, worsening the problem
-
-!!! Note
-
-    Non-discrete Numeric variables can be converted into Factors using:
-
-    * **Binning**: Grouped into groups of equal width over the range
-    * **Clustering**: Grouped into Cluster groups
-
-    These methods will inevitably result in a **loss of information** going from a precise variable to a broader group. However, this could lead to greater interpretability as it might be easier to explain the effect of a group rather than a continuous variable.
+    Note that any dropping of observations or variables will result in a loss of data.
 
 ## **Model Selection & Evaluation**
 
