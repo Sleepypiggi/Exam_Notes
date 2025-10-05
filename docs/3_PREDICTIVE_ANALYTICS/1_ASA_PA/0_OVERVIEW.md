@@ -131,7 +131,7 @@ Next is **Sampling**, which is the process of obtaining the data:
 | Better when population is homogenous | Better when population has subgroups |
 |         Easier to implement          |       More costly to implement       |
 
-<center>
+</center>
 
 Detailed steps for stratified sampling:
 
