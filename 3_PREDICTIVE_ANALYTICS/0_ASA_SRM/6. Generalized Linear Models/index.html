@@ -1893,8 +1893,8 @@
 <td align="center"><span class="arithmatex">\(E[\ln (Y \mid X)]\)</span></td>
 </tr>
 <tr>
-<td align="center">Directly models relationship</td>
-<td align="center">Indirectly models the relationship</td>
+<td align="center">Models relationship directly with Y</td>
+<td align="center">Models relationship indirectly with <span class="arithmatex">\(ln Y\)</span></td>
 </tr>
 <tr>
 <td align="center">Indirectly controls variance (via Mean)</td>
@@ -1906,7 +1906,7 @@
 </tr>
 <tr>
 <td align="center">Any LEF distribution</td>
-<td align="center">Normal distribution</td>
+<td align="center">LogNormal distribution</td>
 </tr>
 </tbody>
 </table>
@@ -2372,7 +2372,7 @@
 <p></center></p>
 <p>It is <strong>not fair</strong> to directly compare the number of A's for each subject and conclude which is doing best - we should consider the <strong>underlying exposure</strong> as well to consider the A-rate.</p>
 <h4 id="weights"><strong>Weights</strong><a class="headerlink" href="#weights" title="Permanent link">&para;</a></h4>
-<p>Another similar concept is <strong>Weights</strong>. Each observation is assigned a Weight <strong>based on one or more other variables</strong> - the model will fit better fit to observations with higher weight; weights adjust the influence of each observation.</p>
+<p>Another similar concept is <strong>Weights</strong>. It represents the Credibility of each observations, usually based on another variable within the dataset. Observations with more credibility have more information and less variability, thus the model will make effort to better fit to high weight observations. In other words,  weights adjust the influence of each observation.</p>
 <p>Note that weights only affect the model estimation process - they are NOT included in the final model as a predictor.</p>
 <h3 id="dispersion_1"><strong>Dispersion</strong><a class="headerlink" href="#dispersion_1" title="Permanent link">&para;</a></h3>
 <p>Although the poisson distribution is suited to model counts, it has a <strong>restrictive</strong> property where the <strong>mean and variance MUST be equal</strong>. This makes it inadequate where the underlying data exhibits <strong>overdispersion</strong>. As mentioned previously, one method is to adjust the re-scale the variance using the pearson residuals. This section addresses more drastic approaches to deal with it.</p>

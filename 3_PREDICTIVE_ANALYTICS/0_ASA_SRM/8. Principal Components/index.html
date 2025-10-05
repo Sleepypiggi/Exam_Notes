@@ -1434,12 +1434,7 @@
 <p>Due to the linear algebra required, the data must first be <strong>Centered</strong> and <strong>Scaled</strong> ("standardization"). Each PC then <strong>passes through the mean</strong> of the data (which is now the origin post centering):</p>
 <!-- Obtained from Learnche -->
 <p><img alt="PCA_CENTER_SCALE" class="center" src="../Assets/8.%20Principal%20Components.md/PCA_CENTER_SCALE.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Without scaling, each variable is expressed in its own <strong>units</strong>, thus variables with <strong>naturally larger quantums will dominate the analysis</strong>. Thus, scaling converts all variables into a <strong>unitless form</strong> which allows for better comparison.</p>
-<p>Another consideration is the <strong>range of the variables</strong> themselves - even if they are in the same units, each variable could be of vastly different magnitudes, resulting in variables with larger ranges to dominate.</p>
-<p>Note that as a result, the underlying data has a <strong>variance of 1</strong>; similar to the standard normal.</p>
-</div>
+<p>PCA seeks to minimise the <strong>absolute variance</strong> among all the variables. Variables with <strong>larger units/range will naturally have larger variance</strong>, causing them to dominate the analysis. Thus, there is a need to scale the variables to a <strong>common unitless form</strong> for a fair comparison.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>It is <strong>NOT strictly necessary</strong> to standardize variables - if the underlying variables have similar variances, then the analysis can proceed without complication.</p>

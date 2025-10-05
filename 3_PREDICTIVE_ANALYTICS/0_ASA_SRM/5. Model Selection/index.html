@@ -1872,7 +1872,8 @@
 <p>After determining the desired hyperparameter value, the model needs to be <strong>re-run on the WHOLE training data</strong> again with the selected value. The result from the cross validation is <strong>NOT the final model</strong> because it was run only on a subset of the data.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Tuning is done on the <strong>TRAINING data</strong>, NOT the test data. If done using the test data, then there will be some <strong>leakage</strong> of information as we artificially choosing the best model to give the best results. This violates the principle that entire principle of training and test data.</p>
+<p>Tuning is done on the <strong>TRAINING data</strong>, NOT the test data. Remember that the test data should should only be used ONCE, to produce the FINAL result on completely unseen data.</p>
+<p>If the test data was used to the optimize the model, then</p>
 </div>
 <p>Rather than choosing the model with the absolute lowest cross validation error, an alternative rule of thumb is to choose the <strong>simplest model</strong> out of all the models <strong>one standard error</strong> above the lowest:</p>
 <!-- Obtained from CMU -->

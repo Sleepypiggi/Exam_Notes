@@ -1243,8 +1243,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#transformations" class="md-nav__link">
-    Transformations
+  <a href="#scaling" class="md-nav__link">
+    Scaling
   </a>
   
 </li>
@@ -1614,8 +1614,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#transformations" class="md-nav__link">
-    Transformations
+  <a href="#scaling" class="md-nav__link">
+    Scaling
   </a>
   
 </li>
@@ -2429,12 +2429,9 @@ Var(\hat{\beta}) =
 <li>Effectiveness of shrinkage large coefficients  (from Ridge)</li>
 <li>Ability to shrink coefficients to 0 (from LASSO)</li>
 </ul>
-<h3 id="transformations"><strong>Transformations</strong><a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h3>
-<p>Before using regularization, the predictors might need to be first <strong>transformed</strong>. This is because each predictor is of a <strong>different scale</strong> (different units), thus they need to be on the <strong>same basis</strong> to ensure proper results, since a penalty is placed on the <strong>magnitude of the coefficient</strong> (proportional to scale).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This was not a problem in regular OLS as the residuals were used, which were all following the scale of the dependent.</p>
-</div>
+<h3 id="scaling"><strong>Scaling</strong><a class="headerlink" href="#scaling" title="Permanent link">&para;</a></h3>
+<p>For regularization methods, the absolute values of the <strong>coefficients are combined together to form the penalty</strong>. Variables with <strong>different scales will naturally also have coefficients with different scales</strong>. For instance, for the same impact, a variable measured in Dollars versus Thousand Dollars will have 1000 times the size, surely dominating the regularization. Thus, there is a need to <strong>scale the variables beforehand</strong> to ensure that the regularization is performed correctly.</p>
+<p>This issue is not present in regular OLS because the coefficients will never have interact with one another.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The above concept is DIFFERENT from <strong>Scale Equivariance</strong> - which refers to the fact that the predicted values <strong>remain unchanged</strong> (hence "equi") despite a change in scale of the predictors. This occurs because the fitting process accounts for the change in scale and <strong>rescales the coefficients</strong> accordingly:</p>
@@ -2443,7 +2440,7 @@ Var(\hat{\beta}) =
 <li><strong>Regularization</strong>: NOT scale equivariant (Due to the penalty applied)</li>
 </ul>
 </div>
-<p>There are two main methods of transforming predictors:</p>
+<p>More generally, there are are two main methods of transforming predictors:</p>
 <ul>
 <li><strong>Centering</strong>: Subtracting the sample mean of each predictor</li>
 <li><strong>Scaling</strong>: Dividing each predictor by its sample standard error</li>
