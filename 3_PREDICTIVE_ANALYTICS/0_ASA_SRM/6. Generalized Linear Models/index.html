@@ -2136,9 +2136,10 @@
 <div class="arithmatex">\[
 \begin{aligned}
     \text{AIC} &amp;= \text{Deviance} + 2 \cdot \text{Degrees of Freedom} \\
-    \text{BIC} &amp;= \text{Deviance} + 2 \cdot \text{Degrees of Freedom} \\
+    \text{BIC} &amp;= \text{Deviance} + \ln n \cdot \text{Degrees of Freedom} \\
 \end{aligned}
 \]</div>
+<p>This is very similar to the original, just that the RSS is replaced by Deviance. This is intuitive, because RSS can be viewed as the Deviance for the normal model.</p>
 <h2 id="categorical-models"><strong>Categorical Models</strong><a class="headerlink" href="#categorical-models" title="Permanent link">&para;</a></h2>
 <h3 id="binary-response"><strong>Binary Response</strong><a class="headerlink" href="#binary-response" title="Permanent link">&para;</a></h3>
 <p>A Binary response variable has only two outcomes (0,1), thus a <strong>Bernoulli Distribution</strong> is used to model it. There are <strong>three main link functions</strong> that can map the the range into (0,1):</p>

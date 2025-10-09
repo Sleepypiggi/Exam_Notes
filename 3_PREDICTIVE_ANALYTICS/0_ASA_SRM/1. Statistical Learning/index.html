@@ -1085,13 +1085,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#metrics" class="md-nav__link">
-    Metrics
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#confidence-prediction-intervals" class="md-nav__link">
     Confidence &amp; Prediction Intervals
   </a>
@@ -1395,13 +1388,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#metrics" class="md-nav__link">
-    Metrics
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#confidence-prediction-intervals" class="md-nav__link">
     Confidence &amp; Prediction Intervals
   </a>
@@ -1583,7 +1569,7 @@
 <td align="center">No Independent Variable</td>
 </tr>
 <tr>
-<td align="center">To make predictions for <span class="arithmatex">\(y\)</span></td>
+<td align="center">To make predictions</td>
 <td align="center">To identify relationships between variables</td>
 </tr>
 <tr>
@@ -1600,7 +1586,6 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The key focus of the majority of the exam will be on <strong>Supervised learning</strong>, unless otherwise stated. A relatively small portion on Unsupervised learning will be covered towards the end.</p>
-<p>There technically exists a special class of learning known as <strong>Semi-Supervised</strong>, which typically occurs due to a lack of complete data. It is out of scope for the purposes of this exam.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1780,6 +1765,7 @@
 <p class="admonition-title">Note</p>
 <p>Operationally, this implies that the sample should be <strong>partitioned at the start of the process</strong>.</p>
 <p>The size of the split between training and test is tricky - larger training sets result in more <strong>robust models but less reliable test evaluations</strong>. It is generally accepted that 80-20 or 70-30 between training and test sets are a good balance.</p>
+<p>It can be split using sampling methods or based on time, where the training set contains older observations and the test set contains newer ones, to evaluate the models ability to make future predictions.</p>
 </div>
 <p>The above concerns can be quantified using the <strong>Mean Squared Error</strong> (MSE). More generally, this is known as a <strong>Loss Function</strong>, which models typically use as a metric to fit their model - they fit the model such that the <strong>loss is minimized</strong>.</p>
 <div class="arithmatex">\[
@@ -1828,10 +1814,7 @@
 </ul>
 <!-- Obtained from Coaching Actuaries -->
 <p><img alt="TRAINING_TEST_MSE" class="center" src="../Assets/1.%20Statistical%20Learning.md/TRAINING_TEST_MSE.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is another reason why test sets are important - because using only training data will result in overly optimistic results.</p>
-</div>
+<p>Using only a training set, the model with the best performance would be a <strong>very complex model</strong>. While such a model performs well on the training data, it actually performs very <strong>poorly on unseen test data</strong>, which will yield poor results in actual use. This is the quintissential reason why a test set is used during evaluation.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>A quick way to view how accurate the predictions are would be to plot the original value (<span class="arithmatex">\(y\)</span>) against the predicted value (<span class="arithmatex">\(\hat{y}\)</span>), with an identity line:</p>
@@ -1937,9 +1920,6 @@
 <p class="admonition-title">Tip</p>
 <p>The intuition is that these should be the worst performing models. If a given model cannot even surpass it, then it should not be considered.</p>
 </div>
-<h3 id="metrics"><strong>Metrics</strong><a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h3>
-<p>RMSE
-MAE -&gt; Less sensitive to outliers because all differences emphasised equally</p>
 <h3 id="confidence-prediction-intervals"><strong>Confidence &amp; Prediction Intervals</strong><a class="headerlink" href="#confidence-prediction-intervals" title="Permanent link">&para;</a></h3>
 <p>Recall that <strong>Confidence Intervals</strong> are a range of values that the <strong>true parameter</strong> will fall within for a given level of confidence. In a regression setting, recall that the model is estimating the <strong>mean of the conditional distribution</strong>; a parameter. Thus, the confidence interval for a model measures the <strong>range of values for <span class="arithmatex">\(E(Y \mid X)\)</span></strong>.</p>
 <div class="admonition note">
@@ -2043,7 +2023,7 @@ MAE -&gt; Less sensitive to outliers because all differences emphasised equally<
     &amp;= 1 - \text{False Positive Rate} \\
     \\
     \text{Precision}
-    &amp;= \text{Predicred Positive Rate} \\
+    &amp;= \text{Predicted Positive Rate} \\
     &amp;= \frac{\text{Number of correctly predicted positives}}{\text{Number of predicted positives}} \\
     &amp;= \frac{\text{TP}}{\text{TP} + \text{FN}} \\
     \\
@@ -2051,7 +2031,8 @@ MAE -&gt; Less sensitive to outliers because all differences emphasised equally<
     &amp;= \text{Correct Prediction Rate} \\
     &amp;= \frac{\text{Number of Correct Predictions}}{\text{All observations}} \\
     &amp;= \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}} \\
-    &amp;= 1 - \text{Classification Error Rate}
+    &amp;= 1 - \text{Classification Error Rate} \\
+    &amp;= \text{Prop of Positive} \cdot \text{Sensitivity} + \text{Prop of Negative} \cdot \text{Specificity} 
 \end{aligned}
 \]</div>
 <!-- Obtained from Glassboxmedicine -->
@@ -2114,7 +2095,7 @@ MAE -&gt; Less sensitive to outliers because all differences emphasised equally<
 </div>
 <h3 id="class-imbalance"><strong>Class Imbalance</strong><a class="headerlink" href="#class-imbalance" title="Permanent link">&para;</a></h3>
 <p>One common problem is that there is Class Imbalance in the underlying dataset such that one of the classes is <strong>under-represented</strong>. For instance, when studying about gender inequality, there might be significantly fewer observations that are female.</p>
-<p>The under-representation makes it <strong>difficult to make predictions</strong> for the minority class, which will likely result in high specificity or sensitivity. Thus, it is common to employ one of the following which will allow for more balanced predictions:</p>
+<p>The model will implicitly fit better to the dominant class, making it <strong>difficult to make predictions</strong> for the minority class, which will likely result in high specificity or sensitivity. Thus, it is common to employ one of the following which will allow for more balanced predictions:</p>
 <ul>
 <li><strong>Oversampling</strong>: Randomly generating additional observations of the minority class from the existing pool</li>
 <li><strong>Undersampling</strong>: Randomly deleting observations of the majority class from the existing pool</li>
