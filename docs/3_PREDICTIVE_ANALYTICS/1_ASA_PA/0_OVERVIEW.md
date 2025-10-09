@@ -266,7 +266,7 @@ For the purposes of this exam, there is a distinction between:
 
 ### **Feature Generation**
 
-Feature generation & selection is important is because it is not realistic to use ALL the variables available to make the prediction. Following the principle of parsimony, if there exists an otherwise equally capable model, the **simpler model** (with fewer inputs) should be used (Occam's Razor).
+Feature generation & selection is important is because it is not realistic to use ALL the variables available to make the prediction. It is important to transform the original variables into a **more useful form** that will allow the model to **pick up the information more effectively**. Following the principle of parsimony, if there exists an otherwise equally capable model, the **simpler model** (with fewer inputs) should be used (Occam's Razor).
 
 **Numeric Variables**:
 
