@@ -141,7 +141,7 @@ Detailed steps for stratified sampling:
 * **Stratification variable(s)** must be identified; the variables to split the population by
 * For instance, if both variable A and B are chosen which have 10 and 4 levels respectively, then **40 levels** are needed to capture **all possible combinations** of the two (10*4)
 
-Although we usually refer to drawing from the population, sampling methods can be used to draw from an existing dataset to form another smaller one. For instance, to form the training and test sets. This can help to ensure that the mix of observations inside the training and test set are reasonably similar.
+Although we usually refer to drawing from the population, sampling methods can be used to draw from an existing dataset to **form another smaller one**. For instance, to form the **training and test sets**. This can help to ensure that the mix of observations inside the training and test set are reasonably similar.
 
 !!! Warning
 
@@ -229,7 +229,7 @@ Next is to understand the relationships between variables. However, it is not po
 Another method of adding an **additional factor variable** to the plot is via **Faceting**. Instead of just one plot, it creates **small multiples** of the plot, each for a different level of the additional factor variable:
 
 * For plots with **only one main variable**, this allows us to observe the **relationship between** two variables
-* For plots with **two main variables**, this allows us to observe **how the relationship changes** in the presence of another variable (Interaction effects)
+* For plots with **two main variables**, this allows us to observe **how the relationship changes** in the presence of another variable (**Interaction effects**)
 
 <!-- Obtained from Stackoverflow -->
 ![FACETING](Assets/0_OVERVIEW.md/FACETING.png){.center}
@@ -332,14 +332,16 @@ For variables with Outliers/Skewness:
 
 For observation with missing or incorrect values:
 
-* **Remove the affected observations** (Error across few observations - data can still be reasonably used)
-* **Remove the entire variable** (Error across many observations - data cannot be reasonably used)
-* **Impute the observation** (Error is systematic - allows for good approximation)
+* **Remove the affected observations** (Error across **few observations** - data can still be reasonably used)
+* **Remove the entire variable** (Error across **many observations** - data cannot be reasonably used)
+* **Impute the observation** (Error is **systematic** - allows for good approximation)
 * Alternatively, if the measurement of the variable is out of the business' control or its contextual significance to the data is small, then the problem can simply be **ignored**; place **focus on more important aspects**
 
 !!! Warning
 
     Note that any dropping of observations or variables will result in a loss of data.
+
+
 
 ## **Model Selection & Evaluation**
 
