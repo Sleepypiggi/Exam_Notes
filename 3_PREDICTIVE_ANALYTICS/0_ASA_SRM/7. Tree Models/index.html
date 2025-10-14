@@ -1633,8 +1633,9 @@
 <p class="admonition-title">Tip</p>
 <p>The conditions are typically chosen such that they <strong>avoid overfitting</strong> (smaller tree):</p>
 <ul>
-<li>Minimum number of observations in a node (internal vs terminal node; can be different)</li>
-<li>Maximum number of terminal nodes</li>
+<li>Minimum number of observations <strong>before a split</strong></li>
+<li>Minimum number of observations <strong>after a split</strong></li>
+<li>Maximum <strong>number of terminal nodes</strong></li>
 </ul>
 <p>Note that if set too harsh, it could result in a tree with <strong>no split</strong> (one node only). This could also occur if none of the features have any predictive power for the target (though this is unlikely).</p>
 </div>

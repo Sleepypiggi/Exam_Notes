@@ -1674,14 +1674,15 @@
 <p>For plots illustrating <strong>one main variable</strong> (typically distribution plots), it is typical to take note of the following items:</p>
 <ul>
 <li><strong>Range</strong> - Is the variable positive only?</li>
-<li><strong>Outliers</strong> - Are there many outliers?</li>
 <li><strong>Mode</strong> - Where is the data concentrated?</li>
+<li><strong>Outliers</strong> - Are there many outliers?</li>
 <li><strong>Skewness</strong> - How symmetric is the distribution?</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Distribution plots provide similar information to the Summary statistics, but can provide more insight on aspects that are better visualized (EG. Skewness and Mode).</p>
 </div>
+<p>Essentially, the model needs to have a <strong>good spread of data across the board</strong> to have a good fit. If the data is <strong>clustered in one area</strong> or there is a <strong>skew</strong>, then the model fits very well to that clustered region but performs <strong>poorly outside of it</strong> - unreliable coefficient estimates/becomes high leverage points.</p>
 <h3 id="bivariate"><strong>Bivariate</strong><a class="headerlink" href="#bivariate" title="Permanent link">&para;</a></h3>
 <p>Next is to understand the relationships between variables. However, it is not possible to examine every possible pairwise relationship. Thus, only well-known or potentially interesting relationships should be examined.</p>
 <ul>
@@ -1738,10 +1739,12 @@
 </div>
 <p><strong>Discrete Numeric Variables</strong> - Convert to Factor?</p>
 <ul>
-<li><strong>Fixed Range</strong>: Convert only if the current spread contains all possible values and will not change (EG. Numeric labels)</li>
-<li><strong>Numeric Operations</strong>: Convert only if no numeric operations need to be performed on the variable</li>
-<li><strong>Non-Monotonic Relationship</strong>: Convert to allow the non-monotonic relationship to be expressed</li>
-<li><strong>Overfitting</strong>: Convert only if the model is not already overfitting as Factors increases the total number of variables</li>
+<li><strong>Fixed Range</strong>: Convert only if the current spread contains all possible values and <strong>will not change</strong> (EG. Numeric labels)</li>
+<li><strong>Numeric Operations</strong>: Convert only if no <strong>numeric operations</strong> need to be performed on the variable</li>
+<li><strong>Non-Monotonic Relationship</strong>: Convert to allow the <strong>non-monotonic relationship</strong> to be expressed (across possible interactions)</li>
+<li><strong>Overfitting</strong>: Convert only if the model is not already overfitting as Factors <strong>increases the total number of variables</strong></li>
+<li><strong>Interpretation</strong>: Convert only if interpretation is not priority (<strong>Linear is easier to interpret</strong>)</li>
+<li><strong>Sample Size</strong>: Convert only if there is <strong>sufficient observations</strong> in each level to ensure reliable estimates</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1777,6 +1780,7 @@
 <li>Note that these are <strong>positive only transformations (no zeroes)</strong>, thus a small constant should be added to the data in the event it has 0s to prevent errors</li>
 </ul>
 </li>
+<li><strong>Dummy Variables</strong> can be used to ignore the effects of values past a certain threshold</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

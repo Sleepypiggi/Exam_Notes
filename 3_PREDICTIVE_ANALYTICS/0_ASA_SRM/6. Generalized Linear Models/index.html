@@ -1812,6 +1812,7 @@
     &amp;= g^{-1}(\boldsymbol{X}^{T} \boldsymbol{\beta}) 
 \end{aligned}
 \]</div>
+<p>In essence, this allows us to model the target variable as a <strong>function</strong> of a linear combination of predictors; as opposed to regular linear regression, which does not apply any function.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>By definition, the link functions maps the dependent variable to the linear predictors. Hence, going the other way round, it is known as the <strong>Inverse Link Function</strong>.</p>
@@ -1897,8 +1898,12 @@
 <td align="center">Models relationship indirectly with <span class="arithmatex">\(ln Y\)</span></td>
 </tr>
 <tr>
-<td align="center">Indirectly controls variance (via Mean)</td>
-<td align="center">Directly stabilizes the mean</td>
+<td align="center">Allows for heteroskedasticity</td>
+<td align="center">Forcefully corrects heteroskedasticity</td>
+</tr>
+<tr>
+<td align="center">Variance stabilized via relationship to Mean</td>
+<td align="center">Variance of residuals forced to be normal</td>
 </tr>
 <tr>
 <td align="center">Easier to interpret (Original target)</td>
@@ -1910,6 +1915,7 @@
 </tr>
 </tbody>
 </table>
+<p>On the point of variance, GLMs directly allow the variance to be dependent on the mean, while MLR forces the the variance to be homoscedastic (not directly addressing the underlying issue).</p>
 </div>
 <h3 id="maximum-likelihood"><strong>Maximum Likelihood</strong><a class="headerlink" href="#maximum-likelihood" title="Permanent link">&para;</a></h3>
 <p>The parameters are estimated using <strong>Maximum Likelihood Estimation</strong> (MLE), where the likelihood function can be expressed as the following:</p>
