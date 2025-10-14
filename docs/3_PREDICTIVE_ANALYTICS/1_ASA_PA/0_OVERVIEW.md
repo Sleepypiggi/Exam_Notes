@@ -207,13 +207,15 @@ For graphical plots, one or more of the following plots are typically used. It i
 For plots illustrating **one main variable** (typically distribution plots), it is typical to take note of the following items:
 
 * **Range** - Is the variable positive only?
-* **Outliers** - Are there many outliers?
 * **Mode** - Where is the data concentrated?
+* **Outliers** - Are there many outliers?
 * **Skewness** - How symmetric is the distribution?
 
 !!! Note
 
     Distribution plots provide similar information to the Summary statistics, but can provide more insight on aspects that are better visualized (EG. Skewness and Mode).
+
+Essentially, the model needs to have a **good spread of data across the board** to have a good fit. If the data is **clustered in one area** or there is a **skew**, then the model fits very well to that clustered region but performs **poorly outside of it** - unreliable coefficient estimates/becomes high leverage points.
 
 ### **Bivariate**
 
@@ -279,10 +281,12 @@ Feature generation & selection is important is because it is not realistic to us
 
 **Discrete Numeric Variables** - Convert to Factor?
 
-* **Fixed Range**: Convert only if the current spread contains all possible values and will not change (EG. Numeric labels)
-* **Numeric Operations**: Convert only if no numeric operations need to be performed on the variable
-* **Non-Monotonic Relationship**: Convert to allow the non-monotonic relationship to be expressed
-* **Overfitting**: Convert only if the model is not already overfitting as Factors increases the total number of variables
+* **Fixed Range**: Convert only if the current spread contains all possible values and **will not change** (EG. Numeric labels)
+* **Numeric Operations**: Convert only if no **numeric operations** need to be performed on the variable
+* **Non-Monotonic Relationship**: Convert to allow the **non-monotonic relationship** to be expressed (across possible interactions)
+* **Overfitting**: Convert only if the model is not already overfitting as Factors **increases the total number of variables**
+* **Interpretation**: Convert only if interpretation is not priority (**Linear is easier to interpret**)
+* **Sample Size**: Convert only if there is **sufficient observations** in each level to ensure reliable estimates
 
 !!! Note
 
@@ -318,6 +322,7 @@ For variables with Outliers/Skewness:
 * **Outliers** can be removed by trimming a proportion of the largest or smallest values
 * **Concave transformations** can be used to compress values together to solve Skewness, Heteroscedasticity and also Linearize exponential relationships
     * Note that these are **positive only transformations (no zeroes)**, thus a small constant should be added to the data in the event it has 0s to prevent errors
+* **Dummy Variables** can be used to ignore the effects of values past a certain threshold
 
 !!! Warning
 
@@ -340,8 +345,6 @@ For observation with missing or incorrect values:
 !!! Warning
 
     Note that any dropping of observations or variables will result in a loss of data.
-
-
 
 ## **Model Selection & Evaluation**
 
