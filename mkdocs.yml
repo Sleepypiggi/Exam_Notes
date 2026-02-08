@@ -65,6 +65,9 @@ nav:
       - Time Series: 3_PREDICTIVE_ANALYTICS/0_ASA_SRM/10. Time Series.md
     - ASA PA:
       - Overview: 3_PREDICTIVE_ANALYTICS/1_ASA_PA/0_OVERVIEW.md
+  - FSA Life Track:
+    - ILA101:
+      - Reinsurance: 4_FSA_CORE_LIFE/0_ILA101/REINSURANCE.md
 
 markdown_extensions:
 
