@@ -1318,8 +1318,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#central-counterparties" class="md-nav__link">
-    Central Counterparties
+  <a href="#systematic-risk" class="md-nav__link">
+    Systematic Risk
   </a>
   
 </li>
@@ -1448,8 +1448,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#central-counterparties" class="md-nav__link">
-    Central Counterparties
+  <a href="#systematic-risk" class="md-nav__link">
+    Systematic Risk
   </a>
   
 </li>
@@ -1564,22 +1564,55 @@
 <td align="center">Standardized &amp; bespoke contracts</td>
 </tr>
 <tr>
-<td align="center">Through <strong>Central Counterparty</strong> only</td>
-<td align="center">Central Counterparty (standardized) <br> Bilateral (Bespoke)</td>
+<td align="center">Centralized</td>
+<td align="center">Centralized (standardized) <br> Bilateral (Bespoke)</td>
 </tr>
 <tr>
 <td align="center">More transactions, smaller sizes</td>
 <td align="center">Fewer transactions, larger sizes</td>
 </tr>
-<tr>
-<td align="center">EG.</td>
-<td align="center"></td>
-</tr>
 </tbody>
 </table>
-<p>Standardized contracts refer to pre-defined contracts which specify</p>
-<h3 id="central-counterparties"><strong>Central Counterparties</strong><a class="headerlink" href="#central-counterparties" title="Permanent link">&para;</a></h3>
-<h3 id="margin">Margin<a class="headerlink" href="#margin" title="Permanent link">&para;</a></h3>
+<p>Bilateral trading refers to trading <strong>directly with another entity</strong> looking to enter the opposite position. Centralized trading refers to trading with a <strong>Centralized Counterparty</strong> (CCP) instead, which will automatically be the counterparty for the trade:</p>
+<ul>
+<li>CCP will be the buyer to each seller</li>
+<li>CCP will be the seller to each buyer</li>
+</ul>
+<!-- Self Made -->
+<p><img alt="DERIVATIVE_TRADING" class="center" src="../Assets/0_DERIVATIVE_OVERVIEW.md/DERIVATIVE_TRADING.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CCPs are a general term; in an exchange context, it is commonly known as the <strong>Clearing House</strong>. It is advised to use Clearhing House for Exchanges and CCPs for OTC markets. For simplicity, this set of notes will use CCP to refer to both.</p>
+<p>Only select Brokers or instuitions are allowed to trade with CCPs, known as <strong>CCP members</strong>.</p>
+</div>
+<p>CCPs only accept standardized contracts to ease the management of their portfolio.</p>
+<h3 id="systematic-risk">Systematic Risk<a class="headerlink" href="#systematic-risk" title="Permanent link">&para;</a></h3>
+<p>To understand the benefits of CCPs, it is important to first understand the risks of trading bilaterally:</p>
+<ul>
+<li>Each party is directly exposed to the <strong>credit risk of their counterparty</strong> (another instituition)</li>
+<li>If one party defaults, their counterparty is likely to <strong>experience a loss</strong>, which could <strong>cause them to default</strong> as well</li>
+<li>All <strong>their counterparties</strong> may experience losses and potentially default as well; so on and so forth</li>
+<li>This is known as <strong>Systematic Risk</strong>, where the default of one entity leads to a <strong>ripple effect</strong> that causes other entities to default as well, ultimately leading to a <strong>collapse of the financial system</strong></li>
+</ul>
+<p>CCPs centralize the structure, converting it into a <strong>single point of failure</strong> that is better positioned to be managed and hence less likely to result in a system wide collapse:</p>
+<ul>
+<li>Requires <strong>Margin</strong> for each trade; margin is a <strong>form of collateral</strong> to cover the potential losses or defaults</li>
+<li>Requires contribution to a <strong>Guaranty Fund</strong> that may be used when margin is insufficient in the event of a default</li>
+<li>These requirements increases the amount of collateral, which <strong>reduces the likelihood of default</strong></li>
+<li>Since each party is less likely to default, the CCP itself is less likely to fail and hence <strong>lower systematic risk</strong></li>
+</ul>
+<h3 id="margin"><strong>Margin</strong><a class="headerlink" href="#margin" title="Permanent link">&para;</a></h3>
+<p>As mentioned, one of the primary methods that CCPs use to manage credit risk are via Margins. There are several key terminologies:</p>
+<ul>
+<li><strong>Initial Margin</strong> - Amount that must be posted when <strong>initially</strong> entering the contract</li>
+<li><strong>Variation Margin</strong> - Amount that is <strong>added/subtracted</strong> from the margin account to <strong>reflect gains/losses</strong></li>
+<li><strong>Maintenance Margin</strong> - <strong>Minimum amount</strong> required in the margin account to keep the contract in-force</li>
+<li><strong>Margin Call</strong> - <strong>Request to post more margin</strong> when the margin account falls below the maintenance margin</li>
+</ul>
+<p>Daily settlement
+Intraday settlement
+Member and broker</p>
+<p>Obligation only</p>
 <h3 id="benefits-of-central-counterparties">Benefits of Central Counterparties<a class="headerlink" href="#benefits-of-central-counterparties" title="Permanent link">&para;</a></h3>
 <h2 id="forwards-futures"><strong>Forwards &amp; Futures</strong><a class="headerlink" href="#forwards-futures" title="Permanent link">&para;</a></h2>
 <h3 id="key-difference"><strong>Key Difference</strong><a class="headerlink" href="#key-difference" title="Permanent link">&para;</a></h3>
