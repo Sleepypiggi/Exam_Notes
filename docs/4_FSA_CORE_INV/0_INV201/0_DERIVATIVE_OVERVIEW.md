@@ -34,9 +34,16 @@ There are two main ways to trade derivatives:
 |   More transactions, smaller sizes    |               Fewer transactions, larger sizes               |
 | EG. ||
 
-Standardized contracts refer to pre-defined contracts which specify
+Standardized contracts refer to **pre-defined contracts** which specify the parameters of the contract, especially 
 
 ### **Central Counterparties**
+
+For standardized contracts, there is no need to directly match two entities to take a long and short position on the contract. Instead, a **Central Counterparty** (CCP) will be the counterparty to all trades:
+
+* CCP will be the buyer to each seller
+* CCP will be the seller to each buyer
+
+Due to the standardized nature of the contracts, the CCP will eventually **take on enough offsetting positions** to largely neutralize each position it takes; in aggregate, this **reduces the credit risk** than if each trade was cleared bilaterally. 
 
 
 
