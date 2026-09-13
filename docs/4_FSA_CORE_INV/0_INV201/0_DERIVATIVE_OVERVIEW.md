@@ -27,27 +27,59 @@ Generally speaking, the **buyer** of the derivative contract is said to be takin
 
 There are two main ways to trade derivatives:
 
-|      **Exchange Traded Market**       |                 **Over-the-Counter Market**                  |
-| :-----------------------------------: | :----------------------------------------------------------: |
-|      Standardized contracts only      |               Standardized & bespoke contracts               |
-| Through **Central Counterparty** only | Central Counterparty (standardized) <br> Bilateral (Bespoke) |
-|   More transactions, smaller sizes    |               Fewer transactions, larger sizes               |
-| EG. ||
+|    **Exchange Traded Market**    |             **Over-the-Counter Market**             |
+| :------------------------------: | :-------------------------------------------------: |
+|   Standardized contracts only    |          Standardized & bespoke contracts           |
+|           Centralized            | Centralized (standardized) <br> Bilateral (Bespoke) |
+| More transactions, smaller sizes |          Fewer transactions, larger sizes           |
 
-Standardized contracts refer to **pre-defined contracts** which specify the parameters of the contract, especially 
-
-### **Central Counterparties**
-
-For standardized contracts, there is no need to directly match two entities to take a long and short position on the contract. Instead, a **Central Counterparty** (CCP) will be the counterparty to all trades:
+Bilateral trading refers to trading **directly with another entity** looking to enter the opposite position. Centralized trading refers to trading with a **Centralized Counterparty** (CCP) instead, which will automatically be the counterparty for the trade:
 
 * CCP will be the buyer to each seller
 * CCP will be the seller to each buyer
 
-Due to the standardized nature of the contracts, the CCP will eventually **take on enough offsetting positions** to largely neutralize each position it takes; in aggregate, this **reduces the credit risk** than if each trade was cleared bilaterally. 
+<!-- Self Made -->
+![DERIVATIVE_TRADING](Assets/0_DERIVATIVE_OVERVIEW.md/DERIVATIVE_TRADING.png){.center}
 
+!!! Note
 
+    CCPs are a general term; in an exchange context, it is commonly known as the **Clearing House**. It is advised to use Clearhing House for Exchanges and CCPs for OTC markets. For simplicity, this set of notes will use CCP to refer to both.
 
-### Margin
+    Only select Brokers or instuitions are allowed to trade with CCPs, known as **CCP members**.
+
+CCPs only accept standardized contracts to ease the management of their portfolio.
+
+### Systematic Risk
+
+To understand the benefits of CCPs, it is important to first understand the risks of trading bilaterally:
+
+* Each party is directly exposed to the **credit risk of their counterparty** (another instituition)
+* If one party defaults, their counterparty is likely to **experience a loss**, which could **cause them to default** as well
+* All **their counterparties** may experience losses and potentially default as well; so on and so forth
+* This is known as **Systematic Risk**, where the default of one entity leads to a **ripple effect** that causes other entities to default as well, ultimately leading to a **collapse of the financial system**
+
+CCPs centralize the structure, converting it into a **single point of failure** that is better positioned to be managed and hence less likely to result in a system wide collapse:
+
+* Requires **Margin** for each trade; margin is a **form of collateral** to cover the potential losses or defaults
+* Requires contribution to a **Guaranty Fund** that may be used when margin is insufficient in the event of a default
+* These requirements increases the amount of collateral, which **reduces the likelihood of default**
+* Since each party is less likely to default, the CCP itself is less likely to fail and hence **lower systematic risk**
+
+### **Margin**
+
+As mentioned, one of the primary methods that CCPs use to manage credit risk are via Margins. There are several key terminologies:
+
+* **Initial Margin** - Amount that must be posted when **initially** entering the contract
+* **Variation Margin** - Amount that is **added/subtracted** from the margin account to **reflect gains/losses**
+* **Maintenance Margin** - **Minimum amount** required in the margin account to keep the contract in-force
+* **Margin Call** - **Request to post more margin** when the margin account falls below the maintenance margin
+
+Daily settlement
+Intraday settlement
+Member and broker
+
+Obligation only
+
 
 ### Benefits of Central Counterparties
 
