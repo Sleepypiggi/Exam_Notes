@@ -66,8 +66,8 @@ nav:
     - ASA PA:
       - Overview: 3_PREDICTIVE_ANALYTICS/1_ASA_PA/0_OVERVIEW.md
   - FSA Life Track:
-    - ILA101:
-      - Reinsurance: 4_FSA_CORE_LIFE/0_ILA101/REINSURANCE.md
+    - INV201:
+      - Introduction: 4_FSA_CORE_INV/0_INV201/0_DERIVATIVE_OVERVIEW.md
 
 markdown_extensions:
 
