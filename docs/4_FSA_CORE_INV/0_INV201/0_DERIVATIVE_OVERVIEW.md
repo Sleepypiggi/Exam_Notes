@@ -23,31 +23,52 @@ The Payoff of a derivative is the **net cashflow received** from the perspective
 
 ## **Trading Derivatives**
 
-Generally speaking, the **buyer** of the derivative contract is said to be taking a **long position** while the **seller** of the contract (counterparty) is known as taking a **short position**. Each contract is **constructed differently**, thus the exact interpretation of long and short is dependent on the type of contract.
+Generally speaking, the **buyer** of the derivative contract is said to be taking a **long position** while the **seller** of the contract (counterparty) is known as taking a **short position**. Taking **both a long and short** position on an identical contract will net out the obligations of the two positions, resulting in both positions being **closed**.
 
-There are two main ways to trade derivatives:
+There are two main markets to trade derivatives:
 
-|    **Exchange Traded Market**    |             **Over-the-Counter Market**             |
-| :------------------------------: | :-------------------------------------------------: |
-|   Standardized contracts only    |          Standardized & bespoke contracts           |
-|           Centralized            | Centralized (standardized) <br> Bilateral (Bespoke) |
-| More transactions, smaller sizes |          Fewer transactions, larger sizes           |
+<center>
 
-Bilateral trading refers to trading **directly with another entity** looking to enter the opposite position. Centralized trading refers to trading with a **Centralized Counterparty** (CCP) instead, which will automatically be the counterparty for the trade:
+|    **Exchange Traded Market**    |    **Over-the-Counter Market**    |
+| :------------------------------: | :-------------------------------: |
+|   Standardized contracts only    | Standardized & bespoke contracts  |
+|    Centralized clearing only     | Centralized or Bilateral clearing |
+| More transactions, smaller sizes | Fewer transactions, larger sizes  |
 
-* CCP will be the buyer to each seller
-* CCP will be the seller to each buyer
+</center>
+
+**Bilateral** clearing refers to two counterparties **directly trading** with one another while **Centralized** clearing involves a **Centralized Counterparty** to step in and "break" the relationship between buyer and seller where:
+
+* CCP will become the buyer to the seller
+* CCP will become the seller to the buyer
+* Form of **Novation** (contract replacement) where the original buyer and seller no longer have a legal relationship
+
+Only CCP broker members can trade with the CCP. If the current broker is not a member, the business can be funneled through a member broker to get the trade cleared.
 
 <!-- Self Made -->
 ![DERIVATIVE_TRADING](Assets/0_DERIVATIVE_OVERVIEW.md/DERIVATIVE_TRADING.png){.center}
 
+Since CCPs only REPLACE contracts, there needs to have been an **original counterparty** in the first place. This is typically achieved through **Market Makers**, who **continuously buy and sell assets** (aiming to **sell for slightly more** than what it was bought for), readily acting as the counterparty to most trades, providing liquidity to the market.
+
 !!! Note
 
-    CCPs are a general term; in an exchange context, it is commonly known as the **Clearing House**. It is advised to use Clearhing House for Exchanges and CCPs for OTC markets. For simplicity, this set of notes will use CCP to refer to both.
+    Key trading terminology:
 
-    Only select Brokers or instuitions are allowed to trade with CCPs, known as **CCP members**.
+    * **Bid Price** - Maximum amount that a **buyer is willing to pay** to obtain an asset
+    * **Ask Price** - Lowest price that a **seller is willing to accept** to sell an asset
+    * Bid/Ask Price listed on most platforms is often an **aggregation** of all available orders in the market - EG. Highest, lowest, Average etc
 
-CCPs only accept standardized contracts to ease the management of their portfolio.
+    
+
+    
+
+!!! Note
+
+    In an exchange context, the CCP is typically known as the **Clearing House**.
+
+    For simplicity, this set of notes will use CCP to refer to both.
+
+### **Bilateral Trading**
 
 ### Systematic Risk
 
@@ -124,6 +145,7 @@ Fungibility for netting
 Default management can easily clear
 Single price for margin
 
+CCPs only accept standardized contracts to ease the management of their portfolio.
 
 Bilateral also need to clear CCP
 ISDA, CSA
