@@ -69,19 +69,64 @@ CCPs centralize the structure, converting it into a **single point of failure** 
 
 As mentioned, one of the primary methods that CCPs use to manage credit risk are via Margins. There are several key terminologies:
 
-* **Initial Margin** - Amount that must be posted when **initially** entering the contract
-* **Variation Margin** - Amount that is **added/subtracted** from the margin account to **reflect gains/losses**
+* **Initial Margin** (IM) - Amount that must be posted when **initially** entering the contract
 * **Maintenance Margin** - **Minimum amount** required in the margin account to keep the contract in-force
-* **Margin Call** - **Request to post more margin** when the margin account falls below the maintenance margin
 
-Daily settlement
+ 
+* **Variation Margin** - Amount that is **added/subtracted** from the margin account to **reflect gains/losses**
+
+* **Margin Call** - **Request to post more margin** when the margin account falls below the maintenance margin level
+
+Margin requirements are determined by the CCP using **mathematical models**. Generally speaking, IM is set such that it can cover potential losses **99% of the time**; MM is typically set **around 75%** of the IM.
+
+
+Changes in margins are typically calculated only once at the end of each trading day, known as a **Daily Settlement**. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
+Margin call anytime?
+
+
+!!! Note
+
+    The purpose of any form of collateral is to ensure that an entity does not default on its obligations. Thus, only derivatives which **imposes an obligation** on the contract owner require margin.
+    
+    An option holder has a right but no obligation to buy or sell, while an option write has an obligation (if exercised) to buy or sell. Thus, option writers are typically required to post margin while option holders are not.
+    
+!!! Warning
+
+    Margin posted using an asset (rather than cash) will be subject to a **Haircut**, where only a fraction of its market value at the time of posting will count towards margin.
+    
+    The primary purpose of collateral is to be used to recoup losses in the event of a default:
+    
+    * Non-cash assets experience some level of **price volatility** and has the potential to drop before being sold, thus preventing its full value from being utilise
+    * Non-cash assets need to be sold (typically within a short period) thus less liquid assets may not be able to be utilized for its full value
+    
+    Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).
+     
+The clearing house requires each member broker to post margin
+
+Posting margin is a requirement of the CCP to its Broker members. Each member then requires its traders to post margin
+
 Intraday settlement
 Member and broker
 
-Obligation only
+Client to broker (Initial margin)
+
+Unlike securities trading (where traders normally have to pay the full value of the asset, up-front) derivatives traders can get full exposure to an asset by “trading on margin” – that is, only paying a percentage of the value of the underlying asset, upfront. In this sense margin is often seen as leverage.
+
+The fundamental precaution is for the exchange to hold sufficient funds on behalf of a trader to offset any potential future losses that are incurred between the time of a potential default and the closing out of the position.
+
+Default >> will close position
+
+MTM resets losses, clean slates
+
+Need to be clear on the mechanics of default
+
+Fungibility for netting
+Default management can easily clear
+Single price for margin
 
 
-### Benefits of Central Counterparties
+Bilateral also need to clear CCP
+ISDA, CSA
 
 ## **Forwards & Futures**
 
