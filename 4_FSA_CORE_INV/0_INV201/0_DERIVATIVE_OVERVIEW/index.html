@@ -1318,6 +1318,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#bilateral-trading" class="md-nav__link">
+    Bilateral Trading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#systematic-risk" class="md-nav__link">
     Systematic Risk
   </a>
@@ -1327,13 +1334,6 @@
           <li class="md-nav__item">
   <a href="#margin" class="md-nav__link">
     Margin
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#benefits-of-central-counterparties" class="md-nav__link">
-    Benefits of Central Counterparties
   </a>
   
 </li>
@@ -1448,6 +1448,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#bilateral-trading" class="md-nav__link">
+    Bilateral Trading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#systematic-risk" class="md-nav__link">
     Systematic Risk
   </a>
@@ -1457,13 +1464,6 @@
           <li class="md-nav__item">
   <a href="#margin" class="md-nav__link">
     Margin
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#benefits-of-central-counterparties" class="md-nav__link">
-    Benefits of Central Counterparties
   </a>
   
 </li>
@@ -1549,8 +1549,9 @@
 <p>Payoffs EXCLUDE the cost of the derivative. Thus, it is NOT THE SAME as the Profit of the derivative.</p>
 </div>
 <h2 id="trading-derivatives"><strong>Trading Derivatives</strong><a class="headerlink" href="#trading-derivatives" title="Permanent link">&para;</a></h2>
-<p>Generally speaking, the <strong>buyer</strong> of the derivative contract is said to be taking a <strong>long position</strong> while the <strong>seller</strong> of the contract (counterparty) is known as taking a <strong>short position</strong>. Each contract is <strong>constructed differently</strong>, thus the exact interpretation of long and short is dependent on the type of contract.</p>
-<p>There are two main ways to trade derivatives:</p>
+<p>Generally speaking, the <strong>buyer</strong> of the derivative contract is said to be taking a <strong>long position</strong> while the <strong>seller</strong> of the contract (counterparty) is known as taking a <strong>short position</strong>. Taking <strong>both a long and short</strong> position on an identical contract will net out the obligations of the two positions, resulting in both positions being <strong>closed</strong>.</p>
+<p>There are two main markets to trade derivatives:</p>
+<p><center></p>
 <table>
 <thead>
 <tr>
@@ -1564,8 +1565,8 @@
 <td align="center">Standardized &amp; bespoke contracts</td>
 </tr>
 <tr>
-<td align="center">Centralized</td>
-<td align="center">Centralized (standardized) <br> Bilateral (Bespoke)</td>
+<td align="center">Centralized clearing only</td>
+<td align="center">Centralized or Bilateral clearing</td>
 </tr>
 <tr>
 <td align="center">More transactions, smaller sizes</td>
@@ -1573,19 +1574,32 @@
 </tr>
 </tbody>
 </table>
-<p>Bilateral trading refers to trading <strong>directly with another entity</strong> looking to enter the opposite position. Centralized trading refers to trading with a <strong>Centralized Counterparty</strong> (CCP) instead, which will automatically be the counterparty for the trade:</p>
+<p></center></p>
+<p><strong>Bilateral</strong> clearing refers to two counterparties <strong>directly trading</strong> with one another while <strong>Centralized</strong> clearing involves a <strong>Centralized Counterparty</strong> to step in and "break" the relationship between buyer and seller where:</p>
 <ul>
-<li>CCP will be the buyer to each seller</li>
-<li>CCP will be the seller to each buyer</li>
+<li>CCP will become the buyer to the seller</li>
+<li>CCP will become the seller to the buyer</li>
+<li>Form of <strong>Novation</strong> (contract replacement) where the original buyer and seller no longer have a legal relationship</li>
 </ul>
+<p>Only CCP broker members can trade with the CCP. If the current broker is not a member, the business can be funneled through a member broker to get the trade cleared.</p>
 <!-- Self Made -->
 <p><img alt="DERIVATIVE_TRADING" class="center" src="../Assets/0_DERIVATIVE_OVERVIEW.md/DERIVATIVE_TRADING.png" /></p>
+<p>Since CCPs only REPLACE contracts, there needs to have been an <strong>original counterparty</strong> in the first place. This is typically achieved through <strong>Market Makers</strong>, who <strong>continuously buy and sell assets</strong> (aiming to <strong>sell for slightly more</strong> than what it was bought for), readily acting as the counterparty to most trades, providing liquidity to the market.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>CCPs are a general term; in an exchange context, it is commonly known as the <strong>Clearing House</strong>. It is advised to use Clearhing House for Exchanges and CCPs for OTC markets. For simplicity, this set of notes will use CCP to refer to both.</p>
-<p>Only select Brokers or instuitions are allowed to trade with CCPs, known as <strong>CCP members</strong>.</p>
+<p>Key trading terminology:</p>
+<ul>
+<li><strong>Bid Price</strong> - Maximum amount that a <strong>buyer is willing to pay</strong> to obtain an asset</li>
+<li><strong>Ask Price</strong> - Lowest price that a <strong>seller is willing to accept</strong> to sell an asset</li>
+<li>Bid/Ask Price listed on most platforms is often an <strong>aggregation</strong> of all available orders in the market - EG. Highest, lowest, Average etc</li>
+</ul>
 </div>
-<p>CCPs only accept standardized contracts to ease the management of their portfolio.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In an exchange context, the CCP is typically known as the <strong>Clearing House</strong>.</p>
+<p>For simplicity, this set of notes will use CCP to refer to both.</p>
+</div>
+<h3 id="bilateral-trading"><strong>Bilateral Trading</strong><a class="headerlink" href="#bilateral-trading" title="Permanent link">&para;</a></h3>
 <h3 id="systematic-risk">Systematic Risk<a class="headerlink" href="#systematic-risk" title="Permanent link">&para;</a></h3>
 <p>To understand the benefits of CCPs, it is important to first understand the risks of trading bilaterally:</p>
 <ul>
@@ -1604,16 +1618,51 @@
 <h3 id="margin"><strong>Margin</strong><a class="headerlink" href="#margin" title="Permanent link">&para;</a></h3>
 <p>As mentioned, one of the primary methods that CCPs use to manage credit risk are via Margins. There are several key terminologies:</p>
 <ul>
-<li><strong>Initial Margin</strong> - Amount that must be posted when <strong>initially</strong> entering the contract</li>
-<li><strong>Variation Margin</strong> - Amount that is <strong>added/subtracted</strong> from the margin account to <strong>reflect gains/losses</strong></li>
-<li><strong>Maintenance Margin</strong> - <strong>Minimum amount</strong> required in the margin account to keep the contract in-force</li>
-<li><strong>Margin Call</strong> - <strong>Request to post more margin</strong> when the margin account falls below the maintenance margin</li>
+<li><strong>Initial Margin</strong> (IM) - Amount that must be posted when <strong>initially</strong> entering the contract</li>
+<li>
+<p><strong>Maintenance Margin</strong> - <strong>Minimum amount</strong> required in the margin account to keep the contract in-force</p>
+</li>
+<li>
+<p><strong>Variation Margin</strong> - Amount that is <strong>added/subtracted</strong> from the margin account to <strong>reflect gains/losses</strong></p>
+</li>
+<li>
+<p><strong>Margin Call</strong> - <strong>Request to post more margin</strong> when the margin account falls below the maintenance margin level</p>
+</li>
 </ul>
-<p>Daily settlement
-Intraday settlement
+<p>Margin requirements are determined by the CCP using <strong>mathematical models</strong>. Generally speaking, IM is set such that it can cover potential losses <strong>99% of the time</strong>; MM is typically set <strong>around 75%</strong> of the IM.</p>
+<p>Changes in margins are typically calculated only once at the end of each trading day, known as a <strong>Daily Settlement</strong>. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
+Margin call anytime?</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The purpose of any form of collateral is to ensure that an entity does not default on its obligations. Thus, only derivatives which <strong>imposes an obligation</strong> on the contract owner require margin.</p>
+<p>An option holder has a right but no obligation to buy or sell, while an option write has an obligation (if exercised) to buy or sell. Thus, option writers are typically required to post margin while option holders are not.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Margin posted using an asset (rather than cash) will be subject to a <strong>Haircut</strong>, where only a fraction of its market value at the time of posting will count towards margin.</p>
+<p>The primary purpose of collateral is to be used to recoup losses in the event of a default:</p>
+<ul>
+<li>Non-cash assets experience some level of <strong>price volatility</strong> and has the potential to drop before being sold, thus preventing its full value from being utilise</li>
+<li>Non-cash assets need to be sold (typically within a short period) thus less liquid assets may not be able to be utilized for its full value</li>
+</ul>
+<p>Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).</p>
+</div>
+<p>The clearing house requires each member broker to post margin</p>
+<p>Posting margin is a requirement of the CCP to its Broker members. Each member then requires its traders to post margin</p>
+<p>Intraday settlement
 Member and broker</p>
-<p>Obligation only</p>
-<h3 id="benefits-of-central-counterparties">Benefits of Central Counterparties<a class="headerlink" href="#benefits-of-central-counterparties" title="Permanent link">&para;</a></h3>
+<p>Client to broker (Initial margin)</p>
+<p>Unlike securities trading (where traders normally have to pay the full value of the asset, up-front) derivatives traders can get full exposure to an asset by “trading on margin” – that is, only paying a percentage of the value of the underlying asset, upfront. In this sense margin is often seen as leverage.</p>
+<p>The fundamental precaution is for the exchange to hold sufficient funds on behalf of a trader to offset any potential future losses that are incurred between the time of a potential default and the closing out of the position.</p>
+<p>Default &gt;&gt; will close position</p>
+<p>MTM resets losses, clean slates</p>
+<p>Need to be clear on the mechanics of default</p>
+<p>Fungibility for netting
+Default management can easily clear
+Single price for margin</p>
+<p>CCPs only accept standardized contracts to ease the management of their portfolio.</p>
+<p>Bilateral also need to clear CCP
+ISDA, CSA</p>
 <h2 id="forwards-futures"><strong>Forwards &amp; Futures</strong><a class="headerlink" href="#forwards-futures" title="Permanent link">&para;</a></h2>
 <h3 id="key-difference"><strong>Key Difference</strong><a class="headerlink" href="#key-difference" title="Permanent link">&para;</a></h3>
 <h2 id="call-put-options"><strong>Call &amp; Put Options</strong><a class="headerlink" href="#call-put-options" title="Permanent link">&para;</a></h2>
