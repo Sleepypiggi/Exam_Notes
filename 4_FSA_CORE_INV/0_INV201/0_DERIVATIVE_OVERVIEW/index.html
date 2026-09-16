@@ -1318,8 +1318,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#bilateral-trading" class="md-nav__link">
-    Bilateral Trading
+  <a href="#market-makers" class="md-nav__link">
+    Market Makers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otc-bilateral-trading" class="md-nav__link">
+    OTC Bilateral Trading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-traded-ccp" class="md-nav__link">
+    Exchange Traded CCP
   </a>
   
 </li>
@@ -1448,8 +1462,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#bilateral-trading" class="md-nav__link">
-    Bilateral Trading
+  <a href="#market-makers" class="md-nav__link">
+    Market Makers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otc-bilateral-trading" class="md-nav__link">
+    OTC Bilateral Trading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-traded-ccp" class="md-nav__link">
+    Exchange Traded CCP
   </a>
   
 </li>
@@ -1579,27 +1607,44 @@
 <ul>
 <li>CCP will become the buyer to the seller</li>
 <li>CCP will become the seller to the buyer</li>
-<li>Form of <strong>Novation</strong> (contract replacement) where the original buyer and seller no longer have a legal relationship</li>
+<li>Form of <strong>Novation</strong> (contract replacement) where the original buyer and seller <strong>no longer have a legal relationship</strong></li>
 </ul>
-<p>Only CCP broker members can trade with the CCP. If the current broker is not a member, the business can be funneled through a member broker to get the trade cleared.</p>
+<p>Only CCP <strong>broker members</strong> can trade with the CCP. If the current broker is not a member, the business can be funneled through a member broker to get the trade cleared.</p>
 <!-- Self Made -->
 <p><img alt="DERIVATIVE_TRADING" class="center" src="../Assets/0_DERIVATIVE_OVERVIEW.md/DERIVATIVE_TRADING.png" /></p>
-<p>Since CCPs only REPLACE contracts, there needs to have been an <strong>original counterparty</strong> in the first place. This is typically achieved through <strong>Market Makers</strong>, who <strong>continuously buy and sell assets</strong> (aiming to <strong>sell for slightly more</strong> than what it was bought for), readily acting as the counterparty to most trades, providing liquidity to the market.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<h3 id="market-makers"><strong>Market Makers</strong><a class="headerlink" href="#market-makers" title="Permanent link">&para;</a></h3>
+<p>Since CCPs only REPLACE contracts, there needs to have been an <strong>original counterparty</strong> in the first place. This is typically achieved through <strong>Market Makers</strong>, who <strong>continuously buy and sell assets</strong> (aiming to <strong>sell for slightly more</strong> than what it was bought for), readily acting as the counterparty to most trades, <strong>providing liquidity</strong> to the market.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not all trades have market makers as a counterparty, it is possible to match with another trader.</p>
+<p>One market might have multiple market makers, so multiple trades might match with different market makers.</p>
+</div>
 <p>Key trading terminology:</p>
 <ul>
-<li><strong>Bid Price</strong> - Maximum amount that a <strong>buyer is willing to pay</strong> to obtain an asset</li>
-<li><strong>Ask Price</strong> - Lowest price that a <strong>seller is willing to accept</strong> to sell an asset</li>
-<li>Bid/Ask Price listed on most platforms is often an <strong>aggregation</strong> of all available orders in the market - EG. Highest, lowest, Average etc</li>
+<li><strong>Bid Price</strong> - Amount that a <strong>prospective buyer</strong> would pay</li>
+<li><strong>Ask Price</strong> - Amount that a <strong>prospective seller</strong> would require</li>
 </ul>
-</div>
+<p>The practical interpretation is that we are the counterparty:</p>
+<ul>
+<li>Our buyer bids (Bid price = our selling price)</li>
+<li>Our seller asks (Ask price = our buying price)</li>
+</ul>
+<p>The Bid and Ask prices listed on most platforms are typically the <strong>highest Bid</strong> and <strong>lowest Ask</strong> price of all the <em>open orders</em> on the platform. They are <strong>best bid and ask prices</strong> at the moment. However, even the best Bid price is <strong>always lower</strong> than the Ask price; the gap is known as the <strong>Bid-Ask-Spread</strong>. An easy way to remember is that it is in <strong>ascending order</strong> - the lower bid price comes first in the name.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In an exchange context, the CCP is typically known as the <strong>Clearing House</strong>.</p>
-<p>For simplicity, this set of notes will use CCP to refer to both.</p>
+<p>Intuitively, any prospective buyer and seller with overlapping bid and ask prices <strong>would have already matched</strong> and have their trades cleared. Thus, the <em>outstanding</em> orders would <strong>NOT have matching bid and ask prices</strong>, where bid is lower than ask (if not the trade would have cleared). The <strong>Market Price</strong> is therefore the last overlapping bid and ask price that matched.</p>
 </div>
-<h3 id="bilateral-trading"><strong>Bilateral Trading</strong><a class="headerlink" href="#bilateral-trading" title="Permanent link">&para;</a></h3>
+<p>In order to continuously provide bid and ask quotes, market makers have to <strong>hold on to some level of inventory</strong> of the traded asset - it is impossible to immediately find a new buyer for each seller, vice-versa. In doing so, they take on some <strong>market risk</strong> as the price of the stock could move adversely during this time. Thus, they charge a <strong>risk premium</strong> in their quotes, with Ask prices being higher than their bid prices, targeting to <strong>earn the spread</strong>.</p>
+<ul>
+<li><strong>Price Volatility</strong> - Highly volatile stocks <strong>increase the market risk</strong> borne, increasing the spread</li>
+<li><strong>Liquidity</strong> - Lower liquidity markets require require market makers to <strong>hold onto the assets longer</strong>, exposing them to more risk, increasing the spread</li>
+<li><strong>Competition</strong> - Presence of other market makers will <strong>decrease spreads</strong> as each tries to win flows from each other</li>
+</ul>
+<p>Market makers earn more when their trading volume (both buying and selling to offset the position) is higher. However, lowering the spread to gain more volume might result in insufficient funds to cover the risk, resulting in losses instead. Thus, many market makers are turning to <strong>high frequency trading</strong> to process trades faster, thus <strong>winning orders from competition without having to compromise on spread</strong>.</p>
+<p>Large banks typically act as as market makers for commonly traded derivatives.</p>
+<h3 id="otc-bilateral-trading"><strong>OTC Bilateral Trading</strong><a class="headerlink" href="#otc-bilateral-trading" title="Permanent link">&para;</a></h3>
+<p>Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must <strong>agree on the specific terms</strong> of the contract. Most parties agree to use <strong>standard contract template</strong> known as a <strong>Master Agreement</strong> to minimize legal negotiations. The template is provided for by the <strong>International Swaps and Derivatives Association</strong> (ISDA) to make the OTC market safer and more efficient.</p>
+<h3 id="exchange-traded-ccp"><strong>Exchange Traded CCP</strong><a class="headerlink" href="#exchange-traded-ccp" title="Permanent link">&para;</a></h3>
 <h3 id="systematic-risk">Systematic Risk<a class="headerlink" href="#systematic-risk" title="Permanent link">&para;</a></h3>
 <p>To understand the benefits of CCPs, it is important to first understand the risks of trading bilaterally:</p>
 <ul>
