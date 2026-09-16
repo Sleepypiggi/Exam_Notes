@@ -50,11 +50,13 @@ Only CCP **broker members** can trade with the CCP. If the current broker is not
 
 ### **Market Makers**
 
-Since CCPs only REPLACE contracts, there needs to have been an **original counterparty** in the first place. This is typically achieved through **Market Makers**, who **continuously buy and sell assets** (aiming to **sell for slightly more** than what it was bought for), readily acting as the counterparty to most trades, providing liquidity to the market.
+Since CCPs only REPLACE contracts, there needs to have been an **original counterparty** in the first place. This is typically achieved through **Market Makers**, who **continuously buy and sell assets** (aiming to **sell for slightly more** than what it was bought for), readily acting as the counterparty to most trades, **providing liquidity** to the market.
 
 !!! Warning
 
-    Not all trades have Market Maker
+    Not all trades have market makers as a counterparty, it is possible to match with another trader.
+
+    One market might have multiple market makers, so multiple trades might match with different market makers.
 
 Key trading terminology:
 
@@ -66,28 +68,28 @@ The practical interpretation is that we are the counterparty:
 * Our buyer bids (Bid price = our selling price)
 * Our seller asks (Ask price = our buying price)
     
-The Bid and Ask prices listed on most platforms are typically the **highest Bid** and **lowest Ask** price of all the open orders on the platform. They are **best bid and ask prices** at the moment.
-    
-Even the best Bid price is always **lower** than the Ask price; the gap is known as the **Bid-Ask-Spread**. An easy way to remember is that it is in **ascending order** - the lower bid price comes first in the name.
-
-Intuitively, any prospective buyer and seller with overlapping bid and ask prices **would have already matched** and have their trades cleared. Thus, the *outstanding* orders would **NOT have matching bid and ask prices**, where bid is lower than ask (if not the trade would have cleared). The **Market Price** is therefore the last overlapping bid and ask price that matched.
-     
-Market Makers who continuously buy and sell securities (constantly providing a **large amount of bid and ask quotes**), will **always quote a higher ask price**, which also contributes to the spread.
-
-* 
-
-
-    
-
-    
+The Bid and Ask prices listed on most platforms are typically the **highest Bid** and **lowest Ask** price of all the *open orders* on the platform. They are **best bid and ask prices** at the moment. However, even the best Bid price is **always lower** than the Ask price; the gap is known as the **Bid-Ask-Spread**. An easy way to remember is that it is in **ascending order** - the lower bid price comes first in the name.
 
 !!! Note
 
-    In an exchange context, the CCP is typically known as the **Clearing House**.
+    Intuitively, any prospective buyer and seller with overlapping bid and ask prices **would have already matched** and have their trades cleared. Thus, the *outstanding* orders would **NOT have matching bid and ask prices**, where bid is lower than ask (if not the trade would have cleared). The **Market Price** is therefore the last overlapping bid and ask price that matched.
 
-    For simplicity, this set of notes will use CCP to refer to both.
+In order to continuously provide bid and ask quotes, market makers have to **hold on to some level of inventory** of the traded asset - it is impossible to immediately find a new buyer for each seller, vice-versa. In doing so, they take on some **market risk** as the price of the stock could move adversely during this time. Thus, they charge a **risk premium** in their quotes, with Ask prices being higher than their bid prices, targeting to **earn the spread**.
 
-### **Bilateral Trading**
+* **Price Volatility** - Highly volatile stocks **increase the market risk** borne, increasing the spread
+* **Liquidity** - Lower liquidity markets require require market makers to **hold onto the assets longer**, exposing them to more risk, increasing the spread
+* **Competition** - Presence of other market makers will **decrease spreads** as each tries to win flows from each other
+
+Market makers earn more when their trading volume (both buying and selling to offset the position) is higher. However, lowering the spread to gain more volume might result in insufficient funds to cover the risk, resulting in losses instead. Thus, many market makers are turning to **high frequency trading** to process trades faster, thus **winning orders from competition without having to compromise on spread**.
+
+Large banks typically act as as market makers for commonly traded derivatives.
+
+### **OTC Bilateral Trading**
+
+Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must **agree on the specific terms** of the contract. Most parties agree to use **standard contract template** known as a **Master Agreement** to minimize legal negotiations. The template is provided for by the **International Swaps and Derivatives Association** (ISDA) to make the OTC market safer and more efficient.
+
+### **Exchange Traded CCP**
+
 
 ### Systematic Risk
 
