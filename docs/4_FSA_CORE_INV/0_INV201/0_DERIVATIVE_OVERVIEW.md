@@ -41,22 +41,41 @@ There are two main markets to trade derivatives:
 
 * CCP will become the buyer to the seller
 * CCP will become the seller to the buyer
-* Form of **Novation** (contract replacement) where the original buyer and seller no longer have a legal relationship
+* Form of **Novation** (contract replacement) where the original buyer and seller **no longer have a legal relationship**
 
-Only CCP broker members can trade with the CCP. If the current broker is not a member, the business can be funneled through a member broker to get the trade cleared.
+Only CCP **broker members** can trade with the CCP. If the current broker is not a member, the business can be funneled through a member broker to get the trade cleared.
 
 <!-- Self Made -->
 ![DERIVATIVE_TRADING](Assets/0_DERIVATIVE_OVERVIEW.md/DERIVATIVE_TRADING.png){.center}
 
+### **Market Makers**
+
 Since CCPs only REPLACE contracts, there needs to have been an **original counterparty** in the first place. This is typically achieved through **Market Makers**, who **continuously buy and sell assets** (aiming to **sell for slightly more** than what it was bought for), readily acting as the counterparty to most trades, providing liquidity to the market.
 
-!!! Note
+!!! Warning
 
-    Key trading terminology:
+    Not all trades have Market Maker
 
-    * **Bid Price** - Maximum amount that a **buyer is willing to pay** to obtain an asset
-    * **Ask Price** - Lowest price that a **seller is willing to accept** to sell an asset
-    * Bid/Ask Price listed on most platforms is often an **aggregation** of all available orders in the market - EG. Highest, lowest, Average etc
+Key trading terminology:
+
+* **Bid Price** - Amount that a **prospective buyer** would pay
+* **Ask Price** - Amount that a **prospective seller** would require
+    
+The practical interpretation is that we are the counterparty:
+    
+* Our buyer bids (Bid price = our selling price)
+* Our seller asks (Ask price = our buying price)
+    
+The Bid and Ask prices listed on most platforms are typically the **highest Bid** and **lowest Ask** price of all the open orders on the platform. They are **best bid and ask prices** at the moment.
+    
+Even the best Bid price is always **lower** than the Ask price; the gap is known as the **Bid-Ask-Spread**. An easy way to remember is that it is in **ascending order** - the lower bid price comes first in the name.
+
+Intuitively, any prospective buyer and seller with overlapping bid and ask prices **would have already matched** and have their trades cleared. Thus, the *outstanding* orders would **NOT have matching bid and ask prices**, where bid is lower than ask (if not the trade would have cleared). The **Market Price** is therefore the last overlapping bid and ask price that matched.
+     
+Market Makers who continuously buy and sell securities (constantly providing a **large amount of bid and ask quotes**), will **always quote a higher ask price**, which also contributes to the spread.
+
+* 
+
 
     
 
