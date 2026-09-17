@@ -88,6 +88,13 @@ Large banks typically act as as market makers for commonly traded derivatives.
 
 Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must **agree on the specific terms** of the contract. Most parties agree to use **standard contract template** known as a **Master Agreement** to minimize legal negotiations. The template is provided for by the **International Swaps and Derivatives Association** (ISDA) to make the OTC market safer and more efficient.
 
+A major concern in these agreements is **Credit Risk** or **Counterparty risk** - the risk that the counterparty **does not fulfil its obligation** when it becomes due in the future.
+ 
+This can be mitigated via the use of Collateral
+ 
+Mitigate via collater
+ 
+ 
 ### **Exchange Traded CCP**
 
 
