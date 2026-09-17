@@ -1,29 +1,41 @@
-# **Derivative Overview**
+# **Introduction to Derivatives & Trading**
 
-The purpose of this section is to cover the following learning objectives:
+Derivatives are **financial contracts** between **two parties** that agree to a **future transaction(s)**. The value of the contract is **derived from** (hence the name) the value of an **underlying variable**:
 
-* 1a - Understand the payoffs of basic derivatives instruments
-* 1b - Be able to identify the key differences between forwards and futures
-* 1c - Be able top compare European, American, Bermudan, Asian options, and various exotic options
-* 1d - Understand the mechanics of derivatives trading
+* **Common Stock** - Unit of ownership in a company (EG. Apple stock)
+* **Indices** - Metric to track the performance of a group of assets (EG. S&P500 which tracks the top 500 US companies)
+* * **Commodities** - Raw materials, typically expressed in specific units (EG. Ounce of Metal, Bushel of Corn)
+* **Foreign Currency** - Expressed relative to another currency
+* **Interest Rates** - Expressed as a percentage
 
-## **Introduction to Derivatives**
+## **Trading Basics**
 
-Derivatives are **financial contracts** between **two parties** that agree to a **future transaction(s)**. The value of the contract is **derived from** (hence the name) the value of an **underlying variable** - both **financial** (EG. stock, interest rates) or **non-financial** metrics (EG. weather).
+Key trading terminology:
 
-The Payoff of a derivative is the **net cashflow received** from the perspective of the contractholder at the **time of the future transaction(s)**. Given that the value of the underlying variable is unknown, there is a **range of possible payoffs** that is usually expressed as a **function of the underlying variable**.
+* **Long position** - Benefit from **price increase**; buying an asset to later sell it
+* **Short position** - Benefit from **price decrease**; **short-selling** an asset
+* Entering an **identical long and short** position position will **close the position**
 
-!!! Note
+Short selling is the process of selling then buying:
 
-    If the transaction involves the **delivery** of an asset (EG. Stock, Corn), the payoff assumes that asset is either bought or sold at the market price at the time of the transaction.
+* **Borrowing an asset** now with the promise of returning the asset later
+* **Immediately selling** the asset to receive the current market price
+* **Buying the asset back in a future time** to return the asset at the future market price
+* Short seller gains when the price falls as they are able to restore the asset at a lower cost than what they borrowed it for
 
-!!! Warning
+## **Payoff & Profit**
 
-    Payoffs EXCLUDE the cost of the derivative. Thus, it is NOT THE SAME as the Profit of the derivative.
+The **Payoff** of an asset is the **terminal net cashflow** that would be received at the time that they **close** the position. It does NOT take into account cashflows at any other time, most importantly the cost of entering the position. Thus, the payoff is akin the **revenue** of the position.
 
-## **Trading Derivatives**
+The **Profit** of an asset is simply the Payoff that accounts for cashflows that occur at other times, mainly the **cost** of entering the position. Profit must take into account the **time value of money**, thus all other cashflows are **accumulated at the CONTINUOUS risk free rate** to the time the position is closed.
 
-Generally speaking, the **buyer** of the derivative contract is said to be taking a **long position** while the **seller** of the contract (counterparty) is known as taking a **short position**. Taking **both a long and short** position on an identical contract will net out the obligations of the two positions, resulting in both positions being **closed**.
+The exact Payoff and Profit are not known beforehand because it is impossible to predict the future price of an asset. Thus, they typically expressed **mathematically** or via a diagram, known as a **Payoff or Profit Diagram**.
+
+!!! Tip
+
+    The payoff and profit for a long and short position are always **OPPOSITE** of one another.
+
+## **Trading Markets**
 
 There are two main markets to trade derivatives:
 
@@ -31,6 +43,7 @@ There are two main markets to trade derivatives:
 
 |    **Exchange Traded Market**    |    **Over-the-Counter Market**    |
 | :------------------------------: | :-------------------------------: |
+|             Auction              |        Private Negotation         |
 |   Standardized contracts only    | Standardized & bespoke contracts  |
 |    Centralized clearing only     | Centralized or Bilateral clearing |
 | More transactions, smaller sizes | Fewer transactions, larger sizes  |
@@ -50,7 +63,7 @@ Only CCP **broker members** can trade with the CCP. If the current broker is not
 
 ### **Market Makers**
 
-Since CCPs only REPLACE contracts, there needs to have been an **original counterparty** in the first place. This is typically achieved through **Market Makers**, who **continuously buy and sell assets** (aiming to **sell for slightly more** than what it was bought for), readily acting as the counterparty to most trades, **providing liquidity** to the market.
+Since CCPs only *replace* counterparties, there needs to have been an **original counterparty** in the first place. This is typically achieved through **Market Makers**, who **continuously buy and sell assets** (aiming to **sell for slightly more** than what it was bought for), readily acting as the counterparty to most trades, **providing liquidity** to the market.
 
 !!! Warning
 
@@ -63,7 +76,7 @@ Key trading terminology:
 * **Bid Price** - Amount that a **prospective buyer** would pay
 * **Ask Price** - Amount that a **prospective seller** would require
     
-The practical interpretation is that we are the counterparty:
+The way to remember is that it is always from the perspective of the counterparty (Market Marker):
     
 * Our buyer bids (Bid price = our selling price)
 * Our seller asks (Ask price = our buying price)
@@ -82,7 +95,8 @@ In order to continuously provide bid and ask quotes, market makers have to **hol
 
 Market makers earn more when their trading volume (both buying and selling to offset the position) is higher. However, lowering the spread to gain more volume might result in insufficient funds to cover the risk, resulting in losses instead. Thus, many market makers are turning to **high frequency trading** to process trades faster, thus **winning orders from competition without having to compromise on spread**.
 
-Large banks typically act as as market makers for commonly traded derivatives.
+Most markets typically have **special arrangements** with market makers to **ensure liquidity** in the market. Most **large banks** typically act as market makers for commonly traded derivatives.
+
 
 ### **OTC Bilateral Trading**
 
@@ -178,13 +192,6 @@ CCPs only accept standardized contracts to ease the management of their portfoli
 Bilateral also need to clear CCP
 ISDA, CSA
 
-## **Forwards & Futures**
+## **Derivative Pricing**
 
-### **Key Difference**
-
-## **Call & Put Options**
-
-## **Swaps**
-
-## **Caps & Floors**
 
