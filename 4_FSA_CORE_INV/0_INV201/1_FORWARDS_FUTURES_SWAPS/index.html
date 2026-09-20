@@ -1367,7 +1367,40 @@
 <p>Conversely, a contract to purchase immediately is known as a <strong>Spot Contract</strong>. Similarly, the current price of an asset is known as the <strong>Spot Price</strong>.</p>
 </div>
 <h3 id="payoff-profit"><strong>Payoff &amp; Profit</strong><a class="headerlink" href="#payoff-profit" title="Permanent link">&para;</a></h3>
+<p>The payoff of a forward can be understood as the following:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Long Position</strong></th>
+<th align="center"><strong>Short Position</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Buy at Forward price</td>
+<td align="center">Buy at Spot price on delivery</td>
+</tr>
+<tr>
+<td align="center">Sell asset for Spot price on delivery</td>
+<td align="center">Sell for Forward price</td>
+</tr>
+<tr>
+<td align="center">$S_{T} - <span class="arithmatex">\(F\)</span></td>
+<td align="center">$F - <span class="arithmatex">\(S_{T}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<!-- Insert Image -->
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The short position assumes that the seller does not own the asset and hence has to purchase one on the delivery date.</p>
+<p>Even if the seller did own the asset beforehand, the asset could have been sold for the spot price instead of being sold to the forward purchaser, thus the payoff still holds true.</p>
+</div>
 <h3 id="forward-prices"><strong>Forward Prices</strong><a class="headerlink" href="#forward-prices" title="Permanent link">&para;</a></h3>
+<p>Following the no-arbitrage principle, the price of a forward can be determined using a replicating portfolio.</p>
 
 
 
