@@ -27,13 +27,23 @@ Short selling is the process of selling then buying:
 
 The **Payoff** of an asset is the **terminal net cashflow** that would be received at the time that they **close** the position. It does NOT take into account cashflows at any other time, most importantly the cost of entering the position. Thus, the payoff is akin the **revenue** of the position.
 
-The **Profit** of an asset is simply the Payoff that accounts for cashflows that occur at other times, mainly the **cost** of entering the position. Profit must take into account the **time value of money**, thus all other cashflows are **accumulated at the CONTINUOUS risk free rate** to the time the position is closed.
+The **Profit** of an asset is simply the Payoff that accounts for cashflows that occur at other times, mainly the **cost** of entering the position. Profit must take into account the **time value of money**, thus all other cashflows are **accumulated at the risk free rate** to the time the position is closed.
 
 The exact Payoff and Profit are not known beforehand because it is impossible to predict the future price of an asset. Thus, they typically expressed **mathematically** or via a diagram, known as a **Payoff or Profit Diagram**.
 
+The payoff and profit for a long and short position are always **OPPOSITE** of one another.
+
 !!! Tip
 
-    The payoff and profit for a long and short position are always **OPPOSITE** of one another.
+    For the purposes of this exam, it is assumed that interest is **compounded continuously**:
+    
+    * $r$ is the continuously compounded annual rate of interest
+    * $T$ is the number of years (fractional)
+    
+    $$
+        \text{FV} = Cashflow \cdot \exp{rT}
+    $$ 
+
 
 ## **Trading Markets**
 
@@ -60,6 +70,10 @@ Only CCP **broker members** can trade with the CCP. If the current broker is not
 
 <!-- Self Made -->
 ![DERIVATIVE_TRADING](Assets/0_DERIVATIVE_OVERVIEW.md/DERIVATIVE_TRADING.png){.center}
+
+!!! Note
+
+    Brokers also typically charge a **small commission** for each trade processed.
 
 ### **Market Makers**
 
@@ -97,14 +111,13 @@ Market makers earn more when their trading volume (both buying and selling to of
 
 Most markets typically have **special arrangements** with market makers to **ensure liquidity** in the market. Most **large banks** typically act as market makers for commonly traded derivatives.
 
-
 ### **OTC Bilateral Trading**
 
 Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must **agree on the specific terms** of the contract. Most parties agree to use **standard contract template** known as a **Master Agreement** to minimize legal negotiations. The template is provided for by the **International Swaps and Derivatives Association** (ISDA) to make the OTC market safer and more efficient.
 
 A major concern in these agreements is **Credit Risk** or **Counterparty risk** - the risk that the counterparty **does not fulfil its obligation** when it becomes due in the future.
  
-This can be mitigated via the use of Collateral
+This can be mitigated via the use of **Collateral**.
  
 Mitigate via collater
  
@@ -194,4 +207,11 @@ ISDA, CSA
 
 ## **Derivative Pricing**
 
+**Arbitrage** is the idea of making **risk free profit**, which is a core concept for derivative pricing:
 
+* Investment with **no initial cost** with a **non-negative future payoff** (probability of strictly positive payoff, zero otherwise)
+* Investment with **negative initial cost** (immediate cashflow) with **no future cost**
+
+The key idea is that if such arbitrage opportunities exist, traders would **immediately exploit them until** the prices of the assets adjust such that the arbitrage opportunity **no longer exists**. This means arbitrage opportunities **disappear very quickly**, thus it is reasonable to assume that **no such opportunities would exist** in an efficient(?) market.
+
+If an asset’s payoff can be replicated with a portfolio of other assets (**replicating portfolio**), then the price of the asset and portfolio should be **exactly the same**, if not an arbitrage opportunity would exist by longing the cheaper asset and shorting the more expensive asset.
