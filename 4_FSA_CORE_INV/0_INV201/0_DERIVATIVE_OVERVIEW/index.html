@@ -1530,13 +1530,33 @@
 <li><strong>Buying the asset back in a future time</strong> to return the asset at the future market price</li>
 <li>Short seller gains when the price falls as they are able to restore the asset at a lower cost than what they borrowed it for</li>
 </ul>
+<p>Short selling has the risk of creating a <strong>downward price spiral</strong> - traders who observe prices are going down begin to short, further driving the price down, inviting more traders to short, driving the price down further. Thus, short-selling has historically been <strong>regulated</strong>:</p>
+<ul>
+<li><strong>Uptick Rule</strong> (1938 - 2007) - Only short when the previous market price was an <strong>increase</strong> (uptick) or <strong>above the last traded</strong> market price</li>
+<li><strong>Alternative Uptick Rule</strong> (2010+) - If an asset's price <strong>fell by more than 10%</strong> in a single day, for the <strong>current and next trading day</strong>, short sales can only be executed <strong>above the current bid price</strong>; acting as a sort of <strong>circuit breaker</strong></li>
+</ul>
+<p>The intention behind the regulations were to <strong>slow down and stabilize</strong> the price of assets that was in decline. The original rule was removed due to:</p>
+<ul>
+<li><strong>Empirical</strong> studies finding the regulation to have limited effect</li>
+<li>Markets changing to allow for <strong>smaller price ticks</strong>, limiting the impact of a single tick</li>
+<li>Trading across multiple venues made it difficult to know what was the true "last price"</li>
+</ul>
+<p>The rule was thus repealed in 2007. However, after the financial crisis, there was pressure to bring the regulation back thus it was modified to overcome the shortcomings in the original. However, empirical evidence also suggests that its <strong>impact was limited</strong>.</p>
 <h2 id="payoff-profit"><strong>Payoff &amp; Profit</strong><a class="headerlink" href="#payoff-profit" title="Permanent link">&para;</a></h2>
 <p>The <strong>Payoff</strong> of an asset is the <strong>terminal net cashflow</strong> that would be received at the time that they <strong>close</strong> the position. It does NOT take into account cashflows at any other time, most importantly the cost of entering the position. Thus, the payoff is akin the <strong>revenue</strong> of the position.</p>
-<p>The <strong>Profit</strong> of an asset is simply the Payoff that accounts for cashflows that occur at other times, mainly the <strong>cost</strong> of entering the position. Profit must take into account the <strong>time value of money</strong>, thus all other cashflows are <strong>accumulated at the CONTINUOUS risk free rate</strong> to the time the position is closed.</p>
+<p>The <strong>Profit</strong> of an asset is simply the Payoff that accounts for cashflows that occur at other times, mainly the <strong>cost</strong> of entering the position. Profit must take into account the <strong>time value of money</strong>, thus all other cashflows are <strong>accumulated at the risk free rate</strong> to the time the position is closed.</p>
 <p>The exact Payoff and Profit are not known beforehand because it is impossible to predict the future price of an asset. Thus, they typically expressed <strong>mathematically</strong> or via a diagram, known as a <strong>Payoff or Profit Diagram</strong>.</p>
+<p>The payoff and profit for a long and short position are always <strong>OPPOSITE</strong> of one another.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The payoff and profit for a long and short position are always <strong>OPPOSITE</strong> of one another.</p>
+<p>For the purposes of this exam, it is assumed that interest is <strong>compounded continuously</strong>:</p>
+<ul>
+<li><span class="arithmatex">\(r\)</span> is the continuously compounded annual rate of interest</li>
+<li><span class="arithmatex">\(T\)</span> is the number of years (fractional)</li>
+</ul>
+<div class="arithmatex">\[
+    \text{FV} = Cashflow \cdot \exp{rT}
+\]</div>
 </div>
 <h2 id="trading-markets"><strong>Trading Markets</strong><a class="headerlink" href="#trading-markets" title="Permanent link">&para;</a></h2>
 <p>There are two main markets to trade derivatives:</p>
@@ -1577,6 +1597,10 @@
 <p>Only CCP <strong>broker members</strong> can trade with the CCP. If the current broker is not a member, the business can be funneled through a member broker to get the trade cleared.</p>
 <!-- Self Made -->
 <p><img alt="DERIVATIVE_TRADING" class="center" src="../Assets/0_DERIVATIVE_OVERVIEW.md/DERIVATIVE_TRADING.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Brokers also typically charge a <strong>small commission</strong> for each trade processed.</p>
+</div>
 <h3 id="market-makers"><strong>Market Makers</strong><a class="headerlink" href="#market-makers" title="Permanent link">&para;</a></h3>
 <p>Since CCPs only <em>replace</em> counterparties, there needs to have been an <strong>original counterparty</strong> in the first place. This is typically achieved through <strong>Market Makers</strong>, who <strong>continuously buy and sell assets</strong> (aiming to <strong>sell for slightly more</strong> than what it was bought for), readily acting as the counterparty to most trades, <strong>providing liquidity</strong> to the market.</p>
 <div class="admonition warning">
@@ -1610,7 +1634,7 @@
 <h3 id="otc-bilateral-trading"><strong>OTC Bilateral Trading</strong><a class="headerlink" href="#otc-bilateral-trading" title="Permanent link">&para;</a></h3>
 <p>Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must <strong>agree on the specific terms</strong> of the contract. Most parties agree to use <strong>standard contract template</strong> known as a <strong>Master Agreement</strong> to minimize legal negotiations. The template is provided for by the <strong>International Swaps and Derivatives Association</strong> (ISDA) to make the OTC market safer and more efficient.</p>
 <p>A major concern in these agreements is <strong>Credit Risk</strong> or <strong>Counterparty risk</strong> - the risk that the counterparty <strong>does not fulfil its obligation</strong> when it becomes due in the future.</p>
-<p>This can be mitigated via the use of Collateral</p>
+<p>This can be mitigated via the use of <strong>Collateral</strong>.</p>
 <p>Mitigate via collater</p>
 <h3 id="exchange-traded-ccp"><strong>Exchange Traded CCP</strong><a class="headerlink" href="#exchange-traded-ccp" title="Permanent link">&para;</a></h3>
 <h3 id="systematic-risk">Systematic Risk<a class="headerlink" href="#systematic-risk" title="Permanent link">&para;</a></h3>
@@ -1677,6 +1701,17 @@ Single price for margin</p>
 <p>Bilateral also need to clear CCP
 ISDA, CSA</p>
 <h2 id="derivative-pricing"><strong>Derivative Pricing</strong><a class="headerlink" href="#derivative-pricing" title="Permanent link">&para;</a></h2>
+<p><strong>Arbitrage</strong> is the idea of making <strong>risk free profit</strong>, which is a core concept for derivative pricing:</p>
+<ul>
+<li>Investment with <strong>no initial cost</strong> with a <strong>non-negative future payoff</strong> (probability of strictly positive payoff, zero otherwise)</li>
+<li>Investment with <strong>negative initial cost</strong> (immediate cashflow) with <strong>no future cost</strong></li>
+</ul>
+<p>The key idea is that if such arbitrage opportunities exist, traders would <strong>immediately exploit them until</strong> the prices of the assets adjust such that the arbitrage opportunity <strong>no longer exists</strong>. This means arbitrage opportunities <strong>disappear very quickly</strong>, thus it is reasonable to assume that <strong>no such opportunities would exist</strong> in an efficient(?) market.</p>
+<p>If an asset’s payoff can be replicated with a portfolio of other assets (<strong>replicating portfolio</strong>), then the price of the asset and portfolio should be <strong>exactly the same</strong>, if not an arbitrage opportunity would exist by longing the cheaper asset and shorting the more expensive asset</p>
+<p>There are several key assumptions when using the no-arbitrage premise for derivative pricing:</p>
+<ol>
+<li></li>
+</ol>
 
 
 
