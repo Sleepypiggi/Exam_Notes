@@ -38,13 +38,17 @@ The rule was thus repealed in 2007. However, after the financial crisis, there w
 
 ## **Payoff & Profit**
 
-The **Payoff** of an asset is the **terminal net cashflow** that would be received at the time that they **close** the position. It does NOT take into account cashflows at any other time, most importantly the cost of entering the position. Thus, the payoff is akin the **revenue** of the position.
+The **Payoff** of an asset is the **net CASHFLOW** that would be received at the time that they **close** the position. It does NOT take into account cashflows at any other time, most importantly the cost of entering the position. Thus, the payoff is akin the **revenue** of the position.
 
 The **Profit** of an asset is simply the Payoff that accounts for cashflows that occur at other times, mainly the **cost** of entering the position. Profit must take into account the **time value of money**, thus all other cashflows are **accumulated at the risk free rate** to the time the position is closed.
 
 The exact Payoff and Profit are not known beforehand because it is impossible to predict the future price of an asset. Thus, they typically expressed **mathematically** or via a diagram, known as a **Payoff or Profit Diagram**.
 
-The payoff and profit for a long and short position are always **OPPOSITE** of one another.
+The payoff and profit for a long and short position are always **EQUAL and OPPOSITE** of one another:
+
+$$
+    \text{Long Payoff/Profit} = -\text{Short Payoff/Profit}
+$$
 
 !!! Tip
 
@@ -226,8 +230,17 @@ ISDA, CSA
 
 The key idea is that if such arbitrage opportunities exist, traders would **immediately exploit them until** the prices of the assets adjust such that the arbitrage opportunity **no longer exists**. This means arbitrage opportunities **disappear very quickly**, thus it is reasonable to assume that **no such opportunities would exist** in an efficient(?) market.
 
-If an asset’s payoff can be replicated with a portfolio of other assets (**replicating portfolio**), then the price of the asset and portfolio should be **exactly the same**, if not an arbitrage opportunity would exist by longing the cheaper asset and shorting the more expensive asset
+If an asset’s payoff can be replicated with a portfolio of other assets (**replicating portfolio**), then the price of the asset and portfolio should be **exactly the same**, if not an arbitrage opportunity would exist by **buying the cheaper portfolio and selling the more expensive one**.
+
+!!! Tip
+
+    It is important to **identify** opportunities for arbitrage and **how to take advantage** of them. Thus, it is important to remember to "**Buy low and sell high**".
 
 There are several key assumptions when using the no-arbitrage premise for derivative pricing:
 
-1. 
+1. No transaction costs
+2. Equal tax treatment - Taxes does not distort the returns for each party
+3. Perfect divisibility
+4. Borrow and lend at RFR
+5. Unrestricted short selling, all assets able to be traded
+6. Key market participants monitor the market and will exploit arbitrage 
