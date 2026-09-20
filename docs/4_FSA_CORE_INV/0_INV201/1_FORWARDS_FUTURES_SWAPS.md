@@ -13,4 +13,7 @@ Forward contracts are an **Obligation** from both parties to buy or sell. As suc
 
     Conversely, a contract to purchase immediately is known as a **Spot Contract**. Similarly, the current price of an asset is known as the **Spot Price**.
     
-### Payoff 
+### **Payoff & Profit**
+
+### **Forward Prices**
+

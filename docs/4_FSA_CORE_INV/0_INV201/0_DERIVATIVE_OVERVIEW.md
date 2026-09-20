@@ -23,6 +23,19 @@ Short selling is the process of selling then buying:
 * **Buying the asset back in a future time** to return the asset at the future market price
 * Short seller gains when the price falls as they are able to restore the asset at a lower cost than what they borrowed it for
 
+Short selling has the risk of creating a **downward price spiral** - traders who observe prices are going down begin to short, further driving the price down, inviting more traders to short, driving the price down further. Thus, short-selling has historically been **regulated**:
+
+* **Uptick Rule** (1938 - 2007) - Only short when the previous market price was an **increase** (uptick) or **above the last traded** market price
+* **Alternative Uptick Rule** (2010+) - If an asset's price **fell by more than 10%** in a single day, for the **current and next trading day**, short sales can only be executed **above the current bid price**; acting as a sort of **circuit breaker**
+
+The intention behind the regulations were to **slow down and stabilize** the price of assets that was in decline. The original rule was removed due to:
+
+* **Empirical** studies finding the regulation to have limited effect
+* Markets changing to allow for **smaller price ticks**, limiting the impact of a single tick
+* Trading across multiple venues made it difficult to know what was the true "last price"
+
+The rule was thus repealed in 2007. However, after the financial crisis, there was pressure to bring the regulation back thus it was modified to overcome the shortcomings in the original. However, empirical evidence also suggests that its **impact was limited**.
+
 ## **Payoff & Profit**
 
 The **Payoff** of an asset is the **terminal net cashflow** that would be received at the time that they **close** the position. It does NOT take into account cashflows at any other time, most importantly the cost of entering the position. Thus, the payoff is akin the **revenue** of the position.
@@ -43,7 +56,6 @@ The payoff and profit for a long and short position are always **OPPOSITE** of o
     $$
         \text{FV} = Cashflow \cdot \exp{rT}
     $$ 
-
 
 ## **Trading Markets**
 
@@ -214,4 +226,8 @@ ISDA, CSA
 
 The key idea is that if such arbitrage opportunities exist, traders would **immediately exploit them until** the prices of the assets adjust such that the arbitrage opportunity **no longer exists**. This means arbitrage opportunities **disappear very quickly**, thus it is reasonable to assume that **no such opportunities would exist** in an efficient(?) market.
 
-If an asset’s payoff can be replicated with a portfolio of other assets (**replicating portfolio**), then the price of the asset and portfolio should be **exactly the same**, if not an arbitrage opportunity would exist by longing the cheaper asset and shorting the more expensive asset.
+If an asset’s payoff can be replicated with a portfolio of other assets (**replicating portfolio**), then the price of the asset and portfolio should be **exactly the same**, if not an arbitrage opportunity would exist by longing the cheaper asset and shorting the more expensive asset
+
+There are several key assumptions when using the no-arbitrage premise for derivative pricing:
+
+1. 
