@@ -1399,8 +1399,46 @@
 <p>The short position assumes that the seller does not own the asset and hence has to purchase one on the delivery date.</p>
 <p>Even if the seller did own the asset beforehand, the asset could have been sold for the spot price instead of being sold to the forward purchaser, thus the payoff still holds true.</p>
 </div>
+<p>There is <strong>NO COST</strong> to enter a forward contract. Thus, the payoff and profit of a forward are the <strong>same</strong>. </p>
 <h3 id="forward-prices"><strong>Forward Prices</strong><a class="headerlink" href="#forward-prices" title="Permanent link">&para;</a></h3>
-<p>Following the no-arbitrage principle, the price of a forward can be determined using a replicating portfolio.</p>
+<p>Since there is no cost to enter the contract, the primary concern is how much the asset should be bought or sold for</p>
+<p>For simplicity, consider an asset with NO income. Following the no-arbitrage principle, first construct a <strong>replicating portfolio</strong>:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Long Forward</strong></th>
+<th align="center"><strong>Short Forward</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Short underlying asset</td>
+<td align="center">Long underlying asset</td>
+</tr>
+<tr>
+<td align="center">Long <span class="arithmatex">\(F_{T}\)</span> zero coupon bond for <span class="arithmatex">\(T\)</span></td>
+<td align="center">Short <span class="arithmatex">\(F_{T}\)</span> zero coupon for <span class="arithmatex">\(T\)</span> bond</td>
+</tr>
+<tr>
+<td align="center">Payoff = <span class="arithmatex">\(S_{T} - F_{T}\)</span></td>
+<td align="center">Payoff = <span class="arithmatex">\(F_{T} - S_{T}\)</span></td>
+</tr>
+<tr>
+<td align="center">Cost = <span class="arithmatex">\(S_{0} - F_{T} \cdot e^{-rT}\)</span></td>
+<td align="center">Cost = <span class="arithmatex">\(F_{T} \cdot e^{-rT} - S_{0}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>Given that the <strong>cost of entering a forward contract is zero</strong>, the forward price can be shown to be:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    S_{0} - F_{T} \cdot e^{-rT} &amp;= 0 \\
+    F_{T} \cdot e^{-rT} - S_{0} &amp;= 0 \\
+    F_{T} &amp;= S_{0} \cdot e^{rT}
+\end{aligned}
+\]</div>
 
 
 
