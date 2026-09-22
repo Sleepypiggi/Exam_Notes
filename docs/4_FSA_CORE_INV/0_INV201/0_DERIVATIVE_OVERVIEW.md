@@ -230,11 +230,16 @@ ISDA, CSA
 
 The key idea is that if such arbitrage opportunities exist, traders would **immediately exploit them until** the prices of the assets adjust such that the arbitrage opportunity **no longer exists**. This means arbitrage opportunities **disappear very quickly**, thus it is reasonable to assume that **no such opportunities would exist** in an efficient(?) market.
 
-If an asset’s payoff can be replicated with a portfolio of other assets (**replicating portfolio**), then the price of the asset and portfolio should be **exactly the same**, if not an arbitrage opportunity would exist by **buying the cheaper portfolio and selling the more expensive one**.
+If an asset’s payoff can be replicated with a portfolio of other assets (**replicating portfolio**), then the price of the asset and replicating portfolio MUST be **exactly the same**, if not an arbitrage opportunity would exist by **buying the cheaper portfolio and selling the more expensive one**.
 
 !!! Tip
 
     It is important to **identify** opportunities for arbitrage and **how to take advantage** of them. Thus, it is important to remember to "**Buy low and sell high**".
+    
+    Generally speaking, it is the Derivative that is mispriced, rather than the components of the replicating portfolio.
+
+Thus, a central idea in derivative pricing is to construct **arbitrage portfolio** to show that there is only one theoretically correct price for the derivative such thet
+
 
 There are several key assumptions when using the no-arbitrage premise for derivative pricing:
 

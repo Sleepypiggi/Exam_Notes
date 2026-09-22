@@ -34,7 +34,13 @@ The payoff of a forward can be understood as the following:
     The short position assumes that the seller does not own the asset and hence has to purchase one on the delivery date.
 
     Even if the seller did own the asset beforehand, the asset could have been sold for the spot price instead of being sold to the forward purchaser, thus the payoff still holds true.
+    
+There is **NO COST** to enter a forward contract. Thus, the payoff and profit of a forward are the **same**. 
 
 ### **Forward Prices**
 
+Since there is no cost to enter the contract, the primary concern is how much the asset should be bought or sold for
+
 Following the no-arbitrage principle, the price of a forward can be determined using a replicating portfolio.
+
+
