@@ -41,6 +41,26 @@ There is **NO COST** to enter a forward contract. Thus, the payoff and profit of
 
 Since there is no cost to enter the contract, the primary concern is how much the asset should be bought or sold for
 
-Following the no-arbitrage principle, the price of a forward can be determined using a replicating portfolio.
+For simplicity, consider an asset with NO income. Following the no-arbitrage principle, first construct a **replicating portfolio**:
 
+<center>
+
+|           **Long Forward**            |           **Short Forward**            |
+| :-----------------------------------: | :------------------------------------: |
+|        Short underlying asset         |         Long underlying asset          |
+| Long $F_{T}$ zero coupon bond for $T$ | Short $F_{T}$ zero coupon for $T$ bond |
+|       Payoff = $S_{T} - F_{T}$        |        Payoff = $F_{T} - S_{T}$        |
+| Cost = $S_{0} - F_{T} \cdot e^{-rT}$  |  Cost = $F_{T} \cdot e^{-rT} - S_{0}$  |
+
+</center>
+
+Given that the **cost of entering a forward contract is zero**, the forward price can be shown to be:
+
+$$
+\begin{aligned}
+    S_{0} - F_{T} \cdot e^{-rT} &= 0 \\
+    F_{T} \cdot e^{-rT} - S_{0} &= 0 \\
+    F_{T} &= S_{0} \cdot e^{rT}
+\end{aligned}
+$$
 

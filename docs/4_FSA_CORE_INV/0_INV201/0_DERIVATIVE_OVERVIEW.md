@@ -228,17 +228,15 @@ ISDA, CSA
 * Investment with **no initial cost** with a **non-negative future payoff** (probability of strictly positive payoff, zero otherwise)
 * Investment with **negative initial cost** (immediate cashflow) with **no future cost**
 
-The key idea is that if such arbitrage opportunities exist, traders would **immediately exploit them until** the prices of the assets adjust such that the arbitrage opportunity **no longer exists**. This means arbitrage opportunities **disappear very quickly**, thus it is reasonable to assume that **no such opportunities would exist** in an efficient(?) market.
+The key idea is that if such arbitrage opportunities exist, traders would **immediately exploit them until** the prices of the assets adjust such that the arbitrage opportunity **no longer exists**. This means arbitrage opportunities **disappear very quickly**, thus it is reasonable to assume that **no such opportunities would exist** in an efficient market.
 
-If an asset’s payoff can be replicated with a portfolio of other assets (**replicating portfolio**), then the price of the asset and replicating portfolio MUST be **exactly the same**, if not an arbitrage opportunity would exist by **buying the cheaper portfolio and selling the more expensive one**.
+This concept is applied via the use of **replicating portfolios** - portfolios with the **same cashflows** as the derivative portfolio. The cost of the two portfolios **MUST be the same**, if not an arbitrage opportunity would exist by **buying the cheaper** portfolio and **selling the more expensive** one.
 
 !!! Tip
-
-    It is important to **identify** opportunities for arbitrage and **how to take advantage** of them. Thus, it is important to remember to "**Buy low and sell high**".
     
-    Generally speaking, it is the Derivative that is mispriced, rather than the components of the replicating portfolio.
+    While it is important to know how to derive derivative prices, it is equally important to know how to **identify and take advantage** of arbitrage opportunities as well as they are an application of the concept.
 
-Thus, a central idea in derivative pricing is to construct **arbitrage portfolio** to show that there is only one theoretically correct price for the derivative such thet
+
 
 
 There are several key assumptions when using the no-arbitrage premise for derivative pricing:
@@ -249,3 +247,5 @@ There are several key assumptions when using the no-arbitrage premise for deriva
 4. Borrow and lend at RFR
 5. Unrestricted short selling, all assets able to be traded
 6. Key market participants monitor the market and will exploit arbitrage 
+
+Not every trader needs to follow these assipt
