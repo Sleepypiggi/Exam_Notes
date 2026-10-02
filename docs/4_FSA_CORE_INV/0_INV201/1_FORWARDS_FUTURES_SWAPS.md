@@ -45,11 +45,11 @@ For simplicity, consider an asset with NO income. Following the no-arbitrage pri
 
 <center>
 
-|           **Long Forward**            |           **Short Forward**            |
+|           **Short Forward**            |           **Long Forward**            |
 | :-----------------------------------: | :------------------------------------: |
 |        Short underlying asset         |         Long underlying asset          |
 | Long $F_{T}$ zero coupon bond for $T$ | Short $F_{T}$ zero coupon for $T$ bond |
-|       Payoff = $S_{T} - F_{T}$        |        Payoff = $F_{T} - S_{T}$        |
+|       Payoff = $F_{T} - S_{T}$        |        Payoff = $S_{T} - F_{T}$        |
 | Cost = $S_{0} - F_{T} \cdot e^{-rT}$  |  Cost = $F_{T} \cdot e^{-rT} - S_{0}$  |
 
 </center>
@@ -63,4 +63,31 @@ $$
     F_{T} &= S_{0} \cdot e^{rT}
 \end{aligned}
 $$
+
+If the forwards are mispriced, the following arbitrage strategies can be use:
+
+* Forward more expensive - Cash & Carry - Sell Bond to get Cash to buy asset then carry till
+* Forward less expensive - Reverse Cash & Carry - Reverse of the above
+* Opposite of the replicating portfolio
+
+Cashflow table illustration
+Upper and lower limit
+
+With income >> Dividends or Coupons
+Need to borrow money to replicate the income
+For the purposes of pricing, we only care about the cost of entering today and the future payoff
+Thus, just discount to the present value
+Key is that remember that the interest rates may be different across different periods
+
+General dase of the forward
+When PV income is 0
+
+Arbitrage need to borrow for specific durations to replicate the dividend
+
+Continuous dividend >> Index
+
+Commod
+No guaranteed price
+
+ 
 
