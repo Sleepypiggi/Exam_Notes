@@ -106,7 +106,7 @@ Key trading terminology:
 * **Bid Price** - Amount that a **prospective buyer** would pay
 * **Ask Price** - Amount that a **prospective seller** would require
     
-The way to remember is that it is always from the perspective of the counterparty (Market Marker):
+The way to remember is that it is always from the **perspective of the counterparty** (Market Marker):
     
 * Our buyer bids (Bid price = our selling price)
 * Our seller asks (Ask price = our buying price)
@@ -126,6 +126,48 @@ In order to continuously provide bid and ask quotes, market makers have to **hol
 Market makers earn more when their trading volume (both buying and selling to offset the position) is higher. However, lowering the spread to gain more volume might result in insufficient funds to cover the risk, resulting in losses instead. Thus, many market makers are turning to **high frequency trading** to process trades faster, thus **winning orders from competition without having to compromise on spread**.
 
 Most markets typically have **special arrangements** with market makers to **ensure liquidity** in the market. Most **large banks** typically act as market makers for commonly traded derivatives.
+
+### Types of Orders
+
+**Market Orders** refer to executing the trade **immediately** at the best available price in the market at the time. It is guaranteed to execute, but there is no gurantee on the price it is executed at.
+
+* **Buyer** - Buy as low as possible - Lowest asking price available
+* **Seller** - Buy as low as possible - Highest bidding price available
+
+**Limit Orders** refer to executing the trade *ONLY* at the **specified limit price**. This does not guarantee the trade will execute (as it might never reach the limit) but does guarantee the limit price (or more favourable) in the event it does.
+
+* **Buyer** - Buy as low as possible - Executes at limit price or lower ($\le$) - **Maximum Price**
+* **Seller** - Sell as high as possible - Executes at limit price or higher ($\ge$) - **Minimum Price**
+
+**Stop Loss Orders** refer to executing a Market Order if the price reaches a **specified Unfavourable Stop Price**. This is meant to close out an existing position if the price moves unfavourably; stopping the loss.
+
+* **Short Position** - Buyer - Buy when the **price rises above** a certain threshold - Minimum Price
+* **Long Position** - Seller - Sell when the **price drops below** a certain threshold - Maximum Price
+
+!!! Note
+
+    Since the purpose of Stop Loss Orders are to **minimze losses**, the direction of the price movement is **opposite** from the typical scenario of maximizing gain.
+
+!!! Note
+
+    There is a variation of Stop Loss orders known as a **Stop Limit Order**. Instead of executing a Market Order once the threshold is reach, it becomes a **Limit Order** instead.
+
+    The order can specify any combination of Stop and Limit prices. Note that setting the Stop = Limit Price is **NOT the same as a regular stop loss order**, due to the **fundamental difference in Market and Limit orders**.
+
+**Market If Touched Orders** refer to executing a Market Order if the price reaches a **specified Favourable Price**. This is meant to close out an existing position if the price moves favourable; locking in profits.
+
+* **Short Position** - Buyer - Buy when the **price falls below** a certain threshold - Maximum Price
+* **Long Position** - Seller - Sell when the **price rises above** a certain threshold - Minimum Price
+
+!!! Note
+
+    MIT orders are the opposite of SL orders - meant to lock in profits rather than minimize losses.
+
+For all the above orders, there is typically a time condition that must be specified as well:
+
+* **Day Order** - Valid for the **entire trading day**
+* **Time of Day** - Valid for a **specified period during the trading day**
+* **Open Order** - Valid forever **till the order is cancelled**
 
 ### **OTC Bilateral Trading**
 
