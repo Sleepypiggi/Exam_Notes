@@ -1332,6 +1332,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#types-of-orders" class="md-nav__link">
+    Types of Orders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#otc-bilateral-trading" class="md-nav__link">
     OTC Bilateral Trading
   </a>
@@ -1444,6 +1451,13 @@
           <li class="md-nav__item">
   <a href="#market-makers" class="md-nav__link">
     Market Makers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-orders" class="md-nav__link">
+    Types of Orders
   </a>
   
 </li>
@@ -1616,7 +1630,7 @@
 <li><strong>Bid Price</strong> - Amount that a <strong>prospective buyer</strong> would pay</li>
 <li><strong>Ask Price</strong> - Amount that a <strong>prospective seller</strong> would require</li>
 </ul>
-<p>The way to remember is that it is always from the perspective of the counterparty (Market Marker):</p>
+<p>The way to remember is that it is always from the <strong>perspective of the counterparty</strong> (Market Marker):</p>
 <ul>
 <li>Our buyer bids (Bid price = our selling price)</li>
 <li>Our seller asks (Ask price = our buying price)</li>
@@ -1634,6 +1648,46 @@
 </ul>
 <p>Market makers earn more when their trading volume (both buying and selling to offset the position) is higher. However, lowering the spread to gain more volume might result in insufficient funds to cover the risk, resulting in losses instead. Thus, many market makers are turning to <strong>high frequency trading</strong> to process trades faster, thus <strong>winning orders from competition without having to compromise on spread</strong>.</p>
 <p>Most markets typically have <strong>special arrangements</strong> with market makers to <strong>ensure liquidity</strong> in the market. Most <strong>large banks</strong> typically act as market makers for commonly traded derivatives.</p>
+<h3 id="types-of-orders">Types of Orders<a class="headerlink" href="#types-of-orders" title="Permanent link">&para;</a></h3>
+<p><strong>Market Orders</strong> refer to executing the trade <strong>immediately</strong> at the best available price in the market at the time. It is guaranteed to execute, but there is no gurantee on the price it is executed at.</p>
+<ul>
+<li><strong>Buyer</strong> - Buy as low as possible - Lowest asking price available</li>
+<li><strong>Seller</strong> - Buy as low as possible - Highest bidding price available</li>
+</ul>
+<p><strong>Limit Orders</strong> refer to executing the trade <em>ONLY</em> at the <strong>specified limit price</strong>. This does not guarantee the trade will execute (as it might never reach the limit) but does guarantee the limit price (or more favourable) in the event it does.</p>
+<ul>
+<li><strong>Buyer</strong> - Buy as low as possible - Executes at limit price or lower (<span class="arithmatex">\(\le\)</span>) - <strong>Maximum Price</strong></li>
+<li><strong>Seller</strong> - Sell as high as possible - Executes at limit price or higher (<span class="arithmatex">\(\ge\)</span>) - <strong>Minimum Price</strong></li>
+</ul>
+<p><strong>Stop Loss Orders</strong> refer to executing a Market Order if the price reaches a <strong>specified Unfavourable Stop Price</strong>. This is meant to close out an existing position if the price moves unfavourably; stopping the loss.</p>
+<ul>
+<li><strong>Short Position</strong> - Buyer - Buy when the <strong>price rises above</strong> a certain threshold - Minimum Price</li>
+<li><strong>Long Position</strong> - Seller - Sell when the <strong>price drops below</strong> a certain threshold - Maximum Price</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the purpose of Stop Loss Orders are to <strong>minimze losses</strong>, the direction of the price movement is <strong>opposite</strong> from the typical scenario of maximizing gain.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a variation of Stop Loss orders known as a <strong>Stop Limit Order</strong>. Instead of executing a Market Order once the threshold is reach, it becomes a <strong>Limit Order</strong> instead.</p>
+<p>The order can specify any combination of Stop and Limit prices. Note that setting the Stop = Limit Price is <strong>NOT the same as a regular stop loss order</strong>, due to the <strong>fundamental difference in Market and Limit orders</strong>.</p>
+</div>
+<p><strong>Market If Touched Orders</strong> refer to executing a Market Order if the price reaches a <strong>specified Favourable Price</strong>. This is meant to close out an existing position if the price moves favourable; locking in profits.</p>
+<ul>
+<li><strong>Short Position</strong> - Buyer - Buy when the <strong>price falls below</strong> a certain threshold - Maximum Price</li>
+<li><strong>Long Position</strong> - Seller - Sell when the <strong>price rises above</strong> a certain threshold - Minimum Price</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MIT orders are the opposite of SL orders - meant to lock in profits rather than minimize losses.</p>
+</div>
+<p>For all the above orders, there is typically a time condition that must be specified as well:</p>
+<ul>
+<li><strong>Day Order</strong> - Valid for the <strong>entire trading day</strong></li>
+<li><strong>Time of Day</strong> - Valid for a <strong>specified period during the trading day</strong></li>
+<li><strong>Open Order</strong> - Valid forever <strong>till the order is cancelled</strong></li>
+</ul>
 <h3 id="otc-bilateral-trading"><strong>OTC Bilateral Trading</strong><a class="headerlink" href="#otc-bilateral-trading" title="Permanent link">&para;</a></h3>
 <p>Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must <strong>agree on the specific terms</strong> of the contract. Most parties agree to use <strong>standard contract template</strong> known as a <strong>Master Agreement</strong> to minimize legal negotiations. The template is provided for by the <strong>International Swaps and Derivatives Association</strong> (ISDA) to make the OTC market safer and more efficient.</p>
 <p>A major concern in these agreements is <strong>Credit Risk</strong> or <strong>Counterparty risk</strong> - the risk that the counterparty <strong>does not fulfil its obligation</strong> when it becomes due in the future.</p>

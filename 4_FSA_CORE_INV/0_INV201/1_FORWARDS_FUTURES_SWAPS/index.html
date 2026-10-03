@@ -1407,8 +1407,8 @@
 <table>
 <thead>
 <tr>
-<th align="center"><strong>Long Forward</strong></th>
 <th align="center"><strong>Short Forward</strong></th>
+<th align="center"><strong>Long Forward</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1421,8 +1421,8 @@
 <td align="center">Short <span class="arithmatex">\(F_{T}\)</span> zero coupon for <span class="arithmatex">\(T\)</span> bond</td>
 </tr>
 <tr>
-<td align="center">Payoff = <span class="arithmatex">\(S_{T} - F_{T}\)</span></td>
 <td align="center">Payoff = <span class="arithmatex">\(F_{T} - S_{T}\)</span></td>
+<td align="center">Payoff = <span class="arithmatex">\(S_{T} - F_{T}\)</span></td>
 </tr>
 <tr>
 <td align="center">Cost = <span class="arithmatex">\(S_{0} - F_{T} \cdot e^{-rT}\)</span></td>
@@ -1439,6 +1439,25 @@
     F_{T} &amp;= S_{0} \cdot e^{rT}
 \end{aligned}
 \]</div>
+<p>If the forwards are mispriced, the following arbitrage strategies can be use:</p>
+<ul>
+<li>Forward more expensive - Cash &amp; Carry - Sell Bond to get Cash to buy asset then carry till</li>
+<li>Forward less expensive - Reverse Cash &amp; Carry - Reverse of the above</li>
+<li>Opposite of the replicating portfolio</li>
+</ul>
+<p>Cashflow table illustration
+Upper and lower limit</p>
+<p>With income &gt;&gt; Dividends or Coupons
+Need to borrow money to replicate the income
+For the purposes of pricing, we only care about the cost of entering today and the future payoff
+Thus, just discount to the present value
+Key is that remember that the interest rates may be different across different periods</p>
+<p>General dase of the forward
+When PV income is 0</p>
+<p>Arbitrage need to borrow for specific durations to replicate the dividend</p>
+<p>Continuous dividend &gt;&gt; Index</p>
+<p>Commod
+No guaranteed price</p>
 
 
 
