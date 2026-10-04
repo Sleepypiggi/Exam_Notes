@@ -124,7 +124,7 @@ $$
 
 #### **Discrete Income**
 
-Consider an underlying asset that pays an **income in discrete time** - Dividend or Coupon, it must be accounted for. Since the forward contract holder **does NOT earn the income**, it should be **removed from the accumulated value** of the asset:
+Consider an underlying asset that pays an **income in discrete time** - Dividend stocks or Coupon bonds. The income must be accounted for. Since the forward contract holder **does NOT earn the income**, it should be **removed from the accumulated value** of the asset:
 
 $$
 \begin{aligned}
@@ -133,17 +133,21 @@ $$
 \end{aligned}
 $$
 
-The bottom's up derivation is identical to the no income case, with the key difference being that **additional borrowing/lending** needs to be done to **replicate the income** from the underlying asset. The key difference is that there might be **different interest rates** for different borrowing/lending durations, thus remember to use the correct rates.
+The bottom's up derivation is identical to the no income case, with the key difference being that **additional borrowing/lending** needs to be done to **replicate the income** from the underlying asset.
 
-Inser example?
+
+!!! Warning
+
+    Borrowing or lending for different durations may have different interest rates.
+
 
 #### **Continuous Income**
 
+Similarly, consider an asset that pays income in continuous time - a mutual fund with a collection of assets that pays income at different times, appearing continuous in totality.
 
 
 
-General dase of the forward
-When PV income is 0
+
 
 Arbitrage need to borrow for specific durations to replicate the dividend
 
