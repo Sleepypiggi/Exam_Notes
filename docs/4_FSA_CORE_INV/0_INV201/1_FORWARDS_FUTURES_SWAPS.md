@@ -45,16 +45,21 @@ For simplicity, consider an asset with NO income. Following the no-arbitrage pri
 
 <center>
 
-|           **Short Forward**            |           **Long Forward**            |
-| :-----------------------------------: | :------------------------------------: |
-|        Short underlying asset         |         Long underlying asset          |
-| Long $F_{T}$ zero coupon bond for $T$ | Short $F_{T}$ zero coupon for $T$ bond |
-|       Payoff = $F_{T} - S_{T}$        |        Payoff = $S_{T} - F_{T}$        |
-| Cost = $S_{0} - F_{T} \cdot e^{-rT}$  |  Cost = $F_{T} \cdot e^{-rT} - S_{0}$  |
+|            **Short Forward**            |            **Long Forward**             |
+| :-------------------------------------: | :-------------------------------------: |
+|         Short underlying asset          |          Long underlying asset          |
+|  Long $F_{T}$ zero coupon bond for $T$  | Short $F_{T}$ zero coupon for $T$ bond  |
+|        Payoff = $F_{T} - S_{T}$         |        Payoff = $S_{T} - F_{T}$         |
+| Cost = $-(S_{0} - F_{T} \cdot e^{-rT})$ | Cost = $-(F_{T} \cdot e^{-rT} - S_{0})$ |
 
 </center>
 
-Given that the **cost of entering a forward contract is zero**, the forward price can be shown to be:
+!!! Warning
+
+    Cost is often expressed assuming that the time 0 cashflow is an **OUTFLOW**. We usually think in terms of cash inflows, thus remember to add a negative at the front.
+
+
+Given that the **cost of entering a forward contract is zero**, the forward price can be shown to be the **accumulated value of the underlying asset**:
 
 $$
 \begin{aligned}
@@ -64,20 +69,78 @@ $$
 \end{aligned}
 $$
 
-If the forwards are mispriced, the following arbitrage strategies can be use:
+If the forwards are mispriced, the following **arbitrage strategies** can be use:
 
-* Forward more expensive - Cash & Carry - Sell Bond to get Cash to buy asset then carry till
-* Forward less expensive - Reverse Cash & Carry - Reverse of the above
-* Opposite of the replicating portfolio
+* Forward is **expensive** - **Cash & Carry** - Short Bond to **get Cash** to buy the asset and **carry the asset** till delivery
+* Forward is **cheaper** - **Reverse Cash & Carry** - Reverse of the above
 
-Cashflow table illustration
-Upper and lower limit
+!!! Tip
 
-With income >> Dividends or Coupons
-Need to borrow money to replicate the income
-For the purposes of pricing, we only care about the cost of entering today and the future payoff
-Thus, just discount to the present value
-Key is that remember that the interest rates may be different across different periods
+    Recall that arbitrage strategies are meant to buy low and sell high - **offsetting positions** that generate **riskless** profit.
+
+    Thus, arbitrage strategies can be formed by using the actual derivative and the **replicating portfolio of the offsetting position**.
+
+<Center>
+
+| **Cash & Carry**       | **Time 0 CF** |        **Time T CF**         |
+| :--------------------- | :-----------: | :--------------------------: |
+| **Short Forward**      |       0       |       $F_{T} - S_{T}$        |
+| **Short Bond (Cash)**  |    $S_{0}$    |    $-S_{0} \cdot e^{rT}$     |
+| **Long Asset (Carry)** |   $-S_{0}$    |           $S_{T}$            |
+| **Net Cashflow**       |       0       | $F_{T} - S_{0} \cdot e^{rT}$ |
+
+</Center>
+
+!!! Tip
+
+    The above portfolio achieves arbitrage by forcing the initial cashflow to 0 by **borrowing up to the initial spot price**, generating arbitrage at time $T$.
+
+    An alternative method is to force the terminal cashflow to 0 by borrowing the **PV of the forward price**, generating arbitrage at time 0.
+
+    Both of these methods are valid and will result in the **same arbitrage profits** after accounting for the time value of money.
+
+For an arbitrage opportunity to exist, the payoff at time T **must be positive**; the forward price must be more expensive:
+
+$$
+\begin{aligned}
+    F_{T} - S_{0} \cdot e^{rT} \gt 0
+    F_{T} \gt S_{0} \cdot e^{rT}
+\end{aligned}
+$$
+
+The reverse cash and carry strategy will lead to an opposite result. Thus, if arbitrage opportunities cannot exist, then the only possible price is the theoretical price shown above:
+
+$$
+\begin{aligned}
+    F_{T} \gt S_{0} \cdot e^{rT} \\
+    F_{T} \lt S_{0} \cdot e^{rT} \\
+    \therefore F_{T} &= S_{0} \cdot e^{rT}
+\end{aligned}
+$$
+
+!!! Tip
+
+    The key intuition that the absence of arbitrage opportunities forms an **upper and lower bound** on the price of the derivative, resulting in only theoretical price that satisfies both; if not a trader could utilize one of the strategies for arbitrage.
+
+#### **Discrete Income**
+
+Consider an underlying asset that pays an **income in discrete time** - Dividend or Coupon, it must be accounted for. Since the forward contract holder **does NOT earn the income**, it should be **removed from the accumulated value** of the asset:
+
+$$
+\begin{aligned}
+    F_{T, \text{Dividend}} &= S_{0} \cdot e^{rT} - \text{AV(Dividends)} \\
+    F_{T, \text{Dividend}} &= F_{T, \text{No Dividend}} - \text{AV(Dividends)}
+\end{aligned}
+$$
+
+The bottom's up derivation is identical to the no income case, with the key difference being that **additional borrowing/lending** needs to be done to **replicate the income** from the underlying asset. The key difference is that there might be **different interest rates** for different borrowing/lending durations, thus remember to use the correct rates.
+
+Inser example?
+
+#### **Continuous Income**
+
+
+
 
 General dase of the forward
 When PV income is 0
