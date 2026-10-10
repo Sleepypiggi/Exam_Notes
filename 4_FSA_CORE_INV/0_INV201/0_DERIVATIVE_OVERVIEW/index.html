@@ -1310,8 +1310,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#payoff-profit" class="md-nav__link">
-    Payoff &amp; Profit
+  <a href="#payoff-profit-value" class="md-nav__link">
+    Payoff, Profit &amp; Value
   </a>
   
 </li>
@@ -1387,6 +1387,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_FORWARDS_FUTURES_SWAPS/" class="md-nav__link">
+        FFS
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1434,8 +1448,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#payoff-profit" class="md-nav__link">
-    Payoff &amp; Profit
+  <a href="#payoff-profit-value" class="md-nav__link">
+    Payoff, Profit &amp; Value
   </a>
   
 </li>
@@ -1556,25 +1570,31 @@
 <li>Trading across multiple venues made it difficult to know what was the true "last price"</li>
 </ul>
 <p>The rule was thus repealed in 2007. However, after the financial crisis, there was pressure to bring the regulation back thus it was modified to overcome the shortcomings in the original. However, empirical evidence also suggests that its <strong>impact was limited</strong>.</p>
-<h2 id="payoff-profit"><strong>Payoff &amp; Profit</strong><a class="headerlink" href="#payoff-profit" title="Permanent link">&para;</a></h2>
-<p>The <strong>Payoff</strong> of an asset is the <strong>net CASHFLOW</strong> that would be received at the time that they <strong>close</strong> the position. It does NOT take into account cashflows at any other time, most importantly the cost of entering the position. Thus, the payoff is akin the <strong>revenue</strong> of the position.</p>
-<p>The <strong>Profit</strong> of an asset is simply the Payoff that accounts for cashflows that occur at other times, mainly the <strong>cost</strong> of entering the position. Profit must take into account the <strong>time value of money</strong>, thus all other cashflows are <strong>accumulated at the risk free rate</strong> to the time the position is closed.</p>
+<h2 id="payoff-profit-value"><strong>Payoff, Profit &amp; Value</strong><a class="headerlink" href="#payoff-profit-value" title="Permanent link">&para;</a></h2>
+<p>The <strong>Payoff</strong> of an asset is the amount that would be received <strong>at the time of expiration</strong>. It does NOT take into account cashflows at any other time (EG. Cost). Thus, the payoff is akin the <strong>revenue</strong> of the position.</p>
+<p>The <strong>Profit</strong> of an asset is the Payoff that <strong>accounts for cashflows that occur at other times</strong> (EG. Cost). Profit must take into account the <strong>time value of money</strong>, thus all other cashflows are <strong>accumulated at the risk free rate</strong> to the time the position is closed.</p>
 <p>The exact Payoff and Profit are not known beforehand because it is impossible to predict the future price of an asset. Thus, they typically expressed <strong>mathematically</strong> or via a diagram, known as a <strong>Payoff or Profit Diagram</strong>.</p>
 <p>The payoff and profit for a long and short position are always <strong>EQUAL and OPPOSITE</strong> of one another:</p>
 <div class="arithmatex">\[
     \text{Long Payoff/Profit} = -\text{Short Payoff/Profit}
 \]</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Payoff and Profit are BOTH occuring at the <strong>time of expiration</strong>.</p>
+<p>This translates <strong>Arbitrage Profit</strong> as well - thus, if the arbitrage profit is found at time 0, accumulate it to the expiration date.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>For the purposes of this exam, it is assumed that interest is <strong>compounded continuously</strong>:</p>
 <ul>
 <li><span class="arithmatex">\(r\)</span> is the continuously compounded annual rate of interest</li>
-<li><span class="arithmatex">\(T\)</span> is the number of years (fractional)</li>
+<li><span class="arithmatex">\(T\)</span> is the number of years (<strong>fractional</strong>)</li>
 </ul>
 <div class="arithmatex">\[
     \text{FV} = Cashflow \cdot \exp{rT}
 \]</div>
 </div>
+<p>The value of an asset is the <strong>expected present value</strong> of its payoff. It is essentially the theoretical <strong>market price of the contract</strong> at a given time.</p>
 <h2 id="trading-markets"><strong>Trading Markets</strong><a class="headerlink" href="#trading-markets" title="Permanent link">&para;</a></h2>
 <p>There are two main markets to trade derivatives:</p>
 <p><center></p>
@@ -1813,6 +1833,21 @@ ISDA, CSA</p>
           </div>
         </a>
       
+      
+        
+        <a href="../1_FORWARDS_FUTURES_SWAPS/" class="md-footer__link md-footer__link--next" aria-label="Next: FFS" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              FFS
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
