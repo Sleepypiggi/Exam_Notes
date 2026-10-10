@@ -374,18 +374,34 @@ $$
 
 ## **Forward Value**
 
-The value
+The value of a forward contract is the theoretical price of the contract at the current time.
 
-The **value** of a forward contract at any given time is the **present value of the difference in forward prices**:
+Consider the payoff of an existing forward contract at time $t$ before expiry - the existing contract can be closed out by entering into an opposing contract at that time. The value is the discounted payoff
+
+<center>
+
+0 t T
+
+
+</center>
+
+The value of the forward is the PV of the payoff:
 
 $$
 \begin{aligned}
-    V_{t} = (F_{t} - F_{0}) \cdot e^{-rt}
+    V_{t} &= (F_{0} - F_{t}) \cdot e^{-r(T-t)}
 \end{aligned}
 $$
 
-At time 0, the value of a forward contract must be 0
+!!! Warning
 
+    The payoff occurs at time $T$ while the valuation is at time $t$ - the discounting only occurs for the period in between.
+
+At time 0, the value of a forward contract is 0. Traders simultaneously entering and exiting a forward contract should not be able to make any profit.
+
+!!! Note
+
+    The present value of the stock price is assumed to be
 
 ## **Expected Future Spot Prices**
 
