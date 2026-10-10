@@ -36,11 +36,11 @@ The intention behind the regulations were to **slow down and stabilize** the pri
 
 The rule was thus repealed in 2007. However, after the financial crisis, there was pressure to bring the regulation back thus it was modified to overcome the shortcomings in the original. However, empirical evidence also suggests that its **impact was limited**.
 
-## **Payoff & Profit**
+## **Payoff, Profit & Value**
 
-The **Payoff** of an asset is the **net CASHFLOW** that would be received at the time that they **close** the position. It does NOT take into account cashflows at any other time, most importantly the cost of entering the position. Thus, the payoff is akin the **revenue** of the position.
+The **Payoff** of an asset is the amount that would be received **at the time of expiration**. It does NOT take into account cashflows at any other time (EG. Cost). Thus, the payoff is akin the **revenue** of the position.
 
-The **Profit** of an asset is simply the Payoff that accounts for cashflows that occur at other times, mainly the **cost** of entering the position. Profit must take into account the **time value of money**, thus all other cashflows are **accumulated at the risk free rate** to the time the position is closed.
+The **Profit** of an asset is the Payoff that **accounts for cashflows that occur at other times** (EG. Cost). Profit must take into account the **time value of money**, thus all other cashflows are **accumulated at the risk free rate** to the time the position is closed.
 
 The exact Payoff and Profit are not known beforehand because it is impossible to predict the future price of an asset. Thus, they typically expressed **mathematically** or via a diagram, known as a **Payoff or Profit Diagram**.
 
@@ -50,16 +50,24 @@ $$
     \text{Long Payoff/Profit} = -\text{Short Payoff/Profit}
 $$
 
-!!! Tip
+!!! Warning
+
+    Payoff and Profit are BOTH occuring at the **time of expiration**.
+    
+    This translates **Arbitrage Profit** as well - thus, if the arbitrage profit is found at time 0, accumulate it to the expiration date.
+
+!!! Note
 
     For the purposes of this exam, it is assumed that interest is **compounded continuously**:
     
     * $r$ is the continuously compounded annual rate of interest
-    * $T$ is the number of years (fractional)
+    * $T$ is the number of years (**fractional**)
     
     $$
         \text{FV} = Cashflow \cdot \exp{rT}
-    $$ 
+    $$
+
+The value of an asset is the **expected present value** of its payoff. It is essentially the theoretical **market price of the contract** at a given time.
 
 ## **Trading Markets**
 

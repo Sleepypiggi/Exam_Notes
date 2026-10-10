@@ -68,6 +68,7 @@ nav:
   - FSA Life Track:
     - INV201:
       - Introduction: 4_FSA_CORE_INV/0_INV201/0_DERIVATIVE_OVERVIEW.md
+      - FFS: 4_FSA_CORE_INV/0_INV201/1_FORWARDS_FUTURES_SWAPS.md
 
 markdown_extensions:
 
