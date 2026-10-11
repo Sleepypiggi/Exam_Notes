@@ -1,6 +1,8 @@
-# **Forwards**
+# **Forwards & Futures**
 
-A **Forward Contract** is an agreement between two parties to buy or sell a specified asset on a specified **future date** (Delivery Price) at a specified **future price** (Forward Price). There is **NO cost** to enter a forward contract.
+## **Forwards**
+
+A **Forward Contract** is an agreement between two parties to buy or sell a specified asset on a specified **future date** (Delivery Date) at a specified **future price** (Forward Price). There is **NO cost** to enter a forward contract.
 
 * **Long position** - **Buy the asset** at the delivery price on the delivery date
 * **Short position** - **Sell the asset** (deliver the asset) on the delivery price on the delivery date
@@ -15,7 +17,7 @@ Forward contracts are an **Obligation** from both parties to buy or sell. As suc
 
     Conversely, a contract to purchase immediately is known as a **Spot Contract**. Similarly, the current price of an asset is known as the **Spot Price**.
 
-## **Payoff & Profit**
+### **Payoff & Profit**
 
 The payoff of a forward can be understood as the following:
 
@@ -41,9 +43,13 @@ The payoff of a forward can be understood as the following:
 
     Even if the seller did own the asset beforehand, the asset could have been sold for the spot price instead of being sold to the forward purchaser, thus the payoff still holds true.
     
-There is **NO COST** to enter a forward contract. Thus, the payoff and profit of a forward are the **same**. 
+There is **NO COST** to enter a forward contract. Thus, the payoff and profit of a forward are the **same**:
 
-## **Forward Prices**
+$$
+    \text{Payoff}_{\text{Forward}} = \text{Profit}_{\text{Forward}}
+$$
+
+### **Forward Prices**
 
 For simplicity, consider an asset with NO income. Following the no-arbitrage principle, first construct a **replicating portfolio**:
 
@@ -155,7 +161,7 @@ $$
     
     This is why when the forward is mispriced, an arbitrage strategy exists to substitute one for the other and take opposing positions; the bond component is simply to balance.
 
-### **Discrete Income**
+#### **Discrete Income**
 
 Consider an underlying asset that pays an **income in discrete time** - Dividend Stock or Coupon Bonds:
 
@@ -217,7 +223,7 @@ $$
 
 The same (reverse) Cash & Carry strategies can be used to exploit arbitrage opportunities. Any income must be accounted for with additional borrowing/lending, similar to the replicating portfolio.
 
-### **Continuous Income (Known Yield)**
+#### **Continuous Income (Known Yield)**
 
 Consider an asset that instead pays **income continuously** - Stock indices. This income can be assumed to be **reinvested**, thus the rate of payment is more akin to a **continuously compounded yield** (similar to interest rates). Similar to before, the price of the underlying asset **must be adjusted** to account for the effect of this income. The key difference is that the continuous income is **adjusted via "discounting"** rather than a linear adjustment.
 
@@ -266,7 +272,7 @@ $$
 
 The same (reverse) Cash & Carry strategies can be used to exploit arbitrage opportunities. The yield must be accounted for by adjusting the number units to purchase at time 0.
 
-### **Foreign Currencies**
+#### **Foreign Currencies**
 
 If the underlying asset is a Foreign Currency, there are several key terminologies to take note of:
 
@@ -332,7 +338,7 @@ $$
 
 The same (reverse) Cash & Carry strategies can be used to exploit arbitrage opportunities. The yield must be accounted for by adjusting the number units to purchase at time 0; be clear on which rates to use.
 
-### **Commodities**
+#### **Commodities**
 
 There are two types of assets for Forward Contracts:
 
@@ -372,42 +378,73 @@ $$
 \end{aligned}
 $$
 
-## **Forward Value**
+### **Forward Value**
 
-The value of a forward contract is the theoretical price of the contract at the current time.
-
-Consider the payoff of an existing forward contract at time $t$ before expiry - the existing contract can be closed out by entering into an opposing contract at that time. The value is the discounted payoff
+The value of a forward contract is the theoretical price of the contract at the current time. Consider the payoff of an **existing forward contract at time $t$** before expiry - the existing contract can be **closed out by entering into an opposing contract** at that time:
 
 <center>
 
-0 t T
-
-
+| **Portfolio**              | Time 0 | Time t |     Time T      |
+| :------------------------- | :----: | :----: | :-------------: |
+| **Long Forward (Time 0)**  |   0    |   0    | $S_{T} - F_{0}$ |
+| **Short Forward (Time t)** |   0    |   0    | $F_{t} - S_{T}$ |
+| **Net Payoff**             |   0    |   0    | $F_{t} - F_{0}$ |
+ 
 </center>
 
-The value of the forward is the PV of the payoff:
+The value of the forward is the PV of the payoff at the **time of valuation**:
 
 $$
 \begin{aligned}
-    V_{t} &= (F_{0} - F_{t}) \cdot e^{-r(T-t)}
+    V_{t}
+    &= (F_{t} - F_{0}) \cdot e^{-r(T-t)} \\
+    &= \left[S_{t} \cdot e^{r(T-t)} - F_{0} \right] \cdot e^{-r(T-t)} \\
+    &= S_{t} - F_{0} \cdot e^{-r(T-t)}
 \end{aligned}
 $$
 
+There are two key times to observe:
+
+* **Time 0** - Equal to 0 (no cost to enter a forward contract)
+* **Time T** - Equal to payoff of the forward
+
+### **Expected Future Spot Prices**
+
+The forward price is the price that traders will pay on the delivery date; a trader could also transact at the spot price on the delivery date itself. Thus, the current price of forwards should reflect the **collective expectation** of the spot price on the delivery date:
+
+* **Cotango** - Forward price higher than expected future spot price -  $F_{0} \gt E[S_{T}]$
+* **Backwardation** - Forward price lower than expected future spot price -  $F_{0} \lt E[S_{T}]$
+
+## **Futures**
+
+A **Futures Contract** is an agreement between tw parties to buy or sell a specified asset during a specified future period of time (Delivery Period) at a specified future price (Futures Price). Futures contracts are functionally the same as forward contracts, with mainly **operational differences**:
+
+| **Forwards**            | **Futures**               |
+| :---------------------- | :------------------------ |
+| Traded on OTC           | Traded on Exchange        |
+| Bespoke Contract        | Standardized Contract     |
+| Specified Delivery Date | Specified Delivery Period |
+| Settled at the end      | Marked to Market          |
+| Held to maturity        | Closed before expiry      |
+| Some Credit Risk        | Minimal Credit Risk       |
+
+### **Contract Specification**
+
+### **Daily Settlement (Mark to Market)**
+
+Settlement refers to the fulfilment of the contract on maturity. There are two kinds of settlement available for Forwards & Futures:
+
+* **Physical Settlement** - Actual delivery of the underlying asset (EG. Gold, Cattle)
+* **Cash Settlement** - Cash payment of the payoff
+
+Forward contracts are typically held to maturity and settled. Futures contracts are **rarely held to maturity** and thus **rarely reach the settlement stage**. However, futures contracts do have a special **Mark to Market** feature where **profits and losses** on the contract are settled daily, **resetting the contract value** to 0 each day. This effectively breaks what would have been the **net payoff at closing** into smaller daily payments, which is why it is also known as **Daily Settlement**. 
+
+!!! Tip
+
+    It is known as Marking to Market as the process achieves the same effect as **closing out and entering a new futures contract at the prevailing market price**, hence marking the price to the current market price.
+
 !!! Warning
 
-    The payoff occurs at time $T$ while the valuation is at time $t$ - the discounting only occurs for the period in between.
+    If the futures contract is held to maturity, the contract holder must still 
 
-At time 0, the value of a forward contract is 0. Traders simultaneously entering and exiting a forward contract should not be able to make any profit.
 
-!!! Note
-
-    The present value of the stock price is assumed to be
-
-## **Expected Future Spot Prices**
-
-The forward price is the price that traders will pay on the delivery date. Thus, the current price of forwards should reflect the **collective expectation** of the spot price on the delivery date:
-
-* Normal Backwardation
-* Cotango
-
-There are two proposed explanations:
