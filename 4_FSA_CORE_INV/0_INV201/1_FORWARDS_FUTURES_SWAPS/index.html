@@ -1418,6 +1418,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#forwards-vs-futures-prices" class="md-nav__link">
+    Forwards vs Futures Prices
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1565,6 +1572,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forwards-vs-futures-prices" class="md-nav__link">
+    Forwards vs Futures Prices
+  </a>
   
 </li>
       
@@ -2251,6 +2265,62 @@ $$</p>
 <p class="admonition-title">Warning</p>
 <p>If the futures contract is held to maturity, the contract holder must still </p>
 </div>
+<h2 id="forwards-vs-futures-prices"><strong>Forwards vs Futures Prices</strong><a class="headerlink" href="#forwards-vs-futures-prices" title="Permanent link">&para;</a></h2>
+<p>Given the same underlying asset and delivery, the relationship between forward and futures prices depends on the <strong>nature of the interest rates</strong>:</p>
+<ul>
+<li><strong>Deterministic Rates</strong> - Theoretical World - Forward and Futures prices are the same</li>
+<li><strong>Stochastic Rates</strong> - Real world - Forward and Futures prices are DIFFERENT</li>
+</ul>
+<p>The primary reason is due to the <strong>time value of money</strong>. Futures uses daily settlements, which forces <strong>gains or losses to be realized earlier</strong>:</p>
+<ul>
+<li><strong>Deterministic Rates</strong> - Daily gains or losses will be <strong>reinvested or funded at a known rate</strong>, resulting in the <strong>same terminal payoff</strong> as a forward, resulting in the same price</li>
+<li><strong>Stochastic Rates</strong> - Daily gains or losses are <strong>reinvested at a different rates</strong>, resulting in <strong>different terminal payoffs</strong>, resulting in different prices</li>
+</ul>
+<p>The direction of the difference in the stochastic scenario depends on the relationship with the underlying asset (and hence the futures price):</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Positive Correlation</strong></th>
+<th align="center"><strong>Negative Correlation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Asset increases, interest increases</td>
+<td align="center">Asset increases, interest decreases</td>
+</tr>
+<tr>
+<td align="center">Asset decreases, interest decreases</td>
+<td align="center">Asset decreases, interest increases</td>
+</tr>
+<tr>
+<td align="center">Gains reinvested at higher rates</td>
+<td align="center">Gains reinvested at lower rates</td>
+</tr>
+<tr>
+<td align="center">Losses funded at lower rates</td>
+<td align="center">losses reinvested at higher rates</td>
+</tr>
+<tr>
+<td align="center">Better for long, worse for short</td>
+<td align="center">Better for short, worse for long</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Positive correlation is worse for short positions because their value is <strong>negatively correlated with the underlying</strong> - when prices increases, they experience losses which are funded with higher rates; <strong>opposite of the scenario</strong> described in the above table.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This intuition about the impact of time value can be extended to a wide variety of situations on whether a forward or future is more preferable to the other.</p>
+</div>
+<p>There may be other reasons why the prices can differ as well:</p>
+<ul>
+<li><strong>Other Costs</strong> - Taxes, transaction costs</li>
+<li><strong>Default Risk</strong> - Futures are marked to market hence have <strong>lower default risk</strong>; possibly lower price</li>
+<li><strong>Liquidity</strong> - Futures are exchange traded hence have <strong>higher liquidity</strong>; possibly lower price</li>
+</ul>
 
 
 

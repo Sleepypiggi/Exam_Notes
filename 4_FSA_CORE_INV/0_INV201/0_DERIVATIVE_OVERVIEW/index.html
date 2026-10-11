@@ -1339,6 +1339,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#leverage-margin" class="md-nav__link">
+    Leverage &amp; Margin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#otc-bilateral-trading" class="md-nav__link">
     OTC Bilateral Trading
   </a>
@@ -1472,6 +1479,13 @@
           <li class="md-nav__item">
   <a href="#types-of-orders" class="md-nav__link">
     Types of Orders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leverage-margin" class="md-nav__link">
+    Leverage &amp; Margin
   </a>
   
 </li>
@@ -1668,7 +1682,7 @@
 </ul>
 <p>Market makers earn more when their trading volume (both buying and selling to offset the position) is higher. However, lowering the spread to gain more volume might result in insufficient funds to cover the risk, resulting in losses instead. Thus, many market makers are turning to <strong>high frequency trading</strong> to process trades faster, thus <strong>winning orders from competition without having to compromise on spread</strong>.</p>
 <p>Most markets typically have <strong>special arrangements</strong> with market makers to <strong>ensure liquidity</strong> in the market. Most <strong>large banks</strong> typically act as market makers for commonly traded derivatives.</p>
-<h3 id="types-of-orders">Types of Orders<a class="headerlink" href="#types-of-orders" title="Permanent link">&para;</a></h3>
+<h3 id="types-of-orders"><strong>Types of Orders</strong><a class="headerlink" href="#types-of-orders" title="Permanent link">&para;</a></h3>
 <p><strong>Market Orders</strong> refer to executing the trade <strong>immediately</strong> at the best available price in the market at the time. It is guaranteed to execute, but there is no gurantee on the price it is executed at.</p>
 <ul>
 <li><strong>Buyer</strong> - Buy as low as possible - Lowest asking price available</li>
@@ -1708,6 +1722,32 @@
 <li><strong>Time of Day</strong> - Valid for a <strong>specified period during the trading day</strong></li>
 <li><strong>Open Order</strong> - Valid forever <strong>till the order is cancelled</strong></li>
 </ul>
+<h3 id="leverage-margin"><strong>Leverage &amp; Margin</strong><a class="headerlink" href="#leverage-margin" title="Permanent link">&para;</a></h3>
+<p>A <strong>leveraged position</strong> refers to holding a position with (significantly) <strong>larger market value compared to the trader's initial cash outlay</strong> to enter the position; trading on credit. It is often expressed as a <strong>ratio</strong> of the two amounts (EG. 10:1).</p>
+<p>One of the primary concerns with leverage is <strong>default risk</strong>. Given the relative size of the market position, even minor adverse price movements can result in losses larger than the initial cash position, resulting in a <strong>potentially large debt</strong> to that the trader might not be able to pay.</p>
+<p>Thus, in order to mitigate such risks, most exchanges require brokers (and hence traders) to post a form collateral known as <strong>Margin</strong> with them to <strong>reduce default risk</strong>:</p>
+<ul>
+<li><strong>Initial Margin</strong> - Amount that must be posted when <strong>initially</strong> entering the position</li>
+<li><strong>Maintenance Margin</strong> - <strong>Minimum amount</strong> required in the margin account to keep the position open at a given time</li>
+<li><strong>Variation Margin</strong> - Amount that is <strong>added/subtracted</strong> from the margin account to <strong>reflect gains/losses</strong></li>
+<li><strong>Margin Call</strong> - <strong>Request to post more margin</strong> when the margin account falls below the maintenance margin level; failure will result in the position being closed</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Margin requirements are determined by the exchange using complex <strong>mathematical models</strong>, such that the amount is able to cover potential losses up to a certain confidence level.</p>
+<p>The exchange requires brokers to post margin with the exchange. Brokers then require their traders to post margin with them, to fund the margin needed for the exchange.</p>
+<p>Generally speaking, IM is set such that it can cover potential losses <strong>99% of the time</strong>; MM is typically set <strong>around 75%</strong> of the IM.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Margin posted using an asset (rather than cash) will be subject to a <strong>Haircut</strong>, where only a fraction of its market value at the time of posting will count towards margin.</p>
+<p>The primary purpose of collateral is to be used to recoup losses in the event of a default:</p>
+<ul>
+<li>Non-cash assets experience some level of <strong>price volatility</strong> and has the potential to drop before being sold, thus preventing its full value from being utilise</li>
+<li>Non-cash assets need to be sold (typically within a short period) thus less liquid assets may not be able to be utilized for its full value</li>
+</ul>
+<p>Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).</p>
+</div>
 <h3 id="otc-bilateral-trading"><strong>OTC Bilateral Trading</strong><a class="headerlink" href="#otc-bilateral-trading" title="Permanent link">&para;</a></h3>
 <p>Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must <strong>agree on the specific terms</strong> of the contract. Most parties agree to use <strong>standard contract template</strong> known as a <strong>Master Agreement</strong> to minimize legal negotiations. The template is provided for by the <strong>International Swaps and Derivatives Association</strong> (ISDA) to make the OTC market safer and more efficient.</p>
 <p>A major concern in these agreements is <strong>Credit Risk</strong> or <strong>Counterparty risk</strong> - the risk that the counterparty <strong>does not fulfil its obligation</strong> when it becomes due in the future.</p>
@@ -1730,38 +1770,8 @@
 <li>Since each party is less likely to default, the CCP itself is less likely to fail and hence <strong>lower systematic risk</strong></li>
 </ul>
 <h3 id="margin"><strong>Margin</strong><a class="headerlink" href="#margin" title="Permanent link">&para;</a></h3>
-<p>As mentioned, one of the primary methods that CCPs use to manage credit risk are via Margins. There are several key terminologies:</p>
-<ul>
-<li><strong>Initial Margin</strong> (IM) - Amount that must be posted when <strong>initially</strong> entering the contract</li>
-<li>
-<p><strong>Maintenance Margin</strong> - <strong>Minimum amount</strong> required in the margin account to keep the contract in-force</p>
-</li>
-<li>
-<p><strong>Variation Margin</strong> - Amount that is <strong>added/subtracted</strong> from the margin account to <strong>reflect gains/losses</strong></p>
-</li>
-<li>
-<p><strong>Margin Call</strong> - <strong>Request to post more margin</strong> when the margin account falls below the maintenance margin level</p>
-</li>
-</ul>
-<p>Margin requirements are determined by the CCP using <strong>mathematical models</strong>. Generally speaking, IM is set such that it can cover potential losses <strong>99% of the time</strong>; MM is typically set <strong>around 75%</strong> of the IM.</p>
 <p>Changes in margins are typically calculated only once at the end of each trading day, known as a <strong>Daily Settlement</strong>. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
 Margin call anytime?</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The purpose of any form of collateral is to ensure that an entity does not default on its obligations. Thus, only derivatives which <strong>imposes an obligation</strong> on the contract owner require margin.</p>
-<p>An option holder has a right but no obligation to buy or sell, while an option write has an obligation (if exercised) to buy or sell. Thus, option writers are typically required to post margin while option holders are not.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Margin posted using an asset (rather than cash) will be subject to a <strong>Haircut</strong>, where only a fraction of its market value at the time of posting will count towards margin.</p>
-<p>The primary purpose of collateral is to be used to recoup losses in the event of a default:</p>
-<ul>
-<li>Non-cash assets experience some level of <strong>price volatility</strong> and has the potential to drop before being sold, thus preventing its full value from being utilise</li>
-<li>Non-cash assets need to be sold (typically within a short period) thus less liquid assets may not be able to be utilized for its full value</li>
-</ul>
-<p>Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).</p>
-</div>
-<p>The clearing house requires each member broker to post margin</p>
 <p>Posting margin is a requirement of the CCP to its Broker members. Each member then requires its traders to post margin</p>
 <p>Intraday settlement
 Member and broker</p>
@@ -1769,7 +1779,6 @@ Member and broker</p>
 <p>Unlike securities trading (where traders normally have to pay the full value of the asset, up-front) derivatives traders can get full exposure to an asset by “trading on margin” – that is, only paying a percentage of the value of the underlying asset, upfront. In this sense margin is often seen as leverage.</p>
 <p>The fundamental precaution is for the exchange to hold sufficient funds on behalf of a trader to offset any potential future losses that are incurred between the time of a potential default and the closing out of the position.</p>
 <p>Default &gt;&gt; will close position</p>
-<p>MTM resets losses, clean slates</p>
 <p>Need to be clear on the mechanics of default</p>
 <p>Fungibility for netting
 Default management can easily clear
