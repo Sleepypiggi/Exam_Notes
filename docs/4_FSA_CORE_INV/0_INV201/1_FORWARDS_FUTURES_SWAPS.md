@@ -448,3 +448,38 @@ Forward contracts are typically held to maturity and settled. Futures contracts 
     If the futures contract is held to maturity, the contract holder must still 
 
 
+## **Forwards vs Futures Prices**
+
+Given the same underlying asset and delivery, the relationship between forward and futures prices depends on the **nature of the interest rates**:
+
+* **Deterministic Rates** - Theoretical World - Forward and Futures prices are the same
+* **Stochastic Rates** - Real world - Forward and Futures prices are DIFFERENT
+
+The primary reason is due to the **time value of money**. Futures uses daily settlements, which forces **gains or losses to be realized earlier**:
+
+* **Deterministic Rates** - Daily gains or losses will be **reinvested or funded at a known rate**, resulting in the **same terminal payoff** as a forward, resulting in the same price
+* **Stochastic Rates** - Daily gains or losses are **reinvested at a different rates**, resulting in **different terminal payoffs**, resulting in different prices
+
+The direction of the difference in the stochastic scenario depends on the relationship with the underlying asset (and hence the futures price):
+
+|      **Positive Correlation**       |      **Negative Correlation**       |
+| :---------------------------------: | :---------------------------------: |
+| Asset increases, interest increases | Asset increases, interest decreases |
+| Asset decreases, interest decreases | Asset decreases, interest increases |
+|  Gains reinvested at higher rates   |   Gains reinvested at lower rates   |
+|    Losses funded at lower rates     |  losses reinvested at higher rates  |
+|  Better for long, worse for short   |  Better for short, worse for long   |
+
+!!! Note
+
+    Positive correlation is worse for short positions because their value is **negatively correlated with the underlying** - when prices increases, they experience losses which are funded with higher rates; **opposite of the scenario** described in the above table.
+
+!!! Tip
+
+    This intuition about the impact of time value can be extended to a wide variety of situations on whether a forward or future is more preferable to the other.
+
+There may be other reasons why the prices can differ as well:
+
+* **Other Costs** - Taxes, transaction costs
+* **Default Risk** - Futures are marked to market hence have **lower default risk**; possibly lower price
+* **Liquidity** - Futures are exchange traded hence have **higher liquidity**; possibly lower price

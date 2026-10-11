@@ -135,7 +135,7 @@ Market makers earn more when their trading volume (both buying and selling to of
 
 Most markets typically have **special arrangements** with market makers to **ensure liquidity** in the market. Most **large banks** typically act as market makers for commonly traded derivatives.
 
-### Types of Orders
+### **Types of Orders**
 
 **Market Orders** refer to executing the trade **immediately** at the best available price in the market at the time. It is guaranteed to execute, but there is no gurantee on the price it is executed at.
 
@@ -177,9 +177,45 @@ For all the above orders, there is typically a time condition that must be speci
 * **Time of Day** - Valid for a **specified period during the trading day**
 * **Open Order** - Valid forever **till the order is cancelled**
 
+### **Leverage & Margin**
+
+A **leveraged position** refers to holding a position with (significantly) **larger market value compared to the trader's initial cash outlay** to enter the position; trading on credit. It is often expressed as a **ratio** of the two amounts (EG. 10:1).
+
+One of the primary concerns with leverage is **default risk**. Given the relative size of the market position, even minor adverse price movements can result in losses larger than the initial cash position, resulting in a **potentially large debt** to that the trader might not be able to pay.
+
+Thus, in order to mitigate such risks, most exchanges require brokers (and hence traders) to post a form collateral known as **Margin** with them to **reduce default risk**:
+
+* **Initial Margin** - Amount that must be posted when **initially** entering the position
+* **Maintenance Margin** - **Minimum amount** required in the margin account to keep the position open at a given time
+* **Variation Margin** - Amount that is **added/subtracted** from the margin account to **reflect gains/losses**
+* **Margin Call** - **Request to post more margin** when the margin account falls below the maintenance margin level; failure will result in the position being closed
+
+!!! Note
+
+    Margin requirements are determined by the exchange using complex **mathematical models**, such that the amount is able to cover potential losses up to a certain confidence level.
+
+    The exchange requires brokers to post margin with the exchange. Brokers then require their traders to post margin with them, to fund the margin needed for the exchange.
+    
+    
+    Generally speaking, IM is set such that it can cover potential losses **99% of the time**; MM is typically set **around 75%** of the IM.
+
+!!! Warning
+
+    Margin posted using an asset (rather than cash) will be subject to a **Haircut**, where only a fraction of its market value at the time of posting will count towards margin.
+    
+    The primary purpose of collateral is to be used to recoup losses in the event of a default:
+    
+    * Non-cash assets experience some level of **price volatility** and has the potential to drop before being sold, thus preventing its full value from being utilise
+    * Non-cash assets need to be sold (typically within a short period) thus less liquid assets may not be able to be utilized for its full value
+    
+    Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).
+
 ### **OTC Bilateral Trading**
 
 Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must **agree on the specific terms** of the contract. Most parties agree to use **standard contract template** known as a **Master Agreement** to minimize legal negotiations. The template is provided for by the **International Swaps and Derivatives Association** (ISDA) to make the OTC market safer and more efficient.
+
+
+
 
 A major concern in these agreements is **Credit Risk** or **Counterparty risk** - the risk that the counterparty **does not fulfil its obligation** when it becomes due in the future.
  
@@ -209,41 +245,18 @@ CCPs centralize the structure, converting it into a **single point of failure** 
 
 ### **Margin**
 
-As mentioned, one of the primary methods that CCPs use to manage credit risk are via Margins. There are several key terminologies:
 
-* **Initial Margin** (IM) - Amount that must be posted when **initially** entering the contract
-* **Maintenance Margin** - **Minimum amount** required in the margin account to keep the contract in-force
 
- 
-* **Variation Margin** - Amount that is **added/subtracted** from the margin account to **reflect gains/losses**
-
-* **Margin Call** - **Request to post more margin** when the margin account falls below the maintenance margin level
-
-Margin requirements are determined by the CCP using **mathematical models**. Generally speaking, IM is set such that it can cover potential losses **99% of the time**; MM is typically set **around 75%** of the IM.
 
 
 Changes in margins are typically calculated only once at the end of each trading day, known as a **Daily Settlement**. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
 Margin call anytime?
 
 
-!!! Note
 
-    The purpose of any form of collateral is to ensure that an entity does not default on its obligations. Thus, only derivatives which **imposes an obligation** on the contract owner require margin.
     
-    An option holder has a right but no obligation to buy or sell, while an option write has an obligation (if exercised) to buy or sell. Thus, option writers are typically required to post margin while option holders are not.
-    
-!!! Warning
 
-    Margin posted using an asset (rather than cash) will be subject to a **Haircut**, where only a fraction of its market value at the time of posting will count towards margin.
-    
-    The primary purpose of collateral is to be used to recoup losses in the event of a default:
-    
-    * Non-cash assets experience some level of **price volatility** and has the potential to drop before being sold, thus preventing its full value from being utilise
-    * Non-cash assets need to be sold (typically within a short period) thus less liquid assets may not be able to be utilized for its full value
-    
-    Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).
      
-The clearing house requires each member broker to post margin
 
 Posting margin is a requirement of the CCP to its Broker members. Each member then requires its traders to post margin
 
@@ -257,8 +270,6 @@ Unlike securities trading (where traders normally have to pay the full value of 
 The fundamental precaution is for the exchange to hold sufficient funds on behalf of a trader to offset any potential future losses that are incurred between the time of a potential default and the closing out of the position.
 
 Default >> will close position
-
-MTM resets losses, clean slates
 
 Need to be clear on the mechanics of default
 
