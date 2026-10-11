@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#forwards" class="md-skip">
+        <a href="#forwards-futures" class="md-skip">
           Skip to content
         </a>
       
@@ -1317,13 +1317,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#forwards" class="md-nav__link">
+    Forwards
+  </a>
+  
+    <nav class="md-nav" aria-label="Forwards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#payoff-profit" class="md-nav__link">
     Payoff &amp; Profit
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#forward-prices" class="md-nav__link">
     Forward Prices
   </a>
@@ -1363,18 +1371,50 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#forward-value" class="md-nav__link">
     Forward Value
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#expected-future-spot-prices" class="md-nav__link">
     Expected Future Spot Prices
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#futures" class="md-nav__link">
+    Futures
+  </a>
+  
+    <nav class="md-nav" aria-label="Futures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contract-specification" class="md-nav__link">
+    Contract Specification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daily-settlement-mark-to-market" class="md-nav__link">
+    Daily Settlement (Mark to Market)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1427,13 +1467,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#forwards" class="md-nav__link">
+    Forwards
+  </a>
+  
+    <nav class="md-nav" aria-label="Forwards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#payoff-profit" class="md-nav__link">
     Payoff &amp; Profit
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#forward-prices" class="md-nav__link">
     Forward Prices
   </a>
@@ -1473,18 +1521,50 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#forward-value" class="md-nav__link">
     Forward Value
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#expected-future-spot-prices" class="md-nav__link">
     Expected Future Spot Prices
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#futures" class="md-nav__link">
+    Futures
+  </a>
+  
+    <nav class="md-nav" aria-label="Futures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contract-specification" class="md-nav__link">
+    Contract Specification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daily-settlement-mark-to-market" class="md-nav__link">
+    Daily Settlement (Mark to Market)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1503,8 +1583,9 @@
                   
 
 
-<h1 id="forwards"><strong>Forwards</strong><a class="headerlink" href="#forwards" title="Permanent link">&para;</a></h1>
-<p>A <strong>Forward Contract</strong> is an agreement between two parties to buy or sell a specified asset on a specified <strong>future date</strong> (Delivery Price) at a specified <strong>future price</strong> (Forward Price). There is <strong>NO cost</strong> to enter a forward contract.</p>
+<h1 id="forwards-futures"><strong>Forwards &amp; Futures</strong><a class="headerlink" href="#forwards-futures" title="Permanent link">&para;</a></h1>
+<h2 id="forwards"><strong>Forwards</strong><a class="headerlink" href="#forwards" title="Permanent link">&para;</a></h2>
+<p>A <strong>Forward Contract</strong> is an agreement between two parties to buy or sell a specified asset on a specified <strong>future date</strong> (Delivery Date) at a specified <strong>future price</strong> (Forward Price). There is <strong>NO cost</strong> to enter a forward contract.</p>
 <ul>
 <li><strong>Long position</strong> - <strong>Buy the asset</strong> at the delivery price on the delivery date</li>
 <li><strong>Short position</strong> - <strong>Sell the asset</strong> (deliver the asset) on the delivery price on the delivery date</li>
@@ -1518,7 +1599,7 @@
 <p class="admonition-title">Note</p>
 <p>Conversely, a contract to purchase immediately is known as a <strong>Spot Contract</strong>. Similarly, the current price of an asset is known as the <strong>Spot Price</strong>.</p>
 </div>
-<h2 id="payoff-profit"><strong>Payoff &amp; Profit</strong><a class="headerlink" href="#payoff-profit" title="Permanent link">&para;</a></h2>
+<h3 id="payoff-profit"><strong>Payoff &amp; Profit</strong><a class="headerlink" href="#payoff-profit" title="Permanent link">&para;</a></h3>
 <p>The payoff of a forward can be understood as the following:</p>
 <p><center></p>
 <table>
@@ -1555,8 +1636,11 @@
 <p>The short position assumes that the seller does not own the asset and hence has to purchase one on the delivery date.</p>
 <p>Even if the seller did own the asset beforehand, the asset could have been sold for the spot price instead of being sold to the forward purchaser, thus the payoff still holds true.</p>
 </div>
-<p>There is <strong>NO COST</strong> to enter a forward contract. Thus, the payoff and profit of a forward are the <strong>same</strong>. </p>
-<h2 id="forward-prices"><strong>Forward Prices</strong><a class="headerlink" href="#forward-prices" title="Permanent link">&para;</a></h2>
+<p>There is <strong>NO COST</strong> to enter a forward contract. Thus, the payoff and profit of a forward are the <strong>same</strong>:</p>
+<div class="arithmatex">\[
+    \text{Payoff}_{\text{Forward}} = \text{Profit}_{\text{Forward}}
+\]</div>
+<h3 id="forward-prices"><strong>Forward Prices</strong><a class="headerlink" href="#forward-prices" title="Permanent link">&para;</a></h3>
 <p>For simplicity, consider an asset with NO income. Following the no-arbitrage principle, first construct a <strong>replicating portfolio</strong>:</p>
 <p><center></p>
 <table>
@@ -1738,7 +1822,7 @@
 <p>The profit for a Stock is derived assuming that the trader <strong>borrows to purchase the stock</strong> at time 0 at the risk free rate. Even if the investor does not borrow, the profit should nonetheless <strong>account for the time value of money</strong>.</p>
 <p>This is why when the forward is mispriced, an arbitrage strategy exists to substitute one for the other and take opposing positions; the bond component is simply to balance.</p>
 </div>
-<h3 id="discrete-income"><strong>Discrete Income</strong><a class="headerlink" href="#discrete-income" title="Permanent link">&para;</a></h3>
+<h4 id="discrete-income"><strong>Discrete Income</strong><a class="headerlink" href="#discrete-income" title="Permanent link">&para;</a></h4>
 <p>Consider an underlying asset that pays an <strong>income in discrete time</strong> - Dividend Stock or Coupon Bonds:</p>
 <ul>
 <li>Forward contractholders <strong>do not own the asset</strong> before the delivery date, thus do <strong>not receive any of income</strong> during this period</li>
@@ -1851,7 +1935,7 @@
 <p>The replicating portfolio only borrows or lends, not both. The <strong>dividend will always be the same</strong> as the original borrowing or lending.</p>
 </div>
 <p>The same (reverse) Cash &amp; Carry strategies can be used to exploit arbitrage opportunities. Any income must be accounted for with additional borrowing/lending, similar to the replicating portfolio.</p>
-<h3 id="continuous-income-known-yield"><strong>Continuous Income (Known Yield)</strong><a class="headerlink" href="#continuous-income-known-yield" title="Permanent link">&para;</a></h3>
+<h4 id="continuous-income-known-yield"><strong>Continuous Income (Known Yield)</strong><a class="headerlink" href="#continuous-income-known-yield" title="Permanent link">&para;</a></h4>
 <p>Consider an asset that instead pays <strong>income continuously</strong> - Stock indices. This income can be assumed to be <strong>reinvested</strong>, thus the rate of payment is more akin to a <strong>continuously compounded yield</strong> (similar to interest rates). Similar to before, the price of the underlying asset <strong>must be adjusted</strong> to account for the effect of this income. The key difference is that the continuous income is <strong>adjusted via "discounting"</strong> rather than a linear adjustment.</p>
 <p>Let the continuously compounded yield be <span class="arithmatex">\(q\)</span>. It is assumed to be <strong>constant</strong> throughout the period before delivery, or the <strong>average</strong> of the rates during the period:</p>
 <div class="arithmatex">\[
@@ -1931,7 +2015,7 @@ F_{0} &amp;= S_{0}  \cdot e^{(r-q)T}
 <p>\end{aligned}
 $$</p>
 <p>The same (reverse) Cash &amp; Carry strategies can be used to exploit arbitrage opportunities. The yield must be accounted for by adjusting the number units to purchase at time 0.</p>
-<h3 id="foreign-currencies"><strong>Foreign Currencies</strong><a class="headerlink" href="#foreign-currencies" title="Permanent link">&para;</a></h3>
+<h4 id="foreign-currencies"><strong>Foreign Currencies</strong><a class="headerlink" href="#foreign-currencies" title="Permanent link">&para;</a></h4>
 <p>If the underlying asset is a Foreign Currency, there are several key terminologies to take note of:</p>
 <ul>
 <li><strong>Domestic Currency</strong> (USD) - Currency used to pay</li>
@@ -2029,7 +2113,7 @@ $$</p>
 \]</div>
 </div>
 <p>The same (reverse) Cash &amp; Carry strategies can be used to exploit arbitrage opportunities. The yield must be accounted for by adjusting the number units to purchase at time 0; be clear on which rates to use.</p>
-<h3 id="commodities"><strong>Commodities</strong><a class="headerlink" href="#commodities" title="Permanent link">&para;</a></h3>
+<h4 id="commodities"><strong>Commodities</strong><a class="headerlink" href="#commodities" title="Permanent link">&para;</a></h4>
 <p>There are two types of assets for Forward Contracts:</p>
 <ul>
 <li><strong>Investment Assets</strong> - PRIMARILY meant for Investment purposes (EG. Stock, Currencies, Gold, Silver)</li>
@@ -2061,22 +2145,112 @@ $$</p>
     F_{0, \text{Actual}} \cdot e^{yT} &amp;= F_{0, \text{Theoretical}}
 \end{aligned}
 \]</div>
-<h2 id="forward-value"><strong>Forward Value</strong><a class="headerlink" href="#forward-value" title="Permanent link">&para;</a></h2>
-<p>The value</p>
-<p>The <strong>value</strong> of a forward contract at any given time is the <strong>present value of the difference in forward prices</strong>:</p>
+<h3 id="forward-value"><strong>Forward Value</strong><a class="headerlink" href="#forward-value" title="Permanent link">&para;</a></h3>
+<p>The value of a forward contract is the theoretical price of the contract at the current time. Consider the payoff of an <strong>existing forward contract at time <span class="arithmatex">\(t\)</span></strong> before expiry - the existing contract can be <strong>closed out by entering into an opposing contract</strong> at that time:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Portfolio</strong></th>
+<th align="center">Time 0</th>
+<th align="center">Time t</th>
+<th align="center">Time T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Long Forward (Time 0)</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(S_{T} - F_{0}\)</span></td>
+</tr>
+<tr>
+<td align="left"><strong>Short Forward (Time t)</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(F_{t} - S_{T}\)</span></td>
+</tr>
+<tr>
+<td align="left"><strong>Net Payoff</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(F_{t} - F_{0}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>The value of the forward is the PV of the payoff at the <strong>time of valuation</strong>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    V_{t} = (F_{t} - F_{0}) \cdot e^{-rt}
+    V_{t}
+    &amp;= (F_{t} - F_{0}) \cdot e^{-r(T-t)} \\
+    &amp;= \left[S_{t} \cdot e^{r(T-t)} - F_{0} \right] \cdot e^{-r(T-t)} \\
+    &amp;= S_{t} - F_{0} \cdot e^{-r(T-t)}
 \end{aligned}
 \]</div>
-<p>At time 0, the value of a forward contract must be 0</p>
-<h2 id="expected-future-spot-prices"><strong>Expected Future Spot Prices</strong><a class="headerlink" href="#expected-future-spot-prices" title="Permanent link">&para;</a></h2>
-<p>The forward price is the price that traders will pay on the delivery date. Thus, the current price of forwards should reflect the <strong>collective expectation</strong> of the spot price on the delivery date:</p>
+<p>There are two key times to observe:</p>
 <ul>
-<li>Normal Backwardation</li>
-<li>Cotango</li>
+<li><strong>Time 0</strong> - Equal to 0 (no cost to enter a forward contract)</li>
+<li><strong>Time T</strong> - Equal to payoff of the forward</li>
 </ul>
-<p>There are two proposed explanations:</p>
+<h3 id="expected-future-spot-prices"><strong>Expected Future Spot Prices</strong><a class="headerlink" href="#expected-future-spot-prices" title="Permanent link">&para;</a></h3>
+<p>The forward price is the price that traders will pay on the delivery date; a trader could also transact at the spot price on the delivery date itself. Thus, the current price of forwards should reflect the <strong>collective expectation</strong> of the spot price on the delivery date:</p>
+<ul>
+<li><strong>Cotango</strong> - Forward price higher than expected future spot price -  <span class="arithmatex">\(F_{0} \gt E[S_{T}]\)</span></li>
+<li><strong>Backwardation</strong> - Forward price lower than expected future spot price -  <span class="arithmatex">\(F_{0} \lt E[S_{T}]\)</span></li>
+</ul>
+<h2 id="futures"><strong>Futures</strong><a class="headerlink" href="#futures" title="Permanent link">&para;</a></h2>
+<p>A <strong>Futures Contract</strong> is an agreement between tw parties to buy or sell a specified asset during a specified future period of time (Delivery Period) at a specified future price (Futures Price). Futures contracts are functionally the same as forward contracts, with mainly <strong>operational differences</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Forwards</strong></th>
+<th align="left"><strong>Futures</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Traded on OTC</td>
+<td align="left">Traded on Exchange</td>
+</tr>
+<tr>
+<td align="left">Bespoke Contract</td>
+<td align="left">Standardized Contract</td>
+</tr>
+<tr>
+<td align="left">Specified Delivery Date</td>
+<td align="left">Specified Delivery Period</td>
+</tr>
+<tr>
+<td align="left">Settled at the end</td>
+<td align="left">Marked to Market</td>
+</tr>
+<tr>
+<td align="left">Held to maturity</td>
+<td align="left">Closed before expiry</td>
+</tr>
+<tr>
+<td align="left">Some Credit Risk</td>
+<td align="left">Minimal Credit Risk</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contract-specification"><strong>Contract Specification</strong><a class="headerlink" href="#contract-specification" title="Permanent link">&para;</a></h3>
+<h3 id="daily-settlement-mark-to-market"><strong>Daily Settlement (Mark to Market)</strong><a class="headerlink" href="#daily-settlement-mark-to-market" title="Permanent link">&para;</a></h3>
+<p>Settlement refers to the fulfilment of the contract on maturity. There are two kinds of settlement available for Forwards &amp; Futures:</p>
+<ul>
+<li><strong>Physical Settlement</strong> - Actual delivery of the underlying asset (EG. Gold, Cattle)</li>
+<li><strong>Cash Settlement</strong> - Cash payment of the payoff</li>
+</ul>
+<p>Forward contracts are typically held to maturity and settled. Futures contracts are <strong>rarely held to maturity</strong> and thus <strong>rarely reach the settlement stage</strong>. However, futures contracts do have a special <strong>Mark to Market</strong> feature where <strong>profits and losses</strong> on the contract are settled daily, <strong>resetting the contract value</strong> to 0 each day. This effectively breaks what would have been the <strong>net payoff at closing</strong> into smaller daily payments, which is why it is also known as <strong>Daily Settlement</strong>. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is known as Marking to Market as the process achieves the same effect as <strong>closing out and entering a new futures contract at the prevailing market price</strong>, hence marking the price to the current market price.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the futures contract is held to maturity, the contract holder must still </p>
+</div>
 
 
 
