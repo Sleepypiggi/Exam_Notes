@@ -179,22 +179,26 @@ For all the above orders, there is typically a time condition that must be speci
 
 ### **Leverage & Margin**
 
-Certain positions can (theoretically) be opened without any initial cash outlay (EG. Short Selling, Futures). These positions create significant **default risk**, as there is no guarantee that any losses arising from these positions can be recovered from the traders. Thus, most exchanges require traders (via brokers) to post a form of **collateral known as Margin** to mitigate the risk:
+Certain trades creates a **future obligation** for the trader (EG. Short selling, Futures). If/as the obligation grows, especially large ones, traders are incentivised to walk away from the obligation in bad faith, or might be unable to afford the loss, **leaving their counterparty at a loss**. This is known as **Default or Counterparty Risk**.
 
-* **Initial Margin** - Initial amount required to open the position (% of notional)
-* **Maintenance Margin** - Minimum amount required to keep the position open
-* **Variation Margin** - Amount that is added or subtracted from the margin account to reflect gains/losses
-* **Margin Call** - Request to post additional margin when the account falls below or is expected to fall below maintenance margin levels; failure to do so within the (short) timeframe will result in the position being closed
+To counter this, most exchanges require traders (via brokers) to post a form of **collateral known as Margin** to mitigate the risk:
+
+* **Initial Margin** - Initial amount required to **open the position**
+* **Maintenance Margin** - Minimum amount required to **keep the position open**
+* **Variation Margin** - Amount that is added or subtracted from the margin account to **reflect gains/losses**, typically daily
+* **Margin Call** - **Request to post additional margin** when the account falls below or is expected to fall below maintenance margin levels; **failure to do so** within the (short) timeframe will result in the **position being closed**
 * **Interest** is typically paid on the margin account balance. Thus, as long as the **interest rate is comparable** to what the investor would have earned, there is **little opportunity cost** for posting the margin
 * Any excess above the initial margin (NOT maintenance) can typically be withdrawn
 
 The initial margin is determined by the exchange using complex mathematical models, calibrated to sustain market shocks up to a certain confidence level. Regulations might dictate minimum margin requirements for certain trades (EG. Short sales require minimally 50% of initial margin).
 
-!!! Note
+This helps to reduce default risk in the following ways:
 
-    The exchange requires Brokers to post margin with them to clear the trade, who then requires traders to post margin with them to fund the exchange’s required margin.
-    
-    The margin initially posted to the exchange is also known as the **Clearing Margin**; the amount the broker requires the trader to post with them is known as the **Initial Margin**.
+* Margin account provides the broker a pool of funds to **absorb losses**; rather than having to chase for funds
+* Gains or losses are **settled frequently**; any resulting margin calls are **not for extremely large amounts** at a time, which makes **payment more likely**
+* If the margin call is not responded to fast enough, the Broker has the **right to close the position** and utilize the remaining **balance in the margin account**, limiting losses (if any at all). 
+
+In addition, all brokers are required to deposit a **Guaranty Fund** with the exchange, which will be used to cover any losses in the event of default, further reducing default risk.
 
 !!! Warning
 
@@ -208,6 +212,18 @@ The initial margin is determined by the exchange using complex mathematical mode
     Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).
 
 
+!!! Note
+
+    The exchange requires Brokers to post margin with them to clear the trade, who then requires traders to post margin with them to fund the exchange’s required margin.
+    
+    The margin initially posted to the exchange is also known as the **Clearing Margin**; the amount the broker requires the trader to post with them is known as the **Initial Margin**.
+
+Changes in margins are typically calculated only once at the end of each trading day, known as a **Daily Settlement**. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
+Margin call anytime?
+
+
+
+    
 
 
 
@@ -216,9 +232,7 @@ The initial margin is determined by the exchange using complex mathematical mode
 
 A **leveraged position** refers to holding a position with (significantly) **larger market value compared to the trader's initial cash outlay** to enter the position; trading on credit. It is often expressed as a **ratio** of the two amounts (EG. 10:1).
 
-One of the primary concerns with leverage is **default risk**. Given the relative size of the market position, even minor adverse price movements can result in losses larger than the initial cash position, resulting in a **potentially large debt** to that the trader might not be able to pay.
 
-Thus, in order to mitigate such risks, most exchanges require brokers (and hence traders) to post a form collateral known as **Margin** with them to **reduce default risk**:
 
 
 
@@ -229,20 +243,7 @@ Thus, in order to mitigate such risks, most exchanges require brokers (and hence
 
 Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must **agree on the specific terms** of the contract. Most parties agree to use **standard contract template** known as a **Master Agreement** to minimize legal negotiations. The template is provided for by the **International Swaps and Derivatives Association** (ISDA) to make the OTC market safer and more efficient.
 
-
-
-
-A major concern in these agreements is **Credit Risk** or **Counterparty risk** - the risk that the counterparty **does not fulfil its obligation** when it becomes due in the future.
- 
-This can be mitigated via the use of **Collateral**.
- 
-Mitigate via collater
- 
- 
-### **Exchange Traded CCP**
-
-
-### Systematic Risk
+### **Systematic Risk**
 
 To understand the benefits of CCPs, it is important to first understand the risks of trading bilaterally:
 
@@ -258,36 +259,19 @@ CCPs centralize the structure, converting it into a **single point of failure** 
 * These requirements increases the amount of collateral, which **reduces the likelihood of default**
 * Since each party is less likely to default, the CCP itself is less likely to fail and hence **lower systematic risk**
 
-### **Margin**
 
 
-
-
-
-Changes in margins are typically calculated only once at the end of each trading day, known as a **Daily Settlement**. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
-Margin call anytime?
-
-
-
-    
 
      
 
-Posting margin is a requirement of the CCP to its Broker members. Each member then requires its traders to post margin
+
 
 Intraday settlement
 Member and broker
 
-Client to broker (Initial margin)
-
 Unlike securities trading (where traders normally have to pay the full value of the asset, up-front) derivatives traders can get full exposure to an asset by “trading on margin” – that is, only paying a percentage of the value of the underlying asset, upfront. In this sense margin is often seen as leverage.
 
-The fundamental precaution is for the exchange to hold sufficient funds on behalf of a trader to offset any potential future losses that are incurred between the time of a potential default and the closing out of the position.
-
-Default >> will close position
-
-Need to be clear on the mechanics of default
-
+Z
 Fungibility for netting
 Default management can easily clear
 Single price for margin
@@ -311,9 +295,6 @@ This concept is applied via the use of **replicating portfolios** - portfolios w
 !!! Tip
     
     While it is important to know how to derive derivative prices, it is equally important to know how to **identify and take advantage** of arbitrage opportunities as well as they are an application of the concept.
-
-
-
 
 There are several key assumptions when using the no-arbitrage premise for derivative pricing:
 
