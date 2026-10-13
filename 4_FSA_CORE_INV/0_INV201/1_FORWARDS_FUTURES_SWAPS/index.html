@@ -2250,6 +2250,19 @@ $$</p>
 </tbody>
 </table>
 <h3 id="contract-specification"><strong>Contract Specification</strong><a class="headerlink" href="#contract-specification" title="Permanent link">&para;</a></h3>
+<p>Futures contracts are standardized, where the following components must be clearly specified:</p>
+<ul>
+<li>Quality of Asset</li>
+<li>Quantity of Asset</li>
+<li>Delivery Period</li>
+<li>
+<p>Delivery Options</p>
+</li>
+<li>
+<p>Underlying Asset Quality</p>
+</li>
+<li>Underlying Asset Quantity</li>
+</ul>
 <h3 id="daily-settlement-mark-to-market"><strong>Daily Settlement (Mark to Market)</strong><a class="headerlink" href="#daily-settlement-mark-to-market" title="Permanent link">&para;</a></h3>
 <p>Settlement refers to the fulfilment of the contract on maturity. There are two kinds of settlement available for Forwards &amp; Futures:</p>
 <ul>
@@ -2257,6 +2270,9 @@ $$</p>
 <li><strong>Cash Settlement</strong> - Cash payment of the payoff</li>
 </ul>
 <p>Forward contracts are typically held to maturity and settled. Futures contracts are <strong>rarely held to maturity</strong> and thus <strong>rarely reach the settlement stage</strong>. However, futures contracts do have a special <strong>Mark to Market</strong> feature where <strong>profits and losses</strong> on the contract are settled daily, <strong>resetting the contract value</strong> to 0 each day. This effectively breaks what would have been the <strong>net payoff at closing</strong> into smaller daily payments, which is why it is also known as <strong>Daily Settlement</strong>. </p>
+<div class="arithmatex">\[
+    \text{Gain or Loss} = \text{Number of Contracts} \cdot \text{Contract Size} \cdot (\text{Change in Settlement Price})
+\]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>It is known as Marking to Market as the process achieves the same effect as <strong>closing out and entering a new futures contract at the prevailing market price</strong>, hence marking the price to the current market price.</p>

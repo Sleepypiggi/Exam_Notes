@@ -1339,8 +1339,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#leverage-margin" class="md-nav__link">
-    Leverage &amp; Margin
+  <a href="#margin" class="md-nav__link">
+    Margin
   </a>
   
 </li>
@@ -1463,8 +1463,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#leverage-margin" class="md-nav__link">
-    Leverage &amp; Margin
+  <a href="#margin" class="md-nav__link">
+    Margin
   </a>
   
 </li>
@@ -1610,8 +1610,9 @@
 <p class="admonition-title">Note</p>
 <p>Brokers also typically charge a <strong>small commission</strong> for each trade processed.</p>
 </div>
-<p>sTANDARDIZED contracts, easy to break the trade</p>
-<p>Bilateral trading involves two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must <strong>agree on the specific terms</strong> of the contract. Most parties agree to use <strong>standard contract template</strong> known as a <strong>Master Agreement</strong> to minimize legal negotiations. The template is provided for by the <strong>International Swaps and Derivatives Association</strong> (ISDA) to make the OTC market safer and more efficient.</p>
+<p>For Bilateral trades, without a centralized entity to manage the trade, the two parties must <strong>agree on the specific terms</strong> of the contract. Most parties agree to use <strong>standard contract template</strong> known as a <strong>Master Agreement</strong> to minimize legal negotiations. The template is provided for by the <strong>International Swaps and Derivatives Association</strong> (ISDA) to make the OTC market safer and more efficient. Any collateral required is usually defined in the Credit Support Annex (CSA) of the master agreement.</p>
+<p>Bilateral also need to clear CCP
+ISDA, CSA</p>
 <h3 id="market-makers"><strong>Market Makers</strong><a class="headerlink" href="#market-makers" title="Permanent link">&para;</a></h3>
 <p>Since CCPs only <em>replace</em> counterparties, there needs to have been an <strong>original counterparty</strong> in the first place. This is typically achieved through <strong>Market Makers</strong>, who <strong>continuously buy and sell assets</strong> (aiming to <strong>sell for slightly more</strong> than what it was bought for), readily acting as the counterparty to most trades, <strong>providing liquidity</strong> to the market.</p>
 <div class="admonition warning">
@@ -1682,15 +1683,17 @@
 <li><strong>Time of Day</strong> - Valid for a <strong>specified period during the trading day</strong></li>
 <li><strong>Open Order</strong> - Valid forever <strong>till the order is cancelled</strong></li>
 </ul>
-<h3 id="leverage-margin"><strong>Leverage &amp; Margin</strong><a class="headerlink" href="#leverage-margin" title="Permanent link">&para;</a></h3>
+<h3 id="margin"><strong>Margin</strong><a class="headerlink" href="#margin" title="Permanent link">&para;</a></h3>
 <p>Certain trades creates a <strong>future obligation</strong> for the trader (EG. Short selling, Futures). If/as the obligation grows, especially large ones, traders are incentivised to walk away from the obligation in bad faith, or might be unable to afford the loss, <strong>leaving their counterparty at a loss</strong>. This is known as <strong>Default or Counterparty Risk</strong>.</p>
 <p>To counter this, most exchanges require traders (via brokers) to post a form of <strong>collateral known as Margin</strong> to mitigate the risk:</p>
 <ul>
 <li><strong>Initial Margin</strong> - Initial amount required to <strong>open the position</strong></li>
 <li><strong>Maintenance Margin</strong> - Minimum amount required to <strong>keep the position open</strong></li>
-<li><strong>Variation Margin</strong> - Amount that is added or subtracted from the margin account to <strong>reflect gains/losses</strong>, typically daily</li>
+<li><strong>Variation Margin</strong> - Amount that is added or subtracted from the margin account to <strong>reflect gains/losses</strong>, typically at the <strong>end of each day</strong></li>
+<li><strong>Settlement Price</strong> - The price used to determine margin requirements; market price right before close</li>
 <li><strong>Margin Call</strong> - <strong>Request to post additional margin</strong> when the account falls below or is expected to fall below maintenance margin levels; <strong>failure to do so</strong> within the (short) timeframe will result in the <strong>position being closed</strong></li>
-<li><strong>Interest</strong> is typically paid on the margin account balance. Thus, as long as the <strong>interest rate is comparable</strong> to what the investor would have earned, there is <strong>little opportunity cost</strong> for posting the margin</li>
+<li><strong>Intraday Margin</strong> - In times of significant price volatility, variation margin &amp; margin calls might be <strong>posted during the day itself</strong> to prevent losses from accumulating</li>
+<li><strong>Interest</strong> is typically paid on the margin account balance. Thus, as long as the <strong>interest rate is comparable</strong> to what the investor would have earned, there is <strong>little opportunity cost</strong> for posting margin</li>
 <li>Any excess above the initial margin (NOT maintenance) can typically be withdrawn</li>
 </ul>
 <p>The initial margin is determined by the exchange using complex mathematical models, calibrated to sustain market shocks up to a certain confidence level. Regulations might dictate minimum margin requirements for certain trades (EG. Short sales require minimally 50% of initial margin).</p>
@@ -1698,9 +1701,10 @@
 <ul>
 <li>Margin account provides the broker a pool of funds to <strong>absorb losses</strong>; rather than having to chase for funds</li>
 <li>Gains or losses are <strong>settled frequently</strong>; any resulting margin calls are <strong>not for extremely large amounts</strong> at a time, which makes <strong>payment more likely</strong></li>
-<li>If the margin call is not responded to fast enough, the Broker has the <strong>right to close the position</strong> and utilize the remaining <strong>balance in the margin account</strong>, limiting losses (if any at all). </li>
+<li>If the margin call is not responded to fast enough, the Broker has the <strong>right to close the position</strong> and utilize the remaining <strong>balance in the margin account</strong>, limiting losses (if any at all)</li>
+<li>Open positions can be quickly closed because contracts are standardized (<strong>fungible</strong>); it is easy to find a counterparty</li>
 </ul>
-<p>In addition, all brokers are required to deposit a <strong>Guaranty Fund</strong> with the exchange, which will be used to cover any losses in the event of default, further reducing default risk.</p>
+<p>In addition, all brokers are required to deposit a <strong>Guaranty Fund</strong> with the exchange, which will be used to cover any losses in the event of default, further reducing default risk. The brokers own contribution to the fund is used first, before utilizing the contribution by other members.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Margin posted using an asset (rather than cash) will be subject to a <strong>Haircut</strong>, where only a fraction of its market value at the time of posting will count towards margin.</p>
@@ -1711,36 +1715,33 @@
 </ul>
 <p>Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).</p>
 </div>
-<p>The exchange requires Brokers to post margin with them to clear the trade, who then requires traders to post margin with them to fund the exchange’s required margin.</p>
-<div class="highlight"><pre><span></span><code>The margin initially posted to the exchange is also known as the **Clearing Margin**; the amount the broker requires the trader to post with them is known as the **Initial Margin**.
-</code></pre></div>
-<p>Calculated on a net basis</p>
-<p>Changes in margins are typically calculated only once at the end of each trading day, known as a <strong>Daily Settlement</strong>. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
-Margin call anytime?</p>
-<p>A <strong>leveraged position</strong> refers to holding a position with (significantly) <strong>larger market value compared to the trader's initial cash outlay</strong> to enter the position; trading on credit. It is often expressed as a <strong>ratio</strong> of the two amounts (EG. 10:1).</p>
+<p>The exchange requires brokers to post margin with them, known as the <strong>Clearing Margin</strong>, while the margin that the brokers then require traders to post is known as the <strong>Initial Margin</strong>. Most regulations require that the initial margin be at least as high as the clearing margin; most brokers charge an <strong>additional amount</strong> to shield themselves from default risk from the trader as well, since the clearing margin is passed onto the exchange.</p>
+<p>In determining margin requirements, <strong>netting offsetting positions</strong> is typically allowed. If there are A long positions and B short positions, then the only <strong>margin for the ACTUAL net exposure</strong> based on (A-B) is held. This is also made possible due to contracts being <strong>standardized/fungible</strong> in an exchange.</p>
+<ul>
+<li><strong>Clearing Margin</strong> - Brokers are allowed to net margin requirements across clients</li>
+<li><strong>Initial Margin</strong> - Clients are allowed to net margin requirements within their portfolio; no cross-subsidization across clients</li>
+<li>Netting at both the Broker and Client level <strong>reduces the amount of collateral posted</strong> based on actual risk, allowing the capital to be utilized elsewhere, <strong>increasing liquidity</strong>. It also results in <strong>greater efficiencies</strong> (lower expenses) as fewer transactions are required</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is common to use "Exchange Margin" for the margin required by the exchange from brokers and "House Margin" for the margin required by the brokers from traders.</p>
+</div>
 <h3 id="systematic-risk"><strong>Systematic Risk</strong><a class="headerlink" href="#systematic-risk" title="Permanent link">&para;</a></h3>
-<p>To understand the benefits of CCPs, it is important to first understand the risks of trading bilaterally:</p>
+<p><strong>Systematic Risk</strong> is that the risk that the <strong>failure of one party</strong> results in the failure of their counterparty, which then triggers the failure of their counterparties and so on. The failure of a single entity resulted in a <strong>ripple effect</strong> that destabilizes the financial system. This occurs in OTC markets where bilateral clearing is the norm, as it forms an <strong>web of trades</strong>. Central clearing significantly reduces this risk:</p>
 <ul>
-<li>Each party is directly exposed to the <strong>credit risk of their counterparty</strong> (another instituition)</li>
-<li>If one party defaults, their counterparty is likely to <strong>experience a loss</strong>, which could <strong>cause them to default</strong> as well</li>
-<li>All <strong>their counterparties</strong> may experience losses and potentially default as well; so on and so forth</li>
-<li>This is known as <strong>Systematic Risk</strong>, where the default of one entity leads to a <strong>ripple effect</strong> that causes other entities to default as well, ultimately leading to a <strong>collapse of the financial system</strong></li>
+<li><strong>Novation</strong> ensures that each trader is only exposed to the counterparty risk of the CCP</li>
+<li>CCP has <strong>strict collateral requirements</strong> via Margins and Guraranty Funds</li>
+<li>Each trader is <strong>less likely to default</strong>. If they do, other traders are not directly impacted. The <strong>CCP is unlikely to fail</strong> as well, which prevents the impact from impacting other traders, greatly limiting the systemic risk</li>
 </ul>
-<p>CCPs centralize the structure, converting it into a <strong>single point of failure</strong> that is better positioned to be managed and hence less likely to result in a system wide collapse:</p>
+<p>In the years following the 2008 financial crisis (where systematic risk was a major concern - "too big to fail"), OTC markets have been becoming increasingly regulated to function similar to exchanges to various extents:</p>
 <ul>
-<li>Requires <strong>Margin</strong> for each trade; margin is a <strong>form of collateral</strong> to cover the potential losses or defaults</li>
-<li>Requires contribution to a <strong>Guaranty Fund</strong> that may be used when margin is insufficient in the event of a default</li>
-<li>These requirements increases the amount of collateral, which <strong>reduces the likelihood of default</strong></li>
-<li>Since each party is less likely to default, the CCP itself is less likely to fail and hence <strong>lower systematic risk</strong></li>
+<li>Centralized trading platforms</li>
+<li>Standardized contracts</li>
+<li>Central counterparties</li>
+<li>Margin</li>
+<li>Central repositories</li>
+<li>Compression of trades - Restructuring to reduce costs etc</li>
 </ul>
-<p>Intraday settlement
-Member and broker</p>
-<p>Fungibility for netting
-Default management can easily clear
-Single price for margin</p>
-<p>CCPs only accept standardized contracts to ease the management of their portfolio.</p>
-<p>Bilateral also need to clear CCP
-ISDA, CSA</p>
 <h2 id="derivative-pricing"><strong>Derivative Pricing</strong><a class="headerlink" href="#derivative-pricing" title="Permanent link">&para;</a></h2>
 <p><strong>Arbitrage</strong> is the idea of making <strong>risk free profit</strong>, which is a core concept for derivative pricing:</p>
 <ul>
