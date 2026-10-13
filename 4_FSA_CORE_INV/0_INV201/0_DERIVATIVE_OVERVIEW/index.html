@@ -1346,29 +1346,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#otc-bilateral-trading" class="md-nav__link">
-    OTC Bilateral Trading
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exchange-traded-ccp" class="md-nav__link">
-    Exchange Traded CCP
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#systematic-risk" class="md-nav__link">
     Systematic Risk
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#margin" class="md-nav__link">
-    Margin
   </a>
   
 </li>
@@ -1491,29 +1470,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#otc-bilateral-trading" class="md-nav__link">
-    OTC Bilateral Trading
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exchange-traded-ccp" class="md-nav__link">
-    Exchange Traded CCP
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#systematic-risk" class="md-nav__link">
     Systematic Risk
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#margin" class="md-nav__link">
-    Margin
   </a>
   
 </li>
@@ -1652,6 +1610,8 @@
 <p class="admonition-title">Note</p>
 <p>Brokers also typically charge a <strong>small commission</strong> for each trade processed.</p>
 </div>
+<p>sTANDARDIZED contracts, easy to break the trade</p>
+<p>Bilateral trading involves two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must <strong>agree on the specific terms</strong> of the contract. Most parties agree to use <strong>standard contract template</strong> known as a <strong>Master Agreement</strong> to minimize legal negotiations. The template is provided for by the <strong>International Swaps and Derivatives Association</strong> (ISDA) to make the OTC market safer and more efficient.</p>
 <h3 id="market-makers"><strong>Market Makers</strong><a class="headerlink" href="#market-makers" title="Permanent link">&para;</a></h3>
 <p>Since CCPs only <em>replace</em> counterparties, there needs to have been an <strong>original counterparty</strong> in the first place. This is typically achieved through <strong>Market Makers</strong>, who <strong>continuously buy and sell assets</strong> (aiming to <strong>sell for slightly more</strong> than what it was bought for), readily acting as the counterparty to most trades, <strong>providing liquidity</strong> to the market.</p>
 <div class="admonition warning">
@@ -1723,21 +1683,24 @@
 <li><strong>Open Order</strong> - Valid forever <strong>till the order is cancelled</strong></li>
 </ul>
 <h3 id="leverage-margin"><strong>Leverage &amp; Margin</strong><a class="headerlink" href="#leverage-margin" title="Permanent link">&para;</a></h3>
-<p>A <strong>leveraged position</strong> refers to holding a position with (significantly) <strong>larger market value compared to the trader's initial cash outlay</strong> to enter the position; trading on credit. It is often expressed as a <strong>ratio</strong> of the two amounts (EG. 10:1).</p>
-<p>One of the primary concerns with leverage is <strong>default risk</strong>. Given the relative size of the market position, even minor adverse price movements can result in losses larger than the initial cash position, resulting in a <strong>potentially large debt</strong> to that the trader might not be able to pay.</p>
-<p>Thus, in order to mitigate such risks, most exchanges require brokers (and hence traders) to post a form collateral known as <strong>Margin</strong> with them to <strong>reduce default risk</strong>:</p>
+<p>Certain trades creates a <strong>future obligation</strong> for the trader (EG. Short selling, Futures). If/as the obligation grows, especially large ones, traders are incentivised to walk away from the obligation in bad faith, or might be unable to afford the loss, <strong>leaving their counterparty at a loss</strong>. This is known as <strong>Default or Counterparty Risk</strong>.</p>
+<p>To counter this, most exchanges require traders (via brokers) to post a form of <strong>collateral known as Margin</strong> to mitigate the risk:</p>
 <ul>
-<li><strong>Initial Margin</strong> - Amount that must be posted when <strong>initially</strong> entering the position</li>
-<li><strong>Maintenance Margin</strong> - <strong>Minimum amount</strong> required in the margin account to keep the position open at a given time</li>
-<li><strong>Variation Margin</strong> - Amount that is <strong>added/subtracted</strong> from the margin account to <strong>reflect gains/losses</strong></li>
-<li><strong>Margin Call</strong> - <strong>Request to post more margin</strong> when the margin account falls below the maintenance margin level; failure will result in the position being closed</li>
+<li><strong>Initial Margin</strong> - Initial amount required to <strong>open the position</strong></li>
+<li><strong>Maintenance Margin</strong> - Minimum amount required to <strong>keep the position open</strong></li>
+<li><strong>Variation Margin</strong> - Amount that is added or subtracted from the margin account to <strong>reflect gains/losses</strong>, typically daily</li>
+<li><strong>Margin Call</strong> - <strong>Request to post additional margin</strong> when the account falls below or is expected to fall below maintenance margin levels; <strong>failure to do so</strong> within the (short) timeframe will result in the <strong>position being closed</strong></li>
+<li><strong>Interest</strong> is typically paid on the margin account balance. Thus, as long as the <strong>interest rate is comparable</strong> to what the investor would have earned, there is <strong>little opportunity cost</strong> for posting the margin</li>
+<li>Any excess above the initial margin (NOT maintenance) can typically be withdrawn</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Margin requirements are determined by the exchange using complex <strong>mathematical models</strong>, such that the amount is able to cover potential losses up to a certain confidence level.</p>
-<p>The exchange requires brokers to post margin with the exchange. Brokers then require their traders to post margin with them, to fund the margin needed for the exchange.</p>
-<p>Generally speaking, IM is set such that it can cover potential losses <strong>99% of the time</strong>; MM is typically set <strong>around 75%</strong> of the IM.</p>
-</div>
+<p>The initial margin is determined by the exchange using complex mathematical models, calibrated to sustain market shocks up to a certain confidence level. Regulations might dictate minimum margin requirements for certain trades (EG. Short sales require minimally 50% of initial margin).</p>
+<p>This helps to reduce default risk in the following ways:</p>
+<ul>
+<li>Margin account provides the broker a pool of funds to <strong>absorb losses</strong>; rather than having to chase for funds</li>
+<li>Gains or losses are <strong>settled frequently</strong>; any resulting margin calls are <strong>not for extremely large amounts</strong> at a time, which makes <strong>payment more likely</strong></li>
+<li>If the margin call is not responded to fast enough, the Broker has the <strong>right to close the position</strong> and utilize the remaining <strong>balance in the margin account</strong>, limiting losses (if any at all). </li>
+</ul>
+<p>In addition, all brokers are required to deposit a <strong>Guaranty Fund</strong> with the exchange, which will be used to cover any losses in the event of default, further reducing default risk.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Margin posted using an asset (rather than cash) will be subject to a <strong>Haircut</strong>, where only a fraction of its market value at the time of posting will count towards margin.</p>
@@ -1748,13 +1711,14 @@
 </ul>
 <p>Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).</p>
 </div>
-<h3 id="otc-bilateral-trading"><strong>OTC Bilateral Trading</strong><a class="headerlink" href="#otc-bilateral-trading" title="Permanent link">&para;</a></h3>
-<p>Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must <strong>agree on the specific terms</strong> of the contract. Most parties agree to use <strong>standard contract template</strong> known as a <strong>Master Agreement</strong> to minimize legal negotiations. The template is provided for by the <strong>International Swaps and Derivatives Association</strong> (ISDA) to make the OTC market safer and more efficient.</p>
-<p>A major concern in these agreements is <strong>Credit Risk</strong> or <strong>Counterparty risk</strong> - the risk that the counterparty <strong>does not fulfil its obligation</strong> when it becomes due in the future.</p>
-<p>This can be mitigated via the use of <strong>Collateral</strong>.</p>
-<p>Mitigate via collater</p>
-<h3 id="exchange-traded-ccp"><strong>Exchange Traded CCP</strong><a class="headerlink" href="#exchange-traded-ccp" title="Permanent link">&para;</a></h3>
-<h3 id="systematic-risk">Systematic Risk<a class="headerlink" href="#systematic-risk" title="Permanent link">&para;</a></h3>
+<p>The exchange requires Brokers to post margin with them to clear the trade, who then requires traders to post margin with them to fund the exchange’s required margin.</p>
+<div class="highlight"><pre><span></span><code>The margin initially posted to the exchange is also known as the **Clearing Margin**; the amount the broker requires the trader to post with them is known as the **Initial Margin**.
+</code></pre></div>
+<p>Calculated on a net basis</p>
+<p>Changes in margins are typically calculated only once at the end of each trading day, known as a <strong>Daily Settlement</strong>. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
+Margin call anytime?</p>
+<p>A <strong>leveraged position</strong> refers to holding a position with (significantly) <strong>larger market value compared to the trader's initial cash outlay</strong> to enter the position; trading on credit. It is often expressed as a <strong>ratio</strong> of the two amounts (EG. 10:1).</p>
+<h3 id="systematic-risk"><strong>Systematic Risk</strong><a class="headerlink" href="#systematic-risk" title="Permanent link">&para;</a></h3>
 <p>To understand the benefits of CCPs, it is important to first understand the risks of trading bilaterally:</p>
 <ul>
 <li>Each party is directly exposed to the <strong>credit risk of their counterparty</strong> (another instituition)</li>
@@ -1769,17 +1733,8 @@
 <li>These requirements increases the amount of collateral, which <strong>reduces the likelihood of default</strong></li>
 <li>Since each party is less likely to default, the CCP itself is less likely to fail and hence <strong>lower systematic risk</strong></li>
 </ul>
-<h3 id="margin"><strong>Margin</strong><a class="headerlink" href="#margin" title="Permanent link">&para;</a></h3>
-<p>Changes in margins are typically calculated only once at the end of each trading day, known as a <strong>Daily Settlement</strong>. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
-Margin call anytime?</p>
-<p>Posting margin is a requirement of the CCP to its Broker members. Each member then requires its traders to post margin</p>
 <p>Intraday settlement
 Member and broker</p>
-<p>Client to broker (Initial margin)</p>
-<p>Unlike securities trading (where traders normally have to pay the full value of the asset, up-front) derivatives traders can get full exposure to an asset by “trading on margin” – that is, only paying a percentage of the value of the underlying asset, upfront. In this sense margin is often seen as leverage.</p>
-<p>The fundamental precaution is for the exchange to hold sufficient funds on behalf of a trader to offset any potential future losses that are incurred between the time of a potential default and the closing out of the position.</p>
-<p>Default &gt;&gt; will close position</p>
-<p>Need to be clear on the mechanics of default</p>
 <p>Fungibility for netting
 Default management can easily clear
 Single price for margin</p>
