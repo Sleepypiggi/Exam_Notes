@@ -430,6 +430,16 @@ A **Futures Contract** is an agreement between tw parties to buy or sell a speci
 
 ### **Contract Specification**
 
+Futures contracts are standardized, where the following components must be clearly specified:
+
+* Quality of Asset
+* Quantity of Asset
+* Delivery Period
+* Delivery Options
+
+* Underlying Asset Quality
+* Underlying Asset Quantity
+
 ### **Daily Settlement (Mark to Market)**
 
 Settlement refers to the fulfilment of the contract on maturity. There are two kinds of settlement available for Forwards & Futures:
@@ -439,6 +449,10 @@ Settlement refers to the fulfilment of the contract on maturity. There are two k
 
 Forward contracts are typically held to maturity and settled. Futures contracts are **rarely held to maturity** and thus **rarely reach the settlement stage**. However, futures contracts do have a special **Mark to Market** feature where **profits and losses** on the contract are settled daily, **resetting the contract value** to 0 each day. This effectively breaks what would have been the **net payoff at closing** into smaller daily payments, which is why it is also known as **Daily Settlement**. 
 
+$$
+    \text{Gain or Loss} = \text{Number of Contracts} \cdot \text{Contract Size} \cdot (\text{Change in Settlement Price})
+$$
+
 !!! Tip
 
     It is known as Marking to Market as the process achieves the same effect as **closing out and entering a new futures contract at the prevailing market price**, hence marking the price to the current market price.
@@ -446,6 +460,7 @@ Forward contracts are typically held to maturity and settled. Futures contracts 
 !!! Warning
 
     If the futures contract is held to maturity, the contract holder must still 
+
 
 
 ## **Forwards vs Futures Prices**

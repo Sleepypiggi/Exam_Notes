@@ -99,9 +99,11 @@ Only CCP **broker members** can trade with the CCP. If the current broker is not
 
     Brokers also typically charge a **small commission** for each trade processed.
 
-sTANDARDIZED contracts, easy to break the trade
+For Bilateral trades, without a centralized entity to manage the trade, the two parties must **agree on the specific terms** of the contract. Most parties agree to use **standard contract template** known as a **Master Agreement** to minimize legal negotiations. The template is provided for by the **International Swaps and Derivatives Association** (ISDA) to make the OTC market safer and more efficient. Any collateral required is usually defined in the Credit Support Annex (CSA) of the master agreement.
 
-Bilateral trading involves two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must **agree on the specific terms** of the contract. Most parties agree to use **standard contract template** known as a **Master Agreement** to minimize legal negotiations. The template is provided for by the **International Swaps and Derivatives Association** (ISDA) to make the OTC market safer and more efficient.
+Bilateral also need to clear CCP
+ISDA, CSA
+
 
 ### **Market Makers**
 
@@ -181,7 +183,7 @@ For all the above orders, there is typically a time condition that must be speci
 * **Time of Day** - Valid for a **specified period during the trading day**
 * **Open Order** - Valid forever **till the order is cancelled**
 
-### **Leverage & Margin**
+### **Margin**
 
 Certain trades creates a **future obligation** for the trader (EG. Short selling, Futures). If/as the obligation grows, especially large ones, traders are incentivised to walk away from the obligation in bad faith, or might be unable to afford the loss, **leaving their counterparty at a loss**. This is known as **Default or Counterparty Risk**.
 
@@ -190,8 +192,9 @@ To counter this, most exchanges require traders (via brokers) to post a form of 
 * **Initial Margin** - Initial amount required to **open the position**
 * **Maintenance Margin** - Minimum amount required to **keep the position open**
 * **Variation Margin** - Amount that is added or subtracted from the margin account to **reflect gains/losses**, typically at the **end of each day**
-* **Intraday Margin** - In times of significant price volatility, variation margin & margin calls might be posted during the day itself to prevent losses from accumulating
+* **Settlement Price** - The price used to determine margin requirements; market price right before close
 * **Margin Call** - **Request to post additional margin** when the account falls below or is expected to fall below maintenance margin levels; **failure to do so** within the (short) timeframe will result in the **position being closed**
+* **Intraday Margin** - In times of significant price volatility, variation margin & margin calls might be **posted during the day itself** to prevent losses from accumulating
 * **Interest** is typically paid on the margin account balance. Thus, as long as the **interest rate is comparable** to what the investor would have earned, there is **little opportunity cost** for posting margin
 * Any excess above the initial margin (NOT maintenance) can typically be withdrawn
 
@@ -201,9 +204,10 @@ This helps to reduce default risk in the following ways:
 
 * Margin account provides the broker a pool of funds to **absorb losses**; rather than having to chase for funds
 * Gains or losses are **settled frequently**; any resulting margin calls are **not for extremely large amounts** at a time, which makes **payment more likely**
-* If the margin call is not responded to fast enough, the Broker has the **right to close the position** and utilize the remaining **balance in the margin account**, limiting losses (if any at all). 
+* If the margin call is not responded to fast enough, the Broker has the **right to close the position** and utilize the remaining **balance in the margin account**, limiting losses (if any at all)
+* Open positions can be quickly closed because contracts are standardized (**fungible**); it is easy to find a counterparty
 
-In addition, all brokers are required to deposit a **Guaranty Fund** with the exchange, which will be used to cover any losses in the event of default, further reducing default risk.
+In addition, all brokers are required to deposit a **Guaranty Fund** with the exchange, which will be used to cover any losses in the event of default, further reducing default risk. The brokers own contribution to the fund is used first, before utilizing the contribution by other members.
 
 !!! Warning
 
@@ -216,51 +220,34 @@ In addition, all brokers are required to deposit a **Guaranty Fund** with the ex
     
     Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).
 
-The exchange requires Brokers to post margin with them to clear the trade, who then requires traders to post margin with them to fund the exchange’s required margin.
-    
-    The margin initially posted to the exchange is also known as the **Clearing Margin**; the amount the broker requires the trader to post with them is known as the **Initial Margin**.
+The exchange requires brokers to post margin with them, known as the **Clearing Margin**, while the margin that the brokers then require traders to post is known as the **Initial Margin**. Most regulations require that the initial margin be at least as high as the clearing margin; most brokers charge an **additional amount** to shield themselves from default risk from the trader as well, since the clearing margin is passed onto the exchange.
 
-Calculated on a net basis
+In determining margin requirements, **netting offsetting positions** is typically allowed. If there are A long positions and B short positions, then the only **margin for the ACTUAL net exposure** based on (A-B) is held. This is also made possible due to contracts being **standardized/fungible** in an exchange.
 
-Changes in margins are typically calculated only once at the end of each trading day, known as a **Daily Settlement**. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
-Margin call anytime?
+* **Clearing Margin** - Brokers are allowed to net margin requirements across clients
+* **Initial Margin** - Clients are allowed to net margin requirements within their portfolio; no cross-subsidization across clients
+* Netting at both the Broker and Client level **reduces the amount of collateral posted** based on actual risk, allowing the capital to be utilized elsewhere, **increasing liquidity**. It also results in **greater efficiencies** (lower expenses) as fewer transactions are required
 
-A **leveraged position** refers to holding a position with (significantly) **larger market value compared to the trader's initial cash outlay** to enter the position; trading on credit. It is often expressed as a **ratio** of the two amounts (EG. 10:1).
+!!! Info
+
+    It is common to use "Exchange Margin" for the margin required by the exchange from brokers and "House Margin" for the margin required by the brokers from traders.
 
 ### **Systematic Risk**
 
-To understand the benefits of CCPs, it is important to first understand the risks of trading bilaterally:
+**Systematic Risk** is that the risk that the **failure of one party** results in the failure of their counterparty, which then triggers the failure of their counterparties and so on. The failure of a single entity resulted in a **ripple effect** that destabilizes the financial system. This occurs in OTC markets where bilateral clearing is the norm, as it forms an **web of trades**. Central clearing significantly reduces this risk:
 
-* Each party is directly exposed to the **credit risk of their counterparty** (another instituition)
-* If one party defaults, their counterparty is likely to **experience a loss**, which could **cause them to default** as well
-* All **their counterparties** may experience losses and potentially default as well; so on and so forth
-* This is known as **Systematic Risk**, where the default of one entity leads to a **ripple effect** that causes other entities to default as well, ultimately leading to a **collapse of the financial system**
+* **Novation** ensures that each trader is only exposed to the counterparty risk of the CCP
+* CCP has **strict collateral requirements** via Margins and Guraranty Funds
+* Each trader is **less likely to default**. If they do, other traders are not directly impacted. The **CCP is unlikely to fail** as well, which prevents the impact from impacting other traders, greatly limiting the systemic risk
 
-CCPs centralize the structure, converting it into a **single point of failure** that is better positioned to be managed and hence less likely to result in a system wide collapse:
+In the years following the 2008 financial crisis (where systematic risk was a major concern - "too big to fail"), OTC markets have been becoming increasingly regulated to function similar to exchanges to various extents:
 
-* Requires **Margin** for each trade; margin is a **form of collateral** to cover the potential losses or defaults
-* Requires contribution to a **Guaranty Fund** that may be used when margin is insufficient in the event of a default
-* These requirements increases the amount of collateral, which **reduces the likelihood of default**
-* Since each party is less likely to default, the CCP itself is less likely to fail and hence **lower systematic risk**
-
-
-
-
-     
-
-
-
-Intraday settlement
-Member and broker
-
-Fungibility for netting
-Default management can easily clear
-Single price for margin
-
-CCPs only accept standardized contracts to ease the management of their portfolio.
-
-Bilateral also need to clear CCP
-ISDA, CSA
+* Centralized trading platforms
+* Standardized contracts
+* Central counterparties
+* Margin
+* Central repositories
+* Compression of trades - Restructuring to reduce costs etc
 
 ## **Derivative Pricing**
 
