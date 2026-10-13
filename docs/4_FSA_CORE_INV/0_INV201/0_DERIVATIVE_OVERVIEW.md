@@ -99,6 +99,10 @@ Only CCP **broker members** can trade with the CCP. If the current broker is not
 
     Brokers also typically charge a **small commission** for each trade processed.
 
+sTANDARDIZED contracts, easy to break the trade
+
+Bilateral trading involves two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must **agree on the specific terms** of the contract. Most parties agree to use **standard contract template** known as a **Master Agreement** to minimize legal negotiations. The template is provided for by the **International Swaps and Derivatives Association** (ISDA) to make the OTC market safer and more efficient.
+
 ### **Market Makers**
 
 Since CCPs only *replace* counterparties, there needs to have been an **original counterparty** in the first place. This is typically achieved through **Market Makers**, who **continuously buy and sell assets** (aiming to **sell for slightly more** than what it was bought for), readily acting as the counterparty to most trades, **providing liquidity** to the market.
@@ -211,37 +215,16 @@ In addition, all brokers are required to deposit a **Guaranty Fund** with the ex
     
     Safe assets such as US T-bills typically have a small haircut (~10%) while riskier assets such as Shares have a larger haircut (~50%).
 
-
-!!! Note
-
-    The exchange requires Brokers to post margin with them to clear the trade, who then requires traders to post margin with them to fund the exchange’s required margin.
+The exchange requires Brokers to post margin with them to clear the trade, who then requires traders to post margin with them to fund the exchange’s required margin.
     
     The margin initially posted to the exchange is also known as the **Clearing Margin**; the amount the broker requires the trader to post with them is known as the **Initial Margin**.
+
+Calculated on a net basis
 
 Changes in margins are typically calculated only once at the end of each trading day, known as a **Daily Settlement**. However, if there are large price movements during the day, margin can be calculated during the day itself (intraday)
 Margin call anytime?
 
-
-
-    
-
-
-
-
-
-
 A **leveraged position** refers to holding a position with (significantly) **larger market value compared to the trader's initial cash outlay** to enter the position; trading on credit. It is often expressed as a **ratio** of the two amounts (EG. 10:1).
-
-
-
-
-
-
-
-
-### **OTC Bilateral Trading**
-
-Bilateral trading in OTC markets involve two parties directly dealing with each other. However, without a centralized entity to manage the trade, the two parties must **agree on the specific terms** of the contract. Most parties agree to use **standard contract template** known as a **Master Agreement** to minimize legal negotiations. The template is provided for by the **International Swaps and Derivatives Association** (ISDA) to make the OTC market safer and more efficient.
 
 ### **Systematic Risk**
 
@@ -269,9 +252,6 @@ CCPs centralize the structure, converting it into a **single point of failure** 
 Intraday settlement
 Member and broker
 
-Unlike securities trading (where traders normally have to pay the full value of the asset, up-front) derivatives traders can get full exposure to an asset by “trading on margin” – that is, only paying a percentage of the value of the underlying asset, upfront. In this sense margin is often seen as leverage.
-
-Z
 Fungibility for netting
 Default management can easily clear
 Single price for margin
