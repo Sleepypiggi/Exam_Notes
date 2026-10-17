@@ -408,6 +408,12 @@ There are two key times to observe:
 * **Time 0** - Equal to 0 (no cost to enter a forward contract)
 * **Time T** - Equal to payoff of the forward
 
+!!! Note
+
+    The forward price for the same forward contract purchased on the delivery date itself MUST be equal to the spot price at the time, if not an arbitrage opportunity exists.
+
+    <Convergence Image> 
+
 ### **Expected Future Spot Prices**
 
 The forward price is the price that traders will pay on the delivery date; a trader could also transact at the spot price on the delivery date itself. Thus, the current price of forwards should reflect the **collective expectation** of the spot price on the delivery date:
@@ -432,13 +438,20 @@ A **Futures Contract** is an agreement between tw parties to buy or sell a speci
 
 Futures contracts are standardized, where the following components must be clearly specified:
 
-* Quality of Asset
-* Quantity of Asset
-* Delivery Period
-* Delivery Options
+* **Asset Quality**
+* **Contract Size**
+* **Delivery Period** - Specified month in which delivery must be made; typically a specified period within the month
+* **Delivery Options** - 
 
-* Underlying Asset Quality
-* Underlying Asset Quantity
+The party with the short position has the
+
+!!! Warning
+
+    The asset is NOT delivered to the long trader that initially entered into the trade due to the CCP system; they have likely closed out their position already as most dont hold to maturity. Instead, the exchange selects an eligible long trader to deliver the asset to, typically the long trader with the longest position. 
+
+
+Warehouse receipt
+
 
 ### **Daily Settlement (Mark to Market)**
 
@@ -459,9 +472,7 @@ $$
 
 !!! Warning
 
-    If the futures contract is held to maturity, the contract holder must still 
-
-
+    If the futures contract is held to maturity, the contract holder must still provide the payoff at expiration.
 
 ## **Forwards vs Futures Prices**
 

@@ -192,7 +192,7 @@ To counter this, most exchanges require traders (via brokers) to post a form of 
 * **Initial Margin** - Initial amount required to **open the position**
 * **Maintenance Margin** - Minimum amount required to **keep the position open**
 * **Variation Margin** - Amount that is added or subtracted from the margin account to **reflect gains/losses**, typically at the **end of each day**
-* **Settlement Price** - The price used to determine margin requirements; market price right before close
+* **Settlement Price** - The price used to determine margin requirements; market price typically **right before close**
 * **Margin Call** - **Request to post additional margin** when the account falls below or is expected to fall below maintenance margin levels; **failure to do so** within the (short) timeframe will result in the **position being closed**
 * **Intraday Margin** - In times of significant price volatility, variation margin & margin calls might be **posted during the day itself** to prevent losses from accumulating
 * **Interest** is typically paid on the margin account balance. Thus, as long as the **interest rate is comparable** to what the investor would have earned, there is **little opportunity cost** for posting margin
