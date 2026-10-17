@@ -2207,6 +2207,11 @@ $$</p>
 <li><strong>Time 0</strong> - Equal to 0 (no cost to enter a forward contract)</li>
 <li><strong>Time T</strong> - Equal to payoff of the forward</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The forward price for the same forward contract purchased on the delivery date itself MUST be equal to the spot price at the time, if not an arbitrage opportunity exists.</p>
+<p><Convergence Image> </p>
+</div>
 <h3 id="expected-future-spot-prices"><strong>Expected Future Spot Prices</strong><a class="headerlink" href="#expected-future-spot-prices" title="Permanent link">&para;</a></h3>
 <p>The forward price is the price that traders will pay on the delivery date; a trader could also transact at the spot price on the delivery date itself. Thus, the current price of forwards should reflect the <strong>collective expectation</strong> of the spot price on the delivery date:</p>
 <ul>
@@ -2252,17 +2257,17 @@ $$</p>
 <h3 id="contract-specification"><strong>Contract Specification</strong><a class="headerlink" href="#contract-specification" title="Permanent link">&para;</a></h3>
 <p>Futures contracts are standardized, where the following components must be clearly specified:</p>
 <ul>
-<li>Quality of Asset</li>
-<li>Quantity of Asset</li>
-<li>Delivery Period</li>
-<li>
-<p>Delivery Options</p>
-</li>
-<li>
-<p>Underlying Asset Quality</p>
-</li>
-<li>Underlying Asset Quantity</li>
+<li><strong>Asset Quality</strong></li>
+<li><strong>Contract Size</strong></li>
+<li><strong>Delivery Period</strong> - Specified month in which delivery must be made; typically a specified period within the month</li>
+<li><strong>Delivery Options</strong> - </li>
 </ul>
+<p>The party with the short position has the</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The asset is NOT delivered to the long trader that initially entered into the trade due to the CCP system; they have likely closed out their position already as most dont hold to maturity. Instead, the exchange selects an eligible long trader to deliver the asset to, typically the long trader with the longest position. </p>
+</div>
+<p>Warehouse receipt</p>
 <h3 id="daily-settlement-mark-to-market"><strong>Daily Settlement (Mark to Market)</strong><a class="headerlink" href="#daily-settlement-mark-to-market" title="Permanent link">&para;</a></h3>
 <p>Settlement refers to the fulfilment of the contract on maturity. There are two kinds of settlement available for Forwards &amp; Futures:</p>
 <ul>
@@ -2279,7 +2284,7 @@ $$</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If the futures contract is held to maturity, the contract holder must still </p>
+<p>If the futures contract is held to maturity, the contract holder must still provide the payoff at expiration.</p>
 </div>
 <h2 id="forwards-vs-futures-prices"><strong>Forwards vs Futures Prices</strong><a class="headerlink" href="#forwards-vs-futures-prices" title="Permanent link">&para;</a></h2>
 <p>Given the same underlying asset and delivery, the relationship between forward and futures prices depends on the <strong>nature of the interest rates</strong>:</p>
