@@ -378,6 +378,33 @@ $$
 \end{aligned}
 $$
 
+### **Cost of Carry**
+
+Forwards allow the contract holder to gain asset exposure without any of the net cost of actually carrying the asset, as seen in the sections above:
+
+* **Opportunity Cost** (-) - Purchasing the asset incurs an opportunity cost on the initial amount
+* **Asset Income** (+) - Holding the asset allows them to receive any applicable income
+* **Storage Costs** (-) - Holding the asset may incur storage costs (commodities)
+
+The forward price must thus account for the **net cost of carrying** the asset as well, if not one option would be more attractive than the other:
+
+$$
+\begin{aligned}
+    F_{0} &= S_{0} \cdot e^{r-q+u-y} \\
+    F_{0} &= S_{0} \cdot e^{c-y} \\
+    \therefore \text{Cost of Carry (c)} &= r-q+u
+\end{aligned} 
+$$
+
+!!! Tip
+
+    The cost of carry itself typically does not consider the convenience yield, but the analysis that involves the cost of carry typically refers to the **net of the cost of carry and any convenience yield**. 
+
+!!! Warning
+
+    There is no clean expression for the cost of carry for an asset that pays discrete income as the forward price cannot be expressed as a single factor of the initial spot price.  
+
+
 ### **Forward Value**
 
 The value of a forward contract is the theoretical price of the contract at the current time. Consider the payoff of an **existing forward contract at time $t$** before expiry - the existing contract can be **closed out by entering into an opposing contract** at that time:
@@ -436,18 +463,47 @@ A **Futures Contract** is an agreement between tw parties to buy or sell a speci
 
 ### **Contract Specification**
 
-Futures contracts are standardized, where the following components must be clearly specified:
+Futures contracts are standardized contracts with several common parameters:
 
-* **Asset Quality**
-* **Contract Size**
-* **Delivery Period** - Specified month in which delivery must be made; typically a specified period within the month
-* **Delivery Options** - 
+* **Asset Quality** - Acceptable **grades** of the asset (typically for commodities)
+* **Contract Size** - **Number** of units of the asset
+* **Delivery Period & Location** - When & where the asset should be delivered (typically a range)
 
-The party with the short position has the
+!!! Note
+
+    If a range of grades are allowed, lower grade assets will typically yield a lower price.
+
+!!! Note
+
+    For financial futures, it may be difficult or impossible to deliver, thus they are typically settled in cash rather than actual delivery.
+    
+    For physical assets, the actual assets are not typically physically handed over (EG. Metal ore is not physically handed over), but rather a **Warehouse Receipt**, which proves ownership of the assets in a storage facility, along with responsibility of any storage costs.
+
+There is also a specific process with regards to **delivery** of the asset (if it happens at all):
+
+* Short trader issues a **Notice of Intention to Deliver** to the exchange, specifying details of the delivery (what, when, where
+* Exchange **assigns the delivery notice** to an applicable long trader
+
+!!! Note
+
+    The first day that the short trader can deliver notice is known as the **First Notice Day**, the last possible day is the **Last Notice Day**. Traders who want to avoid delivery should close their positions before the first notice day.
+    
+    A few days before the last notice day, all trading on the current contract is stopped, known as the **Last Trading Day**, used to determine the **final delivery price** (not known in advance due to MTM).
+   
+   One of the key implications is that short traders can decide on their delivery after the price has been locked, which allows them to handle delivery in the most efficient manner.
+
+The short trader has the option to deliver anytime within the delivery period. The optimal time to deliver is dependent on the cost of carry:
+    
+* **Positive Net Cost** ($c-y /gt 0$) - Real cost to hold the asset, should deliver **as soon as possible** to **minimize costs**
+* **Negative Net Cost** ($c-y /lt 0$) - Benefit to holding the asset, should deliver **as late as possible** to **maximize benefits**
+
+!!! Note
+
+    For the purposes of this exam, it should be assumed that delivery occurs at the **end of the delivery period** unless stated otherwise. 
 
 !!! Warning
 
-    The asset is NOT delivered to the long trader that initially entered into the trade due to the CCP system; they have likely closed out their position already as most dont hold to maturity. Instead, the exchange selects an eligible long trader to deliver the asset to, typically the long trader with the longest position. 
+    The asset is **NOT delivered to the original long trader** that entered into the trade due to the CCP system; they have likely closed out their position already as most dont hold to maturity. Instead, the exchange selects an eligible long trader to deliver the asset to, typically the long trader with the longest position. 
 
 
 Warehouse receipt
