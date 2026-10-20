@@ -1383,6 +1383,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cost-of-carry" class="md-nav__link">
+    Cost of Carry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#forward-value" class="md-nav__link">
     Forward Value
   </a>
@@ -2012,6 +2019,29 @@ $$</p>
     F_{0, \text{Actual}} \cdot e^{yT} &amp;= F_{0, \text{Theoretical}}
 \end{aligned}
 \]</div>
+<h3 id="cost-of-carry"><strong>Cost of Carry</strong><a class="headerlink" href="#cost-of-carry" title="Permanent link">&para;</a></h3>
+<p>Forwards allow the contract holder to gain asset exposure without any of the net cost of actually carrying the asset, as seen in the sections above:</p>
+<ul>
+<li><strong>Opportunity Cost</strong> (-) - Purchasing the asset incurs an opportunity cost on the initial amount</li>
+<li><strong>Asset Income</strong> (+) - Holding the asset allows them to receive any applicable income</li>
+<li><strong>Storage Costs</strong> (-) - Holding the asset may incur storage costs (commodities)</li>
+</ul>
+<p>The forward price must thus account for the <strong>net cost of carrying</strong> the asset as well, if not one option would be more attractive than the other:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    F_{0} &amp;= S_{0} \cdot e^{r-q+u-y} \\
+    F_{0} &amp;= S_{0} \cdot e^{c-y} \\
+    \therefore \text{Cost of Carry (c)} &amp;= r-q+u
+\end{aligned} 
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The cost of carry itself typically does not consider the convenience yield, but the analysis that involves the cost of carry typically refers to the <strong>net of the cost of carry and any convenience yield</strong>. </p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is no clean expression for the cost of carry for an asset that pays discrete income as the forward price cannot be expressed as a single factor of the initial spot price.  </p>
+</div>
 <h3 id="forward-value"><strong>Forward Value</strong><a class="headerlink" href="#forward-value" title="Permanent link">&para;</a></h3>
 <p>The value of a forward contract is the theoretical price of the contract at the current time. Consider the payoff of an <strong>existing forward contract at time <span class="arithmatex">\(t\)</span></strong> before expiry - the existing contract can be <strong>closed out by entering into an opposing contract</strong> at that time:</p>
 <p><center></p>
@@ -2108,17 +2138,44 @@ $$</p>
 </tbody>
 </table>
 <h3 id="contract-specification"><strong>Contract Specification</strong><a class="headerlink" href="#contract-specification" title="Permanent link">&para;</a></h3>
-<p>Futures contracts are standardized, where the following components must be clearly specified:</p>
+<p>Futures contracts are standardized contracts with several common parameters:</p>
 <ul>
-<li><strong>Asset Quality</strong></li>
-<li><strong>Contract Size</strong></li>
-<li><strong>Delivery Period</strong> - Specified month in which delivery must be made; typically a specified period within the month</li>
-<li><strong>Delivery Options</strong> - </li>
+<li><strong>Asset Quality</strong> - Acceptable <strong>grades</strong> of the asset (typically for commodities)</li>
+<li><strong>Contract Size</strong> - <strong>Number</strong> of units of the asset</li>
+<li><strong>Delivery Period &amp; Location</strong> - When &amp; where the asset should be delivered (typically a range)</li>
 </ul>
-<p>The party with the short position has the</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a range of grades are allowed, lower grade assets will typically yield a lower price.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For financial futures, it may be difficult or impossible to deliver, thus they are typically settled in cash rather than actual delivery.</p>
+<p>For physical assets, the actual assets are not typically physically handed over (EG. Metal ore is not physically handed over), but rather a <strong>Warehouse Receipt</strong>, which proves ownership of the assets in a storage facility, along with responsibility of any storage costs.</p>
+</div>
+<p>There is also a specific process with regards to <strong>delivery</strong> of the asset (if it happens at all):</p>
+<ul>
+<li>Short trader issues a <strong>Notice of Intention to Deliver</strong> to the exchange, specifying details of the delivery (what, when, where</li>
+<li>Exchange <strong>assigns the delivery notice</strong> to an applicable long trader</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first day that the short trader can deliver notice is known as the <strong>First Notice Day</strong>, the last possible day is the <strong>Last Notice Day</strong>. Traders who want to avoid delivery should close their positions before the first notice day.</p>
+<p>A few days before the last notice day, all trading on the current contract is stopped, known as the <strong>Last Trading Day</strong>, used to determine the <strong>final delivery price</strong> (not known in advance due to MTM).</p>
+</div>
+<p>One of the key implications is that short traders can decide on their delivery after the price has been locked, which allows them to handle delivery in the most efficient manner.</p>
+<p>The short trader has the option to deliver anytime within the delivery period. The optimal time to deliver is dependent on the cost of carry:</p>
+<ul>
+<li><strong>Positive Net Cost</strong> (<span class="arithmatex">\(c-y /gt 0\)</span>) - Real cost to hold the asset, should deliver <strong>as soon as possible</strong> to <strong>minimize costs</strong></li>
+<li><strong>Negative Net Cost</strong> (<span class="arithmatex">\(c-y /lt 0\)</span>) - Benefit to holding the asset, should deliver <strong>as late as possible</strong> to <strong>maximize benefits</strong></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the purposes of this exam, it should be assumed that delivery occurs at the <strong>end of the delivery period</strong> unless stated otherwise. </p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The asset is NOT delivered to the long trader that initially entered into the trade due to the CCP system; they have likely closed out their position already as most dont hold to maturity. Instead, the exchange selects an eligible long trader to deliver the asset to, typically the long trader with the longest position. </p>
+<p>The asset is <strong>NOT delivered to the original long trader</strong> that entered into the trade due to the CCP system; they have likely closed out their position already as most dont hold to maturity. Instead, the exchange selects an eligible long trader to deliver the asset to, typically the long trader with the longest position. </p>
 </div>
 <p>Warehouse receipt</p>
 <h3 id="daily-settlement-mark-to-market"><strong>Daily Settlement (Mark to Market)</strong><a class="headerlink" href="#daily-settlement-mark-to-market" title="Permanent link">&para;</a></h3>
