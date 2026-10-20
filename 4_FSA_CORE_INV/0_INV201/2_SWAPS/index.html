@@ -1279,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1_FORWARDS_FUTURES_SWAPS/" class="md-nav__link">
+      <a href="../1_FORWARDS_FUTURES_SWAPS.md" class="md-nav__link">
         FFS
       </a>
     </li>
@@ -1320,6 +1320,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#payoff-profit" class="md-nav__link">
+    Payoff &amp; Profit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparative-advantage" class="md-nav__link">
+    Comparative Advantage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floating-rate-references" class="md-nav__link">
+    Floating Rate References
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1334,6 +1363,116 @@
 
 
 <h1 id="swaps"><strong>Swaps</strong><a class="headerlink" href="#swaps" title="Permanent link">&para;</a></h1>
+<p>A <strong>Swap Contract</strong> is an agreement between two parties to <strong>exchange cashflows</strong> (<em>swap</em>) at specified future time point(s), traded only in <strong>OTC markets</strong>. This exam will mainly focus on <strong>Interest Rate Swaps</strong>, where two parties exchange interest payments (fixed &amp; floating) on the same notional amount:</p>
+<ul>
+<li><strong>Fixed Interest Rate</strong> - </li>
+<li><strong>Floating Interest Rate</strong> - </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Fixed Rate Payer</strong></th>
+<th align="left"><strong>Floating Rate Payer</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Loan at Fixed Rate</td>
+<td align="left">Loan with Floating Rate</td>
+</tr>
+<tr>
+<td align="left">Pays counterparty Floating Rate</td>
+<td align="left">Pays counterparty Fixed Rate</td>
+</tr>
+<tr>
+<td align="left">Receives Fixed Rate</td>
+<td align="left">Receives Floating Rate</td>
+</tr>
+<tr>
+<td align="left">Net pays Floating Rate (swapped)</td>
+<td align="left">Net pays Fixed Rate (swapped)</td>
+</tr>
+<tr>
+<td align="left">Believes that rates will go down</td>
+<td align="left">Believes that rates will go up</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Interest rates are typically measured in a special unit known as <strong>Basis Points</strong> (bps):</p>
+<div class="arithmatex">\[
+    \text{1 bps} = 0.01% \\
+    \therefore \text{100 bps} = 1.00%
+\]</div>
+<p>Basis point is basically a smaller unit of measure than percentage point (EG. mm vs cm). Apart from being a shorthand, the key reason is for <strong>clarity</strong>:</p>
+<ul>
+<li>Expressing changes in percentages could either refer to additive or multiplicative increases; EG. 10% increased by 10% could either refer to 11% (multiplicative) or 20% (additive)</li>
+<li>10% increased by 1000 bps strictly refers to <strong>additive increases</strong> (20%)</li>
+</ul>
+</div>
+<p>There are other kinds of Swaps that were briefly mentioned:</p>
+<ul>
+<li>Currency Swaps</li>
+<li>Equity Swaps</li>
+<li>Commodity Swaps</li>
+<li>Credit Default Swaps</li>
+<li>Volatility Swaps</li>
+</ul>
+<h2 id="payoff-profit"><strong>Payoff &amp; Profit</strong><a class="headerlink" href="#payoff-profit" title="Permanent link">&para;</a></h2>
+<p>The payoff for a swap contract should ONLY consider cashflows that <strong>took place because of the swap</strong>; the exchange of cashflows. Similarly, since there is <strong>no cost</strong> to enter the contract, the payoff and profit of a swap is the <strong>same</strong>.</p>
+<div class="arithmatex">\[
+    \text{Profit}_{\text{Fixed}} = \text{Payoff}_{\text{Fixed}} = \text{Notional Amount} \cdot \left(i_{\text{Floating}} - i_{\text{Fixed}} \right)
+\]</div>
+<!-- Self Made -->
+<p><img alt="SWAP_CF_PAYOFF" class="center" src="../Assets/2_SWAPS.md/SWAP_CF_PAYOFF.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Any computation should be based on the <strong>EFFECTIVE interest rate</strong> (<span class="arithmatex">\(i\)</span>) per payment period. However,  unless otherwise stated, the rates provided in the question are usually the <strong>ANNUAL NOMINAL interest rates</strong>. Thus, there is a need to convert them:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    i &amp;= r \cdot \frac{1}{n} \\
+    \text{Effective} &amp;= \text{Nominal} \cdot \text{Compounding Frequency}
+\end{aligned}
+\]</div>
+</div>
+<h2 id="comparative-advantage"><strong>Comparative Advantage</strong><a class="headerlink" href="#comparative-advantage" title="Permanent link">&para;</a></h2>
+<p>Suppose that there are two parties who want to buy borrow an identical amount of money. Individually, each party is able to borrow the funds directly from the bank. However, it can be shown that via a <strong>Swap</strong>, each party is able to achieve a <strong>better rate than if they had went individually</strong>.</p>
+<h2 id="floating-rate-references"><strong>Floating Rate References</strong><a class="headerlink" href="#floating-rate-references" title="Permanent link">&para;</a></h2>
+<p>LIBOR
+SOFR</p>
+<p>There are two commonly used reference rates in the US. LIBOR was phased out in</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>LIBOR</strong></th>
+<th align="left"><strong>SOFR</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">London Interbank Offered Rate</td>
+<td align="left">Secured Overnight Financing Rate</td>
+</tr>
+<tr>
+<td align="left">Rate for short term <strong>unsecured</strong> funds</td>
+<td align="left">Rate for short term funds <strong>backed by T-bills</strong></td>
+</tr>
+<tr>
+<td align="left">Some default risk</td>
+<td align="left">Risk free</td>
+</tr>
+<tr>
+<td align="left"><strong>Estimated</strong> via surveys; prone to manipulation</td>
+<td align="left">Based on <strong>actual</strong> transactions</td>
+</tr>
+<tr>
+<td align="left">Known at <strong>beginning</strong> of period</td>
+<td align="left">Known only at <strong>end of period</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Deriving interest rates</p>
 
 
 
