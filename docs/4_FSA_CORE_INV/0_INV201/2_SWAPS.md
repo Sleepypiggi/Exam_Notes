@@ -13,6 +13,7 @@ A **Swap Contract** is an agreement between two parties to **exchange cashflows*
 | Net pays Floating Rate (swapped) | Net pays Fixed Rate (swapped)  |
 | Believes that rates will go down | Believes that rates will go up |
 
+The outcome is that fixed rates become floating rates, vice versa. This can be used to transform both assets and liabilities that depend on fixed or floating rates to the other type.
 
 !!! Tip
 
@@ -60,7 +61,27 @@ $$
 
 ## **Comparative Advantage**
 
-Suppose that there are two parties who want to buy borrow an identical amount of money. Individually, each party is able to borrow the funds directly from the bank. However, it can be shown that via a **Swap**, each party is able to achieve a **better rate than if they had went individually**.
+**Comparative Advantage** is a concept in international economics which states that EVEN IF one party can produce all kinds of goods more efficiently than others, they should still produce the good that they **relatively more efficient** at compared to others and trade for the other types of goods. This will result in a **better outcome for all parties than if they had individually produced** all types of goods. In the context of interest rate swaps:
+
+* Parties should borrow at the fixed/floating that they have a **comparative advantage in** (Assumed not to be their desired type of loan)
+* Enter into an **interest rate swap to transform it** into a floating/fixed rate
+
+<center>
+
+| **Party**   | **Fixed Rate** | **Floating Rate** |
+| :---------- | :------------: | :---------------: |
+| **Party A** |       W        |   Reference + Y   |
+| **Party B** |       X        |   Reference + Z   |
+
+<center>
+
+1. Determine the **difference in borrowing costs** for both fixed and floating rates
+2. Use the rate that has the **larger difference** to determine the comparative advantages
+3. The party that has a **lower rate in (2)** has a comparative advantage in that type of rate
+
+!!! Warning
+
+    Since interest rates represent COSTS, the **lower the rate, the better**.
 
 ## **Floating Rate References**
 
